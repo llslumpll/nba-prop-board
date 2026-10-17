@@ -1,0 +1,93 @@
+naname: Daily build (box scores, rosters, everything)
+
+# sportsdataverse's NBA data job (hoopR-nba-data, daily_nba.yml) starts at
+# 07:00 UTC in season. 10:40 UTC leaves a wide margin for it to finish, and
+# lands before the West Coast morning. Each build records the box-score
+# file's Last-Modified time, shown on Home, so a late upstream run is visible.
+on:
+  schedule:
+    - cron: "40 10 * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: nba-site-repo-write   # shared by every workflow that commits to main
+  cancel-in-progress: false    # queue, never kill a run mid-push
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Heavy build
+        run: python scripts/build.py
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs data
+          git diff --cached --quiet && { echo "nothing changed"; exit 0; }
+          git commit -m "Daily build: $(date -u +'%Y-%m-%d %H:%M UTC')"
+          # Rebase onto whatever another workflow pushed meanwhile, then push.
+          # -X theirs keeps this run's freshly generated files on conflict.
+          for i in 1 2 3 4 5; do
+            git pull --rebase -X theirs --autostash origin main && git push && exit 0
+            echo "push attempt $i failed, retrying..."
+            sleep $((RANDOM % 15 + 5))
+          done
+          echo "could not push after 5 attempts"; exit 1me: Daily build (box scores, rosters, everything)
+
+# sportsdataverse's NBA data job (hoopR-nba-data, daily_nba.yml) starts at
+# 07:00 UTC in season. 10:40 UTC leaves a wide margin for it to finish, and
+# lands before the West Coast morning. Each build records the box-score
+# file's Last-Modified time, shown on Home, so a late upstream run is visible.
+on:
+  schedule:
+    - cron: "40 10 * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: nba-site-repo-write   # shared by every workflow that commits to main
+  cancel-in-progress: false    # queue, never kill a run mid-push
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Heavy build
+        run: python scripts/build.py
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs data
+          git diff --cached --quiet && { echo "nothing changed"; exit 0; }
+          git commit -m "Daily build: $(date -u +'%Y-%m-%d %H:%M UTC')"
+          # Rebase onto whatever another workflow pushed meanwhile, then push.
+          # -X theirs keeps this run's freshly generated files on conflict.
+          for i in 1 2 3 4 5; do
+            git pull --rebase -X theirs --autostash origin main && git push && exit 0
+            echo "push attempt $i failed, retrying..."
+            sleep $((RANDOM % 15 + 5))
+          done
+          echo "could not push after 5 attempts"; exit 1
