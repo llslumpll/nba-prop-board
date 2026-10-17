@@ -1,0 +1,54 @@
+{% macro badge(b) -%}
+<span class="team-badge" style="background:{{ b.color }};color:{{ b.text }};box-shadow:0 0 0 2px {{ b.outline }}">{{ b.abbr }}</span>
+{%- endmacro %}
+
+{% macro matchup(away_badge, home_badge) -%}
+<span class="badge-pair">{{ badge(away_badge) }}<span class="at">@</span>{{ badge(home_badge) }}</span>
+{%- endmacro %}
+
+{% macro label_tag(status) -%}
+{% if status == 'edge' %}<span class="edge-tag" title="Live record beats the line on this stat">edge</span>{% else %}<span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>{% endif %}
+{%- endmacro %}
+
+{% macro pick_text(side, line, chance) -%}
+<span class="pick-line"><span class="side-{{ side|lower }}">{{ side }}</span> {{ line|fmtline }}</span> <span class="chance">{{ (chance * 100)|round(0)|int }}%</span>
+{%- endmacro %}
+
+{% macro src_name(src) -%}
+<span class="src{{ ' src-exp' if src == 'prizepicks' else '' }}">{{ src_labels[src] }}{{ '*' if src == 'prizepicks' else '' }}</span>
+{%- endmacro %}
+
+{% macro pick_cards(picks, kind, edge, empty_text) %}
+{% if picks %}
+<div class="prop-cards">
+  {% for p in picks %}
+  <div class="prop-card">
+    <div class="prop-card-head">
+      <div>
+        <div class="player-name">{{ badge(p.badge) }} {{ p.player }}</div>
+        <div class="player-sub">{{ stat_labels[p.stat] }} &middot; {{ 'vs' if p.home else '@' }} {{ p.opp }} &middot; {{ p.tip_label }}</div>
+      </div>
+      <div class="prop-card-edge">
+        <div class="num">{{ pick_text(p.call, p.line, p.chance) }}</div>
+        <div class="label">
+          {% if kind == 'value' and p.value is not none %}{{ '%+.1f'|format(p.value * 100) }} pts over break-even ({{ (p.break_even * 100)|round(1) }}%){% else %}chance for the side picked{% endif %}
+          &middot; {{ src_labels[p.line_source] }}
+        </div>
+      </div>
+    </div>
+    <div class="prop-card-tags">
+      {{ label_tag(edge[p.stat].status) }}
+      <span class="tier tier-mid">proj {{ p.projected }}</span>
+      <span class="tier tier-none">{{ p.proj_min }} min</span>
+      <span class="tier tier-none">{{ p.tier }}</span>
+      {% if p.locked %}<span class="locked">locked at tip</span>{% endif %}
+    </div>
+    <p class="prop-card-reason">{{ p.why }}</p>
+    <p class="small dim">Frozen {{ p.frozen_at }}{% if p.lines|length > 1 %} &middot; other lines at freeze: {% for s, l in p.lines.items() if s != p.line_source %}{{ src_labels[s] }} {{ l|fmtline }}{{ ', ' if not loop.last }}{% endfor %}{% endif %}</p>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="empty-state"><h3>Nothing here yet</h3><p>{{ empty_text }}</p></div>
+{% endif %}
+{% endmacro %}
