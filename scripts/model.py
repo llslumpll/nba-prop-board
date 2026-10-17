@@ -74,8 +74,12 @@ class Params:
     absent_window_days: int = 10
     min_cap: float = 44.0
     rotation_cap: float = 250.0   # team minutes covered before a player counts as fringe
-    fringe_share: float = 0.35
-    team_min_cap: float = 241.0   # 240 + the average overtime    # share of recent minutes a fringe player is projected for
+    fringe_share: float = 0.35    # share of recent minutes a fringe player is projected for
+    team_min_cap: float = 241.0   # 240 + the average overtime
+    cap_mode: str = "waterfall"   # "waterfall" (cut deepest first) or "proportional"
+    min_prior_k: float = 4.0      # games before last season's minutes stop mattering
+    team_share_alpha: float = 0.5  # how far toward the team norm (0 = off, 1 = all the way)
+    team_share_cap: float = 0.12
     min_mode: str = "normalize"   # "normalize" (team total ~241) or "freed" (add freed minutes)
     var_k: float = 20.0
     use_pace: bool = True
@@ -316,6 +320,17 @@ def project(box: pl.DataFrame, targets: pl.DataFrame, p: Params | None = None,
     t = t.filter(pl.col("present") & pl.col("e_min").is_not_null())
     t = t.join(free, on=["game_id", "team"], how="left").with_columns(
         pl.col("free_min").fill_null(0.0), *[pl.col(f"free_{s}").fill_null(0.0) for s in STATS])
+    # Early in a season the recency-weighted average still reflects the end
+    # of last season (rest days, tanking, limits). Blend it with last
+    # season's per-game minutes until this season has min_prior_k games.
+    prev_avg = pl.when(pl.col("g1") > 0).then(pl.col("m1") / pl.col("g1")).otherwise(None)
+    n_cur = pl.col("c_n").cast(pl.Float64)
+    t = t.with_columns(min_ewm=pl.col("e_min"),
+                       min_prev_avg=prev_avg,
+                       e_min=pl.when(prev_avg.is_not_null() & (p.min_prior_k > 0))
+                       .then((n_cur * pl.col("e_min") + p.min_prior_k * prev_avg) / (n_cur + p.min_prior_k))
+                       .otherwise(pl.col("e_min")))
+
     # Rotation: fill each team's minutes in order of recent minutes. A
     # player whose higher-minute teammates already cover ROTATION_CAP is
     # "fringe" (a live roster lists ~18 players; ~10 play) and gets only a
@@ -371,9 +386,18 @@ def project(box: pl.DataFrame, targets: pl.DataFrame, p: Params | None = None,
     # Only ever scales DOWN, and only non-fringe players.
     team_sum = pl.col("proj_min").sum().over(["game_id", "team"])
     fringe_sum = pl.when(pl.col("fringe")).then(pl.col("proj_min")).otherwise(0.0).sum().over(["game_id", "team"])
-    cap_scale = ((p.team_min_cap - fringe_sum) / (team_sum - fringe_sum)).clip(None, 1.0)
-    t = t.with_columns(min_cap_adj=pl.when(~pl.col("fringe") & (team_sum > p.team_min_cap))
-                       .then(pl.col("proj_min") * (cap_scale - 1)).otherwise(0.0))
+    if p.cap_mode == "waterfall":
+        # Minutes go to players in order of their projection; whatever no
+        # longer fits under the cap comes off the deepest players first.
+        t = t.sort(["game_id", "team", "proj_min"], descending=[False, False, True]).with_columns(
+            cum_prev=(pl.col("proj_min").cum_sum() - pl.col("proj_min")).over(["game_id", "team"]))
+        room = (p.team_min_cap - pl.col("cum_prev")).clip(0, None)
+        t = t.with_columns(min_cap_adj=pl.when(team_sum > p.team_min_cap)
+                           .then(pl.min_horizontal(pl.col("proj_min"), room) - pl.col("proj_min")).otherwise(0.0))
+    else:
+        cap_scale = ((p.team_min_cap - fringe_sum) / (team_sum - fringe_sum)).clip(None, 1.0)
+        t = t.with_columns(min_cap_adj=pl.when(~pl.col("fringe") & (team_sum > p.team_min_cap))
+                           .then(pl.col("proj_min") * (cap_scale - 1)).otherwise(0.0))
     t = t.with_columns(proj_min=pl.col("proj_min") + pl.col("min_cap_adj"),
                        min_extra=pl.col("min_extra") + pl.col("min_cap_adj"))
 
@@ -410,6 +434,37 @@ def project(box: pl.DataFrame, targets: pl.DataFrame, p: Params | None = None,
         (pl.col("proj_min") * pl.col(f"rate_{s}") * pl.col("f_pace") * pl.col("f_home") * pl.col("f_rest")
          * pl.col(f"f_def_{s}") * pl.col(f"f_use_{s}")).alias(f"proj_{s}")
         for s in STATS])
+
+    # --- shared-production check. Each player's rate was earned in his own
+    # role; put several lead options on one roster and their projections add
+    # up to more points/rebounds/assists than a team produces. Compare the
+    # team's summed projection with a norm (half league average, half this
+    # team's own last season) and move each player part of the way.
+    base_stats = ("pts", "reb", "ast", "fg3m")
+    tg_all = box.filter((pl.col("season_type") == REGULAR) & pl.col("played")).group_by(
+        ["game_id", "team", "season"]).agg([pl.col(s).sum() for s in base_stats])
+    lg_team = tg_all.group_by("season").agg([pl.col(s).mean().alias(f"lgt_{s}") for s in base_stats]) \
+        .with_columns((pl.col("season") + 1).alias("season"))
+    own_team = tg_all.group_by(["team", "season"]).agg([pl.col(s).mean().alias(f"own_{s}") for s in base_stats]) \
+        .with_columns((pl.col("season") + 1).alias("season"))
+    t = t.join(lg_team, on="season", how="left").join(own_team, on=["team", "season"], how="left")
+    for s in base_stats:
+        lgv = pl.col(f"lgt_{s}").fill_null(tg_all[s].mean())
+        norm = 0.5 * lgv + 0.5 * pl.col(f"own_{s}").fill_null(lgv)
+        tot = pl.col(f"proj_{s}").sum().over(["game_id", "team"])
+        ratio = (norm * pl.col("f_pace") / tot).clip(0.5, 2.0)
+        f = pl.when(tot > 0).then(ratio.pow(p.team_share_alpha)).otherwise(1.0).clip(1 - p.team_share_cap, 1 + p.team_share_cap)
+        t = t.with_columns(f.alias(f"f_team_{s}"))
+    old_parts = {s: pl.col(f"proj_{s}") for s in base_stats}
+    t = t.with_columns([(pl.col(f"proj_{s}") * pl.col(f"f_team_{s}")).alias(f"proj_{s}") for s in base_stats]
+                       + [pl.col(f"proj_{s}").alias(f"pre_team_{s}") for s in base_stats])
+    for s, parts in STATS.items():
+        if len(parts) > 1:
+            old = sum(pl.col(f"pre_team_{x}") for x in parts)
+            new = sum(pl.col(f"proj_{x}") for x in parts)
+            t = t.with_columns(pl.when(old > 0).then(pl.col(f"proj_{s}") * new / old)
+                               .otherwise(pl.col(f"proj_{s}")).alias(f"proj_{s}"),
+                               pl.when(old > 0).then(new / old).otherwise(1.0).alias(f"f_team_{s}"))
     return t
 
 

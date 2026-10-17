@@ -66,7 +66,7 @@ All four share the concurrency group `nba-site-repo-write`. They queue rather th
 
   - **Ladders:** a rung "N+" is the same bet as OVER N−0.5. The rung priced nearest 50% is used as the main line, and the full ladder is shown in the "why".
   - **Break-even:** the ask for that side.
-  - **Cap:** 400 markets **per series**, by volume. On the NFL site, a shared cap let spreads and totals push the moneylines off the page.
+  - **Cap:** 400 markets **per series**, by volume. Requests are spaced out and retried on HTTP 429 (the first Actions run was rate-limited on 3 series). On the NFL site, a shared cap let spreads and totals push the moneylines off the page.
 - **PrizePicks: experimental.** It has no official API.
   - The NBA league is found by the exact name `NBA` from `/leagues`; it was id 7 on Oct 16, but the id isn't hardcoded. NBA1H, NBAP and similar leagues are excluded.
   - Only standard lines are kept; alternate lines are dropped.
@@ -105,37 +105,43 @@ The same code runs the backtest and the live site. Every feature uses only games
 
 1. **Minutes first.**
    - The base is recency-weighted minutes (half-life 5 games, tuned).
-   - Rotation players are scaled toward the team's ~241 minutes (pull 0.3, tuned). This hands out minutes freed by absent teammates and trims the excess when everyone is healthy.
-   - A live roster lists ~18 players. Players beyond the first 250 rotation minutes are "fringe" and get 35% of their recent minutes.
-   - A hard cap keeps team minutes at or below 241.
+   - Early in a season that average still reflects the end of last season (rest days, tanking, limits), so it's blended with last season's per-game minutes until this season has 4 games.
+   - Rotation players are scaled toward the team's ~241 minutes (pull 0.5, tuned). This hands out minutes freed by absent teammates and trims the excess when everyone is healthy.
+   - A live roster lists ~20 players. Players beyond the first 250 rotation minutes are "fringe" and get 35% of their recent minutes.
+   - A hard cap keeps team minutes at or below 241, taking the excess from the **deepest players first** (stars keep their minutes).
    - Back-to-backs cut 4% for players averaging 28+ minutes.
    - Blowout risk cuts starters 0.15 min per point of expected margin beyond 8, capped at −3. The margin comes from FanDuel's spread when available, otherwise from season net ratings.
 2. **Per-minute rates, shrunk by sample size:**
    - `rate = (n·this_season + k·prior) / (n + k)`, where `n` is games this season.
    - `prior` weights the last two seasons 1.0 / 0.5, and is itself shrunk to the position rate (15 games).
-   - `k` per stat was tuned by walk-forward: points 5, rebounds 12, assists 5, threes 5, PRA 3, P+R 5, P+A 3, R+A 8.
+   - `k` per stat was tuned by walk-forward: points 5, rebounds 12, assists 5, threes 3, PRA 3, P+R 3, P+A 3, R+A 8.
 3. **Context, each dampened and capped at ±6%:**
    - opponent pace
    - home ±1%
    - rest (back-to-back −2%, 3+ days +1%)
-   - usage freed by absent teammates (0.1 × their share)
+   - usage freed by absent teammates (tuned to 0, so off)
    - **Opponent defense by position was tested and dropped:** it made projections slightly worse in the backtest.
-4. **Ranges:**
+4. **Shared production:**
+   - Each player's rate was earned in his own role. When several lead options share a roster (an offseason super-team, say), their projections add up to more points, rebounds or assists than a team produces.
+   - Each team's summed projection is compared with a norm (half league average, half that team's last season), and every player is moved halfway toward it (strength 0.5, tuned; capped at ±12%).
+5. **Ranges:**
    - Rebounds, assists and threes use a negative binomial. Points and combos use a normal curve with a continuity correction.
    - Variance is `phi·mu + kappa·mu²`, fit on 2024-25.
    - Each player's own past miss size scales it, shrunk toward 1 over 20 games.
    - Whole-number lines exclude the push from both sides.
-5. **Game picks:** team scores are summed player points × 1.033. Their margin has missed by about 19 points (standard deviation), and they picked 63% of 2025-26 winners. They are always labeled "lean".
+6. **Game picks:** team scores are summed player points × 1.028. Their margin has missed by about 16 points (standard deviation), and they picked 64% of 2025-26 winners. They are always labeled "lean".
+
+**Opening-night check:** the 144 PrizePicks lines collected on the first Actions run were used as a market reference. Projections landed above the line 47% of the time, with an average gap of −0.4. Before the minutes and shared-production fixes, only 17% landed above, with a gap of −2.3. Picks frozen before those fixes were deleted, since no game had been played.
 
 **Backtest** (`scripts/backtest.py`, results in `data/backtest.json`): tuned on 2024-25, then scored without changes on 2025-26. Players projected for 20+ minutes, about 16,000 player-games. Numbers are average miss:
 
 | Stat | Model | Season avg | Last 10 | NFL-site formula | In 50% range | In 80% range |
 |---|---|---|---|---|---|---|
-| Points | **5.13** | 5.34 | 5.33 | 5.67 | 52.7% | 82.3% |
-| Rebounds | **1.99** | 2.05 | 2.07 | 2.10 | 49.2% | 79.9% |
-| Assists | **1.55** | 1.59 | 1.60 | 1.67 | 49.5% | 80.8% |
-| 3PM | **1.04** | 1.05 | 1.06 | 1.06 | 50.0% | 80.2% |
-| PRA | **6.46** | 6.79 | 6.75 | 7.42 | 53.7% | 83.4% |
+| Points | **5.10** | 5.31 | 5.30 | 5.65 | 52.0% | 82.0% |
+| Rebounds | **2.00** | 2.04 | 2.07 | 2.09 | 50.4% | 79.4% |
+| Assists | **1.54** | 1.58 | 1.59 | 1.66 | 49.1% | 80.4% |
+| 3PM | **1.04** | 1.05 | 1.06 | 1.06 | 50.9% | 81.2% |
+| PRA | **6.42** | 6.77 | 6.72 | 7.40 | 52.5% | 83.0% |
 
 No free source has historical prop lines, so this doesn't show we beat a sportsbook. That is measured live.
 

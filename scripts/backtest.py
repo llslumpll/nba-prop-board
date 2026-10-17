@@ -247,7 +247,8 @@ def main():
     for name, field_, vals in (("minutes half-life", "min_half_life", (5.0, 8.0, 12.0)),
                                ("team-minutes pull", "redistribute", (0.3, 0.5, 0.7, 1.0)),
                                ("usage_b", "usage_b", (0.0, 0.1, 0.2)),
-                               ("a_def", "a_def", (0.25, 0.5, 0.75))):
+                               ("a_def", "a_def", (0.25, 0.5, 0.75)),
+                               ("shared-production pull", "team_share_alpha", (0.25, 0.5, 0.75))):
         scores = {}
         for v in vals:
             _, sb = evaluate(replace(p, **{field_: v}), f"{field_}={v}")

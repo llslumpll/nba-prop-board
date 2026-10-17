@@ -52,13 +52,23 @@ SERIES = {
     "KXNBAPRA": ("player", "pra"),
 }
 CAP_PER_SERIES = 400
-_SLEEP = 0.08
+_SLEEP = 0.25
 
 
 def _get(path, params=None, timeout=15):
-    r = requests.get(f"{BASE_URL}{path}", params=params, timeout=timeout)
-    r.raise_for_status()
-    return r.json()
+    """GET with a polite retry: Kalshi answers HTTP 429 when asked too fast
+    (seen on the first Actions run). Waits Retry-After or 1.5s, 3s, 6s."""
+    for attempt in range(4):
+        r = requests.get(f"{BASE_URL}{path}", params=params, timeout=timeout)
+        if r.status_code == 429 and attempt < 3:
+            try:
+                wait = float(r.headers.get("Retry-After") or 0)
+            except ValueError:
+                wait = 0
+            time.sleep(max(wait, 1.5 * 2 ** attempt))
+            continue
+        r.raise_for_status()
+        return r.json()
 
 
 def _events(series):
@@ -168,6 +178,7 @@ def fetch_nba() -> dict:
             continue
         any_ok = True
         rows = []
+        time.sleep(_SLEEP)
         for ev in events:
             et = ev.get("event_ticker")
             if not et:

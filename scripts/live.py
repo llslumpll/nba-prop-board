@@ -192,7 +192,8 @@ def why_text(r: dict, s: str, cal_bias: float) -> str:
         parts.append(f"× {r[f'rate_{s}']:.3f} {label}/min (prior seasons, no games this season yet)")
     ctx = []
     for name, f in (("pace vs " + r["opp"], r["f_pace"]), ("home" if r["home"] else "road", r["f_home"]),
-                    ("rest", r["f_rest"]), ("opponent defense", r[f"f_def_{s}"]), ("usage", r[f"f_use_{s}"])):
+                    ("rest", r["f_rest"]), ("opponent defense", r[f"f_def_{s}"]), ("usage", r[f"f_use_{s}"]),
+                    ("shared production on " + r["team"], r.get(f"f_team_{s}") or 1.0)):
         if abs(f - 1) >= 0.005:
             ctx.append(f"{name} {_pct(f - 1)}")
     if ctx:
