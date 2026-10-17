@@ -1,0 +1,47 @@
+name: Odds refresh (Kalshi, PrizePicks, injuries)
+
+# Every 20 minutes from 16:00 to 03:59 UTC (noon to midnight ET), when
+# lines are posted and move. No box-score download (--no-fetch); no Odds API
+# credits. Freezes any pick whose line first appears, before its tip-off.
+on:
+  schedule:
+    - cron: "*/20 16-23 * * *"
+    - cron: "*/20 0-3 * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: nba-site-repo-write   # shared by every workflow that commits to main
+  cancel-in-progress: false    # queue, never kill a run mid-push
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Light build
+        run: python scripts/build.py --no-fetch
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs data
+          git diff --cached --quiet && { echo "nothing changed"; exit 0; }
+          git commit -m "Odds refresh: $(date -u +'%Y-%m-%d %H:%M UTC')"
+          # Rebase onto whatever another workflow pushed meanwhile, then push.
+          # -X theirs keeps this run's freshly generated files on conflict.
+          for i in 1 2 3 4 5; do
+            git pull --rebase -X theirs --autostash origin main && git push && exit 0
+            echo "push attempt $i failed, retrying..."
+            sleep $((RANDOM % 15 + 5))
+          done
+          echo "could not push after 5 attempts"; exit 1

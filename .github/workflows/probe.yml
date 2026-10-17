@@ -1,0 +1,46 @@
+name: Probe market sources (manual)
+
+# Run from the Actions tab. Fetches Kalshi (every candidate series),
+# PrizePicks, ESPN injuries and rosters, writes data/probe.json and prints
+# what came back. Renders nothing; spends no Odds API credits.
+on:
+  workflow_dispatch: {}
+
+concurrency:
+  group: nba-site-repo-write   # shared by every workflow that commits to main
+  cancel-in-progress: false    # queue, never kill a run mid-push
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Probe
+        run: |
+          python scripts/build.py --no-fetch --probe
+          cat data/probe.json
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs data
+          git diff --cached --quiet && { echo "nothing changed"; exit 0; }
+          git commit -m "Probe: $(date -u +'%Y-%m-%d %H:%M UTC')"
+          # Rebase onto whatever another workflow pushed meanwhile, then push.
+          # -X theirs keeps this run's freshly generated files on conflict.
+          for i in 1 2 3 4 5; do
+            git pull --rebase -X theirs --autostash origin main && git push && exit 0
+            echo "push attempt $i failed, retrying..."
+            sleep $((RANDOM % 15 + 5))
+          done
+          echo "could not push after 5 attempts"; exit 1
