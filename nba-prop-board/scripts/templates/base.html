@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>{% block title %}Prop Edge NBA{% endblock %}</title>
+  <link rel="stylesheet" href="static/style.css?v={{ cache_bust }}">
+</head>
+<body>
+  <header class="site-head">
+    <a class="brand" href="index.html">PROP EDGE<span class="brand-sub">NBA</span></a>
+    <nav class="site-nav" aria-label="Pages">
+      {% for slug, label, href in nav_pages %}<a href="{{ href }}" class="{{ 'active' if current_page == slug else '' }}">{{ label }}</a>{% endfor %}
+    </nav>
+  </header>
+  <div class="sys-tagline">⭐ AUTO-BUILD ⭐ EVERY PICK FROZEN BEFORE TIP ⭐ GRADED IN PUBLIC ⭐</div>
+  <main class="site-main">
+    {% block content %}{% endblock %}
+  </main>
+  <script>
+    (function () { var a = document.querySelector('.site-nav a.active'); if (a && a.scrollIntoView) a.scrollIntoView({block: 'nearest', inline: 'center'}); })();
+    function toggleWhy(id, btn) {
+      var panel = document.querySelector('[data-why-panel="' + id + '"]');
+      if (!panel) return;
+      var hidden = panel.classList.contains('hidden');
+      panel.classList.toggle('hidden', !hidden);
+      btn.classList.toggle('open', hidden);
+      btn.textContent = hidden ? 'hide' : 'why';
+    }
+    document.querySelectorAll('.game-picker').forEach(function (picker) {
+      var scope = picker.parentElement;
+      picker.querySelectorAll('.game-tab').forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          picker.querySelectorAll('.game-tab').forEach(function (t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+          scope.querySelectorAll(':scope > .game-panel').forEach(function (p) {
+            p.classList.toggle('hidden', p.dataset.panel !== tab.dataset.panel);
+          });
+        });
+      });
+    });
+  </script>
+  <footer class="site-foot">
+    <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
+    <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>
+    <div class="foot-row foot-dim"><span>BUILD: {{ build_time }} &middot; via GitHub Actions</span></div>
+  </footer>
+</body>
+</html>

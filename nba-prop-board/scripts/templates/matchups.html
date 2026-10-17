@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Matchups — Prop Edge NBA{% endblock %}
+{% block content %}
+<h1>Matchups</h1>
+<p class="lede">Each game on the {{ slate.date_label or 'next' }} slate: market lines, our projected score, who is out, and each team's top projected players.</p>
+{% if notices %}
+<details class="info-collapse"><summary>{{ notices|length }} data note{{ 's' if notices|length != 1 }}</summary>
+{% for n in notices %}<div class="notice compact">{{ n|safe }}</div>{% endfor %}
+</details>
+{% endif %}
+
+{% for c in cards %}
+<div class="game-card">
+  <h3>{{ m.matchup(c.g.away_badge, c.g.home_badge) }} <span class="dim" style="font-family:var(--mono);font-size:1rem">{{ c.g.tip_et }}{% if c.g.note %} &middot; {{ c.g.note }}{% endif %}{% if c.g.started %} &middot; tipped{% endif %}</span></h3>
+  <div class="kv">
+    <div><div class="k">FanDuel spread</div><div class="v">{% if c.fd.spread %}{{ c.g.home }} {{ c.fd.spread.home_point|fmtpt }} ({{ c.fd.spread.home_price_str }}){% else %}<span class="dim">no line</span>{% endif %}</div></div>
+    <div><div class="k">FanDuel total</div><div class="v">{% if c.fd.total %}{{ c.fd.total.point }} ({{ c.fd.total.over_str }}/{{ c.fd.total.under_str }}){% else %}<span class="dim">no line</span>{% endif %}</div></div>
+    <div><div class="k">Our score</div><div class="v">{% if c.tp %}{{ c.g.away }} {{ c.tp.away_pts|round(0)|int }} &ndash; {{ c.g.home }} {{ c.tp.home_pts|round(0)|int }}{% else %}<span class="dim">—</span>{% endif %}</div></div>
+    <div><div class="k">Our spread / total pick</div><div class="v small">{% for f in c.team_frozen %}{{ f.market }}: {{ f.pick }}{% if f.line is defined and f.line is not none %} ({{ f.line|fmtpt if f.market == 'spread' else f.line }}){% endif %} {{ (f.chance * 100)|round(0)|int }}%{{ '; ' if not loop.last }}{% else %}<span class="dim">none frozen</span>{% endfor %}</div></div>
+  </div>
+  <div class="two-col">
+    {% for side in c.sides %}
+    <div>
+      <div class="player-name" style="margin-bottom:6px">{{ m.badge(side.badge) }} {{ side.name }}</div>
+      {% if side.out %}<p class="small"><span class="injury-flag">Out:</span> {{ side.out|join(', ') }}</p>{% endif %}
+      {% if side.q %}<p class="small dim">Questionable / day-to-day: {{ side.q|join(', ') }}</p>{% endif %}
+      <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+        <thead><tr><th>Player</th><th class="num">Min</th><th class="num">Pts</th><th class="num">Reb</th><th class="num">Ast</th><th class="num">3PM</th></tr></thead>
+        <tbody>
+        {% for r in side.players %}
+        <tr><td>{{ r.player }}</td><td class="num">{{ r.proj_min|round(0)|int }}</td><td class="num">{{ r.stats.pts.proj }}</td><td class="num">{{ r.stats.reb.proj }}</td><td class="num">{{ r.stats.ast.proj }}</td><td class="num">{{ r.stats.fg3m.proj }}</td></tr>
+        {% else %}<tr><td colspan="6" class="dim">no projections</td></tr>{% endfor %}
+        </tbody>
+      </table></div></div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% else %}
+<div class="empty-state"><h3>No games</h3><p>No upcoming games in the schedule.</p></div>
+{% endfor %}
+{% endblock %}
