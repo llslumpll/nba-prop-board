@@ -8,6 +8,7 @@ list is its own page (history-YYYY-MM.html), so no page grows all season.
 
 from __future__ import annotations
 
+import json
 import shutil
 from collections import defaultdict
 from datetime import datetime, timezone
@@ -268,7 +269,11 @@ def render_all(ctx: dict) -> None:
         b5rec.append({"page": GROUP_PAGE.get(grp, grp), "list_label": "Best 5" if lst == "best5" else "Best Value",
                       "n": rr["n"], "pending": rr["pending"],
                       "hit_rate": round(100 * rr["hits"] / rr["n"], 1) if rr["n"] else None})
-    write("history.html", "history.html", "history", months=mlist, scoreboard=grade.stat_scoreboard(preds), edge=edge,
+    try:
+        retune_log = list(reversed(json.loads((ROOT / "data" / "retune_log.json").read_text())))[:12]
+    except Exception:  # noqa: BLE001
+        retune_log = []
+    write("history.html", "history.html", "history", months=mlist, retune_log=retune_log, scoreboard=grade.stat_scoreboard(preds), edge=edge,
           buckets=grade.chance_buckets(preds), best5_rec=b5rec, team_rec=grade.team_record(ctx["tpreds"]),
           maturity=grade.maturity(ctx["cal"]), bt=bt, bt_cal=bt_all.get("calibration") or {},
           bt_n=(bt.get("pts") or {}).get("n"), health=list(reversed(ctx["health"][-30:])),

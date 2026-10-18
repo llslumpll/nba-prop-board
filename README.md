@@ -25,6 +25,7 @@ All four share the concurrency group `nba-site-repo-write`. They queue rather th
 | `refresh_odds.yml` *Odds refresh* | every 20 min, 16:00–03:59 | `build.py --no-fetch`: injuries, Kalshi, PrizePicks, re-project, freeze, grade, render |
 | `oddsapi.yml` *FanDuel pull* | 17:10 daily | `build.py --no-fetch --pull-lines --pull-props` (skipped without the secret) |
 | `probe.yml` | manual | `build.py --no-fetch --probe`: writes `data/probe.json`, renders nothing, no credits |
+| `retune.yml` *Monthly retune* | 12:20 on the 1st | `retune.py`: re-fits settings with this season's games; adopts only if better on held-out games (see below) |
 
 **Why 10:40:** sportsdataverse's NBA job (`hoopR-nba-data/.github/workflows/daily_nba.yml`) runs at 07:00 UTC in season. The build records the box-score file's `Last-Modified` time, and Home shows it, so a late upstream run is visible.
 
@@ -146,6 +147,18 @@ The same code runs the backtest and the live site. Every feature uses only games
 
 No free source has historical prop lines, so this doesn't show we beat a sportsbook. That is measured live.
 
+## How it learns
+
+- **Daily, from box scores:** each player's rates shift toward this season (after ~5 games it's mostly this season), and his range is re-measured from the model's past misses for him.
+- **From graded picks, per stat, after 50 graded picks:** a projection-bias correction and a confidence correction switch on (see below), and the stat can move from "lean" to "edge".
+- **Monthly retune** (`scripts/retune.py`, `retune.yml`, 1st of each month):
+  - Re-runs the settings search (k per stat, minutes half-life, team-minutes pull, usage, defense strength, shared-production pull) on last season plus the first 70% of this season's game days.
+  - Tests the result on the latest 30% of game days, which the search never saw.
+  - Adopts it only if the average miss on points, rebounds, assists and threes is at least 0.5% lower and none of them is more than 1% worse. Otherwise it keeps the current settings and says why.
+  - Skips itself until there are 1,500 held-out player-games (about 3–4 weeks in).
+  - Every run is logged in `data/retune_log.json` and on History. An adoption keeps the old settings in the log, so it can be undone.
+  - On/off switches for context factors are not changed by the retune; that needs more than a month of evidence.
+
 ## Freezing, grading and honest scoring
 
 - **One record per player / stat / `game_id`**, frozen at the first build where a line exists, and never after tip-off.
@@ -181,6 +194,7 @@ scripts/
   markets.py          name matching, one line book per player/stat/game, break-evens
   model.py            the projection model and distributions
   backtest.py         walk-forward tuning + test
+  retune.py           monthly re-fit, adopted only if better on held-out games
   live.py             slate, roster rows, projections, picks, game-level chances
   predictions.py      frozen store, Best 5 tagging
   grade.py            grading, scoreboard, edge/lean, calibration

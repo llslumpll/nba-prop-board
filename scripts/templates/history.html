@@ -55,6 +55,15 @@
 <h2>Calibration</h2>
 <p class="lede small">Corrections switch on per stat once {{ maturity.min_sample }} graded picks exist: projection bias by tier, and a pull toward 50% if stated chances run hot. {{ maturity.active }} of {{ maturity.total }} active.</p>
 
+<h2>Monthly retune</h2>
+<p class="lede small">On the 1st of each month the model's settings are re-fit with this season's games included, then tested on the most recent 30% of game days, which the new settings never saw. New settings are adopted only if their average miss there is at least 0.5% lower and no main stat gets more than 1% worse.</p>
+{% if retune_log %}
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+  <thead><tr><th>Run</th><th>Result</th><th class="hide-sm">Changed</th></tr></thead>
+  <tbody>{% for r in retune_log %}<tr><td class="small nowrap">{{ r.at }}</td><td class="small"><span class="{{ 'stat-good' if r.adopted else 'dim' }}">{{ r.result }}</span></td><td class="small hide-sm">{% for k, v in (r.changes or {}).items() %}{{ k }}{{ ', ' if not loop.last }}{% else %}—{% endfor %}</td></tr>{% endfor %}</tbody>
+</table></div></div>
+{% else %}<p class="dim">First run: the 1st of next month. It skips itself until about 3-4 weeks of games exist.</p>{% endif %}
+
 <h2>Pre-launch backtest</h2>
 <p class="lede small">Walk-forward: constants tuned on 2024-25, then scored on 2025-26 without changes ({{ bt_n }} player-games, players projected for 20+ minutes). Average miss, lower is better.</p>
 <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
