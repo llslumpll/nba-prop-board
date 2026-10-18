@@ -65,7 +65,7 @@ All four share the concurrency group `nba-site-repo-write`. They queue rather th
   | `KXNBAPTS`, `KXNBAREB`, `KXNBAAST`, `KXNBA3PT`, `KXNBAPRA` | player "N+" ladders |
 
   - **Only tight quotes count as prices:** a bid/ask gap of 10¢ or less. Kalshi lists player ladders days early with near-empty books (e.g. 6¢ bid / 94¢ ask), whose midpoint looks like 50% but isn't a price.
-  - **Ladders:** a rung "N+" is the same bet as OVER N−0.5. The rung priced nearest 50% is used as the main line, and the full ladder is shown in the "why".
+  - **Ladders:** a rung "N+" is the same bet as OVER N−0.5. A rung only counts as a line to pick against when its OVER price is between 25% and 80%; lopsided rungs (e.g. "8+ assists" at 6%) are shown in the ladder but never picked. Of those, the rung priced nearest 50% is the main line, and the full ladder is shown in the "why".
   - **Break-even:** the ask for that side.
   - **Cap:** 400 markets **per series**, by volume. Requests are spaced out and retried on HTTP 429 (the first Actions run was rate-limited on 3 series). On the NFL site, a shared cap let spreads and totals push the moneylines off the page.
 - **PrizePicks: experimental.** It has no official API.

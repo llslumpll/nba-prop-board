@@ -271,10 +271,17 @@ def player_ladders(kalshi: dict) -> dict:
     return out
 
 
+MAIN_LINE_RANGE = (0.25, 0.80)  # a rung only counts as a line when its OVER price is in here
+
+
 def main_line(rungs: list[dict]) -> dict | None:
     """The rung priced closest to 50% -- the ladder's equivalent of a book's
-    main line. Only two-sided rungs count."""
-    quoted = [r for r in rungs if r.get("mid") is not None]
+    main line. Only priced rungs whose OVER chance is within MAIN_LINE_RANGE
+    count: early in the week Kalshi often has firm prices only on lopsided
+    rungs (e.g. "8+ assists" at 6%), which aren't real lines to pick against.
+    None when no rung qualifies."""
+    lo, hi = MAIN_LINE_RANGE
+    quoted = [r for r in rungs if r.get("mid") is not None and lo <= r["mid"] <= hi]
     if not quoted:
         return None
     return min(quoted, key=lambda r: abs(r["mid"] - 0.5))
