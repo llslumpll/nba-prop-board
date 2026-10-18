@@ -52,6 +52,7 @@ SERIES = {
     "KXNBAPRA": ("player", "pra"),
 }
 CAP_PER_SERIES = 400
+MAX_SPREAD = 0.10   # widest bid/ask gap still treated as a real price
 _SLEEP = 0.25
 
 
@@ -103,10 +104,13 @@ def _price_fields(m):
         ask = _num(m.get("yes_ask")) / 100
     bid = bid if bid and bid > 0 else None
     ask = ask if ask and ask < 1 else None
-    if bid and ask:
+    if bid and ask and ask - bid <= MAX_SPREAD:
         mid = (bid + ask) / 2
     else:
-        mid = None  # one-sided quote: no fair price, never guessed
+        # One-sided, or so wide it isn't a price (Kalshi lists player
+        # ladders days early at e.g. 6c bid / 94c ask, whose midpoint is a
+        # meaningless 50%). No fair price, never guessed.
+        mid = None
     return bid, ask, mid
 
 
@@ -220,7 +224,7 @@ def fetch_nba() -> dict:
         res[bucket] += kept
         res["diagnostics"]["per_series"][series] = (
             f"{len(events)} event(s), {len(rows)} market(s), kept {len(kept)}, "
-            f"{sum(1 for r in kept if r['mid'] is not None)} two-sided")
+            f"{sum(1 for r in kept if r['mid'] is not None)} priced (bid/ask within {MAX_SPREAD * 100:.0f}c)")
     if not any_ok and last_err:
         res["error"] = last_err
     return res

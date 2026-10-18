@@ -64,6 +64,7 @@ All four share the concurrency group `nba-site-repo-write`. They queue rather th
   | `KXNBASPREAD`, `KXNBATOTAL`, `KXNBATEAMTOTAL` | fetched and logged; not used in picks yet |
   | `KXNBAPTS`, `KXNBAREB`, `KXNBAAST`, `KXNBA3PT`, `KXNBAPRA` | player "N+" ladders |
 
+  - **Only tight quotes count as prices:** a bid/ask gap of 10¢ or less. Kalshi lists player ladders days early with near-empty books (e.g. 6¢ bid / 94¢ ask), whose midpoint looks like 50% but isn't a price.
   - **Ladders:** a rung "N+" is the same bet as OVER N−0.5. The rung priced nearest 50% is used as the main line, and the full ladder is shown in the "why".
   - **Break-even:** the ask for that side.
   - **Cap:** 400 markets **per series**, by volume. Requests are spaced out and retried on HTTP 429 (the first Actions run was rate-limited on 3 series). On the NFL site, a shared cap let spreads and totals push the moneylines off the page.
@@ -131,7 +132,7 @@ The same code runs the backtest and the live site. Every feature uses only games
    - Whole-number lines exclude the push from both sides.
 6. **Game picks:** team scores are summed player points × 1.028. Their margin has missed by about 16 points (standard deviation), and they picked 64% of 2025-26 winners. They are always labeled "lean".
 
-**Opening-night check:** the 144 PrizePicks lines collected on the first Actions run were used as a market reference. Projections landed above the line 47% of the time, with an average gap of −0.4. Before the minutes and shared-production fixes, only 17% landed above, with a gap of −2.3. Picks frozen before those fixes were deleted, since no game had been played.
+**Opening-night check:** the 144 PrizePicks lines collected on the first Actions run were used as a market reference. Projections landed above the line 47% of the time, with an average gap of −0.4. Before the minutes and shared-production fixes, only 17% landed above, with a gap of −2.3. Picks frozen before those fixes, and before the Kalshi tight-quote rule, were deleted, since no game had been played.
 
 **Backtest** (`scripts/backtest.py`, results in `data/backtest.json`): tuned on 2024-25, then scored without changes on 2025-26. Players projected for 20+ minutes, about 16,000 player-games. Numbers are average miss:
 
