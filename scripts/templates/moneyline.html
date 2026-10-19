@@ -4,6 +4,7 @@
 {% block content %}
 <h1>Moneyline</h1>
 <p class="lede">Every game on the slate with FanDuel's price (vig removed) and Kalshi's price, side by side, plus our pick. The % next to our pick is the chance we give the team we picked.</p>
+<div class="notice compact"><strong>Game picks start once both teams have played {{ min_games }} games.</strong> Our team scores are the sum of player projections, and early in a season that sum runs high (players who changed teams still project like their old role). Until then this page shows the market prices only.</div>
 <div class="notice compact"><strong>Our game picks are leans.</strong> Team scores here are built by adding up player projections. On the 2025-26 season that picked {{ team_fit.winner_pct }}% of winners, and its margin missed by {{ team_fit.margin_sd }} points (standard deviation), which is less sharp than a typical closing line. Graded record: {{ ml_record.hits }}/{{ ml_record.n }}{% if ml_record.hit_rate is not none %} ({{ ml_record.hit_rate }}%){% endif %}.</div>
 {% if notices %}
 <details class="info-collapse"><summary>{{ notices|length }} data note{{ 's' if notices|length != 1 }}</summary>
@@ -21,7 +22,7 @@
     <td class="small">{% if r.fd %}{{ r.g.away }} {{ r.fd.away_str }} <span class="dim">({{ r.fd.away_prob }}%)</span><br>{{ r.g.home }} {{ r.fd.home_str }} <span class="dim">({{ r.fd.home_prob }}%)</span>{% else %}<span class="dim">no line</span>{% endif %}</td>
     <td class="small">{% if r.k and (r.k.home_prob is not none or r.k.away_prob is not none) %}{{ r.g.away }} {{ r.k.away_prob if r.k.away_prob is not none else '—' }}%<br>{{ r.g.home }} {{ r.k.home_prob if r.k.home_prob is not none else '—' }}%{% else %}<span class="dim">no two-sided quote</span>{% endif %}</td>
     <td>{% if r.pick %}{{ m.badge(r.pick_badge) }} <span class="chance">{{ (r.pick_chance * 100)|round(0)|int }}%</span> <span class="lean-tag">lean</span>
-        {% if r.frozen %}<div class="locked" title="frozen {{ r.frozen.frozen_at }}">frozen</div>{% endif %}{% else %}<span class="dim">no projection</span>{% endif %}</td>
+        {% if r.frozen %}<div class="locked" title="frozen {{ r.frozen.frozen_at }}">frozen</div>{% endif %}{% elif not r.g.game_picks_open %}<span class="dim small">after {{ min_games }} games ({{ r.g.games_played }} so far)</span>{% else %}<span class="dim">no projection</span>{% endif %}</td>
     <td class="nowrap"><button class="why-btn" onclick="toggleWhy('ml{{ loop.index }}', this)">why</button></td>
   </tr>
   <tr class="why-detail hidden" data-why-panel="ml{{ loop.index }}"><td colspan="5"><p class="why-reason">{{ r.why }}</p></td></tr>

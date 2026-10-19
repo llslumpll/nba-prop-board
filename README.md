@@ -23,9 +23,11 @@ All four share the concurrency group `nba-site-repo-write`. They queue rather th
 |---|---|---|
 | `build.yml` *Daily build* | 10:40 daily | `scripts/build.py`: box scores, schedule, rosters, player variance, then everything below |
 | `refresh_odds.yml` *Odds refresh* | every 20 min, 16:00–03:59 | `build.py --no-fetch`: injuries, Kalshi, PrizePicks, re-project, freeze, grade, render |
-| `oddsapi.yml` *FanDuel pull* | 17:10 daily | `build.py --no-fetch --pull-lines --pull-props` (skipped without the secret) |
+| `oddsapi.yml` *FanDuel pull* | 13:10, 15:10, 17:10, 20:10 daily | `build.py --no-fetch --fanduel-daily`: lines once per ET day, points props once per ET day (retried until posted); extra attempts cost nothing (skipped without the secret) |
 | `probe.yml` | manual | `build.py --no-fetch --probe`: writes `data/probe.json`, renders nothing, no credits |
 | `retune.yml` *Monthly retune* | 12:20 on the 1st | `retune.py`: re-fits settings with this season's games; adopts only if better on held-out games (see below) |
+
+**GitHub runs scheduled jobs late:** in the first days the 10:40 build ran up to 6 hours late, the 20-minute refresh ran about every 2 hours, and a once-a-day FanDuel schedule never fired. So the FanDuel pull tries four times a day and only acts once.
 
 **Why 10:40:** sportsdataverse's NBA job (`hoopR-nba-data/.github/workflows/daily_nba.yml`) runs at 07:00 UTC in season. The build records the box-score file's `Last-Modified` time, and Home shows it, so a late upstream run is visible.
 
@@ -131,7 +133,7 @@ The same code runs the backtest and the live site. Every feature uses only games
    - Variance is `phi·mu + kappa·mu²`, fit on 2024-25.
    - Each player's own past miss size scales it, shrunk toward 1 over 20 games.
    - Whole-number lines exclude the push from both sides.
-6. **Game picks:** team scores are summed player points × 1.028. Their margin has missed by about 16 points (standard deviation), and they picked 64% of 2025-26 winners. They are always labeled "lean".
+6. **Game picks:** team scores are summed player points × 1.028. Their margin has missed by about 16 points (standard deviation), and they picked 64% of 2025-26 winners. They are always labeled "lean", and **none are made until both teams have played 10 games this season**: on opening week the summed scores ran 12–18 points above FanDuel's totals (players who changed teams still project like their old role).
 
 **Opening-night check:** the 144 PrizePicks lines collected on the first Actions run were used as a market reference. Projections landed above the line 47% of the time, with an average gap of −0.4. Before the minutes and shared-production fixes, only 17% landed above, with a gap of −2.3. Picks frozen before those fixes, and before the Kalshi tight-quote rule, were deleted, since no game had been played.
 

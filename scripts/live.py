@@ -33,6 +33,25 @@ DATA = Path(__file__).parent.parent / "data"
 VAR_PATH = DATA / "player_var.json"
 PICK_STATS = ("pts", "reb", "ast", "fg3m", "pra", "pr", "pa", "ra")
 
+# Game picks (moneyline / spread / total) come from team scores built by
+# summing player projections. Early in a season those sums run high (players
+# who changed teams still project like their old role), so no game pick is
+# made until BOTH teams have this many regular-season games in the box scores.
+GAME_PICKS_MIN_GAMES = 10
+
+
+def team_games_played(box: pl.DataFrame) -> dict:
+    if not box.height:
+        return {}
+    cur = box.filter((pl.col("season") == dataio.CURRENT_SEASON) & (pl.col("season_type") == model.REGULAR))
+    if not cur.height:
+        return {}
+    return dict(cur.group_by("team").agg(pl.col("game_id").n_unique()).iter_rows())
+
+
+def game_picks_open(g: dict, played: dict) -> bool:
+    return min(played.get(g["away"], 0), played.get(g["home"], 0)) >= GAME_PICKS_MIN_GAMES
+
 
 def load_fit() -> dict:
     try:

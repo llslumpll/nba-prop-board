@@ -16,8 +16,8 @@
   <div class="kv">
     <div><div class="k">FanDuel spread</div><div class="v">{% if c.fd.spread %}{{ c.g.home }} {{ c.fd.spread.home_point|fmtpt }} ({{ c.fd.spread.home_price_str }}){% else %}<span class="dim">no line</span>{% endif %}</div></div>
     <div><div class="k">FanDuel total</div><div class="v">{% if c.fd.total %}{{ c.fd.total.point }} ({{ c.fd.total.over_str }}/{{ c.fd.total.under_str }}){% else %}<span class="dim">no line</span>{% endif %}</div></div>
-    <div><div class="k">Our score</div><div class="v">{% if c.tp %}{{ c.g.away }} {{ c.tp.away_pts|round(0)|int }} &ndash; {{ c.g.home }} {{ c.tp.home_pts|round(0)|int }}{% else %}<span class="dim">—</span>{% endif %}</div></div>
-    <div><div class="k">Our spread / total pick</div><div class="v small">{% for f in c.team_frozen %}{{ f.market }}: {{ f.pick }}{% if f.line is defined and f.line is not none %} ({{ f.line|fmtpt if f.market == 'spread' else f.line }}){% endif %} {{ (f.chance * 100)|round(0)|int }}%{{ '; ' if not loop.last }}{% else %}<span class="dim">none frozen</span>{% endfor %}</div></div>
+    <div><div class="k">Our score (rough)</div><div class="v">{% if c.tp %}{{ c.g.away }} {{ c.tp.away_pts|round(0)|int }} &ndash; {{ c.g.home }} {{ c.tp.home_pts|round(0)|int }}{% else %}<span class="dim">—</span>{% endif %}</div></div>
+    <div><div class="k">Our spread / total pick</div><div class="v small">{% for f in c.team_frozen %}{{ f.market }}: {{ f.pick }}{% if f.line is defined and f.line is not none %} ({{ f.line|fmtpt if f.market == 'spread' else f.line }}){% endif %} {{ (f.chance * 100)|round(0)|int }}%{{ '; ' if not loop.last }}{% else %}<span class="dim">{% if c.g.game_picks_open %}none frozen{% else %}starts after {{ min_games }} games ({{ c.g.games_played }} so far){% endif %}</span>{% endfor %}</div></div>
   </div>
   <div class="two-col">
     {% for side in c.sides %}

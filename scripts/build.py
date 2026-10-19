@@ -8,6 +8,8 @@ Static site builder for PROP EDGE NBA. Writes docs/*.html for GitHub Pages.
   --pull-lines   also pull FanDuel game lines from The Odds API (3 credits)
   --pull-props   also pull FanDuel points props for games tipping within 14h
                  (1 credit per game; only runs if the lines pull succeeded)
+  --fanduel-daily  the scheduled FanDuel pull: lines once per ET day, props once
+                 per ET day (retried until FanDuel posts them); safe to repeat
   --probe        fetch Kalshi + PrizePicks, print what came back, write
                  data/probe.json, render nothing (manual workflow)
 
@@ -93,6 +95,48 @@ def pull_oddsapi(lines: bool, props: bool) -> dict:
     return status
 
 
+def _pulled_today_et(cache: dict | None, need_lines: bool = False) -> bool:
+    """True when this cache was pulled on today's US-Eastern date (and, for
+    props, actually holds lines)."""
+    from zoneinfo import ZoneInfo
+    try:
+        t = datetime.strptime((cache or {}).get("pulled_at", ""), "%Y-%m-%d %H:%M UTC").replace(tzinfo=timezone.utc)
+    except ValueError:
+        return False
+    et = ZoneInfo("America/New_York")
+    if t.astimezone(et).date() != datetime.now(timezone.utc).astimezone(et).date():
+        return False
+    return bool((cache or {}).get("lines")) if need_lines else True
+
+
+def pull_fanduel_daily() -> dict:
+    """Once-a-day FanDuel pull that is safe to attempt several times a day
+    (GitHub runs scheduled jobs late or not at all, so the workflow tries at
+    several times). Game lines: pulled once per ET day. Points props: pulled
+    once per ET day *with lines found*; an attempt where FanDuel hasn't posted
+    yet costs nothing (empty responses aren't charged) and a later attempt
+    tries again."""
+    gl, pr = _load_json(LINES_CACHE, {}), _load_json(PROPS_CACHE, {})
+    if _pulled_today_et(pr, need_lines=True):
+        print("FanDuel: game lines and points props already pulled today; nothing to do (0 credits).")
+        return {}
+    if not _pulled_today_et(gl):
+        st = pull_oddsapi(lines=True, props=True)
+        return st
+    print("FanDuel: game lines already pulled today; trying points props only.")
+    status = {}
+    rem = (oddsapi_client.current_usage() or {}).get("requests_remaining")
+    p = oddsapi_client.fetch_props(rem)
+    print(f"FanDuel props diagnostics: {p['diagnostics']}")
+    if p["error"]:
+        status["props_error"] = p["error"]
+    elif p["lines"]:
+        PROPS_CACHE.write_text(json.dumps(p, indent=1))
+    else:
+        print("No FanDuel points props posted in the window yet; a later attempt will retry.")
+    return status
+
+
 def build(args) -> None:
     now = datetime.now(timezone.utc)
     DATA.mkdir(exist_ok=True)
@@ -134,7 +178,7 @@ def build(args) -> None:
     _write_if_changed(DATA / "kalshi_raw.json", {"error": kal["error"], "diagnostics": kal["diagnostics"],
                                                   "game": kal["game"][:400]})
 
-    odds_status = pull_oddsapi(args.pull_lines, args.pull_props)
+    odds_status = pull_fanduel_daily() if args.fanduel_daily else pull_oddsapi(args.pull_lines, args.pull_props)
     gl_cache = _load_json(LINES_CACHE, {}) or {}
     pr_cache = _load_json(PROPS_CACHE, {}) or {}
     fd_games = oddsapi_client.upcoming_only(gl_cache.get("games", []))
@@ -174,9 +218,12 @@ def build(args) -> None:
                        label=est[s]["status"], why=p["why"][:400])
             frozen += predictions.freeze(rec, p["tip_utc"])
     tfrozen = 0
+    played = live.team_games_played(box)
     for g in sl["games"]:
+        g["game_picks_open"] = live.game_picks_open(g, played)
+        g["games_played"] = min(played.get(g["away"], 0), played.get(g["home"], 0))
         tp = res["teams"].get(g["game_id"])
-        if not tp:
+        if not tp or not g["game_picks_open"]:
             continue
         base = {"game_id": g["game_id"], "date": g["date"], "home": g["home"], "away": g["away"],
                 "our_margin": tp["margin"], "our_total": tp["total"]}
@@ -271,4 +318,6 @@ if __name__ == "__main__":
     ap.add_argument("--pull-lines", action="store_true")
     ap.add_argument("--pull-props", action="store_true")
     ap.add_argument("--probe", action="store_true")
+    ap.add_argument("--fanduel-daily", action="store_true",
+                    help="pull FanDuel lines/props at most once per ET day; safe to run several times")
     build(ap.parse_args())

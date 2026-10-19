@@ -18,6 +18,7 @@ from zoneinfo import ZoneInfo
 from jinja2 import Environment, FileSystemLoader
 
 import grade
+import live
 import logs
 import markets
 import model
@@ -211,7 +212,7 @@ def render_all(ctx: dict) -> None:
         pick = chance = None
         if fr:
             pick, chance = fr["pick"], fr["chance"]
-        elif tp:
+        elif tp and g.get("game_picks_open"):
             pick = g["home"] if tp["home_win"] >= 0.5 else g["away"]
             chance = max(tp["home_win"], 1 - tp["home_win"])
         why = "No projection for this game."
@@ -224,7 +225,7 @@ def render_all(ctx: dict) -> None:
         ml_rows.append({"g": g, "fd": (g.get("fanduel") or {}).get("moneyline"), "k": g.get("kalshi_ml"), "pick": pick,
                         "pick_badge": teams.badge(pick) if pick else None, "pick_chance": chance, "frozen": fr, "why": why})
     team_rec = {r["market"]: r for r in grade.team_record(ctx["tpreds"])}
-    write("moneyline.html", "moneyline.html", "moneyline", rows=ml_rows, team_fit=tf, ml_record=team_rec["moneyline"],
+    write("moneyline.html", "moneyline.html", "moneyline", rows=ml_rows, team_fit=tf, min_games=live.GAME_PICKS_MIN_GAMES, ml_record=team_rec["moneyline"],
           notices=_notices(ctx)[:1] + ([f"<strong>Kalshi:</strong> {ctx['sources']['kalshi']['error']}"] if ctx['sources']['kalshi']['error'] else []))
 
     # ---- matchups
@@ -242,7 +243,7 @@ def render_all(ctx: dict) -> None:
                           "q": [p["player"] for p in inj.get(tm, []) if p.get("class") in ("questionable", "probable")]})
         cards.append({"g": g, "fd": g.get("fanduel") or {}, "tp": res["teams"].get(g["game_id"]), "sides": sides,
                       "team_frozen": [v for k, v in tstore.items() if v["game_id"] == g["game_id"] and v["market"] != "moneyline"]})
-    write("matchups.html", "matchups.html", "matchups", slate=sl, cards=cards, notices=_notices(ctx)[:1])
+    write("matchups.html", "matchups.html", "matchups", slate=sl, cards=cards, min_games=live.GAME_PICKS_MIN_GAMES, notices=_notices(ctx)[:1])
 
     # ---- history
     preds = ctx["preds"]
