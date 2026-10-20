@@ -684,3 +684,43 @@ table.stat-table th { font-size: 1.15rem; letter-spacing: 0.5px; }
 .game-panel h3, .game-head, h3[style*="var(--pixel)"] { font-size: 1.6rem !important; }
 .game-panel h4, .division-head, .kalshi-subsection h5 { font-size: 1.2rem; }
 .conf-head { font-size: 1.5rem; }
+
+/* ==== Readability pass: bigger text, full width, pixel body font that matches the headings ==== */
+/* "Body" = Pixelify Sans for letters, Jersey 10 for digits (Pixelify's 5 reads like an S). */
+@font-face { font-family: "Body"; font-weight: 400; src: url("fonts/pixelify-sans-latin-400-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Body"; font-weight: 500; src: url("fonts/pixelify-sans-latin-500-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Body"; font-weight: 600; src: url("fonts/pixelify-sans-latin-600-normal.woff2") format("woff2"); font-display: swap; }
+/* digits declared last so they win over Pixelify for 0-9 */
+@font-face { font-family: "Body"; font-weight: 400; src: url("fonts/jersey-10-latin-400-normal.woff2") format("woff2"); unicode-range: U+0030-0039, U+0025, U+002B, U+2212, U+00B1; size-adjust: 128%; font-display: swap; }
+@font-face { font-family: "Body"; font-weight: 500; src: url("fonts/jersey-10-latin-400-normal.woff2") format("woff2"); unicode-range: U+0030-0039, U+0025, U+002B, U+2212, U+00B1; size-adjust: 128%; font-display: swap; }
+@font-face { font-family: "Body"; font-weight: 600; src: url("fonts/jersey-10-latin-400-normal.woff2") format("woff2"); unicode-range: U+0030-0039, U+0025, U+002B, U+2212, U+00B1; size-adjust: 128%; font-display: swap; }
+:root { --sans: "Body", "VT323", ui-monospace, monospace; --mono: "Body", "VT323", ui-monospace, monospace; }
+html, body { font-size: 19px; line-height: 1.45; }
+p.lede { max-width: none; font-size: 1.1rem; color: #c9bde3; }
+p.lede.small { font-size: 1rem; }
+.prop-card-reason, .why-reason { font-size: 1.05rem; color: #c9bde3; }
+.player-name { font-size: 1.2rem; font-weight: 600; }
+.player-sub { font-size: 0.95rem; }
+table.stat-table { font-size: 1.05rem; }
+table.stat-table td { padding-top: 12px; padding-bottom: 12px; }
+table.stat-table td strong { font-family: var(--pixel); font-weight: 400; font-size: 1.9rem; line-height: 1; color: var(--yellow); text-shadow: 2px 2px 0 #6b1300; vertical-align: -2px; }
+.pick-line { font-size: 1.1rem; font-weight: 500; }
+.chance { font-size: 1.45rem; }
+.line-list { font-size: 1rem; gap: 4px; }
+.src, .locked { font-size: 0.85rem; }
+.move { font-size: 0.85rem; }
+.spark-legend span { font-size: 0.9rem; }
+.prop-card-edge .label { font-size: 0.85rem; }
+.factor .fval { font-family: var(--pixel); font-size: 1.7rem; line-height: 1.1; color: #fff; }
+.factor .flabel { font-size: 0.8rem; }
+.kv .k { font-size: 0.8rem; }
+.kv .v { font-family: var(--pixel); font-size: 1.6rem; line-height: 1.15; }
+.kv .v.small { font-family: var(--sans); font-size: 1rem; }
+.stat-block .label { font-size: 1rem; }
+.notice, .notice.compact, .corr-warning { font-size: 0.95rem; }
+.tier, .lean-tag, .edge-tag { font-size: 0.85rem; }
+.site-foot { font-size: 0.9rem; }
+.rs { font-size: 0.95rem; }
+.why-btn { font-family: var(--pixel); font-size: 1.15rem; }
+@media (max-width: 640px) { html, body { font-size: 17px; } table.stat-table td strong { font-size: 1.6rem; } }
+table.stat-table th, table.stat-table th.num { font-family: var(--pixel); font-size: 1.15rem; letter-spacing: 0.5px; }
