@@ -281,11 +281,11 @@ def history_charts(preds: list, health: list) -> dict:
             hits += sum(bool(p["hit"]) for p in day)
             be += [p["break_even"] for p in day if p.get("break_even") is not None]
         be_avg = round(100 * sum(be) / len(be), 1) if be else None
-        refs = [{"y": 50, "color": "#8a8aa0", "label": "50%", "below": True, "left": True}]
+        refs = [{"y": 50, "color": "#ab9cc8", "label": "50%", "below": True, "left": True}]
         if be_avg:
-            refs.append({"y": be_avg, "color": "#ff2e6c", "label": f"break-even {be_avg}%"})
+            refs.append({"y": be_avg, "color": "#ff6a13", "label": f"break-even {be_avg}%"})
         acc.append({"name": name, "n": total, "rate": round(100 * hits / total, 1) if total else None, "be": be_avg,
-                    "chart": svgchart.line_chart([{"points": pts, "color": "#ffd400"}], height=170, references=refs,
+                    "chart": svgchart.line_chart([{"points": pts, "color": "#ffc531"}], height=170, references=refs,
                                                  x_labels=xl, y_suffix="%", label=f"{name} daily hit rate")
                     if sum(1 for x in pts if x is not None) >= 2 else None})
     out["accuracy"] = acc
@@ -297,8 +297,8 @@ def history_charts(preds: list, health: list) -> dict:
         said.append(round(100 * sum(p["chance"] for p in day) / len(day), 1) if day else None)
         got.append(round(100 * sum(bool(p["hit"]) for p in day) / len(day), 1) if day else None)
     out["calibration_chart"] = svgchart.line_chart(
-        [{"points": got, "color": "#ffd400"}, {"points": said, "color": "#00e5ff"}],
-        height=200, references=[{"y": 50, "color": "#8a8aa0"}], x_labels=xl, y_suffix="%",
+        [{"points": got, "color": "#ffc531"}, {"points": said, "color": "#4f86ff"}],
+        height=200, references=[{"y": 50, "color": "#ab9cc8"}], x_labels=xl, y_suffix="%",
         label="stated chance vs actual hit rate by day") if len(dates) >= 2 else None
 
     # does value (chance minus break-even) mean anything?
@@ -333,8 +333,8 @@ def history_charts(preds: list, health: list) -> dict:
                 series.append(round(100 * r["hits"] / r["graded"], 1) if r["graded"] else None)
             tracks.append({"name": f"{name}: {lst_name}", "n": tot_n, "hits": tot_h,
                            "rate": round(100 * tot_h / tot_n, 1) if tot_n else None, "rows": rows,
-                           "chart": svgchart.line_chart([{"points": series, "color": "#00ff41"}], height=150,
-                                                        references=[{"y": 50, "color": "#ff2e6c", "label": "50%"}],
+                           "chart": svgchart.line_chart([{"points": series, "color": "#3dff8f"}], height=150,
+                                                        references=[{"y": 50, "color": "#ff6a13", "label": "50%"}],
                                                         x_labels=(_date_label(days[-1]), _date_label(days[0])),
                                                         y_suffix="%", label=f"{name} {lst_name} daily hit rate")
                            if sum(1 for x in series if x is not None) >= 2 else None})
@@ -343,7 +343,7 @@ def history_charts(preds: list, health: list) -> dict:
     # pipeline health: lines matched per source, per build
     h = health[-80:]
     if len(h) >= 2:
-        srcs = [("prizepicks", "#ff2e6c"), ("kalshi", "#00e5ff"), ("fanduel", "#00ff41")]
+        srcs = [("prizepicks", "#ff6a13"), ("kalshi", "#4f86ff"), ("fanduel", "#3dff8f")]
         ymax = max([max((x.get("lines") or {}).values(), default=0) for x in h] + [10])
         out["health_chart"] = svgchart.line_chart(
             [{"points": [(x.get("lines") or {}).get(sname, 0) for x in h], "color": c} for sname, c in srcs],

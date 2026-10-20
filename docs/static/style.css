@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+/* Fonts are stored on the site itself (docs/static/fonts), no Google Fonts needed. */
+@font-face { font-family: "Press Start 2P"; src: url("fonts/press-start-2p-latin-400-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "VT323"; src: url("fonts/vt323-latin-400-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Jersey 10"; src: url("fonts/jersey-10-latin-400-normal.woff2") format("woff2"); font-display: swap; }
 
 :root {
   --bg: #0a0a0f;
@@ -632,3 +635,52 @@ table.stat-table td.nowrap, table.stat-table th.nowrap { white-space: nowrap; ov
 .spark-legend span { display: block; }
 .spark-legend .spark-dot { display: inline-block; margin-right: 4px; vertical-align: middle; }
 @media (max-width: 640px) { .prop-card { padding: 14px 12px; } .prop-card-edge { text-align: left; } }
+
+/* ==== NBA look: "On Fire" (NBA Jam / hardwood). Overrides the shared arcade base above. ==== */
+:root {
+  --bg: #130b22; --bg-card: #1e1236; --line: #3f2b66; --text: #fff3e3; --text-dim: #ab9cc8;
+  --pink: #ff6a13; --cyan: #4f86ff; --yellow: #ffc531; --amber: #ffc531;
+  --green: #3dff8f; --red: #ff3d57;
+  --pixel: "Jersey 10", "Press Start 2P", monospace;
+  --mono: "VT323", ui-monospace, monospace; --sans: "VT323", ui-monospace, monospace;
+}
+html, body { background:
+  radial-gradient(ellipse 900px 420px at 50% -120px, rgba(255,106,19,0.22), transparent 70%),
+  repeating-linear-gradient(90deg, rgba(255,255,255,0.018) 0 46px, rgba(0,0,0,0.05) 46px 48px), var(--bg); background-attachment: fixed; }
+body::after { background: repeating-linear-gradient(0deg, rgba(0,0,0,0.16) 0 1px, transparent 1px 4px); }
+.site-head { background: linear-gradient(180deg, #1f0f35, var(--bg)); border-bottom: 0; box-shadow: 0 5px 0 0 var(--pink), 0 10px 0 0 var(--yellow), 0 14px 0 0 #b3200f; margin-bottom: 14px; align-items: center; }
+.brand { font-size: 2.6rem; line-height: 1; letter-spacing: 1px; color: var(--yellow); text-shadow: 3px 3px 0 var(--pink), 6px 6px 0 #6b1300; }
+.brand::before { content: "\1F3C0"; font-size: 1.7rem; margin-right: 10px; vertical-align: 4px; filter: saturate(1.4); }
+.brand:hover { color: var(--yellow); }
+.brand-sub { font-family: var(--pixel); font-size: 1.3rem; color: var(--bg); background: var(--cyan); padding: 0 8px 2px; margin-left: 10px; vertical-align: 8px; text-shadow: none; box-shadow: 3px 3px 0 #1a2f80; }
+.site-nav a { font-family: var(--pixel); font-size: 1.35rem; line-height: 1.1; padding: 4px 14px; border: 3px solid var(--line); background: #1a0f2e; color: var(--text-dim); transform: skewX(-8deg); }
+.site-nav a.active, .site-nav a:hover { background: var(--pink); border-color: var(--yellow); color: #fff; box-shadow: 3px 3px 0 #6b1300; }
+.sys-tagline { color: var(--yellow); border-bottom: 3px solid var(--line); font-family: var(--pixel); font-size: 1.25rem; letter-spacing: 3px; background: repeating-linear-gradient(-45deg, #1b0f30 0 10px, #170c29 10px 20px); }
+h1 { font-size: 3rem; line-height: 1; color: #fff; text-shadow: 3px 3px 0 var(--pink), 6px 6px 0 #6b1300; letter-spacing: 1px; }
+h2 { font-size: 1.9rem; color: var(--yellow); border-top: 3px dashed var(--line); letter-spacing: 1px; }
+h2::before { content: "\25B6 "; color: var(--pink); }
+.stat-strip { background: var(--pink); border-color: var(--pink); }
+.stat-block { background: linear-gradient(180deg, #24163f, var(--bg-card)); }
+.stat-block .num { font-size: 2.6rem; line-height: 1; color: var(--yellow); text-shadow: 2px 2px 0 #6b1300; }
+.chance { font-size: 1.3rem; }
+.prop-card, .game-card, .summary-card, .chart-panel { border: 3px solid var(--line); border-top: 6px solid var(--pink); box-shadow: 6px 6px 0 0 #07030f; }
+.prop-card-edge .num { font-size: 2.4rem; line-height: 1; color: var(--yellow); text-shadow: 2px 2px 0 #6b1300; }
+.summary-card h3, .chart-panel h3, .game-card h3, .empty-state h3 { font-size: 1.5rem; }
+.game-tab { font-family: var(--pixel); font-size: 1.3rem; transform: skewX(-8deg); }
+.game-tab.active { background: var(--pink); border-color: var(--yellow); color: #fff; }
+.team-badge { font-family: "Press Start 2P", monospace; }
+.notice { background: #241634; border-color: var(--yellow); }
+table.stat-table th { color: var(--yellow); }
+table.stat-table td { border-bottom-color: #2a1c48; }
+table.stat-table tr:hover td { background: #261843; }
+.site-foot { border-top: 0; box-shadow: 0 -5px 0 0 var(--pink), 0 -10px 0 0 var(--yellow); }
+.side-under { color: var(--cyan); }
+.rank-bar { background: linear-gradient(90deg, var(--pink), var(--yellow)); }
+.why-btn.open { background: #1c2650; }
+tr.why-detail td { background: #170e2b; }
+@media (max-width: 640px) { .brand { font-size: 2rem; } .brand::before { font-size: 1.3rem; } .brand-sub { font-size: 1rem; } .sys-tagline { font-size: 0.95rem; letter-spacing: 1px; } h1 { font-size: 2.2rem; } .site-nav a { font-size: 1.15rem; } }
+/* Jersey 10 runs much smaller than Press Start 2P at the same size, so scale up the small pixel headings. */
+table.stat-table th { font-size: 1.15rem; letter-spacing: 0.5px; }
+.game-panel h3, .game-head, h3[style*="var(--pixel)"] { font-size: 1.6rem !important; }
+.game-panel h4, .division-head, .kalshi-subsection h5 { font-size: 1.2rem; }
+.conf-head { font-size: 1.5rem; }

@@ -13,8 +13,8 @@ from __future__ import annotations
 
 from html import escape
 
-GREEN, RED, YELLOW, CYAN, PINK = "#00ff41", "#ff2e6c", "#ffd400", "#00e5ff", "#ff2e6c"
-GRID, AXIS, TEXT = "rgba(255,255,255,0.07)", "#8a8aa0", "#f0f0f0"
+GREEN, RED, YELLOW, CYAN, PINK = "#3dff8f", "#ff3d57", "#ffc531", "#4f86ff", "#ff6a13"
+GRID, AXIS, TEXT = "rgba(255,255,255,0.07)", "#ab9cc8", "#fff3e3"
 FONT = 'font-family="VT323, ui-monospace, monospace"'
 
 
