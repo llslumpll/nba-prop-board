@@ -895,3 +895,73 @@ td.bx .pp-fz { text-align: right; }
 .money-strip .num.stat-good { color: var(--green); } .money-strip .num.stat-bad { color: var(--red); }
 .team-row-lite td { background: #150c28; }
 .rec-up { color: #062a14; background: var(--green); padding: 0 6px; } .rec-down { color: #fff; background: var(--red); padding: 0 6px; }
+
+/* ==== Player pages ==== */
+a.tc-name, a.bx-name, a.plink { color: #fff; }
+a.tc-name:hover, a.bx-name:hover, a.plink:hover { color: var(--yellow); text-decoration: none; }
+.ph { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; align-items: end; background: var(--bg-card); border: 3px solid var(--line); box-shadow: 6px 6px 0 #07030f; padding: 22px 20px 18px; position: relative; }
+.ph::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 8px; background: var(--tc); box-shadow: 0 3px 0 var(--pink); }
+.ph-name { display: flex; align-items: center; gap: 4px; }
+.ph-name h1 { margin: 0; font-size: 3rem; }
+.ph-name .team-badge { height: 36px; min-width: 56px; font-size: 0.65rem; }
+.ph-sub { color: var(--text-dim); margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.ph-sub .st { font-size: 1.2rem; }
+.ph-rec { text-align: right; }
+.ph-rec .recent-strip { justify-content: flex-end; }
+.ph-rec-big { font-family: var(--pixel); font-size: 3rem; line-height: 1; }
+.pt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 10px 0 16px; }
+.pt-card { background: var(--bg-card); border: 3px solid var(--line); padding: 12px 14px; box-shadow: 4px 4px 0 #07030f; }
+.pt-stat { font-family: var(--pixel); font-size: 1.5rem; color: var(--yellow); margin-bottom: 4px; }
+.why-detail-box { background: #120a2c; padding: 12px 14px; border: 2px solid var(--line); }
+.gl-pick { display: block; font-size: 0.7rem; color: var(--text-dim); }
+.psearch { margin: 0 0 12px; }
+.psearch input { width: 100%; max-width: 420px; font: inherit; font-weight: 700; color: var(--text); background: #1a0f2e; border: 3px solid var(--line); padding: 8px 12px; }
+.psearch input:focus { outline: none; border-color: var(--yellow); }
+@media (max-width: 760px) { .ph { grid-template-columns: 1fr; } .ph-rec { text-align: left; } .ph-rec .recent-strip { justify-content: flex-start; } .ph-name h1 { font-size: 2.1rem; } }
+
+/* ==== Slip builder ==== */
+.slip-add { font-family: var(--sans); font-weight: 800; font-size: 0.72rem; letter-spacing: .5px; padding: 2px 7px; border: 2px solid var(--yellow); background: transparent; color: var(--yellow); cursor: pointer; white-space: nowrap; }
+.slip-add:hover { background: var(--yellow); color: #1a0b00; }
+.slip-add.in-slip { background: var(--yellow); color: #1a0b00; }
+.tc-actions { margin-left: auto; display: inline-flex; gap: 8px; align-items: center; }
+.tc-foot .tc-actions .why-btn { margin-left: 0; }
+.pt-card .slip-add { margin-top: 6px; }
+td.bx .slip-add { margin-top: 2px; }
+.slip-fill { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 -4px; }
+.slip-fill .chip { font-size: 1.05rem; }
+.slip { position: fixed; right: 18px; bottom: 18px; z-index: 60; width: min(440px, calc(100vw - 24px)); background: #12091f; border: 3px solid var(--yellow); box-shadow: 6px 6px 0 #07030f, 0 0 24px rgba(255,197,49,.25); max-height: calc(100vh - 40px); display: flex; flex-direction: column; }
+.slip-bar { display: flex; align-items: center; gap: 8px; width: 100%; background: var(--yellow); color: #1a0b00; border: 0; padding: 8px 12px; font-family: var(--pixel); font-size: 1.4rem; cursor: pointer; text-align: left; }
+.slip-mini { font-family: var(--sans); font-weight: 800; font-size: 0.8rem; letter-spacing: .3px; flex: 1; }
+.slip-mini b { padding: 0 4px; }
+.ev-up { background: #062a14; color: var(--green); } .ev-down { background: #3a0710; color: #ff8a9a; }
+.ev-up-t { color: var(--green) !important; } .ev-down-t { color: var(--red) !important; }
+.slip-caret { font-size: 0.9rem; }
+.slip-body { padding: 10px 12px 12px; overflow-y: auto; }
+.slip-leg { display: flex; justify-content: space-between; gap: 8px; align-items: center; padding: 7px 0; border-bottom: 2px dashed var(--line); font-size: 0.9rem; }
+.slip-leg .pp-pick { font-size: 0.75rem; } .slip-leg .pp-ch { font-size: 1.1rem; }
+.slip-x { background: transparent; border: 2px solid var(--line); color: var(--text-dim); cursor: pointer; padding: 2px 7px; font-weight: 800; }
+.slip-x:hover { border-color: var(--red); color: var(--red); }
+.slip-type { display: flex; margin: 10px 0 6px; }
+.slip-type button { flex: 1; font-family: var(--pixel); font-size: 1.3rem; padding: 3px 0; border: 3px solid var(--line); background: #1a0f2e; color: var(--text-dim); cursor: pointer; margin-right: -3px; }
+.slip-type button.active { background: var(--pink); border-color: var(--pink); color: #fff; }
+.slip-type button:disabled { opacity: .4; cursor: not-allowed; }
+.slip-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.slip-table th { font-family: var(--pixel); font-weight: 400; color: var(--yellow); text-align: left; font-size: 1rem; padding: 3px 4px; }
+.slip-table td { padding: 3px 4px; border-bottom: 1px solid #2a1c48; }
+.slip-table .num { text-align: right; }
+.slip-mult { width: 58px; font: inherit; font-weight: 800; color: var(--text); background: #1a0f2e; border: 2px solid var(--line); padding: 1px 4px; text-align: right; }
+.slip-sum { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin: 10px 0 8px; background: var(--line); padding: 3px; }
+.slip-sum div { background: #0d0718; text-align: center; padding: 6px 2px; }
+.slip-sum em { display: block; font-style: normal; font-size: 0.65rem; color: var(--text-dim); letter-spacing: .5px; }
+.slip-sum b { font-family: var(--pixel); font-weight: 400; font-size: 1.6rem; color: var(--yellow); }
+.slip-warn p { margin: 4px 0; font-size: 0.8rem; padding: 4px 6px; }
+.sw-bad { background: #3a0710; color: #ffb3bf; } .sw-warn { background: #2e2207; color: #ffd98a; } .sw-info { background: #131a3a; color: #b9c8ff; }
+.slip-note { font-size: 0.72rem; color: var(--text-dim); margin: 8px 0; font-weight: 500; }
+.slip-btns { display: flex; gap: 8px; justify-content: flex-end; }
+.slip-btns .chip { font-size: 0.95rem; padding: 2px 10px; }
+body.has-slip .site-foot { padding-bottom: 90px; }
+@media (max-width: 760px) {
+  .slip { right: 8px; left: 8px; width: auto; bottom: 84px; max-height: calc(100vh - 110px); }
+  .slip-bar { font-size: 1.2rem; }
+}
+.slip.hidden { display: none; }

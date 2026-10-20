@@ -46,11 +46,11 @@
         {% for r in rows %}
         {% set rid = gr.key ~ '-' ~ gm.g.game_id ~ '-' ~ loop.index %}
         <tr>
-          <td><div class="player-name">{{ m.badge(r.badge) }} {{ r.player }}</div>
+          <td><div class="player-name">{{ m.badge(r.badge) }} <a class="plink" href="p-{{ r.player_id }}.html">{{ r.player }}</a></div>
               <div class="player-sub">{{ r.proj_min|round(0)|int }} min &middot; {{ r.tier }}{% if r.inj_status %} &middot; <span class="injury-flag">{{ r.inj_status }}</span>{% endif %}</div></td>
           <td>
             {% for s in gr.stat_keys %}{% set st = r.stats[s] %}
-            <div class="proj-line">{% if gr.stat_keys|length > 1 %}<span class="src">{{ stat_short[s] }}</span> {% endif %}{{ m.proj_pick(st) }}</div>
+            <div class="proj-line">{% if gr.stat_keys|length > 1 %}<span class="src">{{ stat_short[s] }}</span> {% endif %}{{ m.proj_pick(st, r, s, gm.g) }}</div>
             {% endfor %}
           </td>
           <td class="hide-sm"><div class="line-list">

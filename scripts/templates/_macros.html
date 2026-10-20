@@ -97,7 +97,7 @@
 <article class="tcard" style="--tc:{{ p.badge.color }}">
   <div class="tc-top">
     <div class="tc-who">
-      <div class="tc-namerow">{{ badge(p.badge) }}<span class="tc-name">{{ p.player }}</span></div>
+      <div class="tc-namerow">{{ badge(p.badge) }}<a class="tc-name" href="p-{{ p.player_id }}.html">{{ p.player }}</a></div>
       <div class="tc-sub">{{ stat_labels[p.stat] }} &middot; {{ 'vs' if p.home else '@' }} {{ p.opp }} &middot; {{ p.tip_label }}</div>
     </div>
     <div class="tc-chance">
@@ -123,7 +123,8 @@
   <div class="tc-foot">
     {{ src_name(p.line_source) }} {{ label_tag(edge[p.stat].status) }}
     {% if p.locked %}<span class="locked">locked</span>{% endif %}
-    <button class="why-btn" onclick="toggleWhy('{{ uid }}', this)">why</button>
+    <span class="tc-actions">{{ slip_leg(p.player_id, p.player, p.team, p.opp, p.game_id, p.stat, p.call, p.line, p.chance, p.line_source, p.locked) }}
+    <button class="why-btn" onclick="toggleWhy('{{ uid }}', this)">why</button></span>
   </div>
   <div class="tc-why hidden" data-why-panel="{{ uid }}">
     <p class="prop-card-reason">{{ p.why }}</p>
@@ -145,6 +146,8 @@
 
 {% macro tgrid(picks, kind, edge, prefix, empty_text) %}
 {% if picks %}
+{% set open_legs = [] %}{% for p in picks if not p.locked %}{% set _ = open_legs.append({"id": p.player_id ~ "|" ~ stat_short.get(p.stat, p.stat) ~ "|" ~ p.game_id, "player": p.player, "pid": p.player_id, "team": p.team, "opp": p.opp, "gid": p.game_id, "stat": stat_short.get(p.stat, p.stat), "side": p.call, "line": p.line, "chance": p.chance, "src": p.line_source}) %}{% endfor %}
+{% if open_legs %}<div class="slip-fill"><button class="chip" type="button" data-fill='{{ open_legs|tojson }}'>+ ADD ALL TO SLIP</button><button class="chip" type="button" data-fill='{{ open_legs|tojson }}' data-one-per-game="1">+ ADD, MAX 1 PER GAME</button></div>{% endif %}
 <div class="tgrid">{% for p in picks %}{{ tcard(p, kind, edge, prefix ~ '-' ~ loop.index) }}{% endfor %}</div>
 {% else %}
 <div class="empty-state"><h3>Nothing here yet</h3><p>{{ empty_text }}</p></div>
@@ -158,13 +161,20 @@
 {% macro game_stripe(g) -%}style="--ca:{{ g.away_badge.color }};--ch:{{ g.home_badge.color }}"{%- endmacro %}
 
 {# Projection cell: labeled PROJ number + colored pick pill (green over / red under). #}
-{% macro proj_pick(st, compact=false) -%}
+{% macro slip_leg(pid, player, team, opp, gid, stat, side, line, chance, src, started) -%}
+{%- if not started -%}
+<button class="slip-add" type="button" title="Add to slip" data-leg='{{ {"id": pid ~ "|" ~ stat ~ "|" ~ gid, "player": player, "pid": pid, "team": team, "opp": opp, "gid": gid, "stat": stat_short.get(stat, stat), "side": side, "line": line, "chance": chance, "src": src}|tojson }}'>+ SLIP</button>
+{%- endif -%}
+{%- endmacro %}
+
+{% macro proj_pick(st, r=none, s=none, g=none) -%}
 <span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>{{ st.proj }}</b></span>
   {% if st.pick %}<span class="pp-pick pp-{{ st.pick.side|lower }}">{{ 'OVER' if st.pick.side == 'OVER' else 'UNDER' }} {{ st.pick.line|fmtline }}</span><span class="pp-ch">{{ (st.pick.chance * 100)|round(0)|int }}%</span>
   {% elif st.frozen %}<span class="pp-pick pp-{{ st.frozen.call|lower }}" title="frozen before tip">&#128274; {{ st.frozen.call }} {{ st.frozen.line|fmtline }}</span><span class="pp-ch">{{ (st.frozen.chance * 100)|round(0)|int }}%</span>
   {% else %}<span class="pp-none">no line</span>{% endif %}
   {% if st.pick and st.frozen and not (st.frozen.call == st.pick.side and st.frozen.line == st.pick.line) %}<span class="pp-fz">&#128274; frozen earlier: {{ st.frozen.call }} {{ st.frozen.line|fmtline }}</span>{% endif %}
+  {% if r is not none and st.pick %}{{ slip_leg(r.player_id, r.player, r.team, r.opp, r.game_id, s, st.pick.side, st.pick.line, st.pick.chance, st.pick.source, g.started if g else false) }}{% endif %}
 </span>
 {%- endmacro %}
 

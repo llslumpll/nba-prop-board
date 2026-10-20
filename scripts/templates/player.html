@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}{{ r.player }} — Prop Edge NBA{% endblock %}
+{% block content %}
+<p class="small"><a href="players.html">&larr; All players</a></p>
+<section class="ph" style="--tc:{{ r.badge.color }}">
+  <div class="ph-main">
+    <div class="ph-name">{{ m.badge(r.badge) }}<h1>{{ r.player }}</h1></div>
+    <div class="ph-sub">{{ r.proj_min|round(0)|int }} projected min &middot; {{ 'vs' if r.home else '@' }} {{ r.opp }} &middot; {{ m.game_status(g) }} &middot; {{ r.tier }}
+      {% if r.inj_status %} &middot; <span class="injury-flag stat-bad">{{ r.inj_status }}</span>{% endif %}</div>
+    {% if r.inj_note %}<p class="small dim">{{ r.inj_note }}</p>{% endif %}
+  </div>
+  <div class="ph-rec">
+    <div class="tc-lab">OUR RECORD ON HIM</div>
+    {% if pc.record.n %}
+      <div class="ph-rec-big {{ 'stat-good' if pc.record.rate >= 50 else 'stat-bad' }}">{{ pc.record.hits }}-{{ pc.record.n - pc.record.hits }}</div>
+      <div class="small">{{ pc.record.rate }}% &middot; <span class="{{ 'stat-good' if pc.record.money.units > 0 else 'stat-bad' if pc.record.money.units < 0 }}">{{ '%+.1f'|format(pc.record.money.units) }} units</span>{% if pc.record.money.clv_rate is not none %} &middot; beat close {{ pc.record.money.clv_rate }}%{% endif %}</div>
+      {% if pc.record.recent %}<div class="recent-strip" style="margin-top:6px">{% for x in pc.record.recent %}<i class="rs rs-{{ x.s }}">{{ x.v }}</i>{% endfor %}</div>{% endif %}
+    {% else %}<div class="small dim">No graded picks yet{% if pc.record.pending %} &middot; {{ pc.record.pending }} pending{% endif %}.</div>{% endif %}
+  </div>
+</section>
+
+<h2 class="h2x" style="margin-top:22px">Tonight</h2>
+<div class="pt-grid">
+  {% for s in box_stats %}{% set st = r.stats[s] %}
+  <div class="pt-card">
+    <div class="pt-stat">{{ stat_short[s] }}</div>
+    {{ m.proj_pick(st, r, s, g) }}
+  </div>
+  {% endfor %}
+</div>
+<details class="info-collapse"><summary>Why: the reasoning and every line, for every stat and combo</summary>
+  <div class="why-detail-box">{{ m.why_block(r, box_stats + combo_stats, edge) }}</div>
+</details>
+
+<h2 class="h2x">Last {{ pc.charts[box_stats[0]].n }} games vs the line</h2>
+<div class="seg seg2" data-tabs="pchart">
+  {% for s in box_stats %}<button data-tab="{{ s }}" class="{{ 'active' if loop.first }}">{{ stat_short[s] }}</button>{% endfor %}
+</div>
+{% for s in box_stats %}{% set c = pc.charts[s] %}
+<div class="chart-panel {{ 'hidden' if not loop.first }}" data-tab-panel="pchart:{{ s }}">
+  <h3>{{ stat_labels[s] }}{% if c.line is not none %} &middot; tonight's line {{ c.line|fmtline }}{% endif %}</h3>
+  <p class="sub">{% if c.line is not none %}Green = went over tonight's line, red = under. Over in <strong>{{ c.over_n }} of {{ c.n }}</strong>.{% else %}No line tonight; bars are colored against our projection.{% endif %} Dashed outline = our projection; dotted line = season average; white tick = the line we graded that game against.</p>
+  {{ c.svg|safe }}
+</div>
+{% endfor %}
+
+<h2 class="h2x">Splits</h2>
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+  <thead><tr><th>Stat</th><th class="num">Proj</th><th class="num">Line</th><th class="num">This season</th><th class="num">Last season</th><th class="num">Last 5</th><th class="num">Last 15</th><th class="num hide-sm">Home</th><th class="num hide-sm">Away</th><th class="num">vs {{ r.opp }}</th></tr></thead>
+  <tbody>
+  {% macro sp(v, line) %}{% if v is none %}<span class="dim">—</span>{% elif line is not none %}<span class="{{ 'stat-good' if v > line else 'stat-bad' if v < line }}">{{ v }}</span>{% else %}{{ v }}{% endif %}{% endmacro %}
+  {% for x in pc.splits %}
+  <tr><td><strong>{{ stat_short[x.stat] }}</strong></td><td class="num"><strong>{{ x.proj }}</strong></td><td class="num">{{ x.line|fmtline if x.line is not none else '—' }}</td>
+    <td class="num">{{ sp(x.season, x.line) }}{% if x.season_n %} <span class="dim small">({{ x.season_n }})</span>{% endif %}</td>
+    <td class="num">{{ sp(x.last, x.line) }}{% if x.last_n %} <span class="dim small">({{ x.last_n }})</span>{% endif %}</td>
+    <td class="num">{{ sp(x.l5, x.line) }}</td><td class="num">{{ sp(x.l15, x.line) }}</td>
+    <td class="num hide-sm">{{ sp(x.home, x.line) }}</td><td class="num hide-sm">{{ sp(x.away, x.line) }}</td>
+    <td class="num">{{ sp(x.vs, x.line) }}{% if x.vs_n %} <span class="dim small">({{ x.vs_n }})</span>{% endif %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table></div></div>
+<p class="small dim">Green = above tonight's line, red = below. Home/away and vs {{ r.opp }} use the last 3 seasons; (n) = games.</p>
+
+<h2 class="h2x">Game log</h2>
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+  <thead><tr><th>Date</th><th>Opp</th><th class="num">Min</th>{% for s in box_stats %}<th class="num">{{ stat_short[s] }}</th>{% endfor %}</tr></thead>
+  <tbody>
+  {% for gl in pc.log %}
+  <tr><td>{{ gl.date }} <span class="dim small">{{ gl.season|season_label }}</span></td><td>{{ 'vs' if gl.home else '@' }} {{ gl.opp }}</td><td class="num">{{ gl.min }}</td>
+    {% for s in box_stats %}{% set c = gl.cells[s] %}<td class="num"><span class="{{ c.css }}">{{ c.v|fmtnum }}</span>{% if c.pick %}<span class="gl-pick">{{ c.pick }}</span>{% endif %}</td>{% endfor %}</tr>
+  {% else %}<tr><td colspan="8" class="dim">No regular-season games in the data yet.</td></tr>{% endfor %}
+  </tbody>
+</table></div></div>
+<p class="small dim">Last 20 regular-season games. When we had a graded pick that game, its line is shown (o = over, u = under) and the number is green if the pick hit, red if it missed.</p>
+{% endblock %}

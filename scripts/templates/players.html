@@ -11,6 +11,25 @@
 {% endif %}
 
 {% if games %}
+<div class="psearch"><input id="psearch" type="search" placeholder="Search a player…" list="plist" autocomplete="off" aria-label="Search a player">
+<datalist id="plist">{% for n, pid, t in search_index %}<option value="{{ n }}">{{ t }}</option>{% endfor %}</datalist></div>
+<script>
+  (function () {
+    var idx = {{ search_index|tojson }}, box = document.getElementById('psearch');
+    box.addEventListener('input', function () {
+      var q = box.value.trim().toLowerCase();
+      for (var i = 0; i < idx.length; i++) { if (idx[i][0].toLowerCase() === q) { location.href = 'p-' + idx[i][1] + '.html'; return; } }
+      document.querySelectorAll('.boxscore tbody tr').forEach(function (tr) {
+        var n = tr.querySelector('.bx-name');
+        if (!n) { if (!tr.classList.contains('team-row')) return; tr.style.display = q ? 'none' : ''; return; }
+        var show = !q || n.textContent.toLowerCase().indexOf(q) >= 0;
+        tr.style.display = show ? '' : 'none';
+        var nx = tr.nextElementSibling;
+        if (nx && nx.classList.contains('why-detail') && !show) nx.classList.add('hidden');
+      });
+    });
+  })();
+</script>
 <div class="chips" data-gamefilter="1">
   <button data-tab="all" class="chip active">ALL GAMES</button>
   {% for gm in games %}<button data-tab="{{ gm.g.game_id }}" class="chip">{{ gm.g.away }} @ {{ gm.g.home }}</button>{% endfor %}
@@ -29,10 +48,10 @@
       {% for r in tm.rows %}
       {% set rid = gm.g.game_id ~ '-' ~ loop.index ~ '-' ~ tm.badge.abbr %}
       <tr>
-        <td class="bx-pcol"><span class="bx-name">{{ r.player }}</span>
+        <td class="bx-pcol"><a class="bx-name" href="p-{{ r.player_id }}.html">{{ r.player }}</a>
           <div class="tc-sub">{{ r.proj_min|round(0)|int }} min{% if r.inj_status %} &middot; <span class="injury-flag">{{ r.inj_status }}</span>{% endif %}</div></td>
         {% for s in box_stats %}{% set st = r.stats[s] %}
-        <td class="bx">{{ m.proj_pick(st) }}</td>
+        <td class="bx">{{ m.proj_pick(st, r, s, gm.g) }}</td>
         {% endfor %}
         <td class="nowrap"><button class="why-btn" onclick="toggleWhy('{{ rid }}', this)">why</button></td>
       </tr>

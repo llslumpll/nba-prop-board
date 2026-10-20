@@ -18,6 +18,7 @@
   <main class="site-main">
     {% block content %}{% endblock %}
   </main>
+  <aside id="slip" class="slip hidden" aria-label="Your slip"></aside>
   <nav class="bottom-nav" aria-label="Pages">
     {% for slug, label, href in nav_pages %}<a href="{{ href }}" class="{{ 'active' if current_page == slug else '' }}"><span class="bn-ic">{{ nav_icon[slug] }}</span>{{ label }}</a>{% endfor %}
   </nav>
@@ -73,10 +74,11 @@
       });
     });
   </script>
+  <script src="static/slip.js?v={{ cache_bust }}"></script>
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>
-    <div class="foot-row foot-dim"><span>BUILD: {{ build_time }} &middot; via GitHub Actions</span></div>
+    {% if build_time %}<div class="foot-row foot-dim"><span>BUILD: {{ build_time }} &middot; via GitHub Actions</span></div>{% endif %}
   </footer>
 </body>
 </html>

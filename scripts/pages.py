@@ -85,6 +85,14 @@ def _season_label(s):
     return f"{int(s) - 1}-{str(int(s))[-2:]}"
 
 
+def _css_hash() -> str:
+    import hashlib
+    try:
+        return hashlib.md5((DOCS / "static" / "style.css").read_bytes()).hexdigest()[:10]
+    except Exception:  # noqa: BLE001
+        return "0"
+
+
 def _env():
     env = Environment(loader=FileSystemLoader(str(TEMPLATES)), autoescape=True, trim_blocks=True, lstrip_blocks=True)
     env.filters.update(fmtline=_fmtline, fmtpt=_fmtpt, fmtnum=_fmtnum, season_label=_season_label)
@@ -166,7 +174,7 @@ def _games_index(box) -> dict:
     if box is None or not box.height:
         return {}
     played = model._with_combos(box.filter((pl.col("season_type") == model.REGULAR) & pl.col("played")))
-    cols = ["player_id", "game_id", "date", "season", "opp"] + list(model.STATS)
+    cols = ["player_id", "game_id", "date", "season", "opp", "team", "home", "min"] + list(model.STATS)
     idx: dict = {}
     for r in played.select(cols).sort("date").iter_rows(named=True):
         idx.setdefault(r["player_id"], []).append(r)
@@ -242,6 +250,65 @@ def card_details(p: dict, gidx: dict, graded: dict, prow: dict | None, n_recent:
         "vs_opp": {"n": len(vs), "avg": round(sum(vs) / len(vs), 1), "best": max(vs),
                    "over": sum(1 for v in vs if line is not None and won(v, line) == "over")} if vs else None,
     }
+
+
+def _avg(vals):
+    return round(sum(vals) / len(vals), 1) if vals else None
+
+
+def player_page(r: dict, g: dict, gidx: dict, ppreds: list) -> dict:
+    """Everything the player page needs: per-stat charts vs tonight's line,
+    splits, game log (with our graded picks marked) and our record on him."""
+    from dataio import CURRENT_SEASON
+    games = gidx.get(r["player_id"], [])
+    graded_by = {(p["game_id"], p["stat"]): p for p in ppreds if p.get("status") in ("graded", "push")}
+    charts, splits = {}, []
+    for s in BOX_STATS:
+        st = r["stats"][s]
+        line = (st.get("pick") or {}).get("line")
+        if line is None and st.get("frozen"):
+            line = st["frozen"]["line"]
+        ref = line if line is not None else st["proj"]
+        bars = []
+        for gg in games[-15:]:
+            gp = graded_by.get((gg["game_id"], s))
+            v = gg[s]
+            bars.append({"label": f"{gg['date'].month}/{gg['date'].day}", "value": v,
+                         "threshold": gp["line"] if gp else None,
+                         "status": "over" if v > ref else "under" if v < ref else "push"})
+        bars.append({"label": "PROJ", "value": st["proj"], "threshold": None, "status": "projection"})
+        cur = [gg[s] for gg in games if gg["season"] == CURRENT_SEASON]
+        last = [gg[s] for gg in games if gg["season"] == CURRENT_SEASON - 1]
+        base = _avg(cur) if cur else _avg(last)
+        charts[s] = {"svg": svgchart.bar_chart_with_threshold(bars, line=line, baseline=base,
+                                                              label=f"{r['player']} {model.STAT_LABEL[s]}, last {len(bars) - 1} games"),
+                     "line": line, "n": len(bars) - 1,
+                     "over_n": sum(1 for b in bars[:-1] if line is not None and b["value"] > line)}
+        l3 = [gg for gg in games if gg["season"] >= CURRENT_SEASON - 2]
+        splits.append({"stat": s, "proj": st["proj"], "line": line,
+                       "season": _avg(cur), "season_n": len(cur), "last": _avg(last), "last_n": len(last),
+                       "l5": _avg([gg[s] for gg in games[-5:]]), "l15": _avg([gg[s] for gg in games[-15:]]),
+                       "home": _avg([gg[s] for gg in l3 if gg["home"]]), "away": _avg([gg[s] for gg in l3 if not gg["home"]]),
+                       "vs": _avg([gg[s] for gg in l3 if gg["opp"] == r["opp"]]), "vs_n": sum(1 for gg in l3 if gg["opp"] == r["opp"])})
+    log = []
+    for gg in reversed(games[-20:]):
+        cells = {}
+        for s in BOX_STATS:
+            gp = graded_by.get((gg["game_id"], s))
+            css = ""
+            if gp and gp.get("status") == "graded":
+                css = "stat-good" if gp["hit"] else "stat-bad"
+            cells[s] = {"v": gg[s], "css": css, "pick": f"{'o' if gp['call'] == 'OVER' else 'u'}{_fmtline(gp['line'])}" if gp else None}
+        log.append({"date": gg["date"].strftime("%b %-d"), "season": gg["season"], "opp": gg["opp"], "home": gg["home"],
+                    "min": int(round(gg["min"] or 0)), "cells": cells})
+    gr = [p for p in ppreds if p.get("status") == "graded"]
+    money = grade._money_row(ppreds) if ppreds else None
+    recent = sorted(gr, key=lambda p: (p["date"], p["stat"]))[-10:]
+    return {"charts": charts, "splits": splits, "log": log, "n_games": len(games),
+            "record": {"n": len(gr), "hits": sum(bool(p["hit"]) for p in gr),
+                       "rate": round(100 * sum(bool(p["hit"]) for p in gr) / len(gr), 1) if gr else None,
+                       "money": money, "pending": sum(1 for p in ppreds if p.get("status") == "pending"),
+                       "recent": [{"s": "over" if p["hit"] else "under", "v": f"{STAT_SHORT.get(p['stat'], p['stat'])}"} for p in recent]}}
 
 
 def recent_strip(gidx: dict, player_id, stat: str, line, side: str | None = None, n: int = 10) -> list:
@@ -362,7 +429,7 @@ def render_all(ctx: dict) -> None:
     env = _env()
     now = ctx["now"]
     common = {"nav_pages": NAV, "nav_icon": NAV_ICON, "build_time": now.strftime("%Y-%m-%d %H:%M UTC"),
-              "cache_bust": str(int(now.timestamp()))}
+              "cache_bust": _css_hash()}
     DOCS.mkdir(exist_ok=True)
     (DOCS / ".nojekyll").touch()
     sl, res, edge = ctx["slate"], ctx["res"], ctx["edge"]
@@ -370,9 +437,12 @@ def render_all(ctx: dict) -> None:
     bt = {s: v for s, v in (bt_all.get("prop_relevant") or {}).items() if s in ("pts", "reb", "ast", "fg3m", "pra")}
     written = {}
 
-    def write(name, template, slug, **kw):
-        html = env.get_template(template).render(current_page=slug, **common, **kw)
-        (DOCS / name).write_text(html)
+    def write(name, template, slug, only_if_changed=False, **kw):
+        html = env.get_template(template).render(current_page=slug, **{**common, **kw})
+        f = DOCS / name
+        if only_if_changed and f.exists() and f.read_text() == html:
+            return
+        f.write_text(html)
         written[name] = len(html)
 
     games_by_id = {g["game_id"]: g for g in sl["games"]}
@@ -415,7 +485,25 @@ def render_all(ctx: dict) -> None:
         pgames.append({"g": g, "teams": [{"badge": teams.badge(tm), "name": teams.full_name(tm),
                                           "rows": [r for r in rows if r["team"] == tm]} for tm in (g["away"], g["home"])]})
     write("players.html", "players.html", "players", slate=sl, edge=edge, games=pgames, box_stats=BOX_STATS,
+          search_index=sorted({(r["player"], r["player_id"], r["team"]) for gm in pgames for tm in gm["teams"] for r in tm["rows"]}),
           combo_stats=["pr", "pa", "ra"], notices=_notices(ctx, ["pts"]), no_history=res["no_history"])
+
+    # ---- player pages (everyone on the current slate)
+    by_player_preds = defaultdict(list)
+    for p in ctx["preds"]:
+        by_player_preds[p.get("player_id")].append(p)
+    keep_p = set()
+    for gm in pgames:
+        for tm in gm["teams"]:
+            for r in tm["rows"]:
+                pc = player_page(r, gm["g"], gidx, by_player_preds.get(r["player_id"], []))
+                name = f"p-{r['player_id']}.html"
+                keep_p.add(name)
+                write(name, "player.html", "players", only_if_changed=True, r=r, g=gm["g"], pc=pc, edge=edge,
+                      box_stats=BOX_STATS, combo_stats=["pr", "pa", "ra"], build_time=None)
+    for f in DOCS.glob("p-*.html"):
+        if f.name not in keep_p:
+            f.unlink()
 
     # ---- picks (all stat groups on one page)
     groups = []
