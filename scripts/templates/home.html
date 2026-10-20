@@ -11,7 +11,7 @@
     <div class="rec-box rec-hit"><b>{{ record.hits }}</b><span>HITS</span></div>
     <div class="rec-box rec-miss"><b>{{ record.misses }}</b><span>MISSES</span></div>
     <div class="rec-box rec-pend"><b>{{ record.pending }}</b><span>PENDING</span></div>
-    <div class="rec-note">{% if record.rate is not none %}{{ record.rate }}% hit rate &middot; {{ record.graded }} graded{% else %}Grading starts the morning after the first games{% endif %}{% if record.void or record.push %} &middot; {{ record.void }} void, {{ record.push }} push{% endif %}</div>
+    <div class="rec-note">{% if record.rate is not none %}{{ record.rate }}% hit rate &middot; <span class="{{ 'rec-up' if record.money.units > 0 else 'rec-down' if record.money.units < 0 }}">{{ '%+.1f'|format(record.money.units) }} units</span>{% if record.money.clv_rate is not none %} &middot; beat close {{ record.money.clv_rate }}%{% endif %}{% else %}Grading starts the morning after the first games{% endif %}{% if record.void or record.push %} &middot; {{ record.void }} void, {{ record.push }} push{% endif %}</div>
   </div>
 </section>
 

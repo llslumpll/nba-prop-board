@@ -506,7 +506,18 @@ def render_all(ctx: dict) -> None:
     except Exception:  # noqa: BLE001
         retune_log = []
     hc = history_charts(preds, ctx["health"])
-    write("history.html", "history.html", "history", hc=hc, months=mlist, retune_log=retune_log, scoreboard=grade.stat_scoreboard(preds), edge=edge,
+    money = grade.money_summary(preds)
+    if len(money["series"]) >= 2:
+        lo, hi = min(money["series"] + [0]), max(money["series"] + [0])
+        pad = max(1.0, (hi - lo) * 0.15)
+        money["chart"] = svgchart.line_chart([{"points": money["series"], "color": "#3dff8f" if money["series"][-1] >= 0 else "#ff3d57"}],
+                                             height=200, y_min=lo - pad, y_max=hi + pad,
+                                             references=[{"y": 0, "color": "#ab9cc8", "label": "break even", "left": True, "below": True}],
+                                             x_labels=(_date_label(money["dates"][0]), _date_label(money["dates"][-1])),
+                                             label="Running units, 1 unit per graded pick")
+    else:
+        money["chart"] = None
+    write("history.html", "history.html", "history", hc=hc, money=money, months=mlist, retune_log=retune_log, scoreboard=grade.stat_scoreboard(preds), edge=edge,
           buckets=grade.chance_buckets(preds), best5_rec=b5rec, team_rec=grade.team_record(ctx["tpreds"]),
           maturity=grade.maturity(ctx["cal"]), bt=bt, bt_cal=bt_all.get("calibration") or {},
           bt_n=(bt.get("pts") or {}).get("n"), health=list(reversed(ctx["health"][-30:])),
@@ -574,6 +585,7 @@ def render_all(ctx: dict) -> None:
               "void": sum(1 for p in preds if p["status"] == "void"), "push": sum(1 for p in preds if p["status"] == "push")}
     record["graded"] = record["hits"] + record["misses"]
     record["rate"] = round(100 * record["hits"] / record["graded"], 1) if record["graded"] else None
+    record["money"] = grade.money_summary(preds)["total"]
     frozen_n = defaultdict(int)
     for p in preds:
         frozen_n[p["game_id"]] += 1

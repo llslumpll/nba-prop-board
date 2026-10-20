@@ -5,10 +5,46 @@
 <h1>History</h1>
 <p class="lede">Every pick frozen before tip-off, graded after the game. DNPs and scratches are voided, not counted as misses; a result exactly on a whole-number line is a push. Every individual pick is under Day by day (one page per day).</p>
 <nav class="section-tabs" aria-label="History sections">
-  <a href="#scoreboard">Scoreboard</a><a href="#trends">Accuracy trends</a><a href="#conviction">Confidence &amp; value</a>
+  <a href="#money">Profit &amp; CLV</a><a href="#scoreboard">Scoreboard</a><a href="#trends">Accuracy trends</a><a href="#conviction">Confidence &amp; value</a>
   <a href="#best5">Best 5 record</a><a href="#health">Pipeline health</a><a href="#days">Day by day</a>
 </nav>
 <div class="pager">{% for mo in months %}<a href="history-{{ mo.key }}.html">{{ mo.label }} ({{ mo.n }})</a>{% else %}<span class="dim">No monthly pages yet: the first graded picks will create one.</span>{% endfor %}</div>
+
+<h2 id="money" class="anchor">Profit &amp; closing line value</h2>
+<p class="lede small"><strong>Units:</strong> 1 unit on every graded pick at the price of its own line (FanDuel juice, Kalshi ask, PrizePicks 54.2% flex break-even, so PrizePicks units are an approximation). <strong>Closing line value (CLV):</strong> did the line move our way between when we froze the pick and tip-off? Beating the close on most picks is the earliest sign of a real edge: it shows up after about 100 picks, long before a hit rate means much.</p>
+{% set t = money.total %}
+<div class="stat-strip money-strip">
+  <div class="stat-block"><div class="num {{ 'stat-good' if t.units > 0 else 'stat-bad' if t.units < 0 else '' }}">{{ '%+.1f'|format(t.units) }}</div><div class="label">units ({{ t.graded }} graded)</div></div>
+  <div class="stat-block"><div class="num {{ 'stat-good' if t.roi is not none and t.roi > 0 else 'stat-bad' if t.roi is not none and t.roi < 0 else '' }}">{{ ('%+.1f'|format(t.roi) ~ '%') if t.roi is not none else '—' }}</div><div class="label">return per unit</div></div>
+  <div class="stat-block"><div class="num {{ 'stat-good' if t.clv_rate is not none and t.clv_rate > 50 else 'stat-bad' if t.clv_rate is not none and t.clv_rate < 50 else '' }}">{{ (t.clv_rate ~ '%') if t.clv_rate is not none else '—' }}</div><div class="label">beat the closing line ({{ t.clv_beat }} beat, {{ t.clv_lost }} lost, of {{ t.clv_n }})</div></div>
+  <div class="stat-block"><div class="num {{ 'stat-good' if t.clv_avg is not none and t.clv_avg > 0 else 'stat-bad' if t.clv_avg is not none and t.clv_avg < 0 else '' }}">{{ ('%+.2f'|format(t.clv_avg)) if t.clv_avg is not none else '—' }}</div><div class="label">avg line move our way (pts)</div></div>
+</div>
+{% if money.pending_close %}<p class="small dim">{{ money.pending_close }} pending pick{{ 's' if money.pending_close != 1 }} already have a closing line recorded; they count here once graded.</p>{% endif %}
+<div class="chart-panel">
+  <h3>Running units</h3>
+  <p class="sub">Cumulative profit if you'd put 1 unit on every graded pick. Green when ahead, red when behind.</p>
+  {% if money.chart %}{{ money.chart|safe }}{% else %}<div class="chart-empty">Chart appears after 2 days of graded picks.</div>{% endif %}
+</div>
+{% if money.by %}
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+  <thead><tr><th>Stat</th><th>Line</th><th class="num">Graded</th><th class="num">Units</th><th class="num">ROI</th><th class="num">Beat close</th><th class="num hide-sm">Avg CLV</th></tr></thead>
+  <tbody>
+  {% for r in money.by %}
+  <tr><td>{{ stat_labels[r.stat] }}</td><td>{{ src_labels[r.source] }}</td><td class="num">{{ r.graded }}</td>
+    <td class="num {{ 'stat-good' if r.units > 0 else 'stat-bad' if r.units < 0 else '' }}">{{ '%+.1f'|format(r.units) }}</td>
+    <td class="num {{ 'stat-good' if r.roi is not none and r.roi > 0 else 'stat-bad' if r.roi is not none and r.roi < 0 else '' }}">{{ ('%+.1f'|format(r.roi) ~ '%') if r.roi is not none else '—' }}</td>
+    <td class="num {{ 'stat-good' if r.clv_rate is not none and r.clv_rate > 50 else 'stat-bad' if r.clv_rate is not none and r.clv_rate < 50 else '' }}">{{ (r.clv_rate ~ '% of ' ~ (r.clv_beat + r.clv_lost)) if r.clv_rate is not none else '—' }}</td>
+    <td class="num hide-sm {{ 'stat-good' if r.clv_avg is not none and r.clv_avg > 0 else 'stat-bad' if r.clv_avg is not none and r.clv_avg < 0 else '' }}">{{ ('%+.2f'|format(r.clv_avg)) if r.clv_avg is not none else '—' }}</td></tr>
+  {% endfor %}
+  {% for r in money.lists %}{% if r.graded %}
+  <tr class="team-row-lite"><td colspan="2"><strong>{{ r.label }} (all stats)</strong></td><td class="num">{{ r.graded }}</td>
+    <td class="num {{ 'stat-good' if r.units > 0 else 'stat-bad' if r.units < 0 else '' }}">{{ '%+.1f'|format(r.units) }}</td>
+    <td class="num">{{ ('%+.1f'|format(r.roi) ~ '%') if r.roi is not none else '—' }}</td>
+    <td class="num">{{ (r.clv_rate ~ '%') if r.clv_rate is not none else '—' }}</td><td class="num hide-sm">{{ ('%+.2f'|format(r.clv_avg)) if r.clv_avg is not none else '—' }}</td></tr>
+  {% endif %}{% endfor %}
+  </tbody>
+</table></div></div>
+{% endif %}
 
 <h2 id="scoreboard" class="anchor">Scoreboard by stat and line</h2>
 <p class="lede small">Hit rate next to the break-even for the line we were graded against (FanDuel and Kalshi: the price of the side we picked; PrizePicks: 54.2% for a 6-pick flex, other entry types differ). Error = average distance from the result, for our projection and for the line itself.</p>
@@ -44,7 +80,7 @@
   <h3>Stated chance vs actual</h3>
   <p class="sub">Blue = the average chance we gave that day's picks. Yellow = how often they actually hit. Closer together = better calibrated.</p>
   {% if hc.calibration_chart %}{{ hc.calibration_chart|safe }}
-  <div class="legend"><span><i style="background:#00e5ff"></i>chance we gave</span><span><i style="background:#ffd400"></i>actual hit rate</span></div>
+  <div class="legend"><span><i style="background:#4f86ff"></i>chance we gave</span><span><i style="background:#ffc531"></i>actual hit rate</span></div>
   {% else %}<div class="chart-empty">Chart appears after 2 days of graded picks.</div>{% endif %}
 </div>
 </div>

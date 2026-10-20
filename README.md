@@ -233,3 +233,10 @@ python scripts/build.py --no-fetch  # light build from cache
 - **Playoffs and play-in** aren't projected yet; regular season only.
 - **Steals and blocks** aren't built yet. They are noisy.
 - **Fonts:** load from Google Fonts. If blocked, the pages fall back to a monospace font.
+
+## Freeze timing, closing line value and profit (added Oct 20)
+
+* **Freeze window:** a pick freezes at the first build within **8 hours of tip** that has a line for it (`predictions.FREEZE_WINDOW`), so projections freeze with that day's injury report behind them, not days early.
+* **Late scratches:** every build compares the OUT list for both teams with the list stored on each pending pick (`out_ctx`). If someone new is ruled out before tip, the game's picks are re-frozen with the updated projection; the original line and time are kept in `first_line` / `first_frozen_at`, and `refreezes` counts how often. Never after tip.
+* **Closing line value:** every build stores the latest pre-tip line for the pick's own source (`close_line`, plus the no-vig chance `close_mkt` where the source has prices). After tip it stops updating, so what remains is the close. History shows the % of picks where the line moved our way.
+* **Units:** 1 unit per graded pick at its own line's price (`1/break_even − 1` on a win, −1 on a loss, 0 for push/void). PrizePicks uses the 54.2% flex break-even, so its units are an approximation. Shown on History (with a running-units chart) and on the Home record box.

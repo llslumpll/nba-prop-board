@@ -205,18 +205,34 @@ def build(args) -> None:
     print(f"Slate {sl.get('date')}: {len(sl['games'])} games, {len(res['players'])} players projected, "
           f"{sum(len(v) for v in res['picks'].values())} player/stat lines matched.")
 
-    # ---- freeze
+    # ---- freeze (game-day window), re-freeze on late scratches, track closing lines
     preds_all = predictions.load_all()
     est = grade.edge_status(preds_all)
-    frozen = 0
+    outs = {}
+    for ip in inj.get("players", []):
+        if ip.get("class") == "out" and ip.get("team"):
+            outs.setdefault(ip["team"], set()).add(ip.get("player"))
+    frozen = refrozen = closes = 0
     for s, plist in res["picks"].items():
         for p in plist:
+            out_ctx = sorted(outs.get(p["team"], set()) | outs.get(p["opp"], set()))
             rec = {k: p[k] for k in ("player", "player_id", "team", "opp", "home", "game_id", "date", "stat",
                                      "tier", "proj_min", "var", "line", "chance", "break_even", "market_side")}
             rec.update(projected=p["proj"], call=p["side"], line_source=p["source"],
                        lines={src: ln["line"] for src, ln in p["lines"].items()},
-                       label=est[s]["status"], why=p["why"][:400])
-            frozen += predictions.freeze(rec, p["tip_utc"])
+                       label=est[s]["status"], why=p["why"][:400], out_ctx=out_ctx)
+            if predictions.freeze(rec, p["tip_utc"]):
+                frozen += 1
+            else:
+                refrozen += predictions.refreeze(rec, p["tip_utc"])
+            cur = predictions.get(p["date"], p["player"], s, p["game_id"])
+            if cur:
+                ln = (p["lines"] or {}).get(cur.get("line_source"))
+                if ln:
+                    mo = ln.get("market_over")
+                    mkt_side = (mo if cur["call"] == "OVER" else 1 - mo) if mo is not None else None
+                    closes += predictions.record_close(p["date"], p["player"], s, p["game_id"], ln["line"],
+                                                       round(mkt_side, 4) if mkt_side is not None else None, p["tip_utc"])
     tfrozen = 0
     played = live.team_games_played(box)
     for g in sl["games"]:
@@ -247,7 +263,8 @@ def build(args) -> None:
                                                 "pick": "OVER" if c >= 0.5 else "UNDER",
                                                 "chance": round(max(c, 1 - c), 4), "source": "fanduel"}, g["tip_utc"])
     predictions.save()
-    print(f"Froze {frozen} new player pick(s), {tfrozen} new game pick(s).")
+    print(f"Froze {frozen} new player pick(s), re-froze {refrozen} after injury news, updated {closes} closing line(s), "
+          f"{tfrozen} new game pick(s).")
 
     # ---- Best 5 / Best Value (only frozen, untipped picks can enter; tipped ones stay locked)
     best = {}
@@ -287,7 +304,7 @@ def build(args) -> None:
     health = logs.log_health({
         "mode": "heavy" if not args.no_fetch else "light",
         "slate": sl.get("date"), "games": len(sl["games"]), "players": len(res["players"]),
-        "lines": src_counts, "frozen": frozen, "team_frozen": tfrozen, "graded": gr["newly_graded"],
+        "lines": src_counts, "frozen": frozen, "refrozen": refrozen, "team_frozen": tfrozen, "graded": gr["newly_graded"],
         "errors": {k: v for k, v in {"kalshi": kal["error"], "prizepicks": pp["error"], "injuries": inj.get("error"),
                                      "rosters": rosters.get("error"), **odds_status}.items() if v},
     })

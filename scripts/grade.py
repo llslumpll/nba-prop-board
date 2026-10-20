@@ -285,3 +285,70 @@ def maturity(cal: dict) -> dict:
     pending = [i for i in items if i["status"] != "active"]
     return {"active": active, "total": len(items), "min_sample": cal.get("min_sample", MIN_SAMPLE_CAL),
             "closest": max(pending, key=lambda i: i["n"]) if pending else None}
+
+
+# ---------------------------------------------------------------------------
+# Profit (units) and closing line value
+# ---------------------------------------------------------------------------
+# Units: 1 unit risked on every graded pick at the price of the line it was
+# graded against. Each pick stores its own break-even (FanDuel: the juiced
+# price; Kalshi: the ask; PrizePicks: 54.2%, the 6-pick flex per-pick
+# break-even), and a fair payout at that price is 1/break_even - 1 per unit.
+# PrizePicks isn't really bet one pick at a time, so its units are an
+# approximation; pushes and voids are 0.
+#
+# Closing line value: the last line seen for the pick's own source before
+# tip (close_line). For an OVER, a close above our line means the market
+# moved our way (+); for an UNDER, below. When the line didn't move but the
+# price did, the change in the market's no-vig chance for our side is used.
+
+def units(p: dict) -> float | None:
+    if p.get("status") != "graded":
+        return 0.0 if p.get("status") in ("push", "void") else None
+    be = p.get("break_even") or 0.5238  # -110 if a price is missing
+    return round((1 / be - 1) if p["hit"] else -1.0, 4)
+
+
+def clv(p: dict) -> dict | None:
+    cl = p.get("close_line")
+    if cl is None or p.get("line") is None:
+        return None
+    pts = (cl - p["line"]) if p["call"] == "OVER" else (p["line"] - cl)
+    prob = None
+    if pts == 0 and p.get("close_mkt") is not None and p.get("market_side") is not None:
+        prob = round(p["close_mkt"] - p["market_side"], 4)
+    beat = 1 if pts > 0 or (prob or 0) > 0.005 else (-1 if pts < 0 or (prob or 0) < -0.005 else 0)
+    return {"pts": round(pts, 2), "prob": prob, "beat": beat}
+
+
+def _money_row(ps: list[dict]) -> dict:
+    g = [p for p in ps if p.get("status") == "graded"]
+    u = sum(units(p) or 0 for p in g)
+    cs = [c for c in (clv(p) for p in ps if p.get("status") in ("graded", "push", "void")) if c]
+    moved = [c for c in cs if c["beat"] != 0]
+    return {"graded": len(g), "units": round(u, 2), "roi": round(100 * u / len(g), 1) if g else None,
+            "clv_n": len(cs), "clv_beat": sum(c["beat"] > 0 for c in cs), "clv_lost": sum(c["beat"] < 0 for c in cs),
+            "clv_rate": round(100 * sum(c["beat"] > 0 for c in moved) / len(moved), 1) if moved else None,
+            "clv_avg": round(sum(c["pts"] for c in cs) / len(cs), 2) if cs else None}
+
+
+def money_summary(preds: list[dict]) -> dict:
+    """Totals, per stat x source, Best 5 / Best Value lists, and a running
+    units series by slate date."""
+    rows = {}
+    for p in preds:
+        rows.setdefault((p["stat"], p.get("line_source")), []).append(p)
+    by = [{"stat": s, "source": src, **_money_row(ps)} for (s, src), ps in sorted(rows.items(), key=lambda kv: (list(model.STATS).index(kv[0][0]) if kv[0][0] in model.STATS else 99, kv[0][1] or ""))]
+    by = [r for r in by if r["graded"] or r["clv_n"]]
+    lists = []
+    for tag, label in (("best5", "Best 5"), ("value", "Best Value")):
+        ps = [p for p in preds if any(t.endswith(":" + tag) for t in p.get("best5", []))]
+        lists.append({"label": label, **_money_row(ps)})
+    dates = sorted({p["date"] for p in preds if p.get("status") == "graded"})
+    run, series = 0.0, []
+    for d in dates:
+        run += sum(units(p) or 0 for p in preds if p["date"] == d and p.get("status") == "graded")
+        series.append(round(run, 2))
+    pending_close = sum(1 for p in preds if p.get("status") == "pending" and p.get("close_line") is not None)
+    return {"total": _money_row(preds), "by": by, "lists": lists, "dates": dates, "series": series,
+            "pending_close": pending_close}
