@@ -127,6 +127,7 @@
     <button class="why-btn" onclick="toggleWhy('{{ uid }}', this)">why</button></span>
   </div>
   <div class="tc-why hidden" data-why-panel="{{ uid }}">
+    <a class="pp-link" href="p-{{ p.player_id }}.html">FULL PLAYER PAGE &rarr;</a>
     <p class="prop-card-reason">{{ p.why }}</p>
     {% if p.chart %}
     <div class="prop-card-spark">

@@ -965,3 +965,8 @@ body.has-slip .site-foot { padding-bottom: 90px; }
   .slip-bar { font-size: 1.2rem; }
 }
 .slip.hidden { display: none; }
+/* Player names are links: make that obvious */
+a.tc-name, a.bx-name, a.plink { text-decoration: underline dotted var(--yellow); text-underline-offset: 4px; text-decoration-thickness: 2px; }
+a.tc-name::after, a.bx-name::after, a.plink::after { content: " \25B8"; color: var(--yellow); font-size: 0.8em; }
+.pp-link { display: inline-block; margin: 2px 0 10px; font-family: var(--pixel); font-size: 1.3rem; padding: 3px 14px; background: var(--yellow); color: #1a0b00; box-shadow: 3px 3px 0 #6b1300; }
+.pp-link:hover { color: #1a0b00; background: #fff; text-decoration: none; }

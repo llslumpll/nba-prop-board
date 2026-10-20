@@ -56,6 +56,7 @@
         <td class="nowrap"><button class="why-btn" onclick="toggleWhy('{{ rid }}', this)">why</button></td>
       </tr>
       <tr class="why-detail hidden" data-why-panel="{{ rid }}"><td colspan="{{ box_stats|length + 2 }}">
+        <a class="pp-link" href="p-{{ r.player_id }}.html">FULL PLAYER PAGE &rarr;</a>
         {{ m.why_block(r, box_stats + combo_stats, edge) }}
       </td></tr>
       {% else %}
