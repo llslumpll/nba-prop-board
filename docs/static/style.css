@@ -843,3 +843,52 @@ td.bx { text-align: right; white-space: nowrap; }
 .bottom-nav a { text-transform: uppercase; }
 /* An opened card spans the full row so its chart has room. */
 .tcard:has(.tc-why:not(.hidden)) { grid-column: 1 / -1; }
+
+/* ==== Readability v2: Oxanium (bold, squared, scoreboard feel) for all body text ==== */
+@font-face { font-family: "Oxanium"; font-weight: 500; src: url("fonts/oxanium-latin-500-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Oxanium"; font-weight: 600; src: url("fonts/oxanium-latin-600-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Oxanium"; font-weight: 700; src: url("fonts/oxanium-latin-700-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Oxanium"; font-weight: 800; src: url("fonts/oxanium-latin-800-normal.woff2") format("woff2"); font-display: swap; }
+:root { --sans: "Oxanium", "Body", ui-sans-serif, system-ui, sans-serif; --mono: "Oxanium", "Body", ui-sans-serif, system-ui, sans-serif; }
+html, body { font-size: 18px; font-weight: 600; letter-spacing: 0.1px; }
+strong, b { font-weight: 800; }
+p.lede, .prop-card-reason, .why-reason { color: #d6cbee; font-weight: 500; line-height: 1.55; }
+.player-name, .tc-sub, .player-sub { font-weight: 700; }
+.player-sub, .tc-sub { font-weight: 600; }
+table.stat-table td { font-weight: 600; }
+
+/* ==== Colors: green = over / positive / good, red = under / negative / bad ==== */
+:root { --under: #ff3d57; }
+.side-under, .s-under { color: var(--under); }
+.pill-under { background: var(--under); color: #fff; }
+
+/* ==== Projection cell: labeled projection + colored pick tag ==== */
+.pp { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+td.bx .pp { justify-content: flex-end; flex-direction: column; align-items: flex-end; gap: 4px; }
+.pp-proj { display: inline-flex; align-items: baseline; gap: 5px; }
+.pp-proj em { font-style: normal; font-size: 0.7rem; font-weight: 800; letter-spacing: 1px; color: var(--text-dim); }
+.pp-proj b { font-family: var(--pixel); font-weight: 400; font-size: 1.8rem; line-height: 1; color: #fff; }
+.pp-pick { font-family: var(--sans); font-weight: 800; font-size: 0.82rem; padding: 2px 7px; letter-spacing: .5px; white-space: nowrap; }
+.pp-over { background: var(--green); color: #062a14; }
+.pp-under { background: var(--under); color: #fff; }
+.pp-ch { font-family: var(--pixel); font-size: 1.25rem; color: var(--yellow); line-height: 1; }
+td.bx .pp-pick + .pp-ch { margin-top: -2px; }
+.pp-none { font-size: 0.8rem; color: #6d5f8f; font-weight: 600; }
+.pp-fz { flex-basis: 100%; font-size: 0.75rem; color: var(--text-dim); text-align: inherit; }
+td.bx .pp-fz { text-align: right; }
+.bx b { display: inline; }
+.proj-line { margin: 3px 0; }
+.proj-head { display: flex; align-items: center; gap: 12px; margin: 6px 0 12px; }
+.chip-sub { display: block; font-size: 0.85rem; color: inherit; opacity: .8; letter-spacing: 1px; }
+.game-chips .chip { text-align: left; min-width: 120px; }
+.game-chips { position: sticky; top: 0; z-index: 6; background: var(--bg); padding: 8px 0; }
+@media (max-width: 760px) {
+  .game-chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .game-chips::-webkit-scrollbar { display: none; }
+  .game-chips .chip { flex: 0 0 auto; }
+  .chips[data-tabs^="pg-"], .chips[data-gamefilter] { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .chips[data-tabs^="pg-"] .chip, .chips[data-gamefilter] .chip { flex: 0 0 auto; }
+  html, body { font-size: 16px; }
+  .pp-proj b { font-size: 1.5rem; }
+}
+.injury-flag.stat-bad, .gcard .injury-flag { color: var(--red); border-color: var(--red); }

@@ -425,7 +425,7 @@ def render_all(ctx: dict) -> None:
         groups.append({"key": grp, "short": GROUP_SHORT[grp], "title": title, "lede": lede, "stat_keys": stat_keys,
                        "best5": b5, "value": bv, "warn5": _corr_warning(b5), "warnv": _corr_warning(bv)})
     write("picks.html", "picks.html", "picks", slate=sl, edge=edge, groups=groups, notices=_notices(ctx, ["pts"]),
-          empty_best=_empty_best_text(ctx))
+          empty_best=_empty_best_text(ctx), games=pgames, no_history=res["no_history"])
 
     # ---- games (moneyline + matchups)
     tstore = predictions.load_date(sl["date"], team=True) if sl.get("date") else {}

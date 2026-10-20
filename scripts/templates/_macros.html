@@ -110,7 +110,7 @@
     <div class="tc-nums">
       <span><em>PROJ</em>{{ p.projected }}</span>
       <span><em>LINE</em>{{ p.line|fmtline }}</span>
-      {% if diff is not none %}<span class="{{ 'good' if (diff > 0) == (side == 'over') else 'bad' }}"><em>EDGE</em>{{ '%+.1f'|format(diff) }}</span>{% endif %}
+      {% if diff is not none %}<span class="{{ 'good' if diff > 0 else 'bad' if diff < 0 else '' }}"><em>PROJ &minus; LINE</em>{{ '%+.1f'|format(diff) }}</span>{% endif %}
       {% if kind == 'value' %}<span><em>CHANCE</em>{{ (p.chance * 100)|round(0)|int }}%</span>{% endif %}
     </div>
   </div>
@@ -156,3 +156,26 @@
 {%- endmacro %}
 
 {% macro game_stripe(g) -%}style="--ca:{{ g.away_badge.color }};--ch:{{ g.home_badge.color }}"{%- endmacro %}
+
+{# Projection cell: labeled PROJ number + colored pick pill (green over / red under). #}
+{% macro proj_pick(st, compact=false) -%}
+<span class="pp">
+  <span class="pp-proj"><em>PROJ</em><b>{{ st.proj }}</b></span>
+  {% if st.pick %}<span class="pp-pick pp-{{ st.pick.side|lower }}">{{ 'OVER' if st.pick.side == 'OVER' else 'UNDER' }} {{ st.pick.line|fmtline }}</span><span class="pp-ch">{{ (st.pick.chance * 100)|round(0)|int }}%</span>
+  {% elif st.frozen %}<span class="pp-pick pp-{{ st.frozen.call|lower }}" title="frozen before tip">&#128274; {{ st.frozen.call }} {{ st.frozen.line|fmtline }}</span><span class="pp-ch">{{ (st.frozen.chance * 100)|round(0)|int }}%</span>
+  {% else %}<span class="pp-none">no line</span>{% endif %}
+  {% if st.pick and st.frozen and not (st.frozen.call == st.pick.side and st.frozen.line == st.pick.line) %}<span class="pp-fz">&#128274; frozen earlier: {{ st.frozen.call }} {{ st.frozen.line|fmtline }}</span>{% endif %}
+</span>
+{%- endmacro %}
+
+{% macro why_block(r, stat_keys, edge) %}
+{% for s in stat_keys %}{% set st = r.stats[s] %}
+<p class="why-reason"><strong>{{ stat_labels[s] }} {{ st.proj }}{% if st.pick %} &middot; {{ pick_text(st.pick.side, st.pick.line, st.pick.chance) }} {{ label_tag(edge[s].status) }}{% endif %}:</strong> {{ st.why }}
+  {% for src, ln in st.lines.items() %}<br>{{ src_labels[src] }} {{ ln.line|fmtline }}{% if ln.over_str %} ({{ ln.over_str }}/{{ ln.under_str }}){% endif %}: we give OVER {{ (ln.p_over * 100)|round(0)|int }}%{% if ln.market_side is not none %}, market {{ (ln.market_side * 100)|round(0)|int }}% for {{ ln.side }}{% endif %}{% if ln.break_even %}, break-even {{ (ln.break_even * 100)|round(1) }}% for {{ ln.side }}{% endif %}{% if ln.move %} <span class="move">moved from {{ ln.move.from|fmtline }}</span>{% endif %}.{% endfor %}
+  {% if st.frozen %}<br><span class="locked">&#128274; frozen: {{ st.frozen.call }} {{ st.frozen.line|fmtline }} ({{ st.frozen.frozen_at }})</span>{% endif %}
+  {% if st.recent %}<br>Last {{ st.recent|length }} ({{ st.pick.side|lower }} {{ st.pick.line|fmtline }}, green = would have hit): {{ recent_strip(st.recent) }}{% endif %}
+  {% if st.ladder %}<br>Kalshi ladder: {% for x in st.ladder %}{{ x.n }}+ {{ (x.mid * 100)|round(0)|int }}%{{ ', ' if not loop.last }}{% endfor %}.{% endif %}
+</p>
+{% endfor %}
+{% if r.inj_note %}<p class="why-reason dim">Injury note: {{ r.inj_note }}</p>{% endif %}
+{% endmacro %}

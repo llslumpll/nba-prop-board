@@ -17,7 +17,7 @@
 {% for gr in groups %}
 <section class="{{ 'hidden' if not loop.first }}" data-tab-panel="stat:{{ gr.key }}">
   <div class="seg seg2" data-tabs="list-{{ gr.key }}">
-    <button data-tab="best5" class="active">BEST 5</button><button data-tab="value">BEST VALUE</button>
+    <button data-tab="best5" class="active">BEST 5</button><button data-tab="value">BEST VALUE</button><button data-tab="proj">ALL PROJECTIONS</button>
   </div>
   <p class="lede small">{{ gr.lede }} &middot; {% for s in gr.stat_keys[:1] %}{{ m.label_tag(edge[s].status) }} <span class="dim small">({{ edge[s].why }})</span>{% endfor %}</p>
   <div data-tab-panel="list-{{ gr.key }}:best5">
@@ -29,6 +29,46 @@
     <p class="small dim">Where our chance beats the line's break-even by the most (FanDuel juice, Kalshi ask, or PrizePicks' 54.2% flex).</p>
     {% if gr.warnv %}<div class="corr-warning">{{ gr.warnv }}</div>{% endif %}
     {{ m.tgrid(gr.value, 'value', edge, gr.key ~ '-v', empty_best) }}
+  </div>
+  <div class="hidden" data-tab-panel="list-{{ gr.key }}:proj">
+    <p class="small dim">Every rotation player's {{ gr.title|lower }} projection, one game at a time. Tap <strong>why</strong> for the reasoning, every line and the last 10 games.</p>
+    {% if games %}
+    <div class="chips" data-tabs="pg-{{ gr.key }}">
+      {% for gm in games %}<button class="chip {{ 'active' if loop.first }}" data-tab="{{ gm.g.game_id }}">{{ gm.g.away }} @ {{ gm.g.home }}{% if gm.g.started and not gm.g.completed %} &middot; LIVE{% elif gm.g.completed %} &middot; FINAL{% endif %}</button>{% endfor %}
+    </div>
+    {% for gm in games %}
+    <div class="{{ 'hidden' if not loop.first }}" data-tab-panel="pg-{{ gr.key }}:{{ gm.g.game_id }}">
+      <div class="proj-head">{{ m.matchup(gm.g.away_badge, gm.g.home_badge) }} {{ m.game_status(gm.g) }}{% if gm.g.started %} <span class="dim small">picks locked</span>{% endif %}</div>
+      <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+        <thead><tr><th>Player</th><th>Projection &amp; pick</th><th class="hide-sm">Lines</th><th class="nowrap"></th></tr></thead>
+        <tbody>
+        {% set rows = (gm.teams[0].rows + gm.teams[1].rows)|sort(attribute='stats.' ~ gr.stat_keys[0] ~ '.proj', reverse=True) %}
+        {% for r in rows %}
+        {% set rid = gr.key ~ '-' ~ gm.g.game_id ~ '-' ~ loop.index %}
+        <tr>
+          <td><div class="player-name">{{ m.badge(r.badge) }} {{ r.player }}</div>
+              <div class="player-sub">{{ r.proj_min|round(0)|int }} min &middot; {{ r.tier }}{% if r.inj_status %} &middot; <span class="injury-flag">{{ r.inj_status }}</span>{% endif %}</div></td>
+          <td>
+            {% for s in gr.stat_keys %}{% set st = r.stats[s] %}
+            <div class="proj-line">{% if gr.stat_keys|length > 1 %}<span class="src">{{ stat_short[s] }}</span> {% endif %}{{ m.proj_pick(st) }}</div>
+            {% endfor %}
+          </td>
+          <td class="hide-sm"><div class="line-list">
+            {% for s in gr.stat_keys %}{% set st = r.stats[s] %}{% for src, ln in st.lines.items() %}
+            <span>{% if gr.stat_keys|length > 1 %}{{ stat_short[s] }} {% endif %}{{ m.src_name(src) }} {{ ln.line|fmtline }}{% if ln.over_str %} ({{ ln.over_str }}/{{ ln.under_str }}){% endif %}{% if ln.move %} <span class="move">moved from {{ ln.move.from|fmtline }}</span>{% endif %}</span>
+            {% endfor %}{% endfor %}
+            {% if not r.any_line %}<span class="dim">none posted</span>{% endif %}
+          </div></td>
+          <td class="nowrap"><button class="why-btn" onclick="toggleWhy('{{ rid }}', this)">why</button></td>
+        </tr>
+        <tr class="why-detail hidden" data-why-panel="{{ rid }}"><td colspan="4">{{ m.why_block(r, gr.stat_keys, edge) }}</td></tr>
+        {% endfor %}
+        </tbody>
+      </table></div></div>
+    </div>
+    {% endfor %}
+    {% if no_history %}<p class="small dim">No NBA box scores yet, so no projection: {% for p in no_history %}{{ p.player }} ({{ p.team }}){{ ', ' if not loop.last }}{% endfor %}.</p>{% endif %}
+    {% else %}<div class="empty-state"><h3>No slate</h3><p>No upcoming games.</p></div>{% endif %}
   </div>
 </section>
 {% endfor %}
