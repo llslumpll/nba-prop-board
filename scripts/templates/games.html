@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Games — Prop Edge NBA{% endblock %}
+{% block content %}
+<h1>Games</h1>
+<p class="lede">Every game on the {{ slate.date_label or 'next' }} slate: moneyline, spread and total from FanDuel and Kalshi, our projected score and pick, who is out, and each team's top projected players.</p>
+<details class="info-collapse"><summary>About our game picks ({{ ml_record.hits }}/{{ ml_record.n }} graded{% if ml_record.hit_rate is not none %}, {{ ml_record.hit_rate }}%{% endif %})</summary>
+<div class="notice compact"><strong>Game picks start once both teams have played {{ min_games }} games.</strong> Our team scores are the sum of player projections, and early in a season that sum runs high (players who changed teams still project like their old role). Until then this page shows market prices only.</div>
+<div class="notice compact"><strong>Our game picks are leans.</strong> On the 2025-26 season this method picked {{ team_fit.winner_pct }}% of winners, and its margin missed by {{ team_fit.margin_sd }} points (standard deviation), less sharp than a typical closing line.</div>
+{% for n in notices %}<div class="notice compact">{{ n|safe }}</div>{% endfor %}
+</details>
+
+{% for c in cards %}
+<section class="gcard">
+  <div class="bs-head" {{ m.game_stripe(c.g) }}>
+    <div class="bs-teams">{{ m.badge(c.g.away_badge) }}<span class="sb-at">@</span>{{ m.badge(c.g.home_badge) }}</div>
+    <div class="gc-right">{{ m.game_status(c.g) }}{% if c.g.note %} <span class="dim small">{{ c.g.note }}</span>{% endif %}</div>
+  </div>
+  <div class="gc-body">
+    <div class="kv">
+      <div><div class="k">FanDuel moneyline</div><div class="v">{% if c.ml %}{{ c.g.away }} {{ c.ml.away_str }} &middot; {{ c.g.home }} {{ c.ml.home_str }}<div class="kv-sub">{{ c.ml.away_prob }}% / {{ c.ml.home_prob }}% no-vig</div>{% else %}<span class="dim">no line</span>{% endif %}</div></div>
+      <div><div class="k">Kalshi</div><div class="v">{% if c.k and (c.k.home_prob is not none or c.k.away_prob is not none) %}{{ c.g.away }} {{ c.k.away_prob if c.k.away_prob is not none else '—' }}% &middot; {{ c.g.home }} {{ c.k.home_prob if c.k.home_prob is not none else '—' }}%{% else %}<span class="dim">no quote</span>{% endif %}</div></div>
+      <div><div class="k">FanDuel spread</div><div class="v">{% if c.fd.spread %}{{ c.g.home }} {{ c.fd.spread.home_point|fmtpt }}<div class="kv-sub">{{ c.fd.spread.home_price_str }}</div>{% else %}<span class="dim">no line</span>{% endif %}</div></div>
+      <div><div class="k">FanDuel total</div><div class="v">{% if c.fd.total %}{{ c.fd.total.point }}<div class="kv-sub">{{ c.fd.total.over_str }} / {{ c.fd.total.under_str }}</div>{% else %}<span class="dim">no line</span>{% endif %}</div></div>
+      <div><div class="k">Our score (rough)</div><div class="v">{% if c.tp %}{{ c.g.away }} {{ c.tp.away_pts|round(0)|int }} &ndash; {{ c.g.home }} {{ c.tp.home_pts|round(0)|int }}{% else %}<span class="dim">—</span>{% endif %}</div></div>
+      <div><div class="k">Our pick</div><div class="v">
+        {% if c.pick %}{{ m.badge(c.pick_badge) }} <span class="chance">{{ (c.pick_chance * 100)|round(0)|int }}%</span> <span class="lean-tag">lean</span>{% if c.frozen %} <span class="locked">frozen</span>{% endif %}
+        {% for f in c.team_frozen %}<div class="kv-sub">{{ f.market }}: {{ f.pick }}{% if f.line is defined and f.line is not none %} ({{ f.line|fmtpt if f.market == 'spread' else f.line }}){% endif %} {{ (f.chance * 100)|round(0)|int }}%</div>{% endfor %}
+        {% elif not c.g.game_picks_open %}<span class="kv-small dim">after {{ min_games }} games ({{ c.g.games_played }} so far)</span>{% else %}<span class="dim">—</span>{% endif %}
+      </div></div>
+    </div>
+    <div class="gc-why"><button class="why-btn" onclick="toggleWhy('g{{ loop.index }}', this)">why</button><p class="why-reason hidden" data-why-panel="g{{ loop.index }}">{{ c.why }}</p></div>
+    <div class="two-col">
+      {% for side in c.sides %}
+      <div>
+        <div class="gc-team">{{ m.badge(side.badge) }} {{ side.name }}</div>
+        {% if side.out %}<p class="small"><span class="injury-flag">Out:</span> {{ side.out|join(', ') }}</p>{% endif %}
+        {% if side.q %}<p class="small dim">Questionable / day-to-day: {{ side.q|join(', ') }}</p>{% endif %}
+        <div class="table-scroll"><table class="stat-table">
+          <thead><tr><th>Player</th><th class="num">Min</th><th class="num">Pts</th><th class="num">Reb</th><th class="num">Ast</th><th class="num">3PM</th></tr></thead>
+          <tbody>
+          {% for r in side.players %}
+          <tr><td>{{ r.player }}</td><td class="num">{{ r.proj_min|round(0)|int }}</td><td class="num">{{ r.stats.pts.proj }}</td><td class="num">{{ r.stats.reb.proj }}</td><td class="num">{{ r.stats.ast.proj }}</td><td class="num">{{ r.stats.fg3m.proj }}</td></tr>
+          {% else %}<tr><td colspan="6" class="dim">no projections</td></tr>{% endfor %}
+          </tbody>
+        </table></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% else %}
+<div class="empty-state"><h3>No games</h3><p>No upcoming games in the schedule.</p></div>
+{% endfor %}
+{% endblock %}

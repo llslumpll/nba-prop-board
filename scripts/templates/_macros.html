@@ -85,3 +85,74 @@
 {% macro recent_strip(items) -%}
 {% if items %}<span class="recent-strip" title="last {{ items|length }} games: green = this pick would have hit">{% for x in items %}<i class="rs rs-{{ x.s }}">{{ x.v|fmtnum }}</i>{% endfor %}</span>{% endif %}
 {%- endmacro %}
+
+{% macro meter(chance) -%}
+{% set k = (chance * 10)|round(0)|int %}<span class="meter" aria-hidden="true">{% for i in range(10) %}<i class="{{ 'on' if i < k }}"></i>{% endfor %}</span>
+{%- endmacro %}
+
+{# Trading-card pick. kind = 'best5' | 'value'. Full chart + factors live behind "why". #}
+{% macro tcard(p, kind, edge, uid) %}
+{% set side = 'over' if p.call == 'OVER' else 'under' %}
+{% set diff = (p.projected - p.line) if p.line is not none else none %}
+<article class="tcard" style="--tc:{{ p.badge.color }}">
+  <div class="tc-top">
+    <div class="tc-who">
+      <div class="tc-namerow">{{ badge(p.badge) }}<span class="tc-name">{{ p.player }}</span></div>
+      <div class="tc-sub">{{ stat_labels[p.stat] }} &middot; {{ 'vs' if p.home else '@' }} {{ p.opp }} &middot; {{ p.tip_label }}</div>
+    </div>
+    <div class="tc-chance">
+      {% if kind == 'value' and p.value is not none %}<b>{{ '%+.1f'|format(p.value * 100) }}</b><span class="tc-chance-l">pts over break-even</span>
+      {% else %}<b>{{ (p.chance * 100)|round(0)|int }}%</b>{{ meter(p.chance) }}{% endif %}
+    </div>
+  </div>
+  <div class="tc-pick">
+    <span class="pill pill-{{ side }}">{{ p.call }} {{ p.line|fmtline }}</span>
+    <div class="tc-nums">
+      <span><em>PROJ</em>{{ p.projected }}</span>
+      <span><em>LINE</em>{{ p.line|fmtline }}</span>
+      {% if diff is not none %}<span class="{{ 'good' if (diff > 0) == (side == 'over') else 'bad' }}"><em>EDGE</em>{{ '%+.1f'|format(diff) }}</span>{% endif %}
+      {% if kind == 'value' %}<span><em>CHANCE</em>{{ (p.chance * 100)|round(0)|int }}%</span>{% endif %}
+    </div>
+  </div>
+  {% if p.recent %}
+  <div class="tc-recent">
+    <div class="tc-lab">LAST {{ p.recent|length }} &middot; WOULD HAVE HIT <b>{{ p.recent|selectattr('s', 'equalto', 'over')|list|length }}/{{ p.recent|length }}</b></div>
+    {{ recent_strip(p.recent) }}
+  </div>
+  {% endif %}
+  <div class="tc-foot">
+    {{ src_name(p.line_source) }} {{ label_tag(edge[p.stat].status) }}
+    {% if p.locked %}<span class="locked">locked</span>{% endif %}
+    <button class="why-btn" onclick="toggleWhy('{{ uid }}', this)">why</button>
+  </div>
+  <div class="tc-why hidden" data-why-panel="{{ uid }}">
+    <p class="prop-card-reason">{{ p.why }}</p>
+    {% if p.chart %}
+    <div class="prop-card-spark">
+      {{ p.chart|safe }}
+      <div class="spark-legend">
+        <span><i class="spark-dot spark-dot-hit"></i> would have hit &nbsp; <i class="spark-dot spark-dot-miss"></i> would have missed &nbsp; <i class="spark-dot spark-dot-pending"></i> projection</span>
+        <span><i class="spark-dot spark-dot-line"></i> line {{ p.line|fmtline }} &nbsp; <i class="spark-dot spark-dot-dash"></i> {{ p.baseline_label or 'average' }}{% if p.baseline is not none %} ({{ p.baseline }}){% endif %} &nbsp; white tick = line we graded that game against</span>
+      </div>
+    </div>
+    {% endif %}
+    {% if p.tiles %}<div class="factor-grid">{% for t in p.tiles %}<div class="factor"><div class="fval stat-{{ t.css }}">{{ t.v }}</div><div class="flabel">{{ t.l }}</div></div>{% endfor %}</div>{% endif %}
+    {% if p.vs_opp %}<div class="notice compact vs-opp">vs {{ p.opp }} (last 3 seasons): {{ p.vs_opp.n }} game{{ 's' if p.vs_opp.n != 1 }}, averaging {{ p.vs_opp.avg }}, best {{ p.vs_opp.best|fmtnum }}{% if p.line is not none %}; {{ p.call|lower }} {{ p.line|fmtline }} would have hit in {{ p.vs_opp.over }} of {{ p.vs_opp.n }}{% endif %}.</div>{% endif %}
+    <p class="small dim">{{ p.tier }} &middot; frozen {{ p.frozen_at }}{% if p.lines|length > 1 %} &middot; other lines at freeze: {% for s, l in p.lines.items() if s != p.line_source %}{{ src_labels[s] }} {{ l|fmtline }}{{ ', ' if not loop.last }}{% endfor %}{% endif %}{% if kind == 'value' %} &middot; break-even {{ (p.break_even * 100)|round(1) }}%{% endif %}</p>
+  </div>
+</article>
+{% endmacro %}
+
+{% macro tgrid(picks, kind, edge, prefix, empty_text) %}
+{% if picks %}
+<div class="tgrid">{% for p in picks %}{{ tcard(p, kind, edge, prefix ~ '-' ~ loop.index) }}{% endfor %}</div>
+{% else %}
+<div class="empty-state"><h3>Nothing here yet</h3><p>{{ empty_text }}</p></div>
+{% endif %}
+{% endmacro %}
+
+{% macro game_status(g) -%}
+{% if g.completed %}<span class="st st-final">FINAL</span>{% elif g.started %}<span class="st st-live"><i></i>LIVE</span>{% else %}<span class="st">{{ g.tip_et }}</span>{% endif %}
+{%- endmacro %}
+
+{% macro game_stripe(g) -%}style="--ca:{{ g.away_badge.color }};--ch:{{ g.home_badge.color }}"{%- endmacro %}

@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Players — Prop Edge NBA{% endblock %}
+{% block content %}
+<h1>Players</h1>
+<p class="lede">Every projection for every stat on one page. Big number = our projection. Under it: our pick against the line (<span class="s-over">&#9650; over</span> / <span class="s-under">&#9660; under</span>), the line and our chance. Tap <strong>why</strong> for the reasoning, every line and the combos.</p>
+{% if notices %}
+<details class="info-collapse"><summary>{{ notices|length }} data note{{ 's' if notices|length != 1 }}</summary>
+{% for n in notices %}<div class="notice compact">{{ n|safe }}</div>{% endfor %}
+</details>
+{% endif %}
+
+{% if games %}
+<div class="chips" data-gamefilter="1">
+  <button data-tab="all" class="chip active">ALL GAMES</button>
+  {% for gm in games %}<button data-tab="{{ gm.g.game_id }}" class="chip">{{ gm.g.away }} @ {{ gm.g.home }}</button>{% endfor %}
+</div>
+{% for gm in games %}
+<section class="boxscore" data-game="{{ gm.g.game_id }}">
+  <div class="bs-head" {{ m.game_stripe(gm.g) }}>
+    <div class="bs-teams">{{ m.badge(gm.g.away_badge) }}<span class="sb-at">@</span>{{ m.badge(gm.g.home_badge) }}</div>
+    <div>{{ m.game_status(gm.g) }}{% if gm.g.started and not gm.g.completed %} <span class="dim small">picks locked</span>{% endif %}</div>
+  </div>
+  <div class="table-scroll"><table class="stat-table bxt">
+    <thead><tr><th class="bx-pcol">Player</th>{% for s in box_stats %}<th class="num">{{ stat_short[s] }}</th>{% endfor %}<th class="nowrap"></th></tr></thead>
+    <tbody>
+    {% for tm in gm.teams %}
+      <tr class="team-row"><td colspan="{{ box_stats|length + 2 }}">{{ m.badge(tm.badge) }} {{ tm.name }}</td></tr>
+      {% for r in tm.rows %}
+      {% set rid = gm.g.game_id ~ '-' ~ loop.index ~ '-' ~ tm.badge.abbr %}
+      <tr>
+        <td class="bx-pcol"><span class="bx-name">{{ r.player }}</span>
+          <div class="tc-sub">{{ r.proj_min|round(0)|int }} min{% if r.inj_status %} &middot; <span class="injury-flag">{{ r.inj_status }}</span>{% endif %}</div></td>
+        {% for s in box_stats %}{% set st = r.stats[s] %}
+        <td class="bx">
+          <b>{{ st.proj }}</b>
+          {% if st.pick %}<span class="bx-l s-{{ st.pick.side|lower }}">{{ '&#9650;'|safe if st.pick.side == 'OVER' else '&#9660;'|safe }} {{ st.pick.line|fmtline }} &middot; {{ (st.pick.chance * 100)|round(0)|int }}%</span>{% endif %}
+          {% if st.frozen and not st.pick %}<span class="bx-l s-{{ st.frozen.call|lower }}" title="frozen before tip">&#128274; {{ '&#9650;'|safe if st.frozen.call == 'OVER' else '&#9660;'|safe }} {{ st.frozen.line|fmtline }} &middot; {{ (st.frozen.chance * 100)|round(0)|int }}%</span>
+          {% elif st.frozen and not (st.frozen.call == st.pick.side and st.frozen.line == st.pick.line) %}<span class="bx-f">&#128274; frozen {{ 'o' if st.frozen.call == 'OVER' else 'u' }}{{ st.frozen.line|fmtline }}</span>{% endif %}
+        </td>
+        {% endfor %}
+        <td class="nowrap"><button class="why-btn" onclick="toggleWhy('{{ rid }}', this)">why</button></td>
+      </tr>
+      <tr class="why-detail hidden" data-why-panel="{{ rid }}"><td colspan="{{ box_stats|length + 2 }}">
+        {% for s in box_stats + combo_stats %}{% set st = r.stats[s] %}
+        <p class="why-reason"><strong>{{ stat_labels[s] }} {{ st.proj }}{% if st.pick %} &middot; {{ m.pick_text(st.pick.side, st.pick.line, st.pick.chance) }} {{ m.label_tag(edge[s].status) }}{% endif %}:</strong> {{ st.why }}
+          {% for src, ln in st.lines.items() %}<br>{{ src_labels[src] }} {{ ln.line|fmtline }}{% if ln.over_str %} ({{ ln.over_str }}/{{ ln.under_str }}){% endif %}: we give OVER {{ (ln.p_over * 100)|round(0)|int }}%{% if ln.market_side is not none %}, market {{ (ln.market_side * 100)|round(0)|int }}% for {{ ln.side }}{% endif %}{% if ln.break_even %}, break-even {{ (ln.break_even * 100)|round(1) }}% for {{ ln.side }}{% endif %}{% if ln.move %} <span class="move">moved from {{ ln.move.from|fmtline }}</span>{% endif %}.{% endfor %}
+          {% if st.frozen %}<br><span class="locked">frozen: {{ st.frozen.call }} {{ st.frozen.line|fmtline }}</span>{% endif %}
+          {% if st.recent %}<br>Last {{ st.recent|length }} ({{ st.pick.side|lower }} {{ st.pick.line|fmtline }}, green = would have hit): {{ m.recent_strip(st.recent) }}{% endif %}
+          {% if st.ladder %}<br>Kalshi ladder: {% for x in st.ladder %}{{ x.n }}+ {{ (x.mid * 100)|round(0)|int }}%{{ ', ' if not loop.last }}{% endfor %}.{% endif %}
+        </p>
+        {% endfor %}
+        {% if r.inj_note %}<p class="why-reason dim">Injury note: {{ r.inj_note }}</p>{% endif %}
+      </td></tr>
+      {% else %}
+      <tr><td colspan="{{ box_stats|length + 2 }}" class="dim">no projections</td></tr>
+      {% endfor %}
+    {% endfor %}
+    </tbody>
+  </table></div>
+</section>
+{% endfor %}
+<script>
+  document.querySelectorAll('[data-gamefilter="1"] [data-tab]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('[data-gamefilter="1"] [data-tab]').forEach(function (x) { x.classList.toggle('active', x === b); });
+      document.querySelectorAll('.boxscore[data-game]').forEach(function (s) { s.classList.toggle('hidden', b.dataset.tab !== 'all' && s.dataset.game !== b.dataset.tab); });
+    });
+  });
+</script>
+{% if no_history %}<p class="small dim">No NBA box scores yet, so no projection: {% for p in no_history %}{{ p.player }} ({{ p.team }}){{ ', ' if not loop.last }}{% endfor %}.</p>{% endif %}
+{% else %}
+<div class="empty-state"><h3>No slate</h3><p>There are no upcoming games in the schedule right now.</p></div>
+{% endif %}
+<p class="small dim">Players under 10 projected minutes without a line are hidden. * PrizePicks lines are experimental.</p>
+{% endblock %}

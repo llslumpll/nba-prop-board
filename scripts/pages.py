@@ -33,15 +33,18 @@ ET = ZoneInfo("America/New_York")
 
 NAV = [
     ("home", "Home", "index.html"),
-    ("moneyline", "Moneyline", "moneyline.html"),
-    ("matchups", "Matchups", "matchups.html"),
-    ("points", "Points", "points.html"),
-    ("rebounds", "Rebounds", "rebounds.html"),
-    ("assists", "Assists", "assists.html"),
-    ("threes", "3-Pointers", "threes.html"),
-    ("pra", "PRA", "pra.html"),
+    ("picks", "Picks", "picks.html"),
+    ("games", "Games", "games.html"),
+    ("players", "Players", "players.html"),
     ("history", "History", "history.html"),
 ]
+NAV_ICON = {"home": "\u2302", "picks": "\u2605", "games": "\u25ce", "players": "\u25a6", "history": "\u21ba"}
+# Old URLs from the 9-page layout forward to their new home, so bookmarks keep working.
+REDIRECTS = {"points.html": "picks.html#pts", "rebounds.html": "picks.html#reb", "assists.html": "picks.html#ast",
+             "threes.html": "picks.html#fg3m", "pra.html": "picks.html#combos",
+             "moneyline.html": "games.html", "matchups.html": "games.html"}
+BOX_STATS = ["pts", "reb", "ast", "fg3m", "pra"]
+ALL_STATS = ["pts", "reb", "ast", "fg3m", "pra", "pr", "pa", "ra"]
 
 STAT_PAGES = [
     ("points", "Points", "points.html", ["pts"], "pts",
@@ -57,7 +60,8 @@ STAT_PAGES = [
 ]
 STAT_SHORT = {"pts": "PTS", "reb": "REB", "ast": "AST", "fg3m": "3PM", "pra": "PRA", "pr": "P+R", "pa": "P+A", "ra": "R+A"}
 GROUP_PAGE = {"pts": "Points", "reb": "Rebounds", "ast": "Assists", "fg3m": "3-Pointers", "combos": "PRA & Combos"}
-GROUP_HREF = {"pts": "points.html", "reb": "rebounds.html", "ast": "assists.html", "fg3m": "threes.html", "combos": "pra.html"}
+GROUP_HREF = {g: f"picks.html#{g}" for g in ("pts", "reb", "ast", "fg3m", "combos")}
+GROUP_SHORT = {"pts": "PTS", "reb": "REB", "ast": "AST", "fg3m": "3PM", "combos": "PRA+"}
 
 
 def _fmtline(x):
@@ -357,7 +361,7 @@ def history_charts(preds: list, health: list) -> dict:
 def render_all(ctx: dict) -> None:
     env = _env()
     now = ctx["now"]
-    common = {"nav_pages": NAV, "build_time": now.strftime("%Y-%m-%d %H:%M UTC"),
+    common = {"nav_pages": NAV, "nav_icon": NAV_ICON, "build_time": now.strftime("%Y-%m-%d %H:%M UTC"),
               "cache_bust": str(int(now.timestamp()))}
     DOCS.mkdir(exist_ok=True)
     (DOCS / ".nojekyll").touch()
@@ -375,46 +379,61 @@ def render_all(ctx: dict) -> None:
     gidx = _games_index(ctx.get("box"))
     graded_lines = _graded_lines(ctx["preds"])
     prow_by = {(r["player"], r["game_id"]): r for r in res["players"]}
-    best = {grp: {k: [{**(d := _decorate(p, now)), **card_details(d, gidx, graded_lines, prow_by.get((p["player"], p["game_id"])))}
+    best = {grp: {k: [{**(d := _decorate(p, now)), **card_details(d, gidx, graded_lines, prow_by.get((p["player"], p["game_id"]))),
+                       "recent": recent_strip(gidx, p.get("player_id"), p["stat"], p.get("line"), p.get("call"))}
                       for p in v] for k, v in lists.items()} for grp, lists in ctx["best"].items()}
 
-    # ---- stat pages
+    # ---- per-player rows for every stat (Players page)
+    def player_rows(g, stat_keys):
+        rows = []
+        for r in res["players"]:
+            if r["game_id"] != g["game_id"]:
+                continue
+            stats, any_line = {}, False
+            for s in stat_keys:
+                st = dict(r["stats"][s])
+                st["lines"] = {}
+                for src, ln in r["stats"][s]["lines"].items():
+                    ln = dict(ln)
+                    ln["move"] = logs.movement(ctx["lm"], r["player"], s, r["game_id"], src)
+                    st["lines"][src] = ln
+                st["ladder"] = (r["stats"][s]["lines"].get("kalshi") or {}).get("ladder")
+                st["frozen"] = predictions.get(g["date"], r["player"], s, r["game_id"])
+                st["recent"] = (recent_strip(gidx, r["player_id"], s, st["pick"]["line"], st["pick"]["side"])
+                                if st.get("pick") else [])
+                any_line = any_line or bool(st["lines"])
+                stats[s] = st
+            if r["proj_min"] < 10 and not any_line:
+                continue
+            rows.append({**r, "badge": teams.badge(r["team"]), "stats": stats, "any_line": any_line})
+        rows.sort(key=lambda x: -x["proj_min"])
+        return rows
+
+    pgames = []
+    for g in sl["games"]:
+        rows = player_rows(g, ALL_STATS)
+        pgames.append({"g": g, "teams": [{"badge": teams.badge(tm), "name": teams.full_name(tm),
+                                          "rows": [r for r in rows if r["team"] == tm]} for tm in (g["away"], g["home"])]})
+    write("players.html", "players.html", "players", slate=sl, edge=edge, games=pgames, box_stats=BOX_STATS,
+          combo_stats=["pr", "pa", "ra"], notices=_notices(ctx, ["pts"]), no_history=res["no_history"])
+
+    # ---- picks (all stat groups on one page)
+    groups = []
     for slug, title, fname, stat_keys, grp, lede in STAT_PAGES:
-        games = []
-        for g in sl["games"]:
-            rows = []
-            for r in res["players"]:
-                if r["game_id"] != g["game_id"]:
-                    continue
-                stats, any_line = {}, False
-                for s in stat_keys:
-                    st = dict(r["stats"][s])
-                    st["lines"] = {}
-                    for src, ln in r["stats"][s]["lines"].items():
-                        ln = dict(ln)
-                        ln["move"] = logs.movement(ctx["lm"], r["player"], s, r["game_id"], src)
-                        st["lines"][src] = ln
-                    st["ladder"] = (r["stats"][s]["lines"].get("kalshi") or {}).get("ladder")
-                    st["frozen"] = predictions.get(g["date"], r["player"], s, r["game_id"])
-                    st["recent"] = (recent_strip(gidx, r["player_id"], s, st["pick"]["line"], st["pick"]["side"])
-                                    if st.get("pick") else [])
-                    any_line = any_line or bool(st["lines"])
-                    stats[s] = st
-                if r["proj_min"] < 10 and not any_line:
-                    continue
-                rows.append({**r, "stats": stats, "any_line": any_line})
-            rows.sort(key=lambda x: -x["stats"][stat_keys[0]]["proj"])
-            games.append({"g": g, "rows": rows})
         b5 = (best.get(grp) or {}).get("best5", [])
         bv = (best.get(grp) or {}).get("value", [])
-        write(fname, "stat.html", slug, page_title=title, lede=lede, stat_keys=stat_keys, slate=sl, edge=edge,
-              games=games, best5=b5, value=bv, warn_best5=_corr_warning(b5), warn_value=_corr_warning(bv),
-              notices=_notices(ctx, stat_keys), no_history=res["no_history"], empty_best=_empty_best_text(ctx))
+        groups.append({"key": grp, "short": GROUP_SHORT[grp], "title": title, "lede": lede, "stat_keys": stat_keys,
+                       "best5": b5, "value": bv, "warn5": _corr_warning(b5), "warnv": _corr_warning(bv)})
+    write("picks.html", "picks.html", "picks", slate=sl, edge=edge, groups=groups, notices=_notices(ctx, ["pts"]),
+          empty_best=_empty_best_text(ctx))
 
-    # ---- moneyline
+    # ---- games (moneyline + matchups)
     tstore = predictions.load_date(sl["date"], team=True) if sl.get("date") else {}
     tf = ctx["fit"]["team"]
-    ml_rows = []
+    inj = {}
+    for p in (ctx.get("injuries") or {}).get("players", []):
+        inj.setdefault(p.get("team"), []).append(p)
+    gcards = []
     for g in sl["games"]:
         tp = res["teams"].get(g["game_id"])
         fr = tstore.get(f"{g['game_id']}|moneyline")
@@ -427,22 +446,10 @@ def render_all(ctx: dict) -> None:
         why = "No projection for this game."
         if tp:
             why = (f"Our score: {g['away']} {tp['away_pts']:.0f}, {g['home']} {tp['home_pts']:.0f} (sum of player projections "
-                   f"× {tf['scale']}). Margin {tp['margin']:+.1f} for {g['home']}; with a {tf['margin_sd']}-point spread of misses "
+                   f"\u00d7 {tf['scale']}). Margin {tp['margin']:+.1f} for {g['home']}; with a {tf['margin_sd']}-point spread of misses "
                    f"that gives {g['home']} {tp['home_win'] * 100:.0f}% to win.")
             if fr:
                 why += f" Frozen {fr['frozen_at']}, before tip."
-        ml_rows.append({"g": g, "fd": (g.get("fanduel") or {}).get("moneyline"), "k": g.get("kalshi_ml"), "pick": pick,
-                        "pick_badge": teams.badge(pick) if pick else None, "pick_chance": chance, "frozen": fr, "why": why})
-    team_rec = {r["market"]: r for r in grade.team_record(ctx["tpreds"])}
-    write("moneyline.html", "moneyline.html", "moneyline", rows=ml_rows, team_fit=tf, min_games=live.GAME_PICKS_MIN_GAMES, ml_record=team_rec["moneyline"],
-          notices=_notices(ctx)[:1] + ([f"<strong>Kalshi:</strong> {ctx['sources']['kalshi']['error']}"] if ctx['sources']['kalshi']['error'] else []))
-
-    # ---- matchups
-    inj = {}
-    for p in (ctx.get("injuries") or {}).get("players", []):
-        inj.setdefault(p.get("team"), []).append(p)
-    cards = []
-    for g in sl["games"]:
         sides = []
         for tm in (g["away"], g["home"]):
             ps = [r for r in res["players"] if r["game_id"] == g["game_id"] and r["team"] == tm]
@@ -450,9 +457,24 @@ def render_all(ctx: dict) -> None:
             sides.append({"badge": teams.badge(tm), "name": teams.full_name(tm), "players": ps[:8],
                           "out": [p["player"] for p in inj.get(tm, []) if p.get("class") == "out"],
                           "q": [p["player"] for p in inj.get(tm, []) if p.get("class") in ("questionable", "probable")]})
-        cards.append({"g": g, "fd": g.get("fanduel") or {}, "tp": res["teams"].get(g["game_id"]), "sides": sides,
-                      "team_frozen": [v for k, v in tstore.items() if v["game_id"] == g["game_id"] and v["market"] != "moneyline"]})
-    write("matchups.html", "matchups.html", "matchups", slate=sl, cards=cards, min_games=live.GAME_PICKS_MIN_GAMES, notices=_notices(ctx)[:1])
+        gcards.append({"g": g, "fd": g.get("fanduel") or {}, "ml": (g.get("fanduel") or {}).get("moneyline"), "k": g.get("kalshi_ml"),
+                       "pick": pick, "pick_badge": teams.badge(pick) if pick else None, "pick_chance": chance, "frozen": fr, "why": why,
+                       "tp": tp, "sides": sides,
+                       "team_frozen": [v for k, v in tstore.items() if v["game_id"] == g["game_id"] and v["market"] != "moneyline"]})
+    team_rec = {r["market"]: r for r in grade.team_record(ctx["tpreds"])}
+    write("games.html", "games.html", "games", slate=sl, cards=gcards, team_fit=tf, min_games=live.GAME_PICKS_MIN_GAMES,
+          ml_record=team_rec["moneyline"],
+          notices=_notices(ctx)[:1] + ([f"<strong>Kalshi:</strong> {ctx['sources']['kalshi']['error']}"] if ctx['sources']['kalshi']['error'] else []))
+
+    # ---- old URLs -> new pages
+    redirect_t = env.from_string(
+        '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Moved | Prop Edge NBA</title>'
+        '<meta http-equiv="refresh" content="0; url={{ to }}"><link rel="canonical" href="{{ to }}">'
+        '<script>location.replace("{{ to }}");</script></head>'
+        '<body style="background:#130b22;color:#fff3e3;font-family:monospace;padding:24px">'
+        'This page moved: <a style="color:#ffc531" href="{{ to }}">{{ to }}</a></body></html>')
+    for old, to in REDIRECTS.items():
+        (DOCS / old).write_text(redirect_t.render(to=to))
 
     # ---- history
     preds = ctx["preds"]
@@ -537,6 +559,26 @@ def render_all(ctx: dict) -> None:
         lst = (best.get(grp) or {}).get("best5") or []
         if lst:
             tops.append({"page": GROUP_PAGE[grp], "href": GROUP_HREF[grp], "p": lst[0]})
+    top_all, seen = [], set()
+    for p in sorted((p for grp in ("pts", "reb", "ast", "fg3m", "combos") for p in (best.get(grp) or {}).get("best5") or []),
+                    key=lambda p: -p["chance"]):
+        if p["player"] not in seen:
+            seen.add(p["player"])
+            top_all.append(p)
+    top_all = top_all[:6]
+    top_groups = [{"key": grp, "short": GROUP_SHORT[grp], "cards": (best.get(grp) or {}).get("best5") or []}
+                  for grp in ("pts", "reb", "ast", "fg3m", "combos")]
+    record = {"hits": sum(1 for p in preds if p["status"] == "graded" and p["hit"]),
+              "misses": sum(1 for p in preds if p["status"] == "graded" and not p["hit"]),
+              "pending": sum(1 for p in preds if p["status"] == "pending"),
+              "void": sum(1 for p in preds if p["status"] == "void"), "push": sum(1 for p in preds if p["status"] == "push")}
+    record["graded"] = record["hits"] + record["misses"]
+    record["rate"] = round(100 * record["hits"] / record["graded"], 1) if record["graded"] else None
+    frozen_n = defaultdict(int)
+    for p in preds:
+        frozen_n[p["game_id"]] += 1
+    tiles = [{"g": g, "fd": g.get("fanduel") or {}, "tp": res["teams"].get(g["game_id"]), "n": frozen_n.get(g["game_id"], 0)}
+             for g in sl["games"]]
     season = dict(ctx["season"])
     season["phase_label"] = {"preseason": "PRE", "in_season": "LIVE", "complete": "DONE"}.get(season["phase"], "—")
     src = ctx["sources"]
@@ -572,6 +614,7 @@ def render_all(ctx: dict) -> None:
     n_lines = sum(len(v) for v in res["picks"].values())
     write("index.html", "home.html", "home", season=season, slate=sl, n_players=len(res["players"]), n_lines=n_lines,
           n_graded=sum(1 for p in preds if p["status"] == "graded"), tops=tops, edge=edge, source_rows=source_rows,
+          top_all=top_all, top_groups=top_groups, record=record, tiles=tiles,
           maturity=grade.maturity(ctx["cal"]), bt=bt,
           no_picks_reason=_empty_best_text(ctx))
 

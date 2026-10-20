@@ -1,39 +1,55 @@
 {% extends "base.html" %}
 {% import "_macros.html" as m %}
 {% block content %}
-<h1>NBA Prop Edge Board</h1>
-<p class="lede">Player and game projections for every NBA slate, compared with FanDuel, Kalshi and PrizePicks lines. Every pick is frozen before tip-off and graded after the game, and the record on <a href="history.html">History</a> includes the misses.</p>
+<section class="hero">
+  <div>
+    <div class="kicker">{{ (slate.date_label or 'Next slate')|upper }} &middot; {{ slate.games|length }} GAME{{ 'S' if slate.games|length != 1 }}</div>
+    <h1 class="hero-h">Tonight's Slate</h1>
+    <p class="lede">Player and game projections for every NBA slate, compared with FanDuel, Kalshi and PrizePicks lines. Every pick is frozen before tip-off and graded after the game, and the record on <a href="history.html">History</a> includes the misses.</p>
+  </div>
+  <div class="record">
+    <div class="rec-box rec-hit"><b>{{ record.hits }}</b><span>HITS</span></div>
+    <div class="rec-box rec-miss"><b>{{ record.misses }}</b><span>MISSES</span></div>
+    <div class="rec-box rec-pend"><b>{{ record.pending }}</b><span>PENDING</span></div>
+    <div class="rec-note">{% if record.rate is not none %}{{ record.rate }}% hit rate &middot; {{ record.graded }} graded{% else %}Grading starts the morning after the first games{% endif %}{% if record.void or record.push %} &middot; {{ record.void }} void, {{ record.push }} push{% endif %}</div>
+  </div>
+</section>
 
-<div class="stat-strip">
-  <div class="stat-block"><div class="num">{{ season.phase_label }}</div><div class="label">{{ season.phase_text }}</div></div>
-  <div class="stat-block"><div class="num">{{ slate.games|length }}</div><div class="label">games on {{ slate.date_label or 'the next slate' }}</div></div>
-  <div class="stat-block"><div class="num">{{ n_players }}</div><div class="label">players projected</div></div>
-  <div class="stat-block"><div class="num">{{ n_lines }}</div><div class="label">player lines matched</div></div>
-  <div class="stat-block"><div class="num">{{ n_graded }}</div><div class="label">picks graded so far</div></div>
-  <div class="stat-block"><div class="num">{{ nav_pages|length }}</div><div class="label">pages live</div></div>
-</div>
-<p class="lede small">History behind the model: {{ season.history_games }} games from {{ season.history_seasons|map('season_label')|join(', ') }}{% if season.days_loaded %}, plus {{ season.days_loaded }} day{{ 's' if season.days_loaded != 1 }} of this season (through {{ season.last_data_date }}){% else %}; no box scores from this season yet{% endif %}.</p>
-
-<h2>Top pick per page</h2>
-{% if tops %}
-<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
-  <thead><tr><th>Page</th><th>Pick</th><th class="hide-sm">Projection</th></tr></thead>
-  <tbody>
-  {% for t in tops %}
-  <tr>
-    <td><a href="{{ t.href }}">{{ t.page }}</a></td>
-    <td><div class="player-name">{{ m.badge(t.p.badge) }} {{ t.p.player }}</div>
-        <div>{{ stat_labels[t.p.stat] }} {{ m.pick_text(t.p.call, t.p.line, t.p.chance) }} <span class="src">{{ src_labels[t.p.line_source] }}</span> {{ m.label_tag(edge[t.p.stat].status) }}</div></td>
-    <td class="hide-sm num">{{ t.p.projected }}</td>
-  </tr>
+{% if tiles %}
+<div class="scoreboard">
+  {% for t in tiles %}
+  <a class="sb-tile" href="games.html" {{ m.game_stripe(t.g) }}>
+    <div class="sb-teams">{{ m.badge(t.g.away_badge) }}<span class="sb-at">@</span>{{ m.badge(t.g.home_badge) }}</div>
+    <div class="sb-meta">{{ m.game_status(t.g) }}<span class="dim small">{{ t.n }} pick{{ 's' if t.n != 1 }} frozen</span></div>
+    <div class="sb-line dim small">{% if t.fd.spread %}{{ t.g.home }} {{ t.fd.spread.home_point|fmtpt }}{% endif %}{% if t.fd.total %} &middot; total {{ t.fd.total.point }}{% endif %}{% if not t.fd.spread and not t.fd.total and t.tp %}our score {{ t.tp.away_pts|round(0)|int }}&ndash;{{ t.tp.home_pts|round(0)|int }}{% endif %}</div>
+  </a>
   {% endfor %}
-  </tbody>
-</table></div></div>
+</div>
+{% endif %}
+
+<div class="sec-head">
+  <h2 class="h2x">Top Plays</h2>
+  <div class="chips" data-filter-bar="1">
+    <button class="chip active" data-filter="all">ALL</button>
+    {% for gr in top_groups %}<button class="chip" data-filter="{{ gr.key }}">{{ gr.short }}</button>{% endfor %}
+  </div>
+</div>
+{% if top_all %}
+<div data-filter-panel="all">{{ m.tgrid(top_all, 'best5', edge, 'top', no_picks_reason) }}</div>
+{% for gr in top_groups %}<div class="hidden" data-filter-panel="{{ gr.key }}">{{ m.tgrid(gr.cards, 'best5', edge, 'top-' ~ gr.key, no_picks_reason) }}<p class="small"><a href="picks.html#{{ gr.key }}">Best Value and more on Picks &rarr;</a></p></div>{% endfor %}
 <p class="small dim">The % is our chance for the side shown. "Lean" means this stat hasn't yet beaten the line in graded picks; it becomes "edge" only after {{ maturity.min_sample }}+ graded picks beat both the line's error and its break-even.</p>
 {% else %}
 <div class="empty-state"><h3>No picks yet</h3><p>{{ no_picks_reason }}</p></div>
 {% endif %}
 
+<details class="info-collapse home-more"><summary>Behind the board: data sources, how projections work, calibration</summary>
+<div class="stat-strip">
+  <div class="stat-block"><div class="num">{{ season.phase_label }}</div><div class="label">{{ season.phase_text }}</div></div>
+  <div class="stat-block"><div class="num">{{ n_players }}</div><div class="label">players projected</div></div>
+  <div class="stat-block"><div class="num">{{ n_lines }}</div><div class="label">player lines matched</div></div>
+  <div class="stat-block"><div class="num">{{ n_graded }}</div><div class="label">picks graded so far</div></div>
+</div>
+<p class="lede small">History behind the model: {{ season.history_games }} games from {{ season.history_seasons|map('season_label')|join(', ') }}{% if season.days_loaded %}, plus {{ season.days_loaded }} day{{ 's' if season.days_loaded != 1 }} of this season (through {{ season.last_data_date }}){% else %}; no box scores from this season yet{% endif %}.</p>
 <h2>Data sources right now</h2>
 <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
   <thead><tr><th>Source</th><th>Status</th></tr></thead>
@@ -55,4 +71,5 @@
 
 <h2>Calibration progress</h2>
 <p class="lede small">{{ maturity.active }} of {{ maturity.total }} calibration checks active (each needs {{ maturity.min_sample }} graded picks).{% if maturity.closest %} Closest: {{ maturity.closest.what }} at {{ maturity.closest.n }}/{{ maturity.min_sample }}.{% endif %}</p>
+</details>
 {% endblock %}

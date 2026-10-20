@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Picks — Prop Edge NBA{% endblock %}
+{% block content %}
+<h1>Picks</h1>
+<p class="lede">The strongest picks for each stat on the {{ slate.date_label or 'next' }} slate, frozen before tip and graded on <a href="history.html">History</a>. Tap <strong>why</strong> on any card for the chart, the factors and the full reasoning.</p>
+{% if notices %}
+<details class="info-collapse"><summary>{{ notices|length }} data note{{ 's' if notices|length != 1 }}</summary>
+{% for n in notices %}<div class="notice compact">{{ n|safe }}</div>{% endfor %}
+</details>
+{% endif %}
+
+<div class="seg" data-tabs="stat" data-hash="1">
+  {% for gr in groups %}<button data-tab="{{ gr.key }}" class="{{ 'active' if loop.first }}">{{ gr.short }}</button>{% endfor %}
+</div>
+
+{% for gr in groups %}
+<section class="{{ 'hidden' if not loop.first }}" data-tab-panel="stat:{{ gr.key }}">
+  <div class="seg seg2" data-tabs="list-{{ gr.key }}">
+    <button data-tab="best5" class="active">BEST 5</button><button data-tab="value">BEST VALUE</button>
+  </div>
+  <p class="lede small">{{ gr.lede }} &middot; {% for s in gr.stat_keys[:1] %}{{ m.label_tag(edge[s].status) }} <span class="dim small">({{ edge[s].why }})</span>{% endfor %}</p>
+  <div data-tab-panel="list-{{ gr.key }}:best5">
+    <p class="small dim">Highest chance on the side we picked, one per player. Picks lock when their game tips; until then a stronger pick can replace one.</p>
+    {% if gr.warn5 %}<div class="corr-warning">{{ gr.warn5 }}</div>{% endif %}
+    {{ m.tgrid(gr.best5, 'best5', edge, gr.key ~ '-b', empty_best) }}
+  </div>
+  <div class="hidden" data-tab-panel="list-{{ gr.key }}:value">
+    <p class="small dim">Where our chance beats the line's break-even by the most (FanDuel juice, Kalshi ask, or PrizePicks' 54.2% flex).</p>
+    {% if gr.warnv %}<div class="corr-warning">{{ gr.warnv }}</div>{% endif %}
+    {{ m.tgrid(gr.value, 'value', edge, gr.key ~ '-v', empty_best) }}
+  </div>
+</section>
+{% endfor %}
+<p class="small dim">* PrizePicks lines come from an unofficial endpoint and are experimental. Every projection, for every player, is on <a href="players.html">Players</a>.</p>
+{% endblock %}

@@ -18,6 +18,9 @@
   <main class="site-main">
     {% block content %}{% endblock %}
   </main>
+  <nav class="bottom-nav" aria-label="Pages">
+    {% for slug, label, href in nav_pages %}<a href="{{ href }}" class="{{ 'active' if current_page == slug else '' }}"><span class="bn-ic">{{ nav_icon[slug] }}</span>{{ label }}</a>{% endfor %}
+  </nav>
   <script>
     (function () { var a = document.querySelector('.site-nav a.active'); if (a && a.scrollIntoView) a.scrollIntoView({block: 'nearest', inline: 'center'}); })();
     function toggleWhy(id, btn) {
@@ -37,6 +40,35 @@
           scope.querySelectorAll(':scope > .game-panel').forEach(function (p) {
             p.classList.toggle('hidden', p.dataset.panel !== tab.dataset.panel);
           });
+        });
+      });
+    });
+    // Generic tabs: <div data-tabs="name"><button data-tab="x">...</button></div> + <div data-tab-panel="name:x">.
+    function showTab(name, key) {
+      var btns = document.querySelectorAll('[data-tabs="' + name + '"] [data-tab]');
+      var ok = false;
+      btns.forEach(function (b) { var on = b.dataset.tab === key; b.classList.toggle('active', on); ok = ok || on; });
+      if (!ok) return false;
+      document.querySelectorAll('[data-tab-panel^="' + name + ':"]').forEach(function (p) {
+        p.classList.toggle('hidden', p.dataset.tabPanel !== name + ':' + key);
+      });
+      return true;
+    }
+    document.querySelectorAll('[data-tabs]').forEach(function (bar) {
+      bar.querySelectorAll('[data-tab]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          showTab(bar.dataset.tabs, b.dataset.tab);
+          if (bar.dataset.hash) history.replaceState(null, '', '#' + b.dataset.tab);
+        });
+      });
+    });
+    (function () { var h = location.hash.slice(1); if (h) document.querySelectorAll('[data-tabs][data-hash]').forEach(function (bar) { showTab(bar.dataset.tabs, h); }); })();
+    // Home: filter top-play cards by stat
+    document.querySelectorAll('[data-filter-bar]').forEach(function (bar) {
+      bar.querySelectorAll('[data-filter]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          bar.querySelectorAll('[data-filter]').forEach(function (x) { x.classList.toggle('active', x === b); });
+          document.querySelectorAll('[data-filter-panel]').forEach(function (p) { p.classList.toggle('hidden', p.dataset.filterPanel !== b.dataset.filter); });
         });
       });
     });
