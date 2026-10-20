@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>History Oct 2026 — Prop Edge NBA</title>
-  <link rel="stylesheet" href="static/style.css?v=1792530110">
+  <link rel="stylesheet" href="static/style.css?v=1792531216">
 </head>
 <body>
   <header class="site-head">
     <a class="brand" href="index.html">PROP EDGE<span class="brand-sub">NBA</span></a>
     <nav class="site-nav" aria-label="Pages">
-<a href="index.html" class="">Home</a><a href="moneyline.html" class="">Moneyline</a><a href="matchups.html" class="">Matchups</a><a href="points.html" class="">Points</a><a href="rebounds.html" class="">Rebounds</a><a href="assists.html" class="">Assists</a><a href="threes.html" class="">3-Pointers</a><a href="pra.html" class="">PRA</a><a href="history.html" class="active">History</a>    </nav>
+<a href="index.html" class="">Home</a><a href="picks.html" class="">Picks</a><a href="games.html" class="">Games</a><a href="players.html" class="">Players</a><a href="history.html" class="active">History</a>    </nav>
   </header>
   <div class="sys-tagline">⭐ AUTO-BUILD ⭐ EVERY PICK FROZEN BEFORE TIP ⭐ GRADED IN PUBLIC ⭐</div>
   <main class="site-main">
@@ -33,6 +33,8 @@
 </table></div></div>
 <p class="small dim">Click a day for every pick that day, with the projection, the line and the result.</p>
   </main>
+  <nav class="bottom-nav" aria-label="Pages">
+<a href="index.html" class=""><span class="bn-ic">⌂</span>Home</a><a href="picks.html" class=""><span class="bn-ic">★</span>Picks</a><a href="games.html" class=""><span class="bn-ic">◎</span>Games</a><a href="players.html" class=""><span class="bn-ic">▦</span>Players</a><a href="history.html" class="active"><span class="bn-ic">↺</span>History</a>  </nav>
   <script>
     (function () { var a = document.querySelector('.site-nav a.active'); if (a && a.scrollIntoView) a.scrollIntoView({block: 'nearest', inline: 'center'}); })();
     function toggleWhy(id, btn) {
@@ -55,11 +57,40 @@
         });
       });
     });
+    // Generic tabs: <div data-tabs="name"><button data-tab="x">...</button></div> + <div data-tab-panel="name:x">.
+    function showTab(name, key) {
+      var btns = document.querySelectorAll('[data-tabs="' + name + '"] [data-tab]');
+      var ok = false;
+      btns.forEach(function (b) { var on = b.dataset.tab === key; b.classList.toggle('active', on); ok = ok || on; });
+      if (!ok) return false;
+      document.querySelectorAll('[data-tab-panel^="' + name + ':"]').forEach(function (p) {
+        p.classList.toggle('hidden', p.dataset.tabPanel !== name + ':' + key);
+      });
+      return true;
+    }
+    document.querySelectorAll('[data-tabs]').forEach(function (bar) {
+      bar.querySelectorAll('[data-tab]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          showTab(bar.dataset.tabs, b.dataset.tab);
+          if (bar.dataset.hash) history.replaceState(null, '', '#' + b.dataset.tab);
+        });
+      });
+    });
+    (function () { var h = location.hash.slice(1); if (h) document.querySelectorAll('[data-tabs][data-hash]').forEach(function (bar) { showTab(bar.dataset.tabs, h); }); })();
+    // Home: filter top-play cards by stat
+    document.querySelectorAll('[data-filter-bar]').forEach(function (bar) {
+      bar.querySelectorAll('[data-filter]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          bar.querySelectorAll('[data-filter]').forEach(function (x) { x.classList.toggle('active', x === b); });
+          document.querySelectorAll('[data-filter-panel]').forEach(function (p) { p.classList.toggle('hidden', p.dataset.filterPanel !== b.dataset.filter); });
+        });
+      });
+    });
   </script>
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>
-    <div class="foot-row foot-dim"><span>BUILD: 2026-10-20 21:01 UTC &middot; via GitHub Actions</span></div>
+    <div class="foot-row foot-dim"><span>BUILD: 2026-10-20 21:20 UTC &middot; via GitHub Actions</span></div>
   </footer>
 </body>
 </html>
