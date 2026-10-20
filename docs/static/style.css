@@ -602,3 +602,33 @@ table.stat-table td.nowrap, table.stat-table th.nowrap { white-space: nowrap; ov
   .rank-name { min-width: 0; }
   h1 { font-size: 0.9rem; }
 }
+
+/* ---- Visual upgrade: NFL-style pick cards, MLB-style history ---- */
+.pick-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 12px 0 0; }
+.prop-card-edge .num { font-size: 1.15rem; }
+.spark-dot-line { background: repeating-linear-gradient(90deg, var(--yellow) 0 6px, transparent 6px 10px); }
+.spark-dot-dash { background: repeating-linear-gradient(90deg, var(--text) 0 2px, transparent 2px 6px); }
+.vs-opp { border-color: var(--yellow); color: var(--text); margin: 0 0 10px; }
+.recent-strip { display: inline-flex; flex-wrap: wrap; gap: 3px; vertical-align: middle; }
+.rs { font-style: normal; font-family: var(--mono); font-size: 0.95rem; min-width: 26px; text-align: center; padding: 0 3px; border: 2px solid; }
+.rs-over { color: var(--green); border-color: var(--green); }
+.rs-under { color: var(--red); border-color: var(--red); }
+.rs-push { color: var(--text-dim); border-color: var(--line); }
+.section-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 22px; position: sticky; top: 0; z-index: 5; background: var(--bg); padding: 8px 0; }
+.section-tabs a { font-family: var(--mono); font-size: 0.95rem; text-transform: uppercase; padding: 4px 12px; border: 3px solid var(--line); background: var(--bg-card); color: var(--text-dim); }
+.section-tabs a:hover { border-color: var(--yellow); color: var(--yellow); text-decoration: none; }
+.chart-panel { background: var(--bg-card); border: 3px solid var(--line); padding: 14px 16px; margin-bottom: 18px; box-shadow: 5px 5px 0 0 #000; }
+.chart-panel h3 { font-family: var(--pixel); font-weight: 400; font-size: 0.6rem; color: var(--yellow); margin: 0 0 6px; }
+.chart-panel .sub { color: var(--text-dim); font-size: 0.95rem; margin: 0 0 10px; }
+.chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 760px) { .chart-grid { grid-template-columns: 1fr; } }
+.chart-empty { border: 2px dashed var(--line); color: var(--text-dim); padding: 22px 14px; text-align: center; font-size: 0.95rem; }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-family: var(--mono); font-size: 0.95rem; color: var(--text-dim); margin-top: 6px; }
+.legend i { display: inline-block; width: 14px; height: 4px; margin-right: 6px; vertical-align: middle; }
+.daybyday { max-height: 320px; overflow-y: auto; border: 3px solid var(--line); }
+.daybyday table { margin: 0; }
+.mark-hit { color: var(--green); } .mark-miss { color: var(--red); } .mark-pending, .mark-void, .mark-push { color: var(--text-dim); }
+.anchor { scroll-margin-top: 70px; }
+.spark-legend span { display: block; }
+.spark-legend .spark-dot { display: inline-block; margin-right: 4px; vertical-align: middle; }
+@media (max-width: 640px) { .prop-card { padding: 14px 12px; } .prop-card-edge { text-align: left; } }

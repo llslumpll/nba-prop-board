@@ -185,6 +185,14 @@ No free source has historical prop lines, so this doesn't show we beat a sportsb
   - `data/pipeline_health.json`: per build, the last 300.
 - **History pages** are split: `history.html` is the summary, and `history-YYYY-MM.html` holds each month's picks.
 
+## Visuals
+
+- **Pick cards** (Best 5 / Best Value, NFL-site style): the player's last 10 games as bars against today's line (green = this pick would have hit, red = would have missed, white tick = the line we graded that game against), a dotted season-average line and a dashed projection bar, then factor tiles (projected minutes, averages, typical miss, pace, home/road, rest, shared production) and a "vs this opponent" box.
+- **Projections tab:** each player's "why" shows his last 10 games as green/red boxes against the pick.
+- **History** (MLB-site style): section tabs; daily accuracy charts per stat with coin-flip and break-even lines; stated chance vs actual over time; "does more value mean anything" table; every Best 5 / Best Value list with its daily hit-rate chart and day-by-day ✅/❌ picks; a pipeline-health chart.
+- **Day by day:** one small page per month (a row per day) and one page per day with every pick. A finished day's page is never rewritten.
+- All charts are plain SVG drawn by `scripts/svgchart.py`; no JavaScript library.
+
 ## Files
 
 ```
@@ -202,6 +210,7 @@ scripts/
   grade.py            grading, scoreboard, edge/lean, calibration
   logs.py             line movement + pipeline health
   pages.py            page contexts + rendering; templates/ holds the Jinja files
+  svgchart.py         server-side SVG bar and line charts
   errs.py             short error text
 docs/                 the built site (static/style.css is the source stylesheet)
 data/                 caches, frozen picks, logs, backtest results

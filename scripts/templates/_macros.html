@@ -29,26 +29,59 @@
         <div class="player-sub">{{ stat_labels[p.stat] }} &middot; {{ 'vs' if p.home else '@' }} {{ p.opp }} &middot; {{ p.tip_label }}</div>
       </div>
       <div class="prop-card-edge">
-        <div class="num">{{ pick_text(p.call, p.line, p.chance) }}</div>
-        <div class="label">
-          {% if kind == 'value' and p.value is not none %}{{ '%+.1f'|format(p.value * 100) }} pts over break-even ({{ (p.break_even * 100)|round(1) }}%){% else %}chance for the side picked{% endif %}
-          &middot; {{ src_labels[p.line_source] }}
-        </div>
+        <div class="num">{% if kind == 'value' and p.value is not none %}{{ '%+.1f'|format(p.value * 100) }}{% else %}{{ (p.chance * 100)|round(1) }}%{% endif %}</div>
+        <div class="label">{% if kind == 'value' and p.value is not none %}pts over break-even ({{ (p.break_even * 100)|round(1) }}%) &middot; chance {{ (p.chance * 100)|round(0)|int }}%{% else %}chance &middot; proj {{ p.projected }} vs line {{ p.line|fmtline }}{% endif %}</div>
       </div>
     </div>
-    <div class="prop-card-tags">
+
+    <div class="pick-strip">
+      {{ pick_text(p.call, p.line, p.chance) }}
+      <span class="src">{{ src_labels[p.line_source] }}{{ '*' if p.line_source == 'prizepicks' }}</span>
       {{ label_tag(edge[p.stat].status) }}
-      <span class="tier tier-mid">proj {{ p.projected }}</span>
-      <span class="tier tier-none">{{ p.proj_min }} min</span>
-      <span class="tier tier-none">{{ p.tier }}</span>
       {% if p.locked %}<span class="locked">locked at tip</span>{% endif %}
     </div>
+
     <p class="prop-card-reason">{{ p.why }}</p>
+
+    {% if p.chart %}
+    <div class="prop-card-spark">
+      {{ p.chart|safe }}
+      <div class="spark-legend">
+        <span><i class="spark-dot spark-dot-hit"></i> This pick ({{ p.call|lower }} {{ p.line|fmtline }}) would have hit &nbsp; <i class="spark-dot spark-dot-miss"></i> would have missed &nbsp; <i class="spark-dot spark-dot-pending"></i> Projection (outlined)</span>
+        <span><i class="spark-dot spark-dot-line"></i> Today's line {{ p.line|fmtline }} &nbsp; <i class="spark-dot spark-dot-dash"></i> {{ p.baseline_label or 'average' }}{% if p.baseline is not none %} ({{ p.baseline }}){% endif %} &nbsp; white tick = the line we graded that game against</span>
+        {% if p.recent_n %}<span>This pick would have hit in <strong>{{ p.recent_over }} of {{ p.recent_n }}</strong> recent games</span>{% endif %}
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="prop-card-tags">
+      <span class="tier tier-mid">proj {{ p.projected }}</span>
+      <span class="tier tier-none">{{ p.tier }}</span>
+      {% if p.inj_status %}<span class="tier tier-low">{{ p.inj_status }}</span>{% endif %}
+    </div>
+
+    {% if p.tiles %}
+    <div class="factor-grid">
+      {% for t in p.tiles %}<div class="factor"><div class="fval stat-{{ t.css }}">{{ t.v }}</div><div class="flabel">{{ t.l }}</div></div>{% endfor %}
+    </div>
+    {% endif %}
+
+    {% if p.vs_opp %}
+    <div class="notice compact vs-opp">
+      vs {{ p.opp }} (last 3 seasons): {{ p.vs_opp.n }} game{{ 's' if p.vs_opp.n != 1 }}, averaging {{ p.vs_opp.avg }} {{ stat_labels[p.stat] }}, best {{ p.vs_opp.best|fmtnum }}{% if p.line is not none %}; {{ p.call|lower }} {{ p.line|fmtline }} would have hit in {{ p.vs_opp.over }} of {{ p.vs_opp.n }}{% endif %}.
+    </div>
+    {% endif %}
+
     <p class="small dim">Frozen {{ p.frozen_at }}{% if p.lines|length > 1 %} &middot; other lines at freeze: {% for s, l in p.lines.items() if s != p.line_source %}{{ src_labels[s] }} {{ l|fmtline }}{{ ', ' if not loop.last }}{% endfor %}{% endif %}</p>
   </div>
   {% endfor %}
 </div>
+<p class="player-sub" style="margin:10px 0 0;"><a href="history.html#best5">Track record on History &rarr;</a></p>
 {% else %}
 <div class="empty-state"><h3>Nothing here yet</h3><p>{{ empty_text }}</p></div>
 {% endif %}
 {% endmacro %}
+
+{% macro recent_strip(items) -%}
+{% if items %}<span class="recent-strip" title="last {{ items|length }} games: green = this pick would have hit">{% for x in items %}<i class="rs rs-{{ x.s }}">{{ x.v|fmtnum }}</i>{% endfor %}</span>{% endif %}
+{%- endmacro %}

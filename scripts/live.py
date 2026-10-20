@@ -248,7 +248,11 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
         row = {"player": r["player"], "player_id": r["player_id"], "team": r["team"], "opp": r["opp"],
                "home": r["home"], "game_id": r["game_id"], "badge": teams.badge(r["team"]),
                "proj_min": round(r["proj_min"], 1), "tier": tier, "inj_status": r.get("inj_status"),
-               "inj_note": r.get("inj_note"), "stats": {}}
+               "inj_note": r.get("inj_note"), "stats": {},
+               "factors": {"min_recent": round(r["min_base"], 1), "min_adj": round(r["min_extra"] + r["min_b2b"] + r["min_blowout"], 1),
+                           "pace": round(r["f_pace"], 3), "home": round(r["f_home"], 3), "rest": round(r["f_rest"], 3),
+                           "rest_days": r.get("rest"), "games_this_season": int(r.get("c_n") or 0),
+                           "team": {s: round(r.get(f"f_team_{s}") or 1.0, 3) for s in model.STATS}}}
         for s in model.STATS:
             tc = ((cal.get("bias") or {}).get(s) or {}).get(tier) or {}
             bias = tc.get("bias", 0.0) if tc.get("status") == "active" else 0.0

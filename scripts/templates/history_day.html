@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}History {{ day.label }} — Prop Edge NBA{% endblock %}
+{% block content %}
+<h1>History: {{ day.label }}</h1>
+<p class="lede"><a href="history-{{ month_key }}.html">&larr; {{ month_label }}</a> &middot; <a href="history.html">History summary</a>.
+{{ day.graded }} graded, {{ day.hits }} hit{% if day.rate is not none %} ({{ day.rate }}%){% endif %}{% if day.b5_graded %}; Best 5 / Value {{ day.b5_hits }}/{{ day.b5_graded }}{% endif %}; {{ day.void }} void, {{ day.pending }} pending.</p>
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+  <thead><tr><th>Player</th><th>Pick</th><th class="num">Proj</th><th class="num">Actual</th><th>Result</th></tr></thead>
+  <tbody>
+  {% for p in day.picks %}
+  <tr>
+    <td><div class="player-name">{{ m.badge(p.badge) }} {{ p.player }}</div><div class="player-sub">{{ stat_labels[p.stat] }} &middot; {{ 'vs' if p.home else '@' }} {{ p.opp }}{% if p.best5_label %} &middot; <span class="stat-good">{{ p.best5_label }}</span>{% endif %}</div></td>
+    <td>{{ m.pick_text(p.call, p.line, p.chance) }} <span class="src">{{ src_labels[p.line_source] }}</span></td>
+    <td class="num">{{ p.projected }}</td>
+    <td class="num">{{ p.actual|fmtnum if p.actual is not none else '—' }}</td>
+    <td>{% if p.status == 'graded' %}<span class="{{ 'stat-good' if p.hit else 'stat-bad' }}">{{ 'HIT' if p.hit else 'MISS' }}</span>{% elif p.status == 'void' %}<span class="dim">VOID (DNP)</span>{% elif p.status == 'push' %}<span class="dim">PUSH</span>{% else %}<span class="status-warn">PENDING</span>{% endif %}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table></div></div>
+{% if day.team %}
+<h2>Game picks</h2>
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+  <thead><tr><th>Game</th><th>Pick</th><th>Final</th><th>Result</th></tr></thead>
+  <tbody>{% for t in day.team %}<tr><td>{{ t.away }} @ {{ t.home }} &middot; {{ t.market }}</td><td>{{ t.pick }}{% if t.line is defined and t.line is not none %} {{ t.line }}{% endif %} <span class="chance">{{ (t.chance * 100)|round(0)|int }}%</span></td><td class="small">{{ t.final or '—' }}</td><td>{% if t.status == 'graded' %}<span class="{{ 'stat-good' if t.hit else 'stat-bad' }}">{{ 'HIT' if t.hit else 'MISS' }}</span>{% else %}<span class="dim">{{ t.status|upper }}</span>{% endif %}</td></tr>{% endfor %}</tbody>
+</table></div></div>
+{% endif %}
+{% endblock %}
