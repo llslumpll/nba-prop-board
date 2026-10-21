@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>History Oct 2026 — Prop Edge NBA</title>
-  <link rel="stylesheet" href="static/style.css?v=f988d2cc05">
+  <link rel="stylesheet" href="static/style.css?v=edf4b6f3fe">
 </head>
 <body>
   <header class="site-head">
@@ -77,7 +77,15 @@
         });
       });
     });
-    (function () { var h = location.hash.slice(1); if (h) document.querySelectorAll('[data-tabs][data-hash]').forEach(function (bar) { showTab(bar.dataset.tabs, h); }); })();
+    (function () {
+      var h = location.hash.slice(1); if (!h) return;
+      document.querySelectorAll('[data-tabs][data-hash]').forEach(function (bar) {
+        if (showTab(bar.dataset.tabs, h) && bar.dataset.hashScroll) {
+          var t = document.getElementById(bar.dataset.hashScroll) || bar;
+          setTimeout(function () { t.scrollIntoView({block: 'start'}); }, 0);
+        }
+      });
+    })();
     // Home: filter top-play cards by stat
     document.querySelectorAll('[data-filter-bar]').forEach(function (bar) {
       bar.querySelectorAll('[data-filter]').forEach(function (b) {
@@ -88,10 +96,10 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=f988d2cc05"></script>
+  <script src="static/slip.js?v=edf4b6f3fe"></script>
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>
-<div class="foot-row foot-dim"><span>BUILD: 2026-10-21 00:01 UTC &middot; via GitHub Actions</span></div>  </footer>
+<div class="foot-row foot-dim"><span>BUILD: 2026-10-21 00:06 UTC &middot; via GitHub Actions</span></div>  </footer>
 </body>
 </html>
