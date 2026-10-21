@@ -111,7 +111,7 @@ def freeze(rec: dict, tip_utc: datetime | None) -> bool:
 
 
 def freeze_team(rec: dict, tip_utc: datetime | None) -> bool:
-    if tip_utc is None or _now() >= tip_utc:
+    if tip_utc is None or _now() >= tip_utc or _now() < tip_utc - FREEZE_WINDOW:
         return False
     store = load_date(rec["date"], team=True)
     k = f"{rec['game_id']}|{rec['market']}"
@@ -221,3 +221,45 @@ def sync_best5(date: str, group: str, list_name: str, ranked: list[dict]) -> dic
     if changed:
         mark_dirty(date)
     return {"size": len(final), "locked": len(locked), "keys": sorted(final)}
+
+
+def sync_team_best(date: str, list_name: str, ranked: list[dict]) -> None:
+    """Game Best 5 / Best Value: same rules as the player lists (tipped
+    picks lock, open slots go to the best-ranked frozen untipped picks),
+    one pick per game. Tag stored is "game:<list_name>"."""
+    store = load_date(date, team=True)
+    now = _now()
+    tag = f"game:{list_name}"
+
+    def started(r):
+        try:
+            return now >= datetime.fromisoformat(r["tip_utc"])
+        except Exception:  # noqa: BLE001
+            return True
+
+    for r in store.values():
+        r.setdefault("best5", [])
+    tagged = [k for k, r in store.items() if tag in r["best5"]]
+    locked = [k for k in tagged if started(store[k]) or store[k]["status"] != "pending"]
+    games = {store[k]["game_id"] for k in locked}
+    keep = []
+    for r in ranked:
+        if len(locked) + len(keep) >= BEST5_SIZE:
+            break
+        k = f"{r['game_id']}|{r['market']}"
+        if k in locked or k not in store or started(store[k]) or r["game_id"] in games:
+            continue
+        keep.append(k)
+        games.add(r["game_id"])
+    final = set(locked) | set(keep)
+    changed = False
+    for k in tagged:
+        if k not in final:
+            store[k]["best5"].remove(tag)
+            changed = True
+    for k in final:
+        if tag not in store[k]["best5"]:
+            store[k]["best5"].append(tag)
+            changed = True
+    if changed:
+        mark_dirty(date, team=True)

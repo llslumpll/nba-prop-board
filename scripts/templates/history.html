@@ -3,14 +3,13 @@
 {% block title %}History — Prop Edge NBA{% endblock %}
 {% block content %}
 <h1>History</h1>
-<p class="lede">Every pick frozen before tip-off, graded after the game. DNPs and scratches are voided, not counted as misses; a result exactly on a whole-number line is a push. Every individual pick is under Day by day (one page per day).</p>
-<nav class="section-tabs" aria-label="History sections">
-  <a href="#money">Profit &amp; CLV</a><a href="#scoreboard">Scoreboard</a><a href="#trends">Accuracy trends</a><a href="#conviction">Confidence &amp; value</a>
-  <a href="#best5">Best 5 record</a><a href="#health">Pipeline health</a><a href="#days">Day by day</a>
-</nav>
-<div class="pager">{% for mo in months %}<a href="history-{{ mo.key }}.html">{{ mo.label }} ({{ mo.n }})</a>{% else %}<span class="dim">No monthly pages yet: the first graded picks will create one.</span>{% endfor %}</div>
+<p class="lede">Every pick frozen before tip-off, graded after the game. DNPs and scratches are voided, not counted as misses; a result exactly on a whole-number line is a push. Pick a tab below; every individual pick is under <strong>Day by day</strong>.</p>
+<div class="seg hist-tabs" data-tabs="hist" data-hash="1" data-tab-scroll="1">
+  <button data-tab="money" class="active">PROFIT &amp; CLV</button><button data-tab="scoreboard" class="">SCOREBOARD</button><button data-tab="trends" class="">ACCURACY</button><button data-tab="conviction" class="">CONFIDENCE &amp; VALUE</button><button data-tab="best5" class="">BEST 5 RECORD</button><button data-tab="games" class="">GAME PICKS</button><button data-tab="model" class="">MODEL</button><button data-tab="health" class="">PIPELINE</button><button data-tab="days" class="">DAY BY DAY</button>
+</div>
 
-<h2 id="money" class="anchor">Profit &amp; closing line value</h2>
+<section class="hist-panel" data-tab-panel="hist:money">
+<h2 class="hist-h">Profit &amp; closing line value</h2>
 <p class="lede small"><strong>Units:</strong> 1 unit on every graded pick at the price of its own line (FanDuel juice, Kalshi ask, PrizePicks 54.2% flex break-even, so PrizePicks units are an approximation). <strong>Closing line value (CLV):</strong> did the line move our way between when we froze the pick and tip-off? Beating the close on most picks is the earliest sign of a real edge: it shows up after about 100 picks, long before a hit rate means much.</p>
 {% set t = money.total %}
 <div class="stat-strip money-strip">
@@ -46,7 +45,9 @@
 </table></div></div>
 {% endif %}
 
-<h2 id="scoreboard" class="anchor">Scoreboard by stat and line</h2>
+</section>
+<section class="hist-panel hidden" data-tab-panel="hist:scoreboard">
+<h2 class="hist-h">Scoreboard by stat and line</h2>
 <p class="lede small">Hit rate next to the break-even for the line we were graded against (FanDuel and Kalshi: the price of the side we picked; PrizePicks: 54.2% for a 6-pick flex, other entry types differ). Error = average distance from the result, for our projection and for the line itself.</p>
 {% if scoreboard %}
 <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
@@ -66,7 +67,15 @@
 <div class="empty-state"><h3>No graded picks yet</h3><p>Picks freeze once lines are posted and grade the morning after games, when the box scores land. {{ n_pending }} pick{{ 's' if n_pending != 1 }} waiting.</p></div>
 {% endif %}
 
-<h2 id="trends" class="anchor">Accuracy over time</h2>
+<h2 class="hist-h">Edge or lean, per stat</h2>
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+  <thead><tr><th>Stat</th><th>Label</th><th>Why</th></tr></thead>
+  <tbody>{% for s, e in edge.items() %}<tr><td>{{ stat_labels[s] }}</td><td>{{ m.label_tag(e.status) }}</td><td class="small">{{ e.why }}</td></tr>{% endfor %}</tbody>
+</table></div></div>
+
+</section>
+<section class="hist-panel hidden" data-tab-panel="hist:trends">
+<h2 class="hist-h">Accuracy over time</h2>
 <p class="lede small">Each dot is one day's hit rate on graded picks. The grey dashed line is a coin flip; the pink one is the average break-even for the lines we were graded against. A model that's really working should sit above the pink line over time, not just bounce around 50%.</p>
 <div class="chart-grid">
 {% for a in hc.accuracy %}
@@ -85,26 +94,24 @@
 </div>
 </div>
 
-<h2>Edge or lean, per stat</h2>
-<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
-  <thead><tr><th>Stat</th><th>Label</th><th>Why</th></tr></thead>
-  <tbody>{% for s, e in edge.items() %}<tr><td>{{ stat_labels[s] }}</td><td>{{ m.label_tag(e.status) }}</td><td class="small">{{ e.why }}</td></tr>{% endfor %}</tbody>
-</table></div></div>
-
-<h2 id="conviction" class="anchor">Does a higher chance hit more?</h2>
+</section>
+<section class="hist-panel hidden" data-tab-panel="hist:conviction">
+<h2 class="hist-h">Does a higher chance hit more?</h2>
 <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
   <thead><tr><th>Chance we gave</th><th class="num">Graded</th><th class="num">Hit %</th></tr></thead>
   <tbody>{% for b in buckets %}<tr><td>{{ b.bucket }}</td><td class="num">{{ b.n }}</td><td class="num">{{ b.hit_rate if b.hit_rate is not none else '—' }}</td></tr>{% endfor %}</tbody>
 </table></div></div>
 
-<h2>Does more value mean anything?</h2>
+<h2 class="hist-h">Does more value mean anything?</h2>
 <p class="lede small">Value = our chance minus the line's break-even, in percentage points. If bigger value really means something, hit rate should climb down this table. If it stays flat, the market is already pricing what we think we see.</p>
 <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
   <thead><tr><th>Value over break-even</th><th class="num">Graded</th><th class="num">Hit %</th></tr></thead>
   <tbody>{% for b in hc.value_buckets %}<tr><td>{{ b.bucket }}</td><td class="num">{{ b.n }}</td><td class="num">{{ b.rate if b.rate is not none else '—' }}</td></tr>{% endfor %}</tbody>
 </table></div></div>
 
-<h2 id="best5" class="anchor">Best 5 and Best Value record</h2>
+</section>
+<section class="hist-panel hidden" data-tab-panel="hist:best5">
+<h2 class="hist-h">Best 5 and Best Value record</h2>
 <p class="lede small">Each list's daily hit rate, plus every pick it made, newest first. ✅ hit, ❌ missed; void = the player didn't play.</p>
 <div class="chart-grid">
 {% for t in hc.tracks %}
@@ -129,16 +136,24 @@
 </table></div></div>
 {% else %}<p class="dim">No Best 5 picks tracked yet.</p>{% endif %}
 
-<h2>Game picks</h2>
+</section>
+<section class="hist-panel hidden" data-tab-panel="hist:games">
+<h2 class="hist-h">Game picks</h2>
+<p class="lede small">Moneyline, spread and total picks from <a href="games.html">Games</a>, frozen on game day and graded from the final score. Units at the FanDuel price (Kalshi ask when FanDuel has no line).</p>
 <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
-  <thead><tr><th>Market</th><th class="num">Graded</th><th class="num">Hit %</th><th class="num">Pending</th></tr></thead>
-  <tbody>{% for r in team_rec %}<tr><td>{{ r.market }}</td><td class="num">{{ r.n }}</td><td class="num">{{ r.hit_rate if r.hit_rate is not none else '—' }}</td><td class="num">{{ r.pending }}</td></tr>{% endfor %}</tbody>
+  <thead><tr><th>Market</th><th class="num">Graded</th><th class="num">Hit %</th><th class="num">Units</th><th class="num">ROI</th><th class="num">Pending</th></tr></thead>
+  <tbody>{% for r in gmoney.rows %}<tr class="{{ 'team-row-lite' if r.list }}"><td>{% if r.list %}<strong>{{ r.label }}</strong>{% else %}{{ r.label }}{% endif %}</td><td class="num">{{ r.graded }}</td>
+    <td class="num {{ 'stat-good' if r.hit_rate is not none and r.hit_rate > 52.4 else 'stat-bad' if r.hit_rate is not none else '' }}">{{ r.hit_rate if r.hit_rate is not none else '—' }}</td>
+    <td class="num {{ 'stat-good' if r.units > 0 else 'stat-bad' if r.units < 0 }}">{{ '%+.1f'|format(r.units) }}</td>
+    <td class="num">{{ ('%+.1f'|format(r.roi) ~ '%') if r.roi is not none else '—' }}</td><td class="num">{{ r.pending }}</td></tr>{% endfor %}</tbody>
 </table></div></div>
-
-<h2>Calibration</h2>
+<p class="small dim">Game picks started Oct 21, when the 10-game wait was replaced by blending our score with the market.</p>
+</section>
+<section class="hist-panel hidden" data-tab-panel="hist:model">
+<h2 class="hist-h">Calibration</h2>
 <p class="lede small">Corrections switch on per stat once {{ maturity.min_sample }} graded picks exist: projection bias by tier, and a pull toward 50% if stated chances run hot. {{ maturity.active }} of {{ maturity.total }} active.</p>
 
-<h2>Monthly retune</h2>
+<h2 class="hist-h">Monthly retune</h2>
 <p class="lede small">On the 1st of each month the model's settings are re-fit with this season's games included, then tested on the most recent 30% of game days, which the new settings never saw. New settings are adopted only if their average miss there is at least 0.5% lower and no main stat gets more than 1% worse.</p>
 {% if retune_log %}
 <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
@@ -147,7 +162,7 @@
 </table></div></div>
 {% else %}<p class="dim">First run: the 1st of next month. It skips itself until about 3-4 weeks of games exist.</p>{% endif %}
 
-<h2>Pre-launch backtest</h2>
+<h2 class="hist-h">Pre-launch backtest</h2>
 <p class="lede small">Walk-forward: constants tuned on 2024-25, then scored on 2025-26 without changes ({{ bt_n }} player-games, players projected for 20+ minutes). Average miss, lower is better.</p>
 <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
   <thead><tr><th>Stat</th><th class="num">Model</th><th class="num">Season avg</th><th class="num">Last 10</th><th class="num hide-sm">NFL-site formula</th><th class="num hide-sm">In 50% range</th><th class="num hide-sm">In 80% range</th></tr></thead>
@@ -155,12 +170,14 @@
 </table></div></div>
 <p class="small dim">No free source has historical prop lines, so the backtest can't measure us against the market; that comparison is the scoreboard above.</p>
 
-<h2 id="health" class="anchor">Pipeline health</h2>
+</section>
+<section class="hist-panel hidden" data-tab-panel="hist:health">
+<h2 class="hist-h">Pipeline health</h2>
 <div class="chart-panel">
   <h3>Player lines matched per build</h3>
   <p class="sub">Is the plumbing working, separate from whether the picks are good. A source dropping to 0 means it failed or hasn't posted yet.</p>
   {% if hc.health_chart %}{{ hc.health_chart|safe }}
-  <div class="legend"><span><i style="background:#ff2e6c"></i>PrizePicks</span><span><i style="background:#00e5ff"></i>Kalshi</span><span><i style="background:#00ff41"></i>FanDuel</span></div>
+  <div class="legend"><span><i style="background:#ff6a13"></i>PrizePicks</span><span><i style="background:#4f86ff"></i>Kalshi</span><span><i style="background:#3dff8f"></i>FanDuel</span></div>
   {% else %}<div class="chart-empty">Chart appears after 2 builds.</div>{% endif %}
 </div>
 <h3 style="font-family:var(--pixel);font-size:0.6rem;color:var(--yellow);font-weight:400;margin:22px 0 10px">Last {{ health|length }} builds</h3>
@@ -168,7 +185,10 @@
   <thead><tr><th>Build</th><th>Slate</th><th class="num">Players</th><th>Lines</th><th class="num">Frozen</th><th class="num">Graded</th><th class="hide-sm">Errors</th></tr></thead>
   <tbody>{% for h in health %}<tr><td class="small nowrap">{{ h.at }} <span class="dim">{{ h.mode }}</span></td><td class="small">{{ h.slate or '—' }}</td><td class="num">{{ h.players }}</td><td class="small">{% for k, v in h.lines.items() %}{{ src_labels[k] }} {{ v }}{{ ', ' if not loop.last }}{% else %}—{% endfor %}</td><td class="num">{{ h.frozen }}</td><td class="num">{{ h.graded }}</td><td class="small hide-sm">{% for k, v in h.errors.items() %}<span class="status-bad">{{ k }}</span>: {{ v[:90] }}{{ '; ' if not loop.last }}{% else %}<span class="status-ok">none</span>{% endfor %}</td></tr>{% endfor %}</tbody>
 </table></div></div>
-<h2 id="days" class="anchor">Day by day</h2>
+</section>
+<section class="hist-panel hidden" data-tab-panel="hist:days">
+<h2 class="hist-h">Day by day</h2>
 <p class="lede small">Every pick, every day, with the result. One page per month.</p>
 <div class="pager">{% for mo in months %}<a href="history-{{ mo.key }}.html">{{ mo.label }} ({{ mo.n }} picks)</a>{% else %}<span class="dim">The first month's page appears with the first frozen picks.</span>{% endfor %}</div>
+</section>
 {% endblock %}

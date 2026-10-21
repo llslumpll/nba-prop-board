@@ -537,29 +537,32 @@ def render_all(ctx: dict) -> None:
     write("picks.html", "picks.html", "picks", slate=sl, edge=edge, groups=groups, notices=_notices(ctx, ["pts"]),
           empty_best=_empty_best_text(ctx), games=pgames, no_history=res["no_history"])
 
-    # ---- games (moneyline + matchups)
+    # ---- games (moneyline + matchups + tracked game picks)
     tstore = predictions.load_date(sl["date"], team=True) if sl.get("date") else {}
     tf = ctx["fit"]["team"]
     inj = {}
     for p in (ctx.get("injuries") or {}).get("players", []):
         inj.setdefault(p.get("team"), []).append(p)
-    gcards = []
+    gcards, gpicks_all = [], []
+    by_gid = {g["game_id"]: g for g in sl["games"]}
+
+    def deco_gp(p, g):
+        q = dict(p)
+        q.update(g=g, away_badge=g["away_badge"], home_badge=g["home_badge"], tip_et=g["tip_et"],
+                 locked=g["started"], pick_badge=teams.badge(p["pick"]) if p["pick"] in teams.TEAMS else None,
+                 frozen=bool(p.get("frozen_at")))
+        return q
+
     for g in sl["games"]:
         tp = res["teams"].get(g["game_id"])
-        fr = tstore.get(f"{g['game_id']}|moneyline")
-        pick = chance = None
-        if fr:
-            pick, chance = fr["pick"], fr["chance"]
-        elif tp and g.get("game_picks_open"):
-            pick = g["home"] if tp["home_win"] >= 0.5 else g["away"]
-            chance = max(tp["home_win"], 1 - tp["home_win"])
-        why = "No projection for this game."
-        if tp:
-            why = (f"Our score: {g['away']} {tp['away_pts']:.0f}, {g['home']} {tp['home_pts']:.0f} (sum of player projections "
-                   f"\u00d7 {tf['scale']}). Margin {tp['margin']:+.1f} for {g['home']}; with a {tf['margin_sd']}-point spread of misses "
-                   f"that gives {g['home']} {tp['home_win'] * 100:.0f}% to win.")
-            if fr:
-                why += f" Frozen {fr['frozen_at']}, before tip."
+        frozen = {v["market"]: v for v in tstore.values() if v["game_id"] == g["game_id"]}
+        live_p = {p["market"]: p for p in (g.get("game_picks") or [])}
+        picks = []
+        for mkt in ("moneyline", "spread", "total"):
+            p = frozen.get(mkt) or live_p.get(mkt)
+            if p:
+                picks.append(deco_gp(p, g))
+        gpicks_all += picks
         sides = []
         for tm in (g["away"], g["home"]):
             ps = [r for r in res["players"] if r["game_id"] == g["game_id"] and r["team"] == tm]
@@ -568,13 +571,16 @@ def render_all(ctx: dict) -> None:
                           "out": [p["player"] for p in inj.get(tm, []) if p.get("class") == "out"],
                           "q": [p["player"] for p in inj.get(tm, []) if p.get("class") in ("questionable", "probable")]})
         gcards.append({"g": g, "fd": g.get("fanduel") or {}, "ml": (g.get("fanduel") or {}).get("moneyline"), "k": g.get("kalshi_ml"),
-                       "pick": pick, "pick_badge": teams.badge(pick) if pick else None, "pick_chance": chance, "frozen": fr, "why": why,
-                       "tp": tp, "sides": sides,
-                       "team_frozen": [v for k, v in tstore.items() if v["game_id"] == g["game_id"] and v["market"] != "moneyline"]})
-    team_rec = {r["market"]: r for r in grade.team_record(ctx["tpreds"])}
+                       "tp": tp, "sides": sides, "picks": picks})
+    g_best5 = sorted([deco_gp(v, by_gid[v["game_id"]]) for v in tstore.values()
+                      if "game:best5" in v.get("best5", []) and v["game_id"] in by_gid], key=lambda p: -p["chance"])
+    g_value = sorted([deco_gp(v, by_gid[v["game_id"]]) for v in tstore.values()
+                      if "game:value" in v.get("best5", []) and v["game_id"] in by_gid], key=lambda p: -(p.get("value") or 0))
     page_ids = {int(f[2:-5]) for f in keep_p}
-    write("games.html", "games.html", "games", slate=sl, cards=gcards, page_ids=page_ids, team_fit=tf, min_games=live.GAME_PICKS_MIN_GAMES,
-          ml_record=team_rec["moneyline"],
+    gmoney = grade.team_money(ctx["tpreds"])
+    write("games.html", "games.html", "games", slate=sl, cards=gcards, page_ids=page_ids, team_fit=tf,
+          g_best5=g_best5, g_value=g_value, gmoney=gmoney, blend_w=live.GAME_BLEND_W, cap=live.GAME_CHANCE_CAP,
+          empty_best=_empty_best_text(ctx),
           notices=_notices(ctx)[:1] + ([f"<strong>Kalshi:</strong> {ctx['sources']['kalshi']['error']}"] if ctx['sources']['kalshi']['error'] else []))
 
     # ---- old URLs -> new pages
@@ -628,7 +634,7 @@ def render_all(ctx: dict) -> None:
                                              label="Running units, 1 unit per graded pick")
     else:
         money["chart"] = None
-    write("history.html", "history.html", "history", hc=hc, money=money, months=mlist, retune_log=retune_log, scoreboard=grade.stat_scoreboard(preds), edge=edge,
+    write("history.html", "history.html", "history", hc=hc, money=money, gmoney=grade.team_money(ctx["tpreds"]), months=mlist, retune_log=retune_log, scoreboard=grade.stat_scoreboard(preds), edge=edge,
           buckets=grade.chance_buckets(preds), best5_rec=b5rec, team_rec=grade.team_record(ctx["tpreds"]),
           maturity=grade.maturity(ctx["cal"]), bt=bt, bt_cal=bt_all.get("calibration") or {},
           bt_n=(bt.get("pts") or {}).get("n"), health=list(reversed(ctx["health"][-30:])),
@@ -697,6 +703,27 @@ def render_all(ctx: dict) -> None:
     record["graded"] = record["hits"] + record["misses"]
     record["rate"] = round(100 * record["hits"] / record["graded"], 1) if record["graded"] else None
     record["money"] = grade.money_summary(preds)["total"]
+
+    def day_board(date, label):
+        ps = [p for p in preds if p["date"] == date]
+        tps = [t for t in ctx["tpreds"] if t["date"] == date]
+        gd = [p for p in ps if p["status"] == "graded"]
+        h = sum(1 for p in gd if p["hit"])
+        mon = grade._money_row(ps)
+        tg = [t for t in tps if t["status"] == "graded"]
+        return {"label": label, "date_label": datetime.strptime(date, "%Y-%m-%d").strftime("%a %b %-d"),
+                "hits": h, "misses": len(gd) - h, "pending": sum(1 for p in ps if p["status"] == "pending"),
+                "void": sum(1 for p in ps if p["status"] == "void"), "push": sum(1 for p in ps if p["status"] == "push"),
+                "rate": round(100 * h / len(gd), 1) if gd else None, "units": mon["units"], "clv_rate": mon["clv_rate"],
+                "n": len(ps), "games_n": len(tps), "games_hits": sum(1 for t in tg if t["hit"]), "games_graded": len(tg)}
+    pdates = sorted({p["date"] for p in preds})
+    today = sl.get("date") or (pdates[-1] if pdates else None)
+    prev = max((d for d in pdates if today and d < today), default=None)
+    boards = []
+    if today:
+        boards.append(day_board(today, "TONIGHT"))
+    if prev:
+        boards.append(day_board(prev, "PREVIOUS DAY"))
     frozen_n = defaultdict(int)
     for p in preds:
         frozen_n[p["game_id"]] += 1
@@ -740,7 +767,7 @@ def render_all(ctx: dict) -> None:
     n_lines = sum(len(v) for v in res["picks"].values())
     write("index.html", "home.html", "home", season=season, slate=sl, n_players=len(res["players"]), n_lines=n_lines,
           n_graded=sum(1 for p in preds if p["status"] == "graded"), tops=tops, edge=edge, source_rows=source_rows,
-          top_all=top_all, top_groups=top_groups, record=record, tiles=tiles,
+          top_all=top_all, top_groups=top_groups, record=record, tiles=tiles, boards=boards,
           maturity=grade.maturity(ctx["cal"]), bt=bt,
           no_picks_reason=_empty_best_text(ctx))
 

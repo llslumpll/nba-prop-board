@@ -290,9 +290,11 @@ def game_odds(games, away, home) -> dict | None:
                             "home_prob": round(ph * 100, 1), "away_prob": round(pa * 100, 1)}
     if g.get("home_spread") is not None:
         out["spread"] = {"home_point": g["home_spread"], "away_point": g.get("away_spread"),
+                         "home_price": g.get("home_spread_price"), "away_price": g.get("away_spread_price"),
                          "home_price_str": fmt_price(g.get("home_spread_price")),
                          "away_price_str": fmt_price(g.get("away_spread_price"))}
     if g.get("total") is not None:
-        out["total"] = {"point": g["total"], "over_str": fmt_price(g.get("over_price")),
+        out["total"] = {"point": g["total"], "over_price": g.get("over_price"), "under_price": g.get("under_price"),
+                        "over_str": fmt_price(g.get("over_price")),
                         "under_str": fmt_price(g.get("under_price"))}
     return out if len(out) > 1 else None

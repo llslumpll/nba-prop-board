@@ -73,10 +73,14 @@
         b.addEventListener('click', function () {
           showTab(bar.dataset.tabs, b.dataset.tab);
           if (bar.dataset.hash) history.replaceState(null, '', '#' + b.dataset.tab);
+          if (bar.dataset.tabScroll) {
+            var ref = bar.previousElementSibling || bar; var y = ref.getBoundingClientRect().bottom + window.scrollY - 80;
+            if (window.scrollY > y) window.scrollTo(0, y);
+          }
         });
       });
     });
-    (function () {
+    function applyHash() {
       var h = location.hash.slice(1); if (!h) return;
       document.querySelectorAll('[data-tabs][data-hash]').forEach(function (bar) {
         if (showTab(bar.dataset.tabs, h) && bar.dataset.hashScroll) {
@@ -84,7 +88,10 @@
           setTimeout(function () { t.scrollIntoView({block: 'start'}); }, 0);
         }
       });
-    })();
+      document.dispatchEvent(new CustomEvent('pe-hash', {detail: h}));
+    }
+    applyHash();
+    window.addEventListener('hashchange', applyHash);
     // Home: filter top-play cards by stat
     document.querySelectorAll('[data-filter-bar]').forEach(function (bar) {
       bar.querySelectorAll('[data-filter]').forEach(function (b) {

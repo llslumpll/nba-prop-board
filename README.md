@@ -257,3 +257,10 @@ After the first graded night (Oct 20, 324 picks: raw chances scored worse than a
 * **Role-gap guard:** if our projection is more than 50% away from the market mean for a player with < 10 games this season, the model weight shrinks further and the pick is kept out of Best 5 / Best Value (flagged "big gap vs line").
 * **Cap:** no chance above 80%.
 * Picks frozen under the old method are re-frozen once with the new one, only before tip. Replay on Oct 20 (in-sample, so optimistic): Brier 0.248 vs 0.262.
+
+## Game picks, Home day boards, tabbed History (Oct 21)
+
+* **Game picks (moneyline / spread / total)** replace the old "wait 10 games" gate (`live.game_picks`). Each starts from the market (FanDuel spread → margin, FanDuel total, no-vig moneyline) and moves toward our summed-player score by `GAME_BLEND_W` (0.25) × **agreement**: the correlation between our numbers and the market's, pooled over every game so far (`live.agreement`, 0 until 8 games). Shifts are converted to chances on the market's scale (margin σ 12.5, total σ 18). Totals first remove the slate-wide average gap (our sums run high early). Spread/total chances capped at 75%, moneylines 5–95%.
+* Frozen in `data/team_predictions/` within 8 h of tip, graded from final scores; units at the FanDuel price. **Game Best 5 / Best Value** (`predictions.sync_team_best`, one per game) only take picks whose chance beats their price. Shown on Games (BEST 5 / BEST VALUE / ALL GAMES tabs; `games.html#<game_id>` opens a game) and on History → Game picks.
+* **Home** shows two boards: tonight's slate and the previous day's results (props; game picks in the note line), plus an all-time line.
+* **History** is tabbed (Profit & CLV, Scoreboard, Accuracy, Confidence & value, Best 5 record, Game picks, Model, Pipeline, Day by day); `history.html#<tab>` opens a tab.

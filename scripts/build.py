@@ -236,33 +236,39 @@ def build(args) -> None:
                                                        round(mkt_side, 4) if mkt_side is not None else None, p["tip_utc"])
     tfrozen = 0
     played = live.team_games_played(box)
+    game_ranked = []
+    gaps = [res["teams"][g["game_id"]]["total"] - float(g["fanduel"]["total"]["point"]) for g in sl["games"]
+            if res["teams"].get(g["game_id"]) and (g.get("fanduel") or {}).get("total")]
+    total_offset = sum(gaps) / len(gaps) if len(gaps) >= 3 else 0.0
+    # how well our team numbers track the market, pooled over every game so far (this slate + earlier frozen picks)
+    seen_m, seen_t = {}, {}
+    for t in predictions.load_all(team=True):
+        if t.get("our_margin") is not None and t.get("market_margin") is not None and t["market"] in ("spread", "moneyline"):
+            seen_m[t["game_id"]] = (t["market_margin"], t["our_margin"])
+        if t["market"] == "total" and t.get("our_total") is not None and t.get("line") is not None:
+            seen_t[t["game_id"]] = (t["line"], t["our_total"])
     for g in sl["games"]:
-        g["game_picks_open"] = live.game_picks_open(g, played)
-        g["games_played"] = min(played.get(g["away"], 0), played.get(g["home"], 0))
+        tp0, fd0 = res["teams"].get(g["game_id"]), g.get("fanduel") or {}
+        if tp0 and fd0.get("spread"):
+            seen_m[g["game_id"]] = (-float(fd0["spread"]["home_point"]), tp0["margin"])
+        if tp0 and fd0.get("total"):
+            seen_t[g["game_id"]] = (float(fd0["total"]["point"]), tp0["total"] - total_offset)
+    agree_m, agree_t = live.agreement(list(seen_m.values())), live.agreement(list(seen_t.values()))
+    print(f"Game picks: our margins vs market r={agree_m}, totals r={agree_t} over {len(seen_m)}/{len(seen_t)} games")
+    for g in sl["games"]:
+        g["games_played"] = {t: played.get(t, 0) for t in (g["away"], g["home"])}
         tp = res["teams"].get(g["game_id"])
-        if not tp or not g["game_picks_open"]:
-            continue
+        g["game_picks"] = live.game_picks(g, tp, g.get("kalshi_ml"), total_offset, agree_m, agree_t) if tp else []
         base = {"game_id": g["game_id"], "date": g["date"], "home": g["home"], "away": g["away"],
-                "our_margin": tp["margin"], "our_total": tp["total"]}
-        hw = tp["home_win"]
-        if (g["fanduel"] or {}).get("moneyline") or g.get("kalshi_ml"):
-            pick = g["home"] if hw >= 0.5 else g["away"]
-            tfrozen += predictions.freeze_team({**base, "market": "moneyline", "pick": pick,
-                                                "chance": round(max(hw, 1 - hw), 4),
-                                                "source": "fanduel" if (g["fanduel"] or {}).get("moneyline") else "kalshi"},
-                                               g["tip_utc"])
-        sp = (g["fanduel"] or {}).get("spread")
-        if sp:
-            c = live.team_market_chances(tp, sp["home_point"], None)["spread"]["p_home"]
-            tfrozen += predictions.freeze_team({**base, "market": "spread", "line": sp["home_point"],
-                                                "pick": g["home"] if c >= 0.5 else g["away"],
-                                                "chance": round(max(c, 1 - c), 4), "source": "fanduel"}, g["tip_utc"])
-        tot = (g["fanduel"] or {}).get("total")
-        if tot:
-            c = live.team_market_chances(tp, None, tot["point"])["total"]["p_over"]
-            tfrozen += predictions.freeze_team({**base, "market": "total", "line": tot["point"],
-                                                "pick": "OVER" if c >= 0.5 else "UNDER",
-                                                "chance": round(max(c, 1 - c), 4), "source": "fanduel"}, g["tip_utc"])
+                "our_margin": tp["margin"] if tp else None, "our_total": tp["total"] if tp else None}
+        for gp in g["game_picks"]:
+            tfrozen += predictions.freeze_team({**base, **gp}, g["tip_utc"])
+            if not g["started"] and (gp.get("value") is None or gp["value"] >= 0):  # only picks that beat their price
+                game_ranked.append({**gp, "game_id": g["game_id"]})
+    if sl.get("date"):
+        predictions.sync_team_best(sl["date"], "best5", sorted(game_ranked, key=lambda r: -r["chance"]))
+        predictions.sync_team_best(sl["date"], "value", sorted([r for r in game_ranked if r.get("value") is not None],
+                                                              key=lambda r: -r["value"]))
     predictions.save()
     print(f"Froze {frozen} new player pick(s), re-froze {refrozen} (injury news or method update), updated {closes} closing line(s), "
           f"{tfrozen} new game pick(s).")

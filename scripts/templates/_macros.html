@@ -178,3 +178,39 @@
 {% endmacro %}
 
 {% macro stat_page_key(stat) -%}{{ stat if stat in ('pts', 'reb', 'ast', 'fg3m', 'pra') else 'pra' }}{%- endmacro %}
+
+{# Game pick card (moneyline / spread / total) #}
+{% macro gcard(p, kind) %}
+{% set g = p.g %}
+<article class="tcard" style="--tc:{{ (p.pick_badge or g.home_badge).color }}">
+  <div class="tc-top">
+    <div class="tc-who">
+      <div class="tc-namerow">{{ badge(g.away_badge) }}<span class="sb-at">@</span>{{ badge(g.home_badge) }}</div>
+      <div class="tc-sub">{{ p.market }} &middot; {{ g.tip_et }}</div>
+    </div>
+    <div class="tc-chance">
+      {% if kind == 'value' and p.value is not none %}<b>{{ '%+.1f'|format(p.value * 100) }}</b><span class="tc-chance-l">pts over break-even</span>
+      {% else %}<b>{{ (p.chance * 100)|round(0)|int }}%</b>{{ meter(p.chance) }}{% endif %}
+    </div>
+  </div>
+  <div class="tc-pick">
+    <span class="pill pill-{{ 'under' if p.pick == 'UNDER' else 'over' }}">{{ p.pick_label }}</span>
+    <div class="tc-nums">
+      {% if p.market == 'total' %}<span><em>OURS</em>{{ p.our_total|round(0)|int }}</span><span><em>LINE</em>{{ p.line }}</span>
+      {% else %}<span><em>OUR MARGIN</em>{{ '%+.1f'|format(p.our_margin) }}</span><span><em>MARKET</em>{{ '%+.1f'|format(p.market_margin) }}</span>{% endif %}
+      {% if kind == 'value' %}<span><em>CHANCE</em>{{ (p.chance * 100)|round(0)|int }}%</span>{% endif %}
+    </div>
+  </div>
+  <div class="tc-blend">{% if p.market == 'total' %}Blended total <b>{{ p.blend_total }}</b>{% else %}Blended margin <b>{{ '%+.1f'|format(p.blend_margin) }}</b> for {{ g.home }}{% endif %}: ours gets {{ (p.blend_w * 100)|round(0)|int }}% weight (tracks the market at r={{ p.agree if p.agree is defined else '—' }}){% if p.price_str %} &middot; price {{ p.price_str }}{% endif %}</div>
+  <div class="tc-foot">
+    <span class="src">{{ src_labels[p.source] }}</span> <span class="lean-tag">lean</span>
+    {% if p.locked %}<span class="locked">locked</span>{% endif %}
+    <span class="tc-actions"><a class="bd-btn" href="games.html#{{ g.game_id }}">WHY &amp; STATS &#9656;</a></span>
+  </div>
+</article>
+{% endmacro %}
+
+{% macro ggrid(picks, kind, empty_text) %}
+{% if picks %}<div class="tgrid">{% for p in picks %}{{ gcard(p, kind) }}{% endfor %}</div>
+{% else %}<div class="empty-state"><h3>Nothing here yet</h3><p>{{ empty_text }}</p></div>{% endif %}
+{% endmacro %}

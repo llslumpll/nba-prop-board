@@ -1025,3 +1025,26 @@ html.fonts-wait body { visibility: hidden; }
 .tc-blend { font-size: 0.78rem; color: var(--text-dim); margin-top: -6px; }
 .tc-blend b { color: var(--yellow); font-weight: 800; }
 .pp-gap { flex-basis: 100%; font-size: 0.72rem; font-weight: 800; color: #ffb35c; } td.bx .pp-gap { text-align: right; }
+/* Game picks */
+.gc-h { font-family: var(--pixel); font-weight: 400; font-size: 1.5rem; color: var(--yellow); margin: 14px 0 8px; }
+.gp-list { display: grid; gap: 10px; margin-bottom: 16px; }
+.gp-row { display: grid; grid-template-columns: 120px 220px 1fr auto; gap: 6px 14px; align-items: center; background: #170d2c; border: 2px solid var(--line); padding: 10px 12px; }
+.gp-mkt { font-family: var(--pixel); font-size: 1.3rem; color: var(--text-dim); }
+.gp-ch b { font-family: var(--pixel); font-weight: 400; font-size: 1.7rem; color: var(--yellow); }
+.gp-why { grid-column: 1 / -1; margin: 2px 0 0; font-size: 0.92rem; }
+.pill-sm { font-size: 1.3rem; padding: 1px 10px; }
+.tcard .tc-namerow .sb-at { font-size: 1.3rem; margin: 0 4px; }
+@media (max-width: 760px) { .gp-row { grid-template-columns: 1fr 1fr; } .gp-tags { grid-column: 1 / -1; } }
+/* Home: tonight + previous day scoreboards */
+.hero { align-items: start; }
+.boards { display: grid; gap: 12px; }
+.board-h { display: flex; justify-content: space-between; font-family: var(--pixel); font-size: 1.25rem; color: var(--yellow); letter-spacing: 1px; margin-bottom: 4px; }
+.board .rec-box b { font-size: 2.6rem; }
+.board .rec-box { padding: 8px 6px 6px; }
+.board-all { color: var(--text-dim); text-align: right; }
+.board-all:hover { color: var(--yellow); }
+/* History tabs */
+.hist-tabs { position: sticky; top: 0; z-index: 6; background: var(--bg); padding: 8px 0; }
+.hist-tabs button { font-size: 1.25rem; padding: 4px 14px; margin-bottom: 4px; }
+.hist-panel > h2.hist-h:first-child { margin-top: 10px; padding-top: 0; border-top: 0; }
+@media (max-width: 760px) { .hist-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .hist-tabs button { flex: 0 0 auto; font-size: 1.05rem; } }

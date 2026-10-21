@@ -7,11 +7,19 @@
     <h1 class="hero-h">Tonight's Slate</h1>
     <p class="lede">Player and game projections for every NBA slate, compared with FanDuel, Kalshi and PrizePicks lines. Every pick is frozen before tip-off and graded after the game, and the record on <a href="history.html">History</a> includes the misses.</p>
   </div>
-  <div class="record">
-    <div class="rec-box rec-hit"><b>{{ record.hits }}</b><span>HITS</span></div>
-    <div class="rec-box rec-miss"><b>{{ record.misses }}</b><span>MISSES</span></div>
-    <div class="rec-box rec-pend"><b>{{ record.pending }}</b><span>PENDING</span></div>
-    <div class="rec-note">{% if record.rate is not none %}{{ record.rate }}% hit rate &middot; <span class="{{ 'rec-up' if record.money.units > 0 else 'rec-down' if record.money.units < 0 }}">{{ '%+.1f'|format(record.money.units) }} units</span>{% if record.money.clv_rate is not none %} &middot; beat close {{ record.money.clv_rate }}%{% endif %}{% else %}Grading starts the morning after the first games{% endif %}{% if record.void or record.push %} &middot; {{ record.void }} void, {{ record.push }} push{% endif %}</div>
+  <div class="boards">
+    {% for b in boards %}
+    <div class="board">
+      <div class="board-h"><span>{{ b.label }}</span><span>{{ b.date_label }}</span></div>
+      <div class="record">
+        <div class="rec-box rec-hit"><b>{{ b.hits }}</b><span>HITS</span></div>
+        <div class="rec-box rec-miss"><b>{{ b.misses }}</b><span>MISSES</span></div>
+        <div class="rec-box rec-pend"><b>{{ b.pending }}</b><span>PENDING</span></div>
+        <div class="rec-note">{% if b.rate is not none %}{{ b.rate }}% hit rate &middot; <span class="{{ 'rec-up' if b.units > 0 else 'rec-down' if b.units < 0 }}">{{ '%+.1f'|format(b.units) }} units</span>{% if b.clv_rate is not none %} &middot; beat close {{ b.clv_rate }}%{% endif %}{% elif b.pending %}{{ b.n }} picks frozen &middot; graded the morning after{% else %}picks freeze on game day{% endif %}{% if b.games_n %} &middot; games {{ b.games_hits }}/{{ b.games_graded }}{% if b.games_graded < b.games_n %} ({{ b.games_n - b.games_graded }} pending){% endif %}{% endif %}</div>
+      </div>
+    </div>
+    {% endfor %}
+    <a class="board-all small" href="history.html">All-time: {{ record.hits }}&ndash;{{ record.misses }}{% if record.rate is not none %} ({{ record.rate }}%){% endif %} &middot; {{ '%+.1f'|format(record.money.units) }} units &rarr; History</a>
   </div>
 </section>
 

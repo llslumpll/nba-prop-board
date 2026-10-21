@@ -234,6 +234,22 @@ def team_record(tpreds: list[dict]) -> list[dict]:
     return out
 
 
+def team_money(tpreds: list[dict]) -> dict:
+    """Game picks: per market and for the Best 5 / Best Value lists."""
+    rows = []
+    for m in ("moneyline", "spread", "total"):
+        ps = [p for p in tpreds if p["market"] == m]
+        rows.append({"label": m, "pending": sum(1 for p in ps if p["status"] == "pending"), **_money_row(ps),
+                     "hits": sum(1 for p in ps if p["status"] == "graded" and p["hit"])})
+    for tag, label in (("game:best5", "Best 5"), ("game:value", "Best Value")):
+        ps = [p for p in tpreds if tag in p.get("best5", [])]
+        rows.append({"label": label, "list": True, "pending": sum(1 for p in ps if p["status"] == "pending"), **_money_row(ps),
+                     "hits": sum(1 for p in ps if p["status"] == "graded" and p["hit"])})
+    for r in rows:
+        r["hit_rate"] = _rate(r["hits"], r["graded"])
+    return {"rows": rows, "total": {**_money_row(tpreds), "hits": sum(1 for p in tpreds if p["status"] == "graded" and p["hit"])}}
+
+
 # ---------------------------------------------------------------------------
 # Calibration (written for the NEXT build to read)
 # ---------------------------------------------------------------------------

@@ -361,6 +361,125 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
             "no_history": [{"player": r["player"], "team": r["team"]} for r in no_hist]}
 
 
+# ---- game picks (moneyline / spread / total) ---------------------------------
+# Same idea as player props: start from what the market implies (FanDuel's
+# spread for the margin, its total for the points), move GAME_BLEND_W of the
+# way toward our own team projection (summed player projections), cap the
+# chance. Team sums run high early in a season, so the weight is lower than
+# for props. Replaces the old "wait 10 games" gate.
+GAME_BLEND_W = 0.25
+GAME_CHANCE_CAP = 0.75   # spreads and totals; moneylines stay within 5-95%
+# Shifts are converted to chances on the market's own scale (NBA final
+# margins vary about 12.5 points around the spread and totals about 18 around
+# the total), so a pick only moves away from the market where we disagree.
+MARKET_MARGIN_SD = 12.5
+MARKET_TOTAL_SD = 18.0
+
+
+def american_be(price) -> float | None:
+    if price is None:
+        return None
+    price = float(price)
+    return round(100 / (price + 100), 4) if price > 0 else round(-price / (-price + 100), 4)
+
+
+def _fmt_pt(x: float) -> str:
+    return f"{x:+g}" if x else "PK"
+
+
+def agreement(pairs: list[tuple[float, float]]) -> float:
+    """Correlation between our numbers and the market's over every game so far
+    (pooled across nights); 0 until there are 8 games. Our weight in game
+    picks is GAME_BLEND_W times this, so our team numbers only count as far
+    as they track the market's own ordering of games."""
+    if len(pairs) < 8:
+        return 0.0
+    xs, ys = [p[0] for p in pairs], [p[1] for p in pairs]
+    n = len(xs)
+    mx, my = sum(xs) / n, sum(ys) / n
+    sxy = sum((x - mx) * (y - my) for x, y in pairs)
+    sxx = sum((x - mx) ** 2 for x in xs)
+    syy = sum((y - my) ** 2 for y in ys)
+    return round(max(0.0, sxy / (sxx * syy) ** 0.5), 3) if sxx > 0 and syy > 0 else 0.0
+
+
+def game_picks(g: dict, tp: dict, kal_ml: dict | None = None, total_offset: float = 0.0,
+               agree_m: float = 1.0, agree_t: float = 1.0) -> list[dict]:
+    from statistics import NormalDist
+    fd = g.get("fanduel") or {}
+    ml, sp, tot = fd.get("moneyline"), fd.get("spread"), fd.get("total")
+    msd, tsd = tp["margin_sd"], tp["total_sd"]
+    k_home = (kal_ml or {}).get("home_prob")
+    msd, tsd = MARKET_MARGIN_SD, MARKET_TOTAL_SD
+    inv = lambda p: NormalDist().inv_cdf(min(0.99, max(0.01, p)))
+    if sp:
+        mm, msrc = -float(sp["home_point"]), f"FanDuel spread {g['home']} {_fmt_pt(sp['home_point'])}"
+    elif ml:
+        mm, msrc = msd * inv(ml["home_prob"] / 100), "FanDuel moneyline"
+    elif k_home:
+        mm, msrc = msd * inv(k_home / 100), "Kalshi price"
+    else:
+        return []
+    m = tp["margin"]
+    wm, wt = GAME_BLEND_W * agree_m, GAME_BLEND_W * agree_t
+    mb = mm + wm * (m - mm)
+    cap = lambda p: min(GAME_CHANCE_CAP, max(1 - GAME_CHANCE_CAP, p))
+    base_why = (f"Our score {g['away']} {tp['away_pts']:.0f}, {g['home']} {tp['home_pts']:.0f} (summed player projections), "
+                f"margin {m:+.1f} for {g['home']}; market margin {mm:+.1f} ({msrc}). So far our margins track the market's "
+                f"with a correlation of {agree_m:.2f}, so ours gets {wm * 100:.0f}% weight: {g['home']} by {mb:+.1f}.")
+    out = []
+    if ml or k_home:
+        p_mkt_home = (ml["home_prob"] if ml else k_home) / 100
+        ph = min(0.95, max(0.05, model._phi(inv(p_mkt_home) + (mb - mm) / msd)))
+        home = ph >= 0.5
+        team = g["home"] if home else g["away"]
+        if ml:
+            price = ml["home_price"] if home else ml["away_price"]
+            be, src, pstr = american_be(price), "fanduel", (ml["home_str"] if home else ml["away_str"])
+            mside = (ml["home_prob"] if home else ml["away_prob"]) / 100
+        else:
+            be, src, pstr = (kal_ml.get("home_ask") if home else kal_ml.get("away_ask")), "kalshi", None
+            mside = (k_home if home else (kal_ml.get("away_prob") or 100 - k_home)) / 100
+        ch = ph if home else 1 - ph
+        out.append({"market": "moneyline", "pick": team, "line": None, "pick_label": f"{team} ML", "price_str": pstr,
+                    "chance": round(ch, 4), "break_even": be, "value": round(ch - be, 4) if be else None,
+                    "market_side": round(mside, 4), "source": src,
+                    "why": base_why + f" {team} wins {ch * 100:.0f}% (market {mside * 100:.0f}%)."})
+    if sp:
+        hp = float(sp["home_point"])
+        p_home = cap(model._phi((mb - mm) / msd))
+        home = p_home >= 0.5
+        team = g["home"] if home else g["away"]
+        pt = hp if home else -hp
+        ch = p_home if home else 1 - p_home
+        be = american_be(sp.get("home_price") if home else sp.get("away_price"))
+        out.append({"market": "spread", "pick": team, "line": hp, "pick_label": f"{team} {_fmt_pt(pt)}",
+                    "price_str": sp["home_price_str"] if home else sp["away_price_str"],
+                    "chance": round(ch, 4), "break_even": be, "value": round(ch - be, 4) if be else None, "source": "fanduel",
+                    "why": base_why + f" {team} {_fmt_pt(pt)} covers {ch * 100:.0f}%."})
+    if tot:
+        mt = float(tot["point"])
+        our_t = tp["total"] - total_offset  # remove the slate-wide gap: only how this game differs counts
+        tb = mt + wt * (our_t - mt)
+        po = cap(1 - model._phi((mt - tb) / tsd))
+        over = po >= 0.5
+        ch = po if over else 1 - po
+        be = american_be(tot.get("over_price") if over else tot.get("under_price"))
+        out.append({"market": "total", "pick": "OVER" if over else "UNDER", "line": mt,
+                    "pick_label": f"{'OVER' if over else 'UNDER'} {mt:g}", "price_str": tot["over_str"] if over else tot["under_str"],
+                    "chance": round(ch, 4), "break_even": be, "value": round(ch - be, 4) if be else None, "source": "fanduel",
+                    "our_total": round(our_t, 1), "blend_total": round(tb, 1),
+                    "why": (f"Our total {tp['total']:.0f} ({g['away']} {tp['away_pts']:.0f} + {g['home']} {tp['home_pts']:.0f})"
+                            + (f", {abs(total_offset):.1f} {'above' if total_offset > 0 else 'below'} the market on average tonight, so {our_t:.0f} after removing that" if abs(total_offset) >= 0.5 else "")
+                            + "; "
+                            f"FanDuel {mt:g}. Our totals track the market's with a correlation of {agree_t:.2f} so far, "
+                            f"so ours gets {wt * 100:.0f}% weight: {tb:.1f}. {'Over' if over else 'Under'} {mt:g} hits {ch * 100:.0f}%.")})
+    for p in out:
+        p.update(our_margin=round(m, 1), market_margin=round(mm, 1), blend_margin=round(mb, 1),
+                 blend_w=round(wt if p["market"] == "total" else wm, 4), agree=agree_t if p["market"] == "total" else agree_m)
+    return out
+
+
 def team_market_chances(tp: dict, home_spread: float | None, total: float | None) -> dict:
     out = {}
     if home_spread is not None:
