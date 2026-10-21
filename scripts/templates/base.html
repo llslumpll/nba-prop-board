@@ -5,7 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>{% block title %}Prop Edge NBA{% endblock %}</title>
-  <link rel="stylesheet" href="static/style.css?v={{ cache_bust }}">
+  {% for f in ('jersey-10-latin-400-normal', 'oxanium-latin-600-normal', 'oxanium-latin-700-normal', 'oxanium-latin-800-normal', 'press-start-2p-latin-400-normal') %}<link rel="preload" href="static/fonts/{{ f }}.woff2" as="font" type="font/woff2" crossorigin>
+  {% endfor %}<link rel="stylesheet" href="static/style.css?v={{ cache_bust }}">
+  <script>
+    // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
+    (function () {
+      var d = document.documentElement; d.classList.add('fonts-wait');
+      function ready() { d.classList.remove('fonts-wait'); }
+      setTimeout(ready, 1500);
+      if (document.fonts && document.fonts.ready) {
+        Promise.all(['400 1em "Jersey 10"', '600 1em Oxanium', '700 1em Oxanium', '800 1em Oxanium', '400 1em "Press Start 2P"'].map(function (f) { return document.fonts.load(f); }))
+          .then(function () { return document.fonts.ready; }).then(ready, ready);
+      } else { ready(); }
+    })();
+  </script>
 </head>
 <body>
   <header class="site-head">

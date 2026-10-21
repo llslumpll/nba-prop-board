@@ -1,7 +1,7 @@
 /* Fonts are stored on the site itself (docs/static/fonts), no Google Fonts needed. */
-@font-face { font-family: "Press Start 2P"; src: url("fonts/press-start-2p-latin-400-normal.woff2") format("woff2"); font-display: swap; }
-@font-face { font-family: "VT323"; src: url("fonts/vt323-latin-400-normal.woff2") format("woff2"); font-display: swap; }
-@font-face { font-family: "Jersey 10"; src: url("fonts/jersey-10-latin-400-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Press Start 2P"; src: url("fonts/press-start-2p-latin-400-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "VT323"; src: url("fonts/vt323-latin-400-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Jersey 10"; src: url("fonts/jersey-10-latin-400-normal.woff2") format("woff2"); font-display: block; }
 
 :root {
   --bg: #0a0a0f;
@@ -687,13 +687,7 @@ table.stat-table th { font-size: 1.15rem; letter-spacing: 0.5px; }
 
 /* ==== Readability pass: bigger text, full width, pixel body font that matches the headings ==== */
 /* "Body" = Pixelify Sans for letters, Jersey 10 for digits (Pixelify's 5 reads like an S). */
-@font-face { font-family: "Body"; font-weight: 400; src: url("fonts/pixelify-sans-latin-400-normal.woff2") format("woff2"); font-display: swap; }
-@font-face { font-family: "Body"; font-weight: 500; src: url("fonts/pixelify-sans-latin-500-normal.woff2") format("woff2"); font-display: swap; }
-@font-face { font-family: "Body"; font-weight: 600; src: url("fonts/pixelify-sans-latin-600-normal.woff2") format("woff2"); font-display: swap; }
 /* digits declared last so they win over Pixelify for 0-9 */
-@font-face { font-family: "Body"; font-weight: 400; src: url("fonts/jersey-10-latin-400-normal.woff2") format("woff2"); unicode-range: U+0030-0039, U+0025, U+002B, U+2212, U+00B1; size-adjust: 128%; font-display: swap; }
-@font-face { font-family: "Body"; font-weight: 500; src: url("fonts/jersey-10-latin-400-normal.woff2") format("woff2"); unicode-range: U+0030-0039, U+0025, U+002B, U+2212, U+00B1; size-adjust: 128%; font-display: swap; }
-@font-face { font-family: "Body"; font-weight: 600; src: url("fonts/jersey-10-latin-400-normal.woff2") format("woff2"); unicode-range: U+0030-0039, U+0025, U+002B, U+2212, U+00B1; size-adjust: 128%; font-display: swap; }
 :root { --sans: "Body", "VT323", ui-monospace, monospace; --mono: "Body", "VT323", ui-monospace, monospace; }
 html, body { font-size: 19px; line-height: 1.45; }
 p.lede { max-width: none; font-size: 1.1rem; color: #c9bde3; }
@@ -704,7 +698,7 @@ p.lede.small { font-size: 1rem; }
 table.stat-table { font-size: 1.05rem; }
 table.stat-table td { padding-top: 12px; padding-bottom: 12px; }
 table.stat-table td strong { font-family: var(--pixel); font-weight: 400; font-size: 1.9rem; line-height: 1; color: var(--yellow); text-shadow: 2px 2px 0 #6b1300; vertical-align: -2px; }
-.pick-line { font-size: 1.1rem; font-weight: 500; }
+.pick-line { font-size: 1.1rem; font-weight: 600; }
 .chance { font-size: 1.45rem; }
 .line-list { font-size: 1rem; gap: 4px; }
 .src, .locked { font-size: 0.85rem; }
@@ -845,14 +839,13 @@ td.bx { text-align: right; white-space: nowrap; }
 .tcard:has(.tc-why:not(.hidden)) { grid-column: 1 / -1; }
 
 /* ==== Readability v2: Oxanium (bold, squared, scoreboard feel) for all body text ==== */
-@font-face { font-family: "Oxanium"; font-weight: 500; src: url("fonts/oxanium-latin-500-normal.woff2") format("woff2"); font-display: swap; }
-@font-face { font-family: "Oxanium"; font-weight: 600; src: url("fonts/oxanium-latin-600-normal.woff2") format("woff2"); font-display: swap; }
-@font-face { font-family: "Oxanium"; font-weight: 700; src: url("fonts/oxanium-latin-700-normal.woff2") format("woff2"); font-display: swap; }
-@font-face { font-family: "Oxanium"; font-weight: 800; src: url("fonts/oxanium-latin-800-normal.woff2") format("woff2"); font-display: swap; }
-:root { --sans: "Oxanium", "Body", ui-sans-serif, system-ui, sans-serif; --mono: "Oxanium", "Body", ui-sans-serif, system-ui, sans-serif; }
+@font-face { font-family: "Oxanium"; font-weight: 600; src: url("fonts/oxanium-latin-600-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Oxanium"; font-weight: 700; src: url("fonts/oxanium-latin-700-normal.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Oxanium"; font-weight: 800; src: url("fonts/oxanium-latin-800-normal.woff2") format("woff2"); font-display: block; }
+:root { --sans: "Oxanium", ui-sans-serif, system-ui, sans-serif; --mono: "Oxanium", ui-sans-serif, system-ui, sans-serif; }
 html, body { font-size: 18px; font-weight: 600; letter-spacing: 0.1px; }
 strong, b { font-weight: 800; }
-p.lede, .prop-card-reason, .why-reason { color: #d6cbee; font-weight: 500; line-height: 1.55; }
+p.lede, .prop-card-reason, .why-reason { color: #d6cbee; font-weight: 600; line-height: 1.55; }
 .player-name, .tc-sub, .player-sub { font-weight: 700; }
 .player-sub, .tc-sub { font-weight: 600; }
 table.stat-table td { font-weight: 600; }
@@ -956,7 +949,7 @@ td.bx .slip-add { margin-top: 2px; }
 .slip-sum b { font-family: var(--pixel); font-weight: 400; font-size: 1.6rem; color: var(--yellow); }
 .slip-warn p { margin: 4px 0; font-size: 0.8rem; padding: 4px 6px; }
 .sw-bad { background: #3a0710; color: #ffb3bf; } .sw-warn { background: #2e2207; color: #ffd98a; } .sw-info { background: #131a3a; color: #b9c8ff; }
-.slip-note { font-size: 0.72rem; color: var(--text-dim); margin: 8px 0; font-weight: 500; }
+.slip-note { font-size: 0.72rem; color: var(--text-dim); margin: 8px 0; font-weight: 600; }
 .slip-btns { display: flex; gap: 8px; justify-content: flex-end; }
 .slip-btns .chip { font-size: 0.95rem; padding: 2px 10px; }
 body.has-slip .site-foot { padding-bottom: 90px; }
@@ -983,3 +976,45 @@ a.tc-name::after, a.bx-name::after, a.plink::after { content: " \25B8"; color: v
 @media (max-width: 760px) { .bd-top { grid-template-columns: 1fr; } .bd-btn { font-size: 1rem; padding: 3px 8px; } }
 .pt-stat { display: block; } a.pt-stat:hover { color: #fff; text-decoration: none; }
 .anchor, #breakdown { scroll-margin-top: 110px; } @media (max-width: 760px) { .anchor, #breakdown { scroll-margin-top: 100px; } }
+
+/* ==== Stability pass: nothing should move when fonts load or tabs switch ==== */
+html { scrollbar-gutter: stable; }
+body { font-variant-numeric: tabular-nums; }
+/* fixed table layouts: columns keep the same width on every game tab */
+table.projt, table.bxt, table.teamt { table-layout: fixed; width: 100%; }
+table.projt th:nth-child(1) { width: 30%; } table.projt th:nth-child(2) { width: 38%; } table.projt th:nth-child(3) { width: 20%; } table.projt th:nth-child(4) { width: 12%; }
+table.bxt th:first-child { width: 19%; } table.bxt th:last-child { width: 150px; }
+table.teamt th:first-child { width: 40%; }
+table.projt td, table.bxt td, table.teamt td { overflow-wrap: anywhere; }
+td.nowrap .bd-btn { white-space: nowrap; }
+/* Games: the info boxes keep one height whether or not lines are posted */
+.gcard .kv > div { min-height: 104px; }
+/* equal-height cards in every grid row; footers line up at the bottom */
+.tgrid { align-items: stretch; }
+.tcard .tc-foot { margin-top: auto; }
+.tc-recent .recent-strip { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 3px; }
+.tc-recent .rs { min-width: 0; padding: 2px 0; text-align: center; }
+.scoreboard { grid-auto-rows: 1fr; }
+.pt-grid { grid-auto-rows: 1fr; }
+.pt-card { display: flex; flex-direction: column; }
+.pt-card .pp { flex: 1; align-content: flex-start; }
+/* toggles that change text keep their width */
+.slip-add { min-width: 64px; text-align: center; }
+.seg button, .chip { text-align: center; }
+/* the breakdown panel keeps a steady top block so the chart doesn't jump between short and long tabs */
+.bd-top { min-height: 190px; }
+@media (max-width: 760px) {
+  table.projt th:nth-child(1) { width: 44%; } table.projt th:nth-child(2) { width: 56%; } table.projt th:nth-child(4) { width: 92px; }
+  table.projt { min-width: 100%; }
+  table.bxt { width: 760px; } table.bxt th:first-child { width: 132px; } table.bxt th:last-child { width: 118px; }
+  table.teamt th:first-child { width: 36%; }
+  .gcard .kv > div { min-height: 92px; }
+  .tc-recent .rs { font-size: 0.85rem; }
+}
+html.fonts-wait body { visibility: hidden; }
+@media (max-width: 760px) {
+  .gcard .kv { grid-template-columns: 1fr 1fr; }
+  .gcard .kv > div { min-height: 112px; }
+  .gcard .kv .v { font-size: 1.3rem; }
+}
+@media (max-width: 760px) { .gcard .kv > div { min-height: 136px; } }

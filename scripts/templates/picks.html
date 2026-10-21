@@ -39,7 +39,7 @@
     {% for gm in games %}
     <div class="{{ 'hidden' if not loop.first }}" data-tab-panel="pg-{{ gr.key }}:{{ gm.g.game_id }}">
       <div class="proj-head">{{ m.matchup(gm.g.away_badge, gm.g.home_badge) }} {{ m.game_status(gm.g) }}{% if gm.g.started %} <span class="dim small">picks locked</span>{% endif %}</div>
-      <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+      <div class="table-wrap"><div class="table-scroll"><table class="stat-table projt">
         <thead><tr><th>Player</th><th>Projection &amp; pick</th><th class="hide-sm">Lines</th><th class="nowrap"></th></tr></thead>
         <tbody>
         {% set rows = (gm.teams[0].rows + gm.teams[1].rows)|sort(attribute='stats.' ~ gr.stat_keys[0] ~ '.proj', reverse=True) %}

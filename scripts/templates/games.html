@@ -41,7 +41,7 @@
         <div class="gc-team">{{ m.badge(side.badge) }} {{ side.name }}</div>
         {% if side.out %}<p class="small"><span class="injury-flag stat-bad">Out:</span> {{ side.out|join(', ') }}</p>{% endif %}
         {% if side.q %}<p class="small dim">Questionable / day-to-day: {{ side.q|join(', ') }}</p>{% endif %}
-        <div class="table-scroll"><table class="stat-table">
+        <div class="table-scroll"><table class="stat-table teamt">
           <thead><tr><th>Player</th><th class="num">Min</th><th class="num">Pts</th><th class="num">Reb</th><th class="num">Ast</th><th class="num">3PM</th></tr></thead>
           <tbody>
           {% for r in side.players %}
