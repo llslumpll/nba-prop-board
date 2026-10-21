@@ -5,7 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>Devin Vassell — Prop Edge NBA</title>
-  <link rel="stylesheet" href="static/style.css?v=edf4b6f3fe">
+<link rel="preload" href="static/fonts/jersey-10-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/oxanium-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="static/style.css?v=85e691a41c">
+  <script>
+    // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
+    (function () {
+      var d = document.documentElement; d.classList.add('fonts-wait');
+      function ready() { d.classList.remove('fonts-wait'); }
+      setTimeout(ready, 1500);
+      if (document.fonts && document.fonts.ready) {
+        Promise.all(['400 1em "Jersey 10"', '600 1em Oxanium', '700 1em Oxanium', '800 1em Oxanium', '400 1em "Press Start 2P"'].map(function (f) { return document.fonts.load(f); }))
+          .then(function () { return document.fonts.ready; }).then(ready, ready);
+      } else { ready(); }
+    })();
+  </script>
 </head>
 <body>
   <header class="site-head">
@@ -75,7 +92,7 @@
 <span class="pp-pick pp-over">OVER 12.5</span><span class="pp-ch">59%</span>
 <span class="pp-fz">&#128274; frozen earlier: OVER 12</span><button class="slip-add" type="button" title="Add to slip" data-leg='{"chance": 0.5894, "gid": 401909090, "id": "4395630|pts|401909090", "line": 12.5, "opp": "OKC", "pid": 4395630, "player": "Devin Vassell", "side": "OVER", "src": "fanduel", "stat": "PTS", "team": "SAS"}'>+ SLIP</button></span></div>
     <div class="bd-why"><p class="why-reason"><strong>points 13.9 &middot; <span class="pick-line"><span class="side-over">OVER</span> 12.5</span> <span class="chance">59%</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>:</strong> 29.9 min (recent 30.6, −0.7 team-minutes adjustment); × 0.478 points/min (prior seasons, no games this season yet); context: home +1%, shared production on SAS −3%.
-<br>FanDuel 12.5 (-104/-128): we give OVER 59%, market 48% for OVER, break-even 51.0% for OVER.<br>PrizePicks 12: we give OVER 63%, break-even 54.2% for OVER.<br>Kalshi 9.5: we give OVER 76%, market 65% for OVER, break-even 66.0% for OVER <span class="move">moved from 14.5</span>.<br><span class="locked">&#128274; frozen: OVER 12 (2026-10-19 17:09 UTC)</span><br>Last 10 (over 12.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">19</i><i class="rs rs-over">16</i><i class="rs rs-under">6</i><i class="rs rs-under">8</i><i class="rs rs-over">14</i><i class="rs rs-over">18</i><i class="rs rs-under">9</i><i class="rs rs-over">14</i><i class="rs rs-under">5</i><i class="rs rs-over">19</i></span><br>Kalshi ladder: 10+ 65%, 15+ 33%, 20+ 12%.</p>
+<br>FanDuel 12.5 (-104/-128): we give OVER 59%, market 48% for OVER, break-even 51.0% for OVER.<br>PrizePicks 12: we give OVER 63%, break-even 54.2% for OVER.<br>Kalshi 9.5: we give OVER 76%, market 65% for OVER, break-even 66.0% for OVER <span class="move">moved from 14.5</span>.<br><span class="locked">&#128274; frozen: OVER 12 (2026-10-19 17:09 UTC)</span><br>Last 10 (over 12.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">19</i><i class="rs rs-over">16</i><i class="rs rs-under">6</i><i class="rs rs-under">8</i><i class="rs rs-over">14</i><i class="rs rs-over">18</i><i class="rs rs-under">9</i><i class="rs rs-over">14</i><i class="rs rs-under">5</i><i class="rs rs-over">19</i></span><br>Kalshi ladder: 10+ 65%, 15+ 32%, 20+ 12%.</p>
 </div>
   </div>
   <div class="factor-grid">
@@ -97,7 +114,7 @@
 <span class="pp-pick pp-under">UNDER 4</span><span class="pp-ch">57%</span>
 <button class="slip-add" type="button" title="Add to slip" data-leg='{"chance": 0.5711, "gid": 401909090, "id": "4395630|reb|401909090", "line": 4.0, "opp": "OKC", "pid": 4395630, "player": "Devin Vassell", "side": "UNDER", "src": "prizepicks", "stat": "REB", "team": "SAS"}'>+ SLIP</button></span></div>
     <div class="bd-why"><p class="why-reason"><strong>rebounds 3.9 &middot; <span class="pick-line"><span class="side-under">UNDER</span> 4</span> <span class="chance">57%</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>:</strong> 29.9 min (recent 30.6, −0.7 team-minutes adjustment); × 0.131 rebounds/min (prior seasons, no games this season yet); context: home +1%, shared production on SAS −1%.
-<br>PrizePicks 4: we give OVER 43%, break-even 54.2% for UNDER.<br>Kalshi 3.5: we give OVER 53%, market 54% for OVER, break-even 54.0% for OVER.<br><span class="locked">&#128274; frozen: UNDER 4 (2026-10-19 20:36 UTC)</span><br>Last 10 (under 4, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-under">7</i><i class="rs rs-push">4</i><i class="rs rs-under">7</i><i class="rs rs-over">2</i><i class="rs rs-under">10</i><i class="rs rs-under">5</i><i class="rs rs-push">4</i><i class="rs rs-under">8</i><i class="rs rs-over">2</i><i class="rs rs-push">4</i></span><br>Kalshi ladder: 2+ 86%, 4+ 54%, 6+ 18%, 8+ 6%.</p>
+<br>PrizePicks 4: we give OVER 43%, break-even 54.2% for UNDER.<br>Kalshi 3.5: we give OVER 53%, market 54% for OVER, break-even 54.0% for OVER.<br><span class="locked">&#128274; frozen: UNDER 4 (2026-10-19 20:36 UTC)</span><br>Last 10 (under 4, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-under">7</i><i class="rs rs-push">4</i><i class="rs rs-under">7</i><i class="rs rs-over">2</i><i class="rs rs-under">10</i><i class="rs rs-under">5</i><i class="rs rs-push">4</i><i class="rs rs-under">8</i><i class="rs rs-over">2</i><i class="rs rs-push">4</i></span><br>Kalshi ladder: 2+ 85%, 4+ 54%, 6+ 18%, 8+ 6%.</p>
 </div>
   </div>
   <div class="factor-grid">
@@ -119,7 +136,7 @@
 <span class="pp-pick pp-over">OVER 1.5</span><span class="pp-ch">75%</span>
 <button class="slip-add" type="button" title="Add to slip" data-leg='{"chance": 0.7545, "gid": 401909090, "id": "4395630|ast|401909090", "line": 1.5, "opp": "OKC", "pid": 4395630, "player": "Devin Vassell", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "SAS"}'>+ SLIP</button></span></div>
     <div class="bd-why"><p class="why-reason"><strong>assists 2.7 &middot; <span class="pick-line"><span class="side-over">OVER</span> 1.5</span> <span class="chance">75%</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>:</strong> 29.9 min (recent 30.6, −0.7 team-minutes adjustment); × 0.091 assists/min (prior seasons, no games this season yet); context: home +1%, shared production on SAS −1%.
-<br>Kalshi 1.5: we give OVER 75%, market 68% for OVER, break-even 69.0% for OVER.<br><span class="locked">&#128274; frozen: OVER 1.5 (2026-10-20 19:12 UTC)</span><br>Last 10 (over 1.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">4</i><i class="rs rs-under">1</i><i class="rs rs-over">3</i><i class="rs rs-over">4</i><i class="rs rs-over">2</i><i class="rs rs-over">2</i><i class="rs rs-over">4</i><i class="rs rs-under">1</i><i class="rs rs-over">2</i><i class="rs rs-over">2</i></span><br>Kalshi ladder: 2+ 68%, 4+ 22%, 6+ 5%.</p>
+<br>Kalshi 1.5: we give OVER 75%, market 68% for OVER, break-even 70.0% for OVER.<br><span class="locked">&#128274; frozen: OVER 1.5 (2026-10-20 19:12 UTC)</span><br>Last 10 (over 1.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">4</i><i class="rs rs-under">1</i><i class="rs rs-over">3</i><i class="rs rs-over">4</i><i class="rs rs-over">2</i><i class="rs rs-over">2</i><i class="rs rs-over">4</i><i class="rs rs-under">1</i><i class="rs rs-over">2</i><i class="rs rs-over">2</i></span><br>Kalshi ladder: 2+ 68%, 4+ 23%, 6+ 5%.</p>
 </div>
   </div>
   <div class="factor-grid">
@@ -334,7 +351,7 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=edf4b6f3fe"></script>
+  <script src="static/slip.js?v=85e691a41c"></script>
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>

@@ -5,7 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>Landry Shamet — Prop Edge NBA</title>
-  <link rel="stylesheet" href="static/style.css?v=edf4b6f3fe">
+<link rel="preload" href="static/fonts/jersey-10-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/oxanium-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="static/style.css?v=85e691a41c">
+  <script>
+    // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
+    (function () {
+      var d = document.documentElement; d.classList.add('fonts-wait');
+      function ready() { d.classList.remove('fonts-wait'); }
+      setTimeout(ready, 1500);
+      if (document.fonts && document.fonts.ready) {
+        Promise.all(['400 1em "Jersey 10"', '600 1em Oxanium', '700 1em Oxanium', '800 1em Oxanium', '400 1em "Press Start 2P"'].map(function (f) { return document.fonts.load(f); }))
+          .then(function () { return document.fonts.ready; }).then(ready, ready);
+      } else { ready(); }
+    })();
+  </script>
 </head>
 <body>
   <header class="site-head">
@@ -137,7 +154,7 @@
 <span class="pp-pick pp-under">UNDER 1.5</span><span class="pp-ch">54%</span>
 </span></div>
     <div class="bd-why"><p class="why-reason"><strong>3-pointers made 1.8 &middot; <span class="pick-line"><span class="side-under">UNDER</span> 1.5</span> <span class="chance">54%</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>:</strong> 22.5 min (recent 23.0, −0.5 team-minutes adjustment); × 0.083 3-pointers made/min (prior seasons, no games this season yet); context: home +1%, shared production on NYK −5%.
-<br>Kalshi 1.5: we give OVER 46%, market 37% for UNDER, break-even 41.0% for UNDER.<br><span class="locked">&#128274; frozen: UNDER 1.5 (2026-10-20 17:40 UTC)</span><br>Last 10 (under 1.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">1</i><i class="rs rs-under">2</i><i class="rs rs-under">2</i><i class="rs rs-over">0</i><i class="rs rs-over">1</i><i class="rs rs-under">3</i><i class="rs rs-under">2</i><i class="rs rs-over">0</i><i class="rs rs-over">1</i><i class="rs rs-under">2</i></span><br>Kalshi ladder: 2+ 63%, 3+ 28%, 5+ 4%.</p>
+<br>Kalshi 1.5: we give OVER 46%, market 40% for UNDER, break-even 42.0% for UNDER.<br><span class="locked">&#128274; frozen: UNDER 1.5 (2026-10-20 17:40 UTC)</span><br>Last 10 (under 1.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">1</i><i class="rs rs-under">2</i><i class="rs rs-under">2</i><i class="rs rs-over">0</i><i class="rs rs-over">1</i><i class="rs rs-under">3</i><i class="rs rs-under">2</i><i class="rs rs-over">0</i><i class="rs rs-over">1</i><i class="rs rs-under">2</i></span><br>Kalshi ladder: 2+ 60%, 3+ 26%, 4+ 7%, 5+ 4%.</p>
 </div>
   </div>
   <div class="factor-grid">
@@ -330,7 +347,7 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=edf4b6f3fe"></script>
+  <script src="static/slip.js?v=85e691a41c"></script>
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>

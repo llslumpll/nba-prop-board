@@ -5,7 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>Players — Prop Edge NBA</title>
-  <link rel="stylesheet" href="static/style.css?v=edf4b6f3fe">
+<link rel="preload" href="static/fonts/jersey-10-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/oxanium-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="static/style.css?v=85e691a41c">
+  <script>
+    // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
+    (function () {
+      var d = document.documentElement; d.classList.add('fonts-wait');
+      function ready() { d.classList.remove('fonts-wait'); }
+      setTimeout(ready, 1500);
+      if (document.fonts && document.fonts.ready) {
+        Promise.all(['400 1em "Jersey 10"', '600 1em Oxanium', '700 1em Oxanium', '800 1em Oxanium', '400 1em "Press Start 2P"'].map(function (f) { return document.fonts.load(f); }))
+          .then(function () { return document.fonts.ready; }).then(ready, ready);
+      } else { ready(); }
+    })();
+  </script>
 </head>
 <body>
   <header class="site-head">
@@ -21,10 +38,10 @@
 <div class="notice compact"><strong>No box scores from this season yet.</strong> Projections use the last two seasons until games are played; the first box scores arrive the morning after opening night.</div></details>
 
 <div class="psearch"><input id="psearch" type="search" placeholder="Search a player…" list="plist" autocomplete="off" aria-label="Search a player">
-<datalist id="plist"><option value="Ajay Mitchell">OKC</option><option value="Alex Caruso">OKC</option><option value="Andre Drummond">NYK</option><option value="Anfernee Simons">PHI</option><option value="Ausar Thompson">DET</option><option value="Baylor Scheierman">BOS</option><option value="Cade Cunningham">DET</option><option value="Caleb Love">PHI</option><option value="Carter Bryant">SAS</option><option value="Cason Wallace">OKC</option><option value="Chet Holmgren">OKC</option><option value="Daniss Jenkins">DET</option><option value="De&#39;Aaron Fox">SAS</option><option value="Derrick White">BOS</option><option value="Devin Vassell">SAS</option><option value="Duncan Robinson">DET</option><option value="Dylan Harper">SAS</option><option value="Elijah Harkless">DET</option><option value="Harrison Barnes">SAS</option><option value="Isaiah Hartenstein">OKC</option><option value="Isaiah Joe">DET</option><option value="Jalen Brunson">NYK</option><option value="Jalen Duren">DET</option><option value="Jalen Williams">OKC</option><option value="Jared McCain">OKC</option><option value="Jaylen Brown">PHI</option><option value="Jaylin Williams">OKC</option><option value="Jayson Tatum">BOS</option><option value="Joel Embiid">PHI</option><option value="John Collins">DET</option><option value="Jordan Walsh">BOS</option><option value="Jose Alvarado">NYK</option><option value="Josh Hart">NYK</option><option value="Julian Champagnie">SAS</option><option value="Karl-Anthony Towns">NYK</option><option value="Keldon Johnson">SAS</option><option value="Kenrich Williams">OKC</option><option value="Kentavious Caldwell-Pope">PHI</option><option value="Kevin Huerter">DET</option><option value="Landry Shamet">NYK</option><option value="LeBron James">PHI</option><option value="Luke Kornet">SAS</option><option value="Mikal Bridges">NYK</option><option value="Mike Conley">BOS</option><option value="Miles McBride">NYK</option><option value="Mitchell Robinson">BOS</option><option value="Neemias Queta">BOS</option><option value="OG Anunoby">NYK</option><option value="Paul George">BOS</option><option value="Payton Pritchard">BOS</option><option value="Ronald Holland II">DET</option><option value="Sam Hauser">BOS</option><option value="Shai Gilgeous-Alexander">OKC</option><option value="Stephon Castle">SAS</option><option value="Tyrese Maxey">PHI</option><option value="VJ Edgecombe">PHI</option><option value="Victor Wembanyama">SAS</option></datalist></div>
+<datalist id="plist"><option value="Ajay Mitchell">OKC</option><option value="Alex Caruso">OKC</option><option value="Andre Drummond">NYK</option><option value="Anfernee Simons">PHI</option><option value="Ausar Thompson">DET</option><option value="Baylor Scheierman">BOS</option><option value="Cade Cunningham">DET</option><option value="Caleb Love">PHI</option><option value="Cason Wallace">OKC</option><option value="Chet Holmgren">OKC</option><option value="Daniss Jenkins">DET</option><option value="De&#39;Aaron Fox">SAS</option><option value="Derrick White">BOS</option><option value="Devin Vassell">SAS</option><option value="Duncan Robinson">DET</option><option value="Dylan Harper">SAS</option><option value="Elijah Harkless">DET</option><option value="Harrison Barnes">SAS</option><option value="Isaiah Hartenstein">OKC</option><option value="Isaiah Joe">DET</option><option value="Jalen Brunson">NYK</option><option value="Jalen Duren">DET</option><option value="Jalen Williams">OKC</option><option value="Jared McCain">OKC</option><option value="Jaylen Brown">PHI</option><option value="Jaylin Williams">OKC</option><option value="Jayson Tatum">BOS</option><option value="Joel Embiid">PHI</option><option value="John Collins">DET</option><option value="Jordan Walsh">BOS</option><option value="Jose Alvarado">NYK</option><option value="Josh Hart">NYK</option><option value="Julian Champagnie">SAS</option><option value="Karl-Anthony Towns">NYK</option><option value="Keldon Johnson">SAS</option><option value="Kenrich Williams">OKC</option><option value="Kentavious Caldwell-Pope">PHI</option><option value="Kevin Huerter">DET</option><option value="Landry Shamet">NYK</option><option value="LeBron James">PHI</option><option value="Luke Kornet">SAS</option><option value="Mikal Bridges">NYK</option><option value="Mike Conley">BOS</option><option value="Miles McBride">NYK</option><option value="Mitchell Robinson">BOS</option><option value="Neemias Queta">BOS</option><option value="OG Anunoby">NYK</option><option value="Paul George">BOS</option><option value="Payton Pritchard">BOS</option><option value="Ronald Holland II">DET</option><option value="Sam Hauser">BOS</option><option value="Shai Gilgeous-Alexander">OKC</option><option value="Stephon Castle">SAS</option><option value="Tyrese Maxey">PHI</option><option value="VJ Edgecombe">PHI</option><option value="Victor Wembanyama">SAS</option></datalist></div>
 <script>
   (function () {
-    var idx = [["Ajay Mitchell", 4900671, "OKC"], ["Alex Caruso", 2991350, "OKC"], ["Andre Drummond", 6585, "NYK"], ["Anfernee Simons", 4351851, "PHI"], ["Ausar Thompson", 4684742, "DET"], ["Baylor Scheierman", 4593841, "BOS"], ["Cade Cunningham", 4432166, "DET"], ["Caleb Love", 4433144, "PHI"], ["Carter Bryant", 5061568, "SAS"], ["Cason Wallace", 4683692, "OKC"], ["Chet Holmgren", 4433255, "OKC"], ["Daniss Jenkins", 5107199, "DET"], ["De\u0027Aaron Fox", 4066259, "SAS"], ["Derrick White", 3078576, "BOS"], ["Devin Vassell", 4395630, "SAS"], ["Duncan Robinson", 3157465, "DET"], ["Dylan Harper", 5037871, "SAS"], ["Elijah Harkless", 4397449, "DET"], ["Harrison Barnes", 6578, "SAS"], ["Isaiah Hartenstein", 4222252, "OKC"], ["Isaiah Joe", 4395702, "DET"], ["Jalen Brunson", 3934672, "NYK"], ["Jalen Duren", 4433621, "DET"], ["Jalen Williams", 4593803, "OKC"], ["Jared McCain", 4683778, "OKC"], ["Jaylen Brown", 3917376, "PHI"], ["Jaylin Williams", 4432823, "OKC"], ["Jayson Tatum", 4065648, "BOS"], ["Joel Embiid", 3059318, "PHI"], ["John Collins", 3908845, "DET"], ["Jordan Walsh", 4683689, "BOS"], ["Jose Alvarado", 4277869, "NYK"], ["Josh Hart", 3062679, "NYK"], ["Julian Champagnie", 4592479, "SAS"], ["Karl-Anthony Towns", 3136195, "NYK"], ["Keldon Johnson", 4395723, "SAS"], ["Kenrich Williams", 3133626, "OKC"], ["Kentavious Caldwell-Pope", 2581018, "PHI"], ["Kevin Huerter", 4066372, "DET"], ["Landry Shamet", 3914044, "NYK"], ["LeBron James", 1966, "PHI"], ["Luke Kornet", 3064560, "SAS"], ["Mikal Bridges", 3147657, "NYK"], ["Mike Conley", 3195, "BOS"], ["Miles McBride", 4431823, "NYK"], ["Mitchell Robinson", 4351852, "BOS"], ["Neemias Queta", 4397424, "BOS"], ["OG Anunoby", 3934719, "NYK"], ["Paul George", 4251, "BOS"], ["Payton Pritchard", 4066354, "BOS"], ["Ronald Holland II", 4683771, "DET"], ["Sam Hauser", 4065804, "BOS"], ["Shai Gilgeous-Alexander", 4278073, "OKC"], ["Stephon Castle", 4845367, "SAS"], ["Tyrese Maxey", 4431678, "PHI"], ["VJ Edgecombe", 5124612, "PHI"], ["Victor Wembanyama", 5104157, "SAS"]], box = document.getElementById('psearch');
+    var idx = [["Ajay Mitchell", 4900671, "OKC"], ["Alex Caruso", 2991350, "OKC"], ["Andre Drummond", 6585, "NYK"], ["Anfernee Simons", 4351851, "PHI"], ["Ausar Thompson", 4684742, "DET"], ["Baylor Scheierman", 4593841, "BOS"], ["Cade Cunningham", 4432166, "DET"], ["Caleb Love", 4433144, "PHI"], ["Cason Wallace", 4683692, "OKC"], ["Chet Holmgren", 4433255, "OKC"], ["Daniss Jenkins", 5107199, "DET"], ["De\u0027Aaron Fox", 4066259, "SAS"], ["Derrick White", 3078576, "BOS"], ["Devin Vassell", 4395630, "SAS"], ["Duncan Robinson", 3157465, "DET"], ["Dylan Harper", 5037871, "SAS"], ["Elijah Harkless", 4397449, "DET"], ["Harrison Barnes", 6578, "SAS"], ["Isaiah Hartenstein", 4222252, "OKC"], ["Isaiah Joe", 4395702, "DET"], ["Jalen Brunson", 3934672, "NYK"], ["Jalen Duren", 4433621, "DET"], ["Jalen Williams", 4593803, "OKC"], ["Jared McCain", 4683778, "OKC"], ["Jaylen Brown", 3917376, "PHI"], ["Jaylin Williams", 4432823, "OKC"], ["Jayson Tatum", 4065648, "BOS"], ["Joel Embiid", 3059318, "PHI"], ["John Collins", 3908845, "DET"], ["Jordan Walsh", 4683689, "BOS"], ["Jose Alvarado", 4277869, "NYK"], ["Josh Hart", 3062679, "NYK"], ["Julian Champagnie", 4592479, "SAS"], ["Karl-Anthony Towns", 3136195, "NYK"], ["Keldon Johnson", 4395723, "SAS"], ["Kenrich Williams", 3133626, "OKC"], ["Kentavious Caldwell-Pope", 2581018, "PHI"], ["Kevin Huerter", 4066372, "DET"], ["Landry Shamet", 3914044, "NYK"], ["LeBron James", 1966, "PHI"], ["Luke Kornet", 3064560, "SAS"], ["Mikal Bridges", 3147657, "NYK"], ["Mike Conley", 3195, "BOS"], ["Miles McBride", 4431823, "NYK"], ["Mitchell Robinson", 4351852, "BOS"], ["Neemias Queta", 4397424, "BOS"], ["OG Anunoby", 3934719, "NYK"], ["Paul George", 4251, "BOS"], ["Payton Pritchard", 4066354, "BOS"], ["Ronald Holland II", 4683771, "DET"], ["Sam Hauser", 4065804, "BOS"], ["Shai Gilgeous-Alexander", 4278073, "OKC"], ["Stephon Castle", 4845367, "SAS"], ["Tyrese Maxey", 4431678, "PHI"], ["VJ Edgecombe", 5124612, "PHI"], ["Victor Wembanyama", 5104157, "SAS"]], box = document.getElementById('psearch');
     box.addEventListener('input', function () {
       var q = box.value.trim().toLowerCase();
       for (var i = 0; i < idx.length; i++) { if (idx[i][0].toLowerCase() === q) { location.href = 'p-' + idx[i][1] + '.html'; return; } }
@@ -530,7 +547,7 @@
           <div class="tc-sub">37 min</div></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>22.8</b></span>
-<span class="pp-pick pp-under">UNDER 24.5</span><span class="pp-ch">58%</span>
+<span class="pp-pick pp-under">UNDER 29.5</span><span class="pp-ch">79%</span>
 <span class="pp-fz">&#128274; frozen earlier: OVER 21.5</span></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>4.2</b></span>
@@ -542,8 +559,8 @@
 <span class="pp-fz">&#128274; frozen earlier: OVER 3.5</span></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>2.7</b></span>
-<span class="pp-pick pp-over" title="frozen before tip">&#128274; OVER 2.5</span><span class="pp-ch">52%</span>
-</span></td>
+<span class="pp-pick pp-under">UNDER 3.5</span><span class="pp-ch">71%</span>
+<span class="pp-fz">&#128274; frozen earlier: OVER 2.5</span></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>32.3</b></span>
 <span class="pp-pick pp-over" title="frozen before tip">&#128274; OVER 29.5</span><span class="pp-ch">61%</span>
@@ -563,12 +580,12 @@
 <span class="pp-fz">&#128274; frozen earlier: OVER 4.5</span></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>3.6</b></span>
-<span class="pp-pick pp-over" title="frozen before tip">&#128274; OVER 2.5</span><span class="pp-ch">66%</span>
-</span></td>
+<span class="pp-pick pp-over">OVER 1.5</span><span class="pp-ch">83%</span>
+<span class="pp-fz">&#128274; frozen earlier: OVER 2.5</span></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>1.8</b></span>
-<span class="pp-pick pp-over" title="frozen before tip">&#128274; OVER 1.5</span><span class="pp-ch">51%</span>
-</span></td>
+<span class="pp-pick pp-over">OVER 0.5</span><span class="pp-ch">80%</span>
+<span class="pp-fz">&#128274; frozen earlier: OVER 1.5</span></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>23.1</b></span>
 <span class="pp-pick pp-over" title="frozen before tip">&#128274; OVER 20.5</span><span class="pp-ch">61%</span>
@@ -588,12 +605,12 @@
 </span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>4.1</b></span>
-<span class="pp-pick pp-over" title="frozen before tip">&#128274; OVER 3.5</span><span class="pp-ch">59%</span>
-</span></td>
+<span class="pp-pick pp-over">OVER 1.5</span><span class="pp-ch">91%</span>
+<span class="pp-fz">&#128274; frozen earlier: OVER 3.5</span></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>1.8</b></span>
-<span class="pp-pick pp-over">OVER 1.5</span><span class="pp-ch">51%</span>
-</span></td>
+<span class="pp-pick pp-over">OVER 0.5</span><span class="pp-ch">81%</span>
+<span class="pp-fz">&#128274; frozen earlier: OVER 1.5</span></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>32.5</b></span>
 <span class="pp-pick pp-over" title="frozen before tip">&#128274; OVER 30.5</span><span class="pp-ch">58%</span>
@@ -605,7 +622,7 @@
           <div class="tc-sub">32 min</div></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>18.1</b></span>
-<span class="pp-pick pp-over">OVER 9.5</span><span class="pp-ch">92%</span>
+<span class="pp-pick pp-over">OVER 14.5</span><span class="pp-ch">72%</span>
 <span class="pp-fz">&#128274; frozen earlier: OVER 16.5</span></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>6.7</b></span>
@@ -621,8 +638,8 @@
 <span class="pp-fz">&#128274; frozen earlier: UNDER 1.5</span></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>30.5</b></span>
-<span class="pp-pick pp-over">OVER 29.5</span><span class="pp-ch">55%</span>
-<span class="pp-fz">&#128274; frozen earlier: UNDER 30.5</span></span></td>
+<span class="pp-pick pp-under" title="frozen before tip">&#128274; UNDER 30.5</span><span class="pp-ch">51%</span>
+</span></td>
         <td class="nowrap"><a class="bd-btn" href="p-1966.html#pts">WHY &amp; STATS &#9656;</a></td>
       </tr>
       <tr>
@@ -634,15 +651,15 @@
 <span class="pp-fz">&#128274; frozen earlier: UNDER 22.5</span></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>8.4</b></span>
-<span class="pp-pick pp-over">OVER 7.5</span><span class="pp-ch">58%</span>
-</span></td>
+<span class="pp-pick pp-over">OVER 5.5</span><span class="pp-ch">81%</span>
+<span class="pp-fz">&#128274; frozen earlier: OVER 7.5</span></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>3.2</b></span>
 <span class="pp-pick pp-under">UNDER 5.5</span><span class="pp-ch">88%</span>
 <span class="pp-fz">&#128274; frozen earlier: UNDER 3.5</span></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>1.1</b></span>
-<span class="pp-pick pp-under" title="frozen before tip">&#128274; UNDER 1.5</span><span class="pp-ch">69%</span>
+<span class="pp-pick pp-under">UNDER 1.5</span><span class="pp-ch">70%</span>
 </span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>31.9</b></span>
@@ -749,15 +766,15 @@
 <span class="pp-fz">&#128274; frozen earlier: UNDER 16.5</span></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>5.2</b></span>
-<span class="pp-pick pp-under" title="frozen before tip">&#128274; UNDER 5.5</span><span class="pp-ch">58%</span>
+<span class="pp-pick pp-under">UNDER 5.5</span><span class="pp-ch">58%</span>
 </span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>2.1</b></span>
-<span class="pp-pick pp-over" title="frozen before tip">&#128274; OVER 1.5</span><span class="pp-ch">61%</span>
+<span class="pp-pick pp-over">OVER 1.5</span><span class="pp-ch">61%</span>
 </span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>2.1</b></span>
-<span class="pp-pick pp-over" title="frozen before tip">&#128274; OVER 1.5</span><span class="pp-ch">58%</span>
+<span class="pp-pick pp-over">OVER 1.5</span><span class="pp-ch">58%</span>
 </span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>23.5</b></span>
@@ -774,12 +791,12 @@
 <span class="pp-fz">&#128274; frozen earlier: OVER 13.5</span></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>3.6</b></span>
-<span class="pp-pick pp-under" title="frozen before tip">&#128274; UNDER 3.5</span><span class="pp-ch">51%</span>
+<span class="pp-pick pp-under">UNDER 3.5</span><span class="pp-ch">51%</span>
 </span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>3.6</b></span>
-<span class="pp-pick pp-under" title="frozen before tip">&#128274; UNDER 3.5</span><span class="pp-ch">53%</span>
-</span></td>
+<span class="pp-pick pp-over">OVER 1.5</span><span class="pp-ch">84%</span>
+<span class="pp-fz">&#128274; frozen earlier: UNDER 3.5</span></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>1.8</b></span>
 <span class="pp-pick pp-over">OVER 0.5</span><span class="pp-ch">82%</span>
@@ -807,7 +824,7 @@
 <span class="pp-fz">&#128274; frozen earlier: UNDER 4.5</span></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>1.4</b></span>
-<span class="pp-pick pp-over" title="frozen before tip">&#128274; OVER 0.5</span><span class="pp-ch">75%</span>
+<span class="pp-pick pp-over">OVER 0.5</span><span class="pp-ch">75%</span>
 </span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>33.5</b></span>
@@ -832,8 +849,8 @@
 <span class="pp-fz">&#128274; frozen earlier: UNDER 5.5</span></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>1.3</b></span>
-<span class="pp-pick pp-under" title="frozen before tip">&#128274; UNDER 1.5</span><span class="pp-ch">65%</span>
-</span></td>
+<span class="pp-pick pp-over">OVER 0.5</span><span class="pp-ch">67%</span>
+<span class="pp-fz">&#128274; frozen earlier: UNDER 1.5</span></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>23.2</b></span>
 <span class="pp-pick pp-under" title="frozen before tip">&#128274; UNDER 23.5</span><span class="pp-ch">51%</span>
@@ -1118,8 +1135,8 @@
           <div class="tc-sub">18 min</div></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>6.4</b></span>
-<span class="pp-pick pp-under">UNDER 6.5</span><span class="pp-ch">51%</span>
-<span class="pp-fz">&#128274; frozen earlier: UNDER 7.5</span><button class="slip-add" type="button" title="Add to slip" data-leg='{"chance": 0.506, "gid": 401909090, "id": "2991350|pts|401909090", "line": 6.5, "opp": "SAS", "pid": 2991350, "player": "Alex Caruso", "side": "UNDER", "src": "prizepicks", "stat": "PTS", "team": "OKC"}'>+ SLIP</button></span></td>
+<span class="pp-pick pp-under">UNDER 7.5</span><span class="pp-ch">59%</span>
+<button class="slip-add" type="button" title="Add to slip" data-leg='{"chance": 0.5904, "gid": 401909090, "id": "2991350|pts|401909090", "line": 7.5, "opp": "SAS", "pid": 2991350, "player": "Alex Caruso", "side": "UNDER", "src": "prizepicks", "stat": "PTS", "team": "OKC"}'>+ SLIP</button></span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>2.6</b></span>
 <span class="pp-pick pp-under" title="frozen before tip">&#128274; UNDER 2.5</span><span class="pp-ch">57%</span>
@@ -1134,8 +1151,8 @@
 </span></td>
         <td class="bx"><span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>11.0</b></span>
-<span class="pp-pick pp-over">OVER 10.5</span><span class="pp-ch">53%</span>
-<span class="pp-fz">&#128274; frozen earlier: UNDER 12.5</span><button class="slip-add" type="button" title="Add to slip" data-leg='{"chance": 0.5329, "gid": 401909090, "id": "2991350|pra|401909090", "line": 10.5, "opp": "SAS", "pid": 2991350, "player": "Alex Caruso", "side": "OVER", "src": "prizepicks", "stat": "PRA", "team": "OKC"}'>+ SLIP</button></span></td>
+<span class="pp-pick pp-under">UNDER 11.5</span><span class="pp-ch">53%</span>
+<span class="pp-fz">&#128274; frozen earlier: UNDER 12.5</span><button class="slip-add" type="button" title="Add to slip" data-leg='{"chance": 0.5339, "gid": 401909090, "id": "2991350|pra|401909090", "line": 11.5, "opp": "SAS", "pid": 2991350, "player": "Alex Caruso", "side": "UNDER", "src": "prizepicks", "stat": "PRA", "team": "OKC"}'>+ SLIP</button></span></td>
         <td class="nowrap"><a class="bd-btn" href="p-2991350.html#pts">WHY &amp; STATS &#9656;</a></td>
       </tr>
       <tr>
@@ -1398,27 +1415,6 @@
 <span class="pp-none">no line</span></span></td>
         <td class="nowrap"><a class="bd-btn" href="p-3064560.html#pts">WHY &amp; STATS &#9656;</a></td>
       </tr>
-      <tr>
-        <td class="bx-pcol"><a class="bx-name" href="p-5061568.html">Carter Bryant</a>
-          <div class="tc-sub">6 min</div></td>
-        <td class="bx"><span class="pp">
-  <span class="pp-proj"><em>PROJ</em><b>2.1</b></span>
-<span class="pp-pick pp-under">UNDER 4.5</span><span class="pp-ch">82%</span>
-<button class="slip-add" type="button" title="Add to slip" data-leg='{"chance": 0.8167, "gid": 401909090, "id": "5061568|pts|401909090", "line": 4.5, "opp": "OKC", "pid": 5061568, "player": "Carter Bryant", "side": "UNDER", "src": "prizepicks", "stat": "PTS", "team": "SAS"}'>+ SLIP</button></span></td>
-        <td class="bx"><span class="pp">
-  <span class="pp-proj"><em>PROJ</em><b>1.2</b></span>
-<span class="pp-none">no line</span></span></td>
-        <td class="bx"><span class="pp">
-  <span class="pp-proj"><em>PROJ</em><b>0.3</b></span>
-<span class="pp-none">no line</span></span></td>
-        <td class="bx"><span class="pp">
-  <span class="pp-proj"><em>PROJ</em><b>0.3</b></span>
-<span class="pp-none">no line</span></span></td>
-        <td class="bx"><span class="pp">
-  <span class="pp-proj"><em>PROJ</em><b>3.6</b></span>
-<span class="pp-none">no line</span></span></td>
-        <td class="nowrap"><a class="bd-btn" href="p-5061568.html#pts">WHY &amp; STATS &#9656;</a></td>
-      </tr>
     </tbody>
   </table></div>
 </section>
@@ -1495,10 +1491,10 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=edf4b6f3fe"></script>
+  <script src="static/slip.js?v=85e691a41c"></script>
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>
-<div class="foot-row foot-dim"><span>BUILD: 2026-10-21 00:22 UTC &middot; via GitHub Actions</span></div>  </footer>
+<div class="foot-row foot-dim"><span>BUILD: 2026-10-21 00:25 UTC &middot; via GitHub Actions</span></div>  </footer>
 </body>
 </html>

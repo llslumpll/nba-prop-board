@@ -5,7 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>Jalen Williams — Prop Edge NBA</title>
-  <link rel="stylesheet" href="static/style.css?v=edf4b6f3fe">
+<link rel="preload" href="static/fonts/jersey-10-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/oxanium-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="static/style.css?v=85e691a41c">
+  <script>
+    // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
+    (function () {
+      var d = document.documentElement; d.classList.add('fonts-wait');
+      function ready() { d.classList.remove('fonts-wait'); }
+      setTimeout(ready, 1500);
+      if (document.fonts && document.fonts.ready) {
+        Promise.all(['400 1em "Jersey 10"', '600 1em Oxanium', '700 1em Oxanium', '800 1em Oxanium', '400 1em "Press Start 2P"'].map(function (f) { return document.fonts.load(f); }))
+          .then(function () { return document.fonts.ready; }).then(ready, ready);
+      } else { ready(); }
+    })();
+  </script>
 </head>
 <body>
   <header class="site-head">
@@ -75,7 +92,7 @@
 <span class="pp-pick pp-under">UNDER 18.5</span><span class="pp-ch">63%</span>
 <span class="pp-fz">&#128274; frozen earlier: UNDER 16.5</span><button class="slip-add" type="button" title="Add to slip" data-leg='{"chance": 0.6311, "gid": 401909090, "id": "4593803|pts|401909090", "line": 18.5, "opp": "SAS", "pid": 4593803, "player": "Jalen Williams", "side": "UNDER", "src": "fanduel", "stat": "PTS", "team": "OKC"}'>+ SLIP</button></span></div>
     <div class="bd-why"><p class="why-reason"><strong>points 16.5 &middot; <span class="pick-line"><span class="side-under">UNDER</span> 18.5</span> <span class="chance">63%</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>:</strong> 28.1 min (recent 28.4, −0.3 team-minutes adjustment); × 0.608 points/min (prior seasons, no games this season yet); context: road −1%, shared production on OKC −2%.
-<br>FanDuel 18.5 (-112/-118): we give OVER 37%, market 51% for UNDER, break-even 54.1% for UNDER.<br>PrizePicks 18.5: we give OVER 37%, break-even 54.2% for UNDER <span class="move">moved from 16.5</span>.<br>Kalshi 19.5: we give OVER 31%, market 56% for UNDER, break-even 57.0% for UNDER <span class="move">moved from 9.5</span>.<br><span class="locked">&#128274; frozen: UNDER 16.5 (2026-10-18 02:59 UTC)</span><br>Last 10 (under 18.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">8</i><i class="rs rs-under">23</i><i class="rs rs-under">28</i><i class="rs rs-over">18</i><i class="rs rs-over">7</i><i class="rs rs-over">18</i><i class="rs rs-under">22</i><i class="rs rs-over">10</i><i class="rs rs-over">15</i><i class="rs rs-over">18</i></span><br>Kalshi ladder: 10+ 87%, 15+ 72%, 20+ 44%, 25+ 20%.</p>
+<br>FanDuel 18.5 (-112/-118): we give OVER 37%, market 51% for UNDER, break-even 54.1% for UNDER.<br>PrizePicks 18.5: we give OVER 37%, break-even 54.2% for UNDER <span class="move">moved from 16.5</span>.<br>Kalshi 19.5: we give OVER 31%, market 56% for UNDER, break-even 57.0% for UNDER <span class="move">moved from 9.5</span>.<br><span class="locked">&#128274; frozen: UNDER 16.5 (2026-10-18 02:59 UTC)</span><br>Last 10 (under 18.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">8</i><i class="rs rs-under">23</i><i class="rs rs-under">28</i><i class="rs rs-over">18</i><i class="rs rs-over">7</i><i class="rs rs-over">18</i><i class="rs rs-under">22</i><i class="rs rs-over">10</i><i class="rs rs-over">15</i><i class="rs rs-over">18</i></span><br>Kalshi ladder: 10+ 90%, 15+ 72%, 20+ 44%, 25+ 20%.</p>
 </div>
   </div>
   <div class="factor-grid">
@@ -119,7 +136,7 @@
 <span class="pp-pick pp-under">UNDER 4.5</span><span class="pp-ch">56%</span>
 <button class="slip-add" type="button" title="Add to slip" data-leg='{"chance": 0.5585, "gid": 401909090, "id": "4593803|ast|401909090", "line": 4.5, "opp": "SAS", "pid": 4593803, "player": "Jalen Williams", "side": "UNDER", "src": "prizepicks", "stat": "AST", "team": "OKC"}'>+ SLIP</button></span></div>
     <div class="bd-why"><p class="why-reason"><strong>assists 4.4 &middot; <span class="pick-line"><span class="side-under">UNDER</span> 4.5</span> <span class="chance">56%</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>:</strong> 28.1 min (recent 28.4, −0.3 team-minutes adjustment); × 0.166 assists/min (prior seasons, no games this season yet); context: road −1%, shared production on OKC −6%.
-<br>PrizePicks 4.5: we give OVER 44%, break-even 54.2% for UNDER.<br>Kalshi 5.5: we give OVER 27%, market 67% for UNDER, break-even 68.0% for UNDER <span class="move">moved from 3.5</span>.<br><span class="locked">&#128274; frozen: UNDER 4.5 (2026-10-19 17:09 UTC)</span><br>Last 10 (under 4.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">3</i><i class="rs rs-over">1</i><i class="rs rs-under">5</i><i class="rs rs-under">6</i><i class="rs rs-over">3</i><i class="rs rs-under">8</i><i class="rs rs-over">2</i><i class="rs rs-under">8</i><i class="rs rs-under">7</i><i class="rs rs-under">6</i></span><br>Kalshi ladder: 4+ 68%, 6+ 33%, 8+ 12%.</p>
+<br>PrizePicks 4.5: we give OVER 44%, break-even 54.2% for UNDER.<br>Kalshi 5.5: we give OVER 27%, market 66% for UNDER, break-even 67.0% for UNDER <span class="move">moved from 3.5</span>.<br><span class="locked">&#128274; frozen: UNDER 4.5 (2026-10-19 17:09 UTC)</span><br>Last 10 (under 4.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">3</i><i class="rs rs-over">1</i><i class="rs rs-under">5</i><i class="rs rs-under">6</i><i class="rs rs-over">3</i><i class="rs rs-under">8</i><i class="rs rs-over">2</i><i class="rs rs-under">8</i><i class="rs rs-under">7</i><i class="rs rs-under">6</i></span><br>Kalshi ladder: 4+ 68%, 6+ 34%, 8+ 12%.</p>
 </div>
   </div>
   <div class="factor-grid">
@@ -163,7 +180,7 @@
 <span class="pp-pick pp-under">UNDER 28</span><span class="pp-ch">65%</span>
 <span class="pp-fz">&#128274; frozen earlier: UNDER 26.5</span><button class="slip-add" type="button" title="Add to slip" data-leg='{"chance": 0.6514, "gid": 401909090, "id": "4593803|pra|401909090", "line": 28.0, "opp": "SAS", "pid": 4593803, "player": "Jalen Williams", "side": "UNDER", "src": "prizepicks", "stat": "PRA", "team": "OKC"}'>+ SLIP</button></span></div>
     <div class="bd-why"><p class="why-reason"><strong>pts+reb+ast 25.1 &middot; <span class="pick-line"><span class="side-under">UNDER</span> 28</span> <span class="chance">65%</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>:</strong> 28.1 min (recent 28.4, −0.3 team-minutes adjustment); × 0.933 pts+reb+ast/min (prior seasons, no games this season yet); context: road −1%, shared production on OKC −3%.
-<br>PrizePicks 28: we give OVER 35%, break-even 54.2% for UNDER <span class="move">moved from 26.5</span>.<br>Kalshi 29.5: we give OVER 29%, market 57% for UNDER, break-even 59.0% for UNDER <span class="move">moved from 19.5</span>.<br><span class="locked">&#128274; frozen: UNDER 26.5 (2026-10-18 02:59 UTC)</span><br>Last 10 (under 28, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">14</i><i class="rs rs-over">27</i><i class="rs rs-under">37</i><i class="rs rs-push">28</i><i class="rs rs-over">13</i><i class="rs rs-under">32</i><i class="rs rs-over">25</i><i class="rs rs-over">27</i><i class="rs rs-over">24</i><i class="rs rs-under">30</i></span><br>Kalshi ladder: 25+ 65%, 30+ 42%, 35+ 20%.</p>
+<br>PrizePicks 28: we give OVER 35%, break-even 54.2% for UNDER <span class="move">moved from 26.5</span>.<br>Kalshi 29.5: we give OVER 29%, market 57% for UNDER, break-even 59.0% for UNDER <span class="move">moved from 19.5</span>.<br><span class="locked">&#128274; frozen: UNDER 26.5 (2026-10-18 02:59 UTC)</span><br>Last 10 (under 28, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">14</i><i class="rs rs-over">27</i><i class="rs rs-under">37</i><i class="rs rs-push">28</i><i class="rs rs-over">13</i><i class="rs rs-under">32</i><i class="rs rs-over">25</i><i class="rs rs-over">27</i><i class="rs rs-over">24</i><i class="rs rs-under">30</i></span><br>Kalshi ladder: 25+ 66%, 30+ 42%, 35+ 21%.</p>
 <p class="why-reason"><strong>pts+reb 20.8 &middot; <span class="pick-line"><span class="side-under">UNDER</span> 23.5</span> <span class="chance">65%</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>:</strong> 28.1 min (recent 28.4, −0.3 team-minutes adjustment); × 0.766 pts+reb/min (prior seasons, no games this season yet); context: road −1%, shared production on OKC −2%.
 <br>PrizePicks 23.5: we give OVER 35%, break-even 54.2% for UNDER <span class="move">moved from 21.5</span>.<br><span class="locked">&#128274; frozen: UNDER 21.5 (2026-10-18 02:59 UTC)</span><br>Last 10 (under 23.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">11</i><i class="rs rs-under">26</i><i class="rs rs-under">32</i><i class="rs rs-over">22</i><i class="rs rs-over">10</i><i class="rs rs-under">24</i><i class="rs rs-over">23</i><i class="rs rs-over">19</i><i class="rs rs-over">17</i><i class="rs rs-under">24</i></span></p>
 <p class="why-reason"><strong>pts+ast 20.9 &middot; <span class="pick-line"><span class="side-under">UNDER</span> 23.5</span> <span class="chance">65%</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>:</strong> 28.1 min (recent 28.4, −0.3 team-minutes adjustment); × 0.774 pts+ast/min (prior seasons, no games this season yet); context: road −1%, shared production on OKC −3%.
@@ -334,7 +351,7 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=edf4b6f3fe"></script>
+  <script src="static/slip.js?v=85e691a41c"></script>
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>

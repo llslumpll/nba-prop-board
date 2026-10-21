@@ -5,7 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>Daniss Jenkins — Prop Edge NBA</title>
-  <link rel="stylesheet" href="static/style.css?v=edf4b6f3fe">
+<link rel="preload" href="static/fonts/jersey-10-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/oxanium-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="static/style.css?v=85e691a41c">
+  <script>
+    // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
+    (function () {
+      var d = document.documentElement; d.classList.add('fonts-wait');
+      function ready() { d.classList.remove('fonts-wait'); }
+      setTimeout(ready, 1500);
+      if (document.fonts && document.fonts.ready) {
+        Promise.all(['400 1em "Jersey 10"', '600 1em Oxanium', '700 1em Oxanium', '800 1em Oxanium', '400 1em "Press Start 2P"'].map(function (f) { return document.fonts.load(f); }))
+          .then(function () { return document.fonts.ready; }).then(ready, ready);
+      } else { ready(); }
+    })();
+  </script>
 </head>
 <body>
   <header class="site-head">
@@ -332,7 +349,7 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=edf4b6f3fe"></script>
+  <script src="static/slip.js?v=85e691a41c"></script>
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>
