@@ -173,6 +173,7 @@
 </section>
 <section class="hist-panel hidden" data-tab-panel="hist:health">
 <h2 class="hist-h">Pipeline health</h2>
+{% if audit %}<div class="notice compact {{ 'audit-ok' if audit.passed else 'audit-bad' }}"><strong>Consistency audit ({{ audit.at }}):</strong> {% if audit.passed %}all {{ audit.checks }} checks passed: every pick frozen before tip, results graded correctly, nothing stuck pending, Best 5 rules held, and Home, History and the day pages match the raw pick files.{% else %}{{ audit.fails|length }} of {{ audit.checks }} checks failed: {{ audit.fails|join('; ') }}{% endif %}</div>{% endif %}
 <div class="chart-panel">
   <h3>Player lines matched per build</h3>
   <p class="sub">Is the plumbing working, separate from whether the picks are good. A source dropping to 0 means it failed or hasn't posted yet.</p>
@@ -189,6 +190,19 @@
 <section class="hist-panel hidden" data-tab-panel="hist:days">
 <h2 class="hist-h">Day by day</h2>
 <p class="lede small">Every pick, every day, with the result. One page per month.</p>
-<div class="pager">{% for mo in months %}<a href="history-{{ mo.key }}.html">{{ mo.label }} ({{ mo.n }} picks)</a>{% else %}<span class="dim">The first month's page appears with the first frozen picks.</span>{% endfor %}</div>
+{% if day_index %}
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+  <thead><tr><th>Day</th><th class="num">Picks</th><th class="num">Record</th><th class="num">Hit %</th><th class="num">Units</th><th class="num hide-sm">Game picks</th><th class="nowrap"></th></tr></thead>
+  <tbody>{% for d in day_index %}
+  <tr><td><a href="history-{{ d.date }}.html"><strong>{{ d.label }}</strong></a></td><td class="num">{{ d.n }}</td>
+    <td class="num">{% if d.graded %}{{ d.hits }}&ndash;{{ d.misses }}{% else %}<span class="dim">{{ d.pending }} pending</span>{% endif %}</td>
+    <td class="num {{ 'stat-good' if d.rate is not none and d.rate >= 52.4 else 'stat-bad' if d.rate is not none }}">{{ d.rate if d.rate is not none else '—' }}</td>
+    <td class="num {{ 'stat-good' if d.units > 0 else 'stat-bad' if d.units < 0 }}">{{ '%+.1f'|format(d.units) }}</td>
+    <td class="num hide-sm">{% if d.games.graded %}{{ d.games.hits }}&ndash;{{ d.games.misses }}{% elif d.games.pending %}<span class="dim">{{ d.games.pending }} pending</span>{% else %}—{% endif %}</td>
+    <td class="nowrap"><a class="bd-btn" href="history-{{ d.date }}.html">SEE PICKS &#9656;</a></td></tr>
+  {% endfor %}</tbody>
+</table></div></div>
+{% endif %}
+<div class="pager">{% for mo in months %}<a href="history-{{ mo.key }}.html">{{ mo.label }} month view</a>{% endfor %}</div>
 </section>
 {% endblock %}

@@ -274,6 +274,80 @@ def card_details(p: dict, gidx: dict, graded: dict, prow: dict | None, n_recent:
     }
 
 
+DAY_GROUPS = [("pts", "PTS", ("pts",)), ("reb", "REB", ("reb",)), ("ast", "AST", ("ast",)),
+              ("fg3m", "3PM", ("fg3m",)), ("combos", "PRA+", ("pra", "pr", "pa", "ra"))]
+
+
+def _rec(ps):
+    g = [p for p in ps if p.get("status") == "graded"]
+    h = sum(1 for p in g if p["hit"])
+    return {"hits": h, "misses": len(g) - h, "graded": len(g), "rate": round(100 * h / len(g), 1) if g else None,
+            "pending": sum(1 for p in ps if p.get("status") == "pending"),
+            "void": sum(1 for p in ps if p.get("status") == "void"), "push": sum(1 for p in ps if p.get("status") == "push"),
+            "units": round(sum(grade.units(p) or 0 for p in g), 2)}
+
+
+def _finals(box) -> dict:
+    """{date_iso: [{game_id, away, home, away_score, home_score}]} from box scores."""
+    import polars as pl
+    if box is None or not box.height:
+        return {}
+    rows = (box.filter(pl.col("home") & pl.col("team_score").is_not_null())
+            .select("game_id", "date", "team", "opp", "team_score", "opp_score").unique(subset=["game_id"]))
+    out = {}
+    for r in rows.iter_rows(named=True):
+        out.setdefault(r["date"].isoformat(), []).append({"game_id": r["game_id"], "home": r["team"], "away": r["opp"],
+                                                           "home_score": int(r["team_score"]), "away_score": int(r["opp_score"])})
+    return out
+
+
+def day_groups(picks: list, tpicks: list, finals: list | None = None) -> list:
+    """One History-day tab per stat group (plus Games): its record, and its
+    picks split by game in tip order."""
+    games = {}
+    for p in picks:
+        k = p["game_id"]
+        if k not in games:
+            away, home = (p["opp"], p["team"]) if p["home"] else (p["team"], p["opp"])
+            games[k] = {"game_id": k, "away": away, "home": home, "tip": p.get("tip_utc") or "",
+                        "away_badge": teams.badge(away), "home_badge": teams.badge(home)}
+    order = sorted(games.values(), key=lambda g: (g["tip"], g["away"]))
+    out = []
+    for key, label, stats in DAY_GROUPS:
+        ps = [p for p in picks if p["stat"] in stats]
+        if not ps:
+            continue
+        rows = []
+        for g in order:
+            gp = sorted([p for p in ps if p["game_id"] == g["game_id"]],
+                        key=lambda p: ({"graded": 0, "push": 1, "void": 2}.get(p["status"], 3), not p.get("hit"), p["player"], p["stat"]))
+            if gp:
+                rows.append({**g, "picks": gp, "rec": _rec(gp)})
+        out.append({"key": key, "label": label, "rec": _rec(ps), "games": rows,
+                    "best5": _rec([p for p in ps if any(t.endswith(":best5") for t in p.get("best5", []))])})
+    # Games tab: every game of the day with its final, and our moneyline / spread / total picks when we had them
+    gm = {}
+    for f in finals or []:
+        gm[f["game_id"]] = {**f, "picks": []}
+    for g in order:
+        gm.setdefault(g["game_id"], {"game_id": g["game_id"], "away": g["away"], "home": g["home"], "picks": []})
+    for t in tpicks:
+        gm.setdefault(t["game_id"], {"game_id": t["game_id"], "away": t["away"], "home": t["home"], "picks": []})["picks"].append(t)
+    if gm:
+        mk = {"moneyline": 0, "spread": 1, "total": 2}
+        rows = []
+        for v in gm.values():
+            v["picks"].sort(key=lambda t: mk.get(t["market"], 9))
+            v.update(away_badge=teams.badge(v["away"]), home_badge=teams.badge(v["home"]), rec=_rec(v["picks"]),
+                     tip=next((g["tip"] for g in order if g["game_id"] == v["game_id"]), "")
+                     or next((t.get("tip_utc") or "" for t in v["picks"]), ""))
+            rows.append(v)
+        rows.sort(key=lambda v: (v["tip"], v["away"]))
+        out.append({"key": "games", "label": "GAMES", "rec": _rec(tpicks), "gamerows": rows, "has_picks": bool(tpicks),
+                    "best5": _rec([t for t in tpicks if "game:best5" in t.get("best5", [])])})
+    return out
+
+
 def _avg(vals):
     return round(sum(vals) / len(vals), 1) if vals else None
 
@@ -634,12 +708,22 @@ def render_all(ctx: dict) -> None:
                                              label="Running units, 1 unit per graded pick")
     else:
         money["chart"] = None
-    write("history.html", "history.html", "history", hc=hc, money=money, gmoney=grade.team_money(ctx["tpreds"]), months=mlist, retune_log=retune_log, scoreboard=grade.stat_scoreboard(preds), edge=edge,
+    day_index = []
+    for d in sorted({p["date"] for p in preds}, reverse=True):
+        dp = [p for p in preds if p["date"] == d]
+        day_index.append({"date": d, "label": datetime.strptime(d, "%Y-%m-%d").strftime("%a %b %-d"), "n": len(dp), **_rec(dp),
+                          "games": _rec([t for t in ctx["tpreds"] if t["date"] == d])})
+    try:
+        audit = json.loads((ROOT / "data" / "audit.json").read_text())
+    except Exception:  # noqa: BLE001
+        audit = None
+    write("history.html", "history.html", "history", hc=hc, money=money, day_index=day_index, audit=audit, gmoney=grade.team_money(ctx["tpreds"]), months=mlist, retune_log=retune_log, scoreboard=grade.stat_scoreboard(preds), edge=edge,
           buckets=grade.chance_buckets(preds), best5_rec=b5rec, team_rec=grade.team_record(ctx["tpreds"]),
           maturity=grade.maturity(ctx["cal"]), bt=bt, bt_cal=bt_all.get("calibration") or {},
           bt_n=(bt.get("pts") or {}).get("n"), health=list(reversed(ctx["health"][-30:])),
           n_pending=sum(1 for p in preds if p["status"] == "pending"))
     keep = set()
+    finals_by_date = _finals(ctx.get("box"))
     for mo in mlist:
         ps = months[mo["key"]]
         days = defaultdict(list)
@@ -662,12 +746,13 @@ def render_all(ctx: dict) -> None:
                    "rate": round(100 * sum(bool(x["hit"]) for x in gd) / len(gd), 1) if gd else None,
                    "b5_graded": len(b5), "b5_hits": sum(bool(x["hit"]) for x in b5),
                    "void": sum(x["status"] == "void" for x in v), "pending": sum(x["status"] == "pending" for x in v)}
+            day["groups"] = day_groups(v, tdays.get(d, []), finals_by_date.get(d))
             day_list.append(day)
             dname = f"history-{d}.html"
             keep.add(dname)
-            if (DOCS / dname).exists() and all(x["status"] != "pending" for x in v):
-                continue  # a finished day never changes; don't rewrite it every build
-            write(dname, "history_day.html", "history", day=day, month_key=mo["key"], month_label=mo["label"])
+            # rendered every build but only written when something on it changed (e.g. grading landed)
+            write(dname, "history_day.html", "history", only_if_changed=True, build_time=None,
+                  day=day, month_key=mo["key"], month_label=mo["label"])
         g = [p for p in ps if p["status"] == "graded"]
         summ = {"graded": len(g), "hits": sum(bool(p["hit"]) for p in g),
                 "hit_rate": round(100 * sum(bool(p["hit"]) for p in g) / len(g), 1) if g else None,
@@ -711,7 +796,7 @@ def render_all(ctx: dict) -> None:
         h = sum(1 for p in gd if p["hit"])
         mon = grade._money_row(ps)
         tg = [t for t in tps if t["status"] == "graded"]
-        return {"label": label, "date_label": datetime.strptime(date, "%Y-%m-%d").strftime("%a %b %-d"),
+        return {"label": label, "date": date, "date_label": datetime.strptime(date, "%Y-%m-%d").strftime("%a %b %-d"),
                 "hits": h, "misses": len(gd) - h, "pending": sum(1 for p in ps if p["status"] == "pending"),
                 "void": sum(1 for p in ps if p["status"] == "void"), "push": sum(1 for p in ps if p["status"] == "push"),
                 "rate": round(100 * h / len(gd), 1) if gd else None, "units": mon["units"], "clv_rate": mon["clv_rate"],

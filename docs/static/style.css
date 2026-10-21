@@ -1048,3 +1048,31 @@ html.fonts-wait body { visibility: hidden; }
 .hist-tabs button { font-size: 1.25rem; padding: 4px 14px; margin-bottom: 4px; }
 .hist-panel > h2.hist-h:first-child { margin-top: 10px; padding-top: 0; border-top: 0; }
 @media (max-width: 760px) { .hist-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .hist-tabs button { flex: 0 0 auto; font-size: 1.05rem; } }
+/* History day pages */
+.day-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; margin: 0 0 18px; }
+.day-total, .day-chip { background: var(--bg-card); border: 3px solid var(--line); padding: 10px 12px; text-align: left; box-shadow: 3px 3px 0 #07030f; }
+.day-total { border-color: var(--pink); grid-column: span 2; }
+.day-chip { cursor: pointer; color: var(--text); font: inherit; }
+.day-chip:hover { border-color: var(--yellow); }
+.day-total b, .day-chip b { display: block; font-family: var(--pixel); font-weight: 400; font-size: 2.2rem; line-height: 1; }
+.day-chip em { display: block; font-style: normal; font-family: var(--pixel); color: var(--yellow); font-size: 1.2rem; }
+.day-total span, .day-chip span { font-size: 0.85rem; color: var(--text-dim); }
+.day-game { margin-bottom: 18px; }
+.day-game-h { display: flex; align-items: center; gap: 8px; margin: 6px 0 8px; }
+.day-game-rec { margin-left: auto; font-family: var(--pixel); font-size: 1.3rem; color: var(--yellow); }
+table.dayt { table-layout: fixed; }
+table.dayt th:nth-child(1) { width: 34%; } table.dayt th:nth-child(2) { width: 26%; } table.dayt th:nth-child(3), table.dayt th:nth-child(4) { width: 11%; }
+tr.row-hit td { background: rgba(61,255,143,0.07); } tr.row-miss td { background: rgba(255,61,87,0.07); }
+.day-actual { font-family: var(--pixel); font-weight: 400; font-size: 1.5rem; }
+.res { font-weight: 800; font-size: 0.85rem; padding: 2px 8px; white-space: nowrap; }
+.res-hit { background: var(--green); color: #062a14; } .res-miss { background: var(--red); color: #fff; }
+.res-void { border: 2px solid var(--line); color: var(--text-dim); } .res-pend { border: 2px solid var(--yellow); color: var(--yellow); }
+.star { color: var(--yellow); }
+@media (max-width: 760px) {
+  .day-total { grid-column: 1 / -1; }
+  table.dayt { width: 640px; }
+  .day-games { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .day-games .chip { flex: 0 0 auto; }
+}
+.board-h a { color: var(--yellow); } .board-h a:hover { color: #fff; text-decoration: none; }
+.final { font-size: 0.95rem; color: var(--text-dim); margin-left: 8px; } .final b { color: #fff; font-weight: 800; } .final b.stat-good { color: var(--green); }
+.audit-ok { border-color: var(--green); } .audit-ok strong { color: var(--green); } .audit-bad { border-color: var(--red); } .audit-bad strong { color: var(--red); }

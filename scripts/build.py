@@ -261,8 +261,21 @@ def build(args) -> None:
         g["game_picks"] = live.game_picks(g, tp, g.get("kalshi_ml"), total_offset, agree_m, agree_t) if tp else []
         base = {"game_id": g["game_id"], "date": g["date"], "home": g["home"], "away": g["away"],
                 "our_margin": tp["margin"] if tp else None, "our_total": tp["total"] if tp else None}
+        fd = g.get("fanduel") or {}
         for gp in g["game_picks"]:
             tfrozen += predictions.freeze_team({**base, **gp}, g["tip_utc"])
+            cur = predictions.load_date(g["date"], team=True).get(f"{g['game_id']}|{gp['market']}")
+            if cur:
+                if gp["market"] == "spread" and fd.get("spread"):
+                    predictions.record_close_team(g["date"], g["game_id"], "spread", fd["spread"]["home_point"], None, g["tip_utc"])
+                elif gp["market"] == "total" and fd.get("total"):
+                    predictions.record_close_team(g["date"], g["game_id"], "total", fd["total"]["point"], None, g["tip_utc"])
+                elif gp["market"] == "moneyline":
+                    mlp = (fd.get("moneyline") or {})
+                    hp_ = mlp.get("home_prob") if mlp else (g.get("kalshi_ml") or {}).get("home_prob")
+                    if hp_ is not None:
+                        side = hp_ if cur["pick"] == g["home"] else 100 - hp_
+                        predictions.record_close_team(g["date"], g["game_id"], "moneyline", None, round(side / 100, 4), g["tip_utc"])
             if not g["started"] and (gp.get("value") is None or gp["value"] >= 0):  # only picks that beat their price
                 game_ranked.append({**gp, "game_id": g["game_id"]})
     if sl.get("date"):
@@ -333,6 +346,13 @@ def build(args) -> None:
         "tpreds": predictions.load_all(team=True), "sources": sources, "health": health, "lm": lm,
         "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj,
     })
+    # consistency audit on what was just built; its result shows on History -> Pipeline next build
+    import subprocess
+    r = subprocess.run([sys.executable, str(Path(__file__).parent / "audit.py")], capture_output=True, text=True)
+    lines = [ln for ln in r.stdout.splitlines() if ln.startswith(("PASS", "FAIL"))]
+    _write_if_changed(DATA / "audit.json", {"at": now.strftime("%Y-%m-%d %H:%M UTC"), "passed": r.returncode == 0,
+                                            "checks": len(lines), "fails": [ln[5:] for ln in lines if ln.startswith("FAIL")]})
+    print("Audit:", "all checks passed" if r.returncode == 0 else r.stdout[-800:])
     print(f"Build complete at {now:%Y-%m-%d %H:%M UTC}")
 
 

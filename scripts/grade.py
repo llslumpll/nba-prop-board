@@ -350,6 +350,19 @@ def units(p: dict) -> float | None:
 
 
 def clv(p: dict) -> dict | None:
+    if "market" in p:  # game picks
+        if p["market"] == "moneyline":
+            if p.get("close_mkt") is None or p.get("market_side") is None:
+                return None
+            prob = round(p["close_mkt"] - p["market_side"], 4)
+            return {"pts": 0.0, "prob": prob, "beat": 1 if prob > 0.005 else -1 if prob < -0.005 else 0}
+        if p.get("close_line") is None or p.get("line") is None:
+            return None
+        if p["market"] == "spread":  # line = home point; picking home gains when the home number gets bigger (more negative)
+            pts = (p["line"] - p["close_line"]) if p["pick"] == p["home"] else (p["close_line"] - p["line"])
+        else:
+            pts = (p["close_line"] - p["line"]) if p["pick"] == "OVER" else (p["line"] - p["close_line"])
+        return {"pts": round(pts, 2), "prob": None, "beat": 1 if pts > 0 else -1 if pts < 0 else 0}
     cl = p.get("close_line")
     if cl is None or p.get("line") is None:
         return None

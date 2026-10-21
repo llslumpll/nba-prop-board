@@ -10,7 +10,7 @@
   <div class="boards">
     {% for b in boards %}
     <div class="board">
-      <div class="board-h"><span>{{ b.label }}</span><span>{{ b.date_label }}</span></div>
+      <div class="board-h"><span>{{ b.label }}</span><a href="history-{{ b.date }}.html">{{ b.date_label }} &middot; see every pick &rarr;</a></div>
       <div class="record">
         <div class="rec-box rec-hit"><b>{{ b.hits }}</b><span>HITS</span></div>
         <div class="rec-box rec-miss"><b>{{ b.misses }}</b><span>MISSES</span></div>

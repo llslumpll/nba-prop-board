@@ -264,3 +264,9 @@ After the first graded night (Oct 20, 324 picks: raw chances scored worse than a
 * Frozen in `data/team_predictions/` within 8 h of tip, graded from final scores; units at the FanDuel price. **Game Best 5 / Best Value** (`predictions.sync_team_best`, one per game) only take picks whose chance beats their price. Shown on Games (BEST 5 / BEST VALUE / ALL GAMES tabs; `games.html#<game_id>` opens a game) and on History → Game picks.
 * **Home** shows two boards: tonight's slate and the previous day's results (props; game picks in the note line), plus an all-time line.
 * **History** is tabbed (Profit & CLV, Scoreboard, Accuracy, Confidence & value, Best 5 record, Game picks, Model, Pipeline, Day by day); `history.html#<tab>` opens a tab.
+
+## Consistency audit (Oct 21)
+
+`scripts/audit.py` recomputes everything from the raw pick files and checks it: every pick frozen before tip, grading arithmetic (props and game picks against final scores), nothing left pending after its box score, Best 5 / Best Value rules, chance cap, and that Home's two boards, History's Profit totals and every day page show exactly the raw numbers. It runs at the end of every build; the result is saved to `data/audit.json` and shown on History → Pipeline (green when all pass, red with the failing checks). Run it by hand with `python scripts/audit.py`.
+
+Game picks also record a closing line now (FanDuel spread / total, no-vig moneyline for the picked side), so their CLV counts like the props'. Day pages' GAMES tab lists every game's final score with our moneyline / spread / total results.

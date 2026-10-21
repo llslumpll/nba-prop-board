@@ -263,3 +263,18 @@ def sync_team_best(date: str, list_name: str, ranked: list[dict]) -> None:
             changed = True
     if changed:
         mark_dirty(date, team=True)
+
+
+def record_close_team(date: str, game_id: int, market: str, close_line, close_mkt, tip_utc: datetime | None) -> bool:
+    """Latest pre-tip FanDuel line (spread: home point; total: points) or
+    no-vig chance for the picked side (moneyline). Stops at tip."""
+    if tip_utc is None or _now() >= tip_utc:
+        return False
+    cur = load_date(date, team=True).get(f"{game_id}|{market}")
+    if not cur or cur.get("status") != "pending":
+        return False
+    if cur.get("close_line") == close_line and cur.get("close_mkt") == close_mkt:
+        return False
+    cur.update(close_line=close_line, close_mkt=close_mkt, close_at=_now().strftime("%Y-%m-%d %H:%M UTC"))
+    mark_dirty(date, team=True)
+    return True
