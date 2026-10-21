@@ -20,7 +20,7 @@
   {% for t in tiles %}
   <a class="sb-tile" href="games.html" {{ m.game_stripe(t.g) }}>
     <div class="sb-teams">{{ m.badge(t.g.away_badge) }}<span class="sb-at">@</span>{{ m.badge(t.g.home_badge) }}</div>
-    <div class="sb-meta">{{ m.game_status(t.g) }}<span class="dim small">{{ t.n }} pick{{ 's' if t.n != 1 }} frozen</span></div>
+    <div class="sb-meta">{{ m.game_status(t.g) }}<span class="dim small sb-n">{% if t.n %}{{ t.n }} pick{{ 's' if t.n != 1 }} frozen{% elif t.opens %}picks from {{ t.opens }}{% else %}no picks yet{% endif %}</span></div>
     <div class="sb-line dim small">{% if t.fd.spread %}{{ t.g.home }} {{ t.fd.spread.home_point|fmtpt }}{% endif %}{% if t.fd.total %} &middot; total {{ t.fd.total.point }}{% endif %}{% if not t.fd.spread and not t.fd.total and t.tp %}our score {{ t.tp.away_pts|round(0)|int }}&ndash;{{ t.tp.home_pts|round(0)|int }}{% endif %}</div>
   </a>
   {% endfor %}

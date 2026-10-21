@@ -1018,3 +1018,10 @@ html.fonts-wait body { visibility: hidden; }
   .gcard .kv .v { font-size: 1.3rem; }
 }
 @media (max-width: 760px) { .gcard .kv > div { min-height: 136px; } }
+/* game tiles: tip time on one line, picks note beside or under it */
+.st { white-space: nowrap; }
+.sb-meta { flex-wrap: wrap; row-gap: 4px; }
+.sb-n { text-align: right; margin-left: auto; }
+.tc-blend { font-size: 0.78rem; color: var(--text-dim); margin-top: -6px; }
+.tc-blend b { color: var(--yellow); font-weight: 800; }
+.pp-gap { flex-basis: 100%; font-size: 0.72rem; font-weight: 800; color: #ffb35c; } td.bx .pp-gap { text-align: right; }

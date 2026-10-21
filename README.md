@@ -246,3 +246,14 @@ python scripts/build.py --no-fetch  # light build from cache
 * **Player pages** (`docs/p-{player_id}.html`, template `player.html`): one per player on the current slate (rows shown on Players). Tonight's projection and pick per stat, last 15 games vs tonight's line per stat, splits (this/last season, last 5/15, home/away and vs tonight's opponent over 3 seasons), a 20-game log with our graded picks marked, and our record on him (hits, units, CLV). Written only when their content changes; pages for players no longer on the slate are removed. Player names across the site link here; Players has a search box.
 * **Slip builder** (`docs/static/slip.js`, runs in the browser only): "+ SLIP" on every open pick adds a leg; the slip shows Power or Flex, the chance of each result (legs treated as independent), editable PrizePicks multipliers (standard defaults), the average return per $10 and expected value, plus warnings for the same player, teammates and same-game legs. The slip lives in the visitor's browser (localStorage) and is never sent anywhere.
 * `cache_bust` is now a hash of `style.css`, so pages only change when their content does.
+
+## Chance method v2 (Oct 21): blend with the market, role-gap guard, cap
+
+After the first graded night (Oct 20, 324 picks: raw chances scored worse than a coin flip, Brier 0.262; Best 5 went 6/24 on large disagreements with the line), chances are computed differently (`live.py`):
+
+* **Market-implied mean:** for each line, the average the market implies (the mean at which our distribution gives the market's own over-chance: no-vig price for FanDuel/Kalshi, 50/50 for PrizePicks; `implied_mean`). For points that's about the line; for a 0.5 threes line it's ~0.7–0.9.
+* **Blend:** the chance uses `market_mean + BLEND_W × (our projection − market_mean)`, `BLEND_W = 0.35`. `grade.fit_blend` re-fits the weight (minimum average miss, dampened halfway to the default) once 1000 graded picks exist.
+* **Early-season range:** variance × up to `EARLY_VAR = 1.3`, fading out over a player's first 10 games this season.
+* **Role-gap guard:** if our projection is more than 50% away from the market mean for a player with < 10 games this season, the model weight shrinks further and the pick is kept out of Best 5 / Best Value (flagged "big gap vs line").
+* **Cap:** no chance above 80%.
+* Picks frozen under the old method are re-frozen once with the new one, only before tip. Replay on Oct 20 (in-sample, so optimistic): Brier 0.248 vs 0.262.

@@ -40,6 +40,47 @@ PICK_STATS = ("pts", "reb", "ast", "fg3m", "pra", "pr", "pa", "ra")
 GAME_PICKS_MIN_GAMES = 10
 
 
+# ---- turning a projection into a chance ------------------------------------
+# BLEND_W: weight on our projection when it's blended with the line before the
+# chance is computed (the rest goes to the line). On the first graded night
+# (Oct 20, 324 picks) a ~1/3 model, ~2/3 line blend had a lower average miss
+# than either alone, and the raw chances were worse than a coin flip (Brier
+# 0.262 vs 0.250); blended, 0.249. grade.calibrate() re-fits this weight once
+# BLEND_MIN_N graded picks exist.
+# EARLY_VAR: a player's range is widened by up to this factor until he has
+# EARLY_GAMES games this season (his role is the big unknown early on).
+# CHANCE_CAP: no prop is shown above this chance.
+BLEND_W = 0.35
+EARLY_VAR = 1.3
+EARLY_GAMES = 10
+CHANCE_CAP = 0.80
+# ROLE_GAP: when our projection is more than this share away from the line
+# for a player with < EARLY_GAMES games this season, the gap is most likely a
+# role or minutes change the market knows about (Oct 20: picks 50%+ off the
+# line hit 37.5%). Those picks get a smaller model weight and are kept out of
+# Best 5 / Best Value.
+ROLE_GAP = 0.5
+
+
+def implied_mean(s: str, line: float, p_over: float, vscale) -> float:
+    """Mean m at which P(stat > line) = p_over under our distribution shape
+    (variance vscale(m)). For points this is ~the line; for low counts like a
+    0.5 threes line it's ~0.7-0.9, not 0.5."""
+    lo, hi = 1e-3, max(2.0, line * 3 + 5)
+    for _ in range(50):
+        mid = (lo + hi) / 2
+        po = model.prob_over(s, mid, vscale(mid), line)
+        if po is None:
+            return line
+        lo, hi = (mid, hi) if po < p_over else (lo, mid)
+    return (lo + hi) / 2
+
+
+def _early_var_mult(r: dict) -> float:
+    n = int(r.get("c_n") or 0)
+    return 1 + (EARLY_VAR - 1) * max(0.0, 1 - n / EARLY_GAMES)
+
+
 def team_games_played(box: pl.DataFrame) -> dict:
     if not box.height:
         return {}
@@ -239,6 +280,7 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
     no_hist = [r for r in t.filter(pl.col("present")).iter_rows(named=True) if r["player_id"] not in present_ids]
     cal = grade.load_calibration()
     vmult = _load_var()
+    blend_w = (cal.get("blend") or {}).get("w", BLEND_W) if (cal.get("blend") or {}).get("status") == "active" else BLEND_W
     games = {g["game_id"]: g for g in sl["games"]}
 
     players, picks = [], {s: [] for s in PICK_STATS}
@@ -263,23 +305,35 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
             book = line_book.get((r["player"], s, r["game_id"])) or {}
             shrink = (((cal.get("chance_shrink") or {}).get(s) or {}).get("shrink", 1.0)
                       if (((cal.get("chance_shrink") or {}).get(s) or {}).get("status") == "active") else 1.0)
+            vm_p = (vmult.get(str(r["player_id"]), {}).get(s, 1.0)) * _early_var_mult(r)
+            vscale = (lambda m, vf=vf, vm_p=vm_p: max(1e-6, (vf["phi"] * m + vf["kappa"] * m * m) * vm_p))
             for src, ln in book.items():
-                po = model.prob_over(s, mu, var, ln["line"])
+                # chance comes from our projection blended with the line itself (markets are sharp;
+                # see BLEND_W), with a wider range early in the season, capped at CHANCE_CAP
+                # the average the market's own line implies: the mean at which our distribution gives the
+                # market's chance of going over (no-vig price where the source has one, else 50/50)
+                m_mkt = implied_mean(s, ln["line"], ln.get("market_over") if ln.get("market_over") is not None else 0.5, vscale)
+                gap = abs(mu - m_mkt) / max(m_mkt, 1.0)
+                role_gap = gap > ROLE_GAP and int(r.get("c_n") or 0) < EARLY_GAMES
+                w_eff = blend_w * (ROLE_GAP / gap) if role_gap else blend_w
+                mu_b = m_mkt + w_eff * (mu - m_mkt)
+                po = model.prob_over(s, mu_b, vscale(mu_b), ln["line"])
                 if po is None:
                     continue
                 po = 0.5 + (po - 0.5) * shrink
+                po = min(CHANCE_CAP, max(1 - CHANCE_CAP, po))
                 side = "OVER" if po >= 0.5 else "UNDER"
                 chance = po if side == "OVER" else 1 - po
                 be = ln.get("be_over") if side == "OVER" else ln.get("be_under")
                 mkt = ln.get("market_over")
                 mkt_side = (mkt if side == "OVER" else 1 - mkt) if mkt is not None else None
-                st["lines"][src] = {**ln, "p_over": round(po, 4), "side": side, "chance": round(chance, 4),
+                st["lines"][src] = {**ln, "p_over": round(po, 4), "side": side, "chance": round(chance, 4), "blend_mean": round(mu_b, 2), "market_mean": round(m_mkt, 2), "role_gap": role_gap,
                                     "break_even": be, "value": round(chance - be, 4) if be is not None else None,
                                     "market_side": round(mkt_side, 4) if mkt_side is not None else None}
             psrc, _ = markets.primary(st["lines"])
             if psrc:
                 pk = st["lines"][psrc]
-                st["pick"] = {"source": psrc, **{k: pk[k] for k in ("line", "side", "chance", "break_even", "value", "market_side")}}
+                st["pick"] = {"source": psrc, "blend_w": blend_w, **{k: pk[k] for k in ("line", "side", "chance", "break_even", "value", "market_side", "blend_mean", "role_gap")}}
                 if s in PICK_STATS:
                     picks[s].append({**{k: row[k] for k in ("player", "player_id", "team", "opp", "home", "game_id",
                                                             "badge", "tier", "proj_min", "inj_status")},

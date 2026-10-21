@@ -219,6 +219,7 @@ def build(args) -> None:
             rec = {k: p[k] for k in ("player", "player_id", "team", "opp", "home", "game_id", "date", "stat",
                                      "tier", "proj_min", "var", "line", "chance", "break_even", "market_side")}
             rec.update(projected=p["proj"], call=p["side"], line_source=p["source"],
+                       blend_mean=p.get("blend_mean"), blend_w=p.get("blend_w"),
                        lines={src: ln["line"] for src, ln in p["lines"].items()},
                        label=est[s]["status"], why=p["why"][:400], out_ctx=out_ctx)
             if predictions.freeze(rec, p["tip_utc"]):
@@ -263,7 +264,7 @@ def build(args) -> None:
                                                 "pick": "OVER" if c >= 0.5 else "UNDER",
                                                 "chance": round(max(c, 1 - c), 4), "source": "fanduel"}, g["tip_utc"])
     predictions.save()
-    print(f"Froze {frozen} new player pick(s), re-froze {refrozen} after injury news, updated {closes} closing line(s), "
+    print(f"Froze {frozen} new player pick(s), re-froze {refrozen} (injury news or method update), updated {closes} closing line(s), "
           f"{tfrozen} new game pick(s).")
 
     # ---- Best 5 / Best Value (only frozen, untipped picks can enter; tipped ones stay locked)
@@ -271,7 +272,7 @@ def build(args) -> None:
     if sl.get("date"):
         groups = {s: [s] for s in ("pts", "reb", "ast", "fg3m")} | {"combos": ["pra", "pr", "pa", "ra"]}
         for grp, stats in groups.items():
-            cands = [p for s in stats for p in res["picks"][s] if not p["started"] and not p.get("inj_status")]
+            cands = [p for s in stats for p in res["picks"][s] if not p["started"] and not p.get("inj_status") and not p.get("role_gap")]
             conf = sorted(cands, key=lambda p: -p["chance"])
             val = sorted([p for p in cands if p.get("value") is not None], key=lambda p: -p["value"])
             for name, ranked in (("best5", conf), ("value", val)):

@@ -12,6 +12,8 @@ Rules:
     market line exists for it, and never after tip-off (callers pass the tip
     time; checked here too). Waiting until game day means the projection
     has that day's injury report behind it;
+  * a pick frozen under an older chance method (no blend_w) is re-frozen
+    once with the current one, still only before tip;
   * if a player on either team is newly ruled OUT after a pick froze but
     before tip, the pick is re-frozen with the updated projection
     (refreeze()); the original line and time are kept in first_line /
@@ -34,7 +36,7 @@ TEAM_DIR = Path(__file__).parent.parent / "data" / "team_predictions"
 BEST5_SIZE = 5
 FREEZE_WINDOW = timedelta(hours=8)
 # fields replaced when a pick is re-frozen after new injury news
-REFREEZE_FIELDS = ("tier", "proj_min", "var", "line", "chance", "break_even", "market_side", "projected",
+REFREEZE_FIELDS = ("tier", "proj_min", "var", "line", "chance", "break_even", "market_side", "projected", "blend_mean", "blend_w",
                    "call", "line_source", "lines", "label", "why", "out_ctx")
 
 _cache: dict[str, dict] = {}
@@ -134,11 +136,12 @@ def refreeze(rec: dict, tip_utc: datetime | None) -> bool:
     cur = store.get(k)
     if not cur or cur.get("status") != "pending":
         return False
-    if cur.get("out_ctx") is None:
+    method_update = cur.get("blend_w") is None and rec.get("blend_w") is not None
+    if cur.get("out_ctx") is None and not method_update:
         cur["out_ctx"] = rec.get("out_ctx")
         mark_dirty(rec["date"])
         return False
-    if cur["out_ctx"] == rec.get("out_ctx"):
+    if cur.get("out_ctx") == rec.get("out_ctx") and not method_update:
         return False
     cur.setdefault("first_line", cur["line"])
     cur.setdefault("first_call", cur["call"])
@@ -148,7 +151,8 @@ def refreeze(rec: dict, tip_utc: datetime | None) -> bool:
             cur[f] = rec[f]
     cur["frozen_at"] = _now().strftime("%Y-%m-%d %H:%M UTC")
     cur["refreezes"] = cur.get("refreezes", 0) + 1
-    cur["why"] = (cur.get("why") or "")[:360] + " Re-frozen after new injury news."
+    note = " Re-frozen with the updated chance method (blended with the line)." if method_update else " Re-frozen after new injury news."
+    cur["why"] = (cur.get("why") or "")[:360] + note
     for f in ("close_line", "close_mkt", "close_at"):
         cur.pop(f, None)
     mark_dirty(rec["date"])

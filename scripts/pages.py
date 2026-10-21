@@ -157,11 +157,33 @@ def _notices(ctx, stat_keys=None):
 def _empty_best_text(ctx):
     if not ctx["slate"]["games"]:
         return "No upcoming games."
+    opens = _freeze_opens(ctx)
+    if opens:
+        return (f"Picks for this slate freeze on game day, {int(predictions.FREEZE_WINDOW.total_seconds() // 3600)} hours before each tip, "
+                f"so they're made with that day's injury news. The first ones arrive around {opens}. "
+                "Projections for every player are already up on Players and Picks \u2192 All Projections.")
     n = sum(ctx["sources"]["line_counts"].values())
     if not n:
         return ("No player lines are posted for this slate yet. Kalshi and PrizePicks usually list player props on game day; "
                 "picks appear here (and freeze) the first build after a line shows up.")
     return "No picks qualify yet."
+
+
+def _freeze_opens(ctx, g=None) -> str | None:
+    """When the freeze window opens for a game (or the slate's first game), as 'h:mm AM ET (h:mm AM CT)';
+    None once it's already open."""
+    now = ctx["now"]
+    tips = [g["tip_utc"]] if g else [x["tip_utc"] for x in ctx["slate"]["games"]]
+    tips = [t for t in tips if t]
+    if not tips:
+        return None
+    t = min(tips) - predictions.FREEZE_WINDOW
+    if now >= t:
+        return None
+    et = t.astimezone(ET)
+    ct = t.astimezone(ZoneInfo("America/Chicago"))
+    day = "" if et.date() == now.astimezone(ET).date() else et.strftime("%a ")
+    return f"{day}{et.strftime('%-I:%M %p')} ET ({ct.strftime('%-I:%M %p')} CT)"
 
 
 # ---------------------------------------------------------------------------
@@ -678,8 +700,11 @@ def render_all(ctx: dict) -> None:
     frozen_n = defaultdict(int)
     for p in preds:
         frozen_n[p["game_id"]] += 1
-    tiles = [{"g": g, "fd": g.get("fanduel") or {}, "tp": res["teams"].get(g["game_id"]), "n": frozen_n.get(g["game_id"], 0)}
-             for g in sl["games"]]
+    tiles = []
+    for g in sl["games"]:
+        op = _freeze_opens(ctx, g)
+        tiles.append({"g": g, "fd": g.get("fanduel") or {}, "tp": res["teams"].get(g["game_id"]), "n": frozen_n.get(g["game_id"], 0),
+                      "opens": op.split(" (")[0].replace(" ET", " ET") if op else None})
     season = dict(ctx["season"])
     season["phase_label"] = {"preseason": "PRE", "in_season": "LIVE", "complete": "DONE"}.get(season["phase"], "—")
     src = ctx["sources"]

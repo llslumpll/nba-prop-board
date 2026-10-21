@@ -263,8 +263,29 @@ def calibrate(preds: list[dict]) -> dict:
         raw = sxy / sxx if sxx > 0 else 1.0
         shrink = max(0.3, min(1.0, 1 + CAL_DAMPEN * (raw - 1)))
         cal["chance_shrink"][s] = {"n": len(gp), "status": "active", "shrink": round(shrink, 3), "raw": round(raw, 3)}
+    cal["blend"] = fit_blend(preds)
     CAL_PATH.write_text(json.dumps(cal, indent=1, sort_keys=True))
     return cal
+
+
+BLEND_MIN_N = 1000  # several nights, since picks within a night move together
+BLEND_GRID = [round(0.05 * i, 2) for i in range(2, 13)]  # 0.10 .. 0.60
+
+
+def fit_blend(preds: list[dict]) -> dict:
+    """Weight on our projection (vs the line) that minimises the average miss
+    over graded picks; active once BLEND_MIN_N exist. Dampened halfway toward
+    the default so one odd week can't swing it."""
+    import live
+    g = [p for p in preds if p.get("actual") is not None and p.get("line") is not None and p.get("projected") is not None]
+    if len(g) < BLEND_MIN_N:
+        return {"n": len(g), "status": "building", "w": live.BLEND_W}
+    def mae(w):
+        return sum(abs(p["line"] + w * (p["projected"] - p["line"]) - p["actual"]) for p in g) / len(g)
+    best = min(BLEND_GRID, key=mae)
+    w = round(0.5 * best + 0.5 * live.BLEND_W, 3)
+    return {"n": len(g), "status": "active", "w": w, "raw": best, "mae": round(mae(best), 3),
+            "mae_model": round(mae(1.0), 3), "mae_line": round(mae(0.0), 3)}
 
 
 def load_calibration() -> dict:
@@ -281,6 +302,9 @@ def maturity(cal: dict) -> dict:
             items.append({"what": f"{model.STAT_LABEL.get(s, s)} bias · {t}", "n": d["n"], "status": d["status"]})
     for s, d in (cal.get("chance_shrink") or {}).items():
         items.append({"what": f"{model.STAT_LABEL.get(s, s)} chance calibration", "n": d["n"], "status": d["status"]})
+    b = cal.get("blend") or {}
+    if b:
+        items.append({"what": "model/line blend weight", "n": b.get("n", 0), "status": b.get("status", "building")})
     active = sum(1 for i in items if i["status"] == "active")
     pending = [i for i in items if i["status"] != "active"]
     return {"active": active, "total": len(items), "min_sample": cal.get("min_sample", MIN_SAMPLE_CAL),

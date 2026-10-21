@@ -114,6 +114,7 @@
       {% if kind == 'value' %}<span><em>CHANCE</em>{{ (p.chance * 100)|round(0)|int }}%</span>{% endif %}
     </div>
   </div>
+  {% if p.blend_mean is defined and p.blend_mean is not none %}<div class="tc-blend">Chance uses <b>{{ p.blend_mean }}</b>: {{ (p.blend_w * 100)|round(0)|int }}% our projection + {{ 100 - (p.blend_w * 100)|round(0)|int }}% the line</div>{% endif %}
   {% if p.recent %}
   <div class="tc-recent">
     <div class="tc-lab">LAST {{ p.recent|length }} &middot; WOULD HAVE HIT <b>{{ p.recent|selectattr('s', 'equalto', 'over')|list|length }}/{{ p.recent|length }}</b></div>
@@ -158,6 +159,7 @@
   {% if st.pick %}<span class="pp-pick pp-{{ st.pick.side|lower }}">{{ 'OVER' if st.pick.side == 'OVER' else 'UNDER' }} {{ st.pick.line|fmtline }}</span><span class="pp-ch">{{ (st.pick.chance * 100)|round(0)|int }}%</span>
   {% elif st.frozen %}<span class="pp-pick pp-{{ st.frozen.call|lower }}" title="frozen before tip">&#128274; {{ st.frozen.call }} {{ st.frozen.line|fmtline }}</span><span class="pp-ch">{{ (st.frozen.chance * 100)|round(0)|int }}%</span>
   {% else %}<span class="pp-none">no line</span>{% endif %}
+  {% if st.pick and st.pick.role_gap %}<span class="pp-gap" title="Our projection is far from the line, most likely a role change the market knows about. Chance pulled toward 50%; kept out of Best 5.">&#9888; big gap vs line</span>{% endif %}
   {% if st.pick and st.frozen and not (st.frozen.call == st.pick.side and st.frozen.line == st.pick.line) %}<span class="pp-fz">&#128274; frozen earlier: {{ st.frozen.call }} {{ st.frozen.line|fmtline }}</span>{% endif %}
   {% if r is not none and st.pick %}{{ slip_leg(r.player_id, r.player, r.team, r.opp, r.game_id, s, st.pick.side, st.pick.line, st.pick.chance, st.pick.source, g.started if g else false) }}{% endif %}
 </span>
@@ -166,7 +168,7 @@
 {% macro why_block(r, stat_keys, edge) %}
 {% for s in stat_keys %}{% set st = r.stats[s] %}
 <p class="why-reason"><strong>{{ stat_labels[s] }} {{ st.proj }}{% if st.pick %} &middot; {{ pick_text(st.pick.side, st.pick.line, st.pick.chance) }} {{ label_tag(edge[s].status) }}{% endif %}:</strong> {{ st.why }}
-  {% for src, ln in st.lines.items() %}<br>{{ src_labels[src] }} {{ ln.line|fmtline }}{% if ln.over_str %} ({{ ln.over_str }}/{{ ln.under_str }}){% endif %}: we give OVER {{ (ln.p_over * 100)|round(0)|int }}%{% if ln.market_side is not none %}, market {{ (ln.market_side * 100)|round(0)|int }}% for {{ ln.side }}{% endif %}{% if ln.break_even %}, break-even {{ (ln.break_even * 100)|round(1) }}% for {{ ln.side }}{% endif %}{% if ln.move %} <span class="move">moved from {{ ln.move.from|fmtline }}</span>{% endif %}.{% endfor %}
+  {% for src, ln in st.lines.items() %}<br>{{ src_labels[src] }} {{ ln.line|fmtline }}{% if ln.over_str %} ({{ ln.over_str }}/{{ ln.under_str }}){% endif %}: we give OVER {{ (ln.p_over * 100)|round(0)|int }}%{% if ln.blend_mean is defined %} (from {{ ln.blend_mean }}, our {{ st.proj }} blended with the line{% if ln.role_gap %}; big gap vs the line, most likely a role change, so our projection gets less weight and this stays out of Best 5{% endif %}){% endif %}{% if ln.market_side is not none %}, market {{ (ln.market_side * 100)|round(0)|int }}% for {{ ln.side }}{% endif %}{% if ln.break_even %}, break-even {{ (ln.break_even * 100)|round(1) }}% for {{ ln.side }}{% endif %}{% if ln.move %} <span class="move">moved from {{ ln.move.from|fmtline }}</span>{% endif %}.{% endfor %}
   {% if st.frozen %}<br><span class="locked">&#128274; frozen: {{ st.frozen.call }} {{ st.frozen.line|fmtline }} ({{ st.frozen.frozen_at }})</span>{% endif %}
   {% if st.recent %}<br>Last {{ st.recent|length }} ({{ st.pick.side|lower }} {{ st.pick.line|fmtline }}, green = would have hit): {{ recent_strip(st.recent) }}{% endif %}
   {% if st.ladder %}<br>Kalshi ladder: {% for x in st.ladder %}{{ x.n }}+ {{ (x.mid * 100)|round(0)|int }}%{{ ', ' if not loop.last }}{% endfor %}.{% endif %}
