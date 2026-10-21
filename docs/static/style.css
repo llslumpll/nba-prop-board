@@ -970,3 +970,16 @@ a.tc-name, a.bx-name, a.plink { text-decoration: underline dotted var(--yellow);
 a.tc-name::after, a.bx-name::after, a.plink::after { content: " \25B8"; color: var(--yellow); font-size: 0.8em; }
 .pp-link { display: inline-block; margin: 2px 0 10px; font-family: var(--pixel); font-size: 1.3rem; padding: 3px 14px; background: var(--yellow); color: #1a0b00; box-shadow: 3px 3px 0 #6b1300; }
 .pp-link:hover { color: #1a0b00; background: #fff; text-decoration: none; }
+/* WHY & STATS button and player-page breakdown */
+.bd-btn { display: inline-block; font-family: var(--pixel); font-size: 1.15rem; line-height: 1.1; padding: 4px 10px; background: var(--pink); color: #fff; border: 2px solid var(--yellow); box-shadow: 3px 3px 0 #6b1300; white-space: nowrap; }
+.bd-btn:hover { background: var(--yellow); color: #1a0b00; text-decoration: none; }
+.tc-foot .bd-btn { margin-left: 0; }
+.bd-panel { margin-bottom: 26px; }
+.bd-top { display: grid; grid-template-columns: 240px 1fr; gap: 18px; background: var(--bg-card); border: 3px solid var(--line); padding: 14px 16px; margin-bottom: 12px; box-shadow: 4px 4px 0 #07030f; }
+.bd-proj .pp { flex-direction: column; align-items: flex-start; }
+.bd-proj .pp-proj b { font-size: 2.6rem; }
+.bd-proj .pp-pick { font-size: 1rem; }
+.bd-why .why-reason { margin: 0 0 10px; }
+@media (max-width: 760px) { .bd-top { grid-template-columns: 1fr; } .bd-btn { font-size: 1rem; padding: 3px 8px; } }
+.pt-stat { display: block; } a.pt-stat:hover { color: #fff; text-decoration: none; }
+.anchor, #breakdown { scroll-margin-top: 110px; } @media (max-width: 760px) { .anchor, #breakdown { scroll-margin-top: 100px; } }

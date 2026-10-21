@@ -63,7 +63,15 @@
         });
       });
     });
-    (function () { var h = location.hash.slice(1); if (h) document.querySelectorAll('[data-tabs][data-hash]').forEach(function (bar) { showTab(bar.dataset.tabs, h); }); })();
+    (function () {
+      var h = location.hash.slice(1); if (!h) return;
+      document.querySelectorAll('[data-tabs][data-hash]').forEach(function (bar) {
+        if (showTab(bar.dataset.tabs, h) && bar.dataset.hashScroll) {
+          var t = document.getElementById(bar.dataset.hashScroll) || bar;
+          setTimeout(function () { t.scrollIntoView({block: 'start'}); }, 0);
+        }
+      });
+    })();
     // Home: filter top-play cards by stat
     document.querySelectorAll('[data-filter-bar]').forEach(function (bar) {
       bar.querySelectorAll('[data-filter]').forEach(function (b) {

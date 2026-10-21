@@ -3,7 +3,7 @@
 {% block title %}Picks — Prop Edge NBA{% endblock %}
 {% block content %}
 <h1>Picks</h1>
-<p class="lede">The strongest picks for each stat on the {{ slate.date_label or 'next' }} slate, frozen before tip and graded on <a href="history.html">History</a>. Tap <strong>why</strong> on any card for the chart, the factors and the full reasoning.</p>
+<p class="lede">The strongest picks for each stat on the {{ slate.date_label or 'next' }} slate, frozen before tip and graded on <a href="history.html">History</a>. Tap <strong>WHY &amp; STATS</strong> on any card for the full reasoning, the factors and his last 15 games.</p>
 {% if notices %}
 <details class="info-collapse"><summary>{{ notices|length }} data note{{ 's' if notices|length != 1 }}</summary>
 {% for n in notices %}<div class="notice compact">{{ n|safe }}</div>{% endfor %}
@@ -31,7 +31,7 @@
     {{ m.tgrid(gr.value, 'value', edge, gr.key ~ '-v', empty_best) }}
   </div>
   <div class="hidden" data-tab-panel="list-{{ gr.key }}:proj">
-    <p class="small dim">Every rotation player's {{ gr.title|lower }} projection, one game at a time. Tap <strong>why</strong> for the reasoning, every line and the last 10 games.</p>
+    <p class="small dim">Every rotation player's {{ gr.title|lower }} projection, one game at a time. Tap <strong>WHY &amp; STATS</strong> for the reasoning, every line and his last 15 games.</p>
     {% if games %}
     <div class="chips" data-tabs="pg-{{ gr.key }}">
       {% for gm in games %}<button class="chip {{ 'active' if loop.first }}" data-tab="{{ gm.g.game_id }}">{{ gm.g.away }} @ {{ gm.g.home }}{% if gm.g.started and not gm.g.completed %} &middot; LIVE{% elif gm.g.completed %} &middot; FINAL{% endif %}</button>{% endfor %}
@@ -59,9 +59,8 @@
             {% endfor %}{% endfor %}
             {% if not r.any_line %}<span class="dim">none posted</span>{% endif %}
           </div></td>
-          <td class="nowrap"><button class="why-btn" onclick="toggleWhy('{{ rid }}', this)">why</button></td>
+          <td class="nowrap"><a class="bd-btn" href="p-{{ r.player_id }}.html#{{ m.stat_page_key(gr.stat_keys[0]) }}">WHY &amp; STATS &#9656;</a></td>
         </tr>
-        <tr class="why-detail hidden" data-why-panel="{{ rid }}"><td colspan="4"><a class="pp-link" href="p-{{ r.player_id }}.html">FULL PLAYER PAGE &rarr;</a>{{ m.why_block(r, gr.stat_keys, edge) }}</td></tr>
         {% endfor %}
         </tbody>
       </table></div></div>

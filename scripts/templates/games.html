@@ -45,7 +45,7 @@
           <thead><tr><th>Player</th><th class="num">Min</th><th class="num">Pts</th><th class="num">Reb</th><th class="num">Ast</th><th class="num">3PM</th></tr></thead>
           <tbody>
           {% for r in side.players %}
-          <tr><td>{{ r.player }}</td><td class="num">{{ r.proj_min|round(0)|int }}</td><td class="num">{{ r.stats.pts.proj }}</td><td class="num">{{ r.stats.reb.proj }}</td><td class="num">{{ r.stats.ast.proj }}</td><td class="num">{{ r.stats.fg3m.proj }}</td></tr>
+          <tr><td>{% if r.player_id in page_ids %}<a class="plink" href="p-{{ r.player_id }}.html">{{ r.player }}</a>{% else %}{{ r.player }}{% endif %}</td><td class="num">{{ r.proj_min|round(0)|int }}</td><td class="num">{{ r.stats.pts.proj }}</td><td class="num">{{ r.stats.reb.proj }}</td><td class="num">{{ r.stats.ast.proj }}</td><td class="num">{{ r.stats.fg3m.proj }}</td></tr>
           {% else %}<tr><td colspan="6" class="dim">no projections</td></tr>{% endfor %}
           </tbody>
         </table></div>

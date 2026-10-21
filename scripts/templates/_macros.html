@@ -90,7 +90,7 @@
 {% set k = (chance * 10)|round(0)|int %}<span class="meter" aria-hidden="true">{% for i in range(10) %}<i class="{{ 'on' if i < k }}"></i>{% endfor %}</span>
 {%- endmacro %}
 
-{# Trading-card pick. kind = 'best5' | 'value'. Full chart + factors live behind "why". #}
+{# Trading-card pick. kind = 'best5' | 'value'. The full breakdown lives on the player page (WHY & STATS). #}
 {% macro tcard(p, kind, edge, uid) %}
 {% set side = 'over' if p.call == 'OVER' else 'under' %}
 {% set diff = (p.projected - p.line) if p.line is not none else none %}
@@ -124,23 +124,7 @@
     {{ src_name(p.line_source) }} {{ label_tag(edge[p.stat].status) }}
     {% if p.locked %}<span class="locked">locked</span>{% endif %}
     <span class="tc-actions">{{ slip_leg(p.player_id, p.player, p.team, p.opp, p.game_id, p.stat, p.call, p.line, p.chance, p.line_source, p.locked) }}
-    <button class="why-btn" onclick="toggleWhy('{{ uid }}', this)">why</button></span>
-  </div>
-  <div class="tc-why hidden" data-why-panel="{{ uid }}">
-    <a class="pp-link" href="p-{{ p.player_id }}.html">FULL PLAYER PAGE &rarr;</a>
-    <p class="prop-card-reason">{{ p.why }}</p>
-    {% if p.chart %}
-    <div class="prop-card-spark">
-      {{ p.chart|safe }}
-      <div class="spark-legend">
-        <span><i class="spark-dot spark-dot-hit"></i> would have hit &nbsp; <i class="spark-dot spark-dot-miss"></i> would have missed &nbsp; <i class="spark-dot spark-dot-pending"></i> projection</span>
-        <span><i class="spark-dot spark-dot-line"></i> line {{ p.line|fmtline }} &nbsp; <i class="spark-dot spark-dot-dash"></i> {{ p.baseline_label or 'average' }}{% if p.baseline is not none %} ({{ p.baseline }}){% endif %} &nbsp; white tick = line we graded that game against</span>
-      </div>
-    </div>
-    {% endif %}
-    {% if p.tiles %}<div class="factor-grid">{% for t in p.tiles %}<div class="factor"><div class="fval stat-{{ t.css }}">{{ t.v }}</div><div class="flabel">{{ t.l }}</div></div>{% endfor %}</div>{% endif %}
-    {% if p.vs_opp %}<div class="notice compact vs-opp">vs {{ p.opp }} (last 3 seasons): {{ p.vs_opp.n }} game{{ 's' if p.vs_opp.n != 1 }}, averaging {{ p.vs_opp.avg }}, best {{ p.vs_opp.best|fmtnum }}{% if p.line is not none %}; {{ p.call|lower }} {{ p.line|fmtline }} would have hit in {{ p.vs_opp.over }} of {{ p.vs_opp.n }}{% endif %}.</div>{% endif %}
-    <p class="small dim">{{ p.tier }} &middot; frozen {{ p.frozen_at }}{% if p.lines|length > 1 %} &middot; other lines at freeze: {% for s, l in p.lines.items() if s != p.line_source %}{{ src_labels[s] }} {{ l|fmtline }}{{ ', ' if not loop.last }}{% endfor %}{% endif %}{% if kind == 'value' %} &middot; break-even {{ (p.break_even * 100)|round(1) }}%{% endif %}</p>
+    <a class="bd-btn" href="p-{{ p.player_id }}.html#{{ stat_page_key(p.stat) }}">WHY &amp; STATS &#9656;</a></span>
   </div>
 </article>
 {% endmacro %}
@@ -190,3 +174,5 @@
 {% endfor %}
 {% if r.inj_note %}<p class="why-reason dim">Injury note: {{ r.inj_note }}</p>{% endif %}
 {% endmacro %}
+
+{% macro stat_page_key(stat) -%}{{ stat if stat in ('pts', 'reb', 'ast', 'fg3m', 'pra') else 'pra' }}{%- endmacro %}

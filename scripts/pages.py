@@ -550,7 +550,8 @@ def render_all(ctx: dict) -> None:
                        "tp": tp, "sides": sides,
                        "team_frozen": [v for k, v in tstore.items() if v["game_id"] == g["game_id"] and v["market"] != "moneyline"]})
     team_rec = {r["market"]: r for r in grade.team_record(ctx["tpreds"])}
-    write("games.html", "games.html", "games", slate=sl, cards=gcards, team_fit=tf, min_games=live.GAME_PICKS_MIN_GAMES,
+    page_ids = {int(f[2:-5]) for f in keep_p}
+    write("games.html", "games.html", "games", slate=sl, cards=gcards, page_ids=page_ids, team_fit=tf, min_games=live.GAME_PICKS_MIN_GAMES,
           ml_record=team_rec["moneyline"],
           notices=_notices(ctx)[:1] + ([f"<strong>Kalshi:</strong> {ctx['sources']['kalshi']['error']}"] if ctx['sources']['kalshi']['error'] else []))
 

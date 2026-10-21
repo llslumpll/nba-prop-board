@@ -24,25 +24,37 @@
 <div class="pt-grid">
   {% for s in box_stats %}{% set st = r.stats[s] %}
   <div class="pt-card">
-    <div class="pt-stat">{{ stat_short[s] }}</div>
+    <a class="pt-stat" href="#{{ s }}" onclick="showTab('pchart', '{{ s }}'); document.getElementById('breakdown').scrollIntoView(); return false;">{{ stat_short[s] }} &#9656;</a>
     {{ m.proj_pick(st, r, s, g) }}
   </div>
   {% endfor %}
 </div>
-<details class="info-collapse"><summary>Why: the reasoning and every line, for every stat and combo</summary>
-  <div class="why-detail-box">{{ m.why_block(r, box_stats + combo_stats, edge) }}</div>
-</details>
-
-<h2 class="h2x">Last {{ pc.charts[box_stats[0]].n }} games vs the line</h2>
-<div class="seg seg2" data-tabs="pchart">
+<h2 class="h2x anchor" id="breakdown">Why &amp; stats</h2>
+<div class="seg" data-tabs="pchart" data-hash="1" data-hash-scroll="breakdown">
   {% for s in box_stats %}<button data-tab="{{ s }}" class="{{ 'active' if loop.first }}">{{ stat_short[s] }}</button>{% endfor %}
 </div>
-{% for s in box_stats %}{% set c = pc.charts[s] %}
-<div class="chart-panel {{ 'hidden' if not loop.first }}" data-tab-panel="pchart:{{ s }}">
-  <h3>{{ stat_labels[s] }}{% if c.line is not none %} &middot; tonight's line {{ c.line|fmtline }}{% endif %}</h3>
-  <p class="sub">{% if c.line is not none %}Green = went over tonight's line, red = under. Over in <strong>{{ c.over_n }} of {{ c.n }}</strong>.{% else %}No line tonight; bars are colored against our projection.{% endif %} Dashed outline = our projection; dotted line = season average; white tick = the line we graded that game against.</p>
-  {{ c.svg|safe }}
-</div>
+{% set f = r.factors %}
+{% for s in box_stats %}{% set c = pc.charts[s] %}{% set st = r.stats[s] %}
+<section class="bd-panel {{ 'hidden' if not loop.first }}" data-tab-panel="pchart:{{ s }}">
+  <div class="bd-top">
+    <div class="bd-proj">{{ m.proj_pick(st, r, s, g) }}</div>
+    <div class="bd-why">{{ m.why_block(r, [s] + (combo_stats if s == 'pra' else []), edge) }}</div>
+  </div>
+  <div class="factor-grid">
+    <div class="factor"><div class="fval">{{ r.proj_min }}</div><div class="flabel">proj min (recent {{ f.min_recent }})</div></div>
+    {% if c.n %}<div class="factor"><div class="fval">{{ pc.splits[loop.index0].l15 if pc.splits[loop.index0].l15 is not none else '—' }}</div><div class="flabel">last 15 avg</div></div>{% endif %}
+    {% if st.var %}<div class="factor"><div class="fval">&plusmn;{{ '%.1f'|format(st.var ** 0.5) }}</div><div class="flabel">typical miss (1 sd)</div></div>{% endif %}
+    {% for key, lab in (('pace', 'pace'), ('home', 'home/road'), ('rest', 'rest')) %}{% set x = f[key] %}
+    <div class="factor"><div class="fval {{ 'stat-good' if x > 1.005 else 'stat-bad' if x < 0.995 }}">{{ '%.2f'|format(x) }}&times;</div><div class="flabel">{{ lab }}{% if key == 'rest' and f.rest_days is not none %} ({{ f.rest_days }}d){% endif %}</div></div>
+    {% endfor %}
+    {% set tmf = (f.team or {}).get(s) %}{% if tmf is not none %}<div class="factor"><div class="fval {{ 'stat-good' if tmf > 1.005 else 'stat-bad' if tmf < 0.995 }}">{{ '%.2f'|format(tmf) }}&times;</div><div class="flabel">shared production</div></div>{% endif %}
+  </div>
+  <div class="chart-panel">
+    <h3>Last {{ c.n }} games{% if c.line is not none %} vs tonight's line {{ c.line|fmtline }}{% endif %}</h3>
+    <p class="sub">{% if c.line is not none %}Green = went over tonight's line, red = under. Over in <strong>{{ c.over_n }} of {{ c.n }}</strong>.{% else %}No line tonight; bars are colored against our projection.{% endif %} Dashed outline = our projection; dotted line = season average; white tick = the line we graded that game against.</p>
+    {{ c.svg|safe }}
+  </div>
+</section>
 {% endfor %}
 
 <h2 class="h2x">Splits</h2>
