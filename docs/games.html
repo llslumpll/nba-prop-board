@@ -10,7 +10,7 @@
 <link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="static/style.css?v=593dbeec9e">
+<link rel="stylesheet" href="static/style.css?v=b8f763225c">
   <script>
     // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
     (function () {
@@ -33,15 +33,202 @@
   <div class="sys-tagline">⭐ AUTO-BUILD ⭐ EVERY PICK FROZEN BEFORE TIP ⭐ GRADED IN PUBLIC ⭐</div>
   <main class="site-main">
 <h1>Games</h1>
-<p class="lede">Pick a game below. Every game on the Wed Oct 21 slate: moneyline, spread and total from FanDuel and Kalshi, our projected score and pick, who is out, and each team's top projected players.</p>
-<details class="info-collapse"><summary>About our game picks (0/0 graded)</summary>
-<div class="notice compact"><strong>Game picks start once both teams have played 10 games.</strong> Our team scores are the sum of player projections, and early in a season that sum runs high (players who changed teams still project like their old role). Until then this page shows market prices only.</div>
-<div class="notice compact"><strong>Our game picks are leans.</strong> On the 2025-26 season this method picked 64.0% of winners, and its margin missed by 16.32 points (standard deviation), less sharp than a typical closing line.</div>
+<p class="lede">Moneyline, spread and total for every game on the Wed Oct 21 slate: FanDuel and Kalshi prices, our projected score, our picks, who is out and each team's top projected players. Game picks freeze on game day and are graded like the player props.</p>
+<details class="info-collapse"><summary>How game picks work</summary>
+<div class="notice compact">Our team score is the sum of our player projections. Each game pick starts from what the market implies (FanDuel's spread for the margin, its total for the points) and moves toward our number by up to 25%, scaled by how well our team numbers have tracked the market so far (correlation, pooled over every game). Early in a season, when rosters are new, that agreement is low, so our weight is small and most picks sit near the market; Best 5 and Best Value only list picks whose chance beats their price. Totals use how each game differs from the night's average, since our summed scores run high early. Spread and total chances are capped at 75%. On the 2025-26 season our summed scores picked 64.0% of winners with a 16.32-point spread of misses. All game picks are leans until History shows an edge.</div>
 </details>
 
+<div class="seg" data-tabs="gview" data-hash="1">
+  <button data-tab="best5" class="active">BEST 5</button><button data-tab="value">BEST VALUE</button><button data-tab="all">ALL GAMES</button>
+</div>
+
+<section data-tab-panel="gview:best5">
+  <p class="small dim">The five game picks with the highest chance, one per game. Picks lock at tip. Graded on <a href="history.html#games">History &rarr; Game picks</a>.</p>
+  <div class="tgrid"><article class="tcard" style="--tc:#12173F">
+  <div class="tc-top">
+    <div class="tc-who">
+      <div class="tc-namerow"><span class="team-badge" style="background:#5A2D81;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">SAC</span><span class="sb-at">@</span><span class="team-badge" style="background:#12173F;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">LAC</span></div>
+      <div class="tc-sub">total &middot; 10:30 PM ET</div>
+    </div>
+    <div class="tc-chance">
+<b>55%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
+  </div>
+  <div class="tc-pick">
+    <span class="pill pill-under">UNDER 227.5</span>
+    <div class="tc-nums">
+<span><em>OURS</em>216</span><span><em>LINE</em>227.5</span>
+    </div>
+  </div>
+  <div class="tc-blend">Blended total <b>225.3</b>: ours gets 20% weight (tracks the market at r=0.797) &middot; price -110</div>
+  <div class="tc-foot">
+    <span class="src">FanDuel</span> <span class="lean-tag">lean</span>
+    <span class="tc-actions"><a class="bd-btn" href="games.html#401909842">WHY &amp; STATS &#9656;</a></span>
+  </div>
+</article>
+<article class="tcard" style="--tc:#E03A3E">
+  <div class="tc-top">
+    <div class="tc-who">
+      <div class="tc-namerow"><span class="team-badge" style="background:#29127A;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">PHX</span><span class="sb-at">@</span><span class="team-badge" style="background:#E03A3E;color:#ffffff;box-shadow:0 0 0 2px transparent">POR</span></div>
+      <div class="tc-sub">total &middot; 10:00 PM ET</div>
+    </div>
+    <div class="tc-chance">
+<b>53%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
+  </div>
+  <div class="tc-pick">
+    <span class="pill pill-over">OVER 231.5</span>
+    <div class="tc-nums">
+<span><em>OURS</em>238</span><span><em>LINE</em>231.5</span>
+    </div>
+  </div>
+  <div class="tc-blend">Blended total <b>232.8</b>: ours gets 20% weight (tracks the market at r=0.797) &middot; price -110</div>
+  <div class="tc-foot">
+    <span class="src">FanDuel</span> <span class="lean-tag">lean</span>
+    <span class="tc-actions"><a class="bd-btn" href="games.html#401909841">WHY &amp; STATS &#9656;</a></span>
+  </div>
+</article>
+<article class="tcard" style="--tc:#CE1141">
+  <div class="tc-top">
+    <div class="tc-who">
+      <div class="tc-namerow"><span class="team-badge" style="background:#0064B1;color:#ffffff;box-shadow:0 0 0 2px transparent">DAL</span><span class="sb-at">@</span><span class="team-badge" style="background:#CE1141;color:#ffffff;box-shadow:0 0 0 2px transparent">HOU</span></div>
+      <div class="tc-sub">total &middot; 8:30 PM ET</div>
+    </div>
+    <div class="tc-chance">
+<b>52%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
+  </div>
+  <div class="tc-pick">
+    <span class="pill pill-over">OVER 230.5</span>
+    <div class="tc-nums">
+<span><em>OURS</em>235</span><span><em>LINE</em>230.5</span>
+    </div>
+  </div>
+  <div class="tc-blend">Blended total <b>231.4</b>: ours gets 20% weight (tracks the market at r=0.797) &middot; price -106</div>
+  <div class="tc-foot">
+    <span class="src">FanDuel</span> <span class="lean-tag">lean</span>
+    <span class="tc-actions"><a class="bd-btn" href="games.html#401909840">WHY &amp; STATS &#9656;</a></span>
+  </div>
+</article>
+<article class="tcard" style="--tc:#98002E">
+  <div class="tc-top">
+    <div class="tc-who">
+      <div class="tc-namerow"><span class="team-badge" style="background:#266092;color:#ffffff;box-shadow:0 0 0 2px transparent">MIN</span><span class="sb-at">@</span><span class="team-badge" style="background:#98002E;color:#ffffff;box-shadow:0 0 0 2px transparent">MIA</span></div>
+      <div class="tc-sub">total &middot; 7:30 PM ET</div>
+    </div>
+    <div class="tc-chance">
+<b>52%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
+  </div>
+  <div class="tc-pick">
+    <span class="pill pill-over">OVER 240.5</span>
+    <div class="tc-nums">
+<span><em>OURS</em>244</span><span><em>LINE</em>240.5</span>
+    </div>
+  </div>
+  <div class="tc-blend">Blended total <b>241.3</b>: ours gets 20% weight (tracks the market at r=0.797) &middot; price -102</div>
+  <div class="tc-foot">
+    <span class="src">FanDuel</span> <span class="lean-tag">lean</span>
+    <span class="tc-actions"><a class="bd-btn" href="games.html#401909091">WHY &amp; STATS &#9656;</a></span>
+  </div>
+</article>
+</div>
+
+</section>
+<section class="hidden" data-tab-panel="gview:value">
+  <p class="small dim">Where our chance beats the price's break-even by the most (FanDuel juice or Kalshi ask), one per game.</p>
+  <div class="tgrid"><article class="tcard" style="--tc:#12173F">
+  <div class="tc-top">
+    <div class="tc-who">
+      <div class="tc-namerow"><span class="team-badge" style="background:#5A2D81;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">SAC</span><span class="sb-at">@</span><span class="team-badge" style="background:#12173F;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">LAC</span></div>
+      <div class="tc-sub">total &middot; 10:30 PM ET</div>
+    </div>
+    <div class="tc-chance">
+<b>+2.5</b><span class="tc-chance-l">pts over break-even</span>
+    </div>
+  </div>
+  <div class="tc-pick">
+    <span class="pill pill-under">UNDER 227.5</span>
+    <div class="tc-nums">
+<span><em>OURS</em>216</span><span><em>LINE</em>227.5</span>
+<span><em>CHANCE</em>55%</span>    </div>
+  </div>
+  <div class="tc-blend">Blended total <b>225.3</b>: ours gets 20% weight (tracks the market at r=0.797) &middot; price -110</div>
+  <div class="tc-foot">
+    <span class="src">FanDuel</span> <span class="lean-tag">lean</span>
+    <span class="tc-actions"><a class="bd-btn" href="games.html#401909842">WHY &amp; STATS &#9656;</a></span>
+  </div>
+</article>
+<article class="tcard" style="--tc:#98002E">
+  <div class="tc-top">
+    <div class="tc-who">
+      <div class="tc-namerow"><span class="team-badge" style="background:#266092;color:#ffffff;box-shadow:0 0 0 2px transparent">MIN</span><span class="sb-at">@</span><span class="team-badge" style="background:#98002E;color:#ffffff;box-shadow:0 0 0 2px transparent">MIA</span></div>
+      <div class="tc-sub">total &middot; 7:30 PM ET</div>
+    </div>
+    <div class="tc-chance">
+<b>+1.2</b><span class="tc-chance-l">pts over break-even</span>
+    </div>
+  </div>
+  <div class="tc-pick">
+    <span class="pill pill-over">OVER 240.5</span>
+    <div class="tc-nums">
+<span><em>OURS</em>244</span><span><em>LINE</em>240.5</span>
+<span><em>CHANCE</em>52%</span>    </div>
+  </div>
+  <div class="tc-blend">Blended total <b>241.3</b>: ours gets 20% weight (tracks the market at r=0.797) &middot; price -102</div>
+  <div class="tc-foot">
+    <span class="src">FanDuel</span> <span class="lean-tag">lean</span>
+    <span class="tc-actions"><a class="bd-btn" href="games.html#401909091">WHY &amp; STATS &#9656;</a></span>
+  </div>
+</article>
+<article class="tcard" style="--tc:#CE1141">
+  <div class="tc-top">
+    <div class="tc-who">
+      <div class="tc-namerow"><span class="team-badge" style="background:#0064B1;color:#ffffff;box-shadow:0 0 0 2px transparent">DAL</span><span class="sb-at">@</span><span class="team-badge" style="background:#CE1141;color:#ffffff;box-shadow:0 0 0 2px transparent">HOU</span></div>
+      <div class="tc-sub">total &middot; 8:30 PM ET</div>
+    </div>
+    <div class="tc-chance">
+<b>+0.6</b><span class="tc-chance-l">pts over break-even</span>
+    </div>
+  </div>
+  <div class="tc-pick">
+    <span class="pill pill-over">OVER 230.5</span>
+    <div class="tc-nums">
+<span><em>OURS</em>235</span><span><em>LINE</em>230.5</span>
+<span><em>CHANCE</em>52%</span>    </div>
+  </div>
+  <div class="tc-blend">Blended total <b>231.4</b>: ours gets 20% weight (tracks the market at r=0.797) &middot; price -106</div>
+  <div class="tc-foot">
+    <span class="src">FanDuel</span> <span class="lean-tag">lean</span>
+    <span class="tc-actions"><a class="bd-btn" href="games.html#401909840">WHY &amp; STATS &#9656;</a></span>
+  </div>
+</article>
+<article class="tcard" style="--tc:#E03A3E">
+  <div class="tc-top">
+    <div class="tc-who">
+      <div class="tc-namerow"><span class="team-badge" style="background:#29127A;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">PHX</span><span class="sb-at">@</span><span class="team-badge" style="background:#E03A3E;color:#ffffff;box-shadow:0 0 0 2px transparent">POR</span></div>
+      <div class="tc-sub">total &middot; 10:00 PM ET</div>
+    </div>
+    <div class="tc-chance">
+<b>+0.5</b><span class="tc-chance-l">pts over break-even</span>
+    </div>
+  </div>
+  <div class="tc-pick">
+    <span class="pill pill-over">OVER 231.5</span>
+    <div class="tc-nums">
+<span><em>OURS</em>238</span><span><em>LINE</em>231.5</span>
+<span><em>CHANCE</em>53%</span>    </div>
+  </div>
+  <div class="tc-blend">Blended total <b>232.8</b>: ours gets 20% weight (tracks the market at r=0.797) &middot; price -110</div>
+  <div class="tc-foot">
+    <span class="src">FanDuel</span> <span class="lean-tag">lean</span>
+    <span class="tc-actions"><a class="bd-btn" href="games.html#401909841">WHY &amp; STATS &#9656;</a></span>
+  </div>
+</article>
+</div>
+
+</section>
+
+<section class="hidden" data-tab-panel="gview:all">
 <div class="chips game-chips" data-tabs="gm">
 <button class="chip active" data-tab="401909834">ATL @ ORL<span class="chip-sub">7:00 PM ET</span></button><button class="chip " data-tab="401909835">MIL @ WAS<span class="chip-sub">7:00 PM ET</span></button><button class="chip " data-tab="401909091">MIN @ MIA<span class="chip-sub">7:30 PM ET</span></button><button class="chip " data-tab="401909836">CHA @ BKN<span class="chip-sub">7:30 PM ET</span></button><button class="chip " data-tab="401909837">CHI @ TOR<span class="chip-sub">7:30 PM ET</span></button><button class="chip " data-tab="401909838">UTA @ MEM<span class="chip-sub">8:00 PM ET</span></button><button class="chip " data-tab="401909839">IND @ NOP<span class="chip-sub">8:00 PM ET</span></button><button class="chip " data-tab="401909840">DAL @ HOU<span class="chip-sub">8:30 PM ET</span></button><button class="chip " data-tab="401909092">GSW @ LAL<span class="chip-sub">10:00 PM ET</span></button><button class="chip " data-tab="401909841">PHX @ POR<span class="chip-sub">10:00 PM ET</span></button><button class="chip " data-tab="401909842">SAC @ LAC<span class="chip-sub">10:30 PM ET</span></button></div>
-<section class="gcard " data-tab-panel="gm:401909834">
+<section class="gcard anchor " id="g401909834" data-tab-panel="gm:401909834">
   <div class="bs-head" style="--ca:#C8102E;--ch:#0150B5">
     <div class="bs-teams"><span class="team-badge" style="background:#C8102E;color:#ffffff;box-shadow:0 0 0 2px transparent">ATL</span><span class="sb-at">@</span><span class="team-badge" style="background:#0150B5;color:#ffffff;box-shadow:0 0 0 2px transparent">ORL</span></div>
     <div class="gc-right"><span class="st">7:00 PM ET</span></div>
@@ -52,11 +239,33 @@
       <div><div class="k">Kalshi</div><div class="v">ATL 44.5% &middot; ORL 55.5%</div></div>
       <div><div class="k">FanDuel spread</div><div class="v">ORL -2.5<div class="kv-sub">-105</div></div></div>
       <div><div class="k">FanDuel total</div><div class="v">234.5<div class="kv-sub">-115 / -105</div></div></div>
-      <div><div class="k">Our score (rough)</div><div class="v"><span class="stat-bad">ATL 121</span> &ndash; <span class="stat-good">ORL 125</span></div></div>
-      <div><div class="k">Our pick</div><div class="v">
-<span class="kv-small dim">after 10 games (0 so far)</span>      </div></div>
+      <div><div class="k">Our score (summed players)</div><div class="v"><span class="stat-bad">ATL 121</span> &ndash; <span class="stat-good">ORL 125</span></div></div>
+      <div><div class="k">Games this season</div><div class="v small">ATL 0 &middot; ORL 0</div></div>
     </div>
-    <div class="gc-why"><button class="why-btn" onclick="toggleWhy('g1', this)">why</button><p class="why-reason hidden" data-why-panel="g1">Our score: ATL 121, ORL 125 (sum of player projections × 1.0276). Margin +3.9 for ORL; with a 16.32-point spread of misses that gives ORL 59% to win.</p></div>
+    <h3 class="gc-h">Our picks</h3>
+    <div class="gp-list">
+      <div class="gp-row">
+        <div class="gp-mkt">MONEYLINE</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">ORL ML</span> <span class="dim small">-126</span></div>
+        <div class="gp-ch"><b>54%</b><span class="dim small"> vs 55.8% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score ATL 121, ORL 125 (summed player projections), margin +3.9 for ORL; market margin +2.5 (FanDuel spread ORL -2.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: ORL by +2.5. ORL wins 54% (market 54%).</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">SPREAD</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">ORL -2.5</span> <span class="dim small">-105</span></div>
+        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 51.2% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score ATL 121, ORL 125 (summed player projections), margin +3.9 for ORL; market margin +2.5 (FanDuel spread ORL -2.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: ORL by +2.5. ORL -2.5 covers 50%.</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">TOTAL</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">OVER 234.5</span> <span class="dim small">-115</span></div>
+        <div class="gp-ch"><b>52%</b><span class="dim small"> vs 53.5% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our total 246 (ATL 121 + ORL 125), 5.6 above the market on average tonight, so 240 after removing that; FanDuel 234.5. Our totals track the market&#39;s with a correlation of 0.80 so far, so ours gets 20% weight: 235.6. Over 234.5 hits 52%.</p>
+      </div>
+    </div>
     <div class="two-col">
       <div>
         <div class="gc-team"><span class="team-badge" style="background:#C8102E;color:#ffffff;box-shadow:0 0 0 2px transparent">ATL</span> Atlanta Hawks</div>
@@ -93,7 +302,7 @@
     </div>
   </div>
 </section>
-<section class="gcard hidden" data-tab-panel="gm:401909835">
+<section class="gcard anchor hidden" id="g401909835" data-tab-panel="gm:401909835">
   <div class="bs-head" style="--ca:#00471B;--ch:#E31837">
     <div class="bs-teams"><span class="team-badge" style="background:#00471B;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">MIL</span><span class="sb-at">@</span><span class="team-badge" style="background:#E31837;color:#ffffff;box-shadow:0 0 0 2px transparent">WAS</span></div>
     <div class="gc-right"><span class="st">7:00 PM ET</span></div>
@@ -104,11 +313,33 @@
       <div><div class="k">Kalshi</div><div class="v">MIL 39.5% &middot; WAS 60.5%</div></div>
       <div><div class="k">FanDuel spread</div><div class="v">WAS -4.5<div class="kv-sub">-112</div></div></div>
       <div><div class="k">FanDuel total</div><div class="v">239.5<div class="kv-sub">-102 / -120</div></div></div>
-      <div><div class="k">Our score (rough)</div><div class="v"><span class="stat-bad">MIL 118</span> &ndash; <span class="stat-good">WAS 121</span></div></div>
-      <div><div class="k">Our pick</div><div class="v">
-<span class="kv-small dim">after 10 games (0 so far)</span>      </div></div>
+      <div><div class="k">Our score (summed players)</div><div class="v"><span class="stat-bad">MIL 118</span> &ndash; <span class="stat-good">WAS 121</span></div></div>
+      <div><div class="k">Games this season</div><div class="v small">MIL 0 &middot; WAS 0</div></div>
     </div>
-    <div class="gc-why"><button class="why-btn" onclick="toggleWhy('g2', this)">why</button><p class="why-reason hidden" data-why-panel="g2">Our score: MIL 118, WAS 121 (sum of player projections × 1.0276). Margin +2.2 for WAS; with a 16.32-point spread of misses that gives WAS 55% to win.</p></div>
+    <h3 class="gc-h">Our picks</h3>
+    <div class="gp-list">
+      <div class="gp-row">
+        <div class="gp-mkt">MONEYLINE</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">WAS ML</span> <span class="dim small">-172</span></div>
+        <div class="gp-ch"><b>61%</b><span class="dim small"> vs 63.2% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score MIL 118, WAS 121 (summed player projections), margin +2.2 for WAS; market margin +4.5 (FanDuel spread WAS -4.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: WAS by +4.5. WAS wins 61% (market 61%).</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">SPREAD</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">MIL +4.5</span> <span class="dim small">-108</span></div>
+        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 51.9% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score MIL 118, WAS 121 (summed player projections), margin +2.2 for WAS; market margin +4.5 (FanDuel spread WAS -4.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: WAS by +4.5. MIL +4.5 covers 50%.</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">TOTAL</div>
+        <div class="gp-pick"><span class="pill pill-under pill-sm">UNDER 239.5</span> <span class="dim small">-120</span></div>
+        <div class="gp-ch"><b>53%</b><span class="dim small"> vs 54.5% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our total 239 (MIL 118 + WAS 121), 5.6 above the market on average tonight, so 233 after removing that; FanDuel 239.5. Our totals track the market&#39;s with a correlation of 0.80 so far, so ours gets 20% weight: 238.2. Under 239.5 hits 53%.</p>
+      </div>
+    </div>
     <div class="two-col">
       <div>
         <div class="gc-team"><span class="team-badge" style="background:#00471B;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">MIL</span> Milwaukee Bucks</div>
@@ -145,7 +376,7 @@
     </div>
   </div>
 </section>
-<section class="gcard hidden" data-tab-panel="gm:401909091">
+<section class="gcard anchor hidden" id="g401909091" data-tab-panel="gm:401909091">
   <div class="bs-head" style="--ca:#266092;--ch:#98002E">
     <div class="bs-teams"><span class="team-badge" style="background:#266092;color:#ffffff;box-shadow:0 0 0 2px transparent">MIN</span><span class="sb-at">@</span><span class="team-badge" style="background:#98002E;color:#ffffff;box-shadow:0 0 0 2px transparent">MIA</span></div>
     <div class="gc-right"><span class="st">7:30 PM ET</span></div>
@@ -156,11 +387,33 @@
       <div><div class="k">Kalshi</div><div class="v">MIN 48.5% &middot; MIA 51.5%</div></div>
       <div><div class="k">FanDuel spread</div><div class="v">MIA -1.5<div class="kv-sub">-108</div></div></div>
       <div><div class="k">FanDuel total</div><div class="v">240.5<div class="kv-sub">-102 / -120</div></div></div>
-      <div><div class="k">Our score (rough)</div><div class="v"><span class="stat-bad">MIN 124</span> &ndash; <span class="stat-good">MIA 126</span></div></div>
-      <div><div class="k">Our pick</div><div class="v">
-<span class="kv-small dim">after 10 games (0 so far)</span>      </div></div>
+      <div><div class="k">Our score (summed players)</div><div class="v"><span class="stat-bad">MIN 124</span> &ndash; <span class="stat-good">MIA 126</span></div></div>
+      <div><div class="k">Games this season</div><div class="v small">MIN 0 &middot; MIA 0</div></div>
     </div>
-    <div class="gc-why"><button class="why-btn" onclick="toggleWhy('g3', this)">why</button><p class="why-reason hidden" data-why-panel="g3">Our score: MIN 124, MIA 126 (sum of player projections × 1.0276). Margin +2.5 for MIA; with a 16.32-point spread of misses that gives MIA 56% to win.</p></div>
+    <h3 class="gc-h">Our picks</h3>
+    <div class="gp-list">
+      <div class="gp-row">
+        <div class="gp-mkt">MONEYLINE</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">MIA ML</span> <span class="dim small">-118</span></div>
+        <div class="gp-ch"><b>52%</b><span class="dim small"> vs 54.1% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score MIN 124, MIA 126 (summed player projections), margin +2.5 for MIA; market margin +1.5 (FanDuel spread MIA -1.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: MIA by +1.5. MIA wins 52% (market 52%).</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">SPREAD</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">MIA -1.5</span> <span class="dim small">-108</span></div>
+        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 51.9% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score MIN 124, MIA 126 (summed player projections), margin +2.5 for MIA; market margin +1.5 (FanDuel spread MIA -1.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: MIA by +1.5. MIA -1.5 covers 50%.</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">TOTAL</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">OVER 240.5</span> <span class="dim small">-102</span></div>
+        <div class="gp-ch"><b>52%</b><span class="dim small"> vs 50.5% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our total 250 (MIN 124 + MIA 126), 5.6 above the market on average tonight, so 244 after removing that; FanDuel 240.5. Our totals track the market&#39;s with a correlation of 0.80 so far, so ours gets 20% weight: 241.3. Over 240.5 hits 52%.</p>
+      </div>
+    </div>
     <div class="two-col">
       <div>
         <div class="gc-team"><span class="team-badge" style="background:#266092;color:#ffffff;box-shadow:0 0 0 2px transparent">MIN</span> Minnesota Timberwolves</div>
@@ -197,7 +450,7 @@
     </div>
   </div>
 </section>
-<section class="gcard hidden" data-tab-panel="gm:401909836">
+<section class="gcard anchor hidden" id="g401909836" data-tab-panel="gm:401909836">
   <div class="bs-head" style="--ca:#008CA8;--ch:#000000">
     <div class="bs-teams"><span class="team-badge" style="background:#008CA8;color:#ffffff;box-shadow:0 0 0 2px transparent">CHA</span><span class="sb-at">@</span><span class="team-badge" style="background:#000000;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">BKN</span></div>
     <div class="gc-right"><span class="st">7:30 PM ET</span></div>
@@ -208,11 +461,33 @@
       <div><div class="k">Kalshi</div><div class="v">CHA 52.5% &middot; BKN 47.5%</div></div>
       <div><div class="k">FanDuel spread</div><div class="v">BKN +1.5<div class="kv-sub">-122</div></div></div>
       <div><div class="k">FanDuel total</div><div class="v">219.5<div class="kv-sub">-104 / -118</div></div></div>
-      <div><div class="k">Our score (rough)</div><div class="v"><span class="stat-bad">CHA 112</span> &ndash; <span class="stat-good">BKN 113</span></div></div>
-      <div><div class="k">Our pick</div><div class="v">
-<span class="kv-small dim">after 10 games (0 so far)</span>      </div></div>
+      <div><div class="k">Our score (summed players)</div><div class="v"><span class="stat-bad">CHA 112</span> &ndash; <span class="stat-good">BKN 113</span></div></div>
+      <div><div class="k">Games this season</div><div class="v small">CHA 0 &middot; BKN 0</div></div>
     </div>
-    <div class="gc-why"><button class="why-btn" onclick="toggleWhy('g4', this)">why</button><p class="why-reason hidden" data-why-panel="g4">Our score: CHA 112, BKN 113 (sum of player projections × 1.0276). Margin +1.0 for BKN; with a 16.32-point spread of misses that gives BKN 53% to win.</p></div>
+    <h3 class="gc-h">Our picks</h3>
+    <div class="gp-list">
+      <div class="gp-row">
+        <div class="gp-mkt">MONEYLINE</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">BKN ML</span> <span class="dim small">-108</span></div>
+        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 51.9% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score CHA 112, BKN 113 (summed player projections), margin +1.0 for BKN; market margin -1.5 (FanDuel spread BKN +1.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: BKN by -1.5. BKN wins 50% (market 50%).</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">SPREAD</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">BKN +1.5</span> <span class="dim small">-122</span></div>
+        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 54.9% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score CHA 112, BKN 113 (summed player projections), margin +1.0 for BKN; market margin -1.5 (FanDuel spread BKN +1.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: BKN by -1.5. BKN +1.5 covers 50%.</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">TOTAL</div>
+        <div class="gp-pick"><span class="pill pill-under pill-sm">UNDER 219.5</span> <span class="dim small">-118</span></div>
+        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 54.1% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our total 225 (CHA 112 + BKN 113), 5.6 above the market on average tonight, so 219 after removing that; FanDuel 219.5. Our totals track the market&#39;s with a correlation of 0.80 so far, so ours gets 20% weight: 219.5. Under 219.5 hits 50%.</p>
+      </div>
+    </div>
     <div class="two-col">
       <div>
         <div class="gc-team"><span class="team-badge" style="background:#008CA8;color:#ffffff;box-shadow:0 0 0 2px transparent">CHA</span> Charlotte Hornets</div>
@@ -249,7 +524,7 @@
     </div>
   </div>
 </section>
-<section class="gcard hidden" data-tab-panel="gm:401909837">
+<section class="gcard anchor hidden" id="g401909837" data-tab-panel="gm:401909837">
   <div class="bs-head" style="--ca:#CE1141;--ch:#D91244">
     <div class="bs-teams"><span class="team-badge" style="background:#CE1141;color:#ffffff;box-shadow:0 0 0 2px transparent">CHI</span><span class="sb-at">@</span><span class="team-badge" style="background:#D91244;color:#ffffff;box-shadow:0 0 0 2px transparent">TOR</span></div>
     <div class="gc-right"><span class="st">7:30 PM ET</span></div>
@@ -260,15 +535,37 @@
       <div><div class="k">Kalshi</div><div class="v">CHI 20.5% &middot; TOR 79.5%</div></div>
       <div><div class="k">FanDuel spread</div><div class="v">TOR -9.5<div class="kv-sub">-115</div></div></div>
       <div><div class="k">FanDuel total</div><div class="v">237.5<div class="kv-sub">-110 / -110</div></div></div>
-      <div><div class="k">Our score (rough)</div><div class="v"><span class="stat-bad">CHI 119</span> &ndash; <span class="stat-good">TOR 123</span></div></div>
-      <div><div class="k">Our pick</div><div class="v">
-<span class="kv-small dim">after 10 games (0 so far)</span>      </div></div>
+      <div><div class="k">Our score (summed players)</div><div class="v"><span class="stat-bad">CHI 119</span> &ndash; <span class="stat-good">TOR 123</span></div></div>
+      <div><div class="k">Games this season</div><div class="v small">CHI 0 &middot; TOR 0</div></div>
     </div>
-    <div class="gc-why"><button class="why-btn" onclick="toggleWhy('g5', this)">why</button><p class="why-reason hidden" data-why-panel="g5">Our score: CHI 119, TOR 123 (sum of player projections × 1.0276). Margin +4.2 for TOR; with a 16.32-point spread of misses that gives TOR 60% to win.</p></div>
+    <h3 class="gc-h">Our picks</h3>
+    <div class="gp-list">
+      <div class="gp-row">
+        <div class="gp-mkt">MONEYLINE</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">TOR ML</span> <span class="dim small">-450</span></div>
+        <div class="gp-ch"><b>78%</b><span class="dim small"> vs 81.8% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score CHI 119, TOR 123 (summed player projections), margin +4.2 for TOR; market margin +9.5 (FanDuel spread TOR -9.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: TOR by +9.4. TOR wins 78% (market 79%).</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">SPREAD</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">CHI +9.5</span> <span class="dim small">-105</span></div>
+        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 51.2% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score CHI 119, TOR 123 (summed player projections), margin +4.2 for TOR; market margin +9.5 (FanDuel spread TOR -9.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: TOR by +9.4. CHI +9.5 covers 50%.</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">TOTAL</div>
+        <div class="gp-pick"><span class="pill pill-under pill-sm">UNDER 237.5</span> <span class="dim small">-110</span></div>
+        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 52.4% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our total 242 (CHI 119 + TOR 123), 5.6 above the market on average tonight, so 237 after removing that; FanDuel 237.5. Our totals track the market&#39;s with a correlation of 0.80 so far, so ours gets 20% weight: 237.4. Under 237.5 hits 50%.</p>
+      </div>
+    </div>
     <div class="two-col">
       <div>
         <div class="gc-team"><span class="team-badge" style="background:#CE1141;color:#ffffff;box-shadow:0 0 0 2px transparent">CHI</span> Chicago Bulls</div>
-<p class="small"><span class="injury-flag stat-bad">Out:</span> Dailyn Swain, Jordan Hawkins, Nic Claxton</p><p class="small dim">Questionable / day-to-day: Leonard Miller, Tobe Awaka</p>        <div class="table-scroll"><table class="stat-table teamt">
+<p class="small"><span class="injury-flag stat-bad">Out:</span> Dailyn Swain, Jordan Hawkins, Nic Claxton</p>        <div class="table-scroll"><table class="stat-table teamt">
           <thead><tr><th>Player</th><th class="num">Min</th><th class="num">Pts</th><th class="num">Reb</th><th class="num">Ast</th><th class="num">3PM</th></tr></thead>
           <tbody>
           <tr><td><a class="plink" href="p-2595516.html">Norman Powell</a></td><td class="num">30</td><td class="num">19.7</td><td class="num">3.3</td><td class="num">2.5</td><td class="num">2.5</td></tr>
@@ -301,7 +598,7 @@
     </div>
   </div>
 </section>
-<section class="gcard hidden" data-tab-panel="gm:401909838">
+<section class="gcard anchor hidden" id="g401909838" data-tab-panel="gm:401909838">
   <div class="bs-head" style="--ca:#4E008E;--ch:#5D76A9">
     <div class="bs-teams"><span class="team-badge" style="background:#4E008E;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">UTA</span><span class="sb-at">@</span><span class="team-badge" style="background:#5D76A9;color:#ffffff;box-shadow:0 0 0 2px transparent">MEM</span></div>
     <div class="gc-right"><span class="st">8:00 PM ET</span></div>
@@ -312,11 +609,33 @@
       <div><div class="k">Kalshi</div><div class="v">UTA 46.5% &middot; MEM 53.5%</div></div>
       <div><div class="k">FanDuel spread</div><div class="v">MEM -1.5<div class="kv-sub">-110</div></div></div>
       <div><div class="k">FanDuel total</div><div class="v">242.5<div class="kv-sub">-110 / -110</div></div></div>
-      <div><div class="k">Our score (rough)</div><div class="v"><span class="stat-good">UTA 128</span> &ndash; <span class="stat-bad">MEM 119</span></div></div>
-      <div><div class="k">Our pick</div><div class="v">
-<span class="kv-small dim">after 10 games (0 so far)</span>      </div></div>
+      <div><div class="k">Our score (summed players)</div><div class="v"><span class="stat-good">UTA 128</span> &ndash; <span class="stat-bad">MEM 119</span></div></div>
+      <div><div class="k">Games this season</div><div class="v small">UTA 0 &middot; MEM 0</div></div>
     </div>
-    <div class="gc-why"><button class="why-btn" onclick="toggleWhy('g6', this)">why</button><p class="why-reason hidden" data-why-panel="g6">Our score: UTA 128, MEM 119 (sum of player projections × 1.0276). Margin -8.7 for MEM; with a 16.32-point spread of misses that gives MEM 30% to win.</p></div>
+    <h3 class="gc-h">Our picks</h3>
+    <div class="gp-list">
+      <div class="gp-row">
+        <div class="gp-mkt">MONEYLINE</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">MEM ML</span> <span class="dim small">-120</span></div>
+        <div class="gp-ch"><b>52%</b><span class="dim small"> vs 54.5% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score UTA 128, MEM 119 (summed player projections), margin -8.7 for MEM; market margin +1.5 (FanDuel spread MEM -1.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: MEM by +1.4. MEM wins 52% (market 52%).</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">SPREAD</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">UTA +1.5</span> <span class="dim small">-110</span></div>
+        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 52.4% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score UTA 128, MEM 119 (summed player projections), margin -8.7 for MEM; market margin +1.5 (FanDuel spread MEM -1.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: MEM by +1.4. UTA +1.5 covers 50%.</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">TOTAL</div>
+        <div class="gp-pick"><span class="pill pill-under pill-sm">UNDER 242.5</span> <span class="dim small">-110</span></div>
+        <div class="gp-ch"><b>51%</b><span class="dim small"> vs 52.4% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our total 247 (UTA 128 + MEM 119), 5.6 above the market on average tonight, so 241 after removing that; FanDuel 242.5. Our totals track the market&#39;s with a correlation of 0.80 so far, so ours gets 20% weight: 242.2. Under 242.5 hits 51%.</p>
+      </div>
+    </div>
     <div class="two-col">
       <div>
         <div class="gc-team"><span class="team-badge" style="background:#4E008E;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">UTA</span> Utah Jazz</div>
@@ -353,7 +672,7 @@
     </div>
   </div>
 </section>
-<section class="gcard hidden" data-tab-panel="gm:401909839">
+<section class="gcard anchor hidden" id="g401909839" data-tab-panel="gm:401909839">
   <div class="bs-head" style="--ca:#0C2340;--ch:#0A2240">
     <div class="bs-teams"><span class="team-badge" style="background:#0C2340;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">IND</span><span class="sb-at">@</span><span class="team-badge" style="background:#0A2240;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">NOP</span></div>
     <div class="gc-right"><span class="st">8:00 PM ET</span></div>
@@ -364,11 +683,33 @@
       <div><div class="k">Kalshi</div><div class="v">IND 57.5% &middot; NOP 42.5%</div></div>
       <div><div class="k">FanDuel spread</div><div class="v">NOP +3.5<div class="kv-sub">-110</div></div></div>
       <div><div class="k">FanDuel total</div><div class="v">239.5<div class="kv-sub">-108 / -112</div></div></div>
-      <div><div class="k">Our score (rough)</div><div class="v"><span class="stat-bad">IND 118</span> &ndash; <span class="stat-good">NOP 126</span></div></div>
-      <div><div class="k">Our pick</div><div class="v">
-<span class="kv-small dim">after 10 games (0 so far)</span>      </div></div>
+      <div><div class="k">Our score (summed players)</div><div class="v"><span class="stat-bad">IND 118</span> &ndash; <span class="stat-good">NOP 126</span></div></div>
+      <div><div class="k">Games this season</div><div class="v small">IND 0 &middot; NOP 0</div></div>
     </div>
-    <div class="gc-why"><button class="why-btn" onclick="toggleWhy('g7', this)">why</button><p class="why-reason hidden" data-why-panel="g7">Our score: IND 118, NOP 126 (sum of player projections × 1.0276). Margin +7.6 for NOP; with a 16.32-point spread of misses that gives NOP 68% to win.</p></div>
+    <h3 class="gc-h">Our picks</h3>
+    <div class="gp-list">
+      <div class="gp-row">
+        <div class="gp-mkt">MONEYLINE</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">IND ML</span> <span class="dim small">-154</span></div>
+        <div class="gp-ch"><b>58%</b><span class="dim small"> vs 60.6% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score IND 118, NOP 126 (summed player projections), margin +7.6 for NOP; market margin -3.5 (FanDuel spread NOP +3.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: NOP by -3.4. IND wins 58% (market 58%).</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">SPREAD</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">NOP +3.5</span> <span class="dim small">-110</span></div>
+        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 52.4% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score IND 118, NOP 126 (summed player projections), margin +7.6 for NOP; market margin -3.5 (FanDuel spread NOP +3.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: NOP by -3.4. NOP +3.5 covers 50%.</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">TOTAL</div>
+        <div class="gp-pick"><span class="pill pill-under pill-sm">UNDER 239.5</span> <span class="dim small">-112</span></div>
+        <div class="gp-ch"><b>51%</b><span class="dim small"> vs 52.8% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our total 244 (IND 118 + NOP 126), 5.6 above the market on average tonight, so 238 after removing that; FanDuel 239.5. Our totals track the market&#39;s with a correlation of 0.80 so far, so ours gets 20% weight: 239.2. Under 239.5 hits 51%.</p>
+      </div>
+    </div>
     <div class="two-col">
       <div>
         <div class="gc-team"><span class="team-badge" style="background:#0C2340;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">IND</span> Indiana Pacers</div>
@@ -405,7 +746,7 @@
     </div>
   </div>
 </section>
-<section class="gcard hidden" data-tab-panel="gm:401909840">
+<section class="gcard anchor hidden" id="g401909840" data-tab-panel="gm:401909840">
   <div class="bs-head" style="--ca:#0064B1;--ch:#CE1141">
     <div class="bs-teams"><span class="team-badge" style="background:#0064B1;color:#ffffff;box-shadow:0 0 0 2px transparent">DAL</span><span class="sb-at">@</span><span class="team-badge" style="background:#CE1141;color:#ffffff;box-shadow:0 0 0 2px transparent">HOU</span></div>
     <div class="gc-right"><span class="st">8:30 PM ET</span></div>
@@ -416,11 +757,33 @@
       <div><div class="k">Kalshi</div><div class="v">DAL 21.5% &middot; HOU 78.5%</div></div>
       <div><div class="k">FanDuel spread</div><div class="v">HOU -9.5<div class="kv-sub">-115</div></div></div>
       <div><div class="k">FanDuel total</div><div class="v">230.5<div class="kv-sub">-106 / -114</div></div></div>
-      <div><div class="k">Our score (rough)</div><div class="v"><span class="stat-bad">DAL 118</span> &ndash; <span class="stat-good">HOU 122</span></div></div>
-      <div><div class="k">Our pick</div><div class="v">
-<span class="kv-small dim">after 10 games (0 so far)</span>      </div></div>
+      <div><div class="k">Our score (summed players)</div><div class="v"><span class="stat-bad">DAL 118</span> &ndash; <span class="stat-good">HOU 122</span></div></div>
+      <div><div class="k">Games this season</div><div class="v small">DAL 0 &middot; HOU 0</div></div>
     </div>
-    <div class="gc-why"><button class="why-btn" onclick="toggleWhy('g8', this)">why</button><p class="why-reason hidden" data-why-panel="g8">Our score: DAL 118, HOU 122 (sum of player projections × 1.0276). Margin +3.5 for HOU; with a 16.32-point spread of misses that gives HOU 59% to win.</p></div>
+    <h3 class="gc-h">Our picks</h3>
+    <div class="gp-list">
+      <div class="gp-row">
+        <div class="gp-mkt">MONEYLINE</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">HOU ML</span> <span class="dim small">-405</span></div>
+        <div class="gp-ch"><b>77%</b><span class="dim small"> vs 80.2% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score DAL 118, HOU 122 (summed player projections), margin +3.5 for HOU; market margin +9.5 (FanDuel spread HOU -9.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: HOU by +9.4. HOU wins 77% (market 77%).</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">SPREAD</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">DAL +9.5</span> <span class="dim small">-105</span></div>
+        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 51.2% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score DAL 118, HOU 122 (summed player projections), margin +3.5 for HOU; market margin +9.5 (FanDuel spread HOU -9.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: HOU by +9.4. DAL +9.5 covers 50%.</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">TOTAL</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">OVER 230.5</span> <span class="dim small">-106</span></div>
+        <div class="gp-ch"><b>52%</b><span class="dim small"> vs 51.5% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our total 241 (DAL 118 + HOU 122), 5.6 above the market on average tonight, so 235 after removing that; FanDuel 230.5. Our totals track the market&#39;s with a correlation of 0.80 so far, so ours gets 20% weight: 231.4. Over 230.5 hits 52%.</p>
+      </div>
+    </div>
     <div class="two-col">
       <div>
         <div class="gc-team"><span class="team-badge" style="background:#0064B1;color:#ffffff;box-shadow:0 0 0 2px transparent">DAL</span> Dallas Mavericks</div>
@@ -457,7 +820,7 @@
     </div>
   </div>
 </section>
-<section class="gcard hidden" data-tab-panel="gm:401909092">
+<section class="gcard anchor hidden" id="g401909092" data-tab-panel="gm:401909092">
   <div class="bs-head" style="--ca:#FDB927;--ch:#552583">
     <div class="bs-teams"><span class="team-badge" style="background:#FDB927;color:#0a0a0f;box-shadow:0 0 0 2px transparent">GSW</span><span class="sb-at">@</span><span class="team-badge" style="background:#552583;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">LAL</span></div>
     <div class="gc-right"><span class="st">10:00 PM ET</span></div>
@@ -468,11 +831,33 @@
       <div><div class="k">Kalshi</div><div class="v">GSW 33.5% &middot; LAL 66.5%</div></div>
       <div><div class="k">FanDuel spread</div><div class="v">LAL -6.5<div class="kv-sub">-114</div></div></div>
       <div><div class="k">FanDuel total</div><div class="v">233.5<div class="kv-sub">-110 / -110</div></div></div>
-      <div><div class="k">Our score (rough)</div><div class="v"><span class="stat-bad">GSW 116</span> &ndash; <span class="stat-good">LAL 123</span></div></div>
-      <div><div class="k">Our pick</div><div class="v">
-<span class="kv-small dim">after 10 games (0 so far)</span>      </div></div>
+      <div><div class="k">Our score (summed players)</div><div class="v"><span class="stat-bad">GSW 116</span> &ndash; <span class="stat-good">LAL 123</span></div></div>
+      <div><div class="k">Games this season</div><div class="v small">GSW 0 &middot; LAL 0</div></div>
     </div>
-    <div class="gc-why"><button class="why-btn" onclick="toggleWhy('g9', this)">why</button><p class="why-reason hidden" data-why-panel="g9">Our score: GSW 116, LAL 123 (sum of player projections × 1.0276). Margin +7.2 for LAL; with a 16.32-point spread of misses that gives LAL 67% to win.</p></div>
+    <h3 class="gc-h">Our picks</h3>
+    <div class="gp-list">
+      <div class="gp-row">
+        <div class="gp-mkt">MONEYLINE</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">LAL ML</span> <span class="dim small">-220</span></div>
+        <div class="gp-ch"><b>66%</b><span class="dim small"> vs 68.8% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score GSW 116, LAL 123 (summed player projections), margin +7.2 for LAL; market margin +6.5 (FanDuel spread LAL -6.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: LAL by +6.5. LAL wins 66% (market 66%).</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">SPREAD</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">LAL -6.5</span> <span class="dim small">-114</span></div>
+        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 53.3% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score GSW 116, LAL 123 (summed player projections), margin +7.2 for LAL; market margin +6.5 (FanDuel spread LAL -6.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: LAL by +6.5. LAL -6.5 covers 50%.</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">TOTAL</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">OVER 233.5</span> <span class="dim small">-110</span></div>
+        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 52.4% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our total 239 (GSW 116 + LAL 123), 5.6 above the market on average tonight, so 234 after removing that; FanDuel 233.5. Our totals track the market&#39;s with a correlation of 0.80 so far, so ours gets 20% weight: 233.5. Over 233.5 hits 50%.</p>
+      </div>
+    </div>
     <div class="two-col">
       <div>
         <div class="gc-team"><span class="team-badge" style="background:#FDB927;color:#0a0a0f;box-shadow:0 0 0 2px transparent">GSW</span> Golden State Warriors</div>
@@ -509,7 +894,7 @@
     </div>
   </div>
 </section>
-<section class="gcard hidden" data-tab-panel="gm:401909841">
+<section class="gcard anchor hidden" id="g401909841" data-tab-panel="gm:401909841">
   <div class="bs-head" style="--ca:#29127A;--ch:#E03A3E">
     <div class="bs-teams"><span class="team-badge" style="background:#29127A;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">PHX</span><span class="sb-at">@</span><span class="team-badge" style="background:#E03A3E;color:#ffffff;box-shadow:0 0 0 2px transparent">POR</span></div>
     <div class="gc-right"><span class="st">10:00 PM ET</span></div>
@@ -520,11 +905,33 @@
       <div><div class="k">Kalshi</div><div class="v">PHX 43.1% &middot; POR 56.9%</div></div>
       <div><div class="k">FanDuel spread</div><div class="v">POR -2.5<div class="kv-sub">-112</div></div></div>
       <div><div class="k">FanDuel total</div><div class="v">231.5<div class="kv-sub">-110 / -110</div></div></div>
-      <div><div class="k">Our score (rough)</div><div class="v"><span class="stat-bad">PHX 120</span> &ndash; <span class="stat-good">POR 124</span></div></div>
-      <div><div class="k">Our pick</div><div class="v">
-<span class="kv-small dim">after 10 games (0 so far)</span>      </div></div>
+      <div><div class="k">Our score (summed players)</div><div class="v"><span class="stat-bad">PHX 120</span> &ndash; <span class="stat-good">POR 124</span></div></div>
+      <div><div class="k">Games this season</div><div class="v small">PHX 0 &middot; POR 0</div></div>
     </div>
-    <div class="gc-why"><button class="why-btn" onclick="toggleWhy('g10', this)">why</button><p class="why-reason hidden" data-why-panel="g10">Our score: PHX 120, POR 124 (sum of player projections × 1.0276). Margin +3.4 for POR; with a 16.32-point spread of misses that gives POR 58% to win.</p></div>
+    <h3 class="gc-h">Our picks</h3>
+    <div class="gp-list">
+      <div class="gp-row">
+        <div class="gp-mkt">MONEYLINE</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">POR ML</span> <span class="dim small">-142</span></div>
+        <div class="gp-ch"><b>56%</b><span class="dim small"> vs 58.7% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score PHX 120, POR 124 (summed player projections), margin +3.4 for POR; market margin +2.5 (FanDuel spread POR -2.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: POR by +2.5. POR wins 56% (market 56%).</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">SPREAD</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">POR -2.5</span> <span class="dim small">-112</span></div>
+        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 52.8% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score PHX 120, POR 124 (summed player projections), margin +3.4 for POR; market margin +2.5 (FanDuel spread POR -2.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: POR by +2.5. POR -2.5 covers 50%.</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">TOTAL</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">OVER 231.5</span> <span class="dim small">-110</span></div>
+        <div class="gp-ch"><b>53%</b><span class="dim small"> vs 52.4% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our total 244 (PHX 120 + POR 124), 5.6 above the market on average tonight, so 238 after removing that; FanDuel 231.5. Our totals track the market&#39;s with a correlation of 0.80 so far, so ours gets 20% weight: 232.8. Over 231.5 hits 53%.</p>
+      </div>
+    </div>
     <div class="two-col">
       <div>
         <div class="gc-team"><span class="team-badge" style="background:#29127A;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">PHX</span> Phoenix Suns</div>
@@ -561,7 +968,7 @@
     </div>
   </div>
 </section>
-<section class="gcard hidden" data-tab-panel="gm:401909842">
+<section class="gcard anchor hidden" id="g401909842" data-tab-panel="gm:401909842">
   <div class="bs-head" style="--ca:#5A2D81;--ch:#12173F">
     <div class="bs-teams"><span class="team-badge" style="background:#5A2D81;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">SAC</span><span class="sb-at">@</span><span class="team-badge" style="background:#12173F;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">LAC</span></div>
     <div class="gc-right"><span class="st">10:30 PM ET</span></div>
@@ -572,11 +979,33 @@
       <div><div class="k">Kalshi</div><div class="v">SAC 34.8% &middot; LAC 65.2%</div></div>
       <div><div class="k">FanDuel spread</div><div class="v">LAC -4.5<div class="kv-sub">-118</div></div></div>
       <div><div class="k">FanDuel total</div><div class="v">227.5<div class="kv-sub">-110 / -110</div></div></div>
-      <div><div class="k">Our score (rough)</div><div class="v"><span class="stat-good">SAC 115</span> &ndash; <span class="stat-bad">LAC 107</span></div></div>
-      <div><div class="k">Our pick</div><div class="v">
-<span class="kv-small dim">after 10 games (0 so far)</span>      </div></div>
+      <div><div class="k">Our score (summed players)</div><div class="v"><span class="stat-good">SAC 115</span> &ndash; <span class="stat-bad">LAC 107</span></div></div>
+      <div><div class="k">Games this season</div><div class="v small">SAC 0 &middot; LAC 0</div></div>
     </div>
-    <div class="gc-why"><button class="why-btn" onclick="toggleWhy('g11', this)">why</button><p class="why-reason hidden" data-why-panel="g11">Our score: SAC 115, LAC 107 (sum of player projections × 1.0276). Margin -7.5 for LAC; with a 16.32-point spread of misses that gives LAC 32% to win.</p></div>
+    <h3 class="gc-h">Our picks</h3>
+    <div class="gp-list">
+      <div class="gp-row">
+        <div class="gp-mkt">MONEYLINE</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">LAC ML</span> <span class="dim small">-188</span></div>
+        <div class="gp-ch"><b>62%</b><span class="dim small"> vs 65.3% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score SAC 115, LAC 107 (summed player projections), margin -7.5 for LAC; market margin +4.5 (FanDuel spread LAC -4.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: LAC by +4.3. LAC wins 62% (market 63%).</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">SPREAD</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">SAC +4.5</span> <span class="dim small">-104</span></div>
+        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 51.0% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our score SAC 115, LAC 107 (summed player projections), margin -7.5 for LAC; market margin +4.5 (FanDuel spread LAC -4.5). So far our margins track the market&#39;s with a correlation of 0.05, so ours gets 1% weight: LAC by +4.3. SAC +4.5 covers 50%.</p>
+      </div>
+      <div class="gp-row">
+        <div class="gp-mkt">TOTAL</div>
+        <div class="gp-pick"><span class="pill pill-under pill-sm">UNDER 227.5</span> <span class="dim small">-110</span></div>
+        <div class="gp-ch"><b>55%</b><span class="dim small"> vs 52.4% break-even</span></div>
+        <div class="gp-tags"><span class="lean-tag">lean</span> <span class="locked">&#128274; frozen</span></div>
+        <p class="why-reason gp-why">Our total 222 (SAC 115 + LAC 107), 5.6 above the market on average tonight, so 217 after removing that; FanDuel 227.5. Our totals track the market&#39;s with a correlation of 0.80 so far, so ours gets 20% weight: 225.3. Under 227.5 hits 55%.</p>
+      </div>
+    </div>
     <div class="two-col">
       <div>
         <div class="gc-team"><span class="team-badge" style="background:#5A2D81;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">SAC</span> Sacramento Kings</div>
@@ -613,6 +1042,15 @@
     </div>
   </div>
 </section>
+</section>
+<script>
+  // games.html#<game_id> opens that game's tab directly (used by WHY & STATS on game pick cards)
+  function openGame(h) {
+    if (/^\d+$/.test(h) && showTab('gm', h)) { showTab('gview', 'all'); var t = document.getElementById('g' + h); if (t) setTimeout(function () { t.scrollIntoView({block: 'start'}); }, 0); }
+  }
+  document.addEventListener('pe-hash', function (e) { openGame(e.detail); });
+  document.addEventListener('DOMContentLoaded', function () { openGame(location.hash.slice(1)); });
+</script>
   </main>
   <aside id="slip" class="slip hidden" aria-label="Your slip"></aside>
   <nav class="bottom-nav" aria-label="Pages">
@@ -655,10 +1093,14 @@
         b.addEventListener('click', function () {
           showTab(bar.dataset.tabs, b.dataset.tab);
           if (bar.dataset.hash) history.replaceState(null, '', '#' + b.dataset.tab);
+          if (bar.dataset.tabScroll) {
+            var ref = bar.previousElementSibling || bar; var y = ref.getBoundingClientRect().bottom + window.scrollY - 80;
+            if (window.scrollY > y) window.scrollTo(0, y);
+          }
         });
       });
     });
-    (function () {
+    function applyHash() {
       var h = location.hash.slice(1); if (!h) return;
       document.querySelectorAll('[data-tabs][data-hash]').forEach(function (bar) {
         if (showTab(bar.dataset.tabs, h) && bar.dataset.hashScroll) {
@@ -666,7 +1108,10 @@
           setTimeout(function () { t.scrollIntoView({block: 'start'}); }, 0);
         }
       });
-    })();
+      document.dispatchEvent(new CustomEvent('pe-hash', {detail: h}));
+    }
+    applyHash();
+    window.addEventListener('hashchange', applyHash);
     // Home: filter top-play cards by stat
     document.querySelectorAll('[data-filter-bar]').forEach(function (bar) {
       bar.querySelectorAll('[data-filter]').forEach(function (b) {
@@ -677,10 +1122,10 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=593dbeec9e"></script>
+  <script src="static/slip.js?v=b8f763225c"></script>
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>
-<div class="foot-row foot-dim"><span>BUILD: 2026-10-21 22:01 UTC &middot; via GitHub Actions</span></div>  </footer>
+<div class="foot-row foot-dim"><span>BUILD: 2026-10-21 22:07 UTC &middot; via GitHub Actions</span></div>  </footer>
 </body>
 </html>

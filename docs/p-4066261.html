@@ -10,7 +10,7 @@
 <link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="static/style.css?v=593dbeec9e">
+<link rel="stylesheet" href="static/style.css?v=b8f763225c">
   <script>
     // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
     (function () {
@@ -180,7 +180,7 @@
 <span class="pp-pick pp-over">OVER 29.5</span><span class="pp-ch">51%</span>
 <button class="slip-add" type="button" title="Add to slip" data-leg='{"chance": 0.5132, "gid": 401909091, "id": "4066261|pra|401909091", "line": 29.5, "opp": "MIN", "pid": 4066261, "player": "Bam Adebayo", "side": "OVER", "src": "prizepicks", "stat": "PRA", "team": "MIA"}'>+ SLIP</button></span></div>
     <div class="bd-why"><p class="why-reason"><strong>pts+reb+ast 30.6 &middot; <span class="pick-line"><span class="side-over">OVER</span> 29.5</span> <span class="chance">51%</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>:</strong> 31.6 min (recent 32.4, −0.8 team-minutes adjustment); × 0.978 pts+reb+ast/min (prior seasons, no games this season yet); context: home +1%, shared production on MIA −2%.
-<br>PrizePicks 29.5: we give OVER 51% (from 29.87, our 30.6 blended with the line), break-even 54.2% for OVER <span class="move">moved from 30</span>.<br>Kalshi 29.5: we give OVER 52% (from 29.96, our 30.6 blended with the line), market 50% for OVER, break-even 51.0% for OVER.<br><span class="locked">&#128274; frozen: OVER 29.5 (2026-10-21 21:42 UTC)</span><br>Last 10 (over 29.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">34</i><i class="rs rs-over">33</i><i class="rs rs-over">30</i><i class="rs rs-over">45</i><i class="rs rs-over">41</i><i class="rs rs-over">30</i><i class="rs rs-under">19</i><i class="rs rs-over">43</i><i class="rs rs-over">39</i><i class="rs rs-over">38</i></span><br>Kalshi ladder: 25+ 71%, 30+ 50%, 35+ 28%.</p>
+<br>PrizePicks 29.5: we give OVER 51% (from 29.87, our 30.6 blended with the line), break-even 54.2% for OVER <span class="move">moved from 30</span>.<br>Kalshi 29.5: we give OVER 52% (from 29.96, our 30.6 blended with the line), market 50% for OVER, break-even 51.0% for OVER.<br><span class="locked">&#128274; frozen: OVER 29.5 (2026-10-21 21:42 UTC)</span><br>Last 10 (over 29.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">34</i><i class="rs rs-over">33</i><i class="rs rs-over">30</i><i class="rs rs-over">45</i><i class="rs rs-over">41</i><i class="rs rs-over">30</i><i class="rs rs-under">19</i><i class="rs rs-over">43</i><i class="rs rs-over">39</i><i class="rs rs-over">38</i></span><br>Kalshi ladder: 25+ 70%, 30+ 50%, 35+ 28%.</p>
 <p class="why-reason"><strong>pts+reb 27.2 &middot; <span class="pick-line"><span class="side-over">OVER</span> 26.5</span> <span class="chance">51%</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>:</strong> 31.6 min (recent 32.4, −0.8 team-minutes adjustment); × 0.872 pts+reb/min (prior seasons, no games this season yet); context: home +1%, shared production on MIA −3%.
 <br>PrizePicks 26.5: we give OVER 51% (from 26.73, our 27.2 blended with the line), break-even 54.2% for OVER.<br><span class="locked">&#128274; frozen: OVER 26.5 (2026-10-21 21:42 UTC)</span><br>Last 10 (over 26.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">27</i><i class="rs rs-over">30</i><i class="rs rs-over">27</i><i class="rs rs-over">39</i><i class="rs rs-over">39</i><i class="rs rs-under">23</i><i class="rs rs-under">16</i><i class="rs rs-over">35</i><i class="rs rs-over">31</i><i class="rs rs-over">35</i></span></p>
 <p class="why-reason"><strong>pts+ast 21.1 &middot; <span class="pick-line"><span class="side-over">OVER</span> 20.5</span> <span class="chance">51%</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>:</strong> 31.6 min (recent 32.4, −0.8 team-minutes adjustment); × 0.678 pts+ast/min (prior seasons, no games this season yet); context: home +1%, shared production on MIA −3%.
@@ -329,10 +329,14 @@
         b.addEventListener('click', function () {
           showTab(bar.dataset.tabs, b.dataset.tab);
           if (bar.dataset.hash) history.replaceState(null, '', '#' + b.dataset.tab);
+          if (bar.dataset.tabScroll) {
+            var ref = bar.previousElementSibling || bar; var y = ref.getBoundingClientRect().bottom + window.scrollY - 80;
+            if (window.scrollY > y) window.scrollTo(0, y);
+          }
         });
       });
     });
-    (function () {
+    function applyHash() {
       var h = location.hash.slice(1); if (!h) return;
       document.querySelectorAll('[data-tabs][data-hash]').forEach(function (bar) {
         if (showTab(bar.dataset.tabs, h) && bar.dataset.hashScroll) {
@@ -340,7 +344,10 @@
           setTimeout(function () { t.scrollIntoView({block: 'start'}); }, 0);
         }
       });
-    })();
+      document.dispatchEvent(new CustomEvent('pe-hash', {detail: h}));
+    }
+    applyHash();
+    window.addEventListener('hashchange', applyHash);
     // Home: filter top-play cards by stat
     document.querySelectorAll('[data-filter-bar]').forEach(function (bar) {
       bar.querySelectorAll('[data-filter]').forEach(function (b) {
@@ -351,7 +358,7 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=593dbeec9e"></script>
+  <script src="static/slip.js?v=b8f763225c"></script>
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>
