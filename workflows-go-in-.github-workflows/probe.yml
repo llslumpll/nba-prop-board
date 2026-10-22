@@ -1,0 +1,33 @@
+name: Probe market sources (manual)
+
+# Run from the Actions tab. Fetches Kalshi (every candidate series),
+# PrizePicks, ESPN injuries and rosters, writes data/probe.json and prints
+# what came back. Renders nothing; spends no Odds API credits.
+on:
+  workflow_dispatch: {}
+
+concurrency:
+  group: nba-site-repo-write   # shared by every workflow that commits to main
+  cancel-in-progress: false    # queue, never kill a run mid-push
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Probe
+        run: |
+          python scripts/build.py --no-fetch --probe
+          cat data/probe.json
+      - name: Commit and push (rebuild on top if main moved)
+        run: bash scripts/push_or_rebuild.sh "Probe" "python scripts/build.py --no-fetch --probe" data/probe.json

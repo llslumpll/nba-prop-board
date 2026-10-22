@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Games — Prop Edge NBA{% endblock %}
+{% block content %}
+<h1>Games</h1>
+<p class="lede">Moneyline, spread and total for every game on the {{ slate.date_label or 'next' }} slate: FanDuel and Kalshi prices, our projected score, our picks, who is out and each team's top projected players. Game picks freeze on game day and are graded like the player props.</p>
+<details class="info-collapse"><summary>How game picks work</summary>
+<div class="notice compact">Our team score is the sum of our player projections. Each game pick starts from what the market implies (FanDuel's spread for the margin, its total for the points) and moves toward our number by up to {{ (blend_w * 100)|round(0)|int }}%, scaled by how well our team numbers have tracked the market so far (correlation, pooled over every game). Early in a season, when rosters are new, that agreement is low, so our weight is small and most picks sit near the market; Best 5 and Best Value only list picks whose chance beats their price. Totals use how each game differs from the night's average, since our summed scores run high early. Spread and total chances are capped at {{ (cap * 100)|round(0)|int }}%. On the 2025-26 season our summed scores picked {{ team_fit.winner_pct }}% of winners with a {{ team_fit.margin_sd }}-point spread of misses. All game picks are leans until History shows an edge.</div>
+{% for n in notices %}<div class="notice compact">{{ n|safe }}</div>{% endfor %}
+</details>
+
+<div class="seg" data-tabs="gview" data-hash="1">
+  <button data-tab="best5" class="active">BEST 5</button><button data-tab="value">BEST VALUE</button><button data-tab="all">ALL GAMES</button><button data-tab="live" class="live-tab"><i class="live-dot"></i>LIVE</button>
+</div>
+
+<section data-tab-panel="gview:best5">
+  <p class="small dim">The five game picks with the highest chance, one per game. Picks lock at tip. Graded on <a href="history.html#games">History &rarr; Game picks</a>.</p>
+  {{ m.ggrid(g_best5, 'best5', empty_best) }}
+</section>
+<section class="hidden" data-tab-panel="gview:value">
+  <p class="small dim">Where our chance beats the price's break-even by the most (FanDuel juice or Kalshi ask), one per game.</p>
+  {{ m.ggrid(g_value, 'value', empty_best) }}
+</section>
+
+<section class="hidden" data-tab-panel="gview:all">
+{% if cards %}
+<div class="chips game-chips" data-tabs="gm">
+  {% for c in cards %}<button class="chip {{ 'active' if loop.first }}" data-tab="{{ c.g.game_id }}">{{ c.g.away }} @ {{ c.g.home }}<span class="chip-sub">{% if c.g.completed %}FINAL{% elif c.g.started %}LIVE{% else %}{{ c.g.tip_et }}{% endif %}</span></button>{% endfor %}
+</div>
+{% endif %}
+{% for c in cards %}
+<section class="gcard anchor {{ 'hidden' if not loop.first }}" id="g{{ c.g.game_id }}" data-tab-panel="gm:{{ c.g.game_id }}">
+  <div class="bs-head" {{ m.game_stripe(c.g) }}>
+    <div class="bs-teams">{{ m.badge(c.g.away_badge) }}<span class="sb-at">@</span>{{ m.badge(c.g.home_badge) }}</div>
+    <div class="gc-right">{{ m.game_status(c.g) }}{% if c.g.note %} <span class="dim small">{{ c.g.note }}</span>{% endif %}<a class="bd-btn live-btn" href="#live-{{ c.g.game_id }}"><i class="live-dot"></i>LIVE TRACKER &#9656;</a></div>
+  </div>
+  <div class="gc-body">
+    <div class="kv">
+      <div><div class="k">FanDuel moneyline</div><div class="v">{% if c.ml %}<span class="{{ 'stat-good' if c.ml.away_prob > c.ml.home_prob else 'stat-bad' }}">{{ c.g.away }} {{ c.ml.away_str }}</span> &middot; <span class="{{ 'stat-good' if c.ml.home_prob > c.ml.away_prob else 'stat-bad' }}">{{ c.g.home }} {{ c.ml.home_str }}</span><div class="kv-sub">{{ c.ml.away_prob }}% / {{ c.ml.home_prob }}% no-vig</div>{% else %}<span class="dim">no line</span>{% endif %}</div></div>
+      <div><div class="k">Kalshi</div><div class="v">{% if c.k and (c.k.home_prob is not none or c.k.away_prob is not none) %}{{ c.g.away }} {{ c.k.away_prob if c.k.away_prob is not none else '—' }}% &middot; {{ c.g.home }} {{ c.k.home_prob if c.k.home_prob is not none else '—' }}%{% else %}<span class="dim">no quote</span>{% endif %}</div></div>
+      <div><div class="k">FanDuel spread</div><div class="v">{% if c.fd.spread %}{{ c.g.home }} {{ c.fd.spread.home_point|fmtpt }}<div class="kv-sub">{{ c.fd.spread.home_price_str }}</div>{% else %}<span class="dim">no line</span>{% endif %}</div></div>
+      <div><div class="k">FanDuel total</div><div class="v">{% if c.fd.total %}{{ c.fd.total.point }}<div class="kv-sub">{{ c.fd.total.over_str }} / {{ c.fd.total.under_str }}</div>{% else %}<span class="dim">no line</span>{% endif %}</div></div>
+      <div><div class="k">Our score (summed players)</div><div class="v">{% if c.tp %}<span class="{{ 'stat-good' if c.tp.away_pts > c.tp.home_pts else 'stat-bad' }}">{{ c.g.away }} {{ c.tp.away_pts|round(0)|int }}</span> &ndash; <span class="{{ 'stat-good' if c.tp.home_pts > c.tp.away_pts else 'stat-bad' }}">{{ c.g.home }} {{ c.tp.home_pts|round(0)|int }}</span>{% else %}<span class="dim">—</span>{% endif %}</div></div>
+      <div><div class="k">Games this season</div><div class="v small">{{ c.g.away }} {{ c.g.games_played[c.g.away] if c.g.games_played else 0 }} &middot; {{ c.g.home }} {{ c.g.games_played[c.g.home] if c.g.games_played else 0 }}</div></div>
+    </div>
+    <h3 class="gc-h">Our picks</h3>
+    {% if c.picks %}
+    <div class="gp-list">
+      {% for p in c.picks %}
+      <div class="gp-row">
+        <div class="gp-mkt">{{ p.market|upper }}</div>
+        <div class="gp-pick"><span class="pill pill-{{ 'over' if p.market != 'total' or p.pick == 'OVER' else 'under' }} pill-sm">{{ p.pick_label }}</span>{% if p.price_str %} <span class="dim small">{{ p.price_str }}</span>{% endif %}</div>
+        <div class="gp-ch"><b>{{ (p.chance * 100)|round(0)|int }}%</b>{% if p.break_even %}<span class="dim small"> vs {{ (p.break_even * 100)|round(1) }}% break-even</span>{% endif %}</div>
+        <div class="gp-tags"><span class="lean-tag">lean</span>{% if p.frozen %} <span class="locked">&#128274; frozen</span>{% else %} <span class="dim small">freezes {{ '8 h before tip' }}</span>{% endif %}</div>
+        <p class="why-reason gp-why">{{ p.why }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}<p class="small dim">No market lines for this game yet, so no picks.</p>{% endif %}
+    <div class="two-col">
+      {% for side in c.sides %}
+      <div>
+        <div class="gc-team">{{ m.badge(side.badge) }} {{ side.name }}</div>
+        {% if side.out %}<p class="small"><span class="injury-flag stat-bad">Out:</span> {{ side.out|join(', ') }}</p>{% endif %}
+        {% if side.q %}<p class="small dim">Questionable / day-to-day: {{ side.q|join(', ') }}</p>{% endif %}
+        <div class="table-scroll"><table class="stat-table teamt">
+          <thead><tr><th>Player</th><th class="num">Min</th><th class="num">Pts</th><th class="num">Reb</th><th class="num">Ast</th><th class="num">3PM</th></tr></thead>
+          <tbody>
+          {% for r in side.players %}
+          <tr><td>{% if r.player_id in page_ids %}<a class="plink" href="p-{{ r.player_id }}.html">{{ r.player }}</a>{% else %}{{ r.player }}{% endif %}</td><td class="num">{{ r.proj_min|round(0)|int }}</td><td class="num">{{ r.stats.pts.proj }}</td><td class="num">{{ r.stats.reb.proj }}</td><td class="num">{{ r.stats.ast.proj }}</td><td class="num">{{ r.stats.fg3m.proj }}</td></tr>
+          {% else %}<tr><td colspan="6" class="dim">no projections</td></tr>{% endfor %}
+          </tbody>
+        </table></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% else %}
+<div class="empty-state"><h3>No games</h3><p>No upcoming games in the schedule.</p></div>
+{% endfor %}
+</section>
+<section class="hidden" data-tab-panel="gview:live">
+  <p class="small dim">Live scores, every player's points, rebounds, assists and threes, and our frozen picks tracking against their lines, straight from ESPN. Updates every 30 seconds while this tab is open.</p>
+  <div class="chips game-chips" id="live-chips"></div>
+  <div id="live-root"><div class="chart-empty">Loading live data&hellip;</div></div>
+</section>
+<script id="live-data" type="application/json">{{ live_data|tojson }}</script>
+<script src="static/live.js?v={{ cache_bust }}" defer></script>
+<script>
+  // games.html#<game_id> opens that game's tab directly (used by WHY & STATS on game pick cards)
+  function openGame(h) {
+    if (/^\d+$/.test(h) && showTab('gm', h)) { showTab('gview', 'all'); var t = document.getElementById('g' + h); if (t) setTimeout(function () { t.scrollIntoView({block: 'start'}); }, 0); }
+  }
+  document.addEventListener('pe-hash', function (e) { openGame(e.detail); });
+  document.addEventListener('DOMContentLoaded', function () { openGame(location.hash.slice(1)); });
+</script>
+{% endblock %}
