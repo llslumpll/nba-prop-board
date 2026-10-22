@@ -32,16 +32,5 @@ jobs:
         run: python scripts/retune.py
       - name: Rebuild pages with the result
         run: python scripts/build.py --no-fetch
-      - name: Commit and push if changed
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs data
-          git diff --cached --quiet && { echo "nothing changed"; exit 0; }
-          git commit -m "Monthly retune: $(date -u +'%Y-%m-%d %H:%M UTC')"
-          for i in 1 2 3 4 5; do
-            git pull --rebase -X theirs --autostash origin main && git push && exit 0
-            echo "push attempt $i failed, retrying..."
-            sleep $((RANDOM % 15 + 5))
-          done
-          echo "could not push after 5 attempts"; exit 1
+      - name: Commit and push (rebuild on top if main moved)
+        run: bash scripts/push_or_rebuild.sh "Monthly retune" "python scripts/build.py --no-fetch" data/backtest.json data/retune_log.json
