@@ -1,0 +1,36 @@
+name: Monthly retune
+
+# 1st of each month, 12:20 UTC (after the daily build). Re-fits the model's
+# settings with this season's games and adopts them only if they beat the
+# current settings on held-out recent games. Skips itself (and logs why)
+# until there are enough games. Also runnable by hand from the Actions tab.
+on:
+  schedule:
+    - cron: "20 12 1 * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: nba-site-repo-write
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  retune:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Retune (adopts only if better on held-out games)
+        run: python scripts/retune.py
+      - name: Rebuild pages with the result
+        run: python scripts/build.py --no-fetch
+      - name: Commit and push (rebuild on top if main moved)
+        run: bash scripts/push_or_rebuild.sh "Monthly retune" "python scripts/build.py --no-fetch" data/backtest.json data/retune_log.json

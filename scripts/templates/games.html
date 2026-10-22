@@ -10,7 +10,7 @@
 </details>
 
 <div class="seg" data-tabs="gview" data-hash="1">
-  <button data-tab="best5" class="active">BEST 5</button><button data-tab="value">BEST VALUE</button><button data-tab="all">ALL GAMES</button>
+  <button data-tab="best5" class="active">BEST 5</button><button data-tab="value">BEST VALUE</button><button data-tab="all">ALL GAMES</button><button data-tab="live" class="live-tab"><i class="live-dot"></i>LIVE</button>
 </div>
 
 <section data-tab-panel="gview:best5">
@@ -32,7 +32,7 @@
 <section class="gcard anchor {{ 'hidden' if not loop.first }}" id="g{{ c.g.game_id }}" data-tab-panel="gm:{{ c.g.game_id }}">
   <div class="bs-head" {{ m.game_stripe(c.g) }}>
     <div class="bs-teams">{{ m.badge(c.g.away_badge) }}<span class="sb-at">@</span>{{ m.badge(c.g.home_badge) }}</div>
-    <div class="gc-right">{{ m.game_status(c.g) }}{% if c.g.note %} <span class="dim small">{{ c.g.note }}</span>{% endif %}</div>
+    <div class="gc-right">{{ m.game_status(c.g) }}{% if c.g.note %} <span class="dim small">{{ c.g.note }}</span>{% endif %}<a class="bd-btn live-btn" href="#live-{{ c.g.game_id }}"><i class="live-dot"></i>LIVE TRACKER &#9656;</a></div>
   </div>
   <div class="gc-body">
     <div class="kv">
@@ -80,6 +80,13 @@
 <div class="empty-state"><h3>No games</h3><p>No upcoming games in the schedule.</p></div>
 {% endfor %}
 </section>
+<section class="hidden" data-tab-panel="gview:live">
+  <p class="small dim">Live scores, every player's points, rebounds, assists and threes, and our frozen picks tracking against their lines, straight from ESPN. Updates every 30 seconds while this tab is open.</p>
+  <div class="chips game-chips" id="live-chips"></div>
+  <div id="live-root"><div class="chart-empty">Loading live data&hellip;</div></div>
+</section>
+<script id="live-data" type="application/json">{{ live_data|tojson }}</script>
+<script src="static/live.js?v={{ cache_bust }}" defer></script>
 <script>
   // games.html#<game_id> opens that game's tab directly (used by WHY & STATS on game pick cards)
   function openGame(h) {

@@ -38,7 +38,7 @@
       {% for p in g.picks %}
       <tr class="{{ 'row-hit' if p.status == 'graded' and p.hit else 'row-miss' if p.status == 'graded' else '' }}">
         <td><div class="player-name">{{ m.badge(p.badge) }} {{ p.player }}{% if p.best5_label %} <span class="star" title="{{ p.best5_label }}">&#9733;</span>{% endif %}</div>
-            <div class="player-sub">{{ stat_labels[p.stat] }} &middot; {{ src_labels[p.line_source] }}</div></td>
+            <div class="player-sub">{{ stat_labels[p.stat] }} &middot; {{ src_labels[p.line_source] }}</div>{% if p.corrections %}<div class="corr-note">&#9873; {{ p.corrections|join(' ') }}</div>{% endif %}</td>
         <td><span class="pp-pick pp-{{ p.call|lower }}">{{ p.call }} {{ p.line|fmtline }}</span> <span class="pp-ch">{{ (p.chance * 100)|round(0)|int }}%</span></td>
         <td class="num">{{ p.projected }}</td>
         <td class="num"><b class="day-actual">{{ p.actual|fmtnum if p.actual is not none else '—' }}</b></td>

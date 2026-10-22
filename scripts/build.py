@@ -286,6 +286,8 @@ def build(args) -> None:
     print(f"Froze {frozen} new player pick(s), re-froze {refrozen} (injury news or method update), updated {closes} closing line(s), "
           f"{tfrozen} new game pick(s).")
 
+    if predictions.apply_fixes():
+        predictions.save()
     # ---- Best 5 / Best Value (only frozen, untipped picks can enter; tipped ones stay locked)
     best = {}
     if sl.get("date"):

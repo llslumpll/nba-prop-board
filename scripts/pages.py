@@ -652,8 +652,25 @@ def render_all(ctx: dict) -> None:
                       if "game:value" in v.get("best5", []) and v["game_id"] in by_gid], key=lambda p: -(p.get("value") or 0))
     page_ids = {int(f[2:-5]) for f in keep_p}
     gmoney = grade.team_money(ctx["tpreds"])
+    # data for the in-browser live tracker: tonight's frozen picks, keyed by game
+    pstore = predictions.load_date(sl["date"]) if sl.get("date") else {}
+    live_picks = defaultdict(list)
+    for p in pstore.values():
+        live_picks[str(p["game_id"])].append({"pid": str(p.get("player_id")), "player": p["player"], "team": p["team"], "stat": p["stat"],
+                                              "call": p["call"], "line": p["line"], "chance": round(p["chance"], 3),
+                                              "proj": p.get("projected"), "min": p.get("proj_min"),
+                                              "star": bool(p.get("best5"))})
+    live_g = defaultdict(list)
+    for t in tstore.values():
+        live_g[str(t["game_id"])].append({"market": t["market"], "pick": t["pick"], "label": t.get("pick_label") or t["pick"],
+                                          "line": t.get("line"), "home": t["home"], "away": t["away"], "chance": round(t["chance"], 3),
+                                          "star": bool(t.get("best5"))})
+    live_data = {"date": (sl.get("date") or "").replace("-", ""),
+                 "games": [{"gid": str(g["game_id"]), "away": g["away"], "home": g["home"], "tip": g["tip_et"],
+                            "ac": g["away_badge"]["color"], "hc": g["home_badge"]["color"]} for g in sl["games"]],
+                 "picks": live_picks, "gpicks": live_g}
     write("games.html", "games.html", "games", slate=sl, cards=gcards, page_ids=page_ids, team_fit=tf,
-          g_best5=g_best5, g_value=g_value, gmoney=gmoney, blend_w=live.GAME_BLEND_W, cap=live.GAME_CHANCE_CAP,
+          g_best5=g_best5, g_value=g_value, gmoney=gmoney, blend_w=live.GAME_BLEND_W, cap=live.GAME_CHANCE_CAP, live_data=live_data,
           empty_best=_empty_best_text(ctx),
           notices=_notices(ctx)[:1] + ([f"<strong>Kalshi:</strong> {ctx['sources']['kalshi']['error']}"] if ctx['sources']['kalshi']['error'] else []))
 

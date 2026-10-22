@@ -1,0 +1,34 @@
+name: Odds refresh (Kalshi, PrizePicks, injuries)
+
+# Every 20 minutes from 16:00 to 03:59 UTC (noon to midnight ET), when
+# lines are posted and move. No box-score download (--no-fetch); no Odds API
+# credits. Freezes any pick whose line first appears, before its tip-off.
+on:
+  schedule:
+    - cron: "*/20 16-23 * * *"
+    - cron: "*/20 0-3 * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: nba-site-repo-write   # shared by every workflow that commits to main
+  cancel-in-progress: false    # queue, never kill a run mid-push
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Light build
+        run: python scripts/build.py --no-fetch
+      - name: Commit and push (rebuild on top if main moved)
+        run: bash scripts/push_or_rebuild.sh "Odds refresh" "python scripts/build.py --no-fetch"

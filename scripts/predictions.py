@@ -180,6 +180,53 @@ def get(date: str, player: str, stat: str, game_id: int) -> dict | None:
     return load_date(date).get(key(player, stat, game_id))
 
 
+def _trim_overflow(store: dict, final: set, tag: str) -> set:
+    """A list can only exceed BEST5_SIZE if two runs' results were ever
+    combined; keep the earliest-tagged picks and drop the most recently
+    tagged (never chosen by results)."""
+    if len(final) <= BEST5_SIZE:
+        return final
+    order = sorted(final, key=lambda k: ((store[k].get("best5_at") or {}).get(tag) or "", k))
+    for k in order[BEST5_SIZE:]:
+        store[k].setdefault("best5_dropped", {})[tag] = "list had more than 5 picks; the most recently tagged was removed"
+    return set(order[:BEST5_SIZE])
+
+
+def _apply_tags(store: dict, tagged: list, final: set, tag: str, now) -> bool:
+    changed = False
+    for k in tagged:
+        if k not in final:
+            store[k]["best5"].remove(tag)
+            (store[k].get("best5_at") or {}).pop(tag, None)
+            changed = True
+    for k in final:
+        if tag not in store[k]["best5"]:
+            store[k]["best5"].append(tag)
+            store[k].setdefault("best5_at", {})[tag] = now.strftime("%Y-%m-%d %H:%M:%S UTC")
+            changed = True
+    return changed
+
+
+# One-time corrections, applied idempotently by apply_fixes() and noted on the pick itself.
+FIXES = [
+    {"date": "2026-10-21", "key": "Amen Thompson|fg3m|401909840", "remove_tag": "fg3m:best5",
+     "note": "Removed from 3PM Best 5 on Oct 21: two automatic runs saved at the same moment and their lists merged into 6 "
+             "picks. The 6:21 PM CT list (5 picks) was complete without this one; its tag came in through the merge."},
+]
+
+
+def apply_fixes() -> int:
+    n = 0
+    for f in FIXES:
+        rec = load_date(f["date"]).get(f["key"])
+        if rec and f["remove_tag"] in rec.get("best5", []):
+            rec["best5"].remove(f["remove_tag"])
+            rec.setdefault("corrections", []).append(f["note"])
+            mark_dirty(f["date"])
+            n += 1
+    return n
+
+
 def sync_best5(date: str, group: str, list_name: str, ranked: list[dict]) -> dict:
     """Keep one slate's Best 5 list at 5 picks. `group` is a stat ("pts") or
     "combos" for the PRA page's mixed list; the tag stored is
@@ -209,15 +256,8 @@ def sync_best5(date: str, group: str, list_name: str, ranked: list[dict]) -> dic
         keep.append(k)
         players.add(r["player"])
     final = set(locked) | set(keep)
-    changed = False
-    for k in tagged:
-        if k not in final:
-            store[k]["best5"].remove(tag)
-            changed = True
-    for k in final:
-        if tag not in store[k]["best5"]:
-            store[k]["best5"].append(tag)
-            changed = True
+    final = _trim_overflow(store, final, tag)
+    changed = _apply_tags(store, tagged, final, tag, now)
     if changed:
         mark_dirty(date)
     return {"size": len(final), "locked": len(locked), "keys": sorted(final)}
@@ -252,16 +292,8 @@ def sync_team_best(date: str, list_name: str, ranked: list[dict]) -> None:
         keep.append(k)
         games.add(r["game_id"])
     final = set(locked) | set(keep)
-    changed = False
-    for k in tagged:
-        if k not in final:
-            store[k]["best5"].remove(tag)
-            changed = True
-    for k in final:
-        if tag not in store[k]["best5"]:
-            store[k]["best5"].append(tag)
-            changed = True
-    if changed:
+    final = _trim_overflow(store, final, tag)
+    if _apply_tags(store, tagged, final, tag, now):
         mark_dirty(date, team=True)
 
 
