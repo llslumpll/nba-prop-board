@@ -235,9 +235,11 @@ def merge_box(box: pl.DataFrame, store: dict) -> pl.DataFrame:
 
 def merge_schedule(sched: pl.DataFrame, store: dict) -> pl.DataFrame:
     """Mark ESPN finals completed (with final scores) and record live state."""
-    st = store.get("status") or {}
-    if not st or not sched.height:
+    if not sched.height:
         return sched
+    # finals we hold box scores for count even when this build couldn't reach ESPN
+    st = {k: g["final"] for k, g in (store.get("games") or {}).items() if g.get("final")}
+    st.update(store.get("status") or {})
     done = {int(k): v for k, v in st.items() if v.get("completed") and v.get("home_score") is not None}
     if not done:
         return sched

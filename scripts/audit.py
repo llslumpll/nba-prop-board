@@ -41,6 +41,12 @@ print(f"{len(P)} player picks over {len(set(p['date'] for p in P))} days, {len(T
 late = [p for p in P + T if ts(p["frozen_at"]) >= ts(p["tip_utc"])]
 check("every pick frozen before tip", not late, f"{len(late)} late" if late else f"{len(P) + len(T)} checked")
 
+# 1b. checkpoint snapshots and updates all happened before tip
+late_s = [(p.get("player") or p.get("pick_label"), k) for p in P + T for k, sn in (p.get("snaps") or {}).items()
+          if sn.get("at") and ts(sn["at"]) >= ts(p["tip_utc"])]
+check("every snapshot (open / 10 AM / 1 PM / 5 PM) taken before tip", not late_s, f"{len(late_s)} late: {late_s[:2]}" if late_s
+      else f"{sum(len(p.get('snaps') or {}) for p in P + T)} checked")
+
 # 2. statuses and grading arithmetic
 bad = []
 for p in P:

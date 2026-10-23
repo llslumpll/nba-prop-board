@@ -119,6 +119,7 @@ def grade_all(box: pl.DataFrame, sched: pl.DataFrame) -> dict:
             if p["status"] == "pending":
                 p["status"] = "graded"
             p["final"] = f"{p['away']} {as_} - {p['home']} {hs}"
+            p["scores"] = [hs, as_]
             changed = True
             n_new += 1
         if changed:
@@ -349,8 +350,65 @@ def units(p: dict) -> float | None:
     return round((1 / be - 1) if p["hit"] else -1.0, 4)
 
 
+def _scores(p):
+    if p.get("scores"):
+        return p["scores"]
+    try:  # "AWY 110 - HOM 104"
+        a, h = p["final"].split(" - ")
+        return [int(h.split()[-1]), int(a.split()[-1])]
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def snap_result(p: dict, sn: dict) -> bool | None:
+    """Would the pick as it stood in snapshot `sn` have hit? None = void / push / not graded."""
+    if p.get("status") not in ("graded", "push"):
+        return None
+    if "market" in p:
+        sc = _scores(p)
+        if not sc or sn.get("pick") is None:
+            return None
+        hs, as_ = sc
+        if p["market"] == "moneyline":
+            return (hs > as_) == (sn["pick"] == p["home"])
+        if p["market"] == "spread":
+            adj = hs - as_ + sn["line"]
+            return None if adj == 0 else (adj > 0) == (sn["pick"] == p["home"])
+        tot = hs + as_
+        return None if tot == sn["line"] else (tot > sn["line"]) == (sn["pick"] == "OVER")
+    a, line = p.get("actual"), sn.get("line")
+    if a is None or line is None or a == line:
+        return None
+    return (a > line) if sn.get("call") == "OVER" else (a < line)
+
+
+def snap_units(p: dict, sn: dict) -> tuple[float | None, float | None]:
+    """(flat 1U result, result at that snapshot's recommended stake)."""
+    h = snap_result(p, sn)
+    if h is None:
+        return None, None
+    be = sn.get("break_even") or 0.5238
+    flat = (1 / be - 1) if h else -1.0
+    return round(flat, 4), round(flat * float(sn.get("units") or 0), 4)
+
+
+def snap_clv(p: dict, sn: dict) -> dict | None:
+    """Line move between the snapshot and tip, for the snapshot's own source and side."""
+    if "market" in p:
+        return clv({**p, "line": sn.get("line"), "pick": sn.get("pick"), "market_side": sn.get("market_side"), "_snap": True})
+    src = sn.get("line_source")
+    close = (p.get("lines") or {}).get(src) if src != p.get("line_source") else (p.get("close_line") or (p.get("lines") or {}).get(src))
+    if close is None or sn.get("line") is None:
+        return None
+    pts = (close - sn["line"]) if sn.get("call") == "OVER" else (sn["line"] - close)
+    return {"pts": round(pts, 2), "prob": None, "beat": 1 if pts > 0 else -1 if pts < 0 else 0}
+
+
 def clv(p: dict) -> dict | None:
     if "market" in p:  # game picks
+        op = (p.get("snaps") or {}).get("open")
+        if op and not p.get("_snap") and (op.get("pick"), op.get("line")) != (p.get("pick"), p.get("line")):
+            return clv({**p, "line": op.get("line"), "pick": op.get("pick"), "market_side": op.get("market_side"), "_snap": True})
         if p["market"] == "moneyline":
             if p.get("close_mkt") is None or p.get("market_side") is None:
                 return None
@@ -363,6 +421,9 @@ def clv(p: dict) -> dict | None:
         else:
             pts = (p["close_line"] - p["line"]) if p["pick"] == "OVER" else (p["line"] - p["close_line"])
         return {"pts": round(pts, 2), "prob": None, "beat": 1 if pts > 0 else -1 if pts < 0 else 0}
+    op = (p.get("snaps") or {}).get("open")
+    if op and op.get("line") is not None and (op.get("line"), op.get("call")) != (p.get("line"), p.get("call")):
+        return snap_clv(p, op)  # picks that follow the line: CLV runs from where we first made the pick
     cl = p.get("close_line")
     if cl is None or p.get("line") is None:
         return None

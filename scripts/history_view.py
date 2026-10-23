@@ -23,6 +23,60 @@ MIN_VERDICT = 20  # graded picks before a section gets a verdict
 GROUPS = [("pts", "Points", ("pts",)), ("reb", "Rebounds", ("reb",)), ("ast", "Assists", ("ast",)),
           ("fg3m", "3-Pointers", ("fg3m",)), ("combos", "PRA & combos", ("pra", "pr", "pa", "ra"))]
 MARKETS = [("moneyline", "Moneyline"), ("spread", "Spread"), ("total", "Total")]
+CHECKS = [("open", "Opening line"), ("10am", "10 AM CT"), ("1pm", "1 PM CT"), ("5pm", "5 PM CT"), ("final", "Locked at tip")]
+
+
+def when_rows(ps: list[dict], only_lists: bool = False) -> list[dict]:
+    """One row per checkpoint: how the picks as they stood at that moment did."""
+    rows = []
+    for ck, label in CHECKS:
+        n = h = 0
+        flat = rec = staked = 0.0
+        be, clvs, flipped, pend = [], [], 0, 0
+        for p in ps:
+            if ck == "final":
+                team = "market" in p
+                sn = ({k: p.get(k) for k in ("pick", "line", "chance", "break_even", "market_side", "units")} if team else
+                      {k: p.get(k) for k in ("line", "call", "chance", "break_even", "market_side", "units", "line_source")})
+                sn["best5"] = p.get("best5") or []
+                if "snaps" not in p:
+                    continue  # compare like with like: only picks made under the follow-the-line rules
+            else:
+                sn = (p.get("snaps") or {}).get(ck)
+                if not sn:
+                    continue
+            if only_lists and not sn.get("best5"):
+                continue
+            if p.get("status") == "pending":
+                pend += 1
+                continue
+            res = grade.snap_result(p, sn)
+            if res is None:
+                continue
+            f, r = grade.snap_units(p, sn)
+            n += 1
+            h += bool(res)
+            flat += f
+            rec += r
+            staked += float(sn.get("units") or 0)
+            be.append(sn.get("break_even") or live.DEFAULT_BE)
+            side = sn.get("pick") if "market" in p else sn.get("call")
+            final_side = p.get("pick") if "market" in p else p.get("call")
+            flipped += side != final_side
+            if ck != "final":
+                c = grade.snap_clv(p, sn)
+                if c and c["beat"]:
+                    clvs.append(c["beat"] > 0)
+        rows.append({"key": ck, "label": label, "graded": n, "hits": h, "misses": n - h, "pending": pend,
+                     "rate": round(100 * h / n, 1) if n else None, "be": round(100 * sum(be) / len(be), 1) if be else None,
+                     "flat": round(flat, 2), "rec": round(rec, 2), "rec_roi": round(100 * rec / staked, 1) if staked else None,
+                     "clv": round(100 * sum(clvs) / len(clvs), 1) if clvs else None, "clv_n": len(clvs),
+                     "flipped": flipped})
+    best = [r for r in rows if r["graded"] >= MIN_VERDICT]
+    if best:
+        top = max(best, key=lambda r: (r["flat"] / r["graded"]))
+        top["top"] = True
+    return rows
 
 
 def _dl(d: str) -> str:
@@ -126,6 +180,11 @@ def build(preds: list[dict], tpreds: list[dict], health: list, page_ids: set, tr
     allp = preds + tpreds
     out = {"overall": stats(allp), "players_all": stats(preds), "games_all": stats(tpreds),
            "overall_c": charts(allp, "Every pick")}
+
+    # when to bet: picks as they stood at each checkpoint
+    out["when"] = {"props": when_rows(preds), "games": when_rows(tpreds),
+                   "props_b5": when_rows(preds, True), "games_b5": when_rows(tpreds, True),
+                   "n": sum(1 for p in allp if p.get("snaps"))}
 
     # what's working / what isn't: stat x line source and game markets, 15+ graded
     segs = []

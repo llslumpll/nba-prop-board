@@ -111,20 +111,38 @@ def _pulled_today_et(cache: dict | None, need_lines: bool = False) -> bool:
 
 
 def pull_fanduel_daily() -> dict:
-    """Once-a-day FanDuel pull that is safe to attempt several times a day
-    (GitHub runs scheduled jobs late or not at all, so the workflow tries at
-    several times). Game lines: pulled once per ET day. Points props: pulled
-    once per ET day *with lines found*; an attempt where FanDuel hasn't posted
-    yet costs nothing (empty responses aren't charged) and a later attempt
-    tries again."""
+    """FanDuel pulls, safe to attempt many times a day (GitHub runs scheduled
+    jobs late or not at all, so several triggers fire).
+
+    Paid plan (ODDS_PLAN set): every attempt pulls game lines + props
+    (points, rebounds, assists, threes) for games tipping within 14 h.
+
+    Free plan: game lines twice per ET day, once in the morning and once more
+    after 3 PM ET (closer to tip, 3 credits); points props once per ET day
+    with lines found (an attempt before FanDuel posts costs nothing and a
+    later attempt retries)."""
+    if oddsapi_client.PAID:
+        print(f"FanDuel: paid plan ({oddsapi_client.PLAN}); pulling game lines and props.")
+        return pull_oddsapi(lines=True, props=True)
+    from zoneinfo import ZoneInfo
+    et = ZoneInfo("America/New_York")
     gl, pr = _load_json(LINES_CACHE, {}), _load_json(PROPS_CACHE, {})
-    if _pulled_today_et(pr, need_lines=True):
-        print("FanDuel: game lines and points props already pulled today; nothing to do (0 credits).")
+    now_et = datetime.now(timezone.utc).astimezone(et)
+    try:
+        gl_at = datetime.strptime(gl.get("pulled_at", ""), "%Y-%m-%d %H:%M UTC").replace(tzinfo=timezone.utc).astimezone(et)
+    except ValueError:
+        gl_at = None
+    lines_today = _pulled_today_et(gl)
+    late_due = now_et.hour >= 15 and lines_today and gl_at is not None and gl_at.hour < 15
+    need_lines = (not lines_today) or late_due
+    need_props = not _pulled_today_et(pr, need_lines=True)
+    if not need_lines and not need_props:
+        print("FanDuel: morning and afternoon game lines and today's points props already pulled; nothing to do (0 credits).")
         return {}
-    if not _pulled_today_et(gl):
-        st = pull_oddsapi(lines=True, props=True)
-        return st
-    print("FanDuel: game lines already pulled today; trying points props only.")
+    if need_lines:
+        print("FanDuel: " + ("afternoon game-lines refresh." if late_due else "first pull of the day."))
+        return pull_oddsapi(lines=True, props=need_props)
+    print("FanDuel: game lines current; trying points props only.")
     status = {}
     rem = (oddsapi_client.current_usage() or {}).get("requests_remaining")
     p = oddsapi_client.fetch_props(rem)
@@ -240,7 +258,7 @@ def build(args) -> None:
             if predictions.freeze(rec, p["tip_utc"]):
                 frozen += 1
             else:
-                refrozen += predictions.refreeze(rec, p["tip_utc"])
+                refrozen += predictions.update(rec, p["tip_utc"])  # keeps following lines and news until tip
             cur = predictions.get(p["date"], p["player"], s, p["game_id"])
             if cur:
                 ln = (p["lines"] or {}).get(cur.get("line_source"))
@@ -278,7 +296,10 @@ def build(args) -> None:
                 "our_margin": tp["margin"] if tp else None, "our_total": tp["total"] if tp else None}
         fd = g.get("fanduel") or {}
         for gp in g["game_picks"]:
-            tfrozen += predictions.freeze_team({**base, **gp}, g["tip_utc"])
+            if predictions.freeze_team({**base, **gp}, g["tip_utc"]):
+                tfrozen += 1
+            else:
+                predictions.update_team({**base, **gp}, g["tip_utc"])
             cur = predictions.load_date(g["date"], team=True).get(f"{g['game_id']}|{gp['market']}")
             if cur:
                 if gp["market"] == "spread" and fd.get("spread"):
@@ -306,7 +327,7 @@ def build(args) -> None:
             predictions.sync_team_best(sl["date"], "value", sorted([r for r in rk if r.get("value") is not None and r["value"] >= 0],
                                                                   key=lambda r: -r["value"]), tag=f"{mkt}:value")
     predictions.save()
-    print(f"Froze {frozen} new player pick(s), re-froze {refrozen} (injury news or method update), updated {closes} closing line(s), "
+    print(f"Recorded {frozen} new player pick(s), updated {refrozen} (line, side or chance moved before tip), {closes} closing line(s), "
           f"{tfrozen} new game pick(s).")
 
     if predictions.apply_fixes():
@@ -331,6 +352,10 @@ def build(args) -> None:
                     p["value"] = round(p["chance"] - p["break_even"], 4) if p.get("break_even") is not None else None
                 tagged.sort(key=lambda p: -(p.get(sk) or 0))
                 best[grp][name] = tagged
+        n_snap = predictions.snapshot(sl["date"])  # 10 AM / 1 PM / 5 PM CT copies, Best 5 tags included
+        if n_snap:
+            print(f"Checkpoint snapshot: saved {n_snap} pick(s).")
+        predictions.save()
 
     # ---- grade, calibrate, score
     gr = grade.grade_all(box, sched)

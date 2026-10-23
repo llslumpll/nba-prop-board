@@ -93,7 +93,7 @@
 </details>
 
 <div class="seg hist-tabs" data-tabs="hist" data-hash="1" data-tab-scroll="1">
-  <button data-tab="overview" class="active">OVERVIEW</button><button data-tab="units">UNITS</button><button data-tab="best5">BEST 5</button><button data-tab="stats">BY STAT</button><button data-tab="games">GAME PICKS</button><button data-tab="players">PLAYERS</button><button data-tab="confidence">CONFIDENCE</button><button data-tab="days">DAY BY DAY</button><button data-tab="model">MODEL &amp; PIPELINE</button>
+  <button data-tab="overview" class="active">OVERVIEW</button><button data-tab="units">UNITS</button><button data-tab="when">WHEN TO BET</button><button data-tab="best5">BEST 5</button><button data-tab="stats">BY STAT</button><button data-tab="games">GAME PICKS</button><button data-tab="players">PLAYERS</button><button data-tab="confidence">CONFIDENCE</button><button data-tab="days">DAY BY DAY</button><button data-tab="model">MODEL &amp; PIPELINE</button>
 </div>
 
 {# ---------- OVERVIEW ---------- #}
@@ -137,6 +137,38 @@
   {% endfor %}</tbody>
 </table></div></div>
 <p class="small dim">Picks frozen before units existed (Oct 20&ndash;22) are sized from their own chance and price, the same rule as today.</p>
+</section>
+
+{# ---------- WHEN TO BET ---------- #}
+{% macro when_table(rows) %}
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table hv-tiers">
+  <thead><tr><th>Pick as it stood at</th><th class="num">Record</th><th class="num">Hit %</th><th class="num">Needed</th><th class="num">At our units</th><th class="num hide-sm">Flat 1U</th><th class="num hide-sm">Beat the close</th><th class="num hide-sm">Side changed later</th></tr></thead>
+  <tbody>{% for r in rows %}<tr class="{{ 'hv-top-row' if r.top }}"><td><b>{{ r.label }}</b>{% if r.top %} <span class="hv-best">BEST SO FAR</span>{% endif %}{% if r.pending %} <span class="dim small">+{{ r.pending }} pending</span>{% endif %}</td>
+    <td class="num">{% if r.graded %}{{ r.hits }}&ndash;{{ r.misses }}{% else %}<span class="dim">—</span>{% endif %}</td>
+    <td class="num {{ 'stat-good' if r.rate is not none and r.rate > r.be else 'stat-bad' if r.rate is not none }}">{{ r.rate if r.rate is not none else '—' }}</td>
+    <td class="num dim">{{ r.be or '—' }}</td>
+    <td class="num">{{ sgn(r.rec if r.graded else none, 2, 'U') }}</td>
+    <td class="num hide-sm">{{ sgn(r.flat if r.graded else none, 2, 'U') }}</td>
+    <td class="num hide-sm">{% if r.key == 'final' %}<span class="dim small">is the close</span>{% elif r.clv is not none %}<span class="{{ 'stat-good' if r.clv > 50 else 'stat-bad' if r.clv < 50 }}">{{ r.clv }}%</span> <span class="dim small">of {{ r.clv_n }}</span>{% else %}—{% endif %}</td>
+    <td class="num hide-sm">{% if r.key == 'final' %}—{% elif r.graded %}{{ r.flipped }}{% else %}—{% endif %}</td></tr>{% endfor %}</tbody>
+</table></div></div>
+{% endmacro %}
+<section class="hist-panel hidden" data-tab-panel="hist:when">
+<h2 class="hist-h">When to bet</h2>
+{{ help('Every pick keeps following the lines and injury news until its own game tips, then locks. The site saves a copy of each pick at the <b>opening line</b>, <b>10 AM</b>, <b>1 PM</b> and <b>5 PM</b> Central, and grades every copy. If the 10 AM row keeps winning more than "locked at tip", betting earlier is better, and the other way round. <b>Beat the close</b> = the line moved our way after that moment.') }}
+{% if not hv.when.n %}<div class="empty-state"><h3>Starts tonight</h3><p>Snapshots began with the Oct 23 slate. Each row fills in as those games are graded.</p></div>{% endif %}
+<div class="chips hv-subtabs" data-tabs="wb">
+  <button class="chip active" type="button" data-tab="props">PLAYER PROPS</button><button class="chip" type="button" data-tab="games">GAME PICKS</button>
+</div>
+<div data-tab-panel="wb:props">
+  <h3 class="hv-h3">Every player pick</h3>{{ when_table(hv.when.props) }}
+  <h3 class="hv-h3">Only picks on a Best 5 / Best Value list at that moment</h3>{{ when_table(hv.when.props_b5) }}
+</div>
+<div class="hidden" data-tab-panel="wb:games">
+  <h3 class="hv-h3">Every game pick</h3>{{ when_table(hv.when.games) }}
+  <h3 class="hv-h3">Only picks on a Best 5 / Best Value list at that moment</h3>{{ when_table(hv.when.games_b5) }}
+</div>
+<p class="small dim">A snapshot is skipped when its game had already tipped (a 3 PM game has no 5 PM copy) or when no build ran within 3 hours of that time. "Best so far" needs 20+ graded picks.</p>
 </section>
 
 {# ---------- BEST 5 ---------- #}

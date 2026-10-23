@@ -3,7 +3,7 @@
 {% block title %}Picks — Prop Edge NBA{% endblock %}
 {% block content %}
 <h1>Picks</h1>
-<p class="lede">The strongest picks for each stat on the {{ slate.date_label or 'next' }} slate, frozen before tip and graded on <a href="history.html">History</a>. Tap <strong>WHY &amp; STATS</strong> on any card for the full reasoning, the factors and his last 15 games.</p>
+<p class="lede">The strongest picks for each stat on the {{ slate.date_label or 'next' }} slate. Each pick follows line moves and injury news until its game tips, then locks and is graded on <a href="history.html">History</a>. Tap <strong>WHY &amp; STATS</strong> on any card for the full reasoning, the factors and his last 15 games.</p>
 {{ m.ulegend() }}
 {% if notices %}
 <details class="info-collapse"><summary>{{ notices|length }} data note{{ 's' if notices|length != 1 }}</summary>

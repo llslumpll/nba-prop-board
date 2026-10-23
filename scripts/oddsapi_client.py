@@ -40,7 +40,14 @@ BOOKMAKER = "fanduel"
 DATA_DIR = Path(__file__).parent.parent / "data"
 USAGE_LOG_PATH = DATA_DIR / "oddsapi_usage_log.json"
 
-PROP_MARKETS = {"player_points": "pts"}   # add more only with a new credit plan
+# Plan switch: the ODDS_PLAN repository variable (Settings -> Secrets and variables -> Actions -> Variables).
+# Unset / "free": 500 credits a month -> points props once a day, game lines twice a day.
+# "20k" (or any paid plan): points, rebounds, assists and threes props + game lines on EVERY pull
+# (trigger the FanDuel workflow hourly); RESERVE_CREDITS still stops it before the plan runs out.
+PLAN = (os.environ.get("ODDS_PLAN") or "free").strip().lower()
+PAID = PLAN not in ("", "free")
+PROP_MARKETS = ({"player_points": "pts", "player_rebounds": "reb", "player_assists": "ast", "player_threes": "fg3m"}
+                if PAID else {"player_points": "pts"})
 GAME_MARKETS = "h2h,spreads,totals"
 RESERVE_CREDITS = 60
 PROPS_WINDOW_HOURS = 14

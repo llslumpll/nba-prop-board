@@ -134,7 +134,8 @@
   {% endif %}
   <div class="tc-foot">
     {{ src_name(p.line_source) }} {{ label_tag(edge[p.stat].status) }}
-    {% if p.locked %}<span class="locked">locked</span>{% endif %}
+    {% if p.locked %}<span class="locked">locked</span>{% else %}<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span>{% endif %}
+    {% if p.first_line is defined and p.first_line is not none and (p.first_line != p.line or p.first_call != p.call) %}<span class="moved-tag" title="Where this pick started">opened {{ p.first_call }} {{ p.first_line|fmtline }}</span>{% endif %}
     <span class="tc-actions">{{ slip_leg(p.player_id, p.player, p.team, p.opp, p.game_id, p.stat, p.call, p.line, p.chance, p.line_source, p.locked) }}
     <a class="bd-btn" href="p-{{ p.player_id }}.html#{{ stat_page_key(p.stat) }}">WHY &amp; STATS &#9656;</a></span>
   </div>
@@ -215,7 +216,8 @@
   <div class="tc-blend">{% if p.market == 'total' %}Blended total <b>{{ p.blend_total }}</b>{% else %}Blended margin <b>{{ '%+.1f'|format(p.blend_margin) }}</b> for {{ g.home }}{% endif %}: ours gets {{ (p.blend_w * 100)|round(0)|int }}% weight (tracks the market at r={{ p.agree if p.agree is defined else '—' }}){% if p.price_str %} &middot; price {{ p.price_str }}{% endif %}</div>
   <div class="tc-foot">
     <span class="src">{{ src_labels[p.source] }}</span> <span class="lean-tag">lean</span>
-    {% if p.locked %}<span class="locked">locked</span>{% endif %}
+    {% if p.locked %}<span class="locked">locked</span>{% else %}<span class="early-tag" title="Follows line moves until tip-off, then locks">UPDATES TILL TIP</span>{% endif %}
+    {% if p.first_pick is defined and p.first_pick is not none and (p.first_pick != p.pick or p.first_line != p.line) %}<span class="moved-tag">opened {{ p.first_pick }}{% if p.first_line is not none %} {{ p.first_line }}{% endif %}</span>{% endif %}
     <span class="tc-actions"><a class="bd-btn" href="games.html#{{ g.game_id }}">WHY &amp; STATS &#9656;</a></span>
   </div>
 </article>

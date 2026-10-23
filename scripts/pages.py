@@ -162,8 +162,8 @@ def _empty_best_text(ctx):
         return "No upcoming games."
     opens = _freeze_opens(ctx)
     if opens:
-        return (f"Picks for this slate freeze on game day, {int(predictions.FREEZE_WINDOW.total_seconds() // 3600)} hours before each tip, "
-                f"so they're made with that day's injury news. The first ones arrive around {opens}. "
+        return (f"Picks show up as soon as lines are posted (up to {int(predictions.FREEZE_WINDOW.total_seconds() // 3600)} hours before tip) "
+                f"and keep updating with line moves and injury news until each game tips. The first ones arrive around {opens}. "
                 "Projections for every player are already up on Players and Picks \u2192 All Projections.")
     n = sum(ctx["sources"]["line_counts"].values())
     if not n:

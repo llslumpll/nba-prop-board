@@ -7,20 +7,20 @@ posts ~800 lines a night. A single file rewritten by the 20-minute refresh
 would grow the repo by megabytes a day; per-date files only change on the
 days they cover.
 
-Rules:
-  * a pick is frozen at the first build within FREEZE_WINDOW of tip where a
-    market line exists for it, and never after tip-off (callers pass the tip
-    time; checked here too). Waiting until game day means the projection
-    has that day's injury report behind it;
-  * a pick frozen under an older chance method (no blend_w) is re-frozen
-    once with the current one, still only before tip;
-  * if a player on either team is newly ruled OUT after a pick froze but
-    before tip, the pick is re-frozen with the updated projection
-    (refreeze()); the original line and time are kept in first_line /
-    first_frozen_at. Still always before tip;
+Rules (from Oct 23):
+  * a pick is recorded at the first build where a market line exists for
+    it, up to FREEZE_WINDOW (36 h) before tip, so Best 5 / Best Value are
+    up as soon as lines are posted (the "early board");
+  * until its own game tips, every build updates it with the latest
+    projection, line, side, chance and units (update()); the opening
+    version is kept in first_* and snaps["open"]. At tip-off it stops: the
+    graded pick is the last version seen before tip. Nothing ever changes
+    after tip;
+  * snapshots: the pick as it stood at the first build after 10 AM, 1 PM
+    and 5 PM Central on game day (snapshot()), each graded separately on
+    History -> When to bet, so the site learns when picks are most reliable;
   * the last line seen before tip (close_line) is recorded for closing line
-    value: did the market move toward our side after we froze?
-  * projection, line, call and chance are fixed at freeze time;
+    value, measured from the opening snapshot;
   * a DNP or scratch is graded VOID, never a miss; a result equal to a
     whole-number line is a PUSH.
 """
@@ -34,8 +34,13 @@ from pathlib import Path
 DIR = Path(__file__).parent.parent / "data" / "predictions"
 TEAM_DIR = Path(__file__).parent.parent / "data" / "team_predictions"
 BEST5_SIZE = 5
-FREEZE_WINDOW = timedelta(hours=8)
+FREEZE_WINDOW = timedelta(hours=36)
+CHECKPOINTS = (("10am", 10), ("1pm", 13), ("5pm", 17))  # Central time, game day
+CHECKPOINT_SLACK = timedelta(hours=3)  # a checkpoint missed by more than this is skipped
 # fields replaced when a pick is re-frozen after new injury news
+UPDATE_TRACK = ("line", "call", "chance", "line_source", "units", "projected", "break_even")
+TEAM_FIELDS = ("pick", "line", "pick_label", "price_str", "chance", "break_even", "value", "market_side", "source", "units",
+               "units_raw", "our_margin", "our_total", "market_margin", "blend_margin", "blend_total", "blend_w", "agree", "why")
 REFREEZE_FIELDS = ("tier", "proj_min", "var", "line", "chance", "break_even", "market_side", "projected", "blend_mean", "blend_w",
                    "call", "line_source", "lines", "label", "why", "out_ctx", "units", "units_raw", "role_gap")
 
@@ -105,6 +110,7 @@ def freeze(rec: dict, tip_utc: datetime | None) -> bool:
     rec = dict(rec)
     rec.update({"frozen_at": _now().strftime("%Y-%m-%d %H:%M UTC"), "tip_utc": tip_utc.isoformat(),
                 "status": "pending", "actual": None, "hit": None, "best5": []})
+    rec["snaps"] = {"open": _snap(rec)}
     store[k] = rec
     mark_dirty(rec["date"])
     return True
@@ -120,9 +126,115 @@ def freeze_team(rec: dict, tip_utc: datetime | None) -> bool:
     rec = dict(rec)
     rec.update({"frozen_at": _now().strftime("%Y-%m-%d %H:%M UTC"), "tip_utc": tip_utc.isoformat(),
                 "status": "pending", "hit": None})
+    rec["snaps"] = {"open": _snap(rec)}
     store[k] = rec
     mark_dirty(rec["date"], team=True)
     return True
+
+
+def _snap(r: dict) -> dict:
+    """The pick as it stands now (enough to grade it on its own later)."""
+    keys = (("pick", "line", "pick_label", "price_str", "chance", "break_even", "value", "market_side", "source", "units")
+            if "market" in r else
+            ("line", "call", "chance", "break_even", "market_side", "line_source", "units", "projected"))
+    out = {k: r.get(k) for k in keys}
+    out["best5"] = list(r.get("best5") or [])
+    out["at"] = _now().strftime("%Y-%m-%d %H:%M UTC")
+    return out
+
+
+def _changed(cur: dict, rec: dict, fields) -> bool:
+    for f in fields:
+        a, b = cur.get(f), rec.get(f)
+        if isinstance(a, float) or isinstance(b, float):
+            if a is None or b is None or abs(float(a) - float(b)) > 0.0005:
+                return True
+        elif a != b:
+            return True
+    return False
+
+
+def update(rec: dict, tip_utc: datetime | None) -> bool:
+    """Bring a recorded, still-pending player pick up to date (latest line,
+    side, chance, units). Only before its game tips; the opening version is
+    kept in first_* / snaps["open"]."""
+    if tip_utc is None or _now() >= tip_utc or rec.get("line") is None:
+        return False
+    store = load_date(rec["date"])
+    cur = store.get(key(rec["player"], rec["stat"], rec["game_id"]))
+    if not cur or cur.get("status") != "pending" or not _changed(cur, rec, UPDATE_TRACK):
+        return False
+    cur.setdefault("first_line", cur["line"])
+    cur.setdefault("first_call", cur["call"])
+    cur.setdefault("first_frozen_at", cur["frozen_at"])
+    cur.setdefault("snaps", {}).setdefault("open", {**_snap(cur), "at": cur["first_frozen_at"]})
+    for f in REFREEZE_FIELDS:
+        if f in rec:
+            cur[f] = rec[f]
+    cur["frozen_at"] = _now().strftime("%Y-%m-%d %H:%M UTC")
+    cur["updates"] = cur.get("updates", 0) + 1
+    mark_dirty(rec["date"])
+    return True
+
+
+def update_team(rec: dict, tip_utc: datetime | None) -> bool:
+    if tip_utc is None or _now() >= tip_utc:
+        return False
+    store = load_date(rec["date"], team=True)
+    cur = store.get(f"{rec['game_id']}|{rec['market']}")
+    if not cur or cur.get("status") != "pending" or not _changed(cur, rec, ("pick", "line", "chance", "units", "price_str")):
+        return False
+    cur.setdefault("first_line", cur.get("line"))
+    cur.setdefault("first_pick", cur.get("pick"))
+    cur.setdefault("first_frozen_at", cur["frozen_at"])
+    cur.setdefault("snaps", {}).setdefault("open", {**_snap(cur), "at": cur["first_frozen_at"]})
+    for f in TEAM_FIELDS:
+        if f in rec:
+            cur[f] = rec[f]
+    cur["frozen_at"] = _now().strftime("%Y-%m-%d %H:%M UTC")
+    cur["updates"] = cur.get("updates", 0) + 1
+    mark_dirty(rec["date"], team=True)
+    return True
+
+
+def snapshot(date: str) -> int:
+    """At the first build after each game-day checkpoint (10 AM, 1 PM, 5 PM
+    Central), save every still-untipped pick as it stands, Best 5 tags
+    included. Missed by more than CHECKPOINT_SLACK, or after tip: skipped."""
+    from zoneinfo import ZoneInfo
+    ct = ZoneInfo("America/Chicago")
+    now = _now()
+    d = datetime.strptime(date, "%Y-%m-%d")
+    due = [name for name, hr in CHECKPOINTS
+           if (t := d.replace(hour=hr, tzinfo=ct)) <= now < t + CHECKPOINT_SLACK]
+    stamp = now.strftime("%Y-%m-%d %H:%M UTC")
+    for team in (False, True):  # picks first recorded this build: their opening copy gets this build's Best 5 tags
+        store = load_date(date, team=team)
+        for r in store.values():
+            op = (r.get("snaps") or {}).get("open")
+            if op and op.get("at") == stamp and op.get("best5") != list(r.get("best5") or []):
+                op["best5"] = list(r.get("best5") or [])
+                mark_dirty(date, team=team)
+    if not due:
+        return 0
+    n = 0
+    for team in (False, True):
+        store = load_date(date, team=team)
+        for r in store.values():
+            if r.get("status") != "pending":
+                continue
+            try:
+                if now >= datetime.fromisoformat(r["tip_utc"]):
+                    continue
+            except Exception:  # noqa: BLE001
+                continue
+            sn = r.setdefault("snaps", {})
+            for name in due:
+                if name not in sn:
+                    sn[name] = _snap(r)
+                    n += 1
+                    mark_dirty(date, team=team)
+    return n
 
 
 def refreeze(rec: dict, tip_utc: datetime | None) -> bool:
