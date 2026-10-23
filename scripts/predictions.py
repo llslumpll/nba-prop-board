@@ -263,13 +263,14 @@ def sync_best5(date: str, group: str, list_name: str, ranked: list[dict]) -> dic
     return {"size": len(final), "locked": len(locked), "keys": sorted(final)}
 
 
-def sync_team_best(date: str, list_name: str, ranked: list[dict]) -> None:
+def sync_team_best(date: str, list_name: str, ranked: list[dict], tag: str | None = None) -> None:
     """Game Best 5 / Best Value: same rules as the player lists (tipped
     picks lock, open slots go to the best-ranked frozen untipped picks),
-    one pick per game. Tag stored is "game:<list_name>"."""
+    one pick per game. Tag stored is "game:<list_name>" (all markets) or,
+    for the per-market lists, "<market>:<list_name>" e.g. "moneyline:best5"."""
     store = load_date(date, team=True)
     now = _now()
-    tag = f"game:{list_name}"
+    tag = tag or f"game:{list_name}"
 
     def started(r):
         try:

@@ -251,7 +251,7 @@ def build(args) -> None:
                                                        round(mkt_side, 4) if mkt_side is not None else None, p["tip_utc"])
     tfrozen = 0
     played = live.team_games_played(box)
-    game_ranked = []
+    game_ranked, market_ranked = [], {}
     gaps = [res["teams"][g["game_id"]]["total"] - float(g["fanduel"]["total"]["point"]) for g in sl["games"]
             if res["teams"].get(g["game_id"]) and (g.get("fanduel") or {}).get("total")]
     total_offset = sum(gaps) / len(gaps) if len(gaps) >= 3 else 0.0
@@ -291,12 +291,20 @@ def build(args) -> None:
                     if hp_ is not None:
                         side = hp_ if cur["pick"] == g["home"] else 100 - hp_
                         predictions.record_close_team(g["date"], g["game_id"], "moneyline", None, round(side / 100, 4), g["tip_utc"])
+            if not g["started"]:
+                market_ranked.setdefault(gp["market"], []).append({**gp, "game_id": g["game_id"]})
             if not g["started"] and (gp.get("value") is None or gp["value"] >= 0):  # only picks that beat their price
                 game_ranked.append({**gp, "game_id": g["game_id"]})
     if sl.get("date"):
         predictions.sync_team_best(sl["date"], "best5", sorted(game_ranked, key=lambda r: -r["chance"]))
         predictions.sync_team_best(sl["date"], "value", sorted([r for r in game_ranked if r.get("value") is not None],
                                                               key=lambda r: -r["value"]))
+        # per market (Games page tabs): Best 5 = highest chance, like the player lists; Best Value = beats its price, biggest edge
+        for mkt in ("moneyline", "spread", "total"):
+            rk = market_ranked.get(mkt, [])
+            predictions.sync_team_best(sl["date"], "best5", sorted(rk, key=lambda r: -r["chance"]), tag=f"{mkt}:best5")
+            predictions.sync_team_best(sl["date"], "value", sorted([r for r in rk if r.get("value") is not None and r["value"] >= 0],
+                                                                  key=lambda r: -r["value"]), tag=f"{mkt}:value")
     predictions.save()
     print(f"Froze {frozen} new player pick(s), re-froze {refrozen} (injury news or method update), updated {closes} closing line(s), "
           f"{tfrozen} new game pick(s).")

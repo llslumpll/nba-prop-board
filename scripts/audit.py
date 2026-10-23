@@ -106,6 +106,11 @@ check("Best 5 / Best Value lists: max 5, one per player / game", not over, str(o
 # 6. game Best lists only contain picks that beat their price
 neg = [t for t in T if any(x.startswith("game:") for x in t.get("best5", [])) and t.get("value") is not None and t["value"] < 0]
 check("game Best 5 / Value only picks with chance >= break-even", not neg, f"{len(neg)}" if neg else "")
+negm = [t for t in T if any(x in ("moneyline:value", "spread:value", "total:value") for x in t.get("best5", []))
+        and t.get("value") is not None and t["value"] < 0]
+check("moneyline / spread / total Best Value only picks that beat their price", not negm, f"{len(negm)}" if negm else "")
+wrongm = [t for t in T if any(x.split(":")[0] in ("moneyline", "spread", "total") and x.split(":")[0] != t["market"] for x in t.get("best5", []))]
+check("per-market game lists only hold their own market", not wrongm, f"{len(wrongm)}" if wrongm else "")
 
 # 7. chance rules on picks frozen with the current method
 cap_bad = [p for p in P if p.get("blend_w") is not None and p["chance"] > 0.80 + 1e-9]

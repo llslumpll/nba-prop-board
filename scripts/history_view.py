@@ -159,8 +159,14 @@ def build(preds: list[dict], tpreds: list[dict], health: list, page_ids: set, tr
     lists = []
     for lst, lname in (("best5", "Best 5"), ("value", "Best Value")):
         ps = [t for t in tpreds if f"game:{lst}" in (t.get("best5") or [])]
-        lists.append(section(ps, f"Game picks {lname}", f"games-{lst}", 80) | {"list": lname})
-    b5.append({"key": "games", "name": "Game picks", "lists": lists})
+        lists.append(section(ps, f"Game picks (all) {lname}", f"games-{lst}", 80) | {"list": lname})
+    b5.append({"key": "games", "name": "Game picks (all)", "lists": lists})
+    for m, label in MARKETS:
+        lists = []
+        for lst, lname in (("best5", "Best 5"), ("value", "Best Value")):
+            ps = [t for t in tpreds if f"{m}:{lst}" in (t.get("best5") or [])]
+            lists.append(section(ps, f"{label} {lname}", f"{m}-{lst}", 80) | {"list": lname})
+        b5.append({"key": m, "name": label, "lists": lists})
     every5 = [p for p in allp if any(t.endswith(":best5") for t in (p.get("best5") or []))]
     everyv = [p for p in allp if any(t.endswith(":value") for t in (p.get("best5") or []))]
     out["b5_all"] = [section(every5, "Every Best 5 list", "all-best5", 0) | {"list": "Best 5"},

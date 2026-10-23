@@ -11,17 +11,38 @@
 </details>
 
 <div class="seg" data-tabs="gview" data-hash="1">
-  <button data-tab="best5" class="active">BEST 5</button><button data-tab="value">BEST VALUE</button><button data-tab="all">ALL GAMES</button><button data-tab="live" class="live-tab"><i class="live-dot"></i>LIVE</button>
+  <button data-tab="top" class="active">TOP PICKS</button>{% for mk in g_mkt %}<button data-tab="{{ mk.key }}">{{ mk.label|upper }}</button>{% endfor %}<button data-tab="all">ALL GAMES</button><button data-tab="live" class="live-tab"><i class="live-dot"></i>LIVE</button>
 </div>
 
-<section data-tab-panel="gview:best5">
-  <p class="small dim">The five game picks with the highest chance, one per game. Picks lock at tip. Graded on <a href="history.html#games">History &rarr; Game picks</a>.</p>
-  {{ m.ggrid(g_best5, 'best5', empty_best) }}
+<section data-tab-panel="gview:top">
+  <div class="seg seg2" data-tabs="gl-top">
+    <button data-tab="best5" class="active">BEST 5</button><button data-tab="value">BEST VALUE</button>
+  </div>
+  <div data-tab-panel="gl-top:best5">
+    <p class="small dim">All three markets together: the five game picks with the highest chance that also beat their price, one per game. Picks lock at tip. Graded on <a href="history.html#games">History &rarr; Game picks</a>.</p>
+    {{ m.ggrid(g_best5, 'best5', empty_best) }}
+  </div>
+  <div class="hidden" data-tab-panel="gl-top:value">
+    <p class="small dim">All three markets together: where our chance beats the price's break-even by the most, one per game.</p>
+    {{ m.ggrid(g_value, 'value', empty_best) }}
+  </div>
 </section>
-<section class="hidden" data-tab-panel="gview:value">
-  <p class="small dim">Where our chance beats the price's break-even by the most (FanDuel juice or Kalshi ask), one per game.</p>
-  {{ m.ggrid(g_value, 'value', empty_best) }}
+
+{% for mk in g_mkt %}
+<section class="hidden" data-tab-panel="gview:{{ mk.key }}">
+  <div class="seg seg2" data-tabs="gl-{{ mk.key }}">
+    <button data-tab="best5" class="active">BEST 5</button><button data-tab="value">BEST VALUE</button>
+  </div>
+  <div data-tab-panel="gl-{{ mk.key }}:best5">
+    <p class="small dim">The five {{ mk.label|lower }} picks with the highest chance, one per game. Units show whether the chance also beats the price (PASS = it doesn't). Lock at tip.</p>
+    {{ m.ggrid(mk.best5, 'best5', empty_best) }}
+  </div>
+  <div class="hidden" data-tab-panel="gl-{{ mk.key }}:value">
+    <p class="small dim">{{ mk.label }} picks whose chance beats the price, biggest edge first. {% if mk.n %}{{ mk.n_beat }} of {{ mk.n }} {{ mk.label|lower }} picks tonight beat their price.{% endif %}</p>
+    {{ m.ggrid(mk.value, 'value', ("No " ~ mk.label|lower ~ " pick beats its price tonight: our chance matches the market's, and the price includes the book's cut. Nothing here beats skipping.") if mk.n else empty_best) }}
+  </div>
 </section>
+{% endfor %}
 
 <section class="hidden" data-tab-panel="gview:all">
 {% if cards %}

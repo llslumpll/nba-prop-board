@@ -653,6 +653,16 @@ def render_all(ctx: dict) -> None:
                       if "game:best5" in v.get("best5", []) and v["game_id"] in by_gid], key=lambda p: -p["chance"])
     g_value = sorted([deco_gp(v, by_gid[v["game_id"]]) for v in tstore.values()
                       if "game:value" in v.get("best5", []) and v["game_id"] in by_gid], key=lambda p: -(p.get("value") or 0))
+    g_mkt = []
+    for mkt, label in (("moneyline", "Moneyline"), ("spread", "Spread"), ("total", "Total")):
+        lists = {}
+        for lst, key in (("best5", "chance"), ("value", "value")):
+            lists[lst] = sorted([deco_gp(v, by_gid[v["game_id"]]) for v in tstore.values()
+                                 if f"{mkt}:{lst}" in v.get("best5", []) and v["game_id"] in by_gid],
+                                key=lambda p, key=key: -(p.get(key) or 0))
+        n_open = sum(1 for p in gpicks_all if p["market"] == mkt)
+        n_beat = sum(1 for p in gpicks_all if p["market"] == mkt and (p.get("value") or -1) >= 0)
+        g_mkt.append({"key": mkt, "label": label, "n": n_open, "n_beat": n_beat, **lists})
     page_ids = {int(f[2:-5]) for f in keep_p}
     gmoney = grade.team_money(ctx["tpreds"])
     # data for the in-browser live tracker: tonight's frozen picks, keyed by game
@@ -673,7 +683,7 @@ def render_all(ctx: dict) -> None:
                             "ac": g["away_badge"]["color"], "hc": g["home_badge"]["color"]} for g in sl["games"]],
                  "picks": live_picks, "gpicks": live_g}
     write("games.html", "games.html", "games", slate=sl, cards=gcards, page_ids=page_ids, team_fit=tf,
-          g_best5=g_best5, g_value=g_value, gmoney=gmoney, blend_w=live.GAME_BLEND_W, cap=live.GAME_CHANCE_CAP, live_data=live_data,
+          g_best5=g_best5, g_value=g_value, g_mkt=g_mkt, gmoney=gmoney, blend_w=live.GAME_BLEND_W, cap=live.GAME_CHANCE_CAP, live_data=live_data,
           empty_best=_empty_best_text(ctx),
           notices=_notices(ctx)[:1] + ([f"<strong>Kalshi:</strong> {ctx['sources']['kalshi']['error']}"] if ctx['sources']['kalshi']['error'] else []))
 
