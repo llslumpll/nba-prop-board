@@ -10,7 +10,7 @@
 <link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="static/style.css?v=7b049d96ec">
+<link rel="stylesheet" href="static/style.css?v=be900dfc49">
   <script>
     // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
     (function () {
@@ -34,9 +34,11 @@
   <main class="site-main">
 <h1>Games</h1>
 <p class="lede">Moneyline, spread and total for every game on the Fri Oct 23 slate: FanDuel and Kalshi prices, our projected score, our picks, who is out and each team's top projected players. Game picks freeze on game day and are graded like the player props.</p>
+<div class="u-legend"><b>UNITS</b> recommended stake from our edge over the price:
+<span><span class="u-tag u-25" title="LOW confidence: stake 0.25 units">0.25U</span> low</span><span><span class="u-tag u-50" title="MEDIUM confidence: stake 0.5 units">0.5U</span> medium</span><span><span class="u-tag u-75" title="LEAN confidence: stake 0.75 units">0.75U</span> lean</span><span><span class="u-tag u-100" title="CONFIDENT confidence: stake 1 unit">1U</span> confident</span><span><span class="u-tag u-150" title="HIGH confidence: stake 1.5 units">1.5U</span> high</span><span><span class="u-tag u-200" title="EXTREME confidence: stake 2 units">2U</span> extreme</span><span><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> no edge</span> <a href="history.html#units">track record &rarr;</a></div>
 <details class="info-collapse"><summary>How game picks work</summary>
 <div class="notice compact">Our team score is the sum of our player projections. Each game pick starts from what the market implies (FanDuel's spread for the margin, its total for the points) and moves toward our number by up to 25%, scaled by how well our team numbers have tracked the market so far (correlation, pooled over every game). Early in a season, when rosters are new, that agreement is low, so our weight is small and most picks sit near the market; Best 5 and Best Value only list picks whose chance beats their price. Totals use how each game differs from the night's average, since our summed scores run high early. Spread and total chances are capped at 75%. On the 2025-26 season our summed scores picked 64.0% of winners with a 16.32-point spread of misses. All game picks are leans until History shows an edge.</div>
-<div class="notice compact"><strong>PrizePicks unavailable:</strong> HTTP 429 from the server</div></details>
+</details>
 
 <div class="seg" data-tabs="gview" data-hash="1">
   <button data-tab="best5" class="active">BEST 5</button><button data-tab="value">BEST VALUE</button><button data-tab="all">ALL GAMES</button><button data-tab="live" class="live-tab"><i class="live-dot"></i>LIVE</button>
@@ -73,21 +75,21 @@
       <div class="gp-row">
         <div class="gp-mkt">MONEYLINE</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">MIL ML</span> <span class="dim small">-112</span></div>
-        <div class="gp-ch"><b>51%</b><span class="dim small"> vs 52.8% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>51%</b><span class="dim small"> vs 52.8% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score CHI 119, MIL 120 (summed player projections), margin +0.5 for MIL; market margin +1.5 (FanDuel spread MIL -1.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: MIL by +1.4. MIL wins 51% (market 51%).</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">SPREAD</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">CHI +1.5</span> <span class="dim small">-120</span></div>
-        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 54.5% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>50%</b><span class="dim small"> vs 54.5% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score CHI 119, MIL 120 (summed player projections), margin +0.5 for MIL; market margin +1.5 (FanDuel spread MIL -1.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: MIL by +1.4. CHI +1.5 covers 50%.</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">TOTAL</div>
         <div class="gp-pick"><span class="pill pill-under pill-sm">UNDER 238.5</span> <span class="dim small">-110</span></div>
-        <div class="gp-ch"><b>53%</b><span class="dim small"> vs 52.4% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-25" title="LOW confidence: stake 0.25 units">0.25U</span> <b>53%</b><span class="dim small"> vs 52.4% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our total 238 (CHI 119 + MIL 120), 8.0 above the market on average tonight, so 231 after removing that; FanDuel 238.5. Our totals track the market&#39;s with a correlation of 0.60 so far, so ours gets 15% weight: 237.3. Under 238.5 hits 53%.</p>
       </div>
@@ -136,7 +138,7 @@
   <div class="gc-body">
     <div class="kv">
       <div><div class="k">FanDuel moneyline</div><div class="v"><span class="stat-bad">NYK +114</span> &middot; <span class="stat-good">BOS -134</span><div class="kv-sub">44.9% / 55.1% no-vig</div></div></div>
-      <div><div class="k">Kalshi</div><div class="v">NYK 44.9% &middot; BOS 55.1%</div></div>
+      <div><div class="k">Kalshi</div><div class="v">NYK 44.5% &middot; BOS 55.5%</div></div>
       <div><div class="k">FanDuel spread</div><div class="v">BOS -2.5<div class="kv-sub">-110</div></div></div>
       <div><div class="k">FanDuel total</div><div class="v">223.5<div class="kv-sub">-110 / -110</div></div></div>
       <div><div class="k">Our score (summed players)</div><div class="v"><span class="stat-good">NYK 118</span> &ndash; <span class="stat-bad">BOS 117</span></div></div>
@@ -147,21 +149,21 @@
       <div class="gp-row">
         <div class="gp-mkt">MONEYLINE</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">BOS ML</span> <span class="dim small">-134</span></div>
-        <div class="gp-ch"><b>54%</b><span class="dim small"> vs 57.3% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>54%</b><span class="dim small"> vs 57.3% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score NYK 118, BOS 117 (summed player projections), margin -1.4 for BOS; market margin +2.5 (FanDuel spread BOS -2.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: BOS by +2.1. BOS wins 54% (market 55%).</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">SPREAD</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">NYK +2.5</span> <span class="dim small">-110</span></div>
-        <div class="gp-ch"><b>51%</b><span class="dim small"> vs 52.4% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>51%</b><span class="dim small"> vs 52.4% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score NYK 118, BOS 117 (summed player projections), margin -1.4 for BOS; market margin +2.5 (FanDuel spread BOS -2.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: BOS by +2.1. NYK +2.5 covers 51%.</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">TOTAL</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">OVER 223.5</span> <span class="dim small">-110</span></div>
-        <div class="gp-ch"><b>51%</b><span class="dim small"> vs 52.4% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>51%</b><span class="dim small"> vs 52.4% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our total 235 (NYK 118 + BOS 117), 8.0 above the market on average tonight, so 227 after removing that; FanDuel 223.5. Our totals track the market&#39;s with a correlation of 0.60 so far, so ours gets 15% weight: 224.0. Over 223.5 hits 51%.</p>
       </div>
@@ -210,7 +212,7 @@
   <div class="gc-body">
     <div class="kv">
       <div><div class="k">FanDuel moneyline</div><div class="v"><span class="stat-good">ATL -142</span> &middot; <span class="stat-bad">CHA +120</span><div class="kv-sub">56.3% / 43.7% no-vig</div></div></div>
-      <div><div class="k">Kalshi</div><div class="v">ATL 56.1% &middot; CHA 43.9%</div></div>
+      <div><div class="k">Kalshi</div><div class="v">ATL 56.5% &middot; CHA 43.5%</div></div>
       <div><div class="k">FanDuel spread</div><div class="v">CHA +2.5<div class="kv-sub">-105</div></div></div>
       <div><div class="k">FanDuel total</div><div class="v">227.5<div class="kv-sub">-105 / -115</div></div></div>
       <div><div class="k">Our score (summed players)</div><div class="v"><span class="stat-good">ATL 122</span> &ndash; <span class="stat-bad">CHA 115</span></div></div>
@@ -221,21 +223,21 @@
       <div class="gp-row">
         <div class="gp-mkt">MONEYLINE</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">ATL ML</span> <span class="dim small">-142</span></div>
-        <div class="gp-ch"><b>58%</b><span class="dim small"> vs 58.7% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>58%</b><span class="dim small"> vs 58.7% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score ATL 122, CHA 115 (summed player projections), margin -6.8 for CHA; market margin -2.5 (FanDuel spread CHA +2.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: CHA by -3.0. ATL wins 58% (market 56%).</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">SPREAD</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">ATL -2.5</span> <span class="dim small">-115</span></div>
-        <div class="gp-ch"><b>51%</b><span class="dim small"> vs 53.5% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>51%</b><span class="dim small"> vs 53.5% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score ATL 122, CHA 115 (summed player projections), margin -6.8 for CHA; market margin -2.5 (FanDuel spread CHA +2.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: CHA by -3.0. ATL -2.5 covers 51%.</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">TOTAL</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">OVER 227.5</span> <span class="dim small">-105</span></div>
-        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 51.2% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>50%</b><span class="dim small"> vs 51.2% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our total 237 (ATL 122 + CHA 115), 8.0 above the market on average tonight, so 229 after removing that; FanDuel 227.5. Our totals track the market&#39;s with a correlation of 0.60 so far, so ours gets 15% weight: 227.7. Over 227.5 hits 50%.</p>
       </div>
@@ -284,7 +286,7 @@
   <div class="gc-body">
     <div class="kv">
       <div><div class="k">FanDuel moneyline</div><div class="v"><span class="stat-bad">DAL +176</span> &middot; <span class="stat-good">IND -210</span><div class="kv-sub">34.8% / 65.2% no-vig</div></div></div>
-      <div><div class="k">Kalshi</div><div class="v">DAL 32.8% &middot; IND 67.2%</div></div>
+      <div><div class="k">Kalshi</div><div class="v">DAL 32.5% &middot; IND 67.5%</div></div>
       <div><div class="k">FanDuel spread</div><div class="v">IND -6.5<div class="kv-sub">-105</div></div></div>
       <div><div class="k">FanDuel total</div><div class="v">235.5<div class="kv-sub">-105 / -115</div></div></div>
       <div><div class="k">Our score (summed players)</div><div class="v"><span class="stat-bad">DAL 119</span> &ndash; <span class="stat-good">IND 120</span></div></div>
@@ -295,21 +297,21 @@
       <div class="gp-row">
         <div class="gp-mkt">MONEYLINE</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">IND ML</span> <span class="dim small">-210</span></div>
-        <div class="gp-ch"><b>63%</b><span class="dim small"> vs 67.7% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>63%</b><span class="dim small"> vs 67.7% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score DAL 119, IND 120 (summed player projections), margin +0.1 for IND; market margin +6.5 (FanDuel spread IND -6.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: IND by +5.8. IND wins 63% (market 65%).</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">SPREAD</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">DAL +6.5</span> <span class="dim small">-115</span></div>
-        <div class="gp-ch"><b>52%</b><span class="dim small"> vs 53.5% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>52%</b><span class="dim small"> vs 53.5% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score DAL 119, IND 120 (summed player projections), margin +0.1 for IND; market margin +6.5 (FanDuel spread IND -6.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: IND by +5.8. DAL +6.5 covers 52%.</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">TOTAL</div>
         <div class="gp-pick"><span class="pill pill-under pill-sm">UNDER 235.5</span> <span class="dim small">-115</span></div>
-        <div class="gp-ch"><b>52%</b><span class="dim small"> vs 53.5% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>52%</b><span class="dim small"> vs 53.5% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our total 239 (DAL 119 + IND 120), 8.0 above the market on average tonight, so 231 after removing that; FanDuel 235.5. Our totals track the market&#39;s with a correlation of 0.60 so far, so ours gets 15% weight: 234.8. Under 235.5 hits 52%.</p>
       </div>
@@ -358,7 +360,7 @@
   <div class="gc-body">
     <div class="kv">
       <div><div class="k">FanDuel moneyline</div><div class="v"><span class="stat-good">MIN -118</span> &middot; <span class="stat-bad">ORL +100</span><div class="kv-sub">52.0% / 48.0% no-vig</div></div></div>
-      <div><div class="k">Kalshi</div><div class="v">MIN 54.5% &middot; ORL 45.5%</div></div>
+      <div><div class="k">Kalshi</div><div class="v">MIN 54.3% &middot; ORL 45.7%</div></div>
       <div><div class="k">FanDuel spread</div><div class="v">ORL +1.5<div class="kv-sub">-110</div></div></div>
       <div><div class="k">FanDuel total</div><div class="v">237.5<div class="kv-sub">-115 / -105</div></div></div>
       <div><div class="k">Our score (summed players)</div><div class="v"><span class="stat-bad">MIN 124</span> &ndash; <span class="stat-good">ORL 124</span></div></div>
@@ -369,21 +371,21 @@
       <div class="gp-row">
         <div class="gp-mkt">MONEYLINE</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">MIN ML</span> <span class="dim small">-118</span></div>
-        <div class="gp-ch"><b>51%</b><span class="dim small"> vs 54.1% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>51%</b><span class="dim small"> vs 54.1% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score MIN 124, ORL 124 (summed player projections), margin +0.1 for ORL; market margin -1.5 (FanDuel spread ORL +1.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: ORL by -1.3. MIN wins 51% (market 52%).</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">SPREAD</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">ORL +1.5</span> <span class="dim small">-110</span></div>
-        <div class="gp-ch"><b>51%</b><span class="dim small"> vs 52.4% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>51%</b><span class="dim small"> vs 52.4% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score MIN 124, ORL 124 (summed player projections), margin +0.1 for ORL; market margin -1.5 (FanDuel spread ORL +1.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: ORL by -1.3. ORL +1.5 covers 51%.</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">TOTAL</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">OVER 237.5</span> <span class="dim small">-115</span></div>
-        <div class="gp-ch"><b>51%</b><span class="dim small"> vs 53.5% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>51%</b><span class="dim small"> vs 53.5% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our total 248 (MIN 124 + ORL 124), 8.0 above the market on average tonight, so 240 after removing that; FanDuel 237.5. Our totals track the market&#39;s with a correlation of 0.60 so far, so ours gets 15% weight: 237.9. Over 237.5 hits 51%.</p>
       </div>
@@ -432,7 +434,7 @@
   <div class="gc-body">
     <div class="kv">
       <div><div class="k">FanDuel moneyline</div><div class="v"><span class="stat-good">TOR -162</span> &middot; <span class="stat-bad">WAS +136</span><div class="kv-sub">59.3% / 40.7% no-vig</div></div></div>
-      <div><div class="k">Kalshi</div><div class="v">TOR 68.5% &middot; WAS 31.5%</div></div>
+      <div><div class="k">Kalshi</div><div class="v">TOR 70.2% &middot; WAS 29.8%</div></div>
       <div><div class="k">FanDuel spread</div><div class="v">WAS +4.5<div class="kv-sub">-118</div></div></div>
       <div><div class="k">FanDuel total</div><div class="v">235.5<div class="kv-sub">-115 / -105</div></div></div>
       <div><div class="k">Our score (summed players)</div><div class="v"><span class="stat-good">TOR 123</span> &ndash; <span class="stat-bad">WAS 122</span></div></div>
@@ -443,21 +445,21 @@
       <div class="gp-row">
         <div class="gp-mkt">MONEYLINE</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">TOR ML</span> <span class="dim small">-162</span></div>
-        <div class="gp-ch"><b>58%</b><span class="dim small"> vs 61.8% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>58%</b><span class="dim small"> vs 61.8% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score TOR 123, WAS 122 (summed player projections), margin -1.0 for WAS; market margin -4.5 (FanDuel spread WAS +4.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: WAS by -4.1. TOR wins 58% (market 59%).</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">SPREAD</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">WAS +4.5</span> <span class="dim small">-118</span></div>
-        <div class="gp-ch"><b>51%</b><span class="dim small"> vs 54.1% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>51%</b><span class="dim small"> vs 54.1% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score TOR 123, WAS 122 (summed player projections), margin -1.0 for WAS; market margin -4.5 (FanDuel spread WAS +4.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: WAS by -4.1. WAS +4.5 covers 51%.</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">TOTAL</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">OVER 235.5</span> <span class="dim small">-115</span></div>
-        <div class="gp-ch"><b>51%</b><span class="dim small"> vs 53.5% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>51%</b><span class="dim small"> vs 53.5% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our total 245 (TOR 123 + WAS 122), 8.0 above the market on average tonight, so 237 after removing that; FanDuel 235.5. Our totals track the market&#39;s with a correlation of 0.60 so far, so ours gets 15% weight: 235.8. Over 235.5 hits 51%.</p>
       </div>
@@ -517,21 +519,21 @@
       <div class="gp-row">
         <div class="gp-mkt">MONEYLINE</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">MIA ML</span> <span class="dim small">-132</span></div>
-        <div class="gp-ch"><b>55%</b><span class="dim small"> vs 56.9% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>55%</b><span class="dim small"> vs 56.9% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score DET 121, MIA 124 (summed player projections), margin +2.4 for MIA; market margin +2.5 (FanDuel spread MIA -2.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: MIA by +2.5. MIA wins 55% (market 55%).</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">SPREAD</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">DET +2.5</span> <span class="dim small">-115</span></div>
-        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 53.5% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>50%</b><span class="dim small"> vs 53.5% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score DET 121, MIA 124 (summed player projections), margin +2.4 for MIA; market margin +2.5 (FanDuel spread MIA -2.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: MIA by +2.5. DET +2.5 covers 50%.</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">TOTAL</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">OVER 236.5</span> <span class="dim small">-110</span></div>
-        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 52.4% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>50%</b><span class="dim small"> vs 52.4% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our total 244 (DET 121 + MIA 124), 8.0 above the market on average tonight, so 237 after removing that; FanDuel 236.5. Our totals track the market&#39;s with a correlation of 0.60 so far, so ours gets 15% weight: 236.5. Over 236.5 hits 50%.</p>
       </div>
@@ -580,7 +582,7 @@
   <div class="gc-body">
     <div class="kv">
       <div><div class="k">FanDuel moneyline</div><div class="v"><span class="stat-bad">HOU +215</span> &middot; <span class="stat-good">SAS -260</span><div class="kv-sub">30.5% / 69.5% no-vig</div></div></div>
-      <div><div class="k">Kalshi</div><div class="v">HOU 34.5% &middot; SAS 65.5%</div></div>
+      <div><div class="k">Kalshi</div><div class="v">HOU 35.1% &middot; SAS 64.9%</div></div>
       <div><div class="k">FanDuel spread</div><div class="v">SAS -7.5<div class="kv-sub">+100</div></div></div>
       <div><div class="k">FanDuel total</div><div class="v">226.5<div class="kv-sub">-105 / -115</div></div></div>
       <div><div class="k">Our score (summed players)</div><div class="v"><span class="stat-bad">HOU 122</span> &ndash; <span class="stat-good">SAS 123</span></div></div>
@@ -591,21 +593,21 @@
       <div class="gp-row">
         <div class="gp-mkt">MONEYLINE</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">SAS ML</span> <span class="dim small">-260</span></div>
-        <div class="gp-ch"><b>68%</b><span class="dim small"> vs 72.2% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>68%</b><span class="dim small"> vs 72.2% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score HOU 122, SAS 123 (summed player projections), margin +1.2 for SAS; market margin +7.5 (FanDuel spread SAS -7.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: SAS by +6.8. SAS wins 68% (market 70%).</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">SPREAD</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">HOU +7.5</span> <span class="dim small">-122</span></div>
-        <div class="gp-ch"><b>52%</b><span class="dim small"> vs 54.9% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>52%</b><span class="dim small"> vs 54.9% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score HOU 122, SAS 123 (summed player projections), margin +1.2 for SAS; market margin +7.5 (FanDuel spread SAS -7.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: SAS by +6.8. HOU +7.5 covers 52%.</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">TOTAL</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">OVER 226.5</span> <span class="dim small">-105</span></div>
-        <div class="gp-ch"><b>53%</b><span class="dim small"> vs 51.2% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-25" title="LOW confidence: stake 0.25 units">0.25U</span> <b>53%</b><span class="dim small"> vs 51.2% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our total 245 (HOU 122 + SAS 123), 8.0 above the market on average tonight, so 237 after removing that; FanDuel 226.5. Our totals track the market&#39;s with a correlation of 0.60 so far, so ours gets 15% weight: 228.0. Over 226.5 hits 53%.</p>
       </div>
@@ -665,21 +667,21 @@
       <div class="gp-row">
         <div class="gp-mkt">MONEYLINE</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">UTA ML</span> <span class="dim small">-180</span></div>
-        <div class="gp-ch"><b>61%</b><span class="dim small"> vs 64.3% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>61%</b><span class="dim small"> vs 64.3% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score NOP 125, UTA 127 (summed player projections), margin +2.2 for UTA; market margin +5.5 (FanDuel spread UTA -5.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: UTA by +5.2. UTA wins 61% (market 62%).</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">SPREAD</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">NOP +5.5</span> <span class="dim small">-118</span></div>
-        <div class="gp-ch"><b>51%</b><span class="dim small"> vs 54.1% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>51%</b><span class="dim small"> vs 54.1% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score NOP 125, UTA 127 (summed player projections), margin +2.2 for UTA; market margin +5.5 (FanDuel spread UTA -5.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: UTA by +5.2. NOP +5.5 covers 51%.</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">TOTAL</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">OVER 242.5</span> <span class="dim small">-110</span></div>
-        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 52.4% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>50%</b><span class="dim small"> vs 52.4% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our total 252 (NOP 125 + UTA 127), 8.0 above the market on average tonight, so 244 after removing that; FanDuel 242.5. Our totals track the market&#39;s with a correlation of 0.60 so far, so ours gets 15% weight: 242.7. Over 242.5 hits 50%.</p>
       </div>
@@ -739,21 +741,21 @@
       <div class="gp-row">
         <div class="gp-mkt">MONEYLINE</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">GSW ML</span> <span class="dim small">-162</span></div>
-        <div class="gp-ch"><b>59%</b><span class="dim small"> vs 61.8% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>59%</b><span class="dim small"> vs 61.8% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score MEM 116, GSW 119 (summed player projections), margin +2.7 for GSW; market margin +4.5 (FanDuel spread GSW -4.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: GSW by +4.3. GSW wins 59% (market 59%).</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">SPREAD</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">MEM +4.5</span> <span class="dim small">-118</span></div>
-        <div class="gp-ch"><b>51%</b><span class="dim small"> vs 54.1% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>51%</b><span class="dim small"> vs 54.1% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score MEM 116, GSW 119 (summed player projections), margin +2.7 for GSW; market margin +4.5 (FanDuel spread GSW -4.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: GSW by +4.3. MEM +4.5 covers 51%.</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">TOTAL</div>
         <div class="gp-pick"><span class="pill pill-under pill-sm">UNDER 235.5</span> <span class="dim small">-115</span></div>
-        <div class="gp-ch"><b>53%</b><span class="dim small"> vs 53.5% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>53%</b><span class="dim small"> vs 53.5% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our total 235 (MEM 116 + GSW 119), 8.0 above the market on average tonight, so 227 after removing that; FanDuel 235.5. Our totals track the market&#39;s with a correlation of 0.60 so far, so ours gets 15% weight: 234.2. Under 235.5 hits 53%.</p>
       </div>
@@ -802,7 +804,7 @@
   <div class="gc-body">
     <div class="kv">
       <div><div class="k">FanDuel moneyline</div><div class="v"><span class="stat-bad">LAC +320</span> &middot; <span class="stat-good">LAL -405</span><div class="kv-sub">22.9% / 77.1% no-vig</div></div></div>
-      <div><div class="k">Kalshi</div><div class="v">LAC 22.5% &middot; LAL 77.5%</div></div>
+      <div><div class="k">Kalshi</div><div class="v">LAC 23.3% &middot; LAL 76.7%</div></div>
       <div><div class="k">FanDuel spread</div><div class="v">LAL -9.5<div class="kv-sub">-118</div></div></div>
       <div><div class="k">FanDuel total</div><div class="v">228.5<div class="kv-sub">-110 / -110</div></div></div>
       <div><div class="k">Our score (summed players)</div><div class="v"><span class="stat-bad">LAC 113</span> &ndash; <span class="stat-good">LAL 125</span></div></div>
@@ -813,21 +815,21 @@
       <div class="gp-row">
         <div class="gp-mkt">MONEYLINE</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">LAL ML</span> <span class="dim small">-405</span></div>
-        <div class="gp-ch"><b>78%</b><span class="dim small"> vs 80.2% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>78%</b><span class="dim small"> vs 80.2% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score LAC 113, LAL 125 (summed player projections), margin +11.6 for LAL; market margin +9.5 (FanDuel spread LAL -9.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: LAL by +9.7. LAL wins 78% (market 77%).</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">SPREAD</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">LAL -9.5</span> <span class="dim small">-118</span></div>
-        <div class="gp-ch"><b>51%</b><span class="dim small"> vs 54.1% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>51%</b><span class="dim small"> vs 54.1% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score LAC 113, LAL 125 (summed player projections), margin +11.6 for LAL; market margin +9.5 (FanDuel spread LAL -9.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: LAL by +9.7. LAL -9.5 covers 51%.</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">TOTAL</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">OVER 228.5</span> <span class="dim small">-110</span></div>
-        <div class="gp-ch"><b>51%</b><span class="dim small"> vs 52.4% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>51%</b><span class="dim small"> vs 52.4% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our total 239 (LAC 113 + LAL 125), 8.0 above the market on average tonight, so 231 after removing that; FanDuel 228.5. Our totals track the market&#39;s with a correlation of 0.60 so far, so ours gets 15% weight: 228.8. Over 228.5 hits 51%.</p>
       </div>
@@ -887,21 +889,21 @@
       <div class="gp-row">
         <div class="gp-mkt">MONEYLINE</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">POR ML</span> <span class="dim small">-270</span></div>
-        <div class="gp-ch"><b>71%</b><span class="dim small"> vs 73.0% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>71%</b><span class="dim small"> vs 73.0% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score POR 124, SAC 115 (summed player projections), margin -10.0 for SAC; market margin -6.5 (FanDuel spread SAC +6.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: SAC by -6.9. POR wins 71% (market 70%).</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">SPREAD</div>
         <div class="gp-pick"><span class="pill pill-over pill-sm">POR -6.5</span> <span class="dim small">-118</span></div>
-        <div class="gp-ch"><b>51%</b><span class="dim small"> vs 54.1% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>51%</b><span class="dim small"> vs 54.1% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our score POR 124, SAC 115 (summed player projections), margin -10.0 for SAC; market margin -6.5 (FanDuel spread SAC +6.5). So far our margins track the market&#39;s with a correlation of 0.42, so ours gets 11% weight: SAC by -6.9. POR -6.5 covers 51%.</p>
       </div>
       <div class="gp-row">
         <div class="gp-mkt">TOTAL</div>
         <div class="gp-pick"><span class="pill pill-under pill-sm">UNDER 232.5</span> <span class="dim small">-105</span></div>
-        <div class="gp-ch"><b>50%</b><span class="dim small"> vs 51.2% break-even</span></div>
+        <div class="gp-ch"><span class="u-tag u-0" title="PASS: our chance doesn't beat the price's break-even, so no stake">PASS</span> <b>50%</b><span class="dim small"> vs 51.2% break-even</span></div>
         <div class="gp-tags"><span class="lean-tag">lean</span> <span class="dim small">freezes 8 h before tip</span></div>
         <p class="why-reason gp-why">Our total 239 (POR 124 + SAC 115), 8.0 above the market on average tonight, so 231 after removing that; FanDuel 232.5. Our totals track the market&#39;s with a correlation of 0.60 so far, so ours gets 15% weight: 232.3. Under 232.5 hits 50%.</p>
       </div>
@@ -949,7 +951,7 @@
   <div id="live-root"><div class="chart-empty">Loading live data&hellip;</div></div>
 </section>
 <script id="live-data" type="application/json">{"date": "20261023", "games": [{"ac": "#CE1141", "away": "CHI", "gid": "401909848", "hc": "#00471B", "home": "MIL", "tip": "4:00 PM ET"}, {"ac": "#1D428A", "away": "NYK", "gid": "401909095", "hc": "#008348", "home": "BOS", "tip": "7:00 PM ET"}, {"ac": "#C8102E", "away": "ATL", "gid": "401909843", "hc": "#008CA8", "home": "CHA", "tip": "7:00 PM ET"}, {"ac": "#0064B1", "away": "DAL", "gid": "401909844", "hc": "#0C2340", "home": "IND", "tip": "7:00 PM ET"}, {"ac": "#266092", "away": "MIN", "gid": "401909845", "hc": "#0150B5", "home": "ORL", "tip": "7:00 PM ET"}, {"ac": "#D91244", "away": "TOR", "gid": "401909846", "hc": "#E31837", "home": "WAS", "tip": "7:00 PM ET"}, {"ac": "#1D428A", "away": "DET", "gid": "401909847", "hc": "#98002E", "home": "MIA", "tip": "8:00 PM ET"}, {"ac": "#CE1141", "away": "HOU", "gid": "401909096", "hc": "#000000", "home": "SAS", "tip": "9:30 PM ET"}, {"ac": "#0A2240", "away": "NOP", "gid": "401909849", "hc": "#4E008E", "home": "UTA", "tip": "9:30 PM ET"}, {"ac": "#5D76A9", "away": "MEM", "gid": "401909850", "hc": "#FDB927", "home": "GSW", "tip": "10:00 PM ET"}, {"ac": "#12173F", "away": "LAC", "gid": "401909851", "hc": "#552583", "home": "LAL", "tip": "10:00 PM ET"}, {"ac": "#E03A3E", "away": "POR", "gid": "401909852", "hc": "#5A2D81", "home": "SAC", "tip": "10:00 PM ET"}], "gpicks": {}, "picks": {}}</script>
-<script src="static/live.js?v=7b049d96ec" defer></script>
+<script src="static/live.js?v=be900dfc49" defer></script>
 <script>
   // games.html#<game_id> opens that game's tab directly (used by WHY & STATS on game pick cards)
   function openGame(h) {
@@ -1029,10 +1031,10 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=7b049d96ec"></script>
+  <script src="static/slip.js?v=be900dfc49"></script>
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>
-<div class="foot-row foot-dim"><span>BUILD: 2026-10-23 04:42 UTC &middot; via GitHub Actions</span></div>  </footer>
+<div class="foot-row foot-dim"><span>BUILD: 2026-10-23 06:37 UTC &middot; via GitHub Actions</span></div>  </footer>
 </body>
 </html>
