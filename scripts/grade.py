@@ -374,12 +374,77 @@ def clv(p: dict) -> dict | None:
     return {"pts": round(pts, 2), "prob": prob, "beat": beat}
 
 
+UNIT_TRUST_WINDOW = 400   # judge sizing on the most recent sized picks
+UNIT_TRUST_MIN_N = 150
+
+
+def stake(p: dict, raw: bool = False) -> float:
+    """Recommended units for a pick: frozen with it; older picks are sized from
+    their own chance and break-even (no trust shrink) the first time they're seen."""
+    import live
+    k = "units_raw" if raw else "units"
+    if p.get(k) is not None:
+        return float(p[k])
+    if p.get("units") is not None and raw:
+        return float(p["units"])
+    return live.unit_rec(p.get("chance"), p.get("break_even"), p.get("role_gap"), trust=1.0)
+
+
+def staked_pl(p: dict, raw: bool = False) -> float | None:
+    u = units(p)
+    return None if u is None else round(u * stake(p, raw), 4)
+
+
+def unit_trust(preds: list[dict], tpreds: list[dict]) -> dict:
+    """How much to trust the unit sizing, from the results of picks it would
+    have sized (raw tiers, so the trust setting never grades itself)."""
+    sized = [p for p in preds + tpreds if p.get("status") == "graded" and stake(p, raw=True) > 0]
+    sized.sort(key=lambda p: (p.get("date", ""), p.get("graded_at") or ""))
+    recent = sized[-UNIT_TRUST_WINDOW:]
+    st = sum(stake(p, raw=True) for p in recent)
+    pl_ = sum(staked_pl(p, raw=True) or 0 for p in recent)
+    roi = round(100 * pl_ / st, 1) if st else None
+    if len(recent) < UNIT_TRUST_MIN_N or roi is None:
+        t, why = 1.0, f"only {len(recent)} sized picks graded so far (needs {UNIT_TRUST_MIN_N}); full sizing"
+    elif roi < -5:
+        t, why = 0.5, f"sized picks are {roi:+.1f}% over the last {len(recent)}; every edge is halved before sizing"
+    elif roi < 0:
+        t, why = 0.75, f"sized picks are {roi:+.1f}% over the last {len(recent)}; every edge is cut by a quarter before sizing"
+    else:
+        t, why = 1.0, f"sized picks are {roi:+.1f}% over the last {len(recent)}; full sizing"
+    return {"trust": t, "n": len(recent), "staked": round(st, 2), "pl": round(pl_, 2), "roi": roi, "why": why}
+
+
+def unit_tiers(preds: list[dict], tpreds: list[dict]) -> list[dict]:
+    """Record and profit at the recommended stake, for each unit size."""
+    import live
+    out = []
+    allp = preds + tpreds
+    for u, name in sorted(live.UNIT_NAMES.items(), key=lambda kv: -kv[0]):
+        ps = [p for p in allp if stake(p) == u]
+        g = [p for p in ps if p.get("status") == "graded"]
+        h = sum(1 for p in g if p.get("hit"))
+        be = [p.get("break_even") or live.DEFAULT_BE for p in g]
+        flat = sum(units(p) or 0 for p in g)
+        out.append({"u": u, "name": name, "n": len(ps), "graded": len(g), "hits": h,
+                    "rate": round(100 * h / len(g), 1) if g else None,
+                    "be": round(100 * sum(be) / len(be), 1) if be else None,
+                    "pending": sum(1 for p in ps if p.get("status") == "pending"),
+                    "flat": round(flat, 2), "pl": round(flat * u, 2), "staked": round(len(g) * u, 2),
+                    "roi": round(100 * flat / len(g), 1) if g else None})
+    return out
+
+
 def _money_row(ps: list[dict]) -> dict:
     g = [p for p in ps if p.get("status") == "graded"]
     u = sum(units(p) or 0 for p in g)
     cs = [c for c in (clv(p) for p in ps if p.get("status") in ("graded", "push", "void")) if c]
     moved = [c for c in cs if c["beat"] != 0]
+    st = sum(stake(p) for p in g)
+    spl = sum(staked_pl(p) or 0 for p in g)
     return {"graded": len(g), "units": round(u, 2), "roi": round(100 * u / len(g), 1) if g else None,
+            "staked": round(st, 2), "rec_pl": round(spl, 2), "rec_roi": round(100 * spl / st, 1) if st else None,
+            "hits": sum(1 for p in g if p.get("hit")), "rate": round(100 * sum(1 for p in g if p.get("hit")) / len(g), 1) if g else None,
             "clv_n": len(cs), "clv_beat": sum(c["beat"] > 0 for c in cs), "clv_lost": sum(c["beat"] < 0 for c in cs),
             "clv_rate": round(100 * sum(c["beat"] > 0 for c in moved) / len(moved), 1) if moved else None,
             "clv_avg": round(sum(c["pts"] for c in cs) / len(cs), 2) if cs else None}

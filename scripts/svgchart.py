@@ -16,6 +16,7 @@ from html import escape
 GREEN, RED, YELLOW, CYAN, PINK = "#3dff8f", "#ff3d57", "#ffc531", "#4f86ff", "#ff6a13"
 GRID, AXIS, TEXT = "rgba(255,255,255,0.07)", "#ab9cc8", "#fff3e3"
 FONT = 'font-family="VT323, ui-monospace, monospace"'
+FONTB = 'font-family="Oxanium, ui-sans-serif, sans-serif" font-weight="700"'
 
 
 def _fmt(v: float) -> str:
@@ -24,10 +25,16 @@ def _fmt(v: float) -> str:
 
 def line_chart(series: list[dict], width: int = 640, height: int = 220, y_min: float = 0, y_max: float = 100,
                references: list[dict] | None = None, x_labels: tuple[str, str] | None = None,
-               y_suffix: str = "", label: str = "") -> str:
+               y_suffix: str = "", label: str = "", point_labels: list[str] | None = None,
+               show_values=False, value_fmt: str = "{:.0f}", fill_zero: bool = False, big: bool = False) -> str:
     """series: [{"points": [y or None, ...], "color": "#...", "name": "..."}]
-    references: [{"y": 50, "color": "#...", "label": "coin flip"}]"""
-    pad_l, pad_r, pad_t, pad_b = 40, 14, 14, 26
+    references: [{"y": 50, "color": "#...", "label": "coin flip"}]
+    point_labels: one x label per point (drawn when there are 14 or fewer).
+    show_values: print each point's value above it (14 or fewer points).
+    fill_zero: shade above/below 0 green/red (for running units)."""
+    pad_l, pad_r, pad_t, pad_b = (58, 56, 26, 30) if big else (46, 18, 22 if show_values else 14, 26)
+    fs = 15 if big else 13
+    F = FONTB if big else FONT
     pw, ph = width - pad_l - pad_r, height - pad_t - pad_b
 
     def x_at(i, n):
@@ -43,7 +50,7 @@ def line_chart(series: list[dict], width: int = 640, height: int = 220, y_min: f
         v = y_min + (y_max - y_min) * frac
         y = y_at(v)
         out.append(f'<line x1="{pad_l}" y1="{y:.1f}" x2="{width - pad_r}" y2="{y:.1f}" stroke="{GRID}"/>')
-        out.append(f'<text x="{pad_l - 6}" y="{y + 4:.1f}" text-anchor="end" font-size="13" fill="{AXIS}" {FONT}>{_fmt(v)}{y_suffix}</text>')
+        out.append(f'<text x="{pad_l - 6}" y="{y + 4:.1f}" text-anchor="end" font-size="{fs}" fill="{AXIS}" {F}>{_fmt(v)}{y_suffix}</text>')
     for ref in references or []:
         ry = y_at(ref["y"])
         out.append(f'<line x1="{pad_l}" y1="{ry:.1f}" x2="{width - pad_r}" y2="{ry:.1f}" stroke="{ref.get("color", RED)}" '
@@ -51,7 +58,12 @@ def line_chart(series: list[dict], width: int = 640, height: int = 220, y_min: f
         if ref.get("label"):
             ly = ry + 13 if ref.get("below") else ry - 4
             anchor, lx = ("start", pad_l + 4) if ref.get("left") else ("end", width - pad_r)
-            out.append(f'<text x="{lx}" y="{ly:.1f}" text-anchor="{anchor}" font-size="13" fill="{ref.get("color", RED)}" {FONT}>{escape(ref["label"])}</text>')
+            out.append(f'<text x="{lx}" y="{ly:.1f}" text-anchor="{anchor}" font-size="{fs}" fill="{ref.get("color", RED)}" {F}>{escape(ref["label"])}</text>')
+    if fill_zero and y_min < 0 < y_max:
+        zy = y_at(0)
+        out.append(f'<rect x="{pad_l}" y="{pad_t}" width="{pw}" height="{zy - pad_t:.1f}" fill="{GREEN}" opacity="0.06"/>')
+        out.append(f'<rect x="{pad_l}" y="{zy:.1f}" width="{pw}" height="{pad_t + ph - zy:.1f}" fill="{RED}" opacity="0.06"/>')
+        out.append(f'<line x1="{pad_l}" y1="{zy:.1f}" x2="{width - pad_r}" y2="{zy:.1f}" stroke="{AXIS}" stroke-width="1.5"/>')
     for s in series:
         pts = s.get("points") or []
         n, color = len(pts), s.get("color", CYAN)
@@ -70,13 +82,21 @@ def line_chart(series: list[dict], width: int = 640, height: int = 220, y_min: f
             pen = True
         if d:
             out.append(f'<path d="{" ".join(d)}" fill="none" stroke="{color}" stroke-width="2"/>')
-        r = 3 if n <= 60 else 2
-        for p in seg:
+        r = 4 if n <= 14 else 3 if n <= 60 else 2
+        for i, p in enumerate(seg):
             if p:
                 out.append(f'<circle cx="{p[0]:.1f}" cy="{p[1]:.1f}" r="{r}" fill="{color}"/>')
-    if x_labels:
-        out.append(f'<text x="{pad_l}" y="{height - 6}" font-size="13" fill="{AXIS}" {FONT}>{escape(x_labels[0])}</text>')
-        out.append(f'<text x="{width - pad_r}" y="{height - 6}" text-anchor="end" font-size="13" fill="{AXIS}" {FONT}>{escape(x_labels[1])}</text>')
+                if (show_values == "last" and i == max(j for j, q in enumerate(seg) if q)) or (show_values is True and n <= 14):
+                    last = show_values == "last"
+                    out.append(f'<text x="{p[0] + (8 if last else 0):.1f}" y="{p[1] + (6 if last else -9):.1f}" text-anchor="{"start" if last else "middle"}" font-size="{fs + 3}" fill="{color}" '
+                               f'{F}>{escape(value_fmt.format(pts[i]))}</text>')
+    if point_labels and len(point_labels) <= 14:
+        n = len(point_labels)
+        for i, lab in enumerate(point_labels):
+            out.append(f'<text x="{x_at(i, n):.1f}" y="{height - 6}" text-anchor="middle" font-size="{fs}" fill="{AXIS}" {F}>{escape(lab)}</text>')
+    elif x_labels:
+        out.append(f'<text x="{pad_l}" y="{height - 6}" font-size="{fs}" fill="{AXIS}" {F}>{escape(x_labels[0])}</text>')
+        out.append(f'<text x="{width - pad_r}" y="{height - 6}" text-anchor="end" font-size="{fs}" fill="{AXIS}" {F}>{escape(x_labels[1])}</text>')
     out.append("</svg>")
     return "".join(out)
 

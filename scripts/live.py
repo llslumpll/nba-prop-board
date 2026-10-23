@@ -126,13 +126,44 @@ def tier_for(row: dict) -> str:
 # Slate
 # ---------------------------------------------------------------------------
 
+LIVE_HOLD_H = 5
+
+# ---- recommended units: how much to stake on a pick, from its edge over the price
+# edge = our chance - the price's break-even. Steps chosen so 1U needs a 6-point edge;
+# below break-even the site says PASS (0U). UNIT_TRUST (0.5-1.0) is set every build by
+# grade.unit_trust() from how the sized picks have actually done: when they lose money,
+# every edge is shrunk before sizing, so stakes come down until results earn them back.
+UNIT_STEPS = ((0.13, 2.0), (0.09, 1.5), (0.06, 1.0), (0.04, 0.75), (0.02, 0.5), (0.0, 0.25))
+UNIT_NAMES = {0.0: "PASS", 0.25: "LOW", 0.5: "MEDIUM", 0.75: "LEAN", 1.0: "CONFIDENT", 1.5: "HIGH", 2.0: "EXTREME"}
+UNIT_TRUST = 1.0
+DEFAULT_BE = 0.5238  # -110 when a source has no price
+
+
+def unit_rec(chance, be, role_gap=False, inj=None, trust=None) -> float:
+    if chance is None:
+        return 0.0
+    be = be if be is not None else DEFAULT_BE
+    if chance < be:
+        return 0.0
+    edge = (chance - be) * (UNIT_TRUST if trust is None else trust)
+    u = next(u for t, u in UNIT_STEPS if edge >= t)
+    if role_gap:
+        u = min(u, 0.25)  # projection far from the line: likely a role change the market knows about
+    if inj:
+        u = min(u, 0.5)   # questionable / day-to-day
+    return u
+
+
+
 def slate(now: datetime | None = None) -> dict:
     now = now or datetime.now(timezone.utc)
     s = dataio.load_schedule()
     if not s.height:
         return {"date": None, "games": []}
     s = s.filter(pl.col("home").is_not_null() & pl.col("away").is_not_null() & pl.col("tip_utc").is_not_null())
-    fut = s.filter((pl.col("tip_utc") > now) & ~pl.col("completed"))
+    # Stay on tonight's date until its last game is final (ESPN marks finals within
+    # minutes, see espn_finals.py); a game nobody has marked final drops off 5h after tip.
+    fut = s.filter((pl.col("tip_utc") > now - timedelta(hours=LIVE_HOLD_H)) & ~pl.col("completed"))
     if not fut.height:
         return {"date": None, "games": []}
     first = fut.sort("tip_utc")["tip_utc"][0].astimezone(ET).date()
@@ -327,13 +358,15 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
                 be = ln.get("be_over") if side == "OVER" else ln.get("be_under")
                 mkt = ln.get("market_over")
                 mkt_side = (mkt if side == "OVER" else 1 - mkt) if mkt is not None else None
-                st["lines"][src] = {**ln, "p_over": round(po, 4), "side": side, "chance": round(chance, 4), "blend_mean": round(mu_b, 2), "market_mean": round(m_mkt, 2), "role_gap": role_gap,
+                st["lines"][src] = {**ln, "units": unit_rec(chance, be, role_gap, r.get("inj_status")),
+                                    "units_raw": unit_rec(chance, be, role_gap, r.get("inj_status"), trust=1.0),
+                                    "p_over": round(po, 4), "side": side, "chance": round(chance, 4), "blend_mean": round(mu_b, 2), "market_mean": round(m_mkt, 2), "role_gap": role_gap,
                                     "break_even": be, "value": round(chance - be, 4) if be is not None else None,
                                     "market_side": round(mkt_side, 4) if mkt_side is not None else None}
             psrc, _ = markets.primary(st["lines"])
             if psrc:
                 pk = st["lines"][psrc]
-                st["pick"] = {"source": psrc, "blend_w": blend_w, **{k: pk[k] for k in ("line", "side", "chance", "break_even", "value", "market_side", "blend_mean", "role_gap")}}
+                st["pick"] = {"source": psrc, "blend_w": blend_w, **{k: pk[k] for k in ("line", "side", "chance", "break_even", "value", "market_side", "blend_mean", "role_gap", "units", "units_raw")}}
                 if s in PICK_STATS:
                     picks[s].append({**{k: row[k] for k in ("player", "player_id", "team", "opp", "home", "game_id",
                                                             "badge", "tier", "proj_min", "inj_status")},
@@ -477,6 +510,7 @@ def game_picks(g: dict, tp: dict, kal_ml: dict | None = None, total_offset: floa
     for p in out:
         p.update(our_margin=round(m, 1), market_margin=round(mm, 1), blend_margin=round(mb, 1),
                  blend_w=round(wt if p["market"] == "total" else wm, 4), agree=agree_t if p["market"] == "total" else agree_m)
+        p.update(units=unit_rec(p["chance"], p["break_even"]), units_raw=unit_rec(p["chance"], p["break_even"], trust=1.0))
     return out
 
 

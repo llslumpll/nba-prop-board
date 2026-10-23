@@ -38,6 +38,7 @@ import logs  # noqa: E402
 import markets  # noqa: E402
 import model  # noqa: E402
 import oddsapi_client  # noqa: E402
+import espn_finals  # noqa: E402
 import pages  # noqa: E402
 import predictions  # noqa: E402
 import prizepicks_client  # noqa: E402
@@ -149,6 +150,13 @@ def build(args) -> None:
         print(f"  rosters: {len(r.get('players', []))} players, error={r.get('error')}")
     box = dataio.load_box()
     sched = dataio.load_schedule()
+    # same-night results: ESPN finals graded within minutes instead of next morning
+    espn = espn_finals.refresh(sched, box, {p["date"] for p in predictions.load_all() + predictions.load_all(team=True)
+                                             if p.get("status") == "pending"}, now)
+    box, sched = espn_finals.merge_box(box, espn), espn_finals.merge_schedule(sched, espn)
+    dataio._box_cache, dataio._sched_cache = box, sched  # every module now sees the merged tables
+    print(f"ESPN results: {len(espn.get('status', {}))} games checked, {espn.get('new_finals', 0)} new final box score(s), "
+          f"{len(espn.get('games', {}))} held until the daily file catches up, error={espn.get('error')}")
     fit = live.load_fit()
     if not args.no_fetch and box.height:
         n = live.refresh_player_var(box, fit)
@@ -201,7 +209,14 @@ def build(args) -> None:
         g["kalshi_ml"] = kalshi_client.moneyline(kal, g["away"], g["home"], g["date"])
         if go.get("spread"):
             spreads[g["game_id"]] = go["spread"]["home_point"]
-    res = live.run(box, sl, roster, inj, line_book, fit, spreads=spreads)
+    # unit sizing trust, from how sized picks have actually done (see live.unit_rec)
+    trust = grade.unit_trust(predictions.load_all(), predictions.load_all(team=True))
+    live.UNIT_TRUST = trust["trust"]
+    print(f"Unit sizing trust {trust['trust']}: {trust['why']}")
+    # tonight's own results never feed tonight's projections
+    sl_ids = [g["game_id"] for g in sl["games"]]
+    res = live.run(box.filter(~pl.col("game_id").is_in(sl_ids)) if box.height and sl_ids else box,
+                   sl, roster, inj, line_book, fit, spreads=spreads)
     print(f"Slate {sl.get('date')}: {len(sl['games'])} games, {len(res['players'])} players projected, "
           f"{sum(len(v) for v in res['picks'].values())} player/stat lines matched.")
 
@@ -217,7 +232,7 @@ def build(args) -> None:
         for p in plist:
             out_ctx = sorted(outs.get(p["team"], set()) | outs.get(p["opp"], set()))
             rec = {k: p[k] for k in ("player", "player_id", "team", "opp", "home", "game_id", "date", "stat",
-                                     "tier", "proj_min", "var", "line", "chance", "break_even", "market_side")}
+                                     "tier", "proj_min", "var", "line", "chance", "break_even", "market_side", "units", "units_raw", "role_gap")}
             rec.update(projected=p["proj"], call=p["side"], line_source=p["source"],
                        blend_mean=p.get("blend_mean"), blend_w=p.get("blend_w"),
                        lines={src: ln["line"] for src, ln in p["lines"].items()},
@@ -346,7 +361,7 @@ def build(args) -> None:
     pages.render_all({
         "now": now, "slate": sl, "res": res, "best": best, "edge": est, "cal": cal, "preds": preds_all,
         "tpreds": predictions.load_all(team=True), "sources": sources, "health": health, "lm": lm,
-        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj,
+        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj, "trust": trust, "espn": espn,
     })
     # consistency audit on what was just built; its result shows on History -> Pipeline next build
     import subprocess

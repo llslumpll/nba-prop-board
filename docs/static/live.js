@@ -17,6 +17,7 @@
   var COMBO = {pra: ['pts', 'reb', 'ast'], pr: ['pts', 'reb'], pa: ['pts', 'ast'], ra: ['reb', 'ast']};
   var LABEL = {pts: 'PTS', reb: 'REB', ast: 'AST', fg3m: '3PM', pra: 'PRA', pr: 'P+R', pa: 'P+A', ra: 'R+A'};
 
+  function utag(u) { u = +u || 0; return '<span class="u-tag u-' + Math.round(u * 100) + '">' + (u ? (u + 'U') : 'PASS') + '</span>'; }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]; }); }
   function visible() { var p = root.closest('[data-tab-panel]'); return !p || !p.classList.contains('hidden'); }
   function getJSON(url) { return fetch(url, {cache: 'no-store'}).then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }); }
@@ -123,7 +124,7 @@
     if (gp.length) {
       h += '<h3 class="gc-h">Our game picks</h3><div class="table-wrap"><div class="table-scroll"><table class="stat-table lvt"><thead><tr><th>Market</th><th>Pick</th><th class="num">Chance</th><th class="num">Now</th><th>Status</th></tr></thead><tbody>';
       gp.forEach(function (t) { var st = gameStatus(t, s, frac);
-        h += '<tr class="lv-' + st.cls + '"><td>' + t.market.toUpperCase() + (t.star ? ' <span class="star">★</span>' : '') + '</td><td><span class="pp-pick pp-' + (t.pick === 'UNDER' ? 'under' : 'over') + '">' + esc(t.label) + '</span></td><td class="num">' + Math.round(t.chance * 100) + '%</td><td class="num">' + esc(st.now) + '</td><td><span class="res res-' + st.cls + '">' + esc(st.txt) + '</span></td></tr>'; });
+        h += '<tr class="lv-' + st.cls + '"><td>' + t.market.toUpperCase() + (t.star ? ' <span class="star">★</span>' : '') + '</td><td><span class="pp-pick pp-' + (t.pick === 'UNDER' ? 'under' : 'over') + '">' + esc(t.label) + '</span> ' + utag(t.u) + '</td><td class="num">' + Math.round(t.chance * 100) + '%</td><td class="num">' + esc(st.now) + '</td><td><span class="res res-' + st.cls + '">' + esc(st.txt) + '</span></td></tr>'; });
       h += '</tbody></table></div></div>';
     }
     // player picks
@@ -139,7 +140,7 @@
         '<div class="table-wrap"><div class="table-scroll lv-scroll"><table class="stat-table lvt"><thead><tr><th>Player</th><th>Pick</th><th class="num">Now</th><th class="num">Pace</th><th>Status</th></tr></thead><tbody>';
       rows.forEach(function (r) { var p = r.p, st = r.st;
         h += '<tr class="lv-' + st.cls + (p.star ? ' lv-star' : ' lv-nostar') + '"><td><a class="plink" href="p-' + esc(p.pid) + '.html">' + esc(p.player) + '</a>' + (p.star ? ' <span class="star">★</span>' : '') + '<div class="player-sub">' + esc(p.team) + ' · ' + (LABEL[p.stat] || p.stat) + (box.players[p.pid] ? ' · ' + box.players[p.pid].min + ' min' : '') + '</div></td>' +
-          '<td><span class="pp-pick pp-' + p.call.toLowerCase() + '">' + p.call + ' ' + p.line + '</span> <span class="pp-ch">' + Math.round(p.chance * 100) + '%</span></td>' +
+          '<td><span class="pp-pick pp-' + p.call.toLowerCase() + '">' + p.call + ' ' + p.line + '</span> <span class="pp-ch">' + Math.round(p.chance * 100) + '%</span> ' + utag(p.u) + '</td>' +
           '<td class="num"><b class="day-actual">' + (st.cur == null ? '–' : st.cur) + '</b></td><td class="num">' + (st.pace == null || s.state === 'post' ? '–' : st.pace.toFixed(1)) + '</td>' +
           '<td><span class="res res-' + st.cls + '">' + esc(st.txt) + '</span></td></tr>'; });
       h += '</tbody></table></div></div>';

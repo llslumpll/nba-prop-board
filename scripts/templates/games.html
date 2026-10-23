@@ -4,6 +4,7 @@
 {% block content %}
 <h1>Games</h1>
 <p class="lede">Moneyline, spread and total for every game on the {{ slate.date_label or 'next' }} slate: FanDuel and Kalshi prices, our projected score, our picks, who is out and each team's top projected players. Game picks freeze on game day and are graded like the player props.</p>
+{{ m.ulegend() }}
 <details class="info-collapse"><summary>How game picks work</summary>
 <div class="notice compact">Our team score is the sum of our player projections. Each game pick starts from what the market implies (FanDuel's spread for the margin, its total for the points) and moves toward our number by up to {{ (blend_w * 100)|round(0)|int }}%, scaled by how well our team numbers have tracked the market so far (correlation, pooled over every game). Early in a season, when rosters are new, that agreement is low, so our weight is small and most picks sit near the market; Best 5 and Best Value only list picks whose chance beats their price. Totals use how each game differs from the night's average, since our summed scores run high early. Spread and total chances are capped at {{ (cap * 100)|round(0)|int }}%. On the 2025-26 season our summed scores picked {{ team_fit.winner_pct }}% of winners with a {{ team_fit.margin_sd }}-point spread of misses. All game picks are leans until History shows an edge.</div>
 {% for n in notices %}<div class="notice compact">{{ n|safe }}</div>{% endfor %}
@@ -50,7 +51,7 @@
       <div class="gp-row">
         <div class="gp-mkt">{{ p.market|upper }}</div>
         <div class="gp-pick"><span class="pill pill-{{ 'over' if p.market != 'total' or p.pick == 'OVER' else 'under' }} pill-sm">{{ p.pick_label }}</span>{% if p.price_str %} <span class="dim small">{{ p.price_str }}</span>{% endif %}</div>
-        <div class="gp-ch"><b>{{ (p.chance * 100)|round(0)|int }}%</b>{% if p.break_even %}<span class="dim small"> vs {{ (p.break_even * 100)|round(1) }}% break-even</span>{% endif %}</div>
+        <div class="gp-ch">{{ m.utag(stake(p)) }} <b>{{ (p.chance * 100)|round(0)|int }}%</b>{% if p.break_even %}<span class="dim small"> vs {{ (p.break_even * 100)|round(1) }}% break-even</span>{% endif %}</div>
         <div class="gp-tags"><span class="lean-tag">lean</span>{% if p.frozen %} <span class="locked">&#128274; frozen</span>{% else %} <span class="dim small">freezes {{ '8 h before tip' }}</span>{% endif %}</div>
         <p class="why-reason gp-why">{{ p.why }}</p>
       </div>

@@ -37,7 +37,7 @@ BEST5_SIZE = 5
 FREEZE_WINDOW = timedelta(hours=8)
 # fields replaced when a pick is re-frozen after new injury news
 REFREEZE_FIELDS = ("tier", "proj_min", "var", "line", "chance", "break_even", "market_side", "projected", "blend_mean", "blend_w",
-                   "call", "line_source", "lines", "label", "why", "out_ctx")
+                   "call", "line_source", "lines", "label", "why", "out_ctx", "units", "units_raw", "role_gap")
 
 _cache: dict[str, dict] = {}
 _dirty: set[str] = set()

@@ -1,208 +1,316 @@
 {% extends "base.html" %}
 {% import "_macros.html" as m %}
+
+{# ---------- History building blocks ---------- #}
+{% macro sgn(v, d=1, suf='') -%}{% if v is none %}—{% else %}<span class="{{ 'stat-good' if v > 0 else 'stat-bad' if v < 0 }}">{{ ('%+.' ~ d ~ 'f')|format(v) }}{{ suf }}</span>{% endif %}{%- endmacro %}
+
+{% macro rec_strip(s) %}
+<div class="hv-rec">
+  <div class="hv-tile"><b>{% if s.graded %}{{ s.hits }}&ndash;{{ s.misses }}{% else %}0&ndash;0{% endif %}</b><span>record{% if s.pending %} &middot; {{ s.pending }} pending{% endif %}</span></div>
+  <div class="hv-tile"><b class="{{ 'stat-good' if s.rate is not none and s.be is not none and s.rate > s.be else 'stat-bad' if s.rate is not none }}">{{ (s.rate ~ '%') if s.rate is not none else '—' }}</b><span>hit rate</span></div>
+  <div class="hv-tile"><b class="hv-need">{{ (s.be ~ '%') if s.be is not none else '—' }}</b><span>needed to profit</span></div>
+  <div class="hv-tile"><b>{{ sgn(s.rec if s.graded else none, 2, 'U') }}</b><span>at our units{% if s.rec_roi is not none %} ({{ '%+.1f'|format(s.rec_roi) }}%){% endif %}</span></div>
+  <div class="hv-tile"><b>{{ sgn(s.flat if s.graded else none, 2, 'U') }}</b><span>flat 1U each</span></div>
+</div>
+{% endmacro %}
+
+{% macro verdict(s) %}<div class="hv-verdict hv-{{ s.v }}"><span class="hv-vk">{{ {'good': 'WORKING', 'ok': 'EVEN', 'bad': 'NOT WORKING', 'early': 'TOO EARLY', 'none': 'NO DATA'}[s.v] }}</span> {{ s.vtext }}</div>{% endmacro %}
+
+{% macro chart_pair(c, name) %}
+{% if c.days %}
+<div class="chart-grid">
+  <div class="chart-panel hv-chart"><h3>Hit rate by day</h3>
+    <p class="sub">Yellow dots = that day's hit rate. Above the orange dashed line = a winning day at these prices.</p>{{ c.hit|safe }}</div>
+  <div class="chart-panel hv-chart"><h3>Running units</h3>
+    <p class="sub">Profit added up day by day. Green area = ahead, red = behind.</p>{{ c.units|safe }}
+    <div class="legend"><span><i style="background:#ffc531"></i>1 unit on every pick</span><span><i style="background:#4f86ff"></i>at our recommended units</span></div></div>
+</div>
+{% else %}<div class="chart-empty">Charts appear once picks here are graded.</div>{% endif %}
+{% endmacro %}
+
+{% macro log_table(rows, title) %}
+{% if rows %}
+<details class="hv-log"><summary>{{ title }} ({{ rows|length }}) &#9662;</summary>
+<div class="table-wrap"><div class="table-scroll hv-log-scroll"><table class="stat-table dayt">
+  <thead><tr><th>Day</th><th>Pick</th><th class="num">Result</th><th class="num">Units</th></tr></thead>
+  <tbody>{% for r in rows %}
+  <tr class="{{ 'row-hit' if r.mark == 'hit' else 'row-miss' if r.mark == 'miss' }}">
+    <td class="small nowrap">{{ r.date }}</td>
+    <td><div class="player-name">{% if r.pid %}<a href="p-{{ r.pid }}.html" class="plink">{{ r.who }}</a> <span class="dim small">{{ r.team }}</span>{% else %}{{ r.who }}{% endif %}</div>
+      <span class="pp-pick pp-{{ r.side }}">{{ r.what }}</span> <span class="pp-ch">{{ (r.chance * 100)|round(0)|int }}%</span> {{ m.utag(r.u) }}</td>
+    <td class="num">{% if r.mark in ('hit', 'miss') %}<span class="res res-{{ r.mark }}">{{ '&#10004; HIT'|safe if r.mark == 'hit' else '&#10008; MISS'|safe }}</span>{% else %}<span class="res res-{{ 'pend' if r.mark == 'pending' else 'void' }}">{{ r.mark|upper }}</span>{% endif %}
+      {% if r.actual is not none %}<div class="small dim">{{ r.actual if r.actual is string else r.actual|fmtnum }}</div>{% endif %}</td>
+    <td class="num">{% if r.pl is none %}<span class="dim">—</span>{% elif r.u == 0 %}<span class="dim small">pass</span>{% else %}{{ sgn(r.pl, 2, 'U') }}{% endif %}</td>
+  </tr>{% endfor %}</tbody>
+</table></div></div>
+</details>
+{% endif %}
+{% endmacro %}
+
+{% macro hsec(sec, logtitle='Every pick here') %}
+{{ rec_strip(sec.s) }}
+{{ verdict(sec.s) }}
+{{ chart_pair(sec.c, sec.name) }}
+{{ log_table(sec.log, logtitle) }}
+{% endmacro %}
+
+{% macro help(text) %}<div class="hv-help"><span class="hv-help-k">WHAT THIS TELLS YOU</span> {{ text|safe }}</div>{% endmacro %}
+
 {% block title %}History — Prop Edge NBA{% endblock %}
 {% block content %}
 <h1>History</h1>
-<p class="lede">Every pick frozen before tip-off, graded after the game. DNPs and scratches are voided, not counted as misses; a result exactly on a whole-number line is a push. Pick a tab below; every individual pick is under <strong>Day by day</strong>.</p>
+<p class="lede">Every pick is frozen before tip-off and graded the moment its game goes final. Start with the short version below, then pick a tab for the details.</p>
+
+{# ---------- The short version ---------- #}
+{% set o = hv.overall %}
+<section class="hv-top">
+  <div class="hv-top-h">THE SHORT VERSION <span class="dim small">all {{ o.n }} picks: player props + moneyline, spread, total</span></div>
+  {{ rec_strip(o) }}
+  {{ verdict(o) }}
+  <div class="hv-split">
+    <div class="hv-box hv-box-good"><div class="hv-box-h">&#9650; WHAT'S WORKING</div>
+      {% for s in hv.working %}<div class="hv-line"><span>{{ s.name }}{% if s.src %} &middot; {{ src_labels[s.src] }}{% endif %}</span><b>{{ s.hits }}&ndash;{{ s.misses }}</b><b>{{ sgn(s.roi, 1, '%') }}</b></div>
+      {% else %}<p class="small dim">Nothing with 15+ graded picks is profitable yet.</p>{% endfor %}</div>
+    <div class="hv-box hv-box-bad"><div class="hv-box-h">&#9660; WHAT ISN'T</div>
+      {% for s in hv.not_working %}<div class="hv-line"><span>{{ s.name }}{% if s.src %} &middot; {{ src_labels[s.src] }}{% endif %}</span><b>{{ s.hits }}&ndash;{{ s.misses }}</b><b>{{ sgn(s.roi, 1, '%') }}</b></div>
+      {% else %}<p class="small dim">Nothing with 15+ graded picks is losing.</p>{% endfor %}</div>
+  </div>
+  <p class="small dim hv-note">Return per unit in each row (ROI): +5% means 5 cents profit per dollar staked. Groups need 15+ graded picks to be listed.</p>
+</section>
+
+<details class="hv-gloss">
+  <summary>&#10067; WHAT DO THESE WORDS MEAN? <span class="dim small">tap to open</span></summary>
+  <dl>
+    <dt>Hit rate</dt><dd>How often the pick was right. Voids (player didn't play) and pushes (landed exactly on the line) don't count either way.</dd>
+    <dt>Needed to profit (break-even)</dt><dd>The hit rate the price requires. At &minus;110 you need 52.4%; PrizePicks 6-pick flex about 54.2%. Hitting 55% at a price that needs 57% still loses money.</dd>
+    <dt>Units (U)</dt><dd>Bet size. 1U is your normal bet. <b>Flat 1U</b> = what you'd have made betting 1 unit on everything. <b>At our units</b> = betting the recommended size shown next to each pick.</dd>
+    <dt>Recommended units</dt><dd>{% for st in hv.steps|reverse %}<span class="u-step">{{ m.utag(st.u) }} {{ st.name|lower }} ({{ st.edge }}+ pts over break-even)</span>{% endfor %} <span class="u-step">{{ m.utag(0) }} chance doesn't beat the price</span></dd>
+    <dt>Value / edge</dt><dd>Our chance minus the break-even, in percentage points. 60% on a pick that needs 52.4% = 7.6 points of value.</dd>
+    <dt>Closing line value (CLV)</dt><dd>Did the line move our way after we froze the pick? Beating the closing line most of the time is the earliest sign of a real edge.</dd>
+    <dt>Best 5 / Best Value</dt><dd>Best 5 = highest chance on each list. Best Value = biggest edge over the price. Both lock at tip.</dd>
+    <dt>Lean / edge</dt><dd>Every stat is a "lean" until its graded record beats the line; then it's labelled "edge".</dd>
+  </dl>
+</details>
+
 <div class="seg hist-tabs" data-tabs="hist" data-hash="1" data-tab-scroll="1">
-  <button data-tab="money" class="active">PROFIT &amp; CLV</button><button data-tab="scoreboard" class="">SCOREBOARD</button><button data-tab="trends" class="">ACCURACY</button><button data-tab="conviction" class="">CONFIDENCE &amp; VALUE</button><button data-tab="best5" class="">BEST 5 RECORD</button><button data-tab="games" class="">GAME PICKS</button><button data-tab="model" class="">MODEL</button><button data-tab="health" class="">PIPELINE</button><button data-tab="days" class="">DAY BY DAY</button>
+  <button data-tab="overview" class="active">OVERVIEW</button><button data-tab="units">UNITS</button><button data-tab="best5">BEST 5</button><button data-tab="stats">BY STAT</button><button data-tab="games">GAME PICKS</button><button data-tab="players">PLAYERS</button><button data-tab="confidence">CONFIDENCE</button><button data-tab="days">DAY BY DAY</button><button data-tab="model">MODEL &amp; PIPELINE</button>
 </div>
 
-<section class="hist-panel" data-tab-panel="hist:money">
-<h2 class="hist-h">Profit &amp; closing line value</h2>
-<p class="lede small"><strong>Units:</strong> 1 unit on every graded pick at the price of its own line (FanDuel juice, Kalshi ask, PrizePicks 54.2% flex break-even, so PrizePicks units are an approximation). <strong>Closing line value (CLV):</strong> did the line move our way between when we froze the pick and tip-off? Beating the close on most picks is the earliest sign of a real edge: it shows up after about 100 picks, long before a hit rate means much.</p>
+{# ---------- OVERVIEW ---------- #}
+<section class="hist-panel" data-tab-panel="hist:overview">
+<h2 class="hist-h">Overview</h2>
+{{ help('Your whole record over time. The left chart says <b>how often</b> picks hit each day; the right one says <b>whether that made money</b>. Hit rate can look fine while units fall, because many prices need more than 50%.') }}
+<div class="chips" data-tabs="ov">
+  <button class="chip active" data-tab="all" type="button">EVERYTHING</button><button class="chip" data-tab="props" type="button">PLAYER PROPS</button><button class="chip" data-tab="gp" type="button">GAME PICKS</button>
+</div>
+<div data-tab-panel="ov:all">{{ chart_pair(hv.overall_c, 'Every pick') }}</div>
+<div class="hidden" data-tab-panel="ov:props">{{ rec_strip(hv.players_all) }}{{ verdict(hv.players_all) }}</div>
+<div class="hidden" data-tab-panel="ov:gp">{{ rec_strip(hv.games_all) }}{{ verdict(hv.games_all) }}</div>
+
+<h3 class="hv-h3">Beating the closing line</h3>
+{{ help('If the line keeps moving toward our side after we freeze, the market is agreeing with us late. Over 50% here, sustained, matters more than a few lucky nights.') }}
 {% set t = money.total %}
-<div class="stat-strip money-strip">
-  <div class="stat-block"><div class="num {{ 'stat-good' if t.units > 0 else 'stat-bad' if t.units < 0 else '' }}">{{ '%+.1f'|format(t.units) }}</div><div class="label">units ({{ t.graded }} graded)</div></div>
-  <div class="stat-block"><div class="num {{ 'stat-good' if t.roi is not none and t.roi > 0 else 'stat-bad' if t.roi is not none and t.roi < 0 else '' }}">{{ ('%+.1f'|format(t.roi) ~ '%') if t.roi is not none else '—' }}</div><div class="label">return per unit</div></div>
-  <div class="stat-block"><div class="num {{ 'stat-good' if t.clv_rate is not none and t.clv_rate > 50 else 'stat-bad' if t.clv_rate is not none and t.clv_rate < 50 else '' }}">{{ (t.clv_rate ~ '%') if t.clv_rate is not none else '—' }}</div><div class="label">beat the closing line ({{ t.clv_beat }} beat, {{ t.clv_lost }} lost, of {{ t.clv_n }})</div></div>
-  <div class="stat-block"><div class="num {{ 'stat-good' if t.clv_avg is not none and t.clv_avg > 0 else 'stat-bad' if t.clv_avg is not none and t.clv_avg < 0 else '' }}">{{ ('%+.2f'|format(t.clv_avg)) if t.clv_avg is not none else '—' }}</div><div class="label">avg line move our way (pts)</div></div>
+<div class="hv-rec">
+  <div class="hv-tile"><b class="{{ 'stat-good' if t.clv_rate is not none and t.clv_rate > 50 else 'stat-bad' if t.clv_rate is not none }}">{{ (t.clv_rate ~ '%') if t.clv_rate is not none else '—' }}</b><span>beat the close</span></div>
+  <div class="hv-tile"><b>{{ t.clv_beat }} / {{ t.clv_lost }}</b><span>moved our way / against</span></div>
+  <div class="hv-tile"><b>{{ sgn(t.clv_avg, 2) }}</b><span>avg points our way</span></div>
 </div>
-{% if money.pending_close %}<p class="small dim">{{ money.pending_close }} pending pick{{ 's' if money.pending_close != 1 }} already have a closing line recorded; they count here once graded.</p>{% endif %}
-<div class="chart-panel">
-  <h3>Running units</h3>
-  <p class="sub">Cumulative profit if you'd put 1 unit on every graded pick. Green when ahead, red when behind.</p>
-  {% if money.chart %}{{ money.chart|safe }}{% else %}<div class="chart-empty">Chart appears after 2 days of graded picks.</div>{% endif %}
+</section>
+
+{# ---------- UNITS ---------- #}
+<section class="hist-panel hidden" data-tab-panel="hist:units">
+<h2 class="hist-h">Recommended units</h2>
+{{ help('Every pick gets a stake from 0.25U to 2U based on how far our chance beats the price. If the sizing works, the bigger sizes should hit more often <b>and</b> make more money. If they don\'t, the site automatically sizes everything down.') }}
+<div class="hv-trust hv-trust-{{ (hv.trust.trust * 100)|int if hv.trust.trust is defined else 100 }}">
+  <div><span class="hv-vk">SIZING TRUST {{ ((hv.trust.trust or 1) * 100)|int }}%</span></div>
+  <div class="small">{{ hv.trust.why }}</div>
 </div>
-{% if money.by %}
-<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
-  <thead><tr><th>Stat</th><th>Line</th><th class="num">Graded</th><th class="num">Units</th><th class="num">ROI</th><th class="num">Beat close</th><th class="num hide-sm">Avg CLV</th></tr></thead>
-  <tbody>
-  {% for r in money.by %}
-  <tr><td>{{ stat_labels[r.stat] }}</td><td>{{ src_labels[r.source] }}</td><td class="num">{{ r.graded }}</td>
-    <td class="num {{ 'stat-good' if r.units > 0 else 'stat-bad' if r.units < 0 else '' }}">{{ '%+.1f'|format(r.units) }}</td>
-    <td class="num {{ 'stat-good' if r.roi is not none and r.roi > 0 else 'stat-bad' if r.roi is not none and r.roi < 0 else '' }}">{{ ('%+.1f'|format(r.roi) ~ '%') if r.roi is not none else '—' }}</td>
-    <td class="num {{ 'stat-good' if r.clv_rate is not none and r.clv_rate > 50 else 'stat-bad' if r.clv_rate is not none and r.clv_rate < 50 else '' }}">{{ (r.clv_rate ~ '% of ' ~ (r.clv_beat + r.clv_lost)) if r.clv_rate is not none else '—' }}</td>
-    <td class="num hide-sm {{ 'stat-good' if r.clv_avg is not none and r.clv_avg > 0 else 'stat-bad' if r.clv_avg is not none and r.clv_avg < 0 else '' }}">{{ ('%+.2f'|format(r.clv_avg)) if r.clv_avg is not none else '—' }}</td></tr>
-  {% endfor %}
-  {% for r in money.lists %}{% if r.graded %}
-  <tr class="team-row-lite"><td colspan="2"><strong>{{ r.label }} (all stats)</strong></td><td class="num">{{ r.graded }}</td>
-    <td class="num {{ 'stat-good' if r.units > 0 else 'stat-bad' if r.units < 0 else '' }}">{{ '%+.1f'|format(r.units) }}</td>
-    <td class="num">{{ ('%+.1f'|format(r.roi) ~ '%') if r.roi is not none else '—' }}</td>
-    <td class="num">{{ (r.clv_rate ~ '%') if r.clv_rate is not none else '—' }}</td><td class="num hide-sm">{{ ('%+.2f'|format(r.clv_avg)) if r.clv_avg is not none else '—' }}</td></tr>
-  {% endif %}{% endfor %}
-  </tbody>
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table hv-tiers">
+  <thead><tr><th>Stake</th><th class="num">Record</th><th class="num">Hit %</th><th class="num">Needed</th><th class="num">Profit at that stake</th><th class="hide-sm"></th></tr></thead>
+  <tbody>{% for t in hv.tiers %}
+  <tr><td>{{ m.utag(t.u) }} <span class="small dim">{{ t.name|lower }}</span></td>
+    <td class="num">{% if t.graded %}{{ t.hits }}&ndash;{{ t.graded - t.hits }}{% else %}<span class="dim">—</span>{% endif %}{% if t.pending %} <span class="dim small">+{{ t.pending }} pending</span>{% endif %}</td>
+    <td class="num {{ 'stat-good' if t.rate is not none and t.rate > t.be else 'stat-bad' if t.rate is not none }}">{{ t.rate if t.rate is not none else '—' }}</td>
+    <td class="num dim">{{ t.be if t.be is not none else '—' }}</td>
+    <td class="num">{% if t.u == 0 %}<span class="dim small">not bet ({{ sgn(t.flat, 1, 'U') }} if you had)</span>{% else %}{{ sgn(t.pl if t.graded else none, 2, 'U') }}{% endif %}</td>
+    <td class="hide-sm hv-barcell">{% if t.graded and t.u %}<i class="hv-bar {{ 'hv-bar-good' if t.pl > 0 else 'hv-bar-bad' }}" style="width:{{ t.bar }}%"></i>{% endif %}</td></tr>
+  {% endfor %}</tbody>
 </table></div></div>
-{% endif %}
-
+<p class="small dim">Picks frozen before units existed (Oct 20&ndash;22) are sized from their own chance and price, the same rule as today.</p>
 </section>
-<section class="hist-panel hidden" data-tab-panel="hist:scoreboard">
-<h2 class="hist-h">Scoreboard by stat and line</h2>
-<p class="lede small">Hit rate next to the break-even for the line we were graded against (FanDuel and Kalshi: the price of the side we picked; PrizePicks: 54.2% for a 6-pick flex, other entry types differ). Error = average distance from the result, for our projection and for the line itself.</p>
-{% if scoreboard %}
-<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
-  <thead><tr><th>Stat</th><th>Line</th><th class="num">Graded</th><th class="num">Hit %</th><th class="num">Break-even</th><th class="num">Our error</th><th class="num">Line error</th><th class="num hide-sm">Void / push / pending</th></tr></thead>
-  <tbody>
-  {% for r in scoreboard %}
-  <tr><td>{{ stat_labels[r.stat] }}</td><td>{{ src_labels[r.source] }}</td><td class="num">{{ r.graded }}</td>
-    <td class="num {{ 'stat-good' if r.hit_rate is not none and r.break_even is not none and r.hit_rate > r.break_even else 'stat-bad' if r.hit_rate is not none else '' }}">{{ r.hit_rate if r.hit_rate is not none else '—' }}</td>
-    <td class="num">{{ r.break_even if r.break_even is not none else '—' }}</td>
-    <td class="num {{ 'stat-good' if r.our_mae is not none and r.line_mae is not none and r.our_mae <= r.line_mae else 'stat-bad' if r.our_mae is not none else '' }}">{{ r.our_mae if r.our_mae is not none else '—' }}</td>
-    <td class="num">{{ r.line_mae if r.line_mae is not none else '—' }}</td>
-    <td class="num hide-sm">{{ r.void }} / {{ r.push }} / {{ r.pending }}</td></tr>
+
+{# ---------- BEST 5 ---------- #}
+<section class="hist-panel hidden" data-tab-panel="hist:best5">
+<h2 class="hist-h">Best 5 &amp; Best Value</h2>
+{{ help('Each list on its own: its record, whether it beats the price, a chart of every day, and every pick it made. <b>Game picks</b> (moneyline, spread, total) have their own Best 5 too.') }}
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table hv-sum">
+  <thead><tr><th>List</th><th class="num">Record</th><th class="num">Hit %</th><th class="num">Needed</th><th class="num">At our units</th><th class="num hide-sm">Flat 1U</th></tr></thead>
+  <tbody>{% for r in hv.b5_all + [] %}<tr class="team-row-lite"><td><strong>{{ r.name }}</strong></td><td class="num">{{ r.s.hits }}&ndash;{{ r.s.misses }}</td><td class="num {{ 'stat-good' if r.s.rate is not none and r.s.rate > r.s.be else 'stat-bad' if r.s.rate is not none }}">{{ r.s.rate if r.s.rate is not none else '—' }}</td><td class="num dim">{{ r.s.be or '—' }}</td><td class="num">{{ sgn(r.s.rec if r.s.graded else none, 2, 'U') }}</td><td class="num hide-sm">{{ sgn(r.s.flat if r.s.graded else none, 2, 'U') }}</td></tr>{% endfor %}
+  {% for r in hv.b5_table %}<tr><td>{{ r.name }} <span class="dim small">{{ r.list }}</span></td><td class="num">{% if r.graded %}{{ r.hits }}&ndash;{{ r.misses }}{% else %}<span class="dim">—</span>{% endif %}</td><td class="num {{ 'stat-good' if r.rate is not none and r.rate > r.be else 'stat-bad' if r.rate is not none }}">{{ r.rate if r.rate is not none else '—' }}</td><td class="num dim">{{ r.be or '—' }}</td><td class="num">{{ sgn(r.rec if r.graded else none, 2, 'U') }}</td><td class="num hide-sm">{{ sgn(r.flat if r.graded else none, 2, 'U') }}</td></tr>{% endfor %}</tbody>
+</table></div></div>
+<div class="chips hv-subtabs" data-tabs="b5">
+  {% for g in hv.b5 %}<button class="chip {{ 'active' if loop.first }}" type="button" data-tab="{{ g.key }}">{{ g.name|upper }}</button>{% endfor %}
+</div>
+{% for g in hv.b5 %}
+<div class="{{ 'hidden' if not loop.first }}" data-tab-panel="b5:{{ g.key }}">
+  {% for l in g.lists %}
+  <div class="hv-sub">
+    <h3 class="hv-h3">{{ g.name }} &middot; {{ l.list }}</h3>
+    {{ hsec(l, 'Every ' ~ l.list ~ ' pick') }}
+  </div>
   {% endfor %}
-  </tbody>
-</table></div></div>
-{% else %}
-<div class="empty-state"><h3>No graded picks yet</h3><p>Picks freeze once lines are posted and grade the morning after games, when the box scores land. {{ n_pending }} pick{{ 's' if n_pending != 1 }} waiting.</p></div>
-{% endif %}
-
-<h2 class="hist-h">Edge or lean, per stat</h2>
-<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
-  <thead><tr><th>Stat</th><th>Label</th><th>Why</th></tr></thead>
-  <tbody>{% for s, e in edge.items() %}<tr><td>{{ stat_labels[s] }}</td><td>{{ m.label_tag(e.status) }}</td><td class="small">{{ e.why }}</td></tr>{% endfor %}</tbody>
-</table></div></div>
-
-</section>
-<section class="hist-panel hidden" data-tab-panel="hist:trends">
-<h2 class="hist-h">Accuracy over time</h2>
-<p class="lede small">Each dot is one day's hit rate on graded picks. The grey dashed line is a coin flip; the pink one is the average break-even for the lines we were graded against. A model that's really working should sit above the pink line over time, not just bounce around 50%.</p>
-<div class="chart-grid">
-{% for a in hc.accuracy %}
-<div class="chart-panel">
-  <h3>{{ a.name }}</h3>
-  <p class="sub">{% if a.n %}{{ a.rate }}% over {{ a.n }} graded picks{% if a.be %} &middot; break-even {{ a.be }}%{% endif %}{% else %}no graded picks yet{% endif %}</p>
-  {% if a.chart %}{{ a.chart|safe }}{% else %}<div class="chart-empty">Chart appears after 2 days of graded picks.</div>{% endif %}
 </div>
 {% endfor %}
-<div class="chart-panel">
-  <h3>Stated chance vs actual</h3>
-  <p class="sub">Blue = the average chance we gave that day's picks. Yellow = how often they actually hit. Closer together = better calibrated.</p>
-  {% if hc.calibration_chart %}{{ hc.calibration_chart|safe }}
-  <div class="legend"><span><i style="background:#4f86ff"></i>chance we gave</span><span><i style="background:#ffc531"></i>actual hit rate</span></div>
-  {% else %}<div class="chart-empty">Chart appears after 2 days of graded picks.</div>{% endif %}
-</div>
-</div>
-
 </section>
-<section class="hist-panel hidden" data-tab-panel="hist:conviction">
-<h2 class="hist-h">Does a higher chance hit more?</h2>
-<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
-  <thead><tr><th>Chance we gave</th><th class="num">Graded</th><th class="num">Hit %</th></tr></thead>
-  <tbody>{% for b in buckets %}<tr><td>{{ b.bucket }}</td><td class="num">{{ b.n }}</td><td class="num">{{ b.hit_rate if b.hit_rate is not none else '—' }}</td></tr>{% endfor %}</tbody>
-</table></div></div>
 
-<h2 class="hist-h">Does more value mean anything?</h2>
-<p class="lede small">Value = our chance minus the line's break-even, in percentage points. If bigger value really means something, hit rate should climb down this table. If it stays flat, the market is already pricing what we think we see.</p>
-<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
-  <thead><tr><th>Value over break-even</th><th class="num">Graded</th><th class="num">Hit %</th></tr></thead>
-  <tbody>{% for b in hc.value_buckets %}<tr><td>{{ b.bucket }}</td><td class="num">{{ b.n }}</td><td class="num">{{ b.rate if b.rate is not none else '—' }}</td></tr>{% endfor %}</tbody>
-</table></div></div>
-
-</section>
-<section class="hist-panel hidden" data-tab-panel="hist:best5">
-<h2 class="hist-h">Best 5 and Best Value record</h2>
-<p class="lede small">Each list's daily hit rate, plus every pick it made, newest first. ✅ hit, ❌ missed; void = the player didn't play.</p>
-<div class="chart-grid">
-{% for t in hc.tracks %}
-<div class="chart-panel">
-  <h3>{{ t.name }}</h3>
-  <p class="sub">{% if t.n %}Overall: <strong>{{ t.hits }}/{{ t.n }}</strong> ({{ t.rate }}%) graded{% else %}No graded picks yet{% endif %} &middot; each dot is that day's hit rate on this list</p>
-  {% if t.chart %}{{ t.chart|safe }}{% else %}<div class="chart-empty">Chart appears after 2 graded days.</div>{% endif %}
-  <div class="daybyday" style="margin-top:10px;max-height:220px"><table class="stat-table">
-    <thead><tr><th class="nowrap">Date</th><th class="nowrap">Result</th><th>Picks</th></tr></thead>
-    <tbody>{% for r in t.rows %}<tr><td class="nowrap small">{{ r.date }}</td><td class="nowrap">{{ r.hits }}/{{ r.graded }}</td>
-      <td class="small">{% for p in r.picks %}<span class="mark-{{ p.mark }}">{{ p.player }} {{ p.call|lower }} {{ p.line|fmtline }}{% if p.mark == 'hit' %} ✅{% elif p.mark == 'miss' %} ❌{% elif p.mark == 'void' %} (void){% elif p.mark == 'push' %} (push){% endif %}</span>{{ ', ' if not loop.last }}{% endfor %}</td></tr>{% endfor %}</tbody>
-  </table></div>
+{# ---------- BY STAT ---------- #}
+<section class="hist-panel hidden" data-tab-panel="hist:stats">
+<h2 class="hist-h">By stat</h2>
+{{ help('Every player pick, one stat at a time, split by where the line came from. <b>Our miss vs the line\'s miss</b>: how far each was from the real result on average. Lower than the line = our projection is closer than the market\'s.') }}
+<div class="chips hv-subtabs" data-tabs="st">
+  {% for s in hv.by_stat %}<button class="chip {{ 'active' if loop.first }}" type="button" data-tab="{{ s.key }}">{{ s.name|upper }}</button>{% endfor %}
 </div>
-{% else %}<p class="dim">No Best 5 picks tracked yet.</p>{% endfor %}
+{% for s in hv.by_stat %}
+<div class="{{ 'hidden' if not loop.first }}" data-tab-panel="st:{{ s.key }}">
+  {{ rec_strip(s.s) }}
+  {{ verdict(s.s) }}
+  <div class="hv-rec hv-rec-sm">
+    <div class="hv-tile"><b class="{{ 'stat-good' if s.our_err is not none and s.line_err is not none and s.our_err <= s.line_err else 'stat-bad' if s.our_err is not none }}">{{ s.our_err if s.our_err is not none else '—' }}</b><span>our average miss</span></div>
+    <div class="hv-tile"><b>{{ s.line_err if s.line_err is not none else '—' }}</b><span>the line's average miss</span></div>
+    <div class="hv-tile"><b><span class="s-over">OVER</span> {{ (s.over.rate ~ '%') if s.over.rate is not none else '—' }}</b><span>{{ s.over.hits }}&ndash;{{ s.over.misses }}</span></div>
+    <div class="hv-tile"><b><span class="s-under">UNDER</span> {{ (s.under.rate ~ '%') if s.under.rate is not none else '—' }}</b><span>{{ s.under.hits }}&ndash;{{ s.under.misses }}</span></div>
+  </div>
+  {{ chart_pair(s.c, s.name) }}
+  {% if s.rows %}
+  <h3 class="hv-h3">By line source</h3>
+  <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+    <thead><tr>{% if s.multi %}<th>Stat</th>{% endif %}<th>Line</th><th class="num">Graded</th><th class="num">Hit %</th><th class="num">Needed</th><th class="num">Flat 1U</th><th class="num hide-sm">Our / line miss</th><th class="num hide-sm">Beat close</th></tr></thead>
+    <tbody>{% for r in s.rows %}<tr>{% if s.multi %}<td>{{ stat_labels[r.stat] }}</td>{% endif %}<td>{{ src_labels[r.source] }}</td><td class="num">{{ r.graded }}</td>
+      <td class="num {{ 'stat-good' if r.hit_rate is not none and r.break_even is not none and r.hit_rate > r.break_even else 'stat-bad' if r.hit_rate is not none }}">{{ r.hit_rate if r.hit_rate is not none else '—' }}</td>
+      <td class="num dim">{{ r.break_even if r.break_even is not none else '—' }}</td>
+      <td class="num">{{ sgn(r.m.get('units') if r.graded else none, 1, 'U') }}</td>
+      <td class="num hide-sm">{{ r.our_mae if r.our_mae is not none else '—' }} / {{ r.line_mae if r.line_mae is not none else '—' }}</td>
+      <td class="num hide-sm">{{ (r.m.get('clv_rate') ~ '%') if r.m.get('clv_rate') is not none else '—' }}</td></tr>{% endfor %}</tbody>
+  </table></div></div>
+  {% endif %}
+  <p class="small">Label right now: {{ m.label_tag(edge[s.key].status if s.key in edge else 'lean') }} <span class="dim">{{ edge[s.key].why if s.key in edge else 'Combos are judged per stat.' }}</span></p>
 </div>
-
-<h3 style="font-family:var(--pixel);font-size:0.6rem;color:var(--yellow);font-weight:400;margin:22px 0 10px">Summary</h3>
-{% if best5_rec %}
-<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
-  <thead><tr><th>Page</th><th>List</th><th class="num">Graded</th><th class="num">Hit %</th><th class="num">Pending</th></tr></thead>
-  <tbody>{% for r in best5_rec %}<tr><td>{{ r.page }}</td><td>{{ r.list_label }}</td><td class="num">{{ r.n }}</td><td class="num">{{ r.hit_rate if r.hit_rate is not none else '—' }}</td><td class="num">{{ r.pending }}</td></tr>{% endfor %}</tbody>
-</table></div></div>
-{% else %}<p class="dim">No Best 5 picks tracked yet.</p>{% endif %}
-
+{% endfor %}
 </section>
+
+{# ---------- GAME PICKS ---------- #}
 <section class="hist-panel hidden" data-tab-panel="hist:games">
 <h2 class="hist-h">Game picks</h2>
-<p class="lede small">Moneyline, spread and total picks from <a href="games.html">Games</a>, frozen on game day and graded from the final score. Units at the FanDuel price (Kalshi ask when FanDuel has no line).</p>
-<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
-  <thead><tr><th>Market</th><th class="num">Graded</th><th class="num">Hit %</th><th class="num">Units</th><th class="num">ROI</th><th class="num">Pending</th></tr></thead>
-  <tbody>{% for r in gmoney.rows %}<tr class="{{ 'team-row-lite' if r.list }}"><td>{% if r.list %}<strong>{{ r.label }}</strong>{% else %}{{ r.label }}{% endif %}</td><td class="num">{{ r.graded }}</td>
-    <td class="num {{ 'stat-good' if r.hit_rate is not none and r.hit_rate > 52.4 else 'stat-bad' if r.hit_rate is not none else '' }}">{{ r.hit_rate if r.hit_rate is not none else '—' }}</td>
-    <td class="num {{ 'stat-good' if r.units > 0 else 'stat-bad' if r.units < 0 }}">{{ '%+.1f'|format(r.units) }}</td>
-    <td class="num">{{ ('%+.1f'|format(r.roi) ~ '%') if r.roi is not none else '—' }}</td><td class="num">{{ r.pending }}</td></tr>{% endfor %}</tbody>
-</table></div></div>
-<p class="small dim">Game picks started Oct 21, when the 10-game wait was replaced by blending our score with the market.</p>
-</section>
-<section class="hist-panel hidden" data-tab-panel="hist:model">
-<h2 class="hist-h">Calibration</h2>
-<p class="lede small">Corrections switch on per stat once {{ maturity.min_sample }} graded picks exist: projection bias by tier, and a pull toward 50% if stated chances run hot. {{ maturity.active }} of {{ maturity.total }} active.</p>
-
-<h2 class="hist-h">Monthly retune</h2>
-<p class="lede small">On the 1st of each month the model's settings are re-fit with this season's games included, then tested on the most recent 30% of game days, which the new settings never saw. New settings are adopted only if their average miss there is at least 0.5% lower and no main stat gets more than 1% worse.</p>
-{% if retune_log %}
-<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
-  <thead><tr><th>Run</th><th>Result</th><th class="hide-sm">Changed</th></tr></thead>
-  <tbody>{% for r in retune_log %}<tr><td class="small nowrap">{{ r.at }}</td><td class="small"><span class="{{ 'stat-good' if r.adopted else 'dim' }}">{{ r.result }}</span></td><td class="small hide-sm">{% for k, v in (r.changes or {}).items() %}{{ k }}{{ ', ' if not loop.last }}{% else %}—{% endfor %}</td></tr>{% endfor %}</tbody>
-</table></div></div>
-{% else %}<p class="dim">First run: the 1st of next month. It skips itself until about 3-4 weeks of games exist.</p>{% endif %}
-
-<h2 class="hist-h">Pre-launch backtest</h2>
-<p class="lede small">Walk-forward: constants tuned on 2024-25, then scored on 2025-26 without changes ({{ bt_n }} player-games, players projected for 20+ minutes). Average miss, lower is better.</p>
-<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
-  <thead><tr><th>Stat</th><th class="num">Model</th><th class="num">Season avg</th><th class="num">Last 10</th><th class="num hide-sm">NFL-site formula</th><th class="num hide-sm">In 50% range</th><th class="num hide-sm">In 80% range</th></tr></thead>
-  <tbody>{% for s, r in bt.items() %}<tr><td>{{ stat_labels[s] }}</td><td class="num stat-good">{{ r.model.mae }}</td><td class="num">{{ r.season_avg.mae }}</td><td class="num">{{ r.last10.mae }}</td><td class="num hide-sm">{{ r.nfl_style.mae }}</td><td class="num hide-sm">{{ bt_cal[s].in_50pct_range }}%</td><td class="num hide-sm">{{ bt_cal[s].in_80pct_range }}%</td></tr>{% endfor %}</tbody>
-</table></div></div>
-<p class="small dim">No free source has historical prop lines, so the backtest can't measure us against the market; that comparison is the scoreboard above.</p>
-
-</section>
-<section class="hist-panel hidden" data-tab-panel="hist:health">
-<h2 class="hist-h">Pipeline health</h2>
-{% if audit %}<div class="notice compact {{ 'audit-ok' if audit.passed else 'audit-bad' }}"><strong>Consistency audit ({{ audit.at }}):</strong> {% if audit.passed %}all {{ audit.checks }} checks passed: every pick frozen before tip, results graded correctly, nothing stuck pending, Best 5 rules held, and Home, History and the day pages match the raw pick files.{% else %}{{ audit.fails|length }} of {{ audit.checks }} checks failed: {{ audit.fails|join('; ') }}{% endif %}</div>{% endif %}
-<div class="chart-panel">
-  <h3>Player lines matched per build</h3>
-  <p class="sub">Is the plumbing working, separate from whether the picks are good. A source dropping to 0 means it failed or hasn't posted yet.</p>
-  {% if hc.health_chart %}{{ hc.health_chart|safe }}
-  <div class="legend"><span><i style="background:#ff6a13"></i>PrizePicks</span><span><i style="background:#4f86ff"></i>Kalshi</span><span><i style="background:#3dff8f"></i>FanDuel</span></div>
-  {% else %}<div class="chart-empty">Chart appears after 2 builds.</div>{% endif %}
+{{ help('Moneyline, spread and total picks from the <a href="games.html">Games</a> page, graded from the final score as soon as each game ends. Moneyline favourites need well over 50% to profit, so watch "needed".') }}
+<div class="chips hv-subtabs" data-tabs="gm">
+  {% for s in hv.markets %}<button class="chip {{ 'active' if loop.first }}" type="button" data-tab="{{ s.key }}">{{ s.name|upper }}</button>{% endfor %}
 </div>
-<h3 style="font-family:var(--pixel);font-size:0.6rem;color:var(--yellow);font-weight:400;margin:22px 0 10px">Last {{ health|length }} builds</h3>
-<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
-  <thead><tr><th>Build</th><th>Slate</th><th class="num">Players</th><th>Lines</th><th class="num">Frozen</th><th class="num">Graded</th><th class="hide-sm">Errors</th></tr></thead>
-  <tbody>{% for h in health %}<tr><td class="small nowrap">{{ h.at }} <span class="dim">{{ h.mode }}</span></td><td class="small">{{ h.slate or '—' }}</td><td class="num">{{ h.players }}</td><td class="small">{% for k, v in h.lines.items() %}{{ src_labels[k] }} {{ v }}{{ ', ' if not loop.last }}{% else %}—{% endfor %}</td><td class="num">{{ h.frozen }}</td><td class="num">{{ h.graded }}</td><td class="small hide-sm">{% for k, v in h.errors.items() %}<span class="status-bad">{{ k }}</span>: {{ v[:90] }}{{ '; ' if not loop.last }}{% else %}<span class="status-ok">none</span>{% endfor %}</td></tr>{% endfor %}</tbody>
-</table></div></div>
+{% for s in hv.markets %}
+<div class="{{ 'hidden' if not loop.first }}" data-tab-panel="gm:{{ s.key }}">{{ hsec(s, 'Every ' ~ s.name|lower ~ ' pick') }}</div>
+{% endfor %}
 </section>
+
+{# ---------- PLAYERS ---------- #}
+<section class="hist-panel hidden" data-tab-panel="hist:players">
+<h2 class="hist-h">Players</h2>
+{{ help('How our picks on each player have gone. Small samples swing a lot: 4&ndash;0 on one player is mostly luck until it holds over many games.') }}
+{% if hv.hot %}
+<div class="hv-split">
+  <div class="hv-box hv-box-good"><div class="hv-box-h">&#128293; READING THEM RIGHT <span class="dim small">4+ graded</span></div>
+    {% for r in hv.hot %}<div class="hv-line"><span>{% if r.page %}<a class="plink" href="p-{{ r.pid }}.html">{{ r.player }}</a>{% else %}{{ r.player }}{% endif %} <span class="dim small">{{ r.team }}</span></span><b>{{ r.hits }}&ndash;{{ r.misses }}</b><b>{{ r.rate }}%</b></div>{% endfor %}</div>
+  <div class="hv-box hv-box-bad"><div class="hv-box-h">&#10052; MISSING ON THEM <span class="dim small">4+ graded</span></div>
+    {% for r in hv.cold %}<div class="hv-line"><span>{% if r.page %}<a class="plink" href="p-{{ r.pid }}.html">{{ r.player }}</a>{% else %}{{ r.player }}{% endif %} <span class="dim small">{{ r.team }}</span></span><b>{{ r.hits }}&ndash;{{ r.misses }}</b><b>{{ r.rate }}%</b></div>{% endfor %}</div>
+</div>
+{% endif %}
+<div class="hv-search"><input type="search" id="hv-psearch" placeholder="Search a player..." autocomplete="off" aria-label="Search players"></div>
+<div class="table-wrap"><div class="table-scroll hv-log-scroll"><table class="stat-table" id="hv-ptable">
+  <thead><tr><th>Player</th><th class="num">Record</th><th class="num">Hit %</th><th class="num">At our units</th><th class="num hide-sm">Best stat</th></tr></thead>
+  <tbody>{% for r in hv.players %}<tr data-name="{{ r.player|lower }}"><td>{% if r.page %}<a class="plink" href="p-{{ r.pid }}.html">{{ r.player }}</a>{% else %}{{ r.player }}{% endif %} <span class="dim small">{{ r.team }}</span></td>
+    <td class="num">{{ r.hits }}&ndash;{{ r.misses }}</td><td class="num {{ 'stat-good' if r.rate > r.be else 'stat-bad' }}">{{ r.rate }}</td>
+    <td class="num">{{ sgn(r.rec, 2, 'U') }}</td><td class="num hide-sm small">{{ r.best_stat }} {{ r.best_rec }}</td></tr>{% endfor %}</tbody>
+</table></div></div>
+<script>
+(function () { var i = document.getElementById('hv-psearch'); if (!i) return;
+  i.addEventListener('input', function () { var q = i.value.trim().toLowerCase();
+    document.querySelectorAll('#hv-ptable tbody tr').forEach(function (tr) { tr.style.display = !q || tr.dataset.name.indexOf(q) >= 0 ? '' : 'none'; }); }); })();
+</script>
+</section>
+
+{# ---------- CONFIDENCE ---------- #}
+<section class="hist-panel hidden" data-tab-panel="hist:confidence">
+<h2 class="hist-h">Does more confidence mean more wins?</h2>
+{{ help('If the model knows what it\'s doing, picks it gave a higher chance (or more value) should hit more often as you go down each table. A flat table means the market already priced in what we think we see.') }}
+{% for tbl in [('By the chance we gave', hv.chance_b), ('By value over break-even', hv.value_b)] %}
+<h3 class="hv-h3">{{ tbl[0] }}</h3>
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table hv-tiers">
+  <thead><tr><th>Group</th><th class="num">Record</th><th class="num">Hit %</th><th class="num">Needed</th><th class="num">Flat 1U</th><th class="hide-sm"></th></tr></thead>
+  <tbody>{% for b in tbl[1] %}<tr><td>{{ b.label }}</td><td class="num">{% if b.graded %}{{ b.hits }}&ndash;{{ b.misses }}{% else %}<span class="dim">—</span>{% endif %}</td>
+    <td class="num {{ 'stat-good' if b.rate is not none and b.rate > b.be else 'stat-bad' if b.rate is not none }}">{{ b.rate if b.rate is not none else '—' }}</td><td class="num dim">{{ b.be or '—' }}</td>
+    <td class="num">{{ sgn(b.flat if b.graded else none, 1, 'U') }}</td>
+    <td class="hide-sm hv-barcell">{% if b.rate is not none %}<i class="hv-bar hv-bar-rate {{ 'hv-bar-good' if b.rate > b.be else 'hv-bar-bad' }}" style="width:{{ b.rate }}%"></i><i class="hv-mark" style="left:{{ b.be }}%"></i>{% endif %}</td></tr>{% endfor %}</tbody>
+</table></div></div>
+{% endfor %}
+<p class="small dim">Bar = hit rate; the white tick = what was needed to profit.</p>
+</section>
+
+{# ---------- DAY BY DAY ---------- #}
 <section class="hist-panel hidden" data-tab-panel="hist:days">
 <h2 class="hist-h">Day by day</h2>
-<p class="lede small">Every pick, every day, with the result. One page per month.</p>
+{{ help('One row per day. Tap a day to see every pick, split by stat and game, with the result.') }}
 {% if day_index %}
 <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
-  <thead><tr><th>Day</th><th class="num">Picks</th><th class="num">Record</th><th class="num">Hit %</th><th class="num">Units</th><th class="num hide-sm">Game picks</th><th class="nowrap"></th></tr></thead>
+  <thead><tr><th>Day</th><th class="num">Props</th><th class="num">Hit %</th><th class="num">At our units</th><th class="num hide-sm">Game picks</th><th class="nowrap"></th></tr></thead>
   <tbody>{% for d in day_index %}
-  <tr><td><a href="history-{{ d.date }}.html"><strong>{{ d.label }}</strong></a></td><td class="num">{{ d.n }}</td>
+  <tr><td><a href="history-{{ d.date }}.html"><strong>{{ d.label }}</strong></a></td>
     <td class="num">{% if d.graded %}{{ d.hits }}&ndash;{{ d.misses }}{% else %}<span class="dim">{{ d.pending }} pending</span>{% endif %}</td>
     <td class="num {{ 'stat-good' if d.rate is not none and d.rate >= 52.4 else 'stat-bad' if d.rate is not none }}">{{ d.rate if d.rate is not none else '—' }}</td>
-    <td class="num {{ 'stat-good' if d.units > 0 else 'stat-bad' if d.units < 0 }}">{{ '%+.1f'|format(d.units) }}</td>
+    <td class="num">{{ sgn(d.rec if d.graded else none, 2, 'U') }}</td>
     <td class="num hide-sm">{% if d.games.graded %}{{ d.games.hits }}&ndash;{{ d.games.misses }}{% elif d.games.pending %}<span class="dim">{{ d.games.pending }} pending</span>{% else %}—{% endif %}</td>
     <td class="nowrap"><a class="bd-btn" href="history-{{ d.date }}.html">SEE PICKS &#9656;</a></td></tr>
   {% endfor %}</tbody>
 </table></div></div>
 {% endif %}
 <div class="pager">{% for mo in months %}<a href="history-{{ mo.key }}.html">{{ mo.label }} month view</a>{% endfor %}</div>
+</section>
+
+{# ---------- MODEL & PIPELINE ---------- #}
+<section class="hist-panel hidden" data-tab-panel="hist:model">
+<h2 class="hist-h">Model &amp; pipeline</h2>
+{{ help('The behind-the-scenes checks: is the data flowing, is everything graded correctly, and is the model learning from its results.') }}
+<div class="chips hv-subtabs" data-tabs="mp">
+  <button class="chip active" type="button" data-tab="checks">CHECKS</button><button class="chip" type="button" data-tab="learn">LEARNING</button><button class="chip" type="button" data-tab="feeds">DATA FEEDS</button>
+</div>
+<div data-tab-panel="mp:checks">
+{% if audit %}<div class="notice compact {{ 'audit-ok' if audit.passed else 'audit-bad' }}"><strong>Consistency audit ({{ audit.at }}):</strong> {% if audit.passed %}all {{ audit.checks }} checks passed: every pick frozen before tip, results graded correctly, nothing stuck pending, Best 5 rules held, and Home, History and the day pages match the raw pick files.{% else %}{{ audit.fails|length }} of {{ audit.checks }} checks failed: {{ audit.fails|join('; ') }}{% endif %}</div>{% endif %}
+{% if espn %}<div class="notice compact {{ 'audit-ok' if not espn.error else 'audit-bad' }}"><strong>Same-night results (ESPN, {{ espn.at }}):</strong> {{ (espn.status or {})|length }} games checked; {{ (espn.games or {})|length }} final box score{{ 's' if (espn.games or {})|length != 1 }} graded ahead of the morning data file.{% if espn.error %} Problem: {{ espn.error }}{% endif %}</div>{% endif %}
+</div>
+<div class="hidden" data-tab-panel="mp:learn">
+<p class="lede small">Corrections switch on per stat once {{ maturity.min_sample }} graded picks exist: projection bias by tier, and a pull toward 50% if stated chances run hot. {{ maturity.active }} of {{ maturity.total }} active. On the 1st of each month the settings are re-fit and kept only if they beat the old ones on games they never saw.</p>
+{% if retune_log %}
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+  <thead><tr><th>Run</th><th>Result</th><th class="hide-sm">Changed</th></tr></thead>
+  <tbody>{% for r in retune_log %}<tr><td class="small nowrap">{{ r.at }}</td><td class="small"><span class="{{ 'stat-good' if r.adopted else 'dim' }}">{{ r.result }}</span></td><td class="small hide-sm">{% for k, v in (r.changes or {}).items() %}{{ k }}{{ ', ' if not loop.last }}{% else %}—{% endfor %}</td></tr>{% endfor %}</tbody>
+</table></div></div>
+{% else %}<p class="dim">First monthly retune: the 1st of next month.</p>{% endif %}
+<h3 class="hv-h3">Pre-launch backtest</h3>
+<p class="lede small">Settings tuned on 2024-25, then scored on 2025-26 without changes ({{ bt_n }} player-games). Average miss, lower is better.</p>
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+  <thead><tr><th>Stat</th><th class="num">Model</th><th class="num">Season avg</th><th class="num">Last 10</th><th class="num hide-sm">In 80% range</th></tr></thead>
+  <tbody>{% for s, r in bt.items() %}<tr><td>{{ stat_labels[s] }}</td><td class="num stat-good">{{ r.model.mae }}</td><td class="num">{{ r.season_avg.mae }}</td><td class="num">{{ r.last10.mae }}</td><td class="num hide-sm">{{ bt_cal[s].in_80pct_range }}%</td></tr>{% endfor %}</tbody>
+</table></div></div>
+</div>
+<div class="hidden" data-tab-panel="mp:feeds">
+<div class="chart-panel">
+  <h3>Player lines matched per build</h3>
+  <p class="sub">A source dropping to 0 means it failed or hasn't posted yet.</p>
+  {% if hc.health_chart %}{{ hc.health_chart|safe }}
+  <div class="legend"><span><i style="background:#ff6a13"></i>PrizePicks</span><span><i style="background:#4f86ff"></i>Kalshi</span><span><i style="background:#3dff8f"></i>FanDuel</span></div>
+  {% else %}<div class="chart-empty">Chart appears after 2 builds.</div>{% endif %}
+</div>
+<div class="table-wrap"><div class="table-scroll hv-log-scroll"><table class="stat-table">
+  <thead><tr><th>Build</th><th class="num">Players</th><th>Lines</th><th class="num">Frozen</th><th class="num">Graded</th><th class="hide-sm">Errors</th></tr></thead>
+  <tbody>{% for h in health %}<tr><td class="small nowrap">{{ h.at }} <span class="dim">{{ h.mode }}</span></td><td class="num">{{ h.players }}</td><td class="small">{% for k, v in h.lines.items() %}{{ src_labels[k] }} {{ v }}{{ ', ' if not loop.last }}{% else %}—{% endfor %}</td><td class="num">{{ h.frozen }}</td><td class="num">{{ h.graded }}</td><td class="small hide-sm">{% for k, v in h.errors.items() %}<span class="status-bad">{{ k }}</span>: {{ v[:90] }}{{ '; ' if not loop.last }}{% else %}<span class="status-ok">none</span>{% endfor %}</td></tr>{% endfor %}</tbody>
+</table></div></div>
+</div>
 </section>
 {% endblock %}

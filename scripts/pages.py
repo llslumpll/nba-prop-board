@@ -18,6 +18,7 @@ from zoneinfo import ZoneInfo
 from jinja2 import Environment, FileSystemLoader
 
 import grade
+import history_view
 import live
 import logs
 import markets
@@ -97,6 +98,8 @@ def _env():
     env = Environment(loader=FileSystemLoader(str(TEMPLATES)), autoescape=True, trim_blocks=True, lstrip_blocks=True)
     env.filters.update(fmtline=_fmtline, fmtpt=_fmtpt, fmtnum=_fmtnum, season_label=_season_label)
     env.globals.update(stat_labels=model.STAT_LABEL, stat_short=STAT_SHORT, src_labels=markets.SOURCE_LABEL)
+    env.filters.update(fmtu=lambda u: f"{float(u):g}")
+    env.globals.update(stake=grade.stake, staked_pl=grade.staked_pl, unit_names=live.UNIT_NAMES)
     return env
 
 
@@ -658,12 +661,12 @@ def render_all(ctx: dict) -> None:
     for p in pstore.values():
         live_picks[str(p["game_id"])].append({"pid": str(p.get("player_id")), "player": p["player"], "team": p["team"], "stat": p["stat"],
                                               "call": p["call"], "line": p["line"], "chance": round(p["chance"], 3),
-                                              "proj": p.get("projected"), "min": p.get("proj_min"),
+                                              "proj": p.get("projected"), "min": p.get("proj_min"), "u": grade.stake(p),
                                               "star": bool(p.get("best5"))})
     live_g = defaultdict(list)
     for t in tstore.values():
         live_g[str(t["game_id"])].append({"market": t["market"], "pick": t["pick"], "label": t.get("pick_label") or t["pick"],
-                                          "line": t.get("line"), "home": t["home"], "away": t["away"], "chance": round(t["chance"], 3),
+                                          "line": t.get("line"), "home": t["home"], "away": t["away"], "chance": round(t["chance"], 3), "u": grade.stake(t),
                                           "star": bool(t.get("best5"))})
     live_data = {"date": (sl.get("date") or "").replace("-", ""),
                  "games": [{"gid": str(g["game_id"]), "away": g["away"], "home": g["home"], "tip": g["tip_et"],
@@ -729,12 +732,14 @@ def render_all(ctx: dict) -> None:
     for d in sorted({p["date"] for p in preds}, reverse=True):
         dp = [p for p in preds if p["date"] == d]
         day_index.append({"date": d, "label": datetime.strptime(d, "%Y-%m-%d").strftime("%a %b %-d"), "n": len(dp), **_rec(dp),
+                          "rec": round(sum(grade.staked_pl(p) or 0 for p in dp), 2),
                           "games": _rec([t for t in ctx["tpreds"] if t["date"] == d])})
     try:
         audit = json.loads((ROOT / "data" / "audit.json").read_text())
     except Exception:  # noqa: BLE001
         audit = None
-    write("history.html", "history.html", "history", hc=hc, money=money, day_index=day_index, audit=audit, gmoney=grade.team_money(ctx["tpreds"]), months=mlist, retune_log=retune_log, scoreboard=grade.stat_scoreboard(preds), edge=edge,
+    hv = history_view.build(preds, ctx["tpreds"], ctx["health"], keep_p, ctx.get("trust"))
+    write("history.html", "history.html", "history", hv=hv, espn=ctx.get("espn"), hc=hc, money=money, day_index=day_index, audit=audit, gmoney=grade.team_money(ctx["tpreds"]), months=mlist, retune_log=retune_log, scoreboard=grade.stat_scoreboard(preds), edge=edge,
           buckets=grade.chance_buckets(preds), best5_rec=b5rec, team_rec=grade.team_record(ctx["tpreds"]),
           maturity=grade.maturity(ctx["cal"]), bt=bt, bt_cal=bt_all.get("calibration") or {},
           bt_n=(bt.get("pts") or {}).get("n"), health=list(reversed(ctx["health"][-30:])),

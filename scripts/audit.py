@@ -133,10 +133,26 @@ for label, d, h, m, pe in boards:
     check(f"Home board {label.strip()} {d} = raw files", (int(h), int(m), int(pe)) == exp, f"page {h}-{m} ({pe} pending), raw {exp[0]}-{exp[1]} ({exp[2]} pending)")
 
 hist = page("history.html")
-ms = grade.money_summary(P)["total"]
-m_units = re.search(r'stat-strip money-strip">\s*<div class="stat-block"><div class="num[^"]*">([+-][\d.]+)</div><div class="label">units \((\d+) graded\)', hist)
-check("History Profit units = raw files", bool(m_units) and abs(float(m_units.group(1)) - ms["units"]) < 0.051 and int(m_units.group(2)) == ms["graded"],
-      f"page {m_units.groups() if m_units else None}, raw {ms['units']:+.1f} / {ms['graded']}")
+allp = P + T
+g_all = [p for p in allp if p["status"] == "graded"]
+h_all = sum(1 for p in g_all if p["hit"])
+rec_all = round(sum(grade.staked_pl(p) or 0 for p in g_all), 2)
+flat_all = round(sum(grade.units(p) or 0 for p in g_all), 2)
+top = hist.split('class="hv-top"', 1)[1].split("</section>", 1)[0] if 'class="hv-top"' in hist else ""
+m_rec = re.search(r'hv-tile"><b>(\d+)&ndash;(\d+)</b>', top)
+m_u = re.findall(r'hv-tile"><b><span class="[^"]*">([+-][\d.]+)U</span></b><span>(at our units|flat 1U each)', top)
+uv = {k: float(v) for v, k in m_u}
+check("History short version record = raw files (props + game picks)",
+      bool(m_rec) and (int(m_rec.group(1)), int(m_rec.group(2))) == (h_all, len(g_all) - h_all),
+      f"page {m_rec.groups() if m_rec else None}, raw {h_all}-{len(g_all) - h_all}")
+check("History units (recommended and flat) = raw files",
+      abs(uv.get("at our units", 1e9) - rec_all) < 0.006 and abs(uv.get("flat 1U each", 1e9) - flat_all) < 0.006,
+      f"page {uv}, raw {rec_all:+.2f} / {flat_all:+.2f}")
+# every pick that froze after units existed carries its stake, and stakes follow the steps
+import live  # noqa: E402
+steps = set(live.UNIT_NAMES)
+bad_u = [p for p in allp if p.get("units") is not None and float(p["units"]) not in steps]
+check("recommended units are one of 0 / 0.25 / 0.5 / 0.75 / 1 / 1.5 / 2", not bad_u, f"{len(bad_u)} odd" if bad_u else f"{sum(1 for p in allp if p.get('units') is not None)} stored")
 
 for d in dates:
     dp = page(f"history-{d}.html")
@@ -151,6 +167,8 @@ for d in dates:
     exp_h = exp[0] + sum(1 for t in tp_ if t["status"] == "graded" and t["hit"])
     exp_m = exp[1] + sum(1 for t in tp_ if t["status"] == "graded" and not t["hit"])
     check(f"day page {d} rows: HIT/MISS badges = raw files", (n_hit, n_miss) == (exp_h, exp_m), f"page {n_hit}/{n_miss}, raw {exp_h}/{exp_m}")
+    check(f"day page {d}: every pick shows its units", dp.count('class="u-tag u-') >= len(tp_) + sum(1 for p in P if p["date"] == d),
+          f"{dp.count('class=\"u-tag u-')} tags for {len(tp_) + sum(1 for p in P if p['date'] == d)} picks")
 
 print()
 print("ALL CHECKS PASSED" if not fails else f"{len(fails)} CHECK(S) FAILED: " + "; ".join(fails))
