@@ -11,12 +11,13 @@
   "close_line": null,
   "close_mkt": 0.574,
   "date": "2026-10-24",
+  "final": "MIA 110 - CHA 115",
   "first_frozen_at": "2026-10-24 05:00 UTC",
   "first_line": null,
   "first_pick": "MIA",
   "frozen_at": "2026-10-24 20:20 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "hit": false,
   "home": "CHA",
   "line": null,
   "market": "moneyline",
@@ -27,6 +28,10 @@
   "pick": "MIA",
   "pick_label": "MIA ML",
   "price_str": "-148",
+  "scores": [
+   115,
+   110
+  ],
   "snaps": {
    "10am": {
     "at": "2026-10-24 15:01 UTC",
@@ -72,7 +77,7 @@
    }
   },
   "source": "fanduel",
-  "status": "pending",
+  "status": "graded",
   "tip_utc": "2026-10-24T22:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
@@ -103,12 +108,13 @@
   "close_line": 3.5,
   "close_mkt": null,
   "date": "2026-10-24",
+  "final": "MIA 110 - CHA 115",
   "first_frozen_at": "2026-10-24 14:11 UTC",
   "first_line": 3.5,
   "first_pick": "CHA",
   "frozen_at": "2026-10-24 20:20 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "hit": false,
   "home": "CHA",
   "line": 3.5,
   "market": "spread",
@@ -118,6 +124,10 @@
   "pick": "MIA",
   "pick_label": "MIA -3.5",
   "price_str": "-108",
+  "scores": [
+   115,
+   110
+  ],
   "snaps": {
    "10am": {
     "at": "2026-10-24 15:01 UTC",
@@ -169,7 +179,7 @@
    }
   },
   "source": "fanduel",
-  "status": "pending",
+  "status": "graded",
   "tip_utc": "2026-10-24T22:00:00+00:00",
   "units": 0.25,
   "units_raw": 0.25,
@@ -191,12 +201,13 @@
   "close_line": 228.5,
   "close_mkt": null,
   "date": "2026-10-24",
+  "final": "MIA 110 - CHA 115",
   "first_frozen_at": "2026-10-24 14:11 UTC",
   "first_line": 230.5,
   "first_pick": "OVER",
   "frozen_at": "2026-10-24 20:20 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "hit": true,
   "home": "CHA",
   "line": 228.5,
   "market": "total",
@@ -206,6 +217,10 @@
   "pick": "UNDER",
   "pick_label": "UNDER 228.5",
   "price_str": "-115",
+  "scores": [
+   115,
+   110
+  ],
   "snaps": {
    "10am": {
     "at": "2026-10-24 15:01 UTC",
@@ -253,7 +268,7 @@
    }
   },
   "source": "fanduel",
-  "status": "pending",
+  "status": "graded",
   "tip_utc": "2026-10-24T22:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
@@ -2050,15 +2065,25 @@
   "why": "Our score NOP 120, DEN 129 (summed player projections), margin +7.9 for DEN; market margin +11.5 (FanDuel spread DEN -11.5). So far our margins track the market's with a correlation of 0.66, so ours gets 17% weight: DEN by +10.9. NOP +11.5 covers 52%."
  },
  "401909859|total": {
-  "agree": 0.596,
+  "agree": 0.564,
   "away": "NOP",
-  "best5": [],
-  "best5_at": {},
+  "best5": [
+   "game:best5",
+   "game:value",
+   "total:best5",
+   "total:value"
+  ],
+  "best5_at": {
+   "game:best5": "2026-10-25 00:41:12 UTC",
+   "game:value": "2026-10-25 00:41:12 UTC",
+   "total:best5": "2026-10-25 00:41:12 UTC",
+   "total:value": "2026-10-25 00:41:12 UTC"
+  },
   "blend_margin": 10.9,
-  "blend_total": 239.4,
-  "blend_w": 0.149,
+  "blend_total": 240.8,
+  "blend_w": 0.141,
   "break_even": 0.5238,
-  "chance": 0.5022,
+  "chance": 0.5297,
   "close_at": "2026-10-24 19:25 UTC",
   "close_line": 239.5,
   "close_mkt": null,
@@ -2066,7 +2091,7 @@
   "first_frozen_at": "2026-10-24 14:11 UTC",
   "first_line": 238.5,
   "first_pick": "OVER",
-  "frozen_at": "2026-10-25 00:21 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": "DEN",
@@ -2074,9 +2099,9 @@
   "market": "total",
   "market_margin": 11.5,
   "our_margin": 7.9,
-  "our_total": 238.8,
-  "pick": "UNDER",
-  "pick_label": "UNDER 239.5",
+  "our_total": 249.0,
+  "pick": "OVER",
+  "pick_label": "OVER 239.5",
   "price_str": "-110",
   "snaps": {
    "10am": {
@@ -2147,11 +2172,11 @@
   "source": "fanduel",
   "status": "pending",
   "tip_utc": "2026-10-25T01:00:00+00:00",
-  "units": 0.0,
-  "units_raw": 0.0,
-  "updates": 9,
-  "value": -0.0216,
-  "why": "Our total 249 (NOP 120 + DEN 129), 10.2 above the market on average tonight, so 239 after removing that; FanDuel 239.5. Our totals track the market's with a correlation of 0.60 so far, so ours gets 15% weight: 239.4. Under 239.5 hits 50%."
+  "units": 0.25,
+  "units_raw": 0.25,
+  "updates": 10,
+  "value": 0.0059,
+  "why": "Our total 249 (NOP 120 + DEN 129); FanDuel 239.5. Our totals track the market's with a correlation of 0.56 so far, so ours gets 14% weight: 240.8. Over 239.5 hits 53%."
  },
  "401909860|moneyline": {
   "agree": 0.676,
@@ -2376,19 +2401,23 @@
   "why": "Our score GSW 110, PHX 119 (summed player projections), margin +8.4 for PHX; market margin +9.5 (FanDuel spread PHX -9.5). So far our margins track the market's with a correlation of 0.68, so ours gets 17% weight: PHX by +9.3. GSW +9.5 covers 51%."
  },
  "401909860|total": {
-  "agree": 0.596,
+  "agree": 0.564,
   "away": "GSW",
   "best5": [
-   "total:best5"
+   "game:best5",
+   "game:value",
+   "total:value"
   ],
   "best5_at": {
-   "total:best5": "2026-10-25 00:21:09 UTC"
+   "game:best5": "2026-10-25 00:41:12 UTC",
+   "game:value": "2026-10-25 00:41:12 UTC",
+   "total:value": "2026-10-25 00:41:12 UTC"
   },
   "blend_margin": 9.3,
-  "blend_total": 221.1,
-  "blend_w": 0.149,
+  "blend_total": 222.6,
+  "blend_w": 0.141,
   "break_even": 0.5238,
-  "chance": 0.5078,
+  "chance": 0.5244,
   "close_at": "2026-10-24 14:11 UTC",
   "close_line": 221.5,
   "close_mkt": null,
@@ -2396,7 +2425,7 @@
   "first_frozen_at": "2026-10-24 14:11 UTC",
   "first_line": 221.5,
   "first_pick": "OVER",
-  "frozen_at": "2026-10-25 00:21 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": "PHX",
@@ -2404,9 +2433,9 @@
   "market": "total",
   "market_margin": 9.5,
   "our_margin": 8.4,
-  "our_total": 219.1,
-  "pick": "UNDER",
-  "pick_label": "UNDER 221.5",
+  "our_total": 229.3,
+  "pick": "OVER",
+  "pick_label": "OVER 221.5",
   "price_str": "-110",
   "snaps": {
    "10am": {
@@ -2475,10 +2504,10 @@
   "source": "fanduel",
   "status": "pending",
   "tip_utc": "2026-10-25T02:00:00+00:00",
-  "units": 0.0,
-  "units_raw": 0.0,
-  "updates": 9,
-  "value": -0.016,
-  "why": "Our total 229 (GSW 110 + PHX 119), 10.2 above the market on average tonight, so 219 after removing that; FanDuel 221.5. Our totals track the market's with a correlation of 0.60 so far, so ours gets 15% weight: 221.1. Under 221.5 hits 51%."
+  "units": 0.25,
+  "units_raw": 0.25,
+  "updates": 10,
+  "value": 0.0006,
+  "why": "Our total 229 (GSW 110 + PHX 119); FanDuel 221.5. Our totals track the market's with a correlation of 0.56 so far, so ours gets 14% weight: 222.6. Over 221.5 hits 52%."
  }
 }

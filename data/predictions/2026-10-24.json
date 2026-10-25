@@ -115,19 +115,19 @@
  "Aaron Gordon|fg3m|401909859": {
   "actual": null,
   "best5": [],
-  "blend_mean": 2.37,
+  "blend_mean": 2.32,
   "blend_w": 0.225,
-  "break_even": 0.54,
-  "call": "OVER",
-  "chance": 0.5074,
-  "close_at": "2026-10-25 00:23 UTC",
+  "break_even": 0.49,
+  "call": "UNDER",
+  "chance": 0.5006,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.53,
+  "close_mkt": 0.48,
   "date": "2026-10-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-24 06:41 UTC",
   "first_line": 1.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": true,
@@ -137,7 +137,7 @@
   "lines": {
    "kalshi": 1.5
   },
-  "market_side": 0.53,
+  "market_side": 0.48,
   "opp": "NOP",
   "out_ctx": [
    "Alpha Diallo",
@@ -206,9 +206,9 @@
   "team": "DEN",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-25T01:00:00+00:00",
-  "units": 0.0,
-  "units_raw": 0.0,
-  "updates": 24,
+  "units": 0.25,
+  "units_raw": 0.25,
+  "updates": 25,
   "var": 4.68,
   "why": "26.9 min (recent 28.0, \u22121.1 team-minutes adjustment with Alpha Diallo, Cameron Johnson out); \u00d7 0.068 3-pointers made/min (25% this season's 0.103 over 1 games, 75% prior 0.056); context: home +1%, shared production on DEN +3%."
  },
@@ -712,29 +712,30 @@
  "Aaron Gordon|reb|401909859": {
   "actual": null,
   "best5": [],
-  "blend_mean": 6.09,
+  "blend_mean": 6.07,
   "blend_w": 0.225,
-  "break_even": 0.58,
-  "call": "OVER",
-  "chance": 0.5333,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 5.5,
-  "close_mkt": 0.57,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5297,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 6.0,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-24 11:01 UTC",
   "first_line": 5.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 5.5,
-  "line_source": "kalshi",
+  "line": 6.0,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 5.5
+   "kalshi": 5.5,
+   "prizepicks": 6.0
   },
-  "market_side": 0.57,
+  "market_side": null,
   "opp": "NOP",
   "out_ctx": [
    "Alpha Diallo",
@@ -805,7 +806,7 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 34,
+  "updates": 35,
   "var": 5.779,
   "why": "26.9 min (recent 28.0, \u22121.1 team-minutes adjustment with Alpha Diallo, Cameron Johnson out); \u00d7 0.194 rebounds/min (8% this season's 0.207 over 1 games, 92% prior 0.193); context: home +1%, shared production on DEN \u22122%; calibration +0.1."
  },
@@ -3628,7 +3629,7 @@
   "why": "34.8 min (recent 37.5, \u22121.2 team-minutes adjustment with Steven Adams, Marcus Smart, Fred VanVleet out, \u22121.5 back-to-back); \u00d7 0.222 rebounds/min (14% this season's 0.290 over 2 games, 86% prior 0.210); context: pace vs ATL +1%, road \u22121%, rest \u22122%, shared production on HOU \u22125%; calibration +0.1."
  },
  "Andrew Wiggins|ast|401909853": {
-  "actual": null,
+  "actual": 1.0,
   "best5": [],
   "blend_mean": 2.12,
   "blend_w": 0.225,
@@ -3644,16 +3645,21 @@
   "first_line": 1.5,
   "frozen_at": "2026-10-24 21:02 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
   },
   "market_side": 0.595,
   "opp": "CHA",
+  "our_err": 1.2,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -3704,7 +3710,7 @@
    }
   },
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -3715,7 +3721,7 @@
   "why": "26.8 min (recent 29.3, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.079 assists/min (29% this season's 0.057 over 2 games, 71% prior 0.088); context: road \u22121%, rest \u22122%, shared production on MIA +6%; calibration +0.1."
  },
  "Andrew Wiggins|fg3m|401909853": {
-  "actual": null,
+  "actual": 0.0,
   "best5": [],
   "blend_mean": 1.93,
   "blend_w": 0.225,
@@ -3731,16 +3737,21 @@
   "first_line": 1.5,
   "frozen_at": "2026-10-24 21:02 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "edge",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
   },
   "market_side": 0.555,
   "opp": "CHA",
+  "our_err": 1.4,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -3791,7 +3802,7 @@
    }
   },
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -3802,7 +3813,7 @@
   "why": "26.8 min (recent 29.3, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.055 3-pointers made/min (40% this season's 0.038 over 2 games, 60% prior 0.066); context: road \u22121%, rest \u22122%, shared production on MIA +2%."
  },
  "Andrew Wiggins|pa|401909853": {
-  "actual": null,
+  "actual": 5.0,
   "best5": [],
   "blend_mean": 15.2,
   "blend_w": 0.225,
@@ -3818,16 +3829,21 @@
   "first_line": 14.5,
   "frozen_at": "2026-10-24 15:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 10.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 9.2,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -3875,7 +3891,7 @@
    }
   },
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -3886,7 +3902,7 @@
   "why": "26.8 min (recent 29.3, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.533 pts+ast/min (40% this season's 0.415 over 2 games, 60% prior 0.612); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration +0.2."
  },
  "Andrew Wiggins|pra|401909853": {
-  "actual": null,
+  "actual": 6.0,
   "best5": [],
   "blend_mean": 19.31,
   "blend_w": 0.225,
@@ -3902,16 +3918,21 @@
   "first_line": 18.5,
   "frozen_at": "2026-10-24 10:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 19.5,
+  "line_errs": {
+   "prizepicks": 13.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 19.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 12.7,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -3959,7 +3980,7 @@
    }
   },
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -3970,7 +3991,7 @@
   "why": "26.8 min (recent 29.3, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.705 pts+reb+ast/min (40% this season's 0.604 over 2 games, 60% prior 0.772); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration +0.2."
  },
  "Andrew Wiggins|pr|401909853": {
-  "actual": null,
+  "actual": 5.0,
   "best5": [],
   "blend_mean": 17.29,
   "blend_w": 0.225,
@@ -3986,16 +4007,21 @@
   "first_line": 16.5,
   "frozen_at": "2026-10-24 11:01 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "prizepicks": 12.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 17.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 11.6,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -4043,7 +4069,7 @@
    }
   },
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -4054,7 +4080,7 @@
   "why": "26.8 min (recent 29.3, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.630 pts+reb/min (40% this season's 0.547 over 2 games, 60% prior 0.685); context: road \u22121%, rest \u22122%; calibration +0.2."
  },
  "Andrew Wiggins|pts|401909853": {
-  "actual": null,
+  "actual": 4.0,
   "best5": [],
   "blend_mean": 12.68,
   "blend_w": 0.225,
@@ -4070,10 +4096,16 @@
   "first_line": 11.5,
   "frozen_at": "2026-10-24 14:11 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "fanduel": 8.5,
+   "kalshi": 10.5,
+   "prizepicks": 8.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 12.5,
@@ -4082,6 +4114,7 @@
   },
   "market_side": 0.5142,
   "opp": "CHA",
+  "our_err": 8.5,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -4129,7 +4162,7 @@
    }
   },
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -4140,7 +4173,7 @@
   "why": "26.8 min (recent 29.3, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.477 points/min (29% this season's 0.358 over 2 games, 71% prior 0.524); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration +0.1."
  },
  "Andrew Wiggins|ra|401909853": {
-  "actual": null,
+  "actual": 2.0,
   "best5": [],
   "blend_mean": 6.54,
   "blend_w": 0.225,
@@ -4153,16 +4186,21 @@
   "date": "2026-10-24",
   "frozen_at": "2026-10-24 11:01 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 6.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 4.7,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -4210,7 +4248,7 @@
    }
   },
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -4220,7 +4258,7 @@
   "why": "26.8 min (recent 29.3, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.248 reb+ast/min (20% this season's 0.245 over 2 games, 80% prior 0.249); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration +0.1."
  },
  "Andrew Wiggins|reb|401909853": {
-  "actual": null,
+  "actual": 1.0,
   "best5": [],
   "best5_at": {},
   "blend_mean": 4.37,
@@ -4237,16 +4275,21 @@
   "first_line": 4.5,
   "frozen_at": "2026-10-24 21:42 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
   },
   "market_side": 0.59,
   "opp": "CHA",
+  "our_err": 3.4,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -4297,7 +4340,7 @@
    }
   },
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -5352,7 +5395,7 @@
   "why": "29.3 min (recent 31.7, \u22121.1 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.312 rebounds/min (14% this season's 0.318 over 2 games, 86% prior 0.311); context: pace vs CHI +1%, road \u22121%, rest \u22122%, shared production on WAS \u22122%; calibration +0.1."
  },
  "Bam Adebayo|ast|401909853": {
-  "actual": null,
+  "actual": 4.0,
   "best5": [],
   "blend_mean": 3.58,
   "blend_w": 0.225,
@@ -5368,16 +5411,21 @@
   "first_line": 3.5,
   "frozen_at": "2026-10-24 21:42 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
   },
   "market_side": 0.535,
   "opp": "CHA",
+  "our_err": 0.5,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -5428,7 +5476,7 @@
    }
   },
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -5439,7 +5487,7 @@
   "why": "29.7 min (recent 32.4, \u22121.5 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.112 assists/min (29% this season's 0.130 over 2 games, 71% prior 0.105); context: road \u22121%, rest \u22122%, shared production on MIA +6%; calibration +0.1."
  },
  "Bam Adebayo|fg3m|401909853": {
-  "actual": null,
+  "actual": 2.0,
   "best5": [],
   "best5_at": {},
   "blend_mean": 1.55,
@@ -5456,16 +5504,21 @@
   "first_line": 1.5,
   "frozen_at": "2026-10-24 21:02 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "edge",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
   },
   "market_side": 0.56,
   "opp": "CHA",
+  "our_err": 1.0,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -5523,7 +5576,7 @@
    }
   },
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -5534,7 +5587,7 @@
   "why": "29.7 min (recent 32.4, \u22121.5 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.033 3-pointers made/min (40% this season's 0.019 over 2 games, 60% prior 0.043); context: road \u22121%, rest \u22122%, shared production on MIA +2%."
  },
  "Bam Adebayo|pa|401909853": {
-  "actual": null,
+  "actual": 24.0,
   "best5": [],
   "blend_mean": 19.85,
   "blend_w": 0.225,
@@ -5547,16 +5600,21 @@
   "date": "2026-10-24",
   "frozen_at": "2026-10-24 05:40 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 20.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 20.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 6.4,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -5604,7 +5662,7 @@
    }
   },
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -5614,7 +5672,7 @@
   "why": "29.7 min (recent 32.4, \u22121.5 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.600 pts+ast/min (40% this season's 0.481 over 2 games, 60% prior 0.678); context: road \u22121%, rest \u22122%, shared production on MIA +2%; calibration +0.2."
  },
  "Bam Adebayo|pra|401909853": {
-  "actual": null,
+  "actual": 32.0,
   "best5": [
    "combos:value"
   ],
@@ -5635,16 +5693,21 @@
   "first_line": 30.5,
   "frozen_at": "2026-10-24 21:42 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 29.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 29.5
   },
   "market_side": 0.48,
   "opp": "CHA",
+  "our_err": 6.5,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -5695,7 +5758,7 @@
    }
   },
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -5706,7 +5769,7 @@
   "why": "29.7 min (recent 32.4, \u22121.5 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.876 pts+reb+ast/min (40% this season's 0.722 over 2 games, 60% prior 0.978); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration +0.2."
  },
  "Bam Adebayo|pr|401909853": {
-  "actual": null,
+  "actual": 28.0,
   "best5": [],
   "best5_at": {},
   "blend_mean": 25.49,
@@ -5720,16 +5783,21 @@
   "date": "2026-10-24",
   "frozen_at": "2026-10-24 05:40 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 26.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 26.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 6.0,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -5780,7 +5848,7 @@
    }
   },
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -5790,7 +5858,7 @@
   "why": "29.7 min (recent 32.4, \u22121.5 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.761 pts+reb/min (40% this season's 0.593 over 2 games, 60% prior 0.872); context: road \u22121%, rest \u22122%; calibration +0.2."
  },
  "Bam Adebayo|pts|401909853": {
-  "actual": null,
+  "actual": 20.0,
   "best5": [],
   "blend_mean": 16.71,
   "blend_w": 0.225,
@@ -5806,10 +5874,16 @@
   "first_line": 16.5,
   "frozen_at": "2026-10-24 14:11 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 16.5,
+  "line_errs": {
+   "fanduel": 3.5,
+   "kalshi": 5.5,
+   "prizepicks": 3.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 16.5,
@@ -5818,6 +5892,7 @@
   },
   "market_side": 0.5323,
   "opp": "CHA",
+  "our_err": 5.2,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -5865,7 +5940,7 @@
    }
   },
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -5876,7 +5951,7 @@
   "why": "29.7 min (recent 32.4, \u22121.5 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.510 points/min (29% this season's 0.352 over 2 games, 71% prior 0.573); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration +0.1."
  },
  "Bam Adebayo|ra|401909853": {
-  "actual": null,
+  "actual": 12.0,
   "best5": [],
   "blend_mean": 12.32,
   "blend_w": 0.225,
@@ -5892,16 +5967,21 @@
   "first_line": 13.5,
   "frozen_at": "2026-10-24 21:12 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 0.3,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -5952,7 +6032,7 @@
    }
   },
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -5963,7 +6043,7 @@
   "why": "29.7 min (recent 32.4, \u22121.5 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.398 reb+ast/min (20% this season's 0.370 over 2 games, 80% prior 0.405); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration +0.1."
  },
  "Bam Adebayo|reb|401909853": {
-  "actual": null,
+  "actual": 8.0,
   "best5": [],
   "best5_at": {},
   "blend_mean": 8.97,
@@ -5980,16 +6060,21 @@
   "first_line": 9.5,
   "frozen_at": "2026-10-24 21:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 9.5
   },
   "market_side": 0.575,
   "opp": "CHA",
+  "our_err": 0.4,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -6042,7 +6127,7 @@
    }
   },
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -6408,7 +6493,7 @@
   "why": "25.1 min (recent 25.9, \u22120.9 team-minutes adjustment); \u00d7 0.154 rebounds/min (14% this season's 0.145 over 2 games, 86% prior 0.156); context: pace vs CHI +1%, road \u22121%, rest \u22122%, shared production on WAS \u22122%; calibration +0.1."
  },
  "Bobby Portis|fg3m|401909853": {
-  "actual": null,
+  "actual": 2.0,
   "best5": [],
   "blend_mean": 1.48,
   "blend_w": 0.225,
@@ -6424,16 +6509,21 @@
   "first_line": 1.5,
   "frozen_at": "2026-10-24 21:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "edge",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
   },
   "market_side": 0.625,
   "opp": "CHA",
+  "our_err": 0.2,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -6472,7 +6562,7 @@
    }
   },
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -6483,7 +6573,7 @@
   "why": "23.1 min (recent 24.2, \u22121.1 team-minutes adjustment); \u00d7 0.078 3-pointers made/min (40% this season's 0.087 over 2 games, 60% prior 0.072); context: road \u22121%, rest \u22122%, shared production on MIA +2%."
  },
  "Bobby Portis|pra|401909853": {
-  "actual": null,
+  "actual": 21.0,
   "best5": [],
   "blend_mean": 18.54,
   "blend_w": 0.225,
@@ -6499,16 +6589,21 @@
   "first_line": 17.5,
   "frozen_at": "2026-10-24 20:40 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 18.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 18.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 2.3,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -6547,7 +6642,7 @@
    }
   },
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -6558,7 +6653,7 @@
   "why": "23.1 min (recent 24.2, \u22121.1 team-minutes adjustment); \u00d7 0.823 pts+reb+ast/min (40% this season's 0.717 over 2 games, 60% prior 0.893); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration +0.2."
  },
  "Bobby Portis|pr|401909853": {
-  "actual": null,
+  "actual": 21.0,
   "best5": [],
   "blend_mean": 15.84,
   "blend_w": 0.225,
@@ -6574,16 +6669,21 @@
   "first_line": 16.5,
   "frozen_at": "2026-10-24 19:20 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 4.0,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -6622,7 +6722,7 @@
    }
   },
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -6633,7 +6733,7 @@
   "why": "23.1 min (recent 24.2, \u22121.1 team-minutes adjustment); \u00d7 0.753 pts+reb/min (40% this season's 0.652 over 2 games, 60% prior 0.820); context: road \u22121%, rest \u22122%; calibration +0.2."
  },
  "Bobby Portis|pts|401909853": {
-  "actual": null,
+  "actual": 13.0,
   "best5": [
    "pts:value"
   ],
@@ -6654,16 +6754,21 @@
   "first_line": 10.5,
   "frozen_at": "2026-10-24 21:42 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "kalshi": 3.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 9.5
   },
   "market_side": 0.52,
   "opp": "CHA",
+  "our_err": 1.6,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -6702,7 +6807,7 @@
    }
   },
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -6713,7 +6818,7 @@
   "why": "23.1 min (recent 24.2, \u22121.1 team-minutes adjustment); \u00d7 0.503 points/min (29% this season's 0.391 over 2 games, 71% prior 0.548); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration +0.1."
  },
  "Bobby Portis|ra|401909853": {
-  "actual": null,
+  "actual": 8.0,
   "best5": [],
   "blend_mean": 7.57,
   "blend_w": 0.225,
@@ -6726,16 +6831,21 @@
   "date": "2026-10-24",
   "frozen_at": "2026-10-24 20:22 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 0.2,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -6774,7 +6884,7 @@
    }
   },
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -6784,7 +6894,7 @@
   "why": "23.1 min (recent 24.2, \u22121.1 team-minutes adjustment); \u00d7 0.341 reb+ast/min (20% this season's 0.326 over 2 games, 80% prior 0.345); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration +0.1."
  },
  "Bobby Portis|reb|401909853": {
-  "actual": null,
+  "actual": 8.0,
   "best5": [],
   "blend_mean": 5.73,
   "blend_w": 0.225,
@@ -6800,16 +6910,21 @@
   "first_line": 5.5,
   "frozen_at": "2026-10-24 21:42 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 5.5
   },
   "market_side": 0.535,
   "opp": "CHA",
+  "our_err": 1.9,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -6848,7 +6963,7 @@
    }
   },
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -6930,7 +7045,7 @@
   "why": "17.5 min (recent 18.0, \u22120.5 team-minutes adjustment with Steven Adams, Fred VanVleet out); \u00d7 0.619 pts+reb+ast/min (40% this season's 0.545 over 2 games, 60% prior 0.668); context: pace vs ATL +1%, road \u22121%, rest \u22122%; calibration +0.2."
  },
  "Brandon Miller|ast|401909853": {
-  "actual": null,
+  "actual": 4.0,
   "best5": [
    "ast:value"
   ],
@@ -6951,16 +7066,21 @@
   "first_line": 3.5,
   "frozen_at": "2026-10-24 21:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
   },
   "market_side": 0.565,
   "opp": "MIA",
+  "our_err": 1.5,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -7015,7 +7135,7 @@
    }
   },
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -7026,7 +7146,7 @@
   "why": "28.2 min (recent 30.3, \u22120.9 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.081 assists/min (29% this season's 0.017 over 2 games, 71% prior 0.106); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +7%; calibration +0.1."
  },
  "Brandon Miller|fg3m|401909853": {
-  "actual": null,
+  "actual": 3.0,
   "best5": [
    "fg3m:value"
   ],
@@ -7047,16 +7167,21 @@
   "first_line": 3.5,
   "frozen_at": "2026-10-24 19:42 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "edge",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
   },
   "market_side": 0.545,
   "opp": "MIA",
+  "our_err": 0.5,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -7113,7 +7238,7 @@
    }
   },
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -7124,7 +7249,7 @@
   "why": "28.2 min (recent 30.3, \u22120.9 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.085 3-pointers made/min (40% this season's 0.068 over 2 games, 60% prior 0.097); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +3%."
  },
  "Brandon Miller|pa|401909853": {
-  "actual": null,
+  "actual": 38.0,
   "best5": [],
   "blend_mean": 24.7,
   "blend_w": 0.225,
@@ -7140,16 +7265,21 @@
   "first_line": 24.5,
   "frozen_at": "2026-10-24 21:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 26.5,
+  "line_errs": {
+   "prizepicks": 11.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 26.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 19.5,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -7200,7 +7330,7 @@
    }
   },
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -7211,7 +7341,7 @@
   "why": "28.2 min (recent 30.3, \u22120.9 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.610 pts+ast/min (40% this season's 0.424 over 2 games, 60% prior 0.734); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +7%; calibration +0.2."
  },
  "Brandon Miller|pra|401909853": {
-  "actual": null,
+  "actual": 45.0,
   "best5": [],
   "best5_at": {},
   "blend_mean": 29.4,
@@ -7228,16 +7358,21 @@
   "first_line": 30.5,
   "frozen_at": "2026-10-24 21:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 31.5,
+  "line_errs": {
+   "prizepicks": 13.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 31.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 22.8,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -7294,7 +7429,7 @@
    }
   },
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -7305,7 +7440,7 @@
   "why": "28.2 min (recent 30.3, \u22120.9 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.742 pts+reb+ast/min (40% this season's 0.508 over 2 games, 60% prior 0.898); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +5%; calibration +0.2."
  },
  "Brandon Miller|pr|401909853": {
-  "actual": null,
+  "actual": 41.0,
   "best5": [],
   "best5_at": {},
   "blend_mean": 25.82,
@@ -7322,16 +7457,21 @@
   "first_line": 27.5,
   "frozen_at": "2026-10-24 17:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 27.5,
+  "line_errs": {
+   "prizepicks": 13.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 27.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 21.0,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -7385,7 +7525,7 @@
    }
   },
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -7396,7 +7536,7 @@
   "why": "28.2 min (recent 30.3, \u22120.9 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.672 pts+reb/min (40% this season's 0.492 over 2 games, 60% prior 0.792); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +5%; calibration +0.2."
  },
  "Brandon Miller|pts|401909853": {
-  "actual": null,
+  "actual": 34.0,
   "best5": [
    "pts:best5"
   ],
@@ -7417,10 +7557,16 @@
   "first_line": 21.5,
   "frozen_at": "2026-10-24 17:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "fanduel": 11.5,
+   "kalshi": 14.5,
+   "prizepicks": 11.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 22.5,
@@ -7429,6 +7575,7 @@
   },
   "market_side": 0.5142,
   "opp": "MIA",
+  "our_err": 16.9,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -7488,7 +7635,7 @@
    }
   },
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -7499,7 +7646,7 @@
   "why": "28.2 min (recent 30.3, \u22120.9 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.564 points/min (29% this season's 0.407 over 2 games, 71% prior 0.627); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +7%; calibration +0.1."
  },
  "Brandon Miller|ra|401909853": {
-  "actual": null,
+  "actual": 11.0,
   "best5": [],
   "blend_mean": 8.13,
   "blend_w": 0.225,
@@ -7515,16 +7662,21 @@
   "first_line": 8.5,
   "frozen_at": "2026-10-24 17:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 4.1,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -7575,7 +7727,7 @@
    }
   },
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -7586,7 +7738,7 @@
   "why": "28.2 min (recent 30.3, \u22120.9 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.237 reb+ast/min (20% this season's 0.102 over 2 games, 80% prior 0.271); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +1%; calibration +0.1."
  },
  "Brandon Miller|reb|401909853": {
-  "actual": null,
+  "actual": 7.0,
   "best5": [],
   "best5_at": {},
   "blend_mean": 5.15,
@@ -7603,16 +7755,21 @@
   "first_line": 5.5,
   "frozen_at": "2026-10-24 21:42 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 5.5
   },
   "market_side": 0.58,
   "opp": "MIA",
+  "our_err": 2.7,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -7665,7 +7822,7 @@
    }
   },
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -10444,29 +10601,30 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 4.75,
+  "blend_mean": 4.77,
   "blend_w": 0.225,
-  "break_even": 0.67,
-  "call": "OVER",
-  "chance": 0.6281,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 3.5,
-  "close_mkt": 0.655,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5047,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 4.5,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 06:21 UTC",
   "first_line": 4.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 3.5,
-  "line_source": "kalshi",
+  "line": 4.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 3.5
+   "kalshi": 3.5,
+   "prizepicks": 4.5
   },
-  "market_side": 0.655,
+  "market_side": null,
   "opp": "NOP",
   "out_ctx": [
    "Alpha Diallo",
@@ -10537,7 +10695,7 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 35,
+  "updates": 36,
   "var": 5.173,
   "why": "30.1 min (recent 31.9, \u22121.3 team-minutes adjustment with Alpha Diallo, Cameron Johnson out, \u22120.5 blowout risk (market margin 12)); \u00d7 0.152 rebounds/min (8% this season's 0.182 over 1 games, 92% prior 0.149); context: home +1%, shared production on DEN \u22122%; calibration +0.1."
  },
@@ -10545,19 +10703,19 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 3.47,
+  "blend_mean": 3.42,
   "blend_w": 0.225,
-  "break_even": 0.62,
+  "break_even": 0.63,
   "call": "UNDER",
-  "chance": 0.5771,
-  "close_at": "2026-10-25 00:21 UTC",
+  "chance": 0.5846,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.605,
+  "close_mkt": 0.615,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 10:41 UTC",
   "first_line": 3.5,
-  "frozen_at": "2026-10-25 00:21 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": true,
@@ -10567,7 +10725,7 @@
   "lines": {
    "kalshi": 3.5
   },
-  "market_side": 0.605,
+  "market_side": 0.615,
   "opp": "GSW",
   "out_ctx": [
    "Al Horford",
@@ -10643,7 +10801,7 @@
   "tip_utc": "2026-10-25T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 14,
+  "updates": 15,
   "var": 6.065,
   "why": "27.0 min (recent 27.8, \u22120.9 team-minutes adjustment with Oso Ighodaro out); \u00d7 0.149 assists/min (17% this season's 0.095 over 1 games, 83% prior 0.159); context: home +1%, rest +1%, shared production on PHX \u22123%; calibration +0.1."
  },
@@ -10651,29 +10809,29 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 2.24,
+  "blend_mean": 2.14,
   "blend_w": 0.225,
-  "break_even": 0.62,
-  "call": "UNDER",
-  "chance": 0.6289,
-  "close_at": "2026-10-24 23:21 UTC",
-  "close_line": 2.5,
-  "close_mkt": 0.61,
+  "break_even": 0.63,
+  "call": "OVER",
+  "chance": 0.5668,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 1.5,
+  "close_mkt": 0.58,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 05:40 UTC",
   "first_line": 2.5,
-  "frozen_at": "2026-10-24 23:21 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": true,
   "label": "edge",
-  "line": 2.5,
+  "line": 1.5,
   "line_source": "kalshi",
   "lines": {
-   "kalshi": 2.5
+   "kalshi": 1.5
   },
-  "market_side": 0.61,
+  "market_side": 0.58,
   "opp": "GSW",
   "out_ctx": [
    "Al Horford",
@@ -10747,9 +10905,9 @@
   "team": "PHX",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-25T02:00:00+00:00",
-  "units": 0.25,
-  "units_raw": 0.25,
-  "updates": 22,
+  "units": 0.0,
+  "units_raw": 0.0,
+  "updates": 23,
   "var": 2.37,
   "why": "27.0 min (recent 27.8, \u22120.9 team-minutes adjustment with Oso Ighodaro out); \u00d7 0.072 3-pointers made/min (25% this season's 0.000 over 1 games, 75% prior 0.095); context: home +1%, rest +1%, shared production on PHX \u22122%."
  },
@@ -12075,7 +12233,7 @@
   "why": "22.9 min (recent 21.5, +1.4 team-minutes adjustment with Cooper Flagg, Kyrie Irving out); \u00d7 0.279 rebounds/min (14% this season's 0.162 over 2 games, 86% prior 0.298); context: home +1%, rest \u22122%, shared production on DAL +3%; calibration +0.1."
  },
  "Davion Mitchell|ast|401909853": {
-  "actual": null,
+  "actual": 10.0,
   "best5": [],
   "blend_mean": 6.39,
   "blend_w": 0.225,
@@ -12091,16 +12249,21 @@
   "first_line": 6.5,
   "frozen_at": "2026-10-24 21:42 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 4.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 5.5
   },
   "market_side": 0.59,
   "opp": "CHA",
+  "our_err": 4.2,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -12151,7 +12314,7 @@
    }
   },
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -12162,7 +12325,7 @@
   "why": "26.6 min (recent 29.1, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.213 assists/min (29% this season's 0.242 over 2 games, 71% prior 0.201); context: road \u22121%, rest \u22122%, shared production on MIA +6%; calibration +0.1."
  },
  "Davion Mitchell|fg3m|401909853": {
-  "actual": null,
+  "actual": 3.0,
   "best5": [],
   "blend_mean": 1.41,
   "blend_w": 0.225,
@@ -12178,16 +12341,21 @@
   "first_line": 1.5,
   "frozen_at": "2026-10-24 19:20 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "edge",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
   },
   "market_side": 0.615,
   "opp": "CHA",
+  "our_err": 1.6,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -12238,7 +12406,7 @@
    }
   },
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -12249,7 +12417,7 @@
   "why": "26.6 min (recent 29.1, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.052 3-pointers made/min (40% this season's 0.061 over 2 games, 60% prior 0.046); context: road \u22121%, rest \u22122%, shared production on MIA +2%."
  },
  "Davion Mitchell|pa|401909853": {
-  "actual": null,
+  "actual": 32.0,
   "best5": [],
   "blend_mean": 16.35,
   "blend_w": 0.225,
@@ -12265,16 +12433,21 @@
   "first_line": 17.5,
   "frozen_at": "2026-10-24 11:21 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 16.5,
+  "line_errs": {
+   "prizepicks": 15.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 16.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 16.2,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -12322,7 +12495,7 @@
    }
   },
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -12333,7 +12506,7 @@
   "why": "26.6 min (recent 29.1, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.594 pts+ast/min (40% this season's 0.682 over 2 games, 60% prior 0.536); context: road \u22121%, rest \u22122%, shared production on MIA +3%; calibration +0.2."
  },
  "Davion Mitchell|pra|401909853": {
-  "actual": null,
+  "actual": 33.0,
   "best5": [],
   "blend_mean": 19.08,
   "blend_w": 0.225,
@@ -12346,16 +12519,21 @@
   "date": "2026-10-24",
   "frozen_at": "2026-10-24 06:21 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 19.5,
+  "line_errs": {
+   "prizepicks": 13.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 19.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 15.4,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -12403,7 +12581,7 @@
    }
   },
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -12413,7 +12591,7 @@
   "why": "26.6 min (recent 29.1, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.664 pts+reb+ast/min (40% this season's 0.712 over 2 games, 60% prior 0.632); context: road \u22121%, rest \u22122%, shared production on MIA +2%; calibration +0.2."
  },
  "Davion Mitchell|pr|401909853": {
-  "actual": null,
+  "actual": 23.0,
   "best5": [],
   "blend_mean": 12.32,
   "blend_w": 0.225,
@@ -12429,16 +12607,21 @@
   "first_line": 12.5,
   "frozen_at": "2026-10-24 18:22 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "prizepicks": 10.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 11.3,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -12489,7 +12672,7 @@
    }
   },
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -12500,7 +12683,7 @@
   "why": "26.6 min (recent 29.1, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.446 pts+reb/min (40% this season's 0.470 over 2 games, 60% prior 0.431); context: road \u22121%, rest \u22122%; calibration +0.2."
  },
  "Davion Mitchell|pts|401909853": {
-  "actual": null,
+  "actual": 22.0,
   "best5": [],
   "blend_mean": 10.07,
   "blend_w": 0.225,
@@ -12516,10 +12699,16 @@
   "first_line": 9.5,
   "frozen_at": "2026-10-24 14:11 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "fanduel": 11.5,
+   "kalshi": 12.5,
+   "prizepicks": 11.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 10.5,
@@ -12528,6 +12717,7 @@
   },
   "market_side": 0.5192,
   "opp": "CHA",
+  "our_err": 12.4,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -12575,7 +12765,7 @@
    }
   },
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -12586,7 +12776,7 @@
   "why": "26.6 min (recent 29.1, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.365 points/min (29% this season's 0.439 over 2 games, 71% prior 0.335); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration +0.1."
  },
  "Davion Mitchell|ra|401909853": {
-  "actual": null,
+  "actual": 11.0,
   "best5": [],
   "blend_mean": 8.76,
   "blend_w": 0.225,
@@ -12602,16 +12792,21 @@
   "first_line": 8.5,
   "frozen_at": "2026-10-24 18:20 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 9.0,
+  "line_errs": {
+   "prizepicks": 2.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.0
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 3.1,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -12662,7 +12857,7 @@
    }
   },
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -12673,7 +12868,7 @@
   "why": "26.6 min (recent 29.1, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.292 reb+ast/min (20% this season's 0.273 over 2 games, 80% prior 0.296); context: road \u22121%, rest \u22122%, shared production on MIA +4%; calibration +0.1."
  },
  "Davion Mitchell|reb|401909853": {
-  "actual": null,
+  "actual": 1.0,
   "best5": [],
   "best5_at": {},
   "blend_mean": 2.69,
@@ -12690,10 +12885,15 @@
   "first_line": 2.5,
   "frozen_at": "2026-10-24 21:10 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -12701,6 +12901,7 @@
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 1.3,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -12755,7 +12956,7 @@
    }
   },
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -14267,19 +14468,19 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 2.95,
+  "blend_mean": 2.99,
   "blend_w": 0.225,
-  "break_even": 0.64,
+  "break_even": 0.63,
   "call": "UNDER",
-  "chance": 0.6537,
-  "close_at": "2026-10-25 00:21 UTC",
+  "chance": 0.6462,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.625,
+  "close_mkt": 0.615,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 20:00 UTC",
   "first_line": 3.5,
-  "frozen_at": "2026-10-25 00:21 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": false,
@@ -14289,7 +14490,7 @@
   "lines": {
    "kalshi": 3.5
   },
-  "market_side": 0.625,
+  "market_side": 0.615,
   "opp": "PHX",
   "out_ctx": [
    "Al Horford",
@@ -14355,26 +14556,26 @@
   "tip_utc": "2026-10-25T02:00:00+00:00",
   "units": 0.25,
   "units_raw": 0.25,
-  "updates": 8,
+  "updates": 9,
   "var": 2.536,
   "why": "23.3 min (recent 23.0, +0.3 team-minutes adjustment with Stephen Curry, Al Horford, Brandin Podziemski out); \u00d7 0.098 assists/min (29% this season's 0.049 over 2 games, 71% prior 0.117); context: pace vs PHX \u22121%, road \u22121%, rest \u22122%, shared production on GSW +6%; calibration +0.1."
  },
  "De'Anthony Melton|fg3m|401909860": {
   "actual": null,
   "best5": [],
-  "blend_mean": 1.99,
+  "blend_mean": 1.98,
   "blend_w": 0.225,
   "break_even": 0.55,
   "call": "OVER",
-  "chance": 0.5072,
-  "close_at": "2026-10-24 23:41 UTC",
+  "chance": 0.5032,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.54,
+  "close_mkt": 0.535,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 14:01 UTC",
   "first_line": 1.5,
-  "frozen_at": "2026-10-24 23:41 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": false,
@@ -14384,7 +14585,7 @@
   "lines": {
    "kalshi": 1.5
   },
-  "market_side": 0.54,
+  "market_side": 0.535,
   "opp": "PHX",
   "out_ctx": [
    "Al Horford",
@@ -14458,7 +14659,7 @@
   "tip_utc": "2026-10-25T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 6,
+  "updates": 7,
   "var": 2.251,
   "why": "23.3 min (recent 23.0, +0.3 team-minutes adjustment with Stephen Curry, Al Horford, Brandin Podziemski out); \u00d7 0.059 3-pointers made/min (40% this season's 0.049 over 2 games, 60% prior 0.066); context: pace vs PHX \u22121%, road \u22121%, rest \u22122%, shared production on GSW +12%."
  },
@@ -14721,35 +14922,31 @@
  },
  "De'Anthony Melton|pts|401909860": {
   "actual": null,
-  "best5": [
-   "pts:best5"
-  ],
-  "best5_at": {
-   "pts:best5": "2026-10-25 00:23:02 UTC"
-  },
-  "blend_mean": 10.75,
+  "best5": [],
+  "best5_at": {},
+  "blend_mean": 12.09,
   "blend_w": 0.225,
-  "break_even": 0.73,
+  "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.6416,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 14.5,
-  "close_mkt": 0.685,
+  "chance": 0.515,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 12.5,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 14:01 UTC",
   "first_line": 12.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": false,
   "label": "lean",
-  "line": 14.5,
-  "line_source": "kalshi",
+  "line": 12.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 14.5
+   "prizepicks": 12.5
   },
-  "market_side": 0.685,
+  "market_side": null,
   "opp": "PHX",
   "out_ctx": [
    "Al Horford",
@@ -14823,7 +15020,7 @@
   "tip_utc": "2026-10-25T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 7,
+  "updates": 8,
   "var": 48.295,
   "why": "23.3 min (recent 23.0, +0.3 team-minutes adjustment with Stephen Curry, Al Horford, Brandin Podziemski out); \u00d7 0.442 points/min (29% this season's 0.244 over 2 games, 71% prior 0.522); context: pace vs PHX \u22121%, road \u22121%, rest \u22122%, shared production on GSW +7%; calibration +0.1."
  },
@@ -14934,29 +15131,30 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 3.71,
+  "blend_mean": 3.76,
   "blend_w": 0.225,
-  "break_even": 0.52,
+  "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5322,
-  "close_at": "2026-10-25 00:23 UTC",
+  "chance": 0.5254,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.51,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 20:00 UTC",
   "first_line": 4.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": false,
   "label": "lean",
   "line": 3.5,
-  "line_source": "kalshi",
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 3.5
+   "kalshi": 3.5,
+   "prizepicks": 3.5
   },
-  "market_side": 0.51,
+  "market_side": null,
   "opp": "PHX",
   "out_ctx": [
    "Al Horford",
@@ -15020,9 +15218,9 @@
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-25T02:00:00+00:00",
-  "units": 0.25,
-  "units_raw": 0.25,
-  "updates": 14,
+  "units": 0.0,
+  "units_raw": 0.0,
+  "updates": 15,
   "var": 4.526,
   "why": "23.3 min (recent 23.0, +0.3 team-minutes adjustment with Stephen Curry, Al Horford, Brandin Podziemski out); \u00d7 0.130 rebounds/min (14% this season's 0.073 over 2 games, 86% prior 0.140); context: pace vs PHX \u22121%, road \u22121%, rest \u22122%, shared production on GSW +2%; calibration +0.1."
  },
@@ -15030,19 +15228,19 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 3.13,
+  "blend_mean": 3.06,
   "blend_w": 0.225,
-  "break_even": 0.63,
+  "break_even": 0.6599999999999999,
   "call": "UNDER",
-  "chance": 0.6311,
-  "close_at": "2026-10-25 00:21 UTC",
+  "chance": 0.6424,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.625,
+  "close_mkt": 0.64,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 11:41 UTC",
   "first_line": 3.5,
-  "frozen_at": "2026-10-25 00:21 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": true,
@@ -15052,7 +15250,7 @@
   "lines": {
    "kalshi": 3.5
   },
-  "market_side": 0.625,
+  "market_side": 0.64,
   "opp": "NOP",
   "out_ctx": [
    "Alpha Diallo",
@@ -15123,28 +15321,28 @@
   "team": "DEN",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-25T01:00:00+00:00",
-  "units": 0.25,
-  "units_raw": 0.25,
-  "updates": 21,
+  "units": 0.0,
+  "units_raw": 0.0,
+  "updates": 22,
   "var": 4.498,
   "why": "28.8 min (recent 30.5, \u22121.2 team-minutes adjustment with Alpha Diallo, Cameron Johnson out, \u22120.5 blowout risk (market margin 12)); \u00d7 0.107 assists/min (17% this season's 0.000 over 1 games, 83% prior 0.129); context: home +1%, shared production on DEN \u22129%; calibration +0.1."
  },
  "DeMar DeRozan|fg3m|401909859": {
   "actual": null,
   "best5": [],
-  "blend_mean": 0.77,
+  "blend_mean": 0.78,
   "blend_w": 0.225,
-  "break_even": 0.53,
+  "break_even": 0.52,
   "call": "UNDER",
-  "chance": 0.5318,
-  "close_at": "2026-10-25 00:23 UTC",
+  "chance": 0.5278,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 0.5,
-  "close_mkt": 0.515,
+  "close_mkt": 0.51,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 13:40 UTC",
   "first_line": 0.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": true,
@@ -15154,7 +15352,7 @@
   "lines": {
    "kalshi": 0.5
   },
-  "market_side": 0.515,
+  "market_side": 0.51,
   "opp": "NOP",
   "out_ctx": [
    "Alpha Diallo",
@@ -15225,7 +15423,7 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.25,
   "units_raw": 0.25,
-  "updates": 8,
+  "updates": 9,
   "var": 0.743,
   "why": "28.8 min (recent 30.5, \u22121.2 team-minutes adjustment with Alpha Diallo, Cameron Johnson out, \u22120.5 blowout risk (market margin 12)); \u00d7 0.021 3-pointers made/min (25% this season's 0.000 over 1 games, 75% prior 0.028); context: home +1%, shared production on DEN +3%."
  },
@@ -15332,29 +15530,30 @@
  "DeMar DeRozan|pra|401909859": {
   "actual": null,
   "best5": [],
-  "blend_mean": 22.07,
+  "blend_mean": 21.38,
   "blend_w": 0.225,
-  "break_even": 0.65,
-  "call": "OVER",
-  "chance": 0.57,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 19.5,
-  "close_mkt": 0.605,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5032,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 21.5,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-24 06:21 UTC",
   "first_line": 20.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 19.5,
-  "line_source": "kalshi",
+  "line": 21.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 19.5
+   "kalshi": 19.5,
+   "prizepicks": 21.5
   },
-  "market_side": 0.605,
+  "market_side": null,
   "opp": "NOP",
   "out_ctx": [
    "Alpha Diallo",
@@ -15425,45 +15624,47 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 4,
+  "updates": 5,
   "var": 86.804,
   "why": "28.8 min (recent 30.5, \u22121.2 team-minutes adjustment with Alpha Diallo, Cameron Johnson out, \u22120.5 blowout risk (market margin 12)); \u00d7 0.747 pts+reb+ast/min (25% this season's 0.536 over 1 games, 75% prior 0.818); context: home +1%, shared production on DEN \u22125%; calibration +0.2."
  },
  "DeMar DeRozan|pr|401909859": {
   "actual": null,
   "best5": [],
-  "blend_mean": 18.47,
+  "blend_mean": 18.09,
   "blend_w": 0.225,
   "break_even": 0.542,
-  "call": "UNDER",
-  "chance": 0.5009,
-  "close_at": "2026-10-24 19:01 UTC",
-  "close_line": 18.5,
+  "call": "OVER",
+  "chance": 0.5033,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 18.0,
   "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-24 06:21 UTC",
   "first_line": 17.5,
-  "frozen_at": "2026-10-24 19:01 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 18.5,
+  "line": 18.0,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 18.5
+   "prizepicks": 18.0
   },
   "market_side": null,
   "opp": "NOP",
   "out_ctx": [
+   "Alpha Diallo",
    "Cameron Johnson",
    "Julian Strawther",
-   "Spencer Jones"
+   "Spencer Jones",
+   "Yves Missi"
   ],
   "player": "DeMar DeRozan",
   "player_id": 3978,
-  "proj_min": 29.0,
+  "proj_min": 28.8,
   "projected": 18.4,
   "role_gap": false,
   "snaps": {
@@ -15523,9 +15724,9 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 6,
-  "var": 70.093,
-  "why": "29.0 min (recent 30.5, \u22121.0 team-minutes adjustment with Cameron Johnson out, \u22120.5 blowout risk (market margin 12)); \u00d7 0.651 pts+reb/min (25% this season's 0.536 over 1 games, 75% prior 0.689); context: home +1%, shared production on DEN \u22125%; calibration +0.2."
+  "updates": 7,
+  "var": 70.099,
+  "why": "28.8 min (recent 30.5, \u22121.2 team-minutes adjustment with Alpha Diallo, Cameron Johnson out, \u22120.5 blowout risk (market margin 12)); \u00d7 0.651 pts+reb/min (25% this season's 0.536 over 1 games, 75% prior 0.689); context: home +1%, shared production on DEN \u22124%; calibration +0.2."
  },
  "DeMar DeRozan|pts|401909859": {
   "actual": null,
@@ -15714,19 +15915,19 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 2.97,
+  "blend_mean": 2.89,
   "blend_w": 0.225,
-  "break_even": 0.6699999999999999,
+  "break_even": 0.69,
   "call": "UNDER",
-  "chance": 0.6309,
-  "close_at": "2026-10-25 00:21 UTC",
+  "chance": 0.644,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.655,
+  "close_mkt": 0.675,
   "date": "2026-10-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-24 06:21 UTC",
   "first_line": 2.5,
-  "frozen_at": "2026-10-25 00:21 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": true,
@@ -15736,7 +15937,7 @@
   "lines": {
    "kalshi": 3.5
   },
-  "market_side": 0.655,
+  "market_side": 0.675,
   "opp": "NOP",
   "out_ctx": [
    "Alpha Diallo",
@@ -15809,7 +16010,7 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 24,
+  "updates": 25,
   "var": 2.987,
   "why": "28.8 min (recent 30.5, \u22121.2 team-minutes adjustment with Alpha Diallo, Cameron Johnson out, \u22120.5 blowout risk (market margin 12)); \u00d7 0.101 rebounds/min (8% this season's 0.071 over 1 games, 92% prior 0.103); context: home +1%, shared production on DEN \u22122%; calibration +0.1."
  },
@@ -16628,29 +16829,30 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 26.83,
+  "blend_mean": 26.91,
   "blend_w": 0.225,
-  "break_even": 0.66,
-  "call": "OVER",
-  "chance": 0.5681,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 24.5,
-  "close_mkt": 0.63,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5332,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 28.0,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 07:20 UTC",
   "first_line": 24.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": false,
   "label": "lean",
-  "line": 24.5,
-  "line_source": "kalshi",
+  "line": 28.0,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 24.5
+   "kalshi": 24.5,
+   "prizepicks": 28.0
   },
-  "market_side": 0.63,
+  "market_side": null,
   "opp": "DEN",
   "out_ctx": [
    "Alpha Diallo",
@@ -16721,7 +16923,7 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 29,
+  "updates": 30,
   "var": 69.96,
   "why": "25.6 min (recent 28.4, \u22121.1 team-minutes adjustment with Yves Missi out, \u22121.1 back-to-back, \u22120.5 blowout risk (market margin 12)); \u00d7 0.925 pts+reb+ast/min (40% this season's 0.953 over 2 games, 60% prior 0.906); context: road \u22121%, rest \u22122%; calibration +0.2."
  },
@@ -16826,8 +17028,12 @@
  },
  "Dejounte Murray|pts|401909859": {
   "actual": null,
-  "best5": [],
-  "best5_at": {},
+  "best5": [
+   "pts:best5"
+  ],
+  "best5_at": {
+   "pts:best5": "2026-10-25 00:41:12 UTC"
+  },
   "blend_mean": 15.97,
   "blend_w": 0.225,
   "break_even": 0.5798319327731093,
@@ -17033,29 +17239,30 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 4.97,
+  "blend_mean": 5.08,
   "blend_w": 0.225,
-  "break_even": 0.6,
+  "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.6036,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 5.5,
-  "close_mkt": 0.595,
+  "chance": 0.5315,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 5.0,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 07:20 UTC",
   "first_line": 4.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": false,
   "label": "lean",
-  "line": 5.5,
-  "line_source": "kalshi",
+  "line": 5.0,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 5.5
+   "kalshi": 5.5,
+   "prizepicks": 5.0
   },
-  "market_side": 0.595,
+  "market_side": null,
   "opp": "DEN",
   "out_ctx": [
    "Alpha Diallo",
@@ -17124,14 +17331,14 @@
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-25T01:00:00+00:00",
-  "units": 0.25,
-  "units_raw": 0.25,
-  "updates": 38,
+  "units": 0.0,
+  "units_raw": 0.0,
+  "updates": 39,
   "var": 4.775,
   "why": "25.6 min (recent 28.4, \u22121.1 team-minutes adjustment with Yves Missi out, \u22121.1 back-to-back, \u22120.5 blowout risk (market margin 12)); \u00d7 0.170 rebounds/min (14% this season's 0.141 over 2 games, 86% prior 0.175); context: road \u22121%, rest \u22122%, shared production on NOP +1%; calibration +0.1."
  },
  "Dennis Schroder|ast|401909853": {
-  "actual": null,
+  "actual": 4.0,
   "best5": [
    "ast:value"
   ],
@@ -17152,16 +17359,21 @@
   "first_line": 5.5,
   "frozen_at": "2026-10-24 21:42 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 5.5
   },
   "market_side": 0.485,
   "opp": "MIA",
+  "our_err": 0.5,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -17218,7 +17430,7 @@
    }
   },
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -17229,7 +17441,7 @@
   "why": "22.7 min (recent 23.4, \u22120.7 team-minutes adjustment); \u00d7 0.182 assists/min (29% this season's 0.164 over 2 games, 71% prior 0.190); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +7%; calibration +0.1."
  },
  "Dennis Schroder|fg3m|401909853": {
-  "actual": null,
+  "actual": 3.0,
   "best5": [
    "fg3m:best5",
    "fg3m:value"
@@ -17252,16 +17464,21 @@
   "first_line": 1.5,
   "frozen_at": "2026-10-24 21:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "edge",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
   },
   "market_side": 0.61,
   "opp": "MIA",
+  "our_err": 2.3,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -17315,7 +17532,7 @@
    }
   },
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -17326,7 +17543,7 @@
   "why": "22.7 min (recent 23.4, \u22120.7 team-minutes adjustment); \u00d7 0.031 3-pointers made/min (40% this season's 0.000 over 2 games, 60% prior 0.052); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +3%."
  },
  "Dennis Schroder|pa|401909853": {
-  "actual": null,
+  "actual": 29.0,
   "best5": [],
   "blend_mean": 18.52,
   "blend_w": 0.225,
@@ -17342,16 +17559,21 @@
   "first_line": 20.5,
   "frozen_at": "2026-10-24 20:40 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 19.5,
+  "line_errs": {
+   "prizepicks": 9.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 19.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 13.8,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -17402,7 +17624,7 @@
    }
   },
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -17413,7 +17635,7 @@
   "why": "22.7 min (recent 23.4, \u22120.7 team-minutes adjustment); \u00d7 0.621 pts+ast/min (40% this season's 0.582 over 2 games, 60% prior 0.647); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +7%; calibration +0.2."
  },
  "Dennis Schroder|pra|401909853": {
-  "actual": null,
+  "actual": 35.0,
   "best5": [],
   "blend_mean": 22.26,
   "blend_w": 0.225,
@@ -17429,16 +17651,21 @@
   "first_line": 24.5,
   "frozen_at": "2026-10-24 18:20 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "prizepicks": 11.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 23.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 17.0,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -17489,7 +17716,7 @@
    }
   },
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -17500,7 +17727,7 @@
   "why": "22.7 min (recent 23.4, \u22120.7 team-minutes adjustment); \u00d7 0.744 pts+reb+ast/min (40% this season's 0.727 over 2 games, 60% prior 0.755); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +5%; calibration +0.2."
  },
  "Dennis Schroder|pr|401909853": {
-  "actual": null,
+  "actual": 31.0,
   "best5": [],
   "blend_mean": 16.63,
   "blend_w": 0.225,
@@ -17516,16 +17743,21 @@
   "first_line": 18.5,
   "frozen_at": "2026-10-24 17:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "prizepicks": 13.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 17.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 17.4,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -17576,7 +17808,7 @@
    }
   },
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -17587,7 +17819,7 @@
   "why": "22.7 min (recent 23.4, \u22120.7 team-minutes adjustment); \u00d7 0.565 pts+reb/min (40% this season's 0.564 over 2 games, 60% prior 0.566); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +5%; calibration +0.2."
  },
  "Dennis Schroder|pts|401909853": {
-  "actual": null,
+  "actual": 25.0,
   "best5": [],
   "best5_at": {},
   "blend_mean": 13.43,
@@ -17604,10 +17836,16 @@
   "first_line": 14.5,
   "frozen_at": "2026-10-24 17:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "fanduel": 10.5,
+   "kalshi": 10.5,
+   "prizepicks": 10.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 14.5,
@@ -17616,6 +17854,7 @@
   },
   "market_side": 0.5164,
   "opp": "MIA",
+  "our_err": 14.1,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -17669,7 +17908,7 @@
    }
   },
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -17680,7 +17919,7 @@
   "why": "22.7 min (recent 23.4, \u22120.7 team-minutes adjustment); \u00d7 0.446 points/min (29% this season's 0.418 over 2 games, 71% prior 0.457); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +7%; calibration +0.1."
  },
  "Dennis Schroder|ra|401909853": {
-  "actual": null,
+  "actual": 10.0,
   "best5": [],
   "blend_mean": 8.97,
   "blend_w": 0.225,
@@ -17696,16 +17935,21 @@
   "first_line": 9.5,
   "frozen_at": "2026-10-24 17:21 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 2.8,
   "out_ctx": [
    "Grant Williams",
    "Kon Knueppel",
@@ -17755,7 +17999,7 @@
    }
   },
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -17766,7 +18010,7 @@
   "why": "22.6 min (recent 23.4, \u22120.7 team-minutes adjustment); \u00d7 0.301 reb+ast/min (20% this season's 0.309 over 2 games, 80% prior 0.298); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +3%; calibration +0.1."
  },
  "Dennis Schroder|reb|401909853": {
-  "actual": null,
+  "actual": 6.0,
   "best5": [],
   "best5_at": {},
   "blend_mean": 3.19,
@@ -17783,16 +18027,21 @@
   "first_line": 3.5,
   "frozen_at": "2026-10-24 21:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
   },
   "market_side": 0.58,
   "opp": "MIA",
+  "our_err": 3.4,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -17847,7 +18096,7 @@
    }
   },
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -17861,19 +18110,19 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 3.25,
+  "blend_mean": 3.22,
   "blend_w": 0.225,
-  "break_even": 0.62,
+  "break_even": 0.63,
   "call": "UNDER",
-  "chance": 0.6305,
-  "close_at": "2026-10-24 23:41 UTC",
+  "chance": 0.6343,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.615,
+  "close_mkt": 0.62,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 07:41 UTC",
   "first_line": 2.5,
-  "frozen_at": "2026-10-24 23:41 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": false,
@@ -17883,9 +18132,10 @@
   "lines": {
    "kalshi": 3.5
   },
-  "market_side": 0.615,
+  "market_side": 0.62,
   "opp": "DEN",
   "out_ctx": [
+   "Alpha Diallo",
    "Cameron Johnson",
    "Julian Strawther",
    "Spencer Jones",
@@ -17953,35 +18203,39 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.25,
   "units_raw": 0.25,
-  "updates": 6,
+  "updates": 7,
   "var": 6.341,
   "why": "22.9 min (recent 25.6, \u22122.7 team-minutes adjustment with Yves Missi out); \u00d7 0.116 assists/min (29% this season's 0.064 over 2 games, 71% prior 0.137); context: road \u22121%, rest \u22122%, shared production on NOP +5%; calibration +0.1."
  },
  "Derik Queen|pa|401909859": {
   "actual": null,
   "best5": [],
-  "blend_mean": 14.13,
+  "blend_mean": 13.35,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5122,
-  "close_at": "2026-10-24 19:41 UTC",
-  "close_line": 14.5,
+  "chance": 0.505,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 13.5,
   "close_mkt": null,
   "date": "2026-10-24",
-  "frozen_at": "2026-10-24 19:41 UTC",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-10-24 19:41 UTC",
+  "first_line": 14.5,
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": false,
   "label": "lean",
-  "line": 14.5,
+  "line": 13.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 14.5
+   "prizepicks": 13.5
   },
   "market_side": null,
   "opp": "DEN",
   "out_ctx": [
+   "Alpha Diallo",
    "Cameron Johnson",
    "Julian Strawther",
    "Spencer Jones",
@@ -18037,37 +18291,39 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
+  "updates": 1,
   "var": 52.274,
   "why": "22.9 min (recent 25.6, \u22122.7 team-minutes adjustment with Yves Missi out); \u00d7 0.576 pts+ast/min (40% this season's 0.532 over 2 games, 60% prior 0.605); context: road \u22121%, rest \u22122%; calibration +0.2."
  },
  "Derik Queen|pra|401909859": {
   "actual": null,
   "best5": [],
-  "blend_mean": 21.93,
+  "blend_mean": 21.15,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5161,
-  "close_at": "2026-10-24 22:01 UTC",
-  "close_line": 22.5,
+  "chance": 0.51,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 21.5,
   "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 07:20 UTC",
   "first_line": 21.5,
-  "frozen_at": "2026-10-24 22:01 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": false,
   "label": "lean",
-  "line": 22.5,
+  "line": 21.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 22.5
+   "prizepicks": 21.5
   },
   "market_side": null,
   "opp": "DEN",
   "out_ctx": [
+   "Alpha Diallo",
    "Cameron Johnson",
    "Julian Strawther",
    "Spencer Jones",
@@ -18135,35 +18391,39 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 10,
+  "updates": 11,
   "var": 81.778,
   "why": "22.9 min (recent 25.6, \u22122.7 team-minutes adjustment with Yves Missi out); \u00d7 0.892 pts+reb+ast/min (40% this season's 0.894 over 2 games, 60% prior 0.891); context: road \u22121%, rest \u22122%; calibration +0.2."
  },
  "Derik Queen|pr|401909859": {
   "actual": null,
   "best5": [],
-  "blend_mean": 18.25,
+  "blend_mean": 17.86,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5092,
-  "close_at": "2026-10-24 19:41 UTC",
-  "close_line": 18.5,
+  "chance": 0.5054,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 18.0,
   "close_mkt": null,
   "date": "2026-10-24",
-  "frozen_at": "2026-10-24 19:41 UTC",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-10-24 19:41 UTC",
+  "first_line": 18.5,
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": false,
   "label": "lean",
-  "line": 18.5,
+  "line": 18.0,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 18.5
+   "prizepicks": 18.0
   },
   "market_side": null,
   "opp": "DEN",
   "out_ctx": [
+   "Alpha Diallo",
    "Cameron Johnson",
    "Julian Strawther",
    "Spencer Jones",
@@ -18219,6 +18479,7 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
+  "updates": 1,
   "var": 64.697,
   "why": "22.9 min (recent 25.6, \u22122.7 team-minutes adjustment with Yves Missi out); \u00d7 0.784 pts+reb/min (40% this season's 0.830 over 2 games, 60% prior 0.753); context: road \u22121%, rest \u22122%, shared production on NOP \u22121%; calibration +0.2."
  },
@@ -18226,29 +18487,30 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 10.85,
+  "blend_mean": 10.45,
   "blend_w": 0.225,
-  "break_even": 0.59,
-  "call": "OVER",
-  "chance": 0.5582,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 9.5,
-  "close_mkt": 0.585,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5022,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 10.5,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 07:20 UTC",
   "first_line": 10.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": false,
   "label": "lean",
-  "line": 9.5,
-  "line_source": "kalshi",
+  "line": 10.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 9.5
+   "kalshi": 9.5,
+   "prizepicks": 10.5
   },
-  "market_side": 0.585,
+  "market_side": null,
   "opp": "DEN",
   "out_ctx": [
    "Alpha Diallo",
@@ -18319,7 +18581,7 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 22,
+  "updates": 23,
   "var": 37.754,
   "why": "22.9 min (recent 25.6, \u22122.7 team-minutes adjustment with Yves Missi out); \u00d7 0.468 points/min (29% this season's 0.468 over 2 games, 71% prior 0.468); context: road \u22121%, rest \u22122%, shared production on NOP \u22122%; calibration +0.1."
  },
@@ -18426,29 +18688,30 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 7.31,
+  "blend_mean": 6.83,
   "blend_w": 0.225,
-  "break_even": 0.55,
+  "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5555,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 7.5,
-  "close_mkt": 0.545,
+  "chance": 0.5039,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 6.5,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 07:20 UTC",
   "first_line": 7.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": false,
   "label": "lean",
-  "line": 7.5,
-  "line_source": "kalshi",
+  "line": 6.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 7.5
+   "kalshi": 7.5,
+   "prizepicks": 6.5
   },
-  "market_side": 0.545,
+  "market_side": null,
   "opp": "DEN",
   "out_ctx": [
    "Alpha Diallo",
@@ -18519,38 +18782,39 @@
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-25T01:00:00+00:00",
-  "units": 0.25,
-  "units_raw": 0.25,
-  "updates": 20,
+  "units": 0.0,
+  "units_raw": 0.0,
+  "updates": 21,
   "var": 8.663,
   "why": "22.9 min (recent 25.6, \u22122.7 team-minutes adjustment with Yves Missi out); \u00d7 0.297 rebounds/min (14% this season's 0.362 over 2 games, 86% prior 0.286); context: road \u22121%, rest \u22122%, shared production on NOP +1%; calibration +0.1."
  },
  "Devin Booker|ast|401909860": {
   "actual": null,
   "best5": [],
-  "blend_mean": 5.55,
+  "blend_mean": 5.66,
   "blend_w": 0.225,
-  "break_even": 0.53,
+  "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5366,
-  "close_at": "2026-10-25 00:23 UTC",
+  "chance": 0.5213,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 5.5,
-  "close_mkt": 0.52,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 05:40 UTC",
   "first_line": 5.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": true,
   "label": "lean",
   "line": 5.5,
-  "line_source": "kalshi",
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 5.5
+   "kalshi": 5.5,
+   "prizepicks": 5.5
   },
-  "market_side": 0.52,
+  "market_side": null,
   "opp": "GSW",
   "out_ctx": [
    "Al Horford",
@@ -18622,38 +18886,39 @@
   "team": "PHX",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-25T02:00:00+00:00",
-  "units": 0.25,
-  "units_raw": 0.25,
-  "updates": 42,
+  "units": 0.0,
+  "units_raw": 0.0,
+  "updates": 43,
   "var": 5.82,
   "why": "32.3 min (recent 33.6, \u22121.1 team-minutes adjustment with Oso Ighodaro out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.159 assists/min (17% this season's 0.069 over 1 games, 83% prior 0.177); context: home +1%, rest +1%, shared production on PHX \u22123%; calibration +0.1."
  },
  "Devin Booker|fg3m|401909860": {
   "actual": null,
   "best5": [],
-  "blend_mean": 1.81,
+  "blend_mean": 1.78,
   "blend_w": 0.225,
-  "break_even": 0.5,
+  "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5143,
-  "close_at": "2026-10-25 00:23 UTC",
+  "chance": 0.5222,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.49,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-24 05:40 UTC",
   "first_line": 1.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": true,
   "label": "edge",
   "line": 1.5,
-  "line_source": "kalshi",
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 1.5
+   "kalshi": 1.5,
+   "prizepicks": 1.5
   },
-  "market_side": 0.49,
+  "market_side": null,
   "opp": "GSW",
   "out_ctx": [
    "Al Horford",
@@ -18725,9 +18990,9 @@
   "team": "PHX",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-25T02:00:00+00:00",
-  "units": 0.25,
-  "units_raw": 0.25,
-  "updates": 39,
+  "units": 0.0,
+  "units_raw": 0.0,
+  "updates": 40,
   "var": 1.835,
   "why": "32.3 min (recent 33.6, \u22121.1 team-minutes adjustment with Oso Ighodaro out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.046 3-pointers made/min (25% this season's 0.000 over 1 games, 75% prior 0.061); context: home +1%, rest +1%, shared production on PHX \u22122%."
  },
@@ -19252,29 +19517,30 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 4.25,
+  "blend_mean": 4.3,
   "blend_w": 0.225,
-  "break_even": 0.58,
-  "call": "OVER",
-  "chance": 0.5603,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 3.5,
-  "close_mkt": 0.57,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5014,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 4.0,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-24 05:40 UTC",
   "first_line": 3.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 3.5,
-  "line_source": "kalshi",
+  "line": 4.0,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 3.5
+   "kalshi": 3.5,
+   "prizepicks": 4.0
   },
-  "market_side": 0.57,
+  "market_side": null,
   "opp": "GSW",
   "out_ctx": [
    "Al Horford",
@@ -19350,7 +19616,7 @@
   "tip_utc": "2026-10-25T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 48,
+  "updates": 49,
   "var": 4.928,
   "why": "32.3 min (recent 33.6, \u22121.1 team-minutes adjustment with Oso Ighodaro out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.117 rebounds/min (8% this season's 0.138 over 1 games, 92% prior 0.116); context: home +1%, rest +1%, shared production on PHX +8%; calibration +0.1."
  },
@@ -20905,29 +21171,30 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 3.88,
+  "blend_mean": 3.86,
   "blend_w": 0.225,
-  "break_even": 0.51,
+  "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.519,
-  "close_at": "2026-10-25 00:23 UTC",
+  "chance": 0.5158,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.505,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-24 05:40 UTC",
   "first_line": 3.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": true,
   "label": "lean",
   "line": 3.5,
-  "line_source": "kalshi",
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 3.5
+   "kalshi": 3.5,
+   "prizepicks": 3.5
   },
-  "market_side": 0.505,
+  "market_side": null,
   "opp": "GSW",
   "out_ctx": [
    "Al Horford",
@@ -21001,9 +21268,9 @@
   "team": "PHX",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-25T02:00:00+00:00",
-  "units": 0.25,
-  "units_raw": 0.25,
-  "updates": 40,
+  "units": 0.0,
+  "units_raw": 0.0,
+  "updates": 41,
   "var": 4.248,
   "why": "28.8 min (recent 29.9, \u22121.0 team-minutes adjustment with Oso Ighodaro out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.130 rebounds/min (8% this season's 0.148 over 1 games, 92% prior 0.128); context: home +1%, rest +1%, shared production on PHX +8%; calibration +0.1."
  },
@@ -25647,7 +25914,7 @@
   "why": "31.6 min (recent 33.6, \u22120.7 team-minutes adjustment with Reed Sheppard out, \u22121.3 back-to-back); \u00d7 0.397 points/min (29% this season's 0.323 over 2 games, 71% prior 0.427); context: pace vs ATL +1%, road \u22121%, rest \u22122%, shared production on HOU +1%; calibration +0.1."
  },
  "Giannis Antetokounmpo|ast|401909853": {
-  "actual": null,
+  "actual": 3.0,
   "best5": [],
   "best5_at": {},
   "blend_mean": 6.13,
@@ -25664,16 +25931,21 @@
   "first_line": 5.5,
   "frozen_at": "2026-10-24 21:42 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 5.5
   },
   "market_side": 0.585,
   "opp": "CHA",
+  "our_err": 1.1,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -25731,7 +26003,7 @@
    }
   },
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -25742,7 +26014,7 @@
   "why": "26.4 min (recent 28.9, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.150 assists/min (29% this season's 0.095 over 2 games, 71% prior 0.172); context: road \u22121%, rest \u22122%, shared production on MIA +6%; calibration +0.1."
  },
  "Giannis Antetokounmpo|fg3m|401909853": {
-  "actual": null,
+  "actual": 0.0,
   "best5": [],
   "blend_mean": 0.51,
   "blend_w": 0.225,
@@ -25758,16 +26030,21 @@
   "first_line": 0.5,
   "frozen_at": "2026-10-24 18:39 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "edge",
   "line": 0.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 0.5
   },
   "market_side": 0.605,
   "opp": "CHA",
+  "our_err": 0.4,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -25818,7 +26095,7 @@
    }
   },
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -25829,7 +26106,7 @@
   "why": "26.4 min (recent 28.9, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.017 3-pointers made/min (40% this season's 0.016 over 2 games, 60% prior 0.018); context: road \u22121%, rest \u22122%, shared production on MIA +2%."
  },
  "Giannis Antetokounmpo|pa|401909853": {
-  "actual": null,
+  "actual": 17.0,
   "best5": [],
   "blend_mean": 33.15,
   "blend_w": 0.225,
@@ -25842,16 +26119,21 @@
   "date": "2026-10-24",
   "frozen_at": "2026-10-24 05:40 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 34.5,
+  "line_errs": {
+   "prizepicks": 17.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 34.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 11.5,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -25899,7 +26181,7 @@
    }
   },
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -25909,7 +26191,7 @@
   "why": "26.4 min (recent 28.9, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 1.097 pts+ast/min (40% this season's 1.222 over 2 games, 60% prior 1.013); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration +0.2."
  },
  "Giannis Antetokounmpo|pra|401909853": {
-  "actual": null,
+  "actual": 23.0,
   "best5": [
    "combos:value"
   ],
@@ -25930,16 +26212,21 @@
   "first_line": 45.5,
   "frozen_at": "2026-10-24 21:42 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 44.5,
+  "line_errs": {
+   "kalshi": 21.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 44.5
   },
   "market_side": 0.48,
   "opp": "CHA",
+  "our_err": 13.3,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -25993,7 +26280,7 @@
    }
   },
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -26004,7 +26291,7 @@
   "why": "26.4 min (recent 28.9, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 1.402 pts+reb+ast/min (40% this season's 1.508 over 2 games, 60% prior 1.332); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration +0.2."
  },
  "Giannis Antetokounmpo|pr|401909853": {
-  "actual": null,
+  "actual": 20.0,
   "best5": [],
   "blend_mean": 37.14,
   "blend_w": 0.225,
@@ -26020,16 +26307,21 @@
   "first_line": 39.5,
   "frozen_at": "2026-10-24 21:00 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 38.5,
+  "line_errs": {
+   "prizepicks": 18.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 38.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 12.4,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -26080,7 +26372,7 @@
    }
   },
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -26091,7 +26383,7 @@
   "why": "26.4 min (recent 28.9, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 1.261 pts+reb/min (40% this season's 1.413 over 2 games, 60% prior 1.160); context: road \u22121%, rest \u22122%; calibration +0.2."
  },
  "Giannis Antetokounmpo|pts|401909853": {
-  "actual": null,
+  "actual": 14.0,
   "best5": [],
   "best5_at": {},
   "blend_mean": 27.24,
@@ -26108,10 +26400,16 @@
   "first_line": 28.5,
   "frozen_at": "2026-10-24 14:11 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 28.5,
+  "line_errs": {
+   "fanduel": 14.5,
+   "kalshi": 15.5,
+   "prizepicks": 14.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 28.5,
@@ -26120,6 +26418,7 @@
   },
   "market_side": 0.5101,
   "opp": "CHA",
+  "our_err": 9.8,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -26170,7 +26469,7 @@
    }
   },
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -26181,7 +26480,7 @@
   "why": "26.4 min (recent 28.9, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.923 points/min (29% this season's 1.127 over 2 games, 71% prior 0.841); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration +0.1."
  },
  "Giannis Antetokounmpo|ra|401909853": {
-  "actual": null,
+  "actual": 9.0,
   "best5": [],
   "blend_mean": 15.94,
   "blend_w": 0.225,
@@ -26197,16 +26496,21 @@
   "first_line": 16.5,
   "frozen_at": "2026-10-24 15:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 17.0,
+  "line_errs": {
+   "prizepicks": 8.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 17.0
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 3.3,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -26254,7 +26558,7 @@
    }
   },
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -26265,7 +26569,7 @@
   "why": "26.4 min (recent 28.9, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.469 reb+ast/min (20% this season's 0.381 over 2 games, 80% prior 0.491); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration +0.1."
  },
  "Giannis Antetokounmpo|reb|401909853": {
-  "actual": null,
+  "actual": 6.0,
   "best5": [],
   "best5_at": {},
   "blend_mean": 10.08,
@@ -26282,16 +26586,21 @@
   "first_line": 9.5,
   "frozen_at": "2026-10-24 21:42 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "kalshi": 3.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 9.5
   },
   "market_side": 0.565,
   "opp": "CHA",
+  "our_err": 2.1,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -26346,7 +26655,7 @@
    }
   },
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -26357,7 +26666,7 @@
   "why": "26.4 min (recent 28.9, \u22121.3 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.314 rebounds/min (14% this season's 0.286 over 2 games, 86% prior 0.319); context: road \u22121%, rest \u22122%, shared production on MIA \u22121%; calibration +0.1."
  },
  "Grayson Allen|ast|401909853": {
-  "actual": null,
+  "actual": 5.0,
   "best5": [],
   "blend_mean": 3.37,
   "blend_w": 0.225,
@@ -26373,16 +26682,21 @@
   "first_line": 3.5,
   "frozen_at": "2026-10-24 21:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
   },
   "market_side": 0.6,
   "opp": "MIA",
+  "our_err": 1.4,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -26421,7 +26735,7 @@
    }
   },
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -26432,7 +26746,7 @@
   "why": "26.4 min (recent 27.3, \u22120.8 team-minutes adjustment); \u00d7 0.126 assists/min (29% this season's 0.143 over 2 games, 71% prior 0.120); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +7%; calibration +0.1."
  },
  "Grayson Allen|fg3m|401909853": {
-  "actual": null,
+  "actual": 4.0,
   "best5": [],
   "blend_mean": 3.15,
   "blend_w": 0.225,
@@ -26448,16 +26762,21 @@
   "first_line": 2.5,
   "frozen_at": "2026-10-24 21:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "edge",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
   },
   "market_side": 0.525,
   "opp": "MIA",
+  "our_err": 0.6,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -26496,7 +26815,7 @@
    }
   },
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -26507,7 +26826,7 @@
   "why": "26.4 min (recent 27.3, \u22120.8 team-minutes adjustment); \u00d7 0.124 3-pointers made/min (40% this season's 0.163 over 2 games, 60% prior 0.098); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +3%."
  },
  "Grayson Allen|pa|401909853": {
-  "actual": null,
+  "actual": 25.0,
   "best5": [],
   "blend_mean": 18.05,
   "blend_w": 0.225,
@@ -26520,16 +26839,21 @@
   "date": "2026-10-24",
   "frozen_at": "2026-10-24 19:01 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 17.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 5.0,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -26568,7 +26892,7 @@
    }
   },
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -26578,7 +26902,7 @@
   "why": "26.4 min (recent 27.3, \u22120.8 team-minutes adjustment); \u00d7 0.702 pts+ast/min (40% this season's 0.796 over 2 games, 60% prior 0.640); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +7%; calibration +0.2."
  },
  "Grayson Allen|pra|401909853": {
-  "actual": null,
+  "actual": 28.0,
   "best5": [],
   "blend_mean": 21.03,
   "blend_w": 0.225,
@@ -26591,16 +26915,21 @@
   "date": "2026-10-24",
   "frozen_at": "2026-10-24 19:01 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 20.5,
+  "line_errs": {
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 20.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 5.1,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -26639,7 +26968,7 @@
    }
   },
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -26649,7 +26978,7 @@
   "why": "26.4 min (recent 27.3, \u22120.8 team-minutes adjustment); \u00d7 0.813 pts+reb+ast/min (40% this season's 0.898 over 2 games, 60% prior 0.756); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +5%; calibration +0.2."
  },
  "Grayson Allen|pr|401909853": {
-  "actual": null,
+  "actual": 23.0,
   "best5": [],
   "blend_mean": 17.11,
   "blend_w": 0.225,
@@ -26662,16 +26991,21 @@
   "date": "2026-10-24",
   "frozen_at": "2026-10-24 19:01 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 16.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 16.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 3.8,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -26710,7 +27044,7 @@
    }
   },
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -26720,7 +27054,7 @@
   "why": "26.4 min (recent 27.3, \u22120.8 team-minutes adjustment); \u00d7 0.684 pts+reb/min (40% this season's 0.755 over 2 games, 60% prior 0.636); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +5%; calibration +0.2."
  },
  "Grayson Allen|pts|401909853": {
-  "actual": null,
+  "actual": 20.0,
   "best5": [],
   "blend_mean": 14.49,
   "blend_w": 0.225,
@@ -26736,16 +27070,21 @@
   "first_line": 14.5,
   "frozen_at": "2026-10-24 21:42 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "kalshi": 5.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 14.5
   },
   "market_side": 0.52,
   "opp": "MIA",
+  "our_err": 4.2,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -26784,7 +27123,7 @@
    }
   },
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -26795,7 +27134,7 @@
   "why": "26.4 min (recent 27.3, \u22120.8 team-minutes adjustment); \u00d7 0.558 points/min (29% this season's 0.653 over 2 games, 71% prior 0.520); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +7%; calibration +0.1."
  },
  "Grayson Allen|ra|401909853": {
-  "actual": null,
+  "actual": 8.0,
   "best5": [],
   "blend_mean": 5.74,
   "blend_w": 0.225,
@@ -26808,16 +27147,21 @@
   "date": "2026-10-24",
   "frozen_at": "2026-10-24 19:20 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 5.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 1.4,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -26856,7 +27200,7 @@
    }
   },
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -26866,7 +27210,7 @@
   "why": "26.4 min (recent 27.3, \u22120.8 team-minutes adjustment); \u00d7 0.238 reb+ast/min (20% this season's 0.245 over 2 games, 80% prior 0.236); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +2%; calibration +0.1."
  },
  "Grayson Allen|reb|401909853": {
-  "actual": null,
+  "actual": 3.0,
   "best5": [
    "reb:best5"
   ],
@@ -26887,16 +27231,21 @@
   "first_line": 2.5,
   "frozen_at": "2026-10-24 21:42 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
   },
   "market_side": 0.715,
   "opp": "MIA",
+  "our_err": 0.1,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -26935,7 +27284,7 @@
    }
   },
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -29033,29 +29382,30 @@
   "best5_at": {
    "ast:value": "2026-10-24 23:42:52 UTC"
   },
-  "blend_mean": 3.8,
+  "blend_mean": 4.01,
   "blend_w": 0.225,
-  "break_even": 0.47,
+  "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5102,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 3.5,
-  "close_mkt": 0.465,
+  "chance": 0.561,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 4.0,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 05:40 UTC",
   "first_line": 3.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 3.5,
-  "line_source": "kalshi",
+  "line": 4.0,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 3.5
+   "kalshi": 3.5,
+   "prizepicks": 4.0
   },
-  "market_side": 0.465,
+  "market_side": null,
   "opp": "GSW",
   "out_ctx": [
    "Al Horford",
@@ -29133,9 +29483,9 @@
   "team": "PHX",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-25T02:00:00+00:00",
-  "units": 0.5,
-  "units_raw": 0.75,
-  "updates": 45,
+  "units": 0.25,
+  "units_raw": 0.25,
+  "updates": 46,
   "var": 3.517,
   "why": "25.1 min (recent 26.0, \u22120.8 team-minutes adjustment with Oso Ighodaro out); \u00d7 0.113 assists/min (17% this season's 0.120 over 1 games, 83% prior 0.111); context: home +1%, rest +1%, shared production on PHX \u22123%; calibration +0.1."
  },
@@ -29143,29 +29493,30 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 2.55,
+  "blend_mean": 2.75,
   "blend_w": 0.225,
-  "break_even": 0.56,
+  "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5767,
-  "close_at": "2026-10-25 00:23 UTC",
+  "chance": 0.5368,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 2.5,
-  "close_mkt": 0.55,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 05:20 UTC",
   "first_line": 2.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": true,
   "label": "edge",
   "line": 2.5,
-  "line_source": "kalshi",
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 2.5
+   "kalshi": 2.5,
+   "prizepicks": 2.5
   },
-  "market_side": 0.55,
+  "market_side": null,
   "opp": "GSW",
   "out_ctx": [
    "Al Horford",
@@ -29240,9 +29591,9 @@
   "team": "PHX",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-25T02:00:00+00:00",
-  "units": 0.25,
-  "units_raw": 0.25,
-  "updates": 36,
+  "units": 0.0,
+  "units_raw": 0.0,
+  "updates": 37,
   "var": 3.022,
   "why": "25.1 min (recent 26.0, \u22120.8 team-minutes adjustment with Oso Ighodaro out); \u00d7 0.082 3-pointers made/min (25% this season's 0.080 over 1 games, 75% prior 0.083); context: home +1%, rest +1%, shared production on PHX \u22122%."
  },
@@ -29769,27 +30120,28 @@
   "best5": [],
   "blend_mean": 4.17,
   "blend_w": 0.225,
-  "break_even": 0.62,
-  "call": "OVER",
-  "chance": 0.5578,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 3.5,
-  "close_mkt": 0.585,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5172,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 4.0,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 11:41 UTC",
   "first_line": 4.0,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 3.5,
-  "line_source": "kalshi",
+  "line": 4.0,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 3.5
+   "kalshi": 3.5,
+   "prizepicks": 4.0
   },
-  "market_side": 0.585,
+  "market_side": null,
   "opp": "GSW",
   "out_ctx": [
    "Al Horford",
@@ -29863,7 +30215,7 @@
   "tip_utc": "2026-10-25T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 14,
+  "updates": 15,
   "var": 3.971,
   "why": "25.1 min (recent 26.0, \u22120.8 team-minutes adjustment with Oso Ighodaro out); \u00d7 0.134 rebounds/min (8% this season's 0.080 over 1 games, 92% prior 0.139); context: home +1%, rest +1%, shared production on PHX +8%; calibration +0.1."
  },
@@ -31498,29 +31850,30 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 6.53,
+  "blend_mean": 6.59,
   "blend_w": 0.225,
-  "break_even": 0.62,
+  "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.6505,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 7.5,
-  "close_mkt": 0.615,
+  "chance": 0.5423,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 6.5,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 06:41 UTC",
   "first_line": 7.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 7.5,
-  "line_source": "kalshi",
+  "line": 6.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 7.5
+   "kalshi": 7.5,
+   "prizepicks": 6.5
   },
-  "market_side": 0.615,
+  "market_side": null,
   "opp": "NOP",
   "out_ctx": [
    "Alpha Diallo",
@@ -31593,8 +31946,8 @@
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.25,
-  "units_raw": 0.5,
-  "updates": 40,
+  "units_raw": 0.25,
+  "updates": 41,
   "var": 7.87,
   "why": "33.8 min (recent 35.7, \u22121.4 team-minutes adjustment with Alpha Diallo, Cameron Johnson out, \u22120.5 blowout risk (market margin 12)); \u00d7 0.167 assists/min (17% this season's 0.081 over 1 games, 83% prior 0.184); context: home +1%, shared production on DEN \u22129%; calibration +0.1."
  },
@@ -31711,27 +32064,27 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 28.7,
+  "blend_mean": 29.48,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5435,
-  "close_at": "2026-10-25 00:21 UTC",
-  "close_line": 30.5,
+  "chance": 0.5482,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 31.5,
   "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 06:21 UTC",
   "first_line": 31.5,
-  "frozen_at": "2026-10-25 00:21 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 30.5,
+  "line": 31.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 30.5
+   "prizepicks": 31.5
   },
   "market_side": null,
   "opp": "NOP",
@@ -31809,41 +32162,38 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.25,
   "units_raw": 0.25,
-  "updates": 6,
+  "updates": 7,
   "var": 81.453,
   "why": "33.8 min (recent 35.7, \u22121.4 team-minutes adjustment with Alpha Diallo, Cameron Johnson out, \u22120.5 blowout risk (market margin 12)); \u00d7 0.690 pts+ast/min (25% this season's 0.243 over 1 games, 75% prior 0.839); context: home +1%, shared production on DEN \u22125%; calibration +0.2."
  },
  "Jamal Murray|pra|401909859": {
   "actual": null,
-  "best5": [
-   "combos:value"
-  ],
-  "best5_at": {
-   "combos:value": "2026-10-25 00:23:02 UTC"
-  },
-  "blend_mean": 32.88,
+  "best5": [],
+  "best5_at": {},
+  "blend_mean": 33.78,
   "blend_w": 0.225,
-  "break_even": 0.53,
+  "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5392,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 34.5,
-  "close_mkt": 0.505,
+  "chance": 0.5411,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 35.5,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 06:21 UTC",
   "first_line": 36.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 34.5,
-  "line_source": "kalshi",
+  "line": 35.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 34.5
+   "kalshi": 34.5,
+   "prizepicks": 35.5
   },
-  "market_side": 0.505,
+  "market_side": null,
   "opp": "NOP",
   "out_ctx": [
    "Alpha Diallo",
@@ -31912,9 +32262,9 @@
   "team": "DEN",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-25T01:00:00+00:00",
-  "units": 0.25,
-  "units_raw": 0.25,
-  "updates": 4,
+  "units": 0.0,
+  "units_raw": 0.0,
+  "updates": 5,
   "var": 98.73,
   "why": "33.8 min (recent 35.7, \u22121.4 team-minutes adjustment with Alpha Diallo, Cameron Johnson out, \u22120.5 blowout risk (market margin 12)); \u00d7 0.848 pts+reb+ast/min (25% this season's 0.514 over 1 games, 75% prior 0.960); context: home +1%, shared production on DEN \u22125%; calibration +0.2."
  },
@@ -32233,29 +32583,30 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 4.51,
+  "blend_mean": 4.43,
   "blend_w": 0.225,
-  "break_even": 0.61,
+  "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.578,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 3.5,
-  "close_mkt": 0.59,
+  "chance": 0.5054,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 4.0,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 06:21 UTC",
   "first_line": 4.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 3.5,
-  "line_source": "kalshi",
+  "line": 4.0,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 3.5
+   "kalshi": 3.5,
+   "prizepicks": 4.0
   },
-  "market_side": 0.59,
+  "market_side": null,
   "opp": "NOP",
   "out_ctx": [
    "Alpha Diallo",
@@ -32326,7 +32677,7 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 45,
+  "updates": 46,
   "var": 6.119,
   "why": "33.8 min (recent 35.7, \u22121.4 team-minutes adjustment with Alpha Diallo, Cameron Johnson out, \u22120.5 blowout risk (market margin 12)); \u00d7 0.133 rebounds/min (8% this season's 0.270 over 1 games, 92% prior 0.121); context: home +1%, shared production on DEN \u22122%; calibration +0.1."
  },
@@ -35299,29 +35650,30 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 2.7,
+  "blend_mean": 2.84,
   "blend_w": 0.225,
-  "break_even": 0.69,
+  "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.6848,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 1.5,
-  "close_mkt": 0.68,
+  "chance": 0.5023,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 2.5,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-24 07:41 UTC",
   "first_line": 2.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": false,
   "label": "lean",
-  "line": 1.5,
-  "line_source": "kalshi",
+  "line": 2.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 1.5
+   "kalshi": 1.5,
+   "prizepicks": 2.5
   },
-  "market_side": 0.68,
+  "market_side": null,
   "opp": "DEN",
   "out_ctx": [
    "Alpha Diallo",
@@ -35392,7 +35744,7 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 27,
+  "updates": 28,
   "var": 3.404,
   "why": "25.8 min (recent 26.9, \u22121.1 team-minutes adjustment with Yves Missi out); \u00d7 0.107 assists/min (29% this season's 0.044 over 2 games, 71% prior 0.132); context: road \u22121%, rest \u22122%, shared production on NOP +5%; calibration +0.1."
  },
@@ -35404,19 +35756,19 @@
   "best5_at": {
    "fg3m:best5": "2026-10-25 00:21:09 UTC"
   },
-  "blend_mean": 1.33,
+  "blend_mean": 1.34,
   "blend_w": 0.225,
   "break_even": 0.66,
   "call": "OVER",
-  "chance": 0.6431,
-  "close_at": "2026-10-25 00:21 UTC",
+  "chance": 0.647,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 0.5,
-  "close_mkt": 0.645,
+  "close_mkt": 0.65,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 11:01 UTC",
   "first_line": 1.5,
-  "frozen_at": "2026-10-25 00:21 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": false,
@@ -35426,7 +35778,7 @@
   "lines": {
    "kalshi": 0.5
   },
-  "market_side": 0.645,
+  "market_side": 0.65,
   "opp": "DEN",
   "out_ctx": [
    "Alpha Diallo",
@@ -35505,7 +35857,7 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 36,
+  "updates": 37,
   "var": 1.708,
   "why": "25.8 min (recent 26.9, \u22121.1 team-minutes adjustment with Yves Missi out); \u00d7 0.048 3-pointers made/min (40% this season's 0.044 over 2 games, 60% prior 0.050); context: road \u22121%, rest \u22122%, shared production on NOP +8%."
  },
@@ -42997,7 +43349,7 @@
   "why": "0.0 min (recent 10.0, \u221210.0 team-minutes adjustment); \u00d7 0.322 rebounds/min (8% this season's 0.353 over 1 games, 92% prior 0.320); context: home +1%, rest +1%, shared production on PHX +6%; calibration +0.1."
  },
  "Klay Thompson|ast|401909853": {
-  "actual": null,
+  "actual": 0.0,
   "best5": [],
   "blend_mean": 1.41,
   "blend_w": 0.225,
@@ -43013,16 +43365,21 @@
   "first_line": 1.5,
   "frozen_at": "2026-10-24 21:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
   },
   "market_side": 0.605,
   "opp": "CHA",
+  "our_err": 1.5,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -43073,7 +43430,7 @@
    }
   },
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -43084,7 +43441,7 @@
   "why": "20.1 min (recent 21.1, \u22121.0 team-minutes adjustment); \u00d7 0.069 assists/min (29% this season's 0.050 over 2 games, 71% prior 0.076); context: road \u22121%, rest \u22122%, shared production on MIA +6%; calibration +0.1."
  },
  "Klay Thompson|fg3m|401909853": {
-  "actual": null,
+  "actual": 4.0,
   "best5": [],
   "blend_mean": 2.62,
   "blend_w": 0.225,
@@ -43100,16 +43457,21 @@
   "first_line": 2.5,
   "frozen_at": "2026-10-24 21:42 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "edge",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
   },
   "market_side": 0.525,
   "opp": "CHA",
+  "our_err": 1.6,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -43160,7 +43522,7 @@
    }
   },
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -43171,7 +43533,7 @@
   "why": "20.1 min (recent 21.1, \u22121.0 team-minutes adjustment); \u00d7 0.120 3-pointers made/min (40% this season's 0.125 over 2 games, 60% prior 0.117); context: road \u22121%, rest \u22122%, shared production on MIA +2%."
  },
  "Klay Thompson|pa|401909853": {
-  "actual": null,
+  "actual": 14.0,
   "best5": [],
   "blend_mean": 11.34,
   "blend_w": 0.225,
@@ -43184,16 +43546,21 @@
   "date": "2026-10-24",
   "frozen_at": "2026-10-24 10:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 3.2,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -43241,7 +43608,7 @@
    }
   },
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -43251,7 +43618,7 @@
   "why": "20.1 min (recent 21.1, \u22121.0 team-minutes adjustment); \u00d7 0.540 pts+ast/min (40% this season's 0.450 over 2 games, 60% prior 0.599); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration +0.2."
  },
  "Klay Thompson|pra|401909853": {
-  "actual": null,
+  "actual": 17.0,
   "best5": [],
   "blend_mean": 13.32,
   "blend_w": 0.225,
@@ -43267,16 +43634,21 @@
   "first_line": 13.5,
   "frozen_at": "2026-10-24 11:21 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 4.3,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -43324,7 +43696,7 @@
    }
   },
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -43335,7 +43707,7 @@
   "why": "20.1 min (recent 21.1, \u22121.0 team-minutes adjustment); \u00d7 0.636 pts+reb+ast/min (40% this season's 0.525 over 2 games, 60% prior 0.710); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration +0.2."
  },
  "Klay Thompson|pr|401909853": {
-  "actual": null,
+  "actual": 17.0,
   "best5": [],
   "blend_mean": 12.24,
   "blend_w": 0.225,
@@ -43348,16 +43720,21 @@
   "date": "2026-10-24",
   "frozen_at": "2026-10-24 10:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 5.7,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -43405,7 +43782,7 @@
    }
   },
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -43415,7 +43792,7 @@
   "why": "20.1 min (recent 21.1, \u22121.0 team-minutes adjustment); \u00d7 0.570 pts+reb/min (40% this season's 0.475 over 2 games, 60% prior 0.634); context: road \u22121%, rest \u22122%; calibration +0.2."
  },
  "Klay Thompson|pts|401909853": {
-  "actual": null,
+  "actual": 14.0,
   "best5": [],
   "blend_mean": 10.08,
   "blend_w": 0.225,
@@ -43431,10 +43808,16 @@
   "first_line": 9.5,
   "frozen_at": "2026-10-24 14:11 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "fanduel": 3.5,
+   "kalshi": 4.5,
+   "prizepicks": 3.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 10.5,
@@ -43443,6 +43826,7 @@
   },
   "market_side": 0.5192,
   "opp": "CHA",
+  "our_err": 4.3,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -43490,7 +43874,7 @@
    }
   },
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -43501,7 +43885,7 @@
   "why": "20.1 min (recent 21.1, \u22121.0 team-minutes adjustment); \u00d7 0.488 points/min (29% this season's 0.400 over 2 games, 71% prior 0.523); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration +0.1."
  },
  "Klay Thompson|ra|401909853": {
-  "actual": null,
+  "actual": 3.0,
   "best5": [],
   "blend_mean": 3.52,
   "blend_w": 0.225,
@@ -43514,16 +43898,21 @@
   "date": "2026-10-24",
   "frozen_at": "2026-10-24 11:21 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 3.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 0.6,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -43571,7 +43960,7 @@
    }
   },
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -43581,7 +43970,7 @@
   "why": "20.1 min (recent 21.1, \u22121.0 team-minutes adjustment); \u00d7 0.174 reb+ast/min (20% this season's 0.125 over 2 games, 80% prior 0.187); context: road \u22121%, rest \u22122%, shared production on MIA +2%; calibration +0.1."
  },
  "Klay Thompson|reb|401909853": {
-  "actual": null,
+  "actual": 3.0,
   "best5": [],
   "best5_at": {},
   "blend_mean": 2.15,
@@ -43598,16 +43987,21 @@
   "first_line": 1.5,
   "frozen_at": "2026-10-24 16:42 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
   },
   "market_side": 0.61,
   "opp": "CHA",
+  "our_err": 0.8,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -43655,7 +44049,7 @@
    }
   },
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -51700,19 +52094,19 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 1.68,
+  "blend_mean": 1.66,
   "blend_w": 0.225,
   "break_even": 0.55,
   "call": "UNDER",
-  "chance": 0.557,
-  "close_at": "2026-10-24 21:10 UTC",
+  "chance": 0.561,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.535,
+  "close_mkt": 0.54,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 05:40 UTC",
   "first_line": 1.5,
-  "frozen_at": "2026-10-24 21:41 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": true,
@@ -51722,7 +52116,7 @@
   "lines": {
    "kalshi": 1.5
   },
-  "market_side": 0.535,
+  "market_side": 0.54,
   "opp": "GSW",
   "out_ctx": [
    "Al Horford",
@@ -51798,34 +52192,34 @@
   "tip_utc": "2026-10-25T02:00:00+00:00",
   "units": 0.25,
   "units_raw": 0.25,
-  "updates": 21,
+  "updates": 22,
   "var": 1.859,
   "why": "29.2 min (recent 30.4, \u22121.0 team-minutes adjustment with Oso Ighodaro out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.047 3-pointers made/min (25% this season's 0.000 over 1 games, 75% prior 0.063); context: home +1%, rest +1%, shared production on PHX \u22122%."
  },
  "Miles Bridges|pa|401909860": {
   "actual": null,
   "best5": [],
-  "blend_mean": 18.14,
+  "blend_mean": 17.37,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5121,
-  "close_at": "2026-10-24 23:41 UTC",
-  "close_line": 18.5,
+  "chance": 0.5046,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 17.5,
   "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 05:20 UTC",
   "first_line": 17.5,
-  "frozen_at": "2026-10-24 23:41 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 18.5,
+  "line": 17.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 18.5
+   "prizepicks": 17.5
   },
   "market_side": null,
   "opp": "GSW",
@@ -51901,7 +52295,7 @@
   "tip_utc": "2026-10-25T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 7,
+  "updates": 8,
   "var": 50.279,
   "why": "29.2 min (recent 30.4, \u22121.0 team-minutes adjustment with Oso Ighodaro out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.573 pts+ast/min (25% this season's 0.276 over 1 games, 75% prior 0.672); context: home +1%, rest +1%, shared production on PHX \u22122%; calibration +0.2."
  },
@@ -52323,29 +52717,30 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 6.21,
+  "blend_mean": 6.0,
   "blend_w": 0.225,
-  "break_even": 0.54,
+  "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5365,
-  "close_at": "2026-10-25 00:23 UTC",
+  "chance": 0.5138,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 5.5,
-  "close_mkt": 0.535,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-24 05:20 UTC",
   "first_line": 5.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": true,
   "label": "lean",
   "line": 5.5,
-  "line_source": "kalshi",
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 5.5
+   "kalshi": 5.5,
+   "prizepicks": 5.5
   },
-  "market_side": 0.535,
+  "market_side": null,
   "opp": "GSW",
   "out_ctx": [
    "Al Horford",
@@ -52422,12 +52817,12 @@
   "tip_utc": "2026-10-25T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 38,
+  "updates": 39,
   "var": 8.283,
   "why": "29.2 min (recent 30.4, \u22121.0 team-minutes adjustment with Oso Ighodaro out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.197 rebounds/min (8% this season's 0.138 over 1 games, 92% prior 0.202); context: home +1%, rest +1%, shared production on PHX +8%; calibration +0.1."
  },
  "Moussa Diabate|ast|401909853": {
-  "actual": null,
+  "actual": 2.0,
   "best5": [],
   "blend_mean": 2.32,
   "blend_w": 0.225,
@@ -52443,16 +52838,21 @@
   "first_line": 1.5,
   "frozen_at": "2026-10-24 21:00 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
   },
   "market_side": 0.575,
   "opp": "MIA",
+  "our_err": 0.0,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -52503,7 +52903,7 @@
    }
   },
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -52514,7 +52914,7 @@
   "why": "25.6 min (recent 26.4, \u22120.8 team-minutes adjustment); \u00d7 0.071 assists/min (29% this season's 0.073 over 2 games, 71% prior 0.070); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +7%; calibration +0.1."
  },
  "Moussa Diabate|pa|401909853": {
-  "actual": null,
+  "actual": 6.0,
   "best5": [],
   "blend_mean": 11.58,
   "blend_w": 0.225,
@@ -52530,16 +52930,21 @@
   "first_line": 11.5,
   "frozen_at": "2026-10-24 17:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 5.8,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -52590,7 +52995,7 @@
    }
   },
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -52601,7 +53006,7 @@
   "why": "25.6 min (recent 26.4, \u22120.8 team-minutes adjustment); \u00d7 0.428 pts+ast/min (40% this season's 0.473 over 2 games, 60% prior 0.399); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +7%; calibration +0.2."
  },
  "Moussa Diabate|pra|401909853": {
-  "actual": null,
+  "actual": 11.0,
   "best5": [],
   "blend_mean": 21.08,
   "blend_w": 0.225,
@@ -52617,16 +53022,21 @@
   "first_line": 20.5,
   "frozen_at": "2026-10-24 17:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 21.5,
+  "line_errs": {
+   "prizepicks": 10.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 21.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 8.6,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -52677,7 +53087,7 @@
    }
   },
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -52688,7 +53098,7 @@
   "why": "25.6 min (recent 26.4, \u22120.8 team-minutes adjustment); \u00d7 0.737 pts+reb+ast/min (40% this season's 0.764 over 2 games, 60% prior 0.720); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +3%; calibration +0.2."
  },
  "Moussa Diabate|pr|401909853": {
-  "actual": null,
+  "actual": 9.0,
   "best5": [],
   "blend_mean": 18.31,
   "blend_w": 0.225,
@@ -52704,16 +53114,21 @@
   "first_line": 19.5,
   "frozen_at": "2026-10-24 20:20 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 18.5,
+  "line_errs": {
+   "prizepicks": 9.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 18.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 8.7,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -52764,7 +53179,7 @@
    }
   },
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -52775,7 +53190,7 @@
   "why": "25.6 min (recent 26.4, \u22120.8 team-minutes adjustment); \u00d7 0.666 pts+reb/min (40% this season's 0.691 over 2 games, 60% prior 0.650); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +2%; calibration +0.2."
  },
  "Moussa Diabate|pts|401909853": {
-  "actual": null,
+  "actual": 4.0,
   "best5": [],
   "blend_mean": 9.6,
   "blend_w": 0.225,
@@ -52791,10 +53206,16 @@
   "first_line": 8.5,
   "frozen_at": "2026-10-24 17:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "fanduel": 5.5,
+   "kalshi": 5.5,
+   "prizepicks": 5.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 9.5,
@@ -52803,6 +53224,7 @@
   },
   "market_side": 0.5061,
   "opp": "MIA",
+  "our_err": 5.6,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -52853,7 +53275,7 @@
    }
   },
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -52864,7 +53286,7 @@
   "why": "25.6 min (recent 26.4, \u22120.8 team-minutes adjustment); \u00d7 0.349 points/min (29% this season's 0.400 over 2 games, 71% prior 0.329); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +7%; calibration +0.1."
  },
  "Moussa Diabate|ra|401909853": {
-  "actual": null,
+  "actual": 7.0,
   "best5": [],
   "blend_mean": 11.15,
   "blend_w": 0.225,
@@ -52880,16 +53302,21 @@
   "first_line": 11.5,
   "frozen_at": "2026-10-24 17:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 2.9,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -52940,7 +53367,7 @@
    }
   },
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -52951,7 +53378,7 @@
   "why": "25.6 min (recent 26.4, \u22120.8 team-minutes adjustment); \u00d7 0.386 reb+ast/min (20% this season's 0.364 over 2 games, 80% prior 0.391); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA \u22121%; calibration +0.1."
  },
  "Moussa Diabate|reb|401909853": {
-  "actual": null,
+  "actual": 5.0,
   "best5": [
    "reb:value"
   ],
@@ -52972,16 +53399,21 @@
   "first_line": 9.5,
   "frozen_at": "2026-10-24 21:42 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "kalshi": 4.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 9.5
   },
   "market_side": 0.52,
   "opp": "MIA",
+  "our_err": 3.0,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -53034,7 +53466,7 @@
    }
   },
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -54578,7 +55010,7 @@
   "why": "29.2 min (recent 29.5, +1.9 team-minutes adjustment with Cooper Flagg, Kyrie Irving out, \u22121.2 back-to-back, \u22121.0 blowout risk (market margin 14)); \u00d7 0.157 rebounds/min (14% this season's 0.097 over 2 games, 86% prior 0.167); context: home +1%, rest \u22122%, shared production on DAL +3%; calibration +0.1."
  },
  "Naz Reid|ast|401909853": {
-  "actual": null,
+  "actual": 0.0,
   "best5": [],
   "best5_at": {},
   "blend_mean": 3.15,
@@ -54595,16 +55027,21 @@
   "first_line": 2.5,
   "frozen_at": "2026-10-24 21:00 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 3.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
   },
   "market_side": 0.605,
   "opp": "MIA",
+  "our_err": 2.9,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -54655,7 +55092,7 @@
    }
   },
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -54666,7 +55103,7 @@
   "why": "25.4 min (recent 26.2, \u22120.8 team-minutes adjustment); \u00d7 0.104 assists/min (29% this season's 0.155 over 2 games, 71% prior 0.084); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +7%; calibration +0.1."
  },
  "Naz Reid|fg3m|401909853": {
-  "actual": null,
+  "actual": 5.0,
   "best5": [],
   "blend_mean": 2.87,
   "blend_w": 0.225,
@@ -54682,16 +55119,21 @@
   "first_line": 2.5,
   "frozen_at": "2026-10-24 21:00 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "edge",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
   },
   "market_side": 0.535,
   "opp": "MIA",
+  "our_err": 2.6,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -54742,7 +55184,7 @@
    }
   },
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -54753,7 +55195,7 @@
   "why": "25.4 min (recent 26.2, \u22120.8 team-minutes adjustment); \u00d7 0.093 3-pointers made/min (40% this season's 0.121 over 2 games, 60% prior 0.074); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +3%."
  },
  "Naz Reid|pa|401909853": {
-  "actual": null,
+  "actual": 23.0,
   "best5": [],
   "blend_mean": 20.04,
   "blend_w": 0.225,
@@ -54769,16 +55211,21 @@
   "first_line": 20.5,
   "frozen_at": "2026-10-24 17:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 20.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 20.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 4.5,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -54829,7 +55276,7 @@
    }
   },
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -54840,7 +55287,7 @@
   "why": "25.4 min (recent 26.2, \u22120.8 team-minutes adjustment); \u00d7 0.676 pts+ast/min (40% this season's 0.793 over 2 games, 60% prior 0.597); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +7%; calibration +0.2."
  },
  "Naz Reid|pra|401909853": {
-  "actual": null,
+  "actual": 32.0,
   "best5": [],
   "blend_mean": 27.72,
   "blend_w": 0.225,
@@ -54856,16 +55303,21 @@
   "first_line": 28.5,
   "frozen_at": "2026-10-24 17:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 28.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 28.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 7.0,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -54916,7 +55368,7 @@
    }
   },
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -54927,7 +55379,7 @@
   "why": "25.4 min (recent 26.2, \u22120.8 team-minutes adjustment); \u00d7 0.936 pts+reb+ast/min (40% this season's 1.086 over 2 games, 60% prior 0.836); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +4%; calibration +0.2."
  },
  "Naz Reid|pr|401909853": {
-  "actual": null,
+  "actual": 32.0,
   "best5": [],
   "blend_mean": 24.7,
   "blend_w": 0.225,
@@ -54943,16 +55395,21 @@
   "first_line": 25.5,
   "frozen_at": "2026-10-24 21:20 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 25.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 25.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 10.0,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -55003,7 +55460,7 @@
    }
   },
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -55014,7 +55471,7 @@
   "why": "25.4 min (recent 26.2, \u22120.8 team-minutes adjustment); \u00d7 0.824 pts+reb/min (40% this season's 0.931 over 2 games, 60% prior 0.752); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +4%; calibration +0.2."
  },
  "Naz Reid|pts|401909853": {
-  "actual": null,
+  "actual": 23.0,
   "best5": [],
   "blend_mean": 16.84,
   "blend_w": 0.225,
@@ -55030,10 +55487,16 @@
   "first_line": 17.5,
   "frozen_at": "2026-10-24 17:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "fanduel": 5.5,
+   "kalshi": 8.5,
+   "prizepicks": 5.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 17.5,
@@ -55042,6 +55505,7 @@
   },
   "market_side": 0.5061,
   "opp": "MIA",
+  "our_err": 8.0,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -55092,7 +55556,7 @@
    }
   },
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -55103,7 +55567,7 @@
   "why": "25.4 min (recent 26.2, \u22120.8 team-minutes adjustment); \u00d7 0.549 points/min (29% this season's 0.638 over 2 games, 71% prior 0.513); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +7%; calibration +0.1."
  },
  "Naz Reid|ra|401909853": {
-  "actual": null,
+  "actual": 9.0,
   "best5": [],
   "blend_mean": 10.56,
   "blend_w": 0.225,
@@ -55119,16 +55583,21 @@
   "first_line": 10.5,
   "frozen_at": "2026-10-24 19:01 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 11.0,
+  "line_errs": {
+   "prizepicks": 2.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.0
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 0.0,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -55179,7 +55648,7 @@
    }
   },
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -55190,7 +55659,7 @@
   "why": "25.4 min (recent 26.2, \u22120.8 team-minutes adjustment); \u00d7 0.348 reb+ast/min (20% this season's 0.448 over 2 games, 80% prior 0.323); context: pace vs MIA +1%, home +1%, rest \u22122%; calibration +0.1."
  },
  "Naz Reid|reb|401909853": {
-  "actual": null,
+  "actual": 9.0,
   "best5": [
    "reb:value"
   ],
@@ -55211,16 +55680,21 @@
   "first_line": 7.5,
   "frozen_at": "2026-10-24 21:42 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 7.5
   },
   "market_side": 0.53,
   "opp": "MIA",
+  "our_err": 2.8,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -55277,7 +55751,7 @@
    }
   },
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -56083,29 +56557,30 @@
   "best5_at": {
    "ast:value": "2026-10-25 00:01:07 UTC"
   },
-  "blend_mean": 9.69,
+  "blend_mean": 9.76,
   "blend_w": 0.225,
-  "break_even": 0.48,
+  "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.519,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 9.5,
-  "close_mkt": 0.46,
+  "chance": 0.5655,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 10.0,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 06:01 UTC",
   "first_line": 10.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 9.5,
-  "line_source": "kalshi",
+  "line": 10.0,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 9.5
+   "kalshi": 9.5,
+   "prizepicks": 10.0
   },
-  "market_side": 0.46,
+  "market_side": null,
   "opp": "NOP",
   "out_ctx": [
    "Alpha Diallo",
@@ -56183,26 +56658,26 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.25,
   "units_raw": 0.5,
-  "updates": 35,
+  "updates": 36,
   "var": 9.893,
   "why": "32.9 min (recent 34.8, \u22121.4 team-minutes adjustment with Alpha Diallo, Cameron Johnson out, \u22120.5 blowout risk (market margin 12)); \u00d7 0.248 assists/min (17% this season's 0.143 over 1 games, 83% prior 0.269); context: home +1%, shared production on DEN \u22129%; calibration +0.1."
  },
  "Nikola Jokic|fg3m|401909859": {
   "actual": null,
   "best5": [],
-  "blend_mean": 1.85,
+  "blend_mean": 1.82,
   "blend_w": 0.225,
-  "break_even": 0.48,
+  "break_even": 0.49,
   "call": "UNDER",
-  "chance": 0.5016,
-  "close_at": "2026-10-25 00:01 UTC",
+  "chance": 0.5096,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.475,
+  "close_mkt": 0.485,
   "date": "2026-10-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-24 06:41 UTC",
   "first_line": 1.5,
-  "frozen_at": "2026-10-25 00:21 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": true,
@@ -56212,7 +56687,7 @@
   "lines": {
    "kalshi": 1.5
   },
-  "market_side": 0.475,
+  "market_side": 0.485,
   "opp": "NOP",
   "out_ctx": [
    "Alpha Diallo",
@@ -56282,8 +56757,8 @@
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.25,
-  "units_raw": 0.5,
-  "updates": 25,
+  "units_raw": 0.25,
+  "updates": 26,
   "var": 1.788,
   "why": "32.9 min (recent 34.8, \u22121.4 team-minutes adjustment with Alpha Diallo, Cameron Johnson out, \u22120.5 blowout risk (market margin 12)); \u00d7 0.043 3-pointers made/min (25% this season's 0.029 over 1 games, 75% prior 0.048); context: home +1%, shared production on DEN +3%."
  },
@@ -56395,29 +56870,30 @@
   "best5_at": {
    "combos:value": "2026-10-25 00:21:09 UTC"
   },
-  "blend_mean": 47.88,
+  "blend_mean": 47.85,
   "blend_w": 0.225,
-  "break_even": 0.49,
+  "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.536,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 49.5,
-  "close_mkt": 0.47,
+  "chance": 0.5584,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 50.5,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 06:01 UTC",
   "first_line": 50.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 49.5,
-  "line_source": "kalshi",
+  "line": 50.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 49.5
+   "kalshi": 49.5,
+   "prizepicks": 50.5
   },
-  "market_side": 0.47,
+  "market_side": null,
   "opp": "NOP",
   "out_ctx": [
    "Alpha Diallo",
@@ -56498,36 +56974,36 @@
   "team": "DEN",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-25T01:00:00+00:00",
-  "units": 0.5,
-  "units_raw": 0.75,
-  "updates": 7,
+  "units": 0.25,
+  "units_raw": 0.25,
+  "updates": 8,
   "var": 112.804,
   "why": "32.9 min (recent 34.8, \u22121.4 team-minutes adjustment with Alpha Diallo, Cameron Johnson out, \u22120.5 blowout risk (market margin 12)); \u00d7 1.212 pts+reb+ast/min (25% this season's 0.714 over 1 games, 75% prior 1.378); context: home +1%, shared production on DEN \u22125%; calibration +0.2."
  },
  "Nikola Jokic|pr|401909859": {
   "actual": null,
   "best5": [],
-  "blend_mean": 37.69,
+  "blend_mean": 38.47,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5504,
-  "close_at": "2026-10-25 00:21 UTC",
-  "close_line": 39.5,
+  "chance": 0.556,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 40.5,
   "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 06:01 UTC",
   "first_line": 40.5,
-  "frozen_at": "2026-10-25 00:21 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 39.5,
+  "line": 40.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 39.5
+   "prizepicks": 40.5
   },
   "market_side": null,
   "opp": "NOP",
@@ -56600,7 +57076,7 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.25,
   "units_raw": 0.25,
-  "updates": 6,
+  "updates": 7,
   "var": 96.979,
   "why": "32.9 min (recent 34.8, \u22121.4 team-minutes adjustment with Alpha Diallo, Cameron Johnson out, \u22120.5 blowout risk (market margin 12)); \u00d7 0.974 pts+reb/min (25% this season's 0.571 over 1 games, 75% prior 1.109); context: home +1%, shared production on DEN \u22124%; calibration +0.2."
  },
@@ -56813,29 +57289,30 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 12.79,
+  "blend_mean": 12.92,
   "blend_w": 0.225,
-  "break_even": 0.64,
-  "call": "OVER",
-  "chance": 0.5667,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 11.5,
-  "close_mkt": 0.615,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5375,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 13.0,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 11:21 UTC",
   "first_line": 13.0,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 11.5,
-  "line_source": "kalshi",
+  "line": 13.0,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 11.5
+   "kalshi": 13.5,
+   "prizepicks": 13.0
   },
-  "market_side": 0.615,
+  "market_side": null,
   "opp": "NOP",
   "out_ctx": [
    "Alpha Diallo",
@@ -56906,7 +57383,7 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 34,
+  "updates": 35,
   "var": 14.637,
   "why": "32.9 min (recent 34.8, \u22121.4 team-minutes adjustment with Alpha Diallo, Cameron Johnson out, \u22120.5 blowout risk (market margin 12)); \u00d7 0.342 rebounds/min (8% this season's 0.200 over 1 games, 92% prior 0.354); context: home +1%, shared production on DEN \u22122%; calibration +0.1."
  },
@@ -59476,7 +59953,7 @@
   "why": "30.8 min (recent 31.1, +2.0 team-minutes adjustment with Cooper Flagg, Kyrie Irving out, \u22121.2 back-to-back, \u22121.0 blowout risk (market margin 14)); \u00d7 0.232 rebounds/min (14% this season's 0.266 over 2 games, 86% prior 0.227); context: home +1%, rest \u22122%, shared production on DAL +3%; calibration +0.1."
  },
  "Pelle Larsson|pa|401909853": {
-  "actual": null,
+  "actual": 19.0,
   "best5": [],
   "blend_mean": 12.22,
   "blend_w": 0.225,
@@ -59492,16 +59969,21 @@
   "first_line": 12.5,
   "frozen_at": "2026-10-24 21:20 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 7.7,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -59540,7 +60022,7 @@
    }
   },
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -59551,7 +60033,7 @@
   "why": "26.2 min (recent 27.4, \u22121.2 team-minutes adjustment); \u00d7 0.432 pts+ast/min (40% this season's 0.264 over 2 games, 60% prior 0.543); context: road \u22121%, rest \u22122%, shared production on MIA +2%; calibration +0.2; listed Day-To-Day."
  },
  "Pelle Larsson|pra|401909853": {
-  "actual": null,
+  "actual": 26.0,
   "best5": [],
   "blend_mean": 15.22,
   "blend_w": 0.225,
@@ -59564,16 +60046,21 @@
   "date": "2026-10-24",
   "frozen_at": "2026-10-24 19:01 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 10.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 11.8,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -59612,7 +60099,7 @@
    }
   },
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -59622,7 +60109,7 @@
   "why": "26.2 min (recent 27.4, \u22121.2 team-minutes adjustment); \u00d7 0.547 pts+reb+ast/min (40% this season's 0.358 over 2 games, 60% prior 0.673); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration +0.2; listed Day-To-Day."
  },
  "Pelle Larsson|pr|401909853": {
-  "actual": null,
+  "actual": 22.0,
   "best5": [],
   "blend_mean": 12.22,
   "blend_w": 0.225,
@@ -59635,16 +60122,21 @@
   "date": "2026-10-24",
   "frozen_at": "2026-10-24 19:01 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "prizepicks": 9.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 10.7,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -59683,7 +60175,7 @@
    }
   },
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -59693,7 +60185,7 @@
   "why": "26.2 min (recent 27.4, \u22121.2 team-minutes adjustment); \u00d7 0.437 pts+reb/min (40% this season's 0.264 over 2 games, 60% prior 0.552); context: road \u22121%, rest \u22122%; calibration +0.2; listed Day-To-Day."
  },
  "Pelle Larsson|pts|401909853": {
-  "actual": null,
+  "actual": 15.0,
   "best5": [],
   "blend_mean": 9.39,
   "blend_w": 0.225,
@@ -59709,16 +60201,21 @@
   "first_line": 8.5,
   "frozen_at": "2026-10-24 21:20 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
   },
   "market_side": null,
   "opp": "CHA",
+  "our_err": 6.0,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -59757,7 +60254,7 @@
    }
   },
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "MIA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -61851,20 +62348,91 @@
   "var": 6.22,
   "why": "28.6 min (recent 31.8, \u22121.3 team-minutes adjustment, \u22121.3 back-to-back, \u22120.7 blowout risk (market margin 12)); \u00d7 0.152 rebounds/min (14% this season's 0.224 over 2 games, 86% prior 0.140); context: pace vs PHI +1%, road \u22121%, rest \u22122%, shared production on MIL +3%; calibration +0.1."
  },
- "Saddiq Bey|pr|401909859": {
+ "Saddiq Bey|fg3m|401909859": {
   "actual": null,
   "best5": [],
-  "best5_at": {},
-  "blend_mean": 16.81,
+  "blend_mean": 1.52,
+  "blend_w": 0.225,
+  "break_even": 0.6599999999999999,
+  "call": "UNDER",
+  "chance": 0.5791,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 1.5,
+  "close_mkt": 0.625,
+  "date": "2026-10-24",
+  "frozen_at": "2026-10-25 00:41 UTC",
+  "game_id": 401909859,
+  "hit": null,
+  "home": false,
+  "label": "edge",
+  "line": 1.5,
+  "line_source": "kalshi",
+  "lines": {
+   "kalshi": 1.5
+  },
+  "market_side": 0.625,
+  "opp": "DEN",
+  "out_ctx": [
+   "Alpha Diallo",
+   "Cameron Johnson",
+   "Julian Strawther",
+   "Spencer Jones",
+   "Yves Missi"
+  ],
+  "player": "Saddiq Bey",
+  "player_id": 4397136,
+  "proj_min": 27.9,
+  "projected": 2.4,
+  "role_gap": true,
+  "snaps": {
+   "5pm": {
+    "at": "2026-10-25 00:41 UTC",
+    "best5": [],
+    "break_even": 0.6599999999999999,
+    "call": "UNDER",
+    "chance": 0.5791,
+    "line": 1.5,
+    "line_source": "kalshi",
+    "market_side": 0.625,
+    "projected": 2.4,
+    "units": 0.0
+   },
+   "open": {
+    "at": "2026-10-25 00:41 UTC",
+    "best5": [],
+    "break_even": 0.6599999999999999,
+    "call": "UNDER",
+    "chance": 0.5791,
+    "line": 1.5,
+    "line_source": "kalshi",
+    "market_side": 0.625,
+    "projected": 2.4,
+    "units": 0.0
+   }
+  },
+  "stat": "fg3m",
+  "status": "pending",
+  "team": "NOP",
+  "tier": "1-4 games this season",
+  "tip_utc": "2026-10-25T01:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 2.687,
+  "why": "27.9 min (recent 30.9, \u22121.2 team-minutes adjustment with Yves Missi out, \u22121.2 back-to-back, \u22120.5 blowout risk (market margin 12)); \u00d7 0.084 3-pointers made/min (40% this season's 0.109 over 2 games, 60% prior 0.067); context: road \u22121%, rest \u22122%, shared production on NOP +8%."
+ },
+ "Saddiq Bey|pra|401909859": {
+  "actual": null,
+  "best5": [],
+  "blend_mean": 17.22,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5519,
-  "close_at": "2026-10-25 00:21 UTC",
+  "chance": 0.557,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 15.5,
   "close_mkt": null,
   "date": "2026-10-24",
-  "frozen_at": "2026-10-25 00:21 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": false,
@@ -61873,6 +62441,86 @@
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
+  },
+  "market_side": null,
+  "opp": "DEN",
+  "out_ctx": [
+   "Alpha Diallo",
+   "Cameron Johnson",
+   "Julian Strawther",
+   "Spencer Jones",
+   "Yves Missi"
+  ],
+  "player": "Saddiq Bey",
+  "player_id": 4397136,
+  "proj_min": 27.9,
+  "projected": 23.1,
+  "role_gap": false,
+  "snaps": {
+   "5pm": {
+    "at": "2026-10-25 00:41 UTC",
+    "best5": [],
+    "break_even": 0.542,
+    "call": "OVER",
+    "chance": 0.557,
+    "line": 15.5,
+    "line_source": "prizepicks",
+    "market_side": null,
+    "projected": 23.1,
+    "units": 0.25
+   },
+   "open": {
+    "at": "2026-10-25 00:41 UTC",
+    "best5": [],
+    "break_even": 0.542,
+    "call": "OVER",
+    "chance": 0.557,
+    "line": 15.5,
+    "line_source": "prizepicks",
+    "market_side": null,
+    "projected": 23.1,
+    "units": 0.25
+   }
+  },
+  "stat": "pra",
+  "status": "pending",
+  "team": "NOP",
+  "tier": "1-4 games this season",
+  "tip_utc": "2026-10-25T01:00:00+00:00",
+  "units": 0.25,
+  "units_raw": 0.25,
+  "var": 84.947,
+  "why": "27.9 min (recent 30.9, \u22121.2 team-minutes adjustment with Yves Missi out, \u22121.2 back-to-back, \u22120.5 blowout risk (market margin 12)); \u00d7 0.853 pts+reb+ast/min (40% this season's 0.913 over 2 games, 60% prior 0.812); context: road \u22121%, rest \u22122%, shared production on NOP \u22121%; calibration +0.2."
+ },
+ "Saddiq Bey|pr|401909859": {
+  "actual": null,
+  "best5": [
+   "combos:value"
+  ],
+  "best5_at": {
+   "combos:value": "2026-10-25 00:41:12 UTC"
+  },
+  "blend_mean": 16.03,
+  "blend_w": 0.225,
+  "break_even": 0.542,
+  "call": "OVER",
+  "chance": 0.5621,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 14.5,
+  "close_mkt": null,
+  "date": "2026-10-24",
+  "first_call": "OVER",
+  "first_frozen_at": "2026-10-25 00:21 UTC",
+  "first_line": 15.5,
+  "frozen_at": "2026-10-25 00:41 UTC",
+  "game_id": 401909859,
+  "hit": null,
+  "home": false,
+  "label": "lean",
+  "line": 14.5,
+  "line_source": "prizepicks",
+  "lines": {
+   "prizepicks": 14.5
   },
   "market_side": null,
   "opp": "DEN",
@@ -61926,7 +62574,8 @@
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.25,
-  "units_raw": 0.25,
+  "units_raw": 0.5,
+  "updates": 1,
   "var": 74.098,
   "why": "27.9 min (recent 30.9, \u22121.2 team-minutes adjustment with Yves Missi out, \u22121.2 back-to-back, \u22120.5 blowout risk (market margin 12)); \u00d7 0.790 pts+reb/min (40% this season's 0.891 over 2 games, 60% prior 0.722); context: road \u22121%, rest \u22122%, shared production on NOP \u22121%; calibration +0.2."
  },
@@ -62610,7 +63259,7 @@
   "why": "25.8 min (recent 26.7, \u22120.9 team-minutes adjustment); \u00d7 0.407 points/min (17% this season's 0.208 over 1 games, 83% prior 0.447); context: pace vs BKN \u22121%, home +1%, shared production on CLE \u22123%; calibration +0.1."
  },
  "Sion James|ast|401909853": {
-  "actual": null,
+  "actual": 5.0,
   "best5": [],
   "blend_mean": 2.72,
   "blend_w": 0.225,
@@ -62623,16 +63272,21 @@
   "date": "2026-10-24",
   "frozen_at": "2026-10-24 06:21 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 2.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 2.8,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -62680,7 +63334,7 @@
    }
   },
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -62690,7 +63344,7 @@
   "why": "21.2 min (recent 22.0, \u22120.8 team-minutes adjustment); \u00d7 0.096 assists/min (29% this season's 0.098 over 2 games, 71% prior 0.095); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +3%; calibration +0.1."
  },
  "Sion James|fg3m|401909853": {
-  "actual": null,
+  "actual": 0.0,
   "best5": [],
   "blend_mean": 1.6,
   "blend_w": 0.225,
@@ -62703,16 +63357,21 @@
   "date": "2026-10-24",
   "frozen_at": "2026-10-24 06:21 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "edge",
   "line": 1.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 1.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 0.9,
   "out_ctx": [
    "Kylan Boswell"
   ],
@@ -62760,7 +63419,7 @@
    }
   },
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -62770,7 +63429,7 @@
   "why": "21.2 min (recent 22.0, \u22120.8 team-minutes adjustment); \u00d7 0.045 3-pointers made/min (40% this season's 0.039 over 2 games, 60% prior 0.048); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA \u22127%."
  },
  "Sion James|pa|401909853": {
-  "actual": null,
+  "actual": 5.0,
   "best5": [],
   "blend_mean": 9.37,
   "blend_w": 0.225,
@@ -62786,16 +63445,21 @@
   "first_line": 10.5,
   "frozen_at": "2026-10-24 18:20 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 10.0,
+  "line_errs": {
+   "prizepicks": 5.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.0
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 2.2,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -62846,7 +63510,7 @@
    }
   },
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -62857,7 +63521,7 @@
   "why": "21.3 min (recent 22.0, \u22120.7 team-minutes adjustment); \u00d7 0.310 pts+ast/min (40% this season's 0.216 over 2 games, 60% prior 0.373); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +7%; calibration +0.2."
  },
  "Sion James|pra|401909853": {
-  "actual": null,
+  "actual": 10.0,
   "best5": [],
   "blend_mean": 12.71,
   "blend_w": 0.225,
@@ -62873,16 +63537,21 @@
   "first_line": 13.5,
   "frozen_at": "2026-10-24 17:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 0.0,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -62933,7 +63602,7 @@
    }
   },
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -62944,7 +63613,7 @@
   "why": "21.3 min (recent 22.0, \u22120.7 team-minutes adjustment); \u00d7 0.441 pts+reb+ast/min (40% this season's 0.314 over 2 games, 60% prior 0.525); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +4%; calibration +0.2."
  },
  "Sion James|pr|401909853": {
-  "actual": null,
+  "actual": 5.0,
   "best5": [],
   "best5_at": {},
   "blend_mean": 10.66,
@@ -62961,16 +63630,21 @@
   "first_line": 11.5,
   "frozen_at": "2026-10-24 17:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 2.8,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -63024,7 +63698,7 @@
    }
   },
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -63035,7 +63709,7 @@
   "why": "21.3 min (recent 22.0, \u22120.7 team-minutes adjustment); \u00d7 0.344 pts+reb/min (40% this season's 0.216 over 2 games, 60% prior 0.430); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +3%; calibration +0.2."
  },
  "Sion James|pts|401909853": {
-  "actual": null,
+  "actual": 0.0,
   "best5": [],
   "best5_at": {},
   "blend_mean": 6.88,
@@ -63052,10 +63726,15 @@
   "first_line": 7.5,
   "frozen_at": "2026-10-24 17:41 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "fanduel": 7.5,
+   "prizepicks": 7.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 7.5,
@@ -63063,6 +63742,7 @@
   },
   "market_side": 0.5142,
   "opp": "MIA",
+  "our_err": 5.4,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -63116,7 +63796,7 @@
    }
   },
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -63127,7 +63807,7 @@
   "why": "21.3 min (recent 22.0, \u22120.7 team-minutes adjustment); \u00d7 0.232 points/min (29% this season's 0.118 over 2 games, 71% prior 0.277); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +7%; calibration +0.1."
  },
  "Sion James|ra|401909853": {
-  "actual": null,
+  "actual": 10.0,
   "best5": [],
   "blend_mean": 5.84,
   "blend_w": 0.225,
@@ -63143,16 +63823,21 @@
   "first_line": 6.5,
   "frozen_at": "2026-10-24 18:20 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 6.0,
+  "line_errs": {
+   "prizepicks": 4.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 6.0
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 4.7,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -63203,7 +63888,7 @@
    }
   },
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -63214,7 +63899,7 @@
   "why": "21.3 min (recent 22.0, \u22120.7 team-minutes adjustment); \u00d7 0.238 reb+ast/min (20% this season's 0.196 over 2 games, 80% prior 0.248); context: pace vs MIA +1%, home +1%, rest \u22122%, shared production on CHA +1%; calibration +0.1."
  },
  "Sion James|reb|401909853": {
-  "actual": null,
+  "actual": 5.0,
   "best5": [],
   "blend_mean": 3.74,
   "blend_w": 0.225,
@@ -63230,16 +63915,21 @@
   "first_line": 3.5,
   "frozen_at": "2026-10-24 19:20 UTC",
   "game_id": 401909853,
-  "hit": null,
+  "graded_at": "2026-10-25 00:41 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 3.5
   },
   "market_side": null,
   "opp": "MIA",
+  "our_err": 1.9,
   "out_ctx": [
    "Coby White",
    "Grant Williams",
@@ -63290,7 +63980,7 @@
    }
   },
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "CHA",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-24T22:00:00+00:00",
@@ -66177,35 +66867,32 @@
  },
  "Trey Murphy III|ast|401909859": {
   "actual": null,
-  "best5": [
-   "ast:best5"
-  ],
-  "best5_at": {
-   "ast:best5": "2026-10-25 00:23:02 UTC"
-  },
-  "blend_mean": 2.77,
+  "best5": [],
+  "best5_at": {},
+  "blend_mean": 2.84,
   "blend_w": 0.225,
-  "break_even": 0.72,
+  "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.713,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 1.5,
-  "close_mkt": 0.705,
+  "chance": 0.5116,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 2.5,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-24 07:20 UTC",
   "first_line": 2.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": false,
   "label": "lean",
-  "line": 1.5,
-  "line_source": "kalshi",
+  "line": 2.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 1.5
+   "kalshi": 1.5,
+   "prizepicks": 2.5
   },
-  "market_side": 0.705,
+  "market_side": null,
   "opp": "DEN",
   "out_ctx": [
    "Alpha Diallo",
@@ -66280,7 +66967,7 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 33,
+  "updates": 34,
   "var": 3.237,
   "why": "31.8 min (recent 35.1, \u22121.4 team-minutes adjustment with Yves Missi out, \u22121.4 back-to-back, \u22120.5 blowout risk (market margin 12)); \u00d7 0.092 assists/min (29% this season's 0.063 over 2 games, 71% prior 0.103); context: road \u22121%, rest \u22122%, shared production on NOP +5%; calibration +0.1."
  },
@@ -66486,29 +67173,30 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 23.41,
+  "blend_mean": 24.06,
   "blend_w": 0.225,
-  "break_even": 0.55,
+  "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5341,
-  "close_at": "2026-10-25 00:23 UTC",
+  "chance": 0.5138,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 24.5,
-  "close_mkt": 0.535,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-24 07:20 UTC",
   "first_line": 21.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": false,
   "label": "lean",
   "line": 24.5,
-  "line_source": "kalshi",
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 24.5
+   "kalshi": 24.5,
+   "prizepicks": 24.5
   },
-  "market_side": 0.535,
+  "market_side": null,
   "opp": "DEN",
   "out_ctx": [
    "Alpha Diallo",
@@ -66579,7 +67267,7 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 36,
+  "updates": 37,
   "var": 68.796,
   "why": "31.8 min (recent 35.1, \u22121.4 team-minutes adjustment with Yves Missi out, \u22121.4 back-to-back, \u22120.5 blowout risk (market margin 12)); \u00d7 0.728 pts+reb+ast/min (40% this season's 0.540 over 2 games, 60% prior 0.854); context: road \u22121%, rest \u22122%; calibration +0.2."
  },
@@ -66883,29 +67571,30 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 4.98,
+  "blend_mean": 5.23,
   "blend_w": 0.225,
-  "break_even": 0.64,
+  "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.6016,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 5.5,
-  "close_mkt": 0.625,
+  "chance": 0.5057,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 5.0,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-24 07:20 UTC",
   "first_line": 3.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": false,
   "label": "lean",
-  "line": 5.5,
-  "line_source": "kalshi",
+  "line": 5.0,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 5.5
+   "kalshi": 5.5,
+   "prizepicks": 5.0
   },
-  "market_side": 0.625,
+  "market_side": null,
   "opp": "DEN",
   "out_ctx": [
    "Alpha Diallo",
@@ -66978,7 +67667,7 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 36,
+  "updates": 37,
   "var": 5.425,
   "why": "31.8 min (recent 35.1, \u22121.4 team-minutes adjustment with Yves Missi out, \u22121.4 back-to-back, \u22120.5 blowout risk (market margin 12)); \u00d7 0.161 rebounds/min (14% this season's 0.159 over 2 games, 86% prior 0.162); context: road \u22121%, rest \u22122%, shared production on NOP +1%; calibration +0.1."
  },
@@ -70252,29 +70941,30 @@
  "Yaxel Lendeborg|ast|401909860": {
   "actual": null,
   "best5": [],
-  "blend_mean": 3.88,
+  "blend_mean": 3.8,
   "blend_w": 0.225,
-  "break_even": 0.49,
+  "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5104,
-  "close_at": "2026-10-25 00:23 UTC",
+  "chance": 0.5219,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.485,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 08:01 UTC",
   "first_line": 3.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": false,
   "label": "lean",
   "line": 3.5,
-  "line_source": "kalshi",
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 3.5
+   "kalshi": 3.5,
+   "prizepicks": 3.5
   },
-  "market_side": 0.485,
+  "market_side": null,
   "opp": "PHX",
   "out_ctx": [
    "Al Horford",
@@ -70346,9 +71036,9 @@
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-25T02:00:00+00:00",
-  "units": 0.25,
-  "units_raw": 0.5,
-  "updates": 39,
+  "units": 0.0,
+  "units_raw": 0.0,
+  "updates": 40,
   "var": 4.881,
   "why": "32.2 min (recent 33.3, +0.4 team-minutes adjustment with Stephen Curry, Al Horford, Brandin Podziemski out, \u22121.3 back-to-back, \u22120.2 blowout risk (market margin 10)); \u00d7 0.099 assists/min (29% this season's 0.121 over 2 games, 71% prior 0.090); context: pace vs PHX \u22121%, road \u22121%, rest \u22122%, shared production on GSW +6%; calibration +0.1."
  },
@@ -70356,19 +71046,19 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 1.43,
+  "blend_mean": 1.42,
   "blend_w": 0.225,
-  "break_even": 0.63,
+  "break_even": 0.64,
   "call": "UNDER",
-  "chance": 0.6178,
-  "close_at": "2026-10-24 23:41 UTC",
+  "chance": 0.6216,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.625,
+  "close_mkt": 0.63,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 08:21 UTC",
   "first_line": 1.5,
-  "frozen_at": "2026-10-24 23:41 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": false,
@@ -70378,7 +71068,7 @@
   "lines": {
    "kalshi": 1.5
   },
-  "market_side": 0.625,
+  "market_side": 0.63,
   "opp": "PHX",
   "out_ctx": [
    "Al Horford",
@@ -70454,7 +71144,7 @@
   "tip_utc": "2026-10-25T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 21,
+  "updates": 22,
   "var": 1.998,
   "why": "32.2 min (recent 33.3, +0.4 team-minutes adjustment with Stephen Curry, Al Horford, Brandin Podziemski out, \u22121.3 back-to-back, \u22120.2 blowout risk (market margin 10)); \u00d7 0.044 3-pointers made/min (40% this season's 0.030 over 2 games, 60% prior 0.053); context: pace vs PHX \u22121%, road \u22121%, rest \u22122%, shared production on GSW +12%."
  },
@@ -70979,29 +71669,30 @@
   "actual": null,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 7.38,
+  "blend_mean": 7.34,
   "blend_w": 0.225,
-  "break_even": 0.55,
+  "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5588,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 7.5,
-  "close_mkt": 0.545,
+  "chance": 0.522,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 7.0,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-24 08:01 UTC",
   "first_line": 7.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909860,
   "hit": null,
   "home": false,
   "label": "lean",
-  "line": 7.5,
-  "line_source": "kalshi",
+  "line": 7.0,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 7.5
+   "kalshi": 7.5,
+   "prizepicks": 7.0
   },
-  "market_side": 0.545,
+  "market_side": null,
   "opp": "PHX",
   "out_ctx": [
    "Al Horford",
@@ -71073,9 +71764,9 @@
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-25T02:00:00+00:00",
-  "units": 0.25,
-  "units_raw": 0.25,
-  "updates": 39,
+  "units": 0.0,
+  "units_raw": 0.0,
+  "updates": 40,
   "var": 11.674,
   "why": "32.2 min (recent 33.3, +0.4 team-minutes adjustment with Stephen Curry, Al Horford, Brandin Podziemski out, \u22121.3 back-to-back, \u22120.2 blowout risk (market margin 10)); \u00d7 0.203 rebounds/min (14% this season's 0.242 over 2 games, 86% prior 0.197); context: pace vs PHX \u22121%, road \u22121%, rest \u22122%, shared production on GSW +2%; calibration +0.1."
  },
@@ -71634,21 +72325,25 @@
  },
  "Zion Williamson|ast|401909859": {
   "actual": null,
-  "best5": [],
-  "best5_at": {},
-  "blend_mean": 2.83,
+  "best5": [
+   "ast:best5"
+  ],
+  "best5_at": {
+   "ast:best5": "2026-10-25 00:41:12 UTC"
+  },
+  "blend_mean": 2.87,
   "blend_w": 0.225,
-  "break_even": 0.71,
+  "break_even": 0.69,
   "call": "UNDER",
-  "chance": 0.6774,
-  "close_at": "2026-10-25 00:21 UTC",
+  "chance": 0.6698,
+  "close_at": "2026-10-25 00:41 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.69,
+  "close_mkt": 0.68,
   "date": "2026-10-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-24 07:20 UTC",
   "first_line": 2.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": false,
@@ -71658,7 +72353,7 @@
   "lines": {
    "kalshi": 3.5
   },
-  "market_side": 0.69,
+  "market_side": 0.68,
   "opp": "DEN",
   "out_ctx": [
    "Alpha Diallo",
@@ -71735,7 +72430,7 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 6,
+  "updates": 7,
   "var": 3.167,
   "why": "27.0 min (recent 29.9, \u22121.2 team-minutes adjustment with Yves Missi out, \u22121.2 back-to-back, \u22120.5 blowout risk (market margin 12)); \u00d7 0.106 assists/min (29% this season's 0.077 over 2 games, 71% prior 0.117); context: road \u22121%, rest \u22122%, shared production on NOP +5%; calibration +0.1."
  },
@@ -71916,29 +72611,30 @@
  "Zion Williamson|pra|401909859": {
   "actual": null,
   "best5": [],
-  "blend_mean": 25.99,
+  "blend_mean": 26.23,
   "blend_w": 0.225,
-  "break_even": 0.62,
-  "call": "OVER",
-  "chance": 0.5492,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 24.5,
-  "close_mkt": 0.575,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5089,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 26.5,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-24 07:20 UTC",
   "first_line": 25.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": false,
   "label": "lean",
-  "line": 24.5,
-  "line_source": "kalshi",
+  "line": 26.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 24.5
+   "kalshi": 24.5,
+   "prizepicks": 26.5
   },
-  "market_side": 0.575,
+  "market_side": null,
   "opp": "DEN",
   "out_ctx": [
    "Alpha Diallo",
@@ -72009,7 +72705,7 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 38,
+  "updates": 39,
   "var": 62.526,
   "why": "27.0 min (recent 29.9, \u22121.2 team-minutes adjustment with Yves Missi out, \u22121.2 back-to-back, \u22120.5 blowout risk (market margin 12)); \u00d7 0.965 pts+reb+ast/min (40% this season's 0.892 over 2 games, 60% prior 1.014); context: road \u22121%, rest \u22122%; calibration +0.2."
  },
@@ -72313,29 +73009,30 @@
  "Zion Williamson|reb|401909859": {
   "actual": null,
   "best5": [],
-  "blend_mean": 5.26,
+  "blend_mean": 5.27,
   "blend_w": 0.225,
-  "break_even": 0.5800000000000001,
+  "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5686,
-  "close_at": "2026-10-25 00:23 UTC",
-  "close_line": 5.5,
-  "close_mkt": 0.575,
+  "chance": 0.5064,
+  "close_at": "2026-10-25 00:41 UTC",
+  "close_line": 5.0,
+  "close_mkt": null,
   "date": "2026-10-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-24 07:20 UTC",
   "first_line": 4.5,
-  "frozen_at": "2026-10-25 00:23 UTC",
+  "frozen_at": "2026-10-25 00:41 UTC",
   "game_id": 401909859,
   "hit": null,
   "home": false,
   "label": "lean",
-  "line": 5.5,
-  "line_source": "kalshi",
+  "line": 5.0,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 5.5
+   "kalshi": 5.5,
+   "prizepicks": 5.0
   },
-  "market_side": 0.575,
+  "market_side": null,
   "opp": "DEN",
   "out_ctx": [
    "Alpha Diallo",
@@ -72406,7 +73103,7 @@
   "tip_utc": "2026-10-25T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 38,
+  "updates": 39,
   "var": 6.092,
   "why": "27.0 min (recent 29.9, \u22121.2 team-minutes adjustment with Yves Missi out, \u22121.2 back-to-back, \u22120.5 blowout risk (market margin 12)); \u00d7 0.191 rebounds/min (14% this season's 0.123 over 2 games, 86% prior 0.202); context: road \u22121%, rest \u22122%, shared production on NOP +1%; calibration +0.1."
  }
