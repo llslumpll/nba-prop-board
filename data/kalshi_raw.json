@@ -1,14 +1,14 @@
 {
  "diagnostics": {
   "per_series": {
-   "KXNBA3PT": "2 event(s), 15 market(s), kept 15, 3 priced (bid/ask within 10c)",
-   "KXNBAAST": "2 event(s), 23 market(s), kept 23, 4 priced (bid/ask within 10c)",
+   "KXNBA3PT": "2 event(s), 28 market(s), kept 28, 3 priced (bid/ask within 10c)",
+   "KXNBAAST": "2 event(s), 51 market(s), kept 51, 4 priced (bid/ask within 10c)",
    "KXNBAGAME": "28 event(s), 56 market(s), kept 56, 48 priced (bid/ask within 10c)",
    "KXNBAPRA": "2 event(s), 15 market(s), kept 15, 0 priced (bid/ask within 10c)",
-   "KXNBAPTS": "2 event(s), 27 market(s), kept 27, 3 priced (bid/ask within 10c)",
-   "KXNBAREB": "2 event(s), 25 market(s), kept 25, 1 priced (bid/ask within 10c)",
-   "KXNBASPREAD": "9 event(s), 297 market(s), kept 297, 188 priced (bid/ask within 10c)",
-   "KXNBATEAMTOTAL": "9 event(s), 342 market(s), kept 342, 69 priced (bid/ask within 10c)",
+   "KXNBAPTS": "2 event(s), 52 market(s), kept 52, 3 priced (bid/ask within 10c)",
+   "KXNBAREB": "2 event(s), 57 market(s), kept 57, 1 priced (bid/ask within 10c)",
+   "KXNBASPREAD": "9 event(s), 297 market(s), kept 297, 193 priced (bid/ask within 10c)",
+   "KXNBATEAMTOTAL": "9 event(s), 342 market(s), kept 342, 82 priced (bid/ask within 10c)",
    "KXNBATOTAL": "9 event(s), 261 market(s), kept 261, 163 priced (bid/ask within 10c)"
   },
   "samples": {
@@ -71,7 +71,7 @@
     "subtitle": null,
     "ticker": "KXNBASPREAD-26OCT26MINCLE-MIN8",
     "title": "Minnesota wins by over 7.5 points",
-    "yes_ask_dollars": "0.3500",
+    "yes_ask_dollars": "0.3400",
     "yes_bid_dollars": "0.1300",
     "yes_sub_title": "Minnesota wins by over 7.5 points"
    },
@@ -81,7 +81,7 @@
     "ticker": "KXNBATEAMTOTAL-26OCT26MINCLE-MIN98",
     "title": "Minnesota over 97.5 points scored",
     "yes_ask_dollars": "0.9500",
-    "yes_bid_dollars": "0.6500",
+    "yes_bid_dollars": "0.6700",
     "yes_sub_title": "Minnesota over 97.5 points"
    },
    "KXNBATOTAL": {
@@ -286,14 +286,14 @@
    "floor_strike": null,
    "home": "OKC",
    "kind": "moneyline",
-   "mid": 0.22999999999999998,
+   "mid": 0.225,
    "series": "KXNBAGAME",
    "sub_title": "Phoenix",
    "team_suffix": "PHX",
    "ticker": "KXNBAGAME-26OCT26PHXOKC-PHX",
    "title": "Phoenix wins",
    "volume": 0,
-   "yes_ask": 0.24,
+   "yes_ask": 0.23,
    "yes_bid": 0.22
   },
   {
@@ -1013,7 +1013,7 @@
    "ticker": "KXNBAGAME-26OCT29CLEATL-CLE",
    "title": "Cleveland wins",
    "volume": 0,
-   "yes_ask": 0.69,
+   "yes_ask": 0.75,
    "yes_bid": 0.17
   },
   {
@@ -1067,7 +1067,7 @@
    "ticker": "KXNBAGAME-26OCT29SACNOP-NOP",
    "title": "New Orleans wins",
    "volume": 0,
-   "yes_ask": 0.77,
+   "yes_ask": 0.86,
    "yes_bid": 0.31
   },
   {
@@ -1111,6 +1111,24 @@
    "close_time": "2026-10-28T23:00:00Z",
    "event_date": "2026-10-26",
    "event_ticker": "KXNBASPREAD-26OCT26MINCLE",
+   "floor_strike": 2.5,
+   "home": "CLE",
+   "kind": "spread",
+   "mid": 0.39,
+   "series": "KXNBASPREAD",
+   "sub_title": "Minnesota wins by over 2.5 points",
+   "team_suffix": "MIN3",
+   "ticker": "KXNBASPREAD-26OCT26MINCLE-MIN3",
+   "title": "Minnesota wins by over 2.5 points",
+   "volume": 0,
+   "yes_ask": 0.44,
+   "yes_bid": 0.34
+  },
+  {
+   "away": "MIN",
+   "close_time": "2026-10-28T23:00:00Z",
+   "event_date": "2026-10-26",
+   "event_ticker": "KXNBASPREAD-26OCT26MINCLE",
    "floor_strike": 1.5,
    "home": "CLE",
    "kind": "spread",
@@ -1123,6 +1141,24 @@
    "volume": 0,
    "yes_ask": 0.47,
    "yes_bid": 0.41
+  },
+  {
+   "away": "MIN",
+   "close_time": "2026-10-28T23:00:00Z",
+   "event_date": "2026-10-26",
+   "event_ticker": "KXNBASPREAD-26OCT26MINCLE",
+   "floor_strike": 5.5,
+   "home": "CLE",
+   "kind": "spread",
+   "mid": 0.43,
+   "series": "KXNBASPREAD",
+   "sub_title": "Cleveland wins by over 5.5 points",
+   "team_suffix": "CLE6",
+   "ticker": "KXNBASPREAD-26OCT26MINCLE-CLE6",
+   "title": "Cleveland wins by over 5.5 points",
+   "volume": 0,
+   "yes_ask": 0.48,
+   "yes_bid": 0.38
   },
   {
    "away": "MIN",
@@ -1726,7 +1762,7 @@
    "floor_strike": 1.5,
    "home": "CHA",
    "kind": "spread",
-   "mid": 0.52,
+   "mid": 0.525,
    "series": "KXNBASPREAD",
    "sub_title": "Charlotte wins by over 1.5 points",
    "team_suffix": "CHA2",
@@ -1734,7 +1770,7 @@
    "title": "Charlotte wins by over 1.5 points",
    "volume": 0,
    "yes_ask": 0.53,
-   "yes_bid": 0.51
+   "yes_bid": 0.52
   },
   {
    "away": "WAS",
@@ -2320,14 +2356,14 @@
    "floor_strike": 14.5,
    "home": "BOS",
    "kind": "spread",
-   "mid": 0.49,
+   "mid": 0.485,
    "series": "KXNBASPREAD",
    "sub_title": "Boston wins by over 14.5 points",
    "team_suffix": "BOS15",
    "ticker": "KXNBASPREAD-26OCT26CHIBOS-BOS15",
    "title": "Boston wins by over 14.5 points",
    "volume": 0,
-   "yes_ask": 0.5,
+   "yes_ask": 0.49,
    "yes_bid": 0.48
   },
   {
@@ -3202,7 +3238,7 @@
    "floor_strike": 9.5,
    "home": "MIL",
    "kind": "spread",
-   "mid": 0.30000000000000004,
+   "mid": 0.30500000000000005,
    "series": "KXNBASPREAD",
    "sub_title": "Indiana wins by over 9.5 points",
    "team_suffix": "IND10",
@@ -3210,7 +3246,61 @@
    "title": "Indiana wins by over 9.5 points",
    "volume": 0,
    "yes_ask": 0.34,
-   "yes_bid": 0.26
+   "yes_bid": 0.27
+  },
+  {
+   "away": "PHX",
+   "close_time": "2026-10-29T00:00:00Z",
+   "event_date": "2026-10-26",
+   "event_ticker": "KXNBASPREAD-26OCT26PHXOKC",
+   "floor_strike": 7.5,
+   "home": "OKC",
+   "kind": "spread",
+   "mid": 0.12000000000000001,
+   "series": "KXNBASPREAD",
+   "sub_title": "Phoenix wins by over 7.5 points",
+   "team_suffix": "PHX8",
+   "ticker": "KXNBASPREAD-26OCT26PHXOKC-PHX8",
+   "title": "Phoenix wins by over 7.5 points",
+   "volume": 0,
+   "yes_ask": 0.17,
+   "yes_bid": 0.07
+  },
+  {
+   "away": "PHX",
+   "close_time": "2026-10-29T00:00:00Z",
+   "event_date": "2026-10-26",
+   "event_ticker": "KXNBASPREAD-26OCT26PHXOKC",
+   "floor_strike": 3.5,
+   "home": "OKC",
+   "kind": "spread",
+   "mid": 0.16,
+   "series": "KXNBASPREAD",
+   "sub_title": "Phoenix wins by over 3.5 points",
+   "team_suffix": "PHX4",
+   "ticker": "KXNBASPREAD-26OCT26PHXOKC-PHX4",
+   "title": "Phoenix wins by over 3.5 points",
+   "volume": 0,
+   "yes_ask": 0.21,
+   "yes_bid": 0.11
+  },
+  {
+   "away": "PHX",
+   "close_time": "2026-10-29T00:00:00Z",
+   "event_date": "2026-10-26",
+   "event_ticker": "KXNBASPREAD-26OCT26PHXOKC",
+   "floor_strike": 9.5,
+   "home": "OKC",
+   "kind": "spread",
+   "mid": 0.12000000000000001,
+   "series": "KXNBASPREAD",
+   "sub_title": "Phoenix wins by over 9.5 points",
+   "team_suffix": "PHX10",
+   "ticker": "KXNBASPREAD-26OCT26PHXOKC-PHX10",
+   "title": "Phoenix wins by over 9.5 points",
+   "volume": 0,
+   "yes_ask": 0.17,
+   "yes_bid": 0.07
   },
   {
    "away": "PHX",
@@ -3238,14 +3328,14 @@
    "floor_strike": 7.5,
    "home": "OKC",
    "kind": "spread",
-   "mid": 0.53,
+   "mid": 0.5349999999999999,
    "series": "KXNBASPREAD",
    "sub_title": "Oklahoma City wins by over 7.5 points",
    "team_suffix": "OKC8",
    "ticker": "KXNBASPREAD-26OCT26PHXOKC-OKC8",
    "title": "Oklahoma City wins by over 7.5 points",
    "volume": 0,
-   "yes_ask": 0.56,
+   "yes_ask": 0.57,
    "yes_bid": 0.5
   },
   {
@@ -3364,15 +3454,15 @@
    "floor_strike": 4.5,
    "home": "HOU",
    "kind": "spread",
-   "mid": 0.525,
+   "mid": 0.515,
    "series": "KXNBASPREAD",
    "sub_title": "Houston wins by over 4.5 points",
    "team_suffix": "HOU5",
    "ticker": "KXNBASPREAD-26OCT26ATLHOU-HOU5",
    "title": "Houston wins by over 4.5 points",
    "volume": 0,
-   "yes_ask": 0.53,
-   "yes_bid": 0.52
+   "yes_ask": 0.52,
+   "yes_bid": 0.51
   },
   {
    "away": "ATL",
@@ -3562,7 +3652,7 @@
    "floor_strike": 17.5,
    "home": "HOU",
    "kind": "spread",
-   "mid": 0.15000000000000002,
+   "mid": 0.14500000000000002,
    "series": "KXNBASPREAD",
    "sub_title": "Houston wins by over 17.5 points",
    "team_suffix": "HOU18",
@@ -3570,7 +3660,7 @@
    "title": "Houston wins by over 17.5 points",
    "volume": 0,
    "yes_ask": 0.17,
-   "yes_bid": 0.13
+   "yes_bid": 0.12
   },
   {
    "away": "ATL",
@@ -3652,14 +3742,14 @@
    "floor_strike": 9.5,
    "home": "HOU",
    "kind": "spread",
-   "mid": 0.345,
+   "mid": 0.35,
    "series": "KXNBASPREAD",
    "sub_title": "Houston wins by over 9.5 points",
    "team_suffix": "HOU10",
    "ticker": "KXNBASPREAD-26OCT26ATLHOU-HOU10",
    "title": "Houston wins by over 9.5 points",
    "volume": 0,
-   "yes_ask": 0.36,
+   "yes_ask": 0.37,
    "yes_bid": 0.33
   },
   {
@@ -4372,7 +4462,7 @@
    "floor_strike": 17.5,
    "home": "DEN",
    "kind": "spread",
-   "mid": 0.22,
+   "mid": 0.22499999999999998,
    "series": "KXNBASPREAD",
    "sub_title": "Denver wins by over 17.5 points",
    "team_suffix": "DEN18",
@@ -4380,7 +4470,7 @@
    "title": "Denver wins by over 17.5 points",
    "volume": 0,
    "yes_ask": 0.24,
-   "yes_bid": 0.2
+   "yes_bid": 0.21
   },
   {
    "away": "GSW",
@@ -4505,7 +4595,7 @@
    "ticker": "KXNBASPREAD-26OCT26MINCLE-MIN8",
    "title": "Minnesota wins by over 7.5 points",
    "volume": 0,
-   "yes_ask": 0.35,
+   "yes_ask": 0.34,
    "yes_bid": 0.13
   },
   {
@@ -4524,7 +4614,7 @@
    "title": "Minnesota wins by over 5.5 points",
    "volume": 0,
    "yes_ask": 0.38,
-   "yes_bid": 0.22
+   "yes_bid": 0.23
   },
   {
    "away": "MIN",
@@ -4541,26 +4631,8 @@
    "ticker": "KXNBASPREAD-26OCT26MINCLE-MIN4",
    "title": "Minnesota wins by over 3.5 points",
    "volume": 0,
-   "yes_ask": 0.42,
-   "yes_bid": 0.21
-  },
-  {
-   "away": "MIN",
-   "close_time": "2026-10-28T23:00:00Z",
-   "event_date": "2026-10-26",
-   "event_ticker": "KXNBASPREAD-26OCT26MINCLE",
-   "floor_strike": 2.5,
-   "home": "CLE",
-   "kind": "spread",
-   "mid": null,
-   "series": "KXNBASPREAD",
-   "sub_title": "Minnesota wins by over 2.5 points",
-   "team_suffix": "MIN3",
-   "ticker": "KXNBASPREAD-26OCT26MINCLE-MIN3",
-   "title": "Minnesota wins by over 2.5 points",
-   "volume": 0,
-   "yes_ask": 0.44,
-   "yes_bid": 0.33
+   "yes_ask": 0.41,
+   "yes_bid": 0.22
   },
   {
    "away": "MIN",
@@ -4759,24 +4831,6 @@
    "volume": 0,
    "yes_ask": 0.45,
    "yes_bid": 0.33
-  },
-  {
-   "away": "MIN",
-   "close_time": "2026-10-28T23:00:00Z",
-   "event_date": "2026-10-26",
-   "event_ticker": "KXNBASPREAD-26OCT26MINCLE",
-   "floor_strike": 5.5,
-   "home": "CLE",
-   "kind": "spread",
-   "mid": null,
-   "series": "KXNBASPREAD",
-   "sub_title": "Cleveland wins by over 5.5 points",
-   "team_suffix": "CLE6",
-   "ticker": "KXNBASPREAD-26OCT26MINCLE-CLE6",
-   "title": "Cleveland wins by over 5.5 points",
-   "volume": 0,
-   "yes_ask": 0.48,
-   "yes_bid": 0.37
   },
   {
    "away": "MIN",
@@ -4991,7 +5045,7 @@
    "ticker": "KXNBASPREAD-26OCT26INDMIL-MIL6",
    "title": "Milwaukee wins by over 5.5 points",
    "volume": 0,
-   "yes_ask": 0.29,
+   "yes_ask": 0.28,
    "yes_bid": 0.14
   },
   {
@@ -5027,7 +5081,7 @@
    "ticker": "KXNBASPREAD-26OCT26INDMIL-MIL3",
    "title": "Milwaukee wins by over 2.5 points",
    "volume": 0,
-   "yes_ask": 0.41,
+   "yes_ask": 0.42,
    "yes_bid": 0.18
   },
   {
@@ -5045,7 +5099,7 @@
    "ticker": "KXNBASPREAD-26OCT26INDMIL-MIL24",
    "title": "Milwaukee wins by over 23.5 points",
    "volume": 0,
-   "yes_ask": 0.2,
+   "yes_ask": 0.19,
    "yes_bid": 0.01
   },
   {
@@ -5171,7 +5225,7 @@
    "ticker": "KXNBASPREAD-26OCT26INDMIL-MIL10",
    "title": "Milwaukee wins by over 9.5 points",
    "volume": 0,
-   "yes_ask": 0.23,
+   "yes_ask": 0.22,
    "yes_bid": 0.08
   },
   {
@@ -5351,26 +5405,8 @@
    "ticker": "KXNBASPREAD-26OCT26INDMIL-IND13",
    "title": "Indiana wins by over 12.5 points",
    "volume": 0,
-   "yes_ask": 0.35,
+   "yes_ask": 0.34,
    "yes_bid": 0.18
-  },
-  {
-   "away": "PHX",
-   "close_time": "2026-10-29T00:00:00Z",
-   "event_date": "2026-10-26",
-   "event_ticker": "KXNBASPREAD-26OCT26PHXOKC",
-   "floor_strike": 7.5,
-   "home": "OKC",
-   "kind": "spread",
-   "mid": null,
-   "series": "KXNBASPREAD",
-   "sub_title": "Phoenix wins by over 7.5 points",
-   "team_suffix": "PHX8",
-   "ticker": "KXNBASPREAD-26OCT26PHXOKC-PHX8",
-   "title": "Phoenix wins by over 7.5 points",
-   "volume": 0,
-   "yes_ask": 0.18,
-   "yes_bid": 0.07
   },
   {
    "away": "PHX",
@@ -5387,26 +5423,8 @@
    "ticker": "KXNBASPREAD-26OCT26PHXOKC-PHX6",
    "title": "Phoenix wins by over 5.5 points",
    "volume": 0,
-   "yes_ask": 0.2,
+   "yes_ask": 0.19,
    "yes_bid": 0.08
-  },
-  {
-   "away": "PHX",
-   "close_time": "2026-10-29T00:00:00Z",
-   "event_date": "2026-10-26",
-   "event_ticker": "KXNBASPREAD-26OCT26PHXOKC",
-   "floor_strike": 3.5,
-   "home": "OKC",
-   "kind": "spread",
-   "mid": null,
-   "series": "KXNBASPREAD",
-   "sub_title": "Phoenix wins by over 3.5 points",
-   "team_suffix": "PHX4",
-   "ticker": "KXNBASPREAD-26OCT26PHXOKC-PHX4",
-   "title": "Phoenix wins by over 3.5 points",
-   "volume": 0,
-   "yes_ask": 0.22,
-   "yes_bid": 0.11
   },
   {
    "away": "PHX",
@@ -5423,7 +5441,7 @@
    "ticker": "KXNBASPREAD-26OCT26PHXOKC-PHX2",
    "title": "Phoenix wins by over 1.5 points",
    "volume": 0,
-   "yes_ask": 0.27,
+   "yes_ask": 0.26,
    "yes_bid": 0.13
   },
   {
@@ -5496,24 +5514,6 @@
    "title": "Phoenix wins by over 11.5 points",
    "volume": 0,
    "yes_ask": 0.2,
-   "yes_bid": 0.07
-  },
-  {
-   "away": "PHX",
-   "close_time": "2026-10-29T00:00:00Z",
-   "event_date": "2026-10-26",
-   "event_ticker": "KXNBASPREAD-26OCT26PHXOKC",
-   "floor_strike": 9.5,
-   "home": "OKC",
-   "kind": "spread",
-   "mid": null,
-   "series": "KXNBASPREAD",
-   "sub_title": "Phoenix wins by over 9.5 points",
-   "team_suffix": "PHX10",
-   "ticker": "KXNBASPREAD-26OCT26PHXOKC-PHX10",
-   "title": "Phoenix wins by over 9.5 points",
-   "volume": 0,
-   "yes_ask": 0.18,
    "yes_bid": 0.07
   },
   {
@@ -5747,7 +5747,7 @@
    "ticker": "KXNBASPREAD-26OCT26PHXOKC-OKC21",
    "title": "Oklahoma City wins by over 20.5 points",
    "volume": 0,
-   "yes_ask": 0.37,
+   "yes_ask": 0.36,
    "yes_bid": 0.12
   },
   {
@@ -5891,7 +5891,7 @@
    "ticker": "KXNBASPREAD-26OCT26MEMUTA-UTA8",
    "title": "Utah wins by over 7.5 points",
    "volume": 0,
-   "yes_ask": 0.43,
+   "yes_ask": 0.41,
    "yes_bid": 0.21
   },
   {
