@@ -387,7 +387,7 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
                 mkt_side = (mkt if side == "OVER" else 1 - mkt) if mkt is not None else None
                 st["lines"][src] = {**ln, "units": 0.0 if skip else unit_rec(chance, be, role_gap, r.get("inj_status")),
                                     "units_raw": 0.0 if skip else unit_rec(chance, be, role_gap, r.get("inj_status"), trust=1.0),
-                                    "skip": skip, "move": move, "move_dir": mdir, "adj": adj,
+                                    "skip": skip, "open_move": move, "move_dir": mdir, "adj": adj,  # "move" is taken by logs.movement on pages
                                     "p_over": round(po, 4), "side": side, "chance": round(chance, 4), "blend_mean": round(mu_b, 2), "market_mean": round(m_mkt, 2), "role_gap": role_gap,
                                     "break_even": be, "value": round(chance - be, 4) if be is not None else None,
                                     "market_side": round(mkt_side, 4) if mkt_side is not None else None}
@@ -395,7 +395,7 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
             if psrc:
                 pk = st["lines"][psrc]
                 st["pick"] = {"source": psrc, "blend_w": blend_w, **{k: pk[k] for k in ("line", "side", "chance", "break_even", "value", "market_side", "blend_mean", "role_gap", "units", "units_raw",
-                                                                         "skip", "move", "move_dir", "adj")}}
+                                                                         "skip", "move_dir", "adj")}, "move": pk["open_move"]}
                 if s in PICK_STATS:
                     picks[s].append({**{k: row[k] for k in ("player", "player_id", "team", "opp", "home", "game_id",
                                                             "badge", "tier", "proj_min", "inj_status")},
