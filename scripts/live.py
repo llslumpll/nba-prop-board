@@ -102,6 +102,12 @@ def load_fit() -> dict:
     prm = dict(r.get("params") or {})
     if "season_w" in prm:
         prm["season_w"] = tuple(prm["season_w"])
+    if "last_game_w" not in prm:
+        # Oct 26 minutes update: trust this season sooner. Tested on games it wasn't fitted on:
+        # minutes miss 4.75 -> 4.31 (first 3 weeks of 2025-26), 4.97 -> 4.62 (this season so far),
+        # 4.18 -> 4.13 mid-season; points, rebounds and PRA misses also down. A retune that saves
+        # its own values for these keys takes over from here.
+        prm.update(min_prior_k=1.0, last_game_w=0.25)
     fields = model.Params.__dataclass_fields__
     p = model.Params(**{k: v for k, v in prm.items() if k in fields})
     vf = r.get("variance_fit") or {s: {"phi": 1.5, "kappa": 0.02} for s in model.STATS}
@@ -136,6 +142,7 @@ LIVE_HOLD_H = 5
 UNIT_STEPS = ((0.13, 2.0), (0.09, 1.5), (0.06, 1.0), (0.04, 0.75), (0.02, 0.5), (0.0, 0.25))
 UNIT_NAMES = {0.0: "PASS", 0.25: "LOW", 0.5: "MEDIUM", 0.75: "LEAN", 1.0: "CONFIDENT", 1.5: "HIGH", 2.0: "EXTREME"}
 UNIT_TRUST = 1.0
+GAME_SKIP: set = set()  # active game-pick skip patterns, set by build.py
 DEFAULT_BE = 0.5238  # -110 when a source has no price
 
 
@@ -296,9 +303,14 @@ def why_text(r: dict, s: str, cal_bias: float) -> str:
     return "; ".join(parts) + "."
 
 
-def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | None = None) -> dict:
+def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | None = None,
+        pat: dict | None = None, open_lines: dict | None = None) -> dict:
     """Projects the slate. Returns players (per game), picks (per stat) and
-    team projections. line_book: {(player, stat, game_id): {source: rec}}."""
+    team projections. line_book: {(player, stat, game_id): {source: rec}}.
+    pat: active pattern corrections (patterns.active()); open_lines:
+    {(player, stat, game_id): (source, opening line)} of recorded picks."""
+    pat = pat or {"skip": set(), "over": {}, "move": {}}
+    open_lines = open_lines or {}
     if not sl["games"]:
         return {"players": [], "picks": {s: [] for s in PICK_STATS}, "teams": {}, "no_history": []}
     t = targets(sl, roster, injuries)
@@ -352,21 +364,38 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
                 if po is None:
                     continue
                 po = 0.5 + (po - 0.5) * shrink
+                adj = []
+                if pat["over"].get((s, src)):
+                    po += pat["over"][(s, src)]  # learned: this stat's lines on this source run high / low
+                    adj.append(f"OVER chance {pat['over'][(s, src)] * 100:+.1f} pts (pattern)")
                 po = min(CHANCE_CAP, max(1 - CHANCE_CAP, po))
                 side = "OVER" if po >= 0.5 else "UNDER"
                 chance = po if side == "OVER" else 1 - po
+                op = open_lines.get((r["player"], s, r["game_id"]))
+                move = round(ln["line"] - op[1], 1) if op and op[0] == src and op[1] is not None else None
+                mdir = None if not move else ("agree" if (move > 0) == (side == "OVER") else "against")
+                if mdir and pat["move"].get(mdir):
+                    chance = min(CHANCE_CAP, max(1 - CHANCE_CAP, chance + pat["move"][mdir]))
+                    adj.append(f"{pat['move'][mdir] * 100:+.1f} pts: pick {'follows' if mdir == 'agree' else 'goes against'} the line's move (pattern)")
+                    if chance < 0.5:
+                        side, chance = ("UNDER" if side == "OVER" else "OVER"), 1 - chance
+                        mdir = "agree" if mdir == "against" else "against"
+                    po = chance if side == "OVER" else 1 - chance
+                skip = next((k for k in (f"{s}|{src}|{side}", f"{s}|{src}") if k in pat["skip"]), None)
                 be = ln.get("be_over") if side == "OVER" else ln.get("be_under")
                 mkt = ln.get("market_over")
                 mkt_side = (mkt if side == "OVER" else 1 - mkt) if mkt is not None else None
-                st["lines"][src] = {**ln, "units": unit_rec(chance, be, role_gap, r.get("inj_status")),
-                                    "units_raw": unit_rec(chance, be, role_gap, r.get("inj_status"), trust=1.0),
+                st["lines"][src] = {**ln, "units": 0.0 if skip else unit_rec(chance, be, role_gap, r.get("inj_status")),
+                                    "units_raw": 0.0 if skip else unit_rec(chance, be, role_gap, r.get("inj_status"), trust=1.0),
+                                    "skip": skip, "move": move, "move_dir": mdir, "adj": adj,
                                     "p_over": round(po, 4), "side": side, "chance": round(chance, 4), "blend_mean": round(mu_b, 2), "market_mean": round(m_mkt, 2), "role_gap": role_gap,
                                     "break_even": be, "value": round(chance - be, 4) if be is not None else None,
                                     "market_side": round(mkt_side, 4) if mkt_side is not None else None}
             psrc, _ = markets.primary(st["lines"])
             if psrc:
                 pk = st["lines"][psrc]
-                st["pick"] = {"source": psrc, "blend_w": blend_w, **{k: pk[k] for k in ("line", "side", "chance", "break_even", "value", "market_side", "blend_mean", "role_gap", "units", "units_raw")}}
+                st["pick"] = {"source": psrc, "blend_w": blend_w, **{k: pk[k] for k in ("line", "side", "chance", "break_even", "value", "market_side", "blend_mean", "role_gap", "units", "units_raw",
+                                                                         "skip", "move", "move_dir", "adj")}}
                 if s in PICK_STATS:
                     picks[s].append({**{k: row[k] for k in ("player", "player_id", "team", "opp", "home", "game_id",
                                                             "badge", "tier", "proj_min", "inj_status")},
@@ -511,6 +540,10 @@ def game_picks(g: dict, tp: dict, kal_ml: dict | None = None, total_offset: floa
         p.update(our_margin=round(m, 1), market_margin=round(mm, 1), blend_margin=round(mb, 1),
                  blend_w=round(wt if p["market"] == "total" else wm, 4), agree=agree_t if p["market"] == "total" else agree_m)
         p.update(units=unit_rec(p["chance"], p["break_even"]), units_raw=unit_rec(p["chance"], p["break_even"], trust=1.0))
+        import patterns as _patterns  # local: patterns imports live
+        sk = next((k for k in reversed(_patterns.skip_keys(p)) if k in GAME_SKIP), None)
+        if sk:
+            p.update(units=0.0, units_raw=0.0, skip=sk)
     return out
 
 

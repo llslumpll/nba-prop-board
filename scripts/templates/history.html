@@ -93,7 +93,7 @@
 </details>
 
 <div class="seg hist-tabs" data-tabs="hist" data-hash="1" data-tab-scroll="1">
-  <button data-tab="overview" class="active">OVERVIEW</button><button data-tab="units">UNITS</button><button data-tab="when">WHEN TO BET</button><button data-tab="best5">BEST 5</button><button data-tab="stats">BY STAT</button><button data-tab="games">GAME PICKS</button><button data-tab="players">PLAYERS</button><button data-tab="confidence">CONFIDENCE</button><button data-tab="days">DAY BY DAY</button><button data-tab="model">MODEL &amp; PIPELINE</button>
+  <button data-tab="overview" class="active">OVERVIEW</button><button data-tab="units">UNITS</button><button data-tab="when">WHEN TO BET</button><button data-tab="patterns">PATTERNS</button><button data-tab="best5">BEST 5</button><button data-tab="stats">BY STAT</button><button data-tab="games">GAME PICKS</button><button data-tab="players">PLAYERS</button><button data-tab="confidence">CONFIDENCE</button><button data-tab="days">DAY BY DAY</button><button data-tab="model">MODEL &amp; PIPELINE</button>
 </div>
 
 {# ---------- OVERVIEW ---------- #}
@@ -169,6 +169,51 @@
   <h3 class="hv-h3">Only picks on a Best 5 / Best Value list at that moment</h3>{{ when_table(hv.when.games_b5) }}
 </div>
 <p class="small dim">A snapshot is skipped when its game had already tipped (a 3 PM game has no 5 PM copy) or when no build ran within 3 hours of that time. "Best so far" needs 20+ graded picks.</p>
+</section>
+
+{# ---------- PATTERNS ---------- #}
+<section class="hist-panel hidden" data-tab-panel="hist:patterns">
+<h2 class="hist-h">Patterns</h2>
+{{ help('What kinds of picks actually hit, and the fixes the site makes on its own. A fix only switches on when a pattern shows up in the <b>earlier half</b> of the graded games <b>and</b> again in the <b>later half</b>, clearly more than luck. If it stops holding, it switches off. Patterns that showed up once and then reversed are listed as <b>flipped</b>, so you can see what was just noise.') }}
+{% if pat.rules %}
+<p class="small dim">Earlier half: {{ pat.train|first }} to {{ pat.train|last }} &middot; later half: {% if pat.test %}{{ pat.test|first }} to {{ pat.test|last }}{% else %}none yet{% endif %} &middot; checked {{ pat.at }}</p>
+{% set act = pat.rules|selectattr('status', 'equalto', 'active')|list %}
+{% set flp = pat.rules|selectattr('status', 'equalto', 'flipped')|list %}
+{% set wat = pat.rules|selectattr('status', 'equalto', 'watching')|list %}
+<div class="chips hv-subtabs" data-tabs="pt">
+  <button class="chip active" type="button" data-tab="fixes">FIXES ({{ act|length }} ON)</button><button class="chip" type="button" data-tab="watch">WATCHING ({{ wat|length }})</button><button class="chip" type="button" data-tab="flip">FLIPPED ({{ flp|length }})</button>{% for t in pat.tables %}<button class="chip" type="button" data-tab="t-{{ t.key }}">{{ t.title|upper }}</button>{% endfor %}
+</div>
+{% macro rule_rows(rows) %}
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table pt-rules">
+  <thead><tr><th>Pattern</th><th>What it does</th><th class="num">Earlier</th><th class="num">Later</th><th class="num hide-sm">Picks</th><th class="hide-sm">Why</th></tr></thead>
+  <tbody>{% for r in rows %}<tr>
+    <td><span class="pt-st pt-{{ r.status }}">{{ r.status|upper }}</span> <b>{{ r.label }}</b>{% if r.since %}<div class="small dim">on since {{ r.active_since }}: {% if r.since.n %}{{ r.since.hits }}&ndash;{{ r.since.n - r.since.hits }} since, {{ '%+.1f'|format(r.since.units) }}U if bet flat{% else %}nothing graded since yet{% endif %}</div>{% elif r.was_active %}<div class="small dim">was on {{ r.was_active }} to {{ r.switched_off }}</div>{% endif %}</td>
+    <td class="small">{% if r.status != 'active' %}<span class="dim">would:</span> {% endif %}{% if r.kind == 'skip' %}picks here become <b>SKIP</b> (no stake) and stay off Best 5{% elif r.kind == 'over' %}OVER chance {{ '%+.1f'|format(r.shift * 100) }} pts{% else %}chance {{ '%+.1f'|format(r.shift * 100) }} pts{% endif %}</td>
+    <td class="num {{ 'stat-good' if r.gap_train > 0 else 'stat-bad' if r.gap_train < 0 }}">{{ '%+.1f'|format(r.gap_train * 100) }}</td>
+    <td class="num {{ 'stat-good' if r.gap_test > 0 else 'stat-bad' if r.gap_test < 0 }}">{{ '%+.1f'|format(r.gap_test * 100) }}</td>
+    <td class="num hide-sm">{{ r.n_train }} + {{ r.n_test }}</td>
+    <td class="small dim hide-sm">{{ r.why }}</td></tr>{% endfor %}</tbody>
+</table></div></div>
+<p class="small dim">Earlier / Later = points above (+) or below (&minus;) what was expected in each half: for skips, hit rate minus what the prices need; for OVER fixes, how often it went over minus the chance we gave; for line-move fixes, hit rate minus the chance we gave.</p>
+{% endmacro %}
+<div data-tab-panel="pt:fixes">{% if act %}{{ rule_rows(act) }}{% else %}<div class="empty-state"><h3>No fixes on yet</h3><p>Nothing has held up in both halves of the graded games yet.</p></div>{% endif %}</div>
+<div class="hidden" data-tab-panel="pt:watch">{{ rule_rows(wat|sort(attribute='z')|list) }}</div>
+<div class="hidden" data-tab-panel="pt:flip">{{ rule_rows(flp) }}</div>
+{% for t in pat.tables %}
+<div class="hidden" data-tab-panel="pt:t-{{ t.key }}">
+  <p class="lede small">{{ t.help }}</p>
+  <div class="table-wrap"><div class="table-scroll"><table class="stat-table hv-tiers">
+    <thead><tr><th>Group</th><th class="num">Record</th><th class="num">Hit %</th><th class="num">Needed</th><th class="num">Flat 1U</th><th class="hide-sm"></th></tr></thead>
+    <tbody>{% for r in t.rows %}<tr><td>{{ r.label }}{% if r.v == 'good' %} <span class="pt-st pt-active">BEATING</span>{% elif r.v == 'bad' %} <span class="pt-st pt-flipped">BELOW</span>{% endif %}</td>
+      <td class="num">{{ r.hits }}&ndash;{{ r.n - r.hits }}</td>
+      <td class="num {{ 'stat-good' if r.rate is not none and r.rate > r.need else 'stat-bad' if r.rate is not none }}">{{ r.rate }}</td>
+      <td class="num dim">{{ r.need }}</td><td class="num">{{ sgn(r.units, 1, 'U') }}</td>
+      <td class="hide-sm hv-barcell"><i class="hv-bar {{ 'hv-bar-good' if r.rate > r.need else 'hv-bar-bad' }}" style="width:{{ r.rate }}%"></i><i class="hv-mark" style="left:{{ r.need }}%"></i></td></tr>{% endfor %}</tbody>
+  </table></div></div>
+  <p class="small dim">Groups with fewer than 30 graded picks get no label. These tables only describe; the fixes above are the only ones that change picks.</p>
+</div>
+{% endfor %}
+{% else %}<div class="empty-state"><h3>Not computed yet</h3><p>Appears after the next build.</p></div>{% endif %}
 </section>
 
 {# ---------- BEST 5 ---------- #}

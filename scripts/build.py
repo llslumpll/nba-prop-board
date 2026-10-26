@@ -39,6 +39,7 @@ import markets  # noqa: E402
 import model  # noqa: E402
 import oddsapi_client  # noqa: E402
 import espn_finals  # noqa: E402
+import patterns  # noqa: E402
 import pages  # noqa: E402
 import predictions  # noqa: E402
 import prizepicks_client  # noqa: E402
@@ -231,10 +232,20 @@ def build(args) -> None:
     trust = grade.unit_trust(predictions.load_all(), predictions.load_all(team=True))
     live.UNIT_TRUST = trust["trust"]
     print(f"Unit sizing trust {trust['trust']}: {trust['why']}")
+    # pattern corrections that have held up on later games (computed by the previous build, see patterns.py)
+    pat = patterns.active()
+    live.GAME_SKIP = {k for k in pat["skip"] if k.startswith("game|")}
+    print(f"Pattern corrections active: {len(pat['skip'])} skip, {len(pat['over'])} over-bias, {len(pat['move'])} line-move")
+    open_lines = {}
+    if sl.get("date"):
+        for p in predictions.load_date(sl["date"]).values():
+            op = (p.get("snaps") or {}).get("open")
+            if op and op.get("line") is not None:
+                open_lines[(p["player"], p["stat"], p["game_id"])] = (op.get("line_source"), op["line"])
     # tonight's own results never feed tonight's projections
     sl_ids = [g["game_id"] for g in sl["games"]]
     res = live.run(box.filter(~pl.col("game_id").is_in(sl_ids)) if box.height and sl_ids else box,
-                   sl, roster, inj, line_book, fit, spreads=spreads)
+                   sl, roster, inj, line_book, fit, spreads=spreads, pat=pat, open_lines=open_lines)
     print(f"Slate {sl.get('date')}: {len(sl['games'])} games, {len(res['players'])} players projected, "
           f"{sum(len(v) for v in res['picks'].values())} player/stat lines matched.")
 
@@ -250,7 +261,8 @@ def build(args) -> None:
         for p in plist:
             out_ctx = sorted(outs.get(p["team"], set()) | outs.get(p["opp"], set()))
             rec = {k: p[k] for k in ("player", "player_id", "team", "opp", "home", "game_id", "date", "stat",
-                                     "tier", "proj_min", "var", "line", "chance", "break_even", "market_side", "units", "units_raw", "role_gap")}
+                                     "tier", "proj_min", "var", "line", "chance", "break_even", "market_side", "units", "units_raw", "role_gap",
+                                     "skip", "move", "move_dir", "adj")}
             rec.update(projected=p["proj"], call=p["side"], line_source=p["source"],
                        blend_mean=p.get("blend_mean"), blend_w=p.get("blend_w"),
                        lines={src: ln["line"] for src, ln in p["lines"].items()},
@@ -312,9 +324,9 @@ def build(args) -> None:
                     if hp_ is not None:
                         side = hp_ if cur["pick"] == g["home"] else 100 - hp_
                         predictions.record_close_team(g["date"], g["game_id"], "moneyline", None, round(side / 100, 4), g["tip_utc"])
-            if not g["started"]:
+            if not g["started"] and not gp.get("skip"):
                 market_ranked.setdefault(gp["market"], []).append({**gp, "game_id": g["game_id"]})
-            if not g["started"] and (gp.get("value") is None or gp["value"] >= 0):  # only picks that beat their price
+            if not g["started"] and not gp.get("skip") and (gp.get("value") is None or gp["value"] >= 0):  # only picks that beat their price
                 game_ranked.append({**gp, "game_id": g["game_id"]})
     if sl.get("date"):
         predictions.sync_team_best(sl["date"], "best5", sorted(game_ranked, key=lambda r: -r["chance"]))
@@ -337,7 +349,8 @@ def build(args) -> None:
     if sl.get("date"):
         groups = {s: [s] for s in ("pts", "reb", "ast", "fg3m")} | {"combos": ["pra", "pr", "pa", "ra"]}
         for grp, stats in groups.items():
-            cands = [p for s in stats for p in res["picks"][s] if not p["started"] and not p.get("inj_status") and not p.get("role_gap")]
+            cands = [p for s in stats for p in res["picks"][s] if not p["started"] and not p.get("inj_status") and not p.get("role_gap")
+                     and not p.get("skip")]  # pattern-skipped groups stay off the lists
             conf = sorted(cands, key=lambda p: -p["chance"])
             val = sorted([p for p in cands if p.get("value") is not None], key=lambda p: -p["value"])
             for name, ranked in (("best5", conf), ("value", val)):
@@ -362,6 +375,8 @@ def build(args) -> None:
     print(f"Grading: {gr}")
     preds_all = predictions.load_all()
     cal = grade.calibrate(preds_all)
+    pat_out = patterns.compute(preds_all, predictions.load_all(team=True), now)
+    print("Patterns: " + ", ".join(f"{k} {sum(1 for r in pat_out['rules'] if r['status'] == k)}" for k in ("active", "watching", "flipped", "fine")))
     est = grade.edge_status(preds_all)
 
     lm = logs.log_lines(line_book, sl.get("date"))
@@ -394,7 +409,7 @@ def build(args) -> None:
     pages.render_all({
         "now": now, "slate": sl, "res": res, "best": best, "edge": est, "cal": cal, "preds": preds_all,
         "tpreds": predictions.load_all(team=True), "sources": sources, "health": health, "lm": lm,
-        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj, "trust": trust, "espn": espn,
+        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj, "trust": trust, "espn": espn, "patterns": pat_out,
     })
     # consistency audit on what was just built; its result shows on History -> Pipeline next build
     import subprocess

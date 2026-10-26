@@ -749,7 +749,7 @@ def render_all(ctx: dict) -> None:
     except Exception:  # noqa: BLE001
         audit = None
     hv = history_view.build(preds, ctx["tpreds"], ctx["health"], keep_p, ctx.get("trust"))
-    write("history.html", "history.html", "history", hv=hv, espn=ctx.get("espn"), hc=hc, money=money, day_index=day_index, audit=audit, gmoney=grade.team_money(ctx["tpreds"]), months=mlist, retune_log=retune_log, scoreboard=grade.stat_scoreboard(preds), edge=edge,
+    write("history.html", "history.html", "history", hv=hv, pat=ctx.get("patterns") or {}, espn=ctx.get("espn"), hc=hc, money=money, day_index=day_index, audit=audit, gmoney=grade.team_money(ctx["tpreds"]), months=mlist, retune_log=retune_log, scoreboard=grade.stat_scoreboard(preds), edge=edge,
           buckets=grade.chance_buckets(preds), best5_rec=b5rec, team_rec=grade.team_record(ctx["tpreds"]),
           maturity=grade.maturity(ctx["cal"]), bt=bt, bt_cal=bt_all.get("calibration") or {},
           bt_n=(bt.get("pts") or {}).get("n"), health=list(reversed(ctx["health"][-30:])),

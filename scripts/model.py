@@ -78,6 +78,7 @@ class Params:
     team_min_cap: float = 241.0   # 240 + the average overtime
     cap_mode: str = "waterfall"   # "waterfall" (cut deepest first) or "proportional"
     min_prior_k: float = 4.0      # games before last season's minutes stop mattering
+    last_game_w: float = 0.0      # extra weight on this season's most recent game's minutes (role changes)
     team_share_alpha: float = 0.5  # how far toward the team norm (0 = off, 1 = all the way)
     team_share_cap: float = 0.12
     min_mode: str = "normalize"   # "normalize" (team total ~241) or "freed" (add freed minutes)
@@ -116,11 +117,12 @@ def _player_state(played: pl.DataFrame, p: Params) -> pl.DataFrame:
            pl.col("min").cum_count().over(["player_id", "season"]).alias("c_n")]
     for s in STATS:
         cum.append(pl.col(s).cum_sum().over(["player_id", "season"]).alias(f"c_{s}"))
-    ewm = [pl.col("min").ewm_mean(half_life=p.min_half_life).over("player_id").alias("e_min")]
+    ewm = [pl.col("min").ewm_mean(half_life=p.min_half_life).over("player_id").alias("e_min"),
+           pl.col("min").alias("l_min"), pl.col("starter").cast(pl.Int8).alias("l_start")]
     for s in ("pts", "reb", "ast", "fg3m", "pra", "pr", "pa", "ra"):
         ewm.append(pl.col(s).ewm_mean(half_life=p.min_half_life).over("player_id").alias(f"e_{s}"))
     st = played.with_columns(cum + ewm)
-    return st.select(["player_id", "date", "season", "team", "pos", "e_min", "c_min", "c_n"]
+    return st.select(["player_id", "date", "season", "team", "pos", "e_min", "l_min", "l_start", "c_min", "c_n"]
                      + [f"c_{s}" for s in STATS] + [f"e_{s}" for s in STATS]
                      ).rename({"date": "last_date", "season": "state_season", "team": "last_team"})
 
@@ -330,6 +332,11 @@ def project(box: pl.DataFrame, targets: pl.DataFrame, p: Params | None = None,
                        e_min=pl.when(prev_avg.is_not_null() & (p.min_prior_k > 0))
                        .then((n_cur * pl.col("e_min") + p.min_prior_k * prev_avg) / (n_cur + p.min_prior_k))
                        .otherwise(pl.col("e_min")))
+    if p.last_game_w > 0:
+        # a role change shows up in the latest game first: lean on it, this season only
+        t = t.with_columns(e_min=pl.when(pl.col("same_season") & pl.col("l_min").is_not_null())
+                           .then((1 - p.last_game_w) * pl.col("e_min") + p.last_game_w * pl.col("l_min"))
+                           .otherwise(pl.col("e_min")))
 
     # Rotation: fill each team's minutes in order of recent minutes. A
     # player whose higher-minute teammates already cover ROTATION_CAP is

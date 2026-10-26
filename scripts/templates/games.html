@@ -72,7 +72,7 @@
       <div class="gp-row">
         <div class="gp-mkt">{{ p.market|upper }}</div>
         <div class="gp-pick"><span class="pill pill-{{ 'over' if p.market != 'total' or p.pick == 'OVER' else 'under' }} pill-sm">{{ p.pick_label }}</span>{% if p.price_str %} <span class="dim small">{{ p.price_str }}</span>{% endif %}</div>
-        <div class="gp-ch">{{ m.utag(stake(p)) }} <b>{{ (p.chance * 100)|round(0)|int }}%</b>{% if p.break_even %}<span class="dim small"> vs {{ (p.break_even * 100)|round(1) }}% break-even</span>{% endif %}</div>
+        <div class="gp-ch">{{ m.utag(stake(p), p.skip) }} <b>{{ (p.chance * 100)|round(0)|int }}%</b>{% if p.break_even %}<span class="dim small"> vs {{ (p.break_even * 100)|round(1) }}% break-even</span>{% endif %}</div>
         <div class="gp-tags"><span class="lean-tag">lean</span>{% if p.locked %} <span class="locked">&#128274; locked at tip</span>{% elif p.frozen %} <span class="early-tag">TRACKED &middot; UPDATES TILL TIP</span>{% else %} <span class="dim small">not tracked yet</span>{% endif %}</div>
         <p class="why-reason gp-why">{{ p.why }}</p>
       </div>

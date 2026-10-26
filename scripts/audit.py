@@ -47,6 +47,13 @@ late_s = [(p.get("player") or p.get("pick_label"), k) for p in P + T for k, sn i
 check("every snapshot (open / 10 AM / 1 PM / 5 PM) taken before tip", not late_s, f"{len(late_s)} late: {late_s[:2]}" if late_s
       else f"{sum(len(p.get('snaps') or {}) for p in P + T)} checked")
 
+# 1c. pattern skips: a skipped pick carries no stake and never sits on an open Best 5 / Best Value list
+bad_skip = [p for p in P + T if p.get("skip") and (p.get("units") or 0) > 0]
+open_skip = [p for p in P + T if p.get("skip") and p.get("status") == "pending" and p.get("best5")
+             and ts(p["frozen_at"]) < ts(p["tip_utc"]) and datetime.now(ts(p["tip_utc"]).tzinfo) < ts(p["tip_utc"])]
+check("pattern-skipped picks have no stake and aren't on open Best 5 / Value lists", not bad_skip and not open_skip,
+      f"{len(bad_skip)} staked, {len(open_skip)} listed" if bad_skip or open_skip else "")
+
 # 2. statuses and grading arithmetic
 bad = []
 for p in P:
