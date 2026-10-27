@@ -235,7 +235,8 @@ def build(args) -> None:
     # pattern corrections that have held up on later games (computed by the previous build, see patterns.py)
     pat = patterns.active()
     live.GAME_SKIP = {k for k in pat["skip"] if k.startswith("game|")}
-    print(f"Pattern corrections active: {len(pat['skip'])} skip, {len(pat['over'])} over-bias, {len(pat['move'])} line-move")
+    print(f"Pattern corrections active: {len(pat['skip'])} skip, {len(pat['over'])} over-bias, {len(pat['move'])} line-move, "
+          f"confidence {pat['conf']}")
     open_lines = {}
     if sl.get("date"):
         for p in predictions.load_date(sl["date"]).values():

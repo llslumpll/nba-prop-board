@@ -309,7 +309,7 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
     team projections. line_book: {(player, stat, game_id): {source: rec}}.
     pat: active pattern corrections (patterns.active()); open_lines:
     {(player, stat, game_id): (source, opening line)} of recorded picks."""
-    pat = pat or {"skip": set(), "over": {}, "move": {}}
+    pat = pat or {"skip": set(), "over": {}, "move": {}, "conf": {}}
     open_lines = open_lines or {}
     if not sl["games"]:
         return {"players": [], "picks": {s: [] for s in PICK_STATS}, "teams": {}, "no_history": []}
@@ -365,6 +365,9 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
                     continue
                 po = 0.5 + (po - 0.5) * shrink
                 adj = []
+                if pat.get("conf", {}).get(src, 1.0) < 1.0:
+                    po = 0.5 + (po - 0.5) * pat["conf"][src]  # learned: our chances on this source run too high
+                    adj.append(f"chance pulled toward 50% (keeps {pat['conf'][src] * 100:.0f}% of our lean on {markets.SOURCE_LABEL.get(src, src)} lines, pattern)")
                 if pat["over"].get((s, src)):
                     po += pat["over"][(s, src)]  # learned: this stat's lines on this source run high / low
                     adj.append(f"OVER chance {pat['over'][(s, src)] * 100:+.1f} pts (pattern)")

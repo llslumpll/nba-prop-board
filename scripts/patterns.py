@@ -12,7 +12,7 @@ Anything else stays "watching", or "flipped" when the later games went the
 other way (that's what happened to "UNDERs win" and "follow the line move"
 between Oct 22 and Oct 25).
 
-Three kinds of correction:
+Four kinds of correction:
   skip   a group of picks (stat + line source, or stat + source + side, or a
          game-pick market + side) whose hit rate sits below what its prices
          need in both halves: those picks become PASS (0 units) and stay off
@@ -20,6 +20,10 @@ Three kinds of correction:
   over   our chance of OVER for a stat + source is off in the same direction
          in both halves (e.g. the line runs high): future chances move by part
          of the gap (shrunk toward 0, capped at MAX_SHIFT).
+  conf   our stated chances on one line source run too high in both halves
+         (picks said 63% and hit 53%): every chance on that source is pulled
+         toward 50% by the share of our lean that didn't show up in results,
+         so its picks size down, mostly to PASS, and rank lower on Best 5.
   move   picks whose side agrees / disagrees with how their line has moved
          since it opened: chance moves by part of the measured gap.
 
@@ -64,7 +68,7 @@ def load() -> dict:
 def active(store: dict | None = None) -> dict:
     """What live.run applies: {"skip": set of keys, "over": {(stat, src): shift}, "move": {"agree"/"against": shift}}."""
     store = store if store is not None else load()
-    out = {"skip": set(), "over": {}, "move": {}}
+    out = {"skip": set(), "over": {}, "move": {}, "conf": {}}
     for r in store.get("rules", []):
         if r.get("status") != "active":
             continue
@@ -74,6 +78,8 @@ def active(store: dict | None = None) -> dict:
             out["over"][tuple(r["key"].split("|"))] = r["shift"]
         elif r["kind"] == "move":
             out["move"][r["key"]] = r["shift"]
+        elif r["kind"] == "conf":
+            out["conf"][r["key"]] = r["factor"]
     return out
 
 
@@ -147,6 +153,10 @@ def _split(graded):
     return train, test
 
 
+def _lean(ps):
+    return sum(p["chance"] - 0.5 for p in ps) / len(ps) if ps else 0.0
+
+
 def _rule(kind, key, label, ps, train, test, fn, direction_needed=None):
     tr = [p for p in ps if p["date"] in train]
     te = [p for p in ps if p["date"] in test]
@@ -161,15 +171,31 @@ def _rule(kind, key, label, ps, train, test, fn, direction_needed=None):
     elif (gap1 > 0) != (gap2 > 0):
         status, why = "flipped", f"earlier games {gap1 * 100:+.1f} pts, later games {gap2 * 100:+.1f} pts: it didn't hold"
     elif direction_needed is not None and (gap < 0) != direction_needed:
-        status, why = "fine", f"beating its prices ({gap * 100:+.1f} pts over what's needed), nothing to fix"
-    elif abs(gap) < MIN_GAP or abs(z) < Z_MIN:
+        status, why = "fine", (f"hitting more than our chances said ({gap * 100:+.1f} pts), nothing to fix" if kind == "conf"
+                               else f"beating its prices ({gap * 100:+.1f} pts over what's needed), nothing to fix")
+    elif (abs(gap) < MIN_GAP if kind != "conf" else abs(gap) < 0.25 * _lean(ps)) or abs(z) < Z_MIN:
+        # (confidence fixes are judged against how far our chances lean from 50%: losing a quarter of it matters)
         status, why = "watching", f"same direction in both halves but small or not clear of luck yet ({gap * 100:+.1f} pts, z {z:+.1f})"
     else:
         status, why = "active", f"held in both halves: earlier {gap1 * 100:+.1f} pts, later {gap2 * 100:+.1f} pts (z {z:+.1f})"
     shift = round(max(-MAX_SHIFT, min(MAX_SHIFT, gap * n_all / (n_all + SHRINK_N))), 4)
-    return {"kind": kind, "key": key, "label": label, "status": status, "why": why, "n": n_all,
-            "n_train": n1, "n_test": n2, "gap": round(gap, 4), "gap_train": round(gap1, 4), "gap_test": round(gap2, 4),
-            "z": round(z, 2), "shift": shift if kind != "skip" else None}
+    out = {"kind": kind, "key": key, "label": label, "status": status, "why": why, "n": n_all,
+           "n_train": n1, "n_test": n2, "gap": round(gap, 4), "gap_train": round(gap1, 4), "gap_test": round(gap2, 4),
+           "z": round(z, 2), "shift": shift if kind not in ("skip", "conf") else None}
+    if kind == "conf" and ps:
+        # how much of our lean away from 50% to keep: the share that actually showed up in results,
+        # moved toward 1 (no change) on small samples
+        lean = _lean(ps)
+        a = min(1.0, max(0.0, 1 + gap / lean)) if lean > 0 else 1.0
+        out["factor"] = round(1 - (1 - a) * n_all / (n_all + SHRINK_N), 3)
+    return out
+
+
+def _group(ps, key):
+    out = defaultdict(list)
+    for p in ps:
+        out[p.get(key)].append(p)
+    return out
 
 
 def _stat_name(s):
@@ -196,6 +222,9 @@ def compute(preds: list[dict], tpreds: list[dict], now: datetime | None = None) 
     for (s, src, side), ps in sorted(by_sss.items()):
         rules.append(_rule("skip", f"{s}|{src}|{side}", f"{_stat_name(s)} {side} on {SOURCES.get(src, src)}",
                            ps, train, test, _hit_vs_need, direction_needed=True))
+    for src, ps in sorted(_group(g, "line_source").items()):
+        rules.append(_rule("conf", src, f"Our confidence on {SOURCES.get(src, src)} lines", ps, train, test,
+                           _hit_vs_chance, direction_needed=True))
     mv = defaultdict(list)
     for p in g:
         d = move_dir(p)
@@ -226,7 +255,8 @@ def compute(preds: list[dict], tpreds: list[dict], now: datetime | None = None) 
             since = [p for p in (g + gt) if p["date"] >= r["active_since"]
                      and ((r["kind"] == "skip" and r["key"] in skip_keys(p))
                           or (r["kind"] == "over" and f"{p.get('stat')}|{p.get('line_source')}" == r["key"])
-                          or (r["kind"] == "move" and move_dir(p) == r["key"]))]
+                          or (r["kind"] == "move" and move_dir(p) == r["key"])
+                          or (r["kind"] == "conf" and p.get("line_source") == r["key"]))]
             h = sum(1 for p in since if p.get("hit"))
             r["since"] = {"n": len(since), "hits": h, "units": round(sum(grade.units(p) or 0 for p in since), 2)}
     order = {"active": 0, "watching": 1, "flipped": 2, "fine": 3}
