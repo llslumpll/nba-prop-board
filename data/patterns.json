@@ -1,6 +1,28 @@
 {
- "at": "2026-10-27 23:40 UTC",
+ "at": "2026-10-27 23:43 UTC",
  "rules": [
+  {
+   "active_since": "2026-10-27",
+   "factor": 0.246,
+   "gap": -0.0276,
+   "gap_test": -0.0267,
+   "gap_train": -0.0282,
+   "key": "prizepicks",
+   "kind": "conf",
+   "label": "Our confidence on PrizePicks lines",
+   "n": 3389,
+   "n_test": 1255,
+   "n_train": 2134,
+   "shift": null,
+   "since": {
+    "hits": 0,
+    "n": 0,
+    "units": 0
+   },
+   "status": "active",
+   "why": "held in both halves: earlier -2.8 pts, later -2.7 pts (z -3.2)",
+   "z": -3.23
+  },
   {
    "active_since": "2026-10-26",
    "gap": -0.0645,
@@ -126,6 +148,28 @@
    "status": "active",
    "why": "held in both halves: earlier -9.0 pts, later -0.7 pts (z -2.0)",
    "z": -2.04
+  },
+  {
+   "active_since": "2026-10-27",
+   "factor": 0.408,
+   "gap": -0.0414,
+   "gap_test": -0.0479,
+   "gap_train": -0.0361,
+   "key": "fanduel",
+   "kind": "conf",
+   "label": "Our confidence on FanDuel lines",
+   "n": 581,
+   "n_test": 263,
+   "n_train": 318,
+   "shift": null,
+   "since": {
+    "hits": 0,
+    "n": 0,
+    "units": 0
+   },
+   "status": "active",
+   "why": "held in both halves: earlier -3.6 pts, later -4.8 pts (z -2.0)",
+   "z": -2.0
   },
   {
    "gap": -0.0954,
@@ -1011,6 +1055,22 @@
    "status": "flipped",
    "why": "earlier games +3.8 pts, later games -2.3 pts: it didn't hold",
    "z": 0.14
+  },
+  {
+   "factor": 1.0,
+   "gap": 0.0003,
+   "gap_test": -0.0224,
+   "gap_train": 0.0332,
+   "key": "kalshi",
+   "kind": "conf",
+   "label": "Our confidence on Kalshi lines",
+   "n": 1308,
+   "n_test": 773,
+   "n_train": 535,
+   "shift": null,
+   "status": "flipped",
+   "why": "earlier games +3.3 pts, later games -2.2 pts: it didn't hold",
+   "z": 0.02
   }
  ],
  "tables": [
