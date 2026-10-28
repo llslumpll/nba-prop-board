@@ -360,3 +360,16 @@ From the Monahan lecture (market-based betting):
   lineup is CONFIRMED are treated as out (minutes go to teammates); starters get a STARTING tag on Players/Picks.
   Builds run every 20 minutes, so one lands 0-20 minutes before every tip, after lineups are usually confirmed.
   Status shown on History -> Model & pipeline -> Checks. Fail-soft (8 s timeout).
+
+## Update 32: Parlays page (parlays.html, nav between Teams and History)
+
+- `scripts/parlays.py` builds the site's own parlays every build from picks it has already recorded:
+  Safest props (2/3/4 legs, highest chance), Good price (2/3 legs, only GOOD PRICE legs), Moneyline (2/3/4 legs).
+  One leg per game, one per player, never a SKIP, only games not started. Each parlay is rebuilt until its FIRST
+  leg tips, then locked; graded from the locked legs (player final stat, game final score). A leg that doesn't
+  play or pushes drops out and the parlay pays as the smaller one; LOST as soon as one leg misses.
+  Stored in `data/parlays/DATE.json`.
+- Page: TONIGHT (cards with chance all hit, pays about = legs' prices multiplied, price check, ALL LEGS ON KALSHI
+  and the exact Kalshi market per leg), TRACK RECORD (per parlay type: W-L, hit % vs expected, units at 1U, ROI,
+  % of legs hit), DAY BY DAY, HOW IT WORKS.
+- Audit: 2 new checks (legs set before first tip / one per game / right size; results match legs).

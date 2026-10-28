@@ -1231,7 +1231,7 @@ td.bx .mv-tag { font-size: 0.66rem; }
 .anchor-tag { font-family: var(--sans); font-weight: 800; font-size: 0.68rem; letter-spacing: .5px; padding: 1px 5px; color: #9fe8ff; border: 2px solid #2b8fb0; white-space: nowrap; cursor: help; }
 
 /* ==== Teams page (rankings) ==== */
-@media (max-width: 760px) { .bottom-nav { grid-template-columns: repeat(6, 1fr); } .bottom-nav a { font-size: 0.85rem; } }
+@media (max-width: 760px) { .bottom-nav { grid-template-columns: repeat(7, 1fr); } .bottom-nav a { font-size: 0.85rem; } }
 .rk-rank { font-weight: 800; }
 .rk-hi { color: var(--green); }
 .rk-lo { color: var(--under); }
@@ -1254,3 +1254,27 @@ td.bx .mv-tag { font-size: 0.66rem; }
 .start-tag { font-family: var(--sans); font-weight: 800; font-size: 0.7rem; letter-spacing: .5px; padding: 1px 5px; white-space: nowrap; cursor: help; }
 .start-confirmed { color: #8dffbf; border: 1px solid #2fd47a; }
 .start-expected { color: #8b7cad; border: 1px dashed #5b4b80; }
+
+/* ==== Parlays page (update 32) ==== */
+@media (max-width: 760px) { .bottom-nav a { font-size: 0.72rem; letter-spacing: 0; } }
+.pz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; margin: 8px 0 18px; }
+.pz-card { background: #160d2a; border: 3px solid #4f3a7a; box-shadow: 4px 4px 0 #0b0617; padding: 10px 12px; }
+.pz-card.pz-won { border-color: #2fd47a; }
+.pz-card.pz-lost { border-color: #ff5a6e; opacity: .85; }
+.pz-head { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; border-bottom: 2px dashed #3a2a5c; padding-bottom: 8px; }
+.pz-title { font-family: var(--pixel); color: var(--yellow); font-size: 0.8rem; line-height: 1.3; }
+.pz-sub { font-size: 0.72rem; font-weight: 800; letter-spacing: .5px; color: var(--text-dim); margin-top: 3px; }
+.pz-won .pz-sub { color: #8dffbf; } .pz-lost .pz-sub { color: #ff98a5; }
+.pz-nums { text-align: right; } .pz-nums b { display: block; font-family: var(--pixel); font-weight: 400; font-size: 1.15rem; color: #fff; }
+.pz-nums span { font-size: 0.66rem; color: var(--text-dim); font-weight: 700; }
+.pz-legs { list-style: none; margin: 8px 0 0; padding: 0; }
+.pz-leg { display: grid; grid-template-columns: 1.4em auto 1fr; grid-template-areas: "r b w" "r b m"; column-gap: 8px; align-items: center; padding: 6px 0; border-bottom: 1px solid #241840; }
+.pz-leg:last-child { border-bottom: 0; }
+.pz-res { grid-area: r; font-weight: 900; color: var(--text-dim); text-align: center; }
+.pz-leg .team-badge { grid-area: b; }
+.pz-what { grid-area: w; font-weight: 700; } .pz-meta { grid-area: m; font-size: 0.8rem; }
+.pz-hit .pz-res { color: #2fd47a; } .pz-miss .pz-res { color: #ff5a6e; } .pz-miss .pz-what { text-decoration: line-through; opacity: .8; }
+.pz-foot { margin-top: 8px; font-weight: 800; text-align: right; }
+.pz-how li { margin: 6px 0; }
+.pr-tag.pr-toohigh { border: 2px dashed #ff5a6e; color: #ff98a5; }
+.pz-tags { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }

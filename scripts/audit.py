@@ -67,6 +67,27 @@ for f in sorted((ROOT / "data" / "edges").glob("*.json")) if (ROOT / "data" / "e
 late_e = [e for e in E if ts(e["first_seen"]) >= ts(e["tip_utc"]) or ts(e.get("last_seen") or e["first_seen"]) >= ts(e["tip_utc"])]
 check("every EDGES bet recorded and updated before tip", not late_e, f"{len(late_e)} late" if late_e else f"{len(E)} checked")
 
+# 1f. PARLAYS: legs set before the first tip, one per game, and results that follow from the legs
+PZ = []
+for f in sorted((ROOT / "data" / "parlays").glob("*.json")) if (ROOT / "data" / "parlays").exists() else []:
+    PZ += list(json.loads(f.read_text()).values())
+late_p = [r["id"] + " " + r["date"] for r in PZ if ts(r["updated_at"]) >= ts(r["first_tip"])
+          or ts(r["first_tip"]) != min(ts(l["tip_utc"]) for l in r["legs"])]
+dup_g = [r["id"] + " " + r["date"] for r in PZ if len({l["game_id"] for l in r["legs"]}) != len(r["legs"]) or len(r["legs"]) != r["size"]]
+check("every parlay's legs set before its first tip, one leg per game, right size", not late_p and not dup_g,
+      f"late {late_p[:2]}, shape {dup_g[:2]}" if late_p or dup_g else f"{len(PZ)} checked")
+bad_p = []
+for r in PZ:
+    res = [l.get("result") for l in r["legs"]]
+    if r["status"] == "graded" and r["hit"] and ("miss" in res or None in res):
+        bad_p.append(r["id"] + " " + r["date"])
+    if r["status"] == "graded" and r["hit"] is False and "miss" not in res:
+        bad_p.append(r["id"] + " " + r["date"])
+    if r["status"] == "pending" and "miss" in res:
+        bad_p.append(r["id"] + " " + r["date"])
+check("parlay results match their legs (won = every played leg hit, lost = a leg missed)", not bad_p,
+      str(bad_p[:3]) if bad_p else f"{sum(1 for r in PZ if r['status'] != 'pending')} graded")
+
 # 2. statuses and grading arithmetic
 bad = []
 for p in P:

@@ -39,9 +39,10 @@ NAV = [
     ("games", "Games", "games.html"),
     ("players", "Players", "players.html"),
     ("rankings", "Teams", "rankings.html"),
+    ("parlays", "Parlays", "parlays.html"),
     ("history", "History", "history.html"),
 ]
-NAV_ICON = {"home": "\u2302", "picks": "\u2605", "games": "\u25ce", "players": "\u25a6", "rankings": "\u2630", "history": "\u21ba"}
+NAV_ICON = {"home": "\u2302", "picks": "\u2605", "games": "\u25ce", "players": "\u25a6", "rankings": "\u2630", "parlays": "\u2726", "history": "\u21ba"}
 # Old URLs from the 9-page layout forward to their new home, so bookmarks keep working.
 REDIRECTS = {"points.html": "picks.html#pts", "rebounds.html": "picks.html#reb", "assists.html": "picks.html#ast",
              "threes.html": "picks.html#fg3m", "pra.html": "picks.html#combos",
@@ -759,6 +760,16 @@ def render_all(ctx: dict) -> None:
           bt_n=(bt.get("pts") or {}).get("n"), health=list(reversed(ctx["health"][-30:])),
           n_pending=sum(1 for p in preds if p["status"] == "pending"))
     write("rankings.html", "rankings.html", "rankings", rk=rk)
+    pz = ctx.get("parlays") or {}
+    for d in pz.get("days") or []:
+        for r in d["rows"]:
+            r["first_tip_label"] = _tip_label({"tip_utc": r.get("first_tip")})
+            for l in r["legs"]:
+                l["badge"] = teams.badge(l["team"] if l["kind"] == "player" else (l["pick"] if l["pick"] in teams.TEAMS else l["home"]))
+                l["tip_label"] = _tip_label(l)
+    today = next((d for d in pz.get("days") or [] if d["date"] == sl.get("date")), None)
+    write("parlays.html", "parlays.html", "parlays", pz=pz, today=today,
+          fam_label={f["key"]: f["label"] for f in pz.get("families") or []})
     keep = set()
     finals_by_date = _finals(ctx.get("box"))
     for mo in mlist:

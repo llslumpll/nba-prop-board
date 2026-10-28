@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Parlays — Prop Edge NBA{% endblock %}
+{% block content %}
+<h1>Parlays</h1>
+<p class="lede">The site builds its own parlays every day from its recorded picks, locks them when the first leg tips, and grades every one. The record below answers one question: <b>do the site's combinations actually hit?</b></p>
+
+<div class="seg" data-tabs="pz" data-hash="1">
+  <button data-tab="tonight" class="active">TONIGHT</button><button data-tab="record">TRACK RECORD</button><button data-tab="days">DAY BY DAY</button><button data-tab="how">HOW IT WORKS</button>
+</div>
+
+{% macro leg_row(l, show_res) -%}
+<li class="pz-leg {{ 'pz-' ~ l.result if show_res and l.result else '' }}">
+  <span class="pz-res">{% if show_res and l.result == 'hit' %}&#10004;{% elif show_res and l.result == 'miss' %}&#10008;{% elif show_res and l.result == 'void' %}&ndash;{% else %}&#9675;{% endif %}</span>
+  {{ m.badge(l.badge) }}
+  <span class="pz-what">{% if l.kind == 'player' %}<a href="p-{{ l.player_id }}.html" class="plink">{{ l.player }}</a> <span class="pp-pick pp-{{ l.call|lower }}">{{ l.call }} {{ l.line|fmtline }}</span> {{ stat_short.get(l.stat, l.stat)|upper }}{% else %}<span class="pp-pick pp-over">{{ l.label }}</span> <span class="dim small">{{ l.away }} @ {{ l.home }}</span>{% endif %}</span>
+  <span class="pz-meta"><b>{{ (l.chance * 100)|round|int }}%</b> <span class="dim small">{% if l.kalshi_bet %}Kalshi: {{ l.kalshi_bet }}{% else %}{{ src_labels.get(l.src, l.src or '') }}{% if l.price_str %} {{ l.price_str }}{% endif %}{% endif %} &middot; {{ l.tip_label }}</span></span>
+</li>
+{%- endmacro %}
+
+{% macro pcard(r, label) -%}
+{% set live = r.locked_at and r.status == 'pending' %}
+<article class="pz-card pz-{{ r.status }}{{ ' pz-won' if r.hit else (' pz-lost' if r.hit is sameas false else '') }}">
+  <div class="pz-head">
+    <div><div class="pz-title">{{ r.size }}-LEG {{ label|upper }}</div>
+      <div class="pz-sub">{% if r.status == 'graded' %}{{ 'WON' if r.hit else 'LOST' }}{% if r.legs_played and r.legs_played < r.size %} (as {{ r.legs_played }} legs){% endif %}{% elif r.status == 'void' %}VOID{% elif live %}&#128274; LOCKED &middot; IN PLAY{% else %}UPDATES TILL FIRST TIP &middot; {{ r.first_tip_label }}{% endif %}</div></div>
+    <div class="pz-nums"><b>{{ (r.chance * 100)|round(1) }}%</b><span>chance all hit</span></div>
+    <div class="pz-nums"><b>{{ '%.1f'|format(r.pays) }}x</b><span>pays about</span></div>
+  </div>
+  <div class="pz-tags">{% if r.ev >= 0 %}<span class="pr-tag pr-good" style="margin-left:0" title="Chance all hit x payout is above 1: worth it at these prices">GOOD PRICE</span>{% else %}<span class="pr-tag pr-toohigh" title="Likely-looking, but the payout is too small for its chance: {{ (r.chance * 100)|round|int }}% x {{ '%.2f'|format(r.pays) }} returns about {{ ((1 + r.ev) * 100)|round|int }} cents per dollar on average">PRICE TOO HIGH</span>{% endif %}{% if r.all_kalshi %} <span class="anchor-tag">ALL LEGS ON KALSHI</span>{% endif %}</div>
+  <ul class="pz-legs">{% for l in r.legs %}{{ leg_row(l, r.locked_at) }}{% endfor %}</ul>
+  {% if r.status == 'graded' %}<div class="pz-foot {{ 'stat-good' if r.hit else 'stat-bad' }}">{{ '%+.2f'|format(r.units) }}U at 1 unit</div>{% endif %}
+</article>
+{%- endmacro %}
+
+<section data-tab-panel="pz:tonight">
+{% if today and today.rows %}
+  <p class="small dim">{{ today.date }} &middot; 1 leg per game, picks the site already recorded. Open parlays switch legs if a better one appears; they lock when their first game tips.</p>
+  {% for f in pz.families %}{% set rs = today.rows|selectattr('family', 'equalto', f.key)|list %}{% if rs %}
+  <h2 class="hv-h3">{{ f.label }}</h2>
+  <p class="small dim">{{ f.desc }}</p>
+  <div class="pz-grid">{% for r in rs %}{{ pcard(r, f.label) }}{% endfor %}</div>
+  {% endif %}{% endfor %}
+{% else %}
+  <div class="empty-state"><h3>No parlays yet today</h3><p>They appear once the site has recorded picks for tonight's games (usually the morning of game day).</p></div>
+{% endif %}
+</section>
+
+<section class="hidden" data-tab-panel="pz:record">
+{% if pz.n %}
+  <div class="hv-rec">
+    <div class="hv-tile"><b>{{ pz.hits }}&ndash;{{ pz.n - pz.hits }}</b><span>parlays won&ndash;lost{% if pz.pending %} &middot; {{ pz.pending }} pending{% endif %}</span></div>
+    <div class="hv-tile"><b>{{ pz.rate }}%</b><span>hit vs {{ pz.expected }}% expected</span></div>
+    <div class="hv-tile"><b class="{{ 'stat-good' if pz.units > 0 else 'stat-bad' if pz.units < 0 }}">{{ '%+.2f'|format(pz.units) }}U</b><span>1 unit each ({{ '%+.1f'|format(pz.roi) }}%)</span></div>
+    <div class="hv-tile"><b>{{ pz.leg_rate }}%</b><span>of legs hit</span></div>
+  </div>
+  <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+    <thead><tr><th>Parlay</th><th class="num">W&ndash;L</th><th class="num">Hit %</th><th class="num">Expected</th><th class="num">Units</th><th class="num hide-sm">ROI</th><th class="num hide-sm">Legs hit</th></tr></thead>
+    <tbody>{% for r in pz.rows %}<tr><td>{{ r.size }}-leg {{ r.label }}</td><td class="num">{{ r.hits }}&ndash;{{ r.n - r.hits }}{% if r.pending %} <span class="dim small">+{{ r.pending }}</span>{% endif %}</td>
+      <td class="num">{{ r.rate if r.rate is not none else '—' }}{{ '%' if r.rate is not none }}</td><td class="num dim">{{ r.expected if r.expected is not none else '—' }}{{ '%' if r.expected is not none }}</td>
+      <td class="num {{ 'stat-good' if r.units > 0 else 'stat-bad' if r.units < 0 }}">{{ '%+.2f'|format(r.units) }}</td><td class="num hide-sm">{{ ('%+.1f'|format(r.roi) ~ '%') if r.roi is not none else '—' }}</td><td class="num hide-sm">{{ (r.leg_rate ~ '%') if r.leg_rate is not none else '—' }}</td></tr>{% endfor %}</tbody>
+  </table></div></div>
+  <p class="small dim"><b>Expected</b> = the average "chance all hit" the site gave those parlays. Hitting more often than expected means the site is underselling its combos; less often means it's overconfident. Units: 1 unit per parlay at the multiplied price of its legs. A few weeks of results are needed before any of this means much: a 3-leg parlay hits maybe 1 in 4 or 5 nights.</p>
+{% else %}
+  <div class="empty-state"><h3>Tracking starts tonight</h3><p>The first parlays are graded as soon as tonight's games finish.{% if pz.pending %} {{ pz.pending }} waiting.{% endif %}</p></div>
+{% endif %}
+</section>
+
+<section class="hidden" data-tab-panel="pz:days">
+{% for d in pz.days %}{% if d.rows %}
+  <details class="hv-log" {{ 'open' if loop.first }}><summary>{{ d.date }} &middot; {{ d.rows|selectattr('hit')|list|length }} won, {{ d.rows|selectattr('hit', 'sameas', false)|list|length }} lost{% set pe = d.rows|selectattr('status', 'equalto', 'pending')|list|length %}{% if pe %}, {{ pe }} pending{% endif %} &#9662;</summary>
+  <div class="pz-grid">{% for r in d.rows %}{{ pcard(r, fam_label[r.family]) }}{% endfor %}</div>
+  </details>
+{% endif %}{% else %}<p class="dim">Nothing yet.</p>{% endfor %}
+</section>
+
+<section class="hidden" data-tab-panel="pz:how">
+  <ul class="small pz-how">
+    <li><b>Where the legs come from:</b> picks the site has already recorded for tonight (the same ones on Picks and Games), never a SKIP, and only games that haven't started.</li>
+    <li><b>One leg per game.</b> Legs from the same game move together (a blowout hurts everyone's minutes), which makes a parlay riskier than its chance says.</li>
+    {% for f in pz.families %}<li><b>{{ f.label }}</b> ({{ f.sizes|join(', ') }} legs): {{ f.desc }}</li>{% endfor %}
+    <li><b>Locking:</b> until the first leg's game tips, a parlay can swap legs as lines and injuries move. From that tip on, its legs, lines and sides are frozen and graded exactly as shown.</li>
+    <li><b>Grading:</b> a leg whose player doesn't play, or that lands exactly on the line, drops out and the parlay pays as the smaller one (most books do this). A parlay is LOST the moment one leg misses.</li>
+    <li><b>Price check:</b> GOOD PRICE when chance all hit &times; payout is above 1 (worth it on average), PRICE TOO HIGH when the payout is too small for how likely it is. <b>ALL LEGS ON KALSHI</b> = every leg can be placed on Kalshi; the leg shows the exact Kalshi market (OVER 2.5 = YES on 3+, UNDER 2.5 = NO on 3+).</li>
+    <li><b>Chance all hit</b> = the legs' chances multiplied. <b>Pays about</b> = each leg's own price multiplied, how sportsbooks and Kalshi-style combos roughly price them; PrizePicks pays from a fixed table that can be lower.</li>
+  </ul>
+</section>
+{% endblock %}
