@@ -17,7 +17,7 @@
   var COMBO = {pra: ['pts', 'reb', 'ast'], pr: ['pts', 'reb'], pa: ['pts', 'ast'], ra: ['reb', 'ast']};
   var LABEL = {pts: 'PTS', reb: 'REB', ast: 'AST', fg3m: '3PM', pra: 'PRA', pr: 'P+R', pa: 'P+A', ra: 'R+A'};
 
-  function utag(u) { u = +u || 0; return '<span class="u-tag u-' + Math.round(u * 100) + '">' + (u ? (u + 'U') : 'PASS') + '</span>'; }
+  function utag(u) { u = +u || 0; return '<span class="u-tag u-' + Math.round(u * 100) + '">' + (u ? (u + 'U') : 'NO BET') + '</span>'; }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]; }); }
   function visible() { var p = root.closest('[data-tab-panel]'); return !p || !p.classList.contains('hidden'); }
   function getJSON(url) { return fetch(url, {cache: 'no-store'}).then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }); }

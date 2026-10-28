@@ -34,7 +34,7 @@
     <button data-tab="best5" class="active">BEST 5</button><button data-tab="value">BEST VALUE</button>
   </div>
   <div data-tab-panel="gl-{{ mk.key }}:best5">
-    <p class="small dim">The five {{ mk.label|lower }} picks with the highest chance, one per game. Units show whether the chance also beats the price (PASS = it doesn't). Lock at tip.</p>
+    <p class="small dim">The five {{ mk.label|lower }} picks with the highest chance, one per game. The price check shows whether the chance also beats the price. Lock at tip.</p>
     {{ m.ggrid(mk.best5, 'best5', empty_best) }}
   </div>
   <div class="hidden" data-tab-panel="gl-{{ mk.key }}:value">
@@ -54,29 +54,27 @@
   </div>{% else %}<p class="small dim">Track record starts with the first graded edge{% if eds.pending %} ({{ eds.pending }} pending){% endif %}.</p>{% endif %}
 
   <h3 class="hv-h3">Arbitrage</h3>
-  {% if ed.arbs %}{% for a in ed.arbs %}<div class="notice compact audit-ok"><strong>{{ a.label }}:</strong> {{ a.kalshi }} on Kalshi ({{ (a.cost * 100)|round(1) }}&cent; with fee) + {{ a.other }} = {{ (a.both * 100)|round(1) }}&cent; for $1 whatever happens. Prices move in seconds; check both before betting.</div>{% endfor %}
-  {% else %}<p class="small dim">None right now.{% if ed.closest_arb %} Closest: both sides together cost {{ (ed.closest_arb * 100)|round(1) }}&cent; for $1.{% endif %}</p>{% endif %}
+  {% if ed.arbs %}{% for a in ed.arbs %}<div class="notice compact audit-ok"><strong>{{ a.label }}:</strong> {{ a.kalshi }} on Kalshi + {{ a.other }} wins about {{ '%.1f'|format((1 / a.both - 1) * 100) }}% whatever happens (Kalshi's fee included). Prices move in seconds; check both before betting.</div>{% endfor %}
+  {% else %}<p class="small dim">None right now.{% if ed.closest_arb %} Closest: {{ '%.1f'|format((ed.closest_arb - 1) * 100) }}% short of a sure profit.{% endif %}</p>{% endif %}
 
   <h3 class="hv-h3">+EV on Kalshi</h3>
   {% if ed.edges %}
   <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
-    <thead><tr><th>Bet</th><th>Buy on Kalshi</th><th class="num">Ask &rarr; with fee</th><th class="num">Fair</th><th class="num">Edge</th><th class="num">Buy at or below</th><th class="hide-sm">Our model</th><th class="hide-sm">Fair from</th></tr></thead>
+    <thead><tr><th>Bet</th><th class="num">Better than fair</th><th class="num">Real chance</th><th class="hide-sm">Our model</th><th class="hide-sm">Fair from</th></tr></thead>
     <tbody>{% for e in ed.edges %}<tr>
-      <td><b>{{ e.label }}</b></td><td class="small">{{ e.kalshi }}</td>
-      <td class="num">{{ (e.ask * 100)|round|int }}&cent; &rarr; {{ (e.cost * 100)|round(1) }}&cent;</td>
-      <td class="num">{{ (e.fair * 100)|round(1) }}%</td>
-      <td class="num stat-good"><b>{{ '%+.1f'|format(e.ev * 100) }}%</b></td>
-      <td class="num"><b>{{ (e.max_price * 100)|round|int }}&cent;</b></td>
+      <td><b>{{ e.label }}</b> <span class="pr-tag pr-good" title="Kalshi's price (fee included) is lower than this bet is worth">GOOD PRICE</span><div class="small dim">Kalshi: {{ e.kalshi }}</div></td>
+      <td class="num stat-good"><b>about {{ '%.0f'|format(e.ev * 100) }}%</b></td>
+      <td class="num">{{ (e.fair * 100)|round|int }}%</td>
       <td class="hide-sm small">{% if e.model is not none %}<span class="{{ 'stat-good' if e.model_agrees else 'stat-bad' }}">{{ (e.model * 100)|round|int }}% {{ '&#10004; agrees'|safe if e.model_agrees else 'disagrees' }}</span>{% else %}<span class="dim">—</span>{% endif %}</td>
       <td class="hide-sm small dim">{{ e.ref }}</td></tr>{% endfor %}</tbody>
   </table></div></div>
-  <p class="small dim">Checked {{ ed.checked }} Kalshi prices with a FanDuel match; showing those {{ '%d'|format(2) }}%+ above their cost after Kalshi's fee. "Buy at or below" is the most you can pay (before the fee) and still have an edge.</p>
+  <p class="small dim">Checked {{ ed.checked }} Kalshi bets that FanDuel also prices. Listed: the ones where Kalshi's price, fee included, is at least 2% cheaper than the bet is really worth. <b>Real chance</b> = FanDuel's odds with their built-in cut removed. <b>Better than fair</b> = roughly how much each dollar returns on average over many bets. Prices move all day: if one disappears from this list, its price went up and it's no longer worth it.</p>
   {% else %}<div class="empty-state"><h3>No +EV prices right now</h3><p>Kalshi and FanDuel agree within the fee on every matched market{% if ed.checked %} ({{ ed.checked }} checked){% endif %}. Prices move all day; this refreshes every 20 minutes.</p></div>{% endif %}
 
   {% if ed.suspect %}
   <details class="hv-log"><summary>Too good to be true ({{ ed.suspect|length }}): check by hand &#9662;</summary>
   <p class="small dim" style="padding:0 12px">Gaps this big are almost always a stale or thin Kalshi price, or a different market. Not recorded or graded.</p>
-  <div class="table-wrap"><div class="table-scroll"><table class="stat-table"><tbody>{% for e in ed.suspect %}<tr><td>{{ e.label }}</td><td class="small">{{ e.kalshi }} at {{ (e.ask * 100)|round|int }}&cent;</td><td class="num">fair {{ (e.fair * 100)|round(1) }}%</td><td class="num">{{ '%+.0f'|format(e.ev * 100) }}%</td></tr>{% endfor %}</tbody></table></div></div></details>
+  <div class="table-wrap"><div class="table-scroll"><table class="stat-table"><tbody>{% for e in ed.suspect %}<tr><td>{{ e.label }}</td><td class="small">{{ e.kalshi }}</td><td class="num">real chance {{ (e.fair * 100)|round|int }}%</td><td class="num">{{ '%+.0f'|format(e.ev * 100) }}%</td></tr>{% endfor %}</tbody></table></div></div></details>
   {% endif %}
 
   {% if ed.middles %}
@@ -127,7 +125,7 @@
       <div class="gp-row">
         <div class="gp-mkt">{{ p.market|upper }}</div>
         <div class="gp-pick"><span class="pill pill-{{ 'over' if p.market != 'total' or p.pick == 'OVER' else 'under' }} pill-sm">{{ p.pick_label }}</span>{% if p.price_str %} <span class="dim small">{{ p.price_str }}</span>{% endif %}</div>
-        <div class="gp-ch">{{ m.utag(stake(p), p.skip) }}{{ m.fliptag(p.flip) }} <b>{{ (p.chance * 100)|round(0)|int }}%</b>{% if p.break_even %}<span class="dim small"> vs {{ (p.break_even * 100)|round(1) }}% break-even</span>{% endif %}</div>
+        <div class="gp-ch">{{ m.utag(stake(p), p.skip, none if p.locked else p.chance, p.break_even) }}{{ m.fliptag(p.flip) }} <b>{{ (p.chance * 100)|round(0)|int }}%</b>{% if p.break_even %}<span class="dim small"> vs {{ (p.break_even * 100)|round(1) }}% break-even</span>{% endif %}</div>
         <div class="gp-tags"><span class="lean-tag">lean</span>{% if p.locked %} <span class="locked">&#128274; locked at tip</span>{% elif p.frozen %} <span class="early-tag">TRACKED &middot; UPDATES TILL TIP</span>{% else %} <span class="dim small">not tracked yet</span>{% endif %}</div>
         <p class="why-reason gp-why">{{ p.why }}</p>
       </div>

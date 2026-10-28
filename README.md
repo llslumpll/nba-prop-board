@@ -332,3 +332,15 @@ From the Monahan lecture (market-based betting):
 ## EDGES: market-based +EV, arbitrage and middles (Oct 28)
 
 **`scripts/edges.py`, Games → EDGES.** Every build compares Kalshi's prices with FanDuel's for the same outcome: moneylines, spreads and totals at the same number, and FanDuel points props vs the Kalshi rung at the same number. FanDuel's two prices have their cut removed with the power method; when Kalshi's cost (ask + fee) is below that fair chance by 2%+, it's listed as +EV with "buy at or below" (the most to pay before the fee) and our model's chance as a second opinion. Arbitrage (Kalshi side + FanDuel's opposite side under $1) is flagged, and the closest pair is shown when there's none. Middles (FanDuel and Kalshi on different totals / spread numbers) show the chance both bets win (normal curve around FanDuel's number) when the pair is +EV. Every +EV edge is recorded in `data/edges/DATE.json` when first seen, kept up to date until tip, and graded from final scores / box scores at 1U per edge at the Kalshi cost; the tab shows the record overall and when our model agreed. FanDuel is a single, soft reference book (paid Odds API plans could add sharper books), so these are leads to check, not certainties. The audit checks every edge was recorded before tip. Any error in this step is caught so it can never stop a build.
+
+## Update 30: price check, no cents
+
+- Every open pick now carries a plain-English price check next to its units:
+  **GOOD PRICE** (our chance beats what the price needs; same picks that get units),
+  **WAIT** (within 3 points of break-even: check back, the price or line may move your way),
+  **PRICE TOO HIGH** (could still win, but you'd pay too much). Locked and graded picks show **NO BET** instead of PASS.
+- EDGES tab: no cent prices. Each +EV bet shows GOOD PRICE, "about X% better than fair", and the real (devigged) chance;
+  arbitrage shows the guaranteed % instead of cents.
+- Best 5 lists unchanged on purpose: through Oct 27 the Best 5 picks priced *below* break-even went 81–38 (+6.8U flat)
+  while the ones above it went 43–36 (−7.0U), mostly PrizePicks picks that were overconfident before the
+  confidence fix. Revisit once the fixed chances have a few weeks of results.

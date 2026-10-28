@@ -14,13 +14,21 @@
 <span class="pick-line"><span class="side-{{ side|lower }}">{{ side }}</span> {{ line|fmtline }}</span> <span class="chance">{{ (chance * 100)|round(0)|int }}%</span>
 {%- endmacro %}
 
-{# Recommended stake. 0 = PASS (chance doesn't beat the price). #}
-{% macro utag(u, skip=none) -%}
+{# Recommended stake plus a plain-English price check.
+   ch / be given (open picks): GOOD PRICE when units > 0, WAIT when the chance is within 3 pts
+   of what the price needs, PRICE TOO HIGH below that. Without them (graded / past): NO BET. #}
+{% macro utag(u, skip=none, ch=none, be=none) -%}
 {%- set u = (u or 0)|float -%}
 {%- if skip -%}
 <span class="u-tag u-0 u-skip" title="Skipped by a pattern: this group of picks lost in earlier AND later games (History &rarr; Patterns), so no stake">SKIP</span>
+{%- elif u -%}
+<span class="u-tag u-{{ (u * 100)|round|int }}" title="{{ unit_names.get(u, '') }} confidence: stake {{ u|fmtu }} unit{{ 's' if u != 1 }}">{{ u|fmtu }}U</span>{% if ch is not none %}<span class="pr-tag pr-good" title="Worth betting at today's price: our chance beats what the price needs to break even">GOOD PRICE</span>{% endif %}
+{%- elif ch is not none and be and ch - be >= -0.03 -%}
+<span class="u-tag u-0 pr-wait" title="Close: our chance is just under what this price needs. Check again later; if the price drops (or the line moves your way) it can turn into GOOD PRICE">WAIT</span>
+{%- elif ch is not none and be -%}
+<span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span>
 {%- else -%}
-<span class="u-tag u-{{ (u * 100)|round|int }}" title="{{ unit_names.get(u, '') }}{% if u %} confidence: stake {{ u|fmtu }} unit{{ 's' if u != 1 }}{% else %}: our chance doesn't beat the price's break-even, so no stake{% endif %}">{% if u %}{{ u|fmtu }}U{% else %}PASS{% endif %}</span>
+<span class="u-tag u-0" title="Our chance didn't beat the price, so no stake">NO BET</span>
 {%- endif -%}
 {%- endmacro %}
 
@@ -34,7 +42,8 @@
 
 {% macro ulegend() -%}
 <div class="u-legend"><b>UNITS</b> recommended stake from our edge over the price:
-{% for u in [0.25, 0.5, 0.75, 1.0, 1.5, 2.0] %}<span>{{ utag(u) }} {{ unit_names[u]|lower }}</span>{% endfor %}<span>{{ utag(0) }} no edge</span> <a href="history.html#units">track record &rarr;</a></div>
+{% for u in [0.25, 0.5, 0.75, 1.0, 1.5, 2.0] %}<span>{{ utag(u) }} {{ unit_names[u]|lower }}</span>{% endfor %} <a href="history.html#units">track record &rarr;</a>
+<br><b>PRICE CHECK</b> <span><span class="pr-tag pr-good">GOOD PRICE</span> worth betting now</span><span>{{ utag(0, none, 0.5, 0.51) }} close &ndash; check back, the price may drop</span><span>{{ utag(0, none, 0.4, 0.55) }} could still win, but you'd pay too much</span></div>
 {%- endmacro %}
 
 {% macro src_name(src) -%}
@@ -129,7 +138,7 @@
     </div>
   </div>
   <div class="tc-pick">
-    <span class="pill pill-{{ side }}">{{ p.call }} {{ p.line|fmtline }}</span>{{ utag(stake(p), p.skip) }}{{ fliptag(p.flip) }}
+    <span class="pill pill-{{ side }}">{{ p.call }} {{ p.line|fmtline }}</span>{{ utag(stake(p), p.skip, none if p.locked else p.chance, p.break_even) }}{{ fliptag(p.flip) }}
     <div class="tc-nums">
       <span><em>PROJ</em>{{ p.projected }}</span>
       <span><em>LINE</em>{{ p.line|fmtline }}</span>
@@ -180,8 +189,8 @@
 {% macro proj_pick(st, r=none, s=none, g=none) -%}
 <span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>{{ st.proj }}</b></span>
-  {% if st.pick %}<span class="pp-pick pp-{{ st.pick.side|lower }}">{{ 'OVER' if st.pick.side == 'OVER' else 'UNDER' }} {{ st.pick.line|fmtline }}</span><span class="pp-ch">{{ (st.pick.chance * 100)|round(0)|int }}%</span>{{ utag(st.pick.units, st.pick.skip) }}{{ fliptag(st.pick.flip) }}{{ movetag(st.pick.move) }}
-  {% elif st.frozen %}<span class="pp-pick pp-{{ st.frozen.call|lower }}" title="frozen before tip">&#128274; {{ st.frozen.call }} {{ st.frozen.line|fmtline }}</span><span class="pp-ch">{{ (st.frozen.chance * 100)|round(0)|int }}%</span>{{ utag(stake(st.frozen), st.frozen.skip) }}{{ fliptag(st.frozen.flip) }}
+  {% if st.pick %}<span class="pp-pick pp-{{ st.pick.side|lower }}">{{ 'OVER' if st.pick.side == 'OVER' else 'UNDER' }} {{ st.pick.line|fmtline }}</span><span class="pp-ch">{{ (st.pick.chance * 100)|round(0)|int }}%</span>{{ utag(st.pick.units, st.pick.skip, st.pick.chance, st.pick.break_even) }}{{ fliptag(st.pick.flip) }}{{ movetag(st.pick.move) }}
+  {% elif st.frozen %}<span class="pp-pick pp-{{ st.frozen.call|lower }}" title="frozen before tip">&#128274; {{ st.frozen.call }} {{ st.frozen.line|fmtline }}</span><span class="pp-ch">{{ (st.frozen.chance * 100)|round(0)|int }}%</span>{{ utag(stake(st.frozen), st.frozen.skip, none, st.frozen.break_even) }}{{ fliptag(st.frozen.flip) }}
   {% else %}<span class="pp-none">no line</span>{% endif %}
   {% if st.pick and st.pick.role_gap %}<span class="pp-gap" title="Our projection is far from the line, most likely a role change the market knows about. Chance pulled toward 50%; kept out of Best 5.">&#9888; big gap vs line</span>{% endif %}
   {% if st.pick and st.frozen and not (st.frozen.call == st.pick.side and st.frozen.line == st.pick.line) %}<span class="pp-fz">&#128274; frozen earlier: {{ st.frozen.call }} {{ st.frozen.line|fmtline }}</span>{% endif %}
@@ -192,7 +201,7 @@
 {% macro why_block(r, stat_keys, edge) %}
 {% for s in stat_keys %}{% set st = r.stats[s] %}
 <p class="why-reason"><strong>{{ stat_labels[s] }} {{ st.proj }}{% if st.pick %} &middot; {{ pick_text(st.pick.side, st.pick.line, st.pick.chance) }} {{ label_tag(edge[s].status) }}{% endif %}:</strong> {{ st.why }}
-  {% for src, ln in st.lines.items() %}<br>{{ src_labels[src] }} {{ ln.line|fmtline }}{% if ln.anchor %} (priced from Kalshi's {{ ln.anchor_n }}+ market){% endif %}{% if ln.over_str %} ({{ ln.over_str }}/{{ ln.under_str }}){% endif %}: we give OVER {{ (ln.p_over * 100)|round(0)|int }}%{% if ln.blend_mean is defined %} (from {{ ln.blend_mean }}, our {{ st.proj }} blended with the line{% if ln.role_gap %}; big gap vs the line, most likely a role change, so our projection gets less weight and this stays out of Best 5{% endif %}){% endif %}{% if ln.market_side is not none %}, market {{ (ln.market_side * 100)|round(0)|int }}% for {{ ln.side }}{% endif %}{% if ln.break_even %}, break-even {{ (ln.break_even * 100)|round(1) }}% for {{ ln.side }}{% endif %}{% if ln.adj %}; adjusted {{ ln.adj|join('; ') }}{% endif %}{% if ln.open_move %}; line {{ 'up' if ln.open_move > 0 else 'down' }} {{ '%g'|format(ln.open_move|abs) }} since our pick opened{% endif %} {{ utag(ln.units, ln.skip) }}{% if ln.move %} <span class="move">moved from {{ ln.move.from|fmtline }}</span>{% endif %}.{% endfor %}
+  {% for src, ln in st.lines.items() %}<br>{{ src_labels[src] }} {{ ln.line|fmtline }}{% if ln.anchor %} (priced from Kalshi's {{ ln.anchor_n }}+ market){% endif %}{% if ln.over_str %} ({{ ln.over_str }}/{{ ln.under_str }}){% endif %}: we give OVER {{ (ln.p_over * 100)|round(0)|int }}%{% if ln.blend_mean is defined %} (from {{ ln.blend_mean }}, our {{ st.proj }} blended with the line{% if ln.role_gap %}; big gap vs the line, most likely a role change, so our projection gets less weight and this stays out of Best 5{% endif %}){% endif %}{% if ln.market_side is not none %}, market {{ (ln.market_side * 100)|round(0)|int }}% for {{ ln.side }}{% endif %}{% if ln.break_even %}, break-even {{ (ln.break_even * 100)|round(1) }}% for {{ ln.side }}{% endif %}{% if ln.adj %}; adjusted {{ ln.adj|join('; ') }}{% endif %}{% if ln.open_move %}; line {{ 'up' if ln.open_move > 0 else 'down' }} {{ '%g'|format(ln.open_move|abs) }} since our pick opened{% endif %} {{ utag(ln.units, ln.skip, ln.chance if ln.break_even else none, ln.break_even) }}{% if ln.move %} <span class="move">moved from {{ ln.move.from|fmtline }}</span>{% endif %}.{% endfor %}
   {% if st.matchup %}<br><span class="mu-line">Matchup: {{ st.matchup.opp }} allows <b>{{ st.matchup.val }}</b> {{ stat_labels[s] }} a game to {{ st.matchup.pos_name }}, <b class="{{ 'stat-good' if st.matchup.rank <= 10 else 'stat-bad' if st.matchup.rank > 20 }}">{{ st.matchup.rank }}{{ {1: 'st', 2: 'nd', 3: 'rd'}.get(st.matchup.rank if st.matchup.rank < 20 else st.matchup.rank % 10, 'th') }} most</b> of {{ st.matchup.n }} ({{ '%+d'|format(st.matchup.vs) }}% vs league, {{ st.matchup.g }} game{{ 's' if st.matchup.g != 1 }}). <a href="rankings.html#allowed">Rankings &rarr;</a></span>{% endif %}
   {% if st.frozen %}<br><span class="locked">&#128274; frozen: {{ st.frozen.call }} {{ st.frozen.line|fmtline }} ({{ st.frozen.frozen_at }})</span>{% endif %}
   {% if st.recent %}<br>Last {{ st.recent|length }} ({{ st.pick.side|lower }} {{ st.pick.line|fmtline }}, green = would have hit): {{ recent_strip(st.recent) }}{% endif %}
@@ -219,7 +228,7 @@
     </div>
   </div>
   <div class="tc-pick">
-    <span class="pill pill-{{ 'under' if p.pick == 'UNDER' else 'over' }}">{{ p.pick_label }}</span>{{ utag(stake(p), p.skip) }}{{ fliptag(p.flip) }}
+    <span class="pill pill-{{ 'under' if p.pick == 'UNDER' else 'over' }}">{{ p.pick_label }}</span>{{ utag(stake(p), p.skip, none if p.locked else p.chance, p.break_even) }}{{ fliptag(p.flip) }}
     <div class="tc-nums">
       {% if p.market == 'total' %}<span><em>OURS</em>{{ p.our_total|round(0)|int }}</span><span><em>LINE</em>{{ p.line }}</span>
       {% else %}<span><em>OUR MARGIN</em>{{ '%+.1f'|format(p.our_margin) }}</span><span><em>MARKET</em>{{ '%+.1f'|format(p.market_margin) }}</span>{% endif %}

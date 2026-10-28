@@ -1240,3 +1240,13 @@ td.bx .mv-tag { font-size: 0.66rem; }
 .rk-table th { white-space: nowrap; }
 .rk-teamhead { display: flex; align-items: center; gap: 10px; margin: 6px 0 10px; font-size: 1.05rem; }
 .mu-line { color: #d6cbee; }
+
+/* ==== Price check (update 30): GOOD PRICE / WAIT / PRICE TOO HIGH, no cents anywhere ==== */
+.pr-tag { display: inline-flex; align-items: center; height: 1.55em; padding: 0 6px; margin-left: 5px; vertical-align: middle;
+  font-family: var(--sans); font-weight: 800; font-size: 0.72rem; letter-spacing: .5px; white-space: nowrap; cursor: help; }
+.pr-good { border: 2px solid #2fd47a; color: #8dffbf; background: rgba(47,212,122,.12); }
+.u-tag.pr-wait { border: 2px dashed #ffc531; color: #ffd76a; }
+.u-tag.pr-high { border: 2px dashed #ff5a6e; color: #ff98a5; font-size: 0.72rem; }
+.u-legend .pr-tag { font-size: 0.7rem; margin-left: 0; }
+.ed-ok { color: #8dffbf; font-weight: 800; }
+.u-tag.pr-high { white-space: normal; height: auto; min-height: 1.55em; line-height: 1.1; padding: 2px 5px; text-align: center; max-width: 7.5em; }
