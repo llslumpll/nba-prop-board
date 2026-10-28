@@ -12,7 +12,7 @@ Anything else stays "watching", or "flipped" when the later games went the
 other way (that's what happened to "UNDERs win" and "follow the line move"
 between Oct 22 and Oct 25).
 
-Four kinds of correction:
+Five kinds of correction:
   skip   a group of picks (stat + line source, or stat + source + side, or a
          game-pick market + side) whose hit rate sits below what its prices
          need in both halves: those picks become PASS (0 units) and stay off
@@ -24,6 +24,14 @@ Four kinds of correction:
          (picks said 63% and hit 53%): every chance on that source is pulled
          toward 50% by the share of our lean that didn't show up in results,
          so its picks size down, mostly to PASS, and rank lower on Best 5.
+  flip   a group (stat + source, stat + source + side, line-move group, or game
+         market + side) where the OTHER side beat its own price in both halves:
+         those picks switch sides. The new chance is (1 - ours) plus the lift
+         the other side showed (shrunk). On PrizePicks both sides need 54.2%, so
+         a group hitting 48% never flips (52% still loses) but one hitting 42%
+         can (58%). Other side's price: saved since Oct 27, estimated (4.5% cut)
+         for older FanDuel / Kalshi picks. Patterns are always measured on
+         the model's own side (orig()), so a flip doesn't hide what it learned from.
   move   picks whose side agrees / disagrees with how their line has moved
          since it opened: chance moves by part of the measured gap.
 
@@ -68,7 +76,7 @@ def load() -> dict:
 def active(store: dict | None = None) -> dict:
     """What live.run applies: {"skip": set of keys, "over": {(stat, src): shift}, "move": {"agree"/"against": shift}}."""
     store = store if store is not None else load()
-    out = {"skip": set(), "over": {}, "move": {}, "conf": {}}
+    out = {"skip": set(), "over": {}, "move": {}, "conf": {}, "flip": {}}
     for r in store.get("rules", []):
         if r.get("status") != "active":
             continue
@@ -80,6 +88,8 @@ def active(store: dict | None = None) -> dict:
             out["move"][r["key"]] = r["shift"]
         elif r["kind"] == "conf":
             out["conf"][r["key"]] = r["factor"]
+        elif r["kind"] == "flip":
+            out["flip"][r["key"]] = r["lift"]
     return out
 
 
@@ -92,6 +102,41 @@ def skip_keys(p: dict) -> list[str]:
     src = p.get("line_source") or p.get("source")
     side = p.get("call") or p.get("side")
     return [f"{p['stat']}|{src}", f"{p['stat']}|{src}|{side}"]
+
+
+VIG = 0.045  # typical two-sided cut, only used when the other side's price wasn't saved (picks before Oct 27)
+
+
+def other_be(p: dict) -> float:
+    """Break-even of the side we did NOT pick: its saved price when we have it, else estimated."""
+    if "market" in p:
+        if p.get("be_other"):
+            return p["be_other"]
+    else:
+        if p.get("line_source") == "prizepicks":
+            return _be(p)  # PrizePicks: both sides need the same 54.2%
+        saved = p.get("be_under") if p.get("call") == "OVER" else p.get("be_over")
+        if saved:
+            return saved
+    return min(0.95, max(0.05, 1 + VIG - _be(p)))
+
+
+def orig(p: dict) -> dict:
+    """A flipped pick seen the way the model first called it, so patterns are always measured on
+    the model's own side (a flip's own results are tracked separately, on the rule)."""
+    f = p.get("flip")
+    if not f:
+        return p
+    q = dict(p)
+    if "market" in p:
+        q.update(pick=f["orig_pick"], pick_label=f.get("orig_label"), chance=f["orig_chance"],
+                 break_even=f.get("orig_be"), be_other=p.get("break_even"))
+    else:
+        q.update(call=f["orig_call"], chance=f["orig_chance"], break_even=f.get("orig_be"))
+    if p.get("status") == "graded" and p.get("hit") is not None:
+        q["hit"] = not p["hit"]
+    q.pop("flip", None)
+    return q
 
 
 def move_dir(p: dict) -> str | None:
@@ -124,6 +169,16 @@ def _over_cal(ps):
     exp = sum(po)
     var = sum(x * (1 - x) for x in po)
     return n, act, exp, ((act - exp) / math.sqrt(var)) if var > 0 else 0.0
+
+
+def _reversed(ps):
+    """Betting the OTHER side: (n, its hits, hits its own prices need, z)."""
+    n = len(ps)
+    h = sum(1 for p in ps if p.get("hit") is False)
+    bes = [other_be(p) for p in ps]
+    need = sum(bes)
+    var = sum(b * (1 - b) for b in bes)
+    return n, h, need, ((h - need) / math.sqrt(var)) if var > 0 else 0.0
 
 
 def _hit_vs_chance(ps):
@@ -172,6 +227,7 @@ def _rule(kind, key, label, ps, train, test, fn, direction_needed=None):
         status, why = "flipped", f"earlier games {gap1 * 100:+.1f} pts, later games {gap2 * 100:+.1f} pts: it didn't hold"
     elif direction_needed is not None and (gap < 0) != direction_needed:
         status, why = "fine", (f"hitting more than our chances said ({gap * 100:+.1f} pts), nothing to fix" if kind == "conf"
+                               else f"the other side doesn't beat its price either ({gap * 100:+.1f} pts), so no flip" if kind == "flip"
                                else f"beating its prices ({gap * 100:+.1f} pts over what's needed), nothing to fix")
     elif (abs(gap) < MIN_GAP if kind != "conf" else abs(gap) < 0.25 * _lean(ps)) or abs(z) < Z_MIN:
         # (confidence fixes are judged against how far our chances lean from 50%: losing a quarter of it matters)
@@ -181,7 +237,12 @@ def _rule(kind, key, label, ps, train, test, fn, direction_needed=None):
     shift = round(max(-MAX_SHIFT, min(MAX_SHIFT, gap * n_all / (n_all + SHRINK_N))), 4)
     out = {"kind": kind, "key": key, "label": label, "status": status, "why": why, "n": n_all,
            "n_train": n1, "n_test": n2, "gap": round(gap, 4), "gap_train": round(gap1, 4), "gap_test": round(gap2, 4),
-           "z": round(z, 2), "shift": shift if kind not in ("skip", "conf") else None}
+           "z": round(z, 2), "shift": shift if kind not in ("skip", "conf", "flip") else None}
+    if kind == "flip" and ps:
+        # how much more often the other side hit than (1 - our chance) said; added to it when flipping
+        base = sum(1 - p["chance"] for p in ps) / len(ps)
+        lift = a_all / n_all - base if n_all else 0.0
+        out["lift"] = round(max(0.0, min(0.10, lift * n_all / (n_all + SHRINK_N))), 4)
     if kind == "conf" and ps:
         # how much of our lean away from 50% to keep: the share that actually showed up in results,
         # moved toward 1 (no change) on small samples
@@ -205,8 +266,9 @@ def _stat_name(s):
 def compute(preds: list[dict], tpreds: list[dict], now: datetime | None = None) -> dict:
     now = now or datetime.now(timezone.utc)
     prev = {r["kind"] + ":" + r["key"]: r for r in load().get("rules", [])}
-    g = [p for p in preds if p.get("status") == "graded" and p.get("actual") is not None]
-    gt = [t for t in tpreds if t.get("status") == "graded"]
+    raw_g = [p for p in preds if p.get("status") == "graded" and p.get("actual") is not None]
+    raw_gt = [t for t in tpreds if t.get("status") == "graded"]
+    g, gt = [orig(p) for p in raw_g], [orig(t) for t in raw_gt]
     train, test = _split(g + gt)
     rules = []
 
@@ -222,6 +284,27 @@ def compute(preds: list[dict], tpreds: list[dict], now: datetime | None = None) 
     for (s, src, side), ps in sorted(by_sss.items()):
         rules.append(_rule("skip", f"{s}|{src}|{side}", f"{_stat_name(s)} {side} on {SOURCES.get(src, src)}",
                            ps, train, test, _hit_vs_need, direction_needed=True))
+    # flips: the other side must beat ITS OWN price in both halves (PrizePicks: 54.2% either way)
+    fl = defaultdict(list)
+    for p in g:
+        fl[f"{p['stat']}|{p['line_source']}"].append(p)
+        fl[f"{p['stat']}|{p['line_source']}|{p['call']}"].append(p)
+        d = move_dir(p)
+        if d:
+            fl[f"move|{d}"].append(p)
+    for t in gt:
+        for k in skip_keys(t):
+            fl[k].append(t)
+    for k, ps in sorted(fl.items()):
+        if k.startswith("move|"):
+            label = "Flip: picks that " + ("follow" if k.endswith("agree") else "go against") + " their line's move"
+        elif k.startswith("game|"):
+            label = "Flip: game " + " ".join(x if x not in ("fav", "dog") else ("favorites" if x == "fav" else "underdogs")
+                                            for x in k.split("|")[1:])
+        else:
+            parts = k.split("|")
+            label = f"Flip: {_stat_name(parts[0])} {parts[2] + ' ' if len(parts) > 2 else ''}on {SOURCES.get(parts[1], parts[1])}"
+        rules.append(_rule("flip", k, label, ps, train, test, _reversed, direction_needed=False))
     for src, ps in sorted(_group(g, "line_source").items()):
         rules.append(_rule("conf", src, f"Our confidence on {SOURCES.get(src, src)} lines", ps, train, test,
                            _hit_vs_chance, direction_needed=True))
@@ -251,7 +334,11 @@ def compute(preds: list[dict], tpreds: list[dict], now: datetime | None = None) 
         elif old and old.get("active_since"):
             r["was_active"] = old["active_since"]
             r["switched_off"] = old.get("switched_off") or stamp
-        if r.get("active_since"):
+        if r.get("active_since") and r["kind"] == "flip":
+            since = [p for p in raw_g + raw_gt if p["date"] >= r["active_since"] and (p.get("flip") or {}).get("key") == r["key"]]
+            h = sum(1 for p in since if p.get("hit"))
+            r["since"] = {"n": len(since), "hits": h, "units": round(sum(grade.units(p) or 0 for p in since), 2)}
+        elif r.get("active_since"):
             since = [p for p in (g + gt) if p["date"] >= r["active_since"]
                      and ((r["kind"] == "skip" and r["key"] in skip_keys(p))
                           or (r["kind"] == "over" and f"{p.get('stat')}|{p.get('line_source')}" == r["key"])

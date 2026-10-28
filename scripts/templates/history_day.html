@@ -40,7 +40,7 @@
       <tr class="{{ 'row-hit' if p.status == 'graded' and p.hit else 'row-miss' if p.status == 'graded' else '' }}">
         <td><div class="player-name">{{ m.badge(p.badge) }} {{ p.player }}{% if p.best5_label %} <span class="star" title="{{ p.best5_label }}">&#9733;</span>{% endif %}</div>
             <div class="player-sub">{{ stat_labels[p.stat] }} &middot; {{ src_labels[p.line_source] }}</div>{% if p.corrections %}<div class="corr-note">&#9873; {{ p.corrections|join(' ') }}</div>{% endif %}</td>
-        <td><span class="pp-pick pp-{{ p.call|lower }}">{{ p.call }} {{ p.line|fmtline }}</span> <span class="pp-ch">{{ (p.chance * 100)|round(0)|int }}%</span> {{ m.utag(stake(p), p.skip) }}</td>
+        <td><span class="pp-pick pp-{{ p.call|lower }}">{{ p.call }} {{ p.line|fmtline }}</span> <span class="pp-ch">{{ (p.chance * 100)|round(0)|int }}%</span> {{ m.utag(stake(p), p.skip) }}{{ m.fliptag(p.flip) }}</td>
         <td class="num">{{ p.projected }}</td>
         <td class="num"><b class="day-actual">{{ p.actual|fmtnum if p.actual is not none else '—' }}</b></td>
         <td>{% if p.status == 'graded' %}<span class="res {{ 'res-hit' if p.hit else 'res-miss' }}">{{ '&#10004; HIT'|safe if p.hit else '&#10008; MISS'|safe }}</span>{% elif p.status == 'void' %}<span class="res res-void">VOID</span>{% elif p.status == 'push' %}<span class="res res-void">PUSH</span>{% else %}<span class="res res-pend">PENDING</span>{% endif %}</td>
@@ -67,7 +67,7 @@
       <tr class="{{ 'row-hit' if t.status == 'graded' and t.hit else 'row-miss' if t.status == 'graded' else '' }}">
         <td>{{ t.market|upper }}{% if 'game:best5' in (t.best5 or []) or 'game:value' in (t.best5 or []) %} <span class="star">&#9733;</span>{% endif %}</td>
         <td><span class="pp-pick pp-{{ 'under' if t.pick == 'UNDER' else 'over' }}">{{ t.pick_label or t.pick }}</span>{% if t.price_str %} <span class="dim small">{{ t.price_str }}</span>{% endif %}</td>
-        <td class="num">{{ (t.chance * 100)|round(0)|int }}% {{ m.utag(stake(t), t.skip) }}</td>
+        <td class="num">{{ (t.chance * 100)|round(0)|int }}% {{ m.utag(stake(t), t.skip) }}{{ m.fliptag(t.flip) }}</td>
         <td class="num small">{% if t.close_line is defined and t.close_line is not none %}{{ t.close_line }}{% elif t.close_mkt is defined and t.close_mkt is not none %}{{ (t.close_mkt * 100)|round(0)|int }}%{% else %}—{% endif %}</td>
         <td>{% if t.status == 'graded' %}<span class="res {{ 'res-hit' if t.hit else 'res-miss' }}">{{ '&#10004; HIT'|safe if t.hit else '&#10008; MISS'|safe }}</span>{% elif t.status == 'push' %}<span class="res res-void">PUSH</span>{% else %}<span class="res res-pend">PENDING</span>{% endif %}</td>
         <td class="num">{{ upl(t) }}</td>

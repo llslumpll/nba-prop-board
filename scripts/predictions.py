@@ -38,12 +38,13 @@ FREEZE_WINDOW = timedelta(hours=36)
 CHECKPOINTS = (("10am", 10), ("1pm", 13), ("5pm", 17))  # Central time, game day
 CHECKPOINT_SLACK = timedelta(hours=3)  # a checkpoint missed by more than this is skipped
 # fields replaced when a pick is re-frozen after new injury news
-UPDATE_TRACK = ("line", "call", "chance", "line_source", "units", "projected", "break_even")
+UPDATE_TRACK = ("line", "call", "chance", "line_source", "units", "projected", "break_even", "skip", "flip")
 TEAM_FIELDS = ("pick", "line", "pick_label", "price_str", "chance", "break_even", "value", "market_side", "source", "units", "skip",
+               "flip", "be_other",
                "units_raw", "our_margin", "our_total", "market_margin", "blend_margin", "blend_total", "blend_w", "agree", "why")
 REFREEZE_FIELDS = ("tier", "proj_min", "var", "line", "chance", "break_even", "market_side", "projected", "blend_mean", "blend_w",
                    "call", "line_source", "lines", "label", "why", "out_ctx", "units", "units_raw", "role_gap",
-                   "skip", "move", "move_dir", "adj")
+                   "skip", "move", "move_dir", "adj", "flip", "be_over", "be_under")
 
 _cache: dict[str, dict] = {}
 _dirty: set[str] = set()
@@ -183,7 +184,7 @@ def update_team(rec: dict, tip_utc: datetime | None) -> bool:
         return False
     store = load_date(rec["date"], team=True)
     cur = store.get(f"{rec['game_id']}|{rec['market']}")
-    if not cur or cur.get("status") != "pending" or not _changed(cur, rec, ("pick", "line", "chance", "units", "price_str")):
+    if not cur or cur.get("status") != "pending" or not _changed(cur, rec, ("pick", "line", "chance", "units", "price_str", "skip", "flip")):
         return False
     cur.setdefault("first_line", cur.get("line"))
     cur.setdefault("first_pick", cur.get("pick"))

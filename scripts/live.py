@@ -143,6 +143,7 @@ UNIT_STEPS = ((0.13, 2.0), (0.09, 1.5), (0.06, 1.0), (0.04, 0.75), (0.02, 0.5), 
 UNIT_NAMES = {0.0: "PASS", 0.25: "LOW", 0.5: "MEDIUM", 0.75: "LEAN", 1.0: "CONFIDENT", 1.5: "HIGH", 2.0: "EXTREME"}
 UNIT_TRUST = 1.0
 GAME_SKIP: set = set()  # active game-pick skip patterns, set by build.py
+GAME_FLIP: dict = {}    # active game-pick flip patterns {key: lift}, set by build.py
 DEFAULT_BE = 0.5238  # -110 when a source has no price
 
 
@@ -309,7 +310,7 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
     team projections. line_book: {(player, stat, game_id): {source: rec}}.
     pat: active pattern corrections (patterns.active()); open_lines:
     {(player, stat, game_id): (source, opening line)} of recorded picks."""
-    pat = pat or {"skip": set(), "over": {}, "move": {}, "conf": {}}
+    pat = pat or {"skip": set(), "over": {}, "move": {}, "conf": {}, "flip": {}}
     open_lines = open_lines or {}
     if not sl["games"]:
         return {"players": [], "picks": {s: [] for s in PICK_STATS}, "teams": {}, "no_history": []}
@@ -385,12 +386,25 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
                         mdir = "agree" if mdir == "against" else "against"
                     po = chance if side == "OVER" else 1 - chance
                 skip = next((k for k in (f"{s}|{src}|{side}", f"{s}|{src}") if k in pat["skip"]), None)
+                flip = None
+                if pat.get("flip"):
+                    fk = next((k for k in (f"{s}|{src}|{side}", f"{s}|{src}", f"move|{mdir}" if mdir else None)
+                               if k and k in pat["flip"]), None)
+                    if fk:
+                        # learned: picks like this lost in earlier AND later games while the other side beat its own price
+                        flip = {"key": fk, "orig_call": side, "orig_chance": round(chance, 4),
+                                "orig_be": ln.get("be_over") if side == "OVER" else ln.get("be_under")}
+                        side = "UNDER" if side == "OVER" else "OVER"
+                        chance = min(CHANCE_CAP, max(1 - CHANCE_CAP, (1 - chance) + pat["flip"][fk]))
+                        po = chance if side == "OVER" else 1 - chance
+                        skip = None
+                        adj.append(f"FLIPPED to {side}: picks like this lost on earlier and later games while the other side beat its price (pattern)")
                 be = ln.get("be_over") if side == "OVER" else ln.get("be_under")
                 mkt = ln.get("market_over")
                 mkt_side = (mkt if side == "OVER" else 1 - mkt) if mkt is not None else None
                 st["lines"][src] = {**ln, "units": 0.0 if skip else unit_rec(chance, be, role_gap, r.get("inj_status")),
                                     "units_raw": 0.0 if skip else unit_rec(chance, be, role_gap, r.get("inj_status"), trust=1.0),
-                                    "skip": skip, "open_move": move, "move_dir": mdir, "adj": adj,  # "move" is taken by logs.movement on pages
+                                    "skip": skip, "flip": flip, "open_move": move, "move_dir": mdir, "adj": adj,  # "move" is taken by logs.movement on pages
                                     "p_over": round(po, 4), "side": side, "chance": round(chance, 4), "blend_mean": round(mu_b, 2), "market_mean": round(m_mkt, 2), "role_gap": role_gap,
                                     "break_even": be, "value": round(chance - be, 4) if be is not None else None,
                                     "market_side": round(mkt_side, 4) if mkt_side is not None else None}
@@ -398,7 +412,8 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
             if psrc:
                 pk = st["lines"][psrc]
                 st["pick"] = {"source": psrc, "blend_w": blend_w, **{k: pk[k] for k in ("line", "side", "chance", "break_even", "value", "market_side", "blend_mean", "role_gap", "units", "units_raw",
-                                                                         "skip", "move_dir", "adj")}, "move": pk["open_move"]}
+                                                                         "skip", "flip", "move_dir", "adj")}, "move": pk["open_move"],
+                               "be_over": pk.get("be_over"), "be_under": pk.get("be_under")}
                 if s in PICK_STATS:
                     picks[s].append({**{k: row[k] for k in ("player", "player_id", "team", "opp", "home", "game_id",
                                                             "badge", "tier", "proj_min", "inj_status")},
@@ -509,7 +524,12 @@ def game_picks(g: dict, tp: dict, kal_ml: dict | None = None, total_offset: floa
         out.append({"market": "moneyline", "pick": team, "line": None, "pick_label": f"{team} ML", "price_str": pstr,
                     "chance": round(ch, 4), "break_even": be, "value": round(ch - be, 4) if be else None,
                     "market_side": round(mside, 4), "source": src,
-                    "why": base_why + f" {team} wins {ch * 100:.0f}% (market {mside * 100:.0f}%)."})
+                    "why": base_why + f" {team} wins {ch * 100:.0f}% (market {mside * 100:.0f}%).",
+                    "alt": {"pick": g["away"] if home else g["home"], "pick_label": f"{g['away'] if home else g['home']} ML",
+                            "price_str": (ml["away_str"] if home else ml["home_str"]) if ml else None,
+                            "break_even": (american_be(ml["away_price"] if home else ml["home_price"]) if ml
+                                           else (kal_ml.get("away_ask") if home else kal_ml.get("home_ask"))),
+                            "market_side": round(1 - mside, 4)}})
     if sp:
         hp = float(sp["home_point"])
         p_home = cap(model._phi((mb - mm) / msd))
@@ -521,7 +541,10 @@ def game_picks(g: dict, tp: dict, kal_ml: dict | None = None, total_offset: floa
         out.append({"market": "spread", "pick": team, "line": hp, "pick_label": f"{team} {_fmt_pt(pt)}",
                     "price_str": sp["home_price_str"] if home else sp["away_price_str"],
                     "chance": round(ch, 4), "break_even": be, "value": round(ch - be, 4) if be else None, "source": "fanduel",
-                    "why": base_why + f" {team} {_fmt_pt(pt)} covers {ch * 100:.0f}%."})
+                    "why": base_why + f" {team} {_fmt_pt(pt)} covers {ch * 100:.0f}%.",
+                    "alt": {"pick": g["away"] if home else g["home"], "pick_label": f"{g['away'] if home else g['home']} {_fmt_pt(-pt)}",
+                            "price_str": sp["away_price_str"] if home else sp["home_price_str"],
+                            "break_even": american_be(sp.get("away_price") if home else sp.get("home_price"))}})
     if tot:
         mt = float(tot["point"])
         our_t = tp["total"] - total_offset  # remove the slate-wide gap: only how this game differs counts
@@ -534,6 +557,9 @@ def game_picks(g: dict, tp: dict, kal_ml: dict | None = None, total_offset: floa
                     "pick_label": f"{'OVER' if over else 'UNDER'} {mt:g}", "price_str": tot["over_str"] if over else tot["under_str"],
                     "chance": round(ch, 4), "break_even": be, "value": round(ch - be, 4) if be else None, "source": "fanduel",
                     "our_total": round(our_t, 1), "blend_total": round(tb, 1),
+                    "alt": {"pick": "UNDER" if over else "OVER", "pick_label": f"{'UNDER' if over else 'OVER'} {mt:g}",
+                            "price_str": tot["under_str"] if over else tot["over_str"],
+                            "break_even": american_be(tot.get("under_price") if over else tot.get("over_price"))},
                     "why": (f"Our total {tp['total']:.0f} ({g['away']} {tp['away_pts']:.0f} + {g['home']} {tp['home_pts']:.0f})"
                             + (f", {abs(total_offset):.1f} {'above' if total_offset > 0 else 'below'} the market on average tonight, so {our_t:.0f} after removing that" if abs(total_offset) >= 0.5 else "")
                             + "; "
@@ -544,7 +570,21 @@ def game_picks(g: dict, tp: dict, kal_ml: dict | None = None, total_offset: floa
                  blend_w=round(wt if p["market"] == "total" else wm, 4), agree=agree_t if p["market"] == "total" else agree_m)
         p.update(units=unit_rec(p["chance"], p["break_even"]), units_raw=unit_rec(p["chance"], p["break_even"], trust=1.0))
         import patterns as _patterns  # local: patterns imports live
-        sk = next((k for k in reversed(_patterns.skip_keys(p)) if k in GAME_SKIP), None)
+        alt = p.pop("alt", None) or {}
+        p.update(be_other=alt.get("break_even"), flip=None, skip=None)  # explicit, so an update clears an old flip / skip
+        fk = next((k for k in reversed(_patterns.skip_keys(p)) if k in GAME_FLIP), None)
+        if fk and alt.get("break_even"):
+            # learned: this kind of game pick lost on earlier and later games while the other side beat its price
+            orig = {"key": fk, "orig_pick": p["pick"], "orig_label": p["pick_label"], "orig_chance": p["chance"],
+                    "orig_be": p["break_even"], "orig_price": p.get("price_str")}
+            ch = min(GAME_CHANCE_CAP, max(1 - GAME_CHANCE_CAP, 1 - p["chance"] + GAME_FLIP[fk]))
+            p.update(pick=alt["pick"], pick_label=alt["pick_label"], price_str=alt.get("price_str"), chance=round(ch, 4),
+                     break_even=alt["break_even"], be_other=orig["orig_be"], value=round(ch - alt["break_even"], 4),
+                     market_side=alt.get("market_side", p.get("market_side")), flip=orig,
+                     why=p["why"] + f" FLIPPED to {alt['pick_label']}: picks like this have lost on earlier and later games "
+                                    "while the other side beat its price (pattern).")
+            p.update(units=unit_rec(p["chance"], p["break_even"]), units_raw=unit_rec(p["chance"], p["break_even"], trust=1.0))
+        sk = next((k for k in reversed(_patterns.skip_keys(p)) if k in GAME_SKIP), None) if not p.get("flip") else None
         if sk:
             p.update(units=0.0, units_raw=0.0, skip=sk)
     return out

@@ -54,6 +54,12 @@ open_skip = [p for p in P + T if p.get("skip") and p.get("status") == "pending" 
 check("pattern-skipped picks have no stake and aren't on open Best 5 / Value lists", not bad_skip and not open_skip,
       f"{len(bad_skip)} staked, {len(open_skip)} listed" if bad_skip or open_skip else "")
 
+# 1d. flips: a flipped pick really is on the other side
+bad_flip = [p for p in P if p.get("flip") and p["flip"].get("orig_call") == p.get("call")]
+bad_flip += [t for t in T if t.get("flip") and t["flip"].get("orig_pick") == t.get("pick")]
+check("flipped picks are really on the other side", not bad_flip,
+      f"{len(bad_flip)} wrong" if bad_flip else f"{sum(1 for p in P + T if p.get('flip'))} flipped")
+
 # 2. statuses and grading arithmetic
 bad = []
 for p in P:

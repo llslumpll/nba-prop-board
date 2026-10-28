@@ -235,8 +235,9 @@ def build(args) -> None:
     # pattern corrections that have held up on later games (computed by the previous build, see patterns.py)
     pat = patterns.active()
     live.GAME_SKIP = {k for k in pat["skip"] if k.startswith("game|")}
+    live.GAME_FLIP = {k: v for k, v in pat["flip"].items() if k.startswith("game|")}
     print(f"Pattern corrections active: {len(pat['skip'])} skip, {len(pat['over'])} over-bias, {len(pat['move'])} line-move, "
-          f"confidence {pat['conf']}")
+          f"confidence {pat['conf']}, flip {pat['flip']}")
     open_lines = {}
     if sl.get("date"):
         for p in predictions.load_date(sl["date"]).values():
@@ -263,7 +264,7 @@ def build(args) -> None:
             out_ctx = sorted(outs.get(p["team"], set()) | outs.get(p["opp"], set()))
             rec = {k: p[k] for k in ("player", "player_id", "team", "opp", "home", "game_id", "date", "stat",
                                      "tier", "proj_min", "var", "line", "chance", "break_even", "market_side", "units", "units_raw", "role_gap",
-                                     "skip", "move", "move_dir", "adj")}
+                                     "skip", "move", "move_dir", "adj", "flip", "be_over", "be_under")}
             rec.update(projected=p["proj"], call=p["side"], line_source=p["source"],
                        blend_mean=p.get("blend_mean"), blend_w=p.get("blend_w"),
                        lines={src: ln["line"] for src, ln in p["lines"].items()},
