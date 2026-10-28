@@ -41,6 +41,7 @@ import oddsapi_client  # noqa: E402
 import espn_finals  # noqa: E402
 import patterns  # noqa: E402
 import rankings  # noqa: E402
+import edges  # noqa: E402
 import pages  # noqa: E402
 import predictions  # noqa: E402
 import prizepicks_client  # noqa: E402
@@ -345,6 +346,16 @@ def build(args) -> None:
     print(f"Recorded {frozen} new player pick(s), updated {refrozen} (line, side or chance moved before tip), {closes} closing line(s), "
           f"{tfrozen} new game pick(s).")
 
+    # EDGES: Kalshi prices vs FanDuel's fair price (market-based, no projection), recorded and graded
+    try:
+        edge_found = edges.find(sl, kal, line_book, res)
+        n_edge = edges.record(edge_found, now)
+        print(f"EDGES: {len(edge_found['edges'])} +EV of {edge_found['checked']} matched Kalshi prices, "
+              f"{len(edge_found['arbs'])} arbitrage, {len(edge_found['middles'])} middles; {n_edge} newly recorded")
+    except Exception as e:  # noqa: BLE001  (never let the extra page stop a build)
+        edge_found = {"edges": [], "arbs": [], "middles": [], "closest_arb": None, "checked": 0, "error": str(e)[:200]}
+        print(f"EDGES failed: {e}")
+
     if predictions.apply_fixes():
         predictions.save()
     # ---- Best 5 / Best Value (only frozen, untipped picks can enter; tipped ones stay locked)
@@ -375,6 +386,10 @@ def build(args) -> None:
 
     # ---- grade, calibrate, score
     gr = grade.grade_all(box, sched)
+    try:
+        gr["edges"] = edges.grade(box, sched)
+    except Exception as e:  # noqa: BLE001
+        print(f"EDGES grading failed: {e}")
     print(f"Grading: {gr}")
     preds_all = predictions.load_all()
     cal = grade.calibrate(preds_all)
@@ -412,7 +427,7 @@ def build(args) -> None:
     pages.render_all({
         "now": now, "slate": sl, "res": res, "best": best, "edge": est, "cal": cal, "preds": preds_all,
         "tpreds": predictions.load_all(team=True), "sources": sources, "health": health, "lm": lm,
-        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj, "trust": trust, "espn": espn, "patterns": pat_out, "rankings": rankings.build(box),
+        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj, "trust": trust, "espn": espn, "patterns": pat_out, "rankings": rankings.build(box), "edges": edge_found, "edges_sum": edges.summary(),
     })
     # consistency audit on what was just built; its result shows on History -> Pipeline next build
     import subprocess

@@ -60,6 +60,13 @@ bad_flip += [t for t in T if t.get("flip") and t["flip"].get("orig_pick") == t.g
 check("flipped picks are really on the other side", not bad_flip,
       f"{len(bad_flip)} wrong" if bad_flip else f"{sum(1 for p in P + T if p.get('flip'))} flipped")
 
+# 1e. EDGES were all spotted before their game tipped
+E = []
+for f in sorted((ROOT / "data" / "edges").glob("*.json")) if (ROOT / "data" / "edges").exists() else []:
+    E += list(json.loads(f.read_text()).values())
+late_e = [e for e in E if ts(e["first_seen"]) >= ts(e["tip_utc"]) or ts(e.get("last_seen") or e["first_seen"]) >= ts(e["tip_utc"])]
+check("every EDGES bet recorded and updated before tip", not late_e, f"{len(late_e)} late" if late_e else f"{len(E)} checked")
+
 # 2. statuses and grading arithmetic
 bad = []
 for p in P:

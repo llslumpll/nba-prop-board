@@ -11,7 +11,7 @@
 </details>
 
 <div class="seg" data-tabs="gview" data-hash="1">
-  <button data-tab="top" class="active">TOP PICKS</button>{% for mk in g_mkt %}<button data-tab="{{ mk.key }}">{{ mk.label|upper }}</button>{% endfor %}<button data-tab="all">ALL GAMES</button><button data-tab="live" class="live-tab"><i class="live-dot"></i>LIVE</button>
+  <button data-tab="top" class="active">TOP PICKS</button>{% for mk in g_mkt %}<button data-tab="{{ mk.key }}">{{ mk.label|upper }}</button>{% endfor %}<button data-tab="edges">EDGES{% if ed.edges %} ({{ ed.edges|length }}){% endif %}</button><button data-tab="all">ALL GAMES</button><button data-tab="live" class="live-tab"><i class="live-dot"></i>LIVE</button>
 </div>
 
 <section data-tab-panel="gview:top">
@@ -43,6 +43,61 @@
   </div>
 </section>
 {% endfor %}
+
+<section class="hidden" data-tab-panel="gview:edges">
+  <div class="hv-help"><span class="hv-help-k">WHAT THIS IS</span> Market math, no projection: FanDuel's two-sided price with its cut removed gives a <b>fair chance</b>; when Kalshi sells the same outcome for less (fee included), that's a <b>+EV</b> buy. <b>Arbitrage</b> = both sides across Kalshi and FanDuel for under $1. <b>Middle</b> = different numbers on each, both bets win if the result lands in between. FanDuel is one soft book, so treat edges as leads, not certainties; every one is recorded and graded below.</div>
+  {% if eds.n %}<div class="hv-rec hv-rec-sm">
+    <div class="hv-tile"><b>{{ eds.hits }}&ndash;{{ eds.n - eds.hits }}</b><span>EDGES record{% if eds.pending %} &middot; {{ eds.pending }} pending{% endif %}</span></div>
+    <div class="hv-tile"><b class="{{ 'stat-good' if eds.units > 0 else 'stat-bad' if eds.units < 0 }}">{{ '%+.2f'|format(eds.units) }}U</b><span>1U each at Kalshi cost ({{ '%+.1f'|format(eds.roi) }}%)</span></div>
+    <div class="hv-tile"><b>{{ eds.rate }}%</b><span>hit rate vs {{ eds.fair_avg }}% fair</span></div>
+    <div class="hv-tile"><b>{{ eds.agree.hits }}&ndash;{{ eds.agree.n - eds.agree.hits }}</b><span>when our model agreed ({{ '%+.2f'|format(eds.agree.units) }}U)</span></div>
+  </div>{% else %}<p class="small dim">Track record starts with the first graded edge{% if eds.pending %} ({{ eds.pending }} pending){% endif %}.</p>{% endif %}
+
+  <h3 class="hv-h3">Arbitrage</h3>
+  {% if ed.arbs %}{% for a in ed.arbs %}<div class="notice compact audit-ok"><strong>{{ a.label }}:</strong> {{ a.kalshi }} on Kalshi ({{ (a.cost * 100)|round(1) }}&cent; with fee) + {{ a.other }} = {{ (a.both * 100)|round(1) }}&cent; for $1 whatever happens. Prices move in seconds; check both before betting.</div>{% endfor %}
+  {% else %}<p class="small dim">None right now.{% if ed.closest_arb %} Closest: both sides together cost {{ (ed.closest_arb * 100)|round(1) }}&cent; for $1.{% endif %}</p>{% endif %}
+
+  <h3 class="hv-h3">+EV on Kalshi</h3>
+  {% if ed.edges %}
+  <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+    <thead><tr><th>Bet</th><th>Buy on Kalshi</th><th class="num">Ask &rarr; with fee</th><th class="num">Fair</th><th class="num">Edge</th><th class="num">Buy at or below</th><th class="hide-sm">Our model</th><th class="hide-sm">Fair from</th></tr></thead>
+    <tbody>{% for e in ed.edges %}<tr>
+      <td><b>{{ e.label }}</b></td><td class="small">{{ e.kalshi }}</td>
+      <td class="num">{{ (e.ask * 100)|round|int }}&cent; &rarr; {{ (e.cost * 100)|round(1) }}&cent;</td>
+      <td class="num">{{ (e.fair * 100)|round(1) }}%</td>
+      <td class="num stat-good"><b>{{ '%+.1f'|format(e.ev * 100) }}%</b></td>
+      <td class="num"><b>{{ (e.max_price * 100)|round|int }}&cent;</b></td>
+      <td class="hide-sm small">{% if e.model is not none %}<span class="{{ 'stat-good' if e.model_agrees else 'stat-bad' }}">{{ (e.model * 100)|round|int }}% {{ '&#10004; agrees'|safe if e.model_agrees else 'disagrees' }}</span>{% else %}<span class="dim">—</span>{% endif %}</td>
+      <td class="hide-sm small dim">{{ e.ref }}</td></tr>{% endfor %}</tbody>
+  </table></div></div>
+  <p class="small dim">Checked {{ ed.checked }} Kalshi prices with a FanDuel match; showing those {{ '%d'|format(2) }}%+ above their cost after Kalshi's fee. "Buy at or below" is the most you can pay (before the fee) and still have an edge.</p>
+  {% else %}<div class="empty-state"><h3>No +EV prices right now</h3><p>Kalshi and FanDuel agree within the fee on every matched market{% if ed.checked %} ({{ ed.checked }} checked){% endif %}. Prices move all day; this refreshes every 20 minutes.</p></div>{% endif %}
+
+  {% if ed.suspect %}
+  <details class="hv-log"><summary>Too good to be true ({{ ed.suspect|length }}): check by hand &#9662;</summary>
+  <p class="small dim" style="padding:0 12px">Gaps this big are almost always a stale or thin Kalshi price, or a different market. Not recorded or graded.</p>
+  <div class="table-wrap"><div class="table-scroll"><table class="stat-table"><tbody>{% for e in ed.suspect %}<tr><td>{{ e.label }}</td><td class="small">{{ e.kalshi }} at {{ (e.ask * 100)|round|int }}&cent;</td><td class="num">fair {{ (e.fair * 100)|round(1) }}%</td><td class="num">{{ '%+.0f'|format(e.ev * 100) }}%</td></tr>{% endfor %}</tbody></table></div></div></details>
+  {% endif %}
+
+  {% if ed.middles %}
+  <h3 class="hv-h3">Middles</h3>
+  <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+    <thead><tr><th>Two bets</th><th class="num">Both win if</th><th class="num">Chance both win</th><th class="num">Edge ($1 each)</th></tr></thead>
+    <tbody>{% for x in ed.middles %}<tr><td><b>{{ x.label }}</b></td><td class="num">{{ x.window }}</td><td class="num">{{ (x.both * 100)|round(1) }}%</td><td class="num stat-good">{{ '%+.1f'|format(x.ev * 100) }}%</td></tr>{% endfor %}</tbody>
+  </table></div></div>
+  <p class="small dim">Chance both win from a normal curve around FanDuel's number (the widths the game picks use).</p>
+  {% endif %}
+
+  {% if eds.recent %}
+  <details class="hv-log"><summary>Recorded edges ({{ eds.recent|length }} most recent) &#9662;</summary>
+  <div class="table-wrap"><div class="table-scroll hv-log-scroll"><table class="stat-table dayt">
+    <thead><tr><th>Day</th><th>Bet</th><th class="num">Edge when seen</th><th class="num">Result</th><th class="num">Units</th></tr></thead>
+    <tbody>{% for e in eds.recent %}<tr class="{{ 'row-hit' if e.hit else 'row-miss' if e.status == 'graded' }}"><td class="small nowrap">{{ e.date[5:] }}</td><td>{{ e.label }} <span class="dim small">{{ e.kalshi }}</span></td><td class="num">{{ '%+.1f'|format((e.first_ev or 0) * 100) }}%</td>
+      <td class="num">{% if e.status == 'graded' %}<span class="res {{ 'res-hit' if e.hit else 'res-miss' }}">{{ 'HIT' if e.hit else 'MISS' }}</span>{% elif e.status == 'void' %}<span class="res res-void">VOID</span>{% else %}<span class="res res-pend">PENDING</span>{% endif %}</td>
+      <td class="num">{% if e.units is defined %}{{ '%+.2f'|format(e.units) }}U{% else %}—{% endif %}</td></tr>{% endfor %}</tbody>
+  </table></div></div></details>
+  {% endif %}
+</section>
 
 <section class="hidden" data-tab-panel="gview:all">
 {% if cards %}

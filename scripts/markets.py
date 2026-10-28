@@ -149,7 +149,8 @@ def build_lines(slate_games, matcher: NameMatcher, roster_team: dict,
             "line": main["line"], "threshold": main["threshold"], "market_over": main["mid"],
             "be_over": kalshi_client.with_fee(main.get("yes_ask")),  # ask + Kalshi's fee
             "be_under": kalshi_client.with_fee(1 - main["yes_bid"]) if main.get("yes_bid") is not None else None,
-            "ladder": [{"n": r["threshold"], "mid": r["mid"]} for r in rungs if r.get("mid") is not None],
+            "ladder": [{"n": r["threshold"], "mid": r["mid"], "bid": r.get("yes_bid"), "ask": r.get("yes_ask")}
+                       for r in rungs if r.get("mid") is not None],
         })
     # Kalshi check for PrizePicks: PrizePicks posts no price (we'd assume 50/50). When Kalshi has
     # a rung at the same number (PrizePicks 1.5 = Kalshi "2+"), take Kalshi's market chance instead,
