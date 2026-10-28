@@ -76,6 +76,11 @@ late_p = [r["id"] + " " + r["date"] for r in PZ if ts(r["updated_at"]) >= ts(r["
 dup_g = [r["id"] + " " + r["date"] for r in PZ if len({l["game_id"] for l in r["legs"]}) != len(r["legs"]) or len(r["legs"]) != r["size"]]
 check("every parlay's legs set before its first tip, one leg per game, right size", not late_p and not dup_g,
       f"late {late_p[:2]}, shape {dup_g[:2]}" if late_p or dup_g else f"{len(PZ)} checked")
+shared = []
+for d in {r["date"] for r in PZ}:
+    seen = Counter((l["player"] if l["kind"] == "player" else l["game_id"]) for r in PZ if r["date"] == d for l in r["legs"])
+    shared += [f"{d} {k}" for k, v in seen.items() if v > 1]
+check("no player or moneyline in two parlays on the same day", not shared, str(shared[:3]) if shared else f"{len(PZ)} checked")
 bad_p = []
 for r in PZ:
     res = [l.get("result") for l in r["legs"]]
@@ -204,7 +209,7 @@ check("History units (recommended and flat) = raw files",
 import live  # noqa: E402
 steps = set(live.UNIT_NAMES)
 bad_u = [p for p in allp if p.get("units") is not None and float(p["units"]) not in steps]
-check("recommended units are one of 0 / 0.25 / 0.5 / 0.75 / 1 / 1.5 / 2", not bad_u, f"{len(bad_u)} odd" if bad_u else f"{sum(1 for p in allp if p.get('units') is not None)} stored")
+check("recommended units are one of 0 / 0.25 / 0.5 / 0.75 / 1 / 1.5 / 2 / 3", not bad_u, f"{len(bad_u)} odd" if bad_u else f"{sum(1 for p in allp if p.get('units') is not None)} stored")
 
 for d in dates:
     dp = page(f"history-{d}.html")

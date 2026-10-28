@@ -266,6 +266,13 @@ def build(args) -> None:
                 open_lines[(p["player"], p["stat"], p["game_id"])] = (op.get("line_source"), op["line"])
     # tonight's own results never feed tonight's projections
     sl_ids = [g["game_id"] for g in sl["games"]]
+    try:  # "picks like this hit H/N": every graded pick's group record, for proven units and the cards
+        import proven
+        live.PROVEN = proven.compute(predictions.load_all(), predictions.load_all(team=True))
+        npv = sum(1 for k, r in live.PROVEN.items() if r["n"] >= proven.MIN_N and r["h"] / r["n"] >= 0.8)
+        print(f"Proven groups: {len(live.PROVEN)} tracked, {npv} hitting 80%+ over {proven.MIN_N}+ picks")
+    except Exception as e:  # noqa: BLE001
+        print(f"Proven groups failed: {e}")
     res = live.run(box.filter(~pl.col("game_id").is_in(sl_ids)) if box.height and sl_ids else box,
                    sl, roster, inj, line_book, fit, spreads=spreads, pat=pat, open_lines=open_lines)
     print(f"Slate {sl.get('date')}: {len(sl['games'])} games, {len(res['players'])} players projected, "

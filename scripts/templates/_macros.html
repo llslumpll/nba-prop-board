@@ -32,6 +32,12 @@
 {%- endif -%}
 {%- endmacro %}
 
+{# "Picks like this hit 18/20": the real record of the pick's group (source + 5-pt chance band). #}
+{% macro rectag(p) -%}
+{%- set r = prov(p) -%}
+{%- if r and r.label -%}<span class="rec-tag {{ 'rec-proven' if r.proven else '' }}" title="{{ r.group }} have hit {{ r.label }} ({{ r.rate }}%){% if r.proven %}: PROVEN, enough to beat this price even on a cold streak, so it gets {{ r.proven|fmtu }}U{% endif %}">{{ '&#10004; '|safe if r.proven }}{{ r.label }}{{ ' PROVEN' if r.proven }}</span>{%- endif -%}
+{%- endmacro %}
+
 {% macro fliptag(f) -%}
 {%- if f -%}<span class="flip-tag" title="Flipped from {{ f.orig_call or f.orig_label }}: picks like this lost on earlier and later games while this side beat its price (History &rarr; Patterns)">&#8634; FLIP</span>{%- endif -%}
 {%- endmacro %}
@@ -42,7 +48,8 @@
 
 {% macro ulegend() -%}
 <div class="u-legend"><b>UNITS</b> recommended stake from our edge over the price:
-{% for u in [0.25, 0.5, 0.75, 1.0, 1.5, 2.0] %}<span>{{ utag(u) }} {{ unit_names[u]|lower }}</span>{% endfor %} <a href="history.html#units">track record &rarr;</a>
+{% for u in [0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0] %}<span>{{ utag(u) }} {{ unit_names[u]|lower }}</span>{% endfor %} <a href="history.html#units">track record &rarr;</a>
+<br><b>TRACK RECORD</b> <span><span class="rec-tag" style="margin-left:0">52/91</span> picks like this have hit 52 of 91</span><span><span class="rec-tag rec-proven" style="margin-left:0">&#10004; 18/20 PROVEN</span> cashed 80%+ over 20+ and beats the price: 2U (3U at 85%+ over 30+)</span>
 <br><b>PRICE CHECK</b> <span><span class="pr-tag pr-good">GOOD PRICE</span> worth betting now</span><span>{{ utag(0, none, 0.5, 0.51) }} close &ndash; check back, the price may drop</span><span>{{ utag(0, none, 0.4, 0.55) }} could still win, but you'd pay too much</span></div>
 {%- endmacro %}
 
@@ -138,7 +145,7 @@
     </div>
   </div>
   <div class="tc-pick">
-    <span class="pill pill-{{ side }}">{{ p.call }} {{ p.line|fmtline }}</span>{{ utag(stake(p), p.skip, none if p.locked else p.chance, p.break_even) }}{{ fliptag(p.flip) }}
+    <span class="pill pill-{{ side }}">{{ p.call }} {{ p.line|fmtline }}</span>{{ utag(stake(p), p.skip, none if p.locked else p.chance, p.break_even) }}{{ rectag(p) }}{{ fliptag(p.flip) }}
     <div class="tc-nums">
       <span><em>PROJ</em>{{ p.projected }}</span>
       <span><em>LINE</em>{{ p.line|fmtline }}</span>
@@ -189,7 +196,7 @@
 {% macro proj_pick(st, r=none, s=none, g=none) -%}
 <span class="pp">
   <span class="pp-proj"><em>PROJ</em><b>{{ st.proj }}</b></span>
-  {% if st.pick %}<span class="pp-pick pp-{{ st.pick.side|lower }}">{{ 'OVER' if st.pick.side == 'OVER' else 'UNDER' }} {{ st.pick.line|fmtline }}</span><span class="pp-ch">{{ (st.pick.chance * 100)|round(0)|int }}%</span>{{ utag(st.pick.units, st.pick.skip, st.pick.chance, st.pick.break_even) }}{{ fliptag(st.pick.flip) }}{{ movetag(st.pick.move) }}
+  {% if st.pick %}<span class="pp-pick pp-{{ st.pick.side|lower }}">{{ 'OVER' if st.pick.side == 'OVER' else 'UNDER' }} {{ st.pick.line|fmtline }}</span><span class="pp-ch">{{ (st.pick.chance * 100)|round(0)|int }}%</span>{{ utag(st.pick.units, st.pick.skip, st.pick.chance, st.pick.break_even) }}{{ rectag(st.pick) }}{{ fliptag(st.pick.flip) }}{{ movetag(st.pick.move) }}
   {% elif st.frozen %}<span class="pp-pick pp-{{ st.frozen.call|lower }}" title="frozen before tip">&#128274; {{ st.frozen.call }} {{ st.frozen.line|fmtline }}</span><span class="pp-ch">{{ (st.frozen.chance * 100)|round(0)|int }}%</span>{{ utag(stake(st.frozen), st.frozen.skip, none, st.frozen.break_even) }}{{ fliptag(st.frozen.flip) }}
   {% else %}<span class="pp-none">no line</span>{% endif %}
   {% if st.pick and st.pick.role_gap %}<span class="pp-gap" title="Our projection is far from the line, most likely a role change the market knows about. Chance pulled toward 50%; kept out of Best 5.">&#9888; big gap vs line</span>{% endif %}
@@ -228,7 +235,7 @@
     </div>
   </div>
   <div class="tc-pick">
-    <span class="pill pill-{{ 'under' if p.pick == 'UNDER' else 'over' }}">{{ p.pick_label }}</span>{{ utag(stake(p), p.skip, none if p.locked else p.chance, p.break_even) }}{{ fliptag(p.flip) }}
+    <span class="pill pill-{{ 'under' if p.pick == 'UNDER' else 'over' }}">{{ p.pick_label }}</span>{{ utag(stake(p), p.skip, none if p.locked else p.chance, p.break_even) }}{{ rectag(p) }}{{ fliptag(p.flip) }}
     <div class="tc-nums">
       {% if p.market == 'total' %}<span><em>OURS</em>{{ p.our_total|round(0)|int }}</span><span><em>LINE</em>{{ p.line }}</span>
       {% else %}<span><em>OUR MARGIN</em>{{ '%+.1f'|format(p.our_margin) }}</span><span><em>MARKET</em>{{ '%+.1f'|format(p.market_margin) }}</span>{% endif %}

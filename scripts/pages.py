@@ -102,7 +102,7 @@ def _env():
     env.filters.update(fmtline=_fmtline, fmtpt=_fmtpt, fmtnum=_fmtnum, season_label=_season_label)
     env.globals.update(stat_labels=model.STAT_LABEL, stat_short=STAT_SHORT, src_labels=markets.SOURCE_LABEL)
     env.filters.update(fmtu=lambda u: f"{float(u):g}")
-    env.globals.update(stake=grade.stake, staked_pl=grade.staked_pl, unit_names=live.UNIT_NAMES)
+    env.globals.update(stake=grade.stake, staked_pl=grade.staked_pl, unit_names=live.UNIT_NAMES, prov=_prov)
     return env
 
 
@@ -525,6 +525,23 @@ def history_charts(preds: list, health: list) -> dict:
     else:
         out["health_chart"] = None
     return out
+
+
+def _prov(p) -> dict:
+    """'Picks like this hit H/N' for a pick (open line, recorded pick or game pick)."""
+    import proven
+    if not p or p.get("chance") is None:
+        return {}
+    rec = live.PROVEN.get(proven.key(p))
+    if not rec:
+        return {}
+    b = proven.band(p["chance"])
+    return {"label": proven.label(rec), "proven": proven.units(rec, p.get("break_even")), "rate": round(100 * rec["h"] / rec["n"]),
+            "group": f"{SOURCE_LABEL_SHORT.get(proven.src_key(p), proven.src_key(p))} picks at {b}-{b + 5}%"}
+
+
+SOURCE_LABEL_SHORT = {"kalshi": "Kalshi", "prizepicks": "PrizePicks", "prizepicks+kalshi": "Kalshi-priced PrizePicks",
+                      "fanduel": "FanDuel", "moneyline": "Moneyline", "spread": "Spread", "total": "Total"}
 
 
 def render_all(ctx: dict) -> None:

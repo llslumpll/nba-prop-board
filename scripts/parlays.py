@@ -12,7 +12,10 @@ Rules
   * legs come from picks the site has already recorded (data/predictions,
     data/team_predictions): pending, not SKIP, game not started.
   * one leg per game (legs from the same game move together, which makes a
-    parlay riskier than its chance says) and one per player.
+    parlay riskier than its chance says), and no player or moneyline is used in
+    more than one parlay a day, so each parlay is its own test and one bad leg
+    can't sink several at once. Parlays fill in order (Safest 2, 3, 4, Good
+    price 2, 3, Moneyline 2, 3, 4), each taking the best legs still free.
   * until its FIRST leg tips, a parlay is rebuilt every build from the
     current best legs ("UPDATES TILL FIRST TIP"); from then on it's locked:
     legs, lines and sides are frozen exactly as they were.
@@ -38,12 +41,16 @@ import predictions
 
 DIR = Path(__file__).parent.parent / "data" / "parlays"
 FAMILIES = [
+    ("single", "Best single", (1,), "The one play the site trusts most tonight: worth betting at its price (GOOD PRICE), ranked by how often picks like it have actually cashed, blended with its chance."),
+    ("gap", "Books got it wrong", (1, 2, 3), "Where the site disagrees most with the book's own odds (its chance minus the book's fair chance, 3+ points), from every projection with a line."),
     ("safe", "Safest props", (2, 3, 4), "The highest-chance player props on the board, one per game."),
     ("value", "Good price", (2, 3), "Only legs marked GOOD PRICE (their chance beats their price), highest chance first."),
     ("ml", "Moneyline", (2, 3, 4), "The site's moneyline picks with the highest chance to win, one per game."),
 ]
 FAMILY = {f[0]: f for f in FAMILIES}
 MIN_CHANCE = 0.5
+GAP_MIN = 0.03
+BASE_STAKE = {2: 1.0, 3: 0.5, 4: 0.25}   # bigger parlays risk less; singles use the pick's own units
 
 
 def _now():
@@ -116,18 +123,38 @@ def candidates(date: str, now: datetime) -> dict:
         t = _tip(p)
         return p.get("status") == "pending" and not p.get("skip") and t is not None and now < t and (p.get("chance") or 0) >= MIN_CHANCE
 
-    pl = [_player_leg(k, p) for k, p in ps.items() if open_(p) and p.get("call") and p.get("line") is not None]
-    gl = [_game_leg(k, t) for k, t in ts.items() if open_(t)]
+    import live
+    import proven
+
+    def extra(leg, p):
+        rec = live.PROVEN.get(proven.key(p))
+        ms = p.get("market_side")
+        leg.update(units=p.get("units") or 0.0, market_side=ms, gap=round(p["chance"] - ms, 4) if ms is not None else None,
+                   rec=proven.label(rec), proven=proven.units(rec, p.get("break_even")),
+                   trust=round(((rec["h"] if rec else 0) + 10 * p["chance"]) / ((rec["n"] if rec else 0) + 10), 4))
+        return leg
+
+    pl = [extra(_player_leg(k, p), p) for k, p in ps.items() if open_(p) and p.get("call") and p.get("line") is not None]
+    gl = [extra(_game_leg(k, t), t) for k, t in ts.items() if open_(t)]
     ml = [g for g in gl if g["market"] == "moneyline"]
     good = [x for x in pl if (ps[x["key"]].get("units") or 0) > 0] + [g for g in gl if (ts[g["key"]].get("units") or 0) > 0]
     by = lambda xs: sorted(xs, key=lambda x: -x["chance"])  # noqa: E731
-    return {"safe": by(pl), "value": by(good), "ml": by(ml)}
+    gap = sorted([x for x in pl + gl if x["gap"] is not None and x["gap"] >= GAP_MIN and x["chance"] >= 0.55], key=lambda x: -x["gap"])
+    good_all = [x for x in pl + gl if x["units"] > 0]
+    single = sorted(good_all or pl + gl, key=lambda x: (-x["trust"], -x["chance"]))
+    return {"single": single, "gap": gap, "safe": by(pl), "value": by(good), "ml": by(ml)}
 
 
-def _pick_legs(cands: list[dict], n: int) -> list[dict] | None:
+def _used_key(l):
+    """A player can be in only one parlay a day; a game pick (moneyline) likewise."""
+    return ("p", l["player"]) if l["kind"] == "player" else ("g", l["game_id"])
+
+
+def _pick_legs(cands: list[dict], n: int, used: set | None = None) -> list[dict] | None:
+    used = used or set()
     legs, games, players = [], set(), set()
     for c in cands:
-        if c["game_id"] in games or (c["kind"] == "player" and c["player"] in players):
+        if c["game_id"] in games or (c["kind"] == "player" and c["player"] in players) or _used_key(c) in used:
             continue
         legs.append(c)
         games.add(c["game_id"])
@@ -136,6 +163,30 @@ def _pick_legs(cands: list[dict], n: int) -> list[dict] | None:
         if len(legs) == n:
             return legs
     return None
+
+
+def _form() -> dict:
+    """Graded record per parlay type, used to size stakes: {(family, size): (n, units at 1U)}."""
+    out = {}
+    for r in load_all():
+        if r["status"] == "graded":
+            n, u = out.get((r["family"], r["size"]), (0, 0.0))
+            out[(r["family"], r["size"])] = (n + 1, u + (r.get("units") or 0.0))
+    return out
+
+
+def stake_for(fam: str, n: int, legs: list[dict], form: dict) -> float:
+    """Recommended units for a parlay. Singles: the pick's own units. Parlays: 1U (2 legs), 0.5U (3),
+    0.25U (4); after 10+ graded of that type, doubled if the type is in profit, halved if it's
+    down 25%+ per parlay. Capped at 3U."""
+    if n == 1:
+        return max(legs[0].get("units") or 0.0, 0.25)
+    base = BASE_STAKE.get(n, 0.25)
+    g, u = form.get((fam, n), (0, 0.0))
+    if g >= 10:
+        roi = u / g
+        base = base * 2 if roi > 0 else (base / 2 if roi < -0.25 else base)
+    return min(3.0, base)
 
 
 def _summary(legs):
@@ -150,35 +201,49 @@ def sync(date: str, now: datetime | None = None) -> dict:
     now = now or _now()
     store = load_date(date)
     cands = candidates(date, now)
+    form = _form()
     stamp = now.strftime("%Y-%m-%d %H:%M UTC")
+    # a parlay type that was retired before it locked is dropped (never graded)
+    for pid in [k for k, r in store.items() if r["family"] not in FAMILY and not r.get("locked_at") and r["status"] == "pending"]:
+        del store[pid]
     made = updated = locked = 0
-    for fam, _label, sizes, _desc in FAMILIES:
-        for n in sizes:
-            pid = f"{fam}-{n}"
-            cur = store.get(pid)
-            if cur and (cur.get("locked_at") or cur.get("status") != "pending"):
-                locked += 1
-                continue
-            if cur and now >= datetime.fromisoformat(cur["first_tip"]):
-                cur["locked_at"] = stamp
-                locked += 1
-                continue
-            legs = _pick_legs(cands[fam], n)
-            if not legs:
-                continue
-            rec = {"id": pid, "date": date, "family": fam, "size": n, "legs": legs, **_summary(legs),
-                   "status": "pending", "hit": None}
-            if not cur:
-                rec.update(created_at=stamp, updated_at=stamp, changes=0)
-                made += 1
-            else:
-                same = [l["key"] + l.get("call", l.get("pick", "")) + str(l.get("line")) for l in cur["legs"]] == \
-                       [l["key"] + l.get("call", l.get("pick", "")) + str(l.get("line")) for l in legs]
-                rec.update(created_at=cur["created_at"], updated_at=stamp if not same else cur["updated_at"],
-                           changes=cur.get("changes", 0) + (0 if same else 1))
-                if not same or abs(cur["chance"] - rec["chance"]) > 1e-4:
-                    updated += 1
-            store[pid] = rec
+    order = [(fam, n) for fam, _label, sizes, _desc in FAMILIES for n in sizes]
+    # 1) parlays already locked (or locking now) keep their legs, and those players / games are taken
+    used, open_ids = set(), []
+    for fam, n in order:
+        pid = f"{fam}-{n}"
+        cur = store.get(pid)
+        if cur and not cur.get("locked_at") and cur.get("status") == "pending" and now >= datetime.fromisoformat(cur["first_tip"]):
+            cur["locked_at"] = stamp
+        if cur and (cur.get("locked_at") or cur.get("status") != "pending"):
+            locked += 1
+            used |= {_used_key(l) for l in cur["legs"]}
+        else:
+            open_ids.append((fam, n))
+    # 2) open parlays are rebuilt in a fixed order from players / games no other parlay uses,
+    #    so one bad leg can't sink several parlays at once
+    for fam, n in open_ids:
+        pid = f"{fam}-{n}"
+        cur = store.get(pid)
+        legs = _pick_legs(cands[fam], n, used)
+        if not legs:
+            if cur:
+                used |= {_used_key(l) for l in cur["legs"]}
+            continue
+        used |= {_used_key(l) for l in legs}
+        rec = {"id": pid, "date": date, "family": fam, "size": n, "legs": legs, **_summary(legs),
+               "stake": stake_for(fam, n, legs, form), "status": "pending", "hit": None}
+        if not cur:
+            rec.update(created_at=stamp, updated_at=stamp, changes=0)
+            made += 1
+        else:
+            same = [l["key"] + l.get("call", l.get("pick", "")) + str(l.get("line")) for l in cur["legs"]] == \
+                   [l["key"] + l.get("call", l.get("pick", "")) + str(l.get("line")) for l in legs]
+            rec.update(created_at=cur["created_at"], updated_at=stamp if not same else cur["updated_at"],
+                       changes=cur.get("changes", 0) + (0 if same else 1))
+            if not same or abs(cur["chance"] - rec["chance"]) > 1e-4:
+                updated += 1
+        store[pid] = rec
     _save(date, store)
     return {"made": made, "updated": updated, "locked": locked, "total": len(store)}
 
@@ -224,7 +289,7 @@ def grade(now: datetime | None = None) -> dict:
         ps, ts = predictions.load_date(date), predictions.load_date(date, team=True)
         changed = False
         for r in store.values():
-            if r["status"] != "pending":
+            if r["status"] != "pending" or (r["family"] not in FAMILY and not r.get("locked_at")):
                 continue
             if not r.get("locked_at") and now >= datetime.fromisoformat(r["first_tip"]):
                 r["locked_at"] = stamp
@@ -249,6 +314,8 @@ def grade(now: datetime | None = None) -> dict:
                 r["legs_played"] = len(live)
                 r["pays_final"] = round(math.prod(1 / l["be"] for l in live), 2) if live else None
                 r["units"] = round(r["pays_final"] - 1, 2) if r["hit"] else (-1.0 if r["hit"] is False else 0.0)
+                st_ = r.get("stake") or 1.0
+                r["staked_units"] = round(st_ * r["units"], 2)
                 n_new += 1
                 changed = True
         if changed:
@@ -263,35 +330,52 @@ def load_all() -> list[dict]:
     return out
 
 
+def _streak(rs: list[dict]) -> dict:
+    """Current run of wins or losses, newest first."""
+    rs = sorted(rs, key=lambda r: (r["date"], r.get("graded_at") or ""), reverse=True)
+    if not rs:
+        return {"n": 0, "win": None}
+    w = bool(rs[0]["hit"])
+    n = 0
+    for r in rs:
+        if bool(r["hit"]) != w:
+            break
+        n += 1
+    return {"n": n, "win": w}
+
+
+def _stats(g: list[dict], allp: list[dict]) -> dict:
+    hits = sum(1 for r in g if r["hit"])
+    units = round(sum(r.get("units") or 0 for r in g), 2)
+    staked = round(sum(r.get("staked_units", r.get("units")) or 0 for r in g), 2)
+    risked = sum(r.get("stake") or 1.0 for r in g)
+    legs = [l for r in g for l in r["legs"] if l.get("result") in ("hit", "miss")]
+    last = sorted(g, key=lambda r: (r["date"], r.get("graded_at") or ""))[-10:]
+    return {"n": len(g), "hits": hits, "rate": round(100 * hits / len(g), 1) if g else None,
+            "expected": round(100 * sum(r["chance"] for r in g) / len(g), 1) if g else None,
+            "units": units, "roi": round(100 * units / len(g), 1) if g else None,
+            "staked": staked, "staked_roi": round(100 * staked / risked, 1) if risked else None,
+            "leg_rate": round(100 * sum(1 for l in legs if l["result"] == "hit") / len(legs), 1) if legs else None,
+            "streak": _streak(g), "last10": f"{sum(1 for r in last if r['hit'])}/{len(last)}" if last else None,
+            "pending": sum(1 for r in allp if r["status"] == "pending")}
+
+
 def summary() -> dict:
-    allp = load_all()
+    allp = [r for r in load_all() if r["family"] in FAMILY]
     done = [r for r in allp if r["status"] == "graded"]
     rows = []
     for fam, label, sizes, desc in FAMILIES:
         for n in sizes:
-            g = [r for r in done if r["family"] == fam and r["size"] == n]
-            if not g and not any(r["family"] == fam and r["size"] == n for r in allp):
+            mine = [r for r in allp if r["family"] == fam and r["size"] == n]
+            if not mine:
                 continue
-            hits = sum(1 for r in g if r["hit"])
-            units = round(sum(r.get("units") or 0 for r in g), 2)
-            legs = [l for r in g for l in r["legs"] if l.get("result") in ("hit", "miss")]
-            rows.append({"family": fam, "label": label, "size": n, "n": len(g), "hits": hits,
-                         "rate": round(100 * hits / len(g), 1) if g else None,
-                         "expected": round(100 * sum(r["chance"] for r in g) / len(g), 1) if g else None,
-                         "units": units, "roi": round(100 * units / len(g), 1) if g else None,
-                         "leg_rate": round(100 * sum(1 for l in legs if l["result"] == "hit") / len(legs), 1) if legs else None,
-                         "pending": sum(1 for r in allp if r["family"] == fam and r["size"] == n and r["status"] == "pending")})
-    tot_n = len(done)
-    tot_h = sum(1 for r in done if r["hit"])
-    tot_u = round(sum(r.get("units") or 0 for r in done), 2)
-    legs = [l for r in done for l in r["legs"] if l.get("result") in ("hit", "miss")]
+            g = [r for r in mine if r["status"] == "graded"]
+            rows.append({"family": fam, "label": label, "size": n, **_stats(g, mine)})
+    order = [f[0] for f in FAMILIES]
     days = []
     for d in reversed(all_dates()):
-        st = load_date(d)
-        days.append({"date": d, "rows": sorted(st.values(), key=lambda r: ([f[0] for f in FAMILIES].index(r["family"]), r["size"]))})
-    return {"rows": rows, "n": tot_n, "hits": tot_h, "units": tot_u, "roi": round(100 * tot_u / tot_n, 1) if tot_n else None,
-            "rate": round(100 * tot_h / tot_n, 1) if tot_n else None,
-            "expected": round(100 * sum(r["chance"] for r in done) / tot_n, 1) if tot_n else None,
-            "leg_rate": round(100 * sum(1 for l in legs if l["result"] == "hit") / len(legs), 1) if legs else None,
-            "pending": sum(1 for r in allp if r["status"] == "pending"), "days": days[:30],
-            "families": [{"key": f[0], "label": f[1], "sizes": f[2], "desc": f[3]} for f in FAMILIES]}
+        st = [r for r in load_date(d).values() if r["family"] in FAMILY]
+        days.append({"date": d, "rows": sorted(st, key=lambda r: (order.index(r["family"]), r["size"]))})
+    singles = [r for r in done if r["size"] == 1]
+    return {"rows": rows, **_stats(done, allp), "singles": _stats(singles, [r for r in allp if r["size"] == 1]),
+            "days": days[:30], "families": [{"key": f[0], "label": f[1], "sizes": f[2], "desc": f[3]} for f in FAMILIES]}

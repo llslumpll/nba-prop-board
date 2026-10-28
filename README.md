@@ -373,3 +373,16 @@ From the Monahan lecture (market-based betting):
   and the exact Kalshi market per leg), TRACK RECORD (per parlay type: W-L, hit % vs expected, units at 1U, ROI,
   % of legs hit), DAY BY DAY, HOW IT WORKS.
 - Audit: 2 new checks (legs set before first tip / one per game / right size; results match legs).
+
+## Update 33: proven picks, Best single, Books got it wrong, parlay stakes and streaks
+
+- `scripts/proven.py`: every graded pick is grouped by source + 5-point chance band; each pick shows its group's
+  real record ("52/91"). A group that has cashed 80%+ over 20+ picks, with the 95% Wilson lower bound still above
+  THIS pick's break-even, lifts the pick to 2U ("PROVEN"); 85%+ over 30+ with the lower bound 3+ points above
+  break-even lifts it to 3U ("PROVEN+"). SKIPs and injury-listed players never get lifted.
+- Parlays: no player or moneyline in two parlays a day (32b). New types: Best single (1 leg: GOOD PRICE plays
+  ranked by group record blended with chance) and Books got it wrong (1/2/3 legs where our chance beats the
+  book's own devigged chance by 3+ points). Recommended stake per parlay (singles: the pick's units; 2/3/4 legs:
+  1 / 0.5 / 0.25U, doubled after 10+ graded in profit, halved if down 25%+, max 3U). Scoreboard: parlays cashed
+  X/Y, singles X/Y, units at recommended stakes, current streak, last 10. Retired parlay types that never locked
+  are dropped.

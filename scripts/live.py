@@ -26,6 +26,7 @@ import dataio
 import grade
 import kalshi_client
 import markets
+import proven
 import model
 import teams
 
@@ -152,12 +153,13 @@ LIVE_HOLD_H = 5
 # grade.unit_trust() from how the sized picks have actually done: when they lose money,
 # every edge is shrunk before sizing, so stakes come down until results earn them back.
 UNIT_STEPS = ((0.13, 2.0), (0.09, 1.5), (0.06, 1.0), (0.04, 0.75), (0.02, 0.5), (0.0, 0.25))
-UNIT_NAMES = {0.0: "PASS", 0.25: "LOW", 0.5: "MEDIUM", 0.75: "LEAN", 1.0: "CONFIDENT", 1.5: "HIGH", 2.0: "EXTREME"}
+UNIT_NAMES = {0.0: "PASS", 0.25: "LOW", 0.5: "MEDIUM", 0.75: "LEAN", 1.0: "CONFIDENT", 1.5: "HIGH", 2.0: "EXTREME", 3.0: "PROVEN+"}
 UNIT_TRUST = 1.0
 GAME_SKIP: set = set()  # active game-pick skip patterns, set by build.py
 GAME_FLIP: dict = {}    # active game-pick flip patterns {key: lift}, set by build.py
 NEW_GROUPS = {"prizepicks+kalshi"}  # kinds of pick with no track record yet: stake capped until proven
 NEW_GROUP_CAP = 0.5
+PROVEN: dict = {}       # proven.compute() groups {src|band: {h, n}}, set by build.py every build
 DEFAULT_BE = 0.5238  # -110 when a source has no price
 
 
@@ -423,8 +425,15 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
                 u_cap = NEW_GROUP_CAP if sk in NEW_GROUPS and sk not in pat.get("proven", set()) else 9.0
                 if u_cap < 9 and unit_rec(chance, be, role_gap, r.get("inj_status")) > u_cap:
                     adj.append(f"stake capped at {u_cap:g}U until this kind of pick has a track record")
-                st["lines"][src] = {**ln, "units": 0.0 if skip else min(u_cap, unit_rec(chance, be, role_gap, r.get("inj_status"))),
-                                    "units_raw": 0.0 if skip else min(u_cap, unit_rec(chance, be, role_gap, r.get("inj_status"), trust=1.0)),
+                u_now = 0.0 if skip else min(u_cap, unit_rec(chance, be, role_gap, r.get("inj_status")))
+                u_raw = 0.0 if skip else min(u_cap, unit_rec(chance, be, role_gap, r.get("inj_status"), trust=1.0))
+                prec = PROVEN.get(f"{sk}|{proven.band(chance)}")
+                pu = None if skip or r.get("inj_status") else proven.units(prec, be)
+                if pu:
+                    adj.append(f"{pu:g}U PROVEN: picks like this hit {prec['h']} of {prec['n']}, enough to beat this price even on a cold streak")
+                    u_now, u_raw = max(u_now, pu), max(u_raw, pu)
+                st["lines"][src] = {**ln, "units": u_now, "units_raw": u_raw,
+                                    "rec": proven.label(prec), "proven": pu,
                                     "skip": skip, "flip": flip, "src_key": sk, "open_move": move, "move_dir": mdir, "adj": adj,  # "move" is taken by logs.movement on pages
                                     "p_over": round(po, 4), "side": side, "chance": round(chance, 4), "blend_mean": round(mu_b, 2), "market_mean": round(m_mkt, 2), "role_gap": role_gap,
                                     "break_even": be, "value": round(chance - be, 4) if be is not None else None,
@@ -432,7 +441,7 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
             psrc, _ = markets.primary(st["lines"])
             if psrc:
                 pk = st["lines"][psrc]
-                st["pick"] = {"source": psrc, "blend_w": blend_w, **{k: pk[k] for k in ("line", "side", "chance", "break_even", "value", "market_side", "blend_mean", "role_gap", "units", "units_raw",
+                st["pick"] = {"source": psrc, "blend_w": blend_w, **{k: pk[k] for k in ("line", "side", "chance", "break_even", "value", "market_side", "blend_mean", "role_gap", "units", "units_raw", "rec", "proven",
                                                                          "skip", "flip", "move_dir", "adj", "src_key")}, "move": pk["open_move"],
                                "anchor": pk.get("anchor"),
                                "be_over": pk.get("be_over"), "be_under": pk.get("be_under")}
@@ -609,6 +618,11 @@ def game_picks(g: dict, tp: dict, kal_ml: dict | None = None, total_offset: floa
         sk = next((k for k in reversed(_patterns.skip_keys(p)) if k in GAME_SKIP), None) if not p.get("flip") else None
         if sk:
             p.update(units=0.0, units_raw=0.0, skip=sk)
+        prec = PROVEN.get(f"{p['market']}|{proven.band(p['chance'])}")
+        pu = None if p.get("skip") else proven.units(prec, p["break_even"])
+        p.update(rec=proven.label(prec), proven=pu)
+        if pu:
+            p.update(units=max(p["units"], pu), units_raw=max(p["units_raw"], pu))
     return out
 
 
