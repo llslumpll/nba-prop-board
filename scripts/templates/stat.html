@@ -49,7 +49,7 @@
     <tr>
       <td>
         <div class="player-name">{{ m.badge(r.badge) }} {{ r.player }}</div>
-        <div class="player-sub">{{ r.proj_min }} min &middot; {{ r.tier }}{% if r.inj_status %} &middot; <span class="injury-flag">{{ r.inj_status }}</span>{% endif %}</div>
+        <div class="player-sub">{{ r.proj_min }} min &middot; {{ r.tier }}{% if r.inj_status %} &middot; <span class="injury-flag">{{ r.inj_status }}</span>{% endif %}{% if r.starter %} &middot; <span class="start-tag start-{{ r.starter|lower }}" title="{{ 'Confirmed starter (NBA.com lineups)' if r.starter == 'Confirmed' else 'Expected starter; NBA.com lineups not confirmed yet' }}">{{ '&#10004; STARTING'|safe if r.starter == 'Confirmed' else 'EXP. STARTER' }}</span>{% endif %}</div>
       </td>
       <td>
         {% for s in stat_keys %}{% set st = r.stats[s] %}

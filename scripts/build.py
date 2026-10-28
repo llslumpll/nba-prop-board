@@ -32,6 +32,7 @@ import polars as pl  # noqa: E402
 import dataio  # noqa: E402
 import grade  # noqa: E402
 import injuries_client  # noqa: E402
+import lineups_client  # noqa: E402
 import kalshi_client  # noqa: E402
 import live  # noqa: E402
 import logs  # noqa: E402
@@ -41,6 +42,7 @@ import oddsapi_client  # noqa: E402
 import espn_finals  # noqa: E402
 import patterns  # noqa: E402
 import rankings  # noqa: E402
+import tune  # noqa: E402
 import edges  # noqa: E402
 import pages  # noqa: E402
 import predictions  # noqa: E402
@@ -217,6 +219,21 @@ def build(args) -> None:
     sl = live.slate(now)
     roster, roster_src = live.roster_rows(box, rosters)
     roster_team = {name: team for _pid, name, team in roster}
+    # final check before tip: NBA.com starting lineups + official inactives
+    lineups = {}
+    if sl.get("games"):
+        try:
+            ros = [{"player": n, "team": t} for _pid, n, t in roster]
+            lineups = lineups_client.fetch(sl["date"], ros) if not args.no_fetch else lineups_client.load()
+            if lineups.get("date") == sl["date"]:
+                inj, n_out = lineups_client.merge(inj, lineups)
+                conf = sum(1 for t in (lineups.get("teams") or {}).values() if t.get("status") == "Confirmed")
+                print(f"Lineups: {lineups.get('games', 0)} games, {conf} teams confirmed, {n_out} newly ruled out from official inactives, "
+                      f"{len(lineups.get('unmatched') or [])} names unmatched, error={lineups.get('error')}")
+            else:
+                print(f"Lineups: none for {sl['date']} yet, error={lineups.get('error')}")
+        except Exception as e:  # noqa: BLE001
+            print(f"Lineups failed: {e}")
     known = set(roster_team.items())
     if box.height:
         known |= set(box.filter(pl.col("season") >= dataio.CURRENT_SEASON - 1)
@@ -255,6 +272,17 @@ def build(args) -> None:
 
     # ---- freeze (game-day window), re-freeze on late scratches, track closing lines
     preds_all = predictions.load_all()
+    # weekly self-tuning: re-test the model's settings on played games; keep only changes that hold up
+    try:
+        if tune.due(now):
+            tr = tune.run(box, fit.get("params_base") or fit["params"], now)
+            if tr.get("ran"):
+                ch = "; ".join(f"{c['knob']} {c['from']} -> {c['to']}" for c in tr["changes"]) or "no change (current settings are the best nearby)"
+                print(f"Self-tuning: tried {tr['tried']} settings; {ch}; average miss {tr['gain']}")
+            else:
+                print(f"Self-tuning skipped: {tr.get('why')}")
+    except Exception as e:  # noqa: BLE001
+        print(f"Self-tuning failed: {e}")
     est = grade.edge_status(preds_all)
     outs = {}
     for ip in inj.get("players", []):
@@ -427,7 +455,7 @@ def build(args) -> None:
     pages.render_all({
         "now": now, "slate": sl, "res": res, "best": best, "edge": est, "cal": cal, "preds": preds_all,
         "tpreds": predictions.load_all(team=True), "sources": sources, "health": health, "lm": lm,
-        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj, "trust": trust, "espn": espn, "patterns": pat_out, "rankings": rankings.build(box), "edges": edge_found, "edges_sum": edges.summary(),
+        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj, "trust": trust, "espn": espn, "patterns": pat_out, "rankings": rankings.build(box), "edges": edge_found, "edges_sum": edges.summary(), "tuning": tune.load(), "lineups": lineups,
     })
     # consistency audit on what was just built; its result shows on History -> Pipeline next build
     import subprocess

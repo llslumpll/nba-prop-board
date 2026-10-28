@@ -89,7 +89,7 @@
     <div class="prop-card-tags">
       <span class="tier tier-mid">proj {{ p.projected }}</span>
       <span class="tier tier-none">{{ p.tier }}</span>
-      {% if p.inj_status %}<span class="tier tier-low">{{ p.inj_status }}</span>{% endif %}
+      {% if p.inj_status %}<span class="tier tier-low">{{ p.inj_status }}</span>{% endif %}{% if p.starter == "Confirmed" %}<span class="start-tag start-confirmed">&#10004; STARTING</span>{% endif %}
     </div>
 
     {% if p.tiles %}

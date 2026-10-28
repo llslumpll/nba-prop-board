@@ -116,9 +116,15 @@ def load_fit() -> dict:
         prm.update(min_prior_k=1.0, last_game_w=0.25)
     fields = model.Params.__dataclass_fields__
     p = model.Params(**{k: v for k, v in prm.items() if k in fields})
+    p_base = p
+    try:  # weekly self-tuning (tune.py): settings that beat the current ones on games they weren't chosen on
+        import tune
+        p = tune.apply(p, tune.overrides())
+    except Exception:  # noqa: BLE001
+        p = p_base
     vf = r.get("variance_fit") or {s: {"phi": 1.5, "kappa": 0.02} for s in model.STATS}
     tf = r.get("team_fit_2026") or {"scale": 1.0, "margin_sd": 20.0, "total_sd": 27.0, "margin_bias": 0.0}
-    return {"params": p, "var": vf, "team": tf, "backtest": r}
+    return {"params": p, "params_base": p_base, "var": vf, "team": tf, "backtest": r}
 
 
 def tier_for(row: dict) -> str:
@@ -211,6 +217,7 @@ def roster_rows(box: pl.DataFrame, rosters: dict) -> tuple[list[tuple], str]:
 
 def targets(sl: dict, roster: list[tuple], injuries: dict) -> pl.DataFrame:
     inj = {p["player"]: p for p in injuries.get("players", []) if p.get("player")}
+    starters = injuries.get("starters") or {}
     rows = []
     teams_in = {}
     for g in sl["games"]:
@@ -226,7 +233,8 @@ def targets(sl: dict, roster: list[tuple], injuries: dict) -> pl.DataFrame:
                      "season": dataio.CURRENT_SEASON, "home": home,
                      "present": not (status and status.get("class") == "out"),
                      "inj_status": status.get("status") if status else None,
-                     "inj_note": status.get("comment") if status else None})
+                     "inj_note": status.get("comment") if status else None,
+                     "starter": starters.get(name)})
     if not rows:
         return pl.DataFrame()
     return pl.DataFrame(rows)
@@ -342,7 +350,7 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
         row = {"player": r["player"], "player_id": r["player_id"], "team": r["team"], "opp": r["opp"], "pos": r.get("pos"),
                "home": r["home"], "game_id": r["game_id"], "badge": teams.badge(r["team"]),
                "proj_min": round(r["proj_min"], 1), "tier": tier, "inj_status": r.get("inj_status"),
-               "inj_note": r.get("inj_note"), "stats": {},
+               "inj_note": r.get("inj_note"), "starter": r.get("starter"), "stats": {},
                "factors": {"min_recent": round(r["min_base"], 1), "min_adj": round(r["min_extra"] + r["min_b2b"] + r["min_blowout"], 1),
                            "pace": round(r["f_pace"], 3), "home": round(r["f_home"], 3), "rest": round(r["f_rest"], 3),
                            "rest_days": r.get("rest"), "games_this_season": int(r.get("c_n") or 0),
@@ -430,7 +438,7 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
                                "be_over": pk.get("be_over"), "be_under": pk.get("be_under")}
                 if s in PICK_STATS:
                     picks[s].append({**{k: row[k] for k in ("player", "player_id", "team", "opp", "home", "game_id",
-                                                            "badge", "tier", "proj_min", "inj_status")},
+                                                            "badge", "tier", "proj_min", "inj_status", "starter")},
                                      "stat": s, "proj": st["proj"], "var": st["var"], "why": st["why"],
                                      "lines": st["lines"], **st["pick"],
                                      "tip_utc": g["tip_utc"], "started": g["started"], "date": g["date"]})

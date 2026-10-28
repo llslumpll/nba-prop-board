@@ -344,3 +344,19 @@ From the Monahan lecture (market-based betting):
 - Best 5 lists unchanged on purpose: through Oct 27 the Best 5 picks priced *below* break-even went 81–38 (+6.8U flat)
   while the ones above it went 43–36 (−7.0U), mostly PrizePicks picks that were overconfident before the
   confidence fix. Revisit once the fixed chances have a few weeks of results.
+
+## Update 31: weekly self-tuning + lineup final check
+
+- `scripts/tune.py`: once a week (first build 7+ days after the last run, or Monday after 5+ days) the site
+  re-tests 8 model settings (recent-minutes weight, last season's minutes prior, minutes fade, how fast this
+  season's stats take over, defense strength and prior, pace strength, usage boost) one step at a time on played
+  games. A change is kept only if it lowers the average projection miss on BOTH earlier games (this season before
+  the last 7 days + last season's first 3 weeks) and the last 7 days by 0.1%+, without hurting a mid-season stretch
+  of last season by more than 0.2%. Saved in `data/tuning.json`, applied by `live.load_fit`, shown on
+  History -> Model & pipeline -> Learning. Takes ~5 seconds. When the monthly retune adopts a full new set, the
+  weekly overrides retire automatically (they were its starting point). First run Oct 28: 14 nearby settings
+  tried, none beat the current ones.
+- `scripts/lineups_client.py`: NBA.com daily starting lineups every build. Official inactives on a team whose
+  lineup is CONFIRMED are treated as out (minutes go to teammates); starters get a STARTING tag on Players/Picks.
+  Builds run every 20 minutes, so one lands 0-20 minutes before every tip, after lineups are usually confirmed.
+  Status shown on History -> Model & pipeline -> Checks. Fail-soft (8 s timeout).

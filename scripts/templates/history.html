@@ -359,10 +359,30 @@
 </div>
 <div data-tab-panel="mp:checks">
 {% if audit %}<div class="notice compact {{ 'audit-ok' if audit.passed else 'audit-bad' }}"><strong>Consistency audit ({{ audit.at }}):</strong> {% if audit.passed %}all {{ audit.checks }} checks passed: every pick frozen before tip, results graded correctly, nothing stuck pending, Best 5 rules held, and Home, History and the day pages match the raw pick files.{% else %}{{ audit.fails|length }} of {{ audit.checks }} checks failed: {{ audit.fails|join('; ') }}{% endif %}</div>{% endif %}
+{% if lineups %}<div class="notice compact {{ 'audit-ok' if not lineups.error else 'audit-bad' }}"><strong>Starting lineups (NBA.com, {{ lineups.fetched_at or 'not fetched' }}):</strong> {{ lineups.games or 0 }} games; {{ (lineups.teams or {}).values()|selectattr('status', 'equalto', 'Confirmed')|list|length }} of {{ (lineups.teams or {})|length }} teams confirmed; {{ (lineups.inactive or [])|length }} official inactives applied as out.{% if lineups.error %} Problem: {{ lineups.error }}{% endif %}</div>{% endif %}
 {% if espn %}<div class="notice compact {{ 'audit-ok' if not espn.error else 'audit-bad' }}"><strong>Same-night results (ESPN, {{ espn.at }}):</strong> {{ (espn.status or {})|length }} games checked; {{ (espn.games or {})|length }} final box score{{ 's' if (espn.games or {})|length != 1 }} graded ahead of the morning data file.{% if espn.error %} Problem: {{ espn.error }}{% endif %}</div>{% endif %}
 </div>
 <div class="hidden" data-tab-panel="mp:learn">
 <p class="lede small">Corrections switch on per stat once {{ maturity.min_sample }} graded picks exist: projection bias by tier, and a pull toward 50% if stated chances run hot. {{ maturity.active }} of {{ maturity.total }} active. On the 1st of each month the settings are re-fit and kept only if they beat the old ones on games they never saw.</p>
+<h3 class="hv-h3">Weekly self-tuning</h3>
+{% if tuning.history %}{% set tl = tuning.history[-1] %}
+<p class="lede small">Every week the site re-tests its main settings on games already played and keeps a change only if it lowers the projection miss on <b>both</b> earlier games and the last 7 days, without hurting a mid-season stretch of last season. Small steps, one setting at a time.</p>
+<div class="notice compact {{ 'audit-ok' if tl.changes else '' }}"><strong>Last run {{ tl.at[:10] }}:</strong>
+{% if tl.changes %}changed {% for c in tl.changes %}<b>{{ c.label }}</b> {{ c.from }} &rarr; {{ c.to }} (miss {{ '%.2f'|format(c.gain_a) }}% lower on earlier games, {{ '%.2f'|format(c.gain_b) }}% on the last 7 days){{ '; ' if not loop.last }}{% endfor %}.
+{% else %}tried {{ tl.tried }} nearby settings; none beat the current ones on both checks, so nothing changed.{% endif %} 
+Tested on {{ tl.rows.A }} + {{ tl.rows.B }} player-games.</div>
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+  <thead><tr><th>Setting</th><th class="num">Now</th></tr></thead>
+  <tbody>{% for k, v in tuning.settings.items() %}<tr><td class="small">{{ tuning.labels.get(k, k) }}</td><td class="num">{{ v }}</td></tr>{% endfor %}</tbody>
+</table></div></div>
+{% if tuning.history|length > 1 %}
+<details class="hv-log"><summary>Past weekly runs ({{ tuning.history|length }}) &#9662;</summary>
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table dayt">
+  <thead><tr><th>Run</th><th>Result</th></tr></thead>
+  <tbody>{% for r in tuning.history|reverse %}<tr><td class="small nowrap">{{ r.at[:10] }}</td><td class="small">{% for c in r.changes %}{{ c.label }} {{ c.from }} &rarr; {{ c.to }}{{ '; ' if not loop.last }}{% else %}<span class="dim">no change</span>{% endfor %}</td></tr>{% endfor %}</tbody>
+</table></div></div></details>{% endif %}
+{% else %}<p class="dim">First weekly self-tuning runs on the next build.</p>{% endif %}
+<h3 class="hv-h3">Monthly retune</h3>
 {% if retune_log %}
 <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
   <thead><tr><th>Run</th><th>Result</th><th class="hide-sm">Changed</th></tr></thead>

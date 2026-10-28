@@ -7,7 +7,7 @@
   <div class="ph-main">
     <div class="ph-name">{{ m.badge(r.badge) }}<h1>{{ r.player }}</h1></div>
     <div class="ph-sub">{{ r.proj_min|round(0)|int }} projected min &middot; {{ 'vs' if r.home else '@' }} {{ r.opp }} &middot; {{ m.game_status(g) }} &middot; {{ r.tier }}
-      {% if r.inj_status %} &middot; <span class="injury-flag stat-bad">{{ r.inj_status }}</span>{% endif %}</div>
+      {% if r.inj_status %} &middot; <span class="injury-flag stat-bad">{{ r.inj_status }}</span>{% endif %}{% if r.starter %} &middot; <span class="start-tag start-{{ r.starter|lower }}" title="{{ 'Confirmed starter (NBA.com lineups)' if r.starter == 'Confirmed' else 'Expected starter; NBA.com lineups not confirmed yet' }}">{{ '&#10004; STARTING'|safe if r.starter == 'Confirmed' else 'EXP. STARTER' }}</span>{% endif %}</div>
     {% if r.inj_note %}<p class="small dim">{{ r.inj_note }}</p>{% endif %}
   </div>
   <div class="ph-rec">
