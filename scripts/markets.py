@@ -5,7 +5,9 @@ Merges every market source into one lookup keyed by (player, stat, game_id).
                       break-even = the price's own implied chance (e.g. -110 = 52.4%)
   PrizePicks          line only, no price; break-even 54.2% (6-pick flex), labelled
   Kalshi              "N+" ladder; main line = rung priced nearest 50%;
-                      break-even = the ask you'd pay for that side
+                      break-even = the ask you'd pay for that side plus Kalshi's
+                      fee (about 7% x price x (1 - price)); PrizePicks lines that
+                      match a Kalshi rung take Kalshi's market chance (anchor)
 
 The primary line for a pick (the one it is graded against) is the first
 source that has one, in PRIMARY_ORDER. All the other sources' lines are kept
@@ -30,7 +32,8 @@ import teams
 
 ET = ZoneInfo("America/New_York")
 PRIMARY_ORDER = ("fanduel", "prizepicks", "kalshi")
-SOURCE_LABEL = {"fanduel": "FanDuel", "prizepicks": "PrizePicks", "kalshi": "Kalshi"}
+SOURCE_LABEL = {"fanduel": "FanDuel", "prizepicks": "PrizePicks", "kalshi": "Kalshi",
+                "prizepicks+kalshi": "PrizePicks (Kalshi-priced)"}
 
 _SUFFIXES = {"jr", "sr", "ii", "iii", "iv", "v"}
 
@@ -144,10 +147,21 @@ def build_lines(slate_games, matcher: NameMatcher, roster_team: dict,
             continue
         put(who, stat, gid, "kalshi", {
             "line": main["line"], "threshold": main["threshold"], "market_over": main["mid"],
-            "be_over": main.get("yes_ask"),
-            "be_under": (1 - main["yes_bid"]) if main.get("yes_bid") is not None else None,
+            "be_over": kalshi_client.with_fee(main.get("yes_ask")),  # ask + Kalshi's fee
+            "be_under": kalshi_client.with_fee(1 - main["yes_bid"]) if main.get("yes_bid") is not None else None,
             "ladder": [{"n": r["threshold"], "mid": r["mid"]} for r in rungs if r.get("mid") is not None],
         })
+    # Kalshi check for PrizePicks: PrizePicks posts no price (we'd assume 50/50). When Kalshi has
+    # a rung at the same number (PrizePicks 1.5 = Kalshi "2+"), take Kalshi's market chance instead,
+    # so the PrizePicks pick starts from what the sharper market thinks.
+    for srcs in out.values():
+        pp, ka = srcs.get("prizepicks"), srcs.get("kalshi")
+        if not pp or not ka or pp["line"] % 1 != 0.5:
+            continue
+        n = int(pp["line"] + 0.5)
+        rung = next((r for r in ka.get("ladder") or [] if r["n"] == n and r.get("mid") is not None), None)
+        if rung and 0.03 <= rung["mid"] <= 0.97:
+            pp.update(market_over=rung["mid"], anchor="kalshi", anchor_n=n)
     return out
 
 

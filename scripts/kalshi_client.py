@@ -285,3 +285,16 @@ def main_line(rungs: list[dict]) -> dict | None:
     if not quoted:
         return None
     return min(quoted, key=lambda r: abs(r["mid"] - 0.5))
+
+
+# Kalshi's trading fee: about FEE_RATE x price x (1 - price) per contract, rounded up to the
+# next cent per order (official fee schedule; peaks near 50 cents, ~1.75c). The site adds it to
+# every Kalshi break-even so an "edge" means an edge after fees. (Small orders round up a bit more.)
+FEE_RATE = 0.07
+
+
+def with_fee(price):
+    if price is None:
+        return None
+    return round(min(0.995, price + FEE_RATE * price * (1 - price)), 4)
+

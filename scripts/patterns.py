@@ -59,7 +59,13 @@ Z_MIN = 2.0
 MIN_GAP = 0.03       # 3 percentage points, smaller isn't worth acting on
 SHRINK_N = 400       # shift = gap * n / (n + SHRINK_N)
 MAX_SHIFT = 0.05
-SOURCES = {"fanduel": "FanDuel", "kalshi": "Kalshi", "prizepicks": "PrizePicks"}
+SOURCES = {"fanduel": "FanDuel", "kalshi": "Kalshi", "prizepicks": "PrizePicks",
+           "prizepicks+kalshi": "PrizePicks (Kalshi-priced)"}
+
+
+def sk(p: dict) -> str | None:
+    """Source key for grouping: PrizePicks lines priced from Kalshi (from Oct 28) are their own group."""
+    return p.get("src_key") or p.get("line_source")
 
 
 def _be(p):
@@ -76,7 +82,7 @@ def load() -> dict:
 def active(store: dict | None = None) -> dict:
     """What live.run applies: {"skip": set of keys, "over": {(stat, src): shift}, "move": {"agree"/"against": shift}}."""
     store = store if store is not None else load()
-    out = {"skip": set(), "over": {}, "move": {}, "conf": {}, "flip": {}}
+    out = {"skip": set(), "over": {}, "move": {}, "conf": {}, "flip": {}, "proven": set(store.get("proven", []))}
     for r in store.get("rules", []):
         if r.get("status") != "active":
             continue
@@ -99,7 +105,7 @@ def skip_keys(p: dict) -> list[str]:
         side = (p.get("pick") if p["market"] == "total" else
                 ("fav" if (p.get("break_even") or 0.5) >= 0.5 else "dog") if p["market"] == "moneyline" else "any")
         return [f"game|{p['market']}", f"game|{p['market']}|{side}"]
-    src = p.get("line_source") or p.get("source")
+    src = sk(p) or p.get("source")
     side = p.get("call") or p.get("side")
     return [f"{p['stat']}|{src}", f"{p['stat']}|{src}|{side}"]
 
@@ -252,6 +258,13 @@ def _rule(kind, key, label, ps, train, test, fn, direction_needed=None):
     return out
 
 
+def _group_by(ps, fn):
+    out = defaultdict(list)
+    for p in ps:
+        out[fn(p)].append(p)
+    return out
+
+
 def _group(ps, key):
     out = defaultdict(list)
     for p in ps:
@@ -274,8 +287,8 @@ def compute(preds: list[dict], tpreds: list[dict], now: datetime | None = None) 
 
     by_ss, by_sss = defaultdict(list), defaultdict(list)
     for p in g:
-        by_ss[(p["stat"], p["line_source"])].append(p)
-        by_sss[(p["stat"], p["line_source"], p["call"])].append(p)
+        by_ss[(p["stat"], sk(p))].append(p)
+        by_sss[(p["stat"], sk(p), p["call"])].append(p)
     for (s, src), ps in sorted(by_ss.items()):
         rules.append(_rule("skip", f"{s}|{src}", f"{_stat_name(s)} on {SOURCES.get(src, src)}", ps, train, test,
                            _hit_vs_need, direction_needed=True))
@@ -287,8 +300,8 @@ def compute(preds: list[dict], tpreds: list[dict], now: datetime | None = None) 
     # flips: the other side must beat ITS OWN price in both halves (PrizePicks: 54.2% either way)
     fl = defaultdict(list)
     for p in g:
-        fl[f"{p['stat']}|{p['line_source']}"].append(p)
-        fl[f"{p['stat']}|{p['line_source']}|{p['call']}"].append(p)
+        fl[f"{p['stat']}|{sk(p)}"].append(p)
+        fl[f"{p['stat']}|{sk(p)}|{p['call']}"].append(p)
         d = move_dir(p)
         if d:
             fl[f"move|{d}"].append(p)
@@ -305,7 +318,7 @@ def compute(preds: list[dict], tpreds: list[dict], now: datetime | None = None) 
             parts = k.split("|")
             label = f"Flip: {_stat_name(parts[0])} {parts[2] + ' ' if len(parts) > 2 else ''}on {SOURCES.get(parts[1], parts[1])}"
         rules.append(_rule("flip", k, label, ps, train, test, _reversed, direction_needed=False))
-    for src, ps in sorted(_group(g, "line_source").items()):
+    for src, ps in sorted(_group_by(g, sk).items()):
         rules.append(_rule("conf", src, f"Our confidence on {SOURCES.get(src, src)} lines", ps, train, test,
                            _hit_vs_chance, direction_needed=True))
     mv = defaultdict(list)
@@ -341,15 +354,22 @@ def compute(preds: list[dict], tpreds: list[dict], now: datetime | None = None) 
         elif r.get("active_since"):
             since = [p for p in (g + gt) if p["date"] >= r["active_since"]
                      and ((r["kind"] == "skip" and r["key"] in skip_keys(p))
-                          or (r["kind"] == "over" and f"{p.get('stat')}|{p.get('line_source')}" == r["key"])
+                          or (r["kind"] == "over" and f"{p.get('stat')}|{sk(p)}" == r["key"])
                           or (r["kind"] == "move" and move_dir(p) == r["key"])
-                          or (r["kind"] == "conf" and p.get("line_source") == r["key"]))]
+                          or (r["kind"] == "conf" and sk(p) == r["key"]))]
             h = sum(1 for p in since if p.get("hit"))
             r["since"] = {"n": len(since), "hits": h, "units": round(sum(grade.units(p) or 0 for p in since), 2)}
     order = {"active": 0, "watching": 1, "flipped": 2, "fine": 3}
     rules.sort(key=lambda r: (order.get(r["status"], 9), -abs(r["z"])))
 
-    out = {"at": now.strftime("%Y-%m-%d %H:%M UTC"), "train": sorted(train), "test": sorted(test),
+    # a new kind of pick (PrizePicks priced from Kalshi, from Oct 28) is "proven" once 150+ of them are graded
+    # and they've at least broken even; until then live.run caps their stake at NEW_GROUP_CAP
+    proven = []
+    for key, ps in _group_by(g, sk).items():
+        n = len(ps)
+        if key and n >= MIN_TRAIN and sum(grade.units(p) or 0 for p in ps) >= 0:
+            proven.append(key)
+    out = {"at": now.strftime("%Y-%m-%d %H:%M UTC"), "train": sorted(train), "test": sorted(test), "proven": sorted(proven),
            "rules": rules, "tables": tables(g, gt)}
     txt = json.dumps(out, indent=1, sort_keys=True, default=str)
     if not PATH.exists() or PATH.read_text() != txt:
@@ -379,7 +399,7 @@ def tables(g: list[dict], gt: list[dict]) -> list[dict]:
           [(f"{_stat_name(s)} {side}", [p for p in g if p["stat"] == s and p["call"] == side])
            for s in model.STATS for side in ("OVER", "UNDER")])
     table("source", "By line source", "Which book's lines we beat. PrizePicks has no prices, so its break-even is a flat 54.2%.",
-          [(SOURCES[s], [p for p in g if p["line_source"] == s]) for s in SOURCES])
+          [(SOURCES[s], [p for p in g if sk(p) == s]) for s in SOURCES])
     buckets = ((0, .5, "plus money"), (.5, .53, "even to -112"), (.53, .56, "-113 to -127"),
                (.56, .6, "-128 to -150"), (.6, 1.01, "-150 or more"))
     table("price", "By price (FanDuel and Kalshi)", "The price sets what you need to hit. Heavy favorites need a lot.",

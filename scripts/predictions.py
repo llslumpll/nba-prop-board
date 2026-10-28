@@ -44,7 +44,7 @@ TEAM_FIELDS = ("pick", "line", "pick_label", "price_str", "chance", "break_even"
                "units_raw", "our_margin", "our_total", "market_margin", "blend_margin", "blend_total", "blend_w", "agree", "why")
 REFREEZE_FIELDS = ("tier", "proj_min", "var", "line", "chance", "break_even", "market_side", "projected", "blend_mean", "blend_w",
                    "call", "line_source", "lines", "label", "why", "out_ctx", "units", "units_raw", "role_gap",
-                   "skip", "move", "move_dir", "adj", "flip", "be_over", "be_under")
+                   "skip", "move", "move_dir", "adj", "flip", "be_over", "be_under", "src_key", "anchor")
 
 _cache: dict[str, dict] = {}
 _dirty: set[str] = set()

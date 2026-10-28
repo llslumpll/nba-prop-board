@@ -264,7 +264,7 @@ def build(args) -> None:
             out_ctx = sorted(outs.get(p["team"], set()) | outs.get(p["opp"], set()))
             rec = {k: p[k] for k in ("player", "player_id", "team", "opp", "home", "game_id", "date", "stat",
                                      "tier", "proj_min", "var", "line", "chance", "break_even", "market_side", "units", "units_raw", "role_gap",
-                                     "skip", "move", "move_dir", "adj", "flip", "be_over", "be_under")}
+                                     "skip", "move", "move_dir", "adj", "flip", "be_over", "be_under", "src_key", "anchor")}
             rec.update(projected=p["proj"], call=p["side"], line_source=p["source"],
                        blend_mean=p.get("blend_mean"), blend_w=p.get("blend_w"),
                        lines={src: ln["line"] for src, ln in p["lines"].items()},

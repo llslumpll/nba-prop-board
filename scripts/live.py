@@ -24,6 +24,7 @@ import polars as pl
 
 import dataio
 import grade
+import kalshi_client
 import markets
 import model
 import teams
@@ -144,6 +145,8 @@ UNIT_NAMES = {0.0: "PASS", 0.25: "LOW", 0.5: "MEDIUM", 0.75: "LEAN", 1.0: "CONFI
 UNIT_TRUST = 1.0
 GAME_SKIP: set = set()  # active game-pick skip patterns, set by build.py
 GAME_FLIP: dict = {}    # active game-pick flip patterns {key: lift}, set by build.py
+NEW_GROUPS = {"prizepicks+kalshi"}  # kinds of pick with no track record yet: stake capped until proven
+NEW_GROUP_CAP = 0.5
 DEFAULT_BE = 0.5238  # -110 when a source has no price
 
 
@@ -366,12 +369,14 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
                     continue
                 po = 0.5 + (po - 0.5) * shrink
                 adj = []
-                if pat.get("conf", {}).get(src, 1.0) < 1.0:
-                    po = 0.5 + (po - 0.5) * pat["conf"][src]  # learned: our chances on this source run too high
-                    adj.append(f"chance pulled toward 50% (keeps {pat['conf'][src] * 100:.0f}% of our lean on {markets.SOURCE_LABEL.get(src, src)} lines, pattern)")
-                if pat["over"].get((s, src)):
-                    po += pat["over"][(s, src)]  # learned: this stat's lines on this source run high / low
-                    adj.append(f"OVER chance {pat['over'][(s, src)] * 100:+.1f} pts (pattern)")
+                # PrizePicks lines priced from Kalshi are judged as their own group: they start from the market
+                sk = "prizepicks+kalshi" if src == "prizepicks" and ln.get("anchor") == "kalshi" else src
+                if pat.get("conf", {}).get(sk, 1.0) < 1.0:
+                    po = 0.5 + (po - 0.5) * pat["conf"][sk]  # learned: our chances on this source run too high
+                    adj.append(f"chance pulled toward 50% (keeps {pat['conf'][sk] * 100:.0f}% of our lean on {markets.SOURCE_LABEL.get(sk, sk)} lines, pattern)")
+                if pat["over"].get((s, sk)):
+                    po += pat["over"][(s, sk)]  # learned: this stat's lines on this source run high / low
+                    adj.append(f"OVER chance {pat['over'][(s, sk)] * 100:+.1f} pts (pattern)")
                 po = min(CHANCE_CAP, max(1 - CHANCE_CAP, po))
                 side = "OVER" if po >= 0.5 else "UNDER"
                 chance = po if side == "OVER" else 1 - po
@@ -385,10 +390,10 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
                         side, chance = ("UNDER" if side == "OVER" else "OVER"), 1 - chance
                         mdir = "agree" if mdir == "against" else "against"
                     po = chance if side == "OVER" else 1 - chance
-                skip = next((k for k in (f"{s}|{src}|{side}", f"{s}|{src}") if k in pat["skip"]), None)
+                skip = next((k for k in (f"{s}|{sk}|{side}", f"{s}|{sk}") if k in pat["skip"]), None)
                 flip = None
                 if pat.get("flip"):
-                    fk = next((k for k in (f"{s}|{src}|{side}", f"{s}|{src}", f"move|{mdir}" if mdir else None)
+                    fk = next((k for k in (f"{s}|{sk}|{side}", f"{s}|{sk}", f"move|{mdir}" if mdir else None)
                                if k and k in pat["flip"]), None)
                     if fk:
                         # learned: picks like this lost in earlier AND later games while the other side beat its own price
@@ -402,9 +407,12 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
                 be = ln.get("be_over") if side == "OVER" else ln.get("be_under")
                 mkt = ln.get("market_over")
                 mkt_side = (mkt if side == "OVER" else 1 - mkt) if mkt is not None else None
-                st["lines"][src] = {**ln, "units": 0.0 if skip else unit_rec(chance, be, role_gap, r.get("inj_status")),
-                                    "units_raw": 0.0 if skip else unit_rec(chance, be, role_gap, r.get("inj_status"), trust=1.0),
-                                    "skip": skip, "flip": flip, "open_move": move, "move_dir": mdir, "adj": adj,  # "move" is taken by logs.movement on pages
+                u_cap = NEW_GROUP_CAP if sk in NEW_GROUPS and sk not in pat.get("proven", set()) else 9.0
+                if u_cap < 9 and unit_rec(chance, be, role_gap, r.get("inj_status")) > u_cap:
+                    adj.append(f"stake capped at {u_cap:g}U until this kind of pick has a track record")
+                st["lines"][src] = {**ln, "units": 0.0 if skip else min(u_cap, unit_rec(chance, be, role_gap, r.get("inj_status"))),
+                                    "units_raw": 0.0 if skip else min(u_cap, unit_rec(chance, be, role_gap, r.get("inj_status"), trust=1.0)),
+                                    "skip": skip, "flip": flip, "src_key": sk, "open_move": move, "move_dir": mdir, "adj": adj,  # "move" is taken by logs.movement on pages
                                     "p_over": round(po, 4), "side": side, "chance": round(chance, 4), "blend_mean": round(mu_b, 2), "market_mean": round(m_mkt, 2), "role_gap": role_gap,
                                     "break_even": be, "value": round(chance - be, 4) if be is not None else None,
                                     "market_side": round(mkt_side, 4) if mkt_side is not None else None}
@@ -412,7 +420,8 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
             if psrc:
                 pk = st["lines"][psrc]
                 st["pick"] = {"source": psrc, "blend_w": blend_w, **{k: pk[k] for k in ("line", "side", "chance", "break_even", "value", "market_side", "blend_mean", "role_gap", "units", "units_raw",
-                                                                         "skip", "flip", "move_dir", "adj")}, "move": pk["open_move"],
+                                                                         "skip", "flip", "move_dir", "adj", "src_key")}, "move": pk["open_move"],
+                               "anchor": pk.get("anchor"),
                                "be_over": pk.get("be_over"), "be_under": pk.get("be_under")}
                 if s in PICK_STATS:
                     picks[s].append({**{k: row[k] for k in ("player", "player_id", "team", "opp", "home", "game_id",
@@ -518,7 +527,7 @@ def game_picks(g: dict, tp: dict, kal_ml: dict | None = None, total_offset: floa
             be, src, pstr = american_be(price), "fanduel", (ml["home_str"] if home else ml["away_str"])
             mside = (ml["home_prob"] if home else ml["away_prob"]) / 100
         else:
-            be, src, pstr = (kal_ml.get("home_ask") if home else kal_ml.get("away_ask")), "kalshi", None
+            be, src, pstr = kalshi_client.with_fee(kal_ml.get("home_ask") if home else kal_ml.get("away_ask")), "kalshi", None
             mside = (k_home if home else (kal_ml.get("away_prob") or 100 - k_home)) / 100
         ch = ph if home else 1 - ph
         out.append({"market": "moneyline", "pick": team, "line": None, "pick_label": f"{team} ML", "price_str": pstr,
@@ -528,7 +537,7 @@ def game_picks(g: dict, tp: dict, kal_ml: dict | None = None, total_offset: floa
                     "alt": {"pick": g["away"] if home else g["home"], "pick_label": f"{g['away'] if home else g['home']} ML",
                             "price_str": (ml["away_str"] if home else ml["home_str"]) if ml else None,
                             "break_even": (american_be(ml["away_price"] if home else ml["home_price"]) if ml
-                                           else (kal_ml.get("away_ask") if home else kal_ml.get("home_ask"))),
+                                           else kalshi_client.with_fee(kal_ml.get("away_ask") if home else kal_ml.get("home_ask"))),
                             "market_side": round(1 - mside, 4)}})
     if sp:
         hp = float(sp["home_point"])

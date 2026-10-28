@@ -54,6 +54,7 @@
     var ps = legs.map(function (l) { return l.chance; });
     var d = dist(ps), type = state.type;
     if (type === 'flex' && n < 3) type = 'power';
+    if (type === 'priced') return renderPriced(legs, d, n);
     var table = type === 'power' ? (pay.power[n] ? (function () { var t = {}; t[n] = pay.power[n]; return t; })() : {}) : (pay.flex[n] || {});
     var ev = 0, rows = '';
     for (var k = n; k >= 0; k--) {
@@ -68,16 +69,46 @@
       ' · <b class="' + (evPct >= 0 ? 'ev-up' : 'ev-down') + '">' + (evPct >= 0 ? '+' : '') + evPct.toFixed(1) + '%</b></span><span class="slip-caret">' + (state.open ? '▼' : '▲') + '</span></button>';
     var body = '';
     if (state.open) {
-      body += '<div class="slip-body"><div class="slip-legs">' + legs.map(function (l) {
-        return '<div class="slip-leg"><div><b>' + esc(l.player) + '</b> <span class="dim">' + esc(l.team) + ' vs ' + esc(l.opp) + '</span><div><span class="pp-pick pp-' + l.side.toLowerCase() + '">' + l.side + ' ' + l.line + ' ' + esc(l.stat) + '</span> <span class="pp-ch">' + Math.round(l.chance * 100) + '%</span> <span class="src">' + esc(l.src) + '</span></div></div><button class="slip-x" type="button" data-rm="' + esc(l.id) + '" aria-label="Remove">✕</button></div>';
-      }).join('') + '</div>';
-      body += '<div class="slip-type"><button type="button" data-type="power" class="' + (type === 'power' ? 'active' : '') + '">POWER</button><button type="button" data-type="flex" class="' + (type === 'flex' ? 'active' : '') + '"' + (n < 3 ? ' disabled title="Flex needs 3+ picks"' : '') + '>FLEX</button></div>';
+      body += '<div class="slip-body"><div class="slip-legs">' + legs.map(function (l) { return legRow(l); }).join('') + '</div>';
+      body += typeBar(type, n);
       body += '<table class="slip-table"><thead><tr><th>Result</th><th class="num">Chance</th><th class="num">Pays</th></tr></thead><tbody>' + rows + '</tbody></table>';
       body += '<div class="slip-sum"><div><em>ALL HIT</em><b>' + pct(winAll) + '</b></div><div><em>$10 RETURNS ON AVG</em><b class="' + (evPct >= 0 ? 'ev-up-t' : 'ev-down-t') + '">$' + (ev * 10).toFixed(2) + '</b></div><div><em>EXPECTED VALUE</em><b class="' + (evPct >= 0 ? 'ev-up-t' : 'ev-down-t') + '">' + (evPct >= 0 ? '+' : '') + evPct.toFixed(1) + '%</b></div></div>';
       var w = warnings(legs);
       if (w.length) body += '<div class="slip-warn">' + w.map(function (x) { return '<p class="sw-' + x.lvl + '">⚠ ' + esc(x.t) + '</p>'; }).join('') + '</div>';
       body += '<p class="slip-note">Chances are ours and treat legs as independent (see warnings), and they stay leans until History shows an edge. Payouts are PrizePicks’ standard multipliers; edit them to match your app. Saved in this browser only.</p>';
       body += '<div class="slip-btns"><button type="button" class="chip" data-reset-pay="1">RESET PAYOUTS</button><button type="button" class="chip" data-clear="1">CLEAR SLIP</button></div></div>';
+    }
+    el.innerHTML = head + body;
+    save(KEY, state);
+  }
+  function typeBar(type, n) {
+    return '<div class="slip-type"><button type="button" data-type="power" class="' + (type === 'power' ? 'active' : '') + '">POWER</button><button type="button" data-type="flex" class="' + (type === 'flex' ? 'active' : '') + '"' + (n < 3 ? ' disabled title="Flex needs 3+ picks"' : '') + '>FLEX</button><button type="button" data-type="priced" class="' + (type === 'priced' ? 'active' : '') + '" title="Each leg at its own price (Kalshi incl. fee, FanDuel), multiplied together">PRICED PARLAY</button></div>';
+  }
+  function legRow(l, extra) {
+    return '<div class="slip-leg"><div><b>' + esc(l.player) + '</b> <span class="dim">' + esc(l.team) + ' vs ' + esc(l.opp) + '</span><div><span class="pp-pick pp-' + l.side.toLowerCase() + '">' + l.side + ' ' + l.line + ' ' + esc(l.stat) + '</span> <span class="pp-ch">' + Math.round(l.chance * 100) + '%</span> <span class="src">' + esc(l.src) + '</span>' + (extra || '') + '</div></div><button class="slip-x" type="button" data-rm="' + esc(l.id) + '" aria-label="Remove">✕</button></div>';
+  }
+  // A parlay at each leg's own price: pays the product of 1/break-even. Expected value = all-hit chance x that payout.
+  // A leg below its price drags the whole parlay down; that's the video's "-5% a leg, -10% for two" rule.
+  function renderPriced(legs, d, n) {
+    var payout = 1, edgeLegs = 0, missing = 0;
+    legs.forEach(function (l) { var be = +l.be || 0.5238; if (!l.be) missing++; payout *= 1 / be; if (l.chance > be) edgeLegs++; });
+    var winAll = d[n], ev = winAll * payout, evPct = (ev - 1) * 100, cls = evPct >= 0 ? 'ev-up' : 'ev-down';
+    var head = '<button class="slip-bar" type="button"><span class="slip-ic">🎟</span> SLIP ' + n + ' <span class="slip-mini">PRICED · all hit ' + pct(winAll) +
+      ' · <b class="' + cls + '">' + (evPct >= 0 ? '+' : '') + evPct.toFixed(1) + '%</b></span><span class="slip-caret">' + (state.open ? '▼' : '▲') + '</span></button>';
+    var body = '';
+    if (state.open) {
+      body += '<div class="slip-body"><div class="slip-legs">' + legs.map(function (l) {
+        var be = +l.be || 0.5238, e = (l.chance - be) * 100;
+        return legRow(l, ' <span class="' + (e >= 0 ? 'ev-up-t' : 'ev-down-t') + '"><b>' + (e >= 0 ? '+' : '') + e.toFixed(1) + '</b> vs price ' + Math.round(be * 100) + '%</span>');
+      }).join('') + '</div>' + typeBar('priced', n);
+      body += '<div class="slip-sum"><div><em>ALL HIT</em><b>' + pct(winAll) + '</b></div><div><em>PAYS</em><b>' + payout.toFixed(2) + 'x</b></div><div><em>EXPECTED VALUE</em><b class="' + (evPct >= 0 ? 'ev-up-t' : 'ev-down-t') + '">' + (evPct >= 0 ? '+' : '') + evPct.toFixed(1) + '%</b></div></div>';
+      var w = warnings(legs);
+      if (edgeLegs < n) w.unshift({lvl: 'warn', t: (n - edgeLegs) + ' of ' + n + ' legs are below their own price: every such leg multiplies the loss. A parlay only has an edge when its legs do.'});
+      if (missing) w.push({lvl: 'info', t: missing + ' leg(s) had no saved price; -110 assumed.'});
+      if (legs.some(function (l) { return l.src === 'prizepicks'; })) w.unshift({lvl: 'bad', t: 'PrizePicks legs have no price of their own (54.2% is used): PrizePicks pays by its own table, so use POWER or FLEX for PrizePicks entries. PRICED fits Kalshi or sportsbook parlays.'});
+      if (w.length) body += '<div class="slip-warn">' + w.map(function (x) { return '<p class="sw-' + x.lvl + '">⚠ ' + esc(x.t) + '</p>'; }).join('') + '</div>';
+      body += '<p class="slip-note">Each leg at its own price (Kalshi asks include Kalshi’s fee), multiplied together. Your app’s parlay price may differ. Legs treated as independent. Saved in this browser only.</p>';
+      body += '<div class="slip-btns"><button type="button" class="chip" data-clear="1">CLEAR SLIP</button></div></div>';
     }
     el.innerHTML = head + body;
     save(KEY, state);

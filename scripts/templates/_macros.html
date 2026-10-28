@@ -145,10 +145,10 @@
   </div>
   {% endif %}
   <div class="tc-foot">
-    {{ src_name(p.line_source) }} {{ label_tag(edge[p.stat].status) }}
+    {{ src_name(p.line_source) }}{% if p.anchor %} <span class="anchor-tag" title="PrizePicks posts no price, so this line's chance starts from Kalshi's market at the same number">KALSHI-PRICED</span>{% endif %} {{ label_tag(edge[p.stat].status) }}
     {% if p.locked %}<span class="locked">locked</span>{% else %}<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span>{% endif %}
     {% if p.first_line is defined and p.first_line is not none and (p.first_line != p.line or p.first_call != p.call) %}<span class="moved-tag" title="Where this pick started">opened {{ p.first_call }} {{ p.first_line|fmtline }}</span>{% endif %}
-    <span class="tc-actions">{{ slip_leg(p.player_id, p.player, p.team, p.opp, p.game_id, p.stat, p.call, p.line, p.chance, p.line_source, p.locked) }}
+    <span class="tc-actions">{{ slip_leg(p.player_id, p.player, p.team, p.opp, p.game_id, p.stat, p.call, p.line, p.chance, p.line_source, p.locked, p.break_even) }}
     <a class="bd-btn" href="p-{{ p.player_id }}.html#{{ stat_page_key(p.stat) }}">WHY &amp; STATS &#9656;</a></span>
   </div>
 </article>
@@ -156,7 +156,7 @@
 
 {% macro tgrid(picks, kind, edge, prefix, empty_text) %}
 {% if picks %}
-{% set open_legs = [] %}{% for p in picks if not p.locked %}{% set _ = open_legs.append({"id": p.player_id ~ "|" ~ stat_short.get(p.stat, p.stat) ~ "|" ~ p.game_id, "player": p.player, "pid": p.player_id, "team": p.team, "opp": p.opp, "gid": p.game_id, "stat": stat_short.get(p.stat, p.stat), "side": p.call, "line": p.line, "chance": p.chance, "src": p.line_source}) %}{% endfor %}
+{% set open_legs = [] %}{% for p in picks if not p.locked %}{% set _ = open_legs.append({"id": p.player_id ~ "|" ~ stat_short.get(p.stat, p.stat) ~ "|" ~ p.game_id, "player": p.player, "pid": p.player_id, "team": p.team, "opp": p.opp, "gid": p.game_id, "stat": stat_short.get(p.stat, p.stat), "side": p.call, "line": p.line, "chance": p.chance, "src": p.line_source, "be": p.break_even}) %}{% endfor %}
 {% if open_legs %}<div class="slip-fill"><button class="chip" type="button" data-fill='{{ open_legs|tojson }}'>+ ADD ALL TO SLIP</button><button class="chip" type="button" data-fill='{{ open_legs|tojson }}' data-one-per-game="1">+ ADD, MAX 1 PER GAME</button></div>{% endif %}
 <div class="tgrid">{% for p in picks %}{{ tcard(p, kind, edge, prefix ~ '-' ~ loop.index) }}{% endfor %}</div>
 {% else %}
@@ -171,9 +171,9 @@
 {% macro game_stripe(g) -%}style="--ca:{{ g.away_badge.color }};--ch:{{ g.home_badge.color }}"{%- endmacro %}
 
 {# Projection cell: labeled PROJ number + colored pick pill (green over / red under). #}
-{% macro slip_leg(pid, player, team, opp, gid, stat, side, line, chance, src, started) -%}
+{% macro slip_leg(pid, player, team, opp, gid, stat, side, line, chance, src, started, be=none) -%}
 {%- if not started -%}
-<button class="slip-add" type="button" title="Add to slip" data-leg='{{ {"id": pid ~ "|" ~ stat ~ "|" ~ gid, "player": player, "pid": pid, "team": team, "opp": opp, "gid": gid, "stat": stat_short.get(stat, stat), "side": side, "line": line, "chance": chance, "src": src}|tojson }}'>+ SLIP</button>
+<button class="slip-add" type="button" title="Add to slip" data-leg='{{ {"id": pid ~ "|" ~ stat ~ "|" ~ gid, "player": player, "pid": pid, "team": team, "opp": opp, "gid": gid, "stat": stat_short.get(stat, stat), "side": side, "line": line, "chance": chance, "src": src, "be": be}|tojson }}'>+ SLIP</button>
 {%- endif -%}
 {%- endmacro %}
 
@@ -185,14 +185,14 @@
   {% else %}<span class="pp-none">no line</span>{% endif %}
   {% if st.pick and st.pick.role_gap %}<span class="pp-gap" title="Our projection is far from the line, most likely a role change the market knows about. Chance pulled toward 50%; kept out of Best 5.">&#9888; big gap vs line</span>{% endif %}
   {% if st.pick and st.frozen and not (st.frozen.call == st.pick.side and st.frozen.line == st.pick.line) %}<span class="pp-fz">&#128274; frozen earlier: {{ st.frozen.call }} {{ st.frozen.line|fmtline }}</span>{% endif %}
-  {% if r is not none and st.pick %}{{ slip_leg(r.player_id, r.player, r.team, r.opp, r.game_id, s, st.pick.side, st.pick.line, st.pick.chance, st.pick.source, g.started if g else false) }}{% endif %}
+  {% if r is not none and st.pick %}{{ slip_leg(r.player_id, r.player, r.team, r.opp, r.game_id, s, st.pick.side, st.pick.line, st.pick.chance, st.pick.source, g.started if g else false, st.pick.break_even) }}{% endif %}
 </span>
 {%- endmacro %}
 
 {% macro why_block(r, stat_keys, edge) %}
 {% for s in stat_keys %}{% set st = r.stats[s] %}
 <p class="why-reason"><strong>{{ stat_labels[s] }} {{ st.proj }}{% if st.pick %} &middot; {{ pick_text(st.pick.side, st.pick.line, st.pick.chance) }} {{ label_tag(edge[s].status) }}{% endif %}:</strong> {{ st.why }}
-  {% for src, ln in st.lines.items() %}<br>{{ src_labels[src] }} {{ ln.line|fmtline }}{% if ln.over_str %} ({{ ln.over_str }}/{{ ln.under_str }}){% endif %}: we give OVER {{ (ln.p_over * 100)|round(0)|int }}%{% if ln.blend_mean is defined %} (from {{ ln.blend_mean }}, our {{ st.proj }} blended with the line{% if ln.role_gap %}; big gap vs the line, most likely a role change, so our projection gets less weight and this stays out of Best 5{% endif %}){% endif %}{% if ln.market_side is not none %}, market {{ (ln.market_side * 100)|round(0)|int }}% for {{ ln.side }}{% endif %}{% if ln.break_even %}, break-even {{ (ln.break_even * 100)|round(1) }}% for {{ ln.side }}{% endif %}{% if ln.adj %}; adjusted {{ ln.adj|join('; ') }}{% endif %}{% if ln.open_move %}; line {{ 'up' if ln.open_move > 0 else 'down' }} {{ '%g'|format(ln.open_move|abs) }} since our pick opened{% endif %} {{ utag(ln.units, ln.skip) }}{% if ln.move %} <span class="move">moved from {{ ln.move.from|fmtline }}</span>{% endif %}.{% endfor %}
+  {% for src, ln in st.lines.items() %}<br>{{ src_labels[src] }} {{ ln.line|fmtline }}{% if ln.anchor %} (priced from Kalshi's {{ ln.anchor_n }}+ market){% endif %}{% if ln.over_str %} ({{ ln.over_str }}/{{ ln.under_str }}){% endif %}: we give OVER {{ (ln.p_over * 100)|round(0)|int }}%{% if ln.blend_mean is defined %} (from {{ ln.blend_mean }}, our {{ st.proj }} blended with the line{% if ln.role_gap %}; big gap vs the line, most likely a role change, so our projection gets less weight and this stays out of Best 5{% endif %}){% endif %}{% if ln.market_side is not none %}, market {{ (ln.market_side * 100)|round(0)|int }}% for {{ ln.side }}{% endif %}{% if ln.break_even %}, break-even {{ (ln.break_even * 100)|round(1) }}% for {{ ln.side }}{% endif %}{% if ln.adj %}; adjusted {{ ln.adj|join('; ') }}{% endif %}{% if ln.open_move %}; line {{ 'up' if ln.open_move > 0 else 'down' }} {{ '%g'|format(ln.open_move|abs) }} since our pick opened{% endif %} {{ utag(ln.units, ln.skip) }}{% if ln.move %} <span class="move">moved from {{ ln.move.from|fmtline }}</span>{% endif %}.{% endfor %}
   {% if st.frozen %}<br><span class="locked">&#128274; frozen: {{ st.frozen.call }} {{ st.frozen.line|fmtline }} ({{ st.frozen.frozen_at }})</span>{% endif %}
   {% if st.recent %}<br>Last {{ st.recent|length }} ({{ st.pick.side|lower }} {{ st.pick.line|fmtline }}, green = would have hit): {{ recent_strip(st.recent) }}{% endif %}
   {% if st.ladder %}<br>Kalshi ladder: {% for x in st.ladder %}{{ x.n }}+ {{ (x.mid * 100)|round(0)|int }}%{{ ', ' if not loop.last }}{% endfor %}.{% endif %}
