@@ -1229,3 +1229,14 @@ td.bx .mv-tag { font-size: 0.66rem; }
 .pt-rules td { vertical-align: top; }
 .flip-tag { font-family: var(--sans); font-weight: 800; font-size: 0.72rem; letter-spacing: .5px; padding: 1px 6px; margin-left: 4px; background: #b14bff; color: #fff; border: 2px solid #e2b8ff; white-space: nowrap; cursor: help; }
 .anchor-tag { font-family: var(--sans); font-weight: 800; font-size: 0.68rem; letter-spacing: .5px; padding: 1px 5px; color: #9fe8ff; border: 2px solid #2b8fb0; white-space: nowrap; cursor: help; }
+
+/* ==== Teams page (rankings) ==== */
+@media (max-width: 760px) { .bottom-nav { grid-template-columns: repeat(6, 1fr); } .bottom-nav a { font-size: 0.85rem; } }
+.rk-rank { font-weight: 800; }
+.rk-hi { color: var(--green); }
+.rk-lo { color: var(--under); }
+.rk-pill { font-weight: 800; font-size: 0.78rem; padding: 0 4px; border: 1px solid currentColor; margin-left: 4px; color: var(--text-dim); }
+.rk-pill.rk-hi { color: var(--green); } .rk-pill.rk-lo { color: var(--under); }
+.rk-table th { white-space: nowrap; }
+.rk-teamhead { display: flex; align-items: center; gap: 10px; margin: 6px 0 10px; font-size: 1.05rem; }
+.mu-line { color: #d6cbee; }

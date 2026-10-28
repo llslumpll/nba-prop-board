@@ -24,6 +24,7 @@ import logs
 import markets
 import model
 import predictions
+import rankings
 import svgchart
 import teams
 
@@ -37,9 +38,10 @@ NAV = [
     ("picks", "Picks", "picks.html"),
     ("games", "Games", "games.html"),
     ("players", "Players", "players.html"),
+    ("rankings", "Teams", "rankings.html"),
     ("history", "History", "history.html"),
 ]
-NAV_ICON = {"home": "\u2302", "picks": "\u2605", "games": "\u25ce", "players": "\u25a6", "history": "\u21ba"}
+NAV_ICON = {"home": "\u2302", "picks": "\u2605", "games": "\u25ce", "players": "\u25a6", "rankings": "\u2630", "history": "\u21ba"}
 # Old URLs from the 9-page layout forward to their new home, so bookmarks keep working.
 REDIRECTS = {"points.html": "picks.html#pts", "rebounds.html": "picks.html#reb", "assists.html": "picks.html#ast",
              "threes.html": "picks.html#fg3m", "pra.html": "picks.html#combos",
@@ -544,6 +546,7 @@ def render_all(ctx: dict) -> None:
         f.write_text(html)
         written[name] = len(html)
 
+    rk = ctx.get("rankings") or {}
     games_by_id = {g["game_id"]: g for g in sl["games"]}
     gidx = _games_index(ctx.get("box"))
     graded_lines = _graded_lines(ctx["preds"])
@@ -568,6 +571,7 @@ def render_all(ctx: dict) -> None:
                     st["lines"][src] = ln
                 st["ladder"] = (r["stats"][s]["lines"].get("kalshi") or {}).get("ladder")
                 st["frozen"] = predictions.get(g["date"], r["player"], s, r["game_id"])
+                st["matchup"] = rankings.matchup(rk, r["opp"], r.get("pos"), s)
                 st["recent"] = (recent_strip(gidx, r["player_id"], s, st["pick"]["line"], st["pick"]["side"])
                                 if st.get("pick") else [])
                 any_line = any_line or bool(st["lines"])
@@ -754,6 +758,7 @@ def render_all(ctx: dict) -> None:
           maturity=grade.maturity(ctx["cal"]), bt=bt, bt_cal=bt_all.get("calibration") or {},
           bt_n=(bt.get("pts") or {}).get("n"), health=list(reversed(ctx["health"][-30:])),
           n_pending=sum(1 for p in preds if p["status"] == "pending"))
+    write("rankings.html", "rankings.html", "rankings", rk=rk)
     keep = set()
     finals_by_date = _finals(ctx.get("box"))
     for mo in mlist:

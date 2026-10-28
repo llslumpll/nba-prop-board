@@ -40,6 +40,7 @@ import model  # noqa: E402
 import oddsapi_client  # noqa: E402
 import espn_finals  # noqa: E402
 import patterns  # noqa: E402
+import rankings  # noqa: E402
 import pages  # noqa: E402
 import predictions  # noqa: E402
 import prizepicks_client  # noqa: E402
@@ -411,7 +412,7 @@ def build(args) -> None:
     pages.render_all({
         "now": now, "slate": sl, "res": res, "best": best, "edge": est, "cal": cal, "preds": preds_all,
         "tpreds": predictions.load_all(team=True), "sources": sources, "health": health, "lm": lm,
-        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj, "trust": trust, "espn": espn, "patterns": pat_out,
+        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj, "trust": trust, "espn": espn, "patterns": pat_out, "rankings": rankings.build(box),
     })
     # consistency audit on what was just built; its result shows on History -> Pipeline next build
     import subprocess

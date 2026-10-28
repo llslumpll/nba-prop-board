@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Teams — Prop Edge NBA{% endblock %}
+{% block content %}
+<h1>Teams</h1>
+<p class="lede">Standings, and what every defense gives up: overall and to guards, forwards and centers, for every stat. <b class="stat-good">Green = allows a lot</b> (good for an OVER against them), <b class="stat-bad">red = allows little</b>. Each player's matchup line on Players and WHY &amp; STATS reads from here.</p>
+{% if rk.max_games and rk.max_games < 10 %}<div class="notice compact"><strong>Early season:</strong> teams have played {{ rk.min_games }}&ndash;{{ rk.max_games }} games, so these rankings swing a lot. The projections use a heavily smoothed version (this season blended with last season, opponent defense at low strength), and last season's numbers are one tab over for comparison.</div>{% endif %}
+
+<div class="seg" data-tabs="rk" data-hash="1">
+  <button data-tab="standings" class="active">STANDINGS</button><button data-tab="allowed">ALLOWED</button><button data-tab="team">TEAM VIEW</button><button data-tab="lastseason">LAST SEASON</button>
+</div>
+
+<section data-tab-panel="rk:standings">
+{% if rk.standings %}
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table sortable rk-table">
+  <thead><tr><th class="num">#</th><th>Team</th><th class="num">W&ndash;L</th><th class="num">Win %</th><th class="num hide-sm">Home</th><th class="num hide-sm">Road</th><th class="num hide-sm">Last 10</th><th class="num">Streak</th><th class="num">PPG</th><th class="num">Opp PPG</th><th class="num">Diff</th><th class="num hide-sm">Off rtg</th><th class="num hide-sm">Def rtg</th><th class="num">Net</th><th class="num hide-sm">Pace</th></tr></thead>
+  <tbody>{% for r in rk.standings %}<tr>
+    <td class="num" data-v="{{ r.rank }}">{{ r.rank }}</td><td data-v="{{ r.team }}">{{ m.badge(r.badge) }} <span class="hide-sm">{{ r.name }}</span></td>
+    <td class="num" data-v="{{ r.w }}">{{ r.w }}&ndash;{{ r.l }}</td><td class="num" data-v="{{ r.pct }}">{{ '%.3f'|format(r.pct) }}</td>
+    <td class="num hide-sm">{{ r.home }}</td><td class="num hide-sm">{{ r.road }}</td><td class="num hide-sm">{{ r.l10 }}</td>
+    <td class="num {{ 'stat-good' if r.streak[0] == 'W' else 'stat-bad' }}">{{ r.streak }}</td>
+    <td class="num" data-v="{{ r.ppg }}">{{ r.ppg }}</td><td class="num" data-v="{{ r.opp_ppg }}">{{ r.opp_ppg }}</td>
+    <td class="num {{ 'stat-good' if r.diff > 0 else 'stat-bad' if r.diff < 0 }}" data-v="{{ r.diff }}">{{ '%+.1f'|format(r.diff) }}</td>
+    <td class="num hide-sm" data-v="{{ r.ortg }}">{{ r.ortg }}</td><td class="num hide-sm" data-v="{{ r.drtg }}">{{ r.drtg }}</td>
+    <td class="num {{ 'stat-good' if r.net > 0 else 'stat-bad' if r.net < 0 }}" data-v="{{ r.net }}">{{ '%+.1f'|format(r.net) }}</td>
+    <td class="num hide-sm" data-v="{{ r.pace }}">{{ r.pace }}</td></tr>{% endfor %}</tbody>
+</table></div></div>
+<p class="small dim">Tap a column to sort. Off / Def rtg = points scored / allowed per 100 possessions; Net = the difference; Pace = possessions per game.</p>
+{% else %}<div class="empty-state"><h3>No games yet</h3><p>Standings appear after the first games of the season.</p></div>{% endif %}
+</section>
+
+{% macro allowed_tables(al, key) %}
+<div class="chips hv-subtabs" data-tabs="{{ key }}">
+  {% for s, lab in rk.stats %}<button class="chip {{ 'active' if loop.first }}" type="button" data-tab="{{ s }}">{{ stat_short.get(s, s)|upper }}</button>{% endfor %}
+</div>
+{% for s, lab in rk.stats %}{% set a = al[s] %}
+<div class="{{ 'hidden' if not loop.first }}" data-tab-panel="{{ key }}:{{ s }}">
+  {% if a %}
+  <p class="small dim">{{ lab }} allowed per game. League average: {{ a.league.all }} total &middot; {{ a.league.G }} to guards &middot; {{ a.league.F }} to forwards &middot; {{ a.league.C }} to centers. Rank 1 = allows the most.</p>
+  <div class="table-wrap"><div class="table-scroll"><table class="stat-table sortable rk-table">
+    <thead><tr><th>Team</th><th class="num">All</th><th class="num">Rank</th><th class="num">To G</th><th class="num">Rank</th><th class="num">To F</th><th class="num">Rank</th><th class="num">To C</th><th class="num">Rank</th><th class="num hide-sm">GP</th></tr></thead>
+    <tbody>{% for r in a.rows %}<tr>
+      <td data-v="{{ r.team }}">{{ m.badge(r.badge) }}</td>
+      {% for k in ('all', 'G', 'F', 'C') %}{% set rnk = r[k ~ '_rank'] %}
+      <td class="num" data-v="{{ r[k] }}">{{ r[k] if r[k] is not none else '—' }} <span class="small dim">{{ '%+d'|format(r[k ~ '_vs']) ~ '%' if r[k ~ '_vs'] is defined else '' }}</span></td>
+      <td class="num rk-rank {{ 'rk-hi' if rnk and rnk <= 10 else 'rk-lo' if rnk and rnk > 20 }}" data-v="{{ rnk or 99 }}">{{ rnk or '—' }}</td>{% endfor %}
+      <td class="num hide-sm">{{ r.g }}</td></tr>{% endfor %}</tbody>
+  </table></div></div>
+  {% else %}<div class="empty-state"><h3>No data</h3><p>Not enough games yet.</p></div>{% endif %}
+</div>
+{% endfor %}
+{% endmacro %}
+
+<section class="hidden" data-tab-panel="rk:allowed">
+<p class="lede small">Which defenses give up the most of each stat, and to which position. A guard facing a top-10 team for assists to guards has a friendlier matchup than one facing a bottom-10 team.</p>
+{{ allowed_tables(rk.allowed, 'al') }}
+</section>
+
+<section class="hidden" data-tab-panel="rk:team">
+<p class="lede small">Pick a team to see everything it allows, by position, with its rank out of 30.</p>
+<div class="chips game-chips" data-tabs="tv">
+  {% for r in rk.standings|sort(attribute='team') %}<button class="chip {{ 'active' if loop.first }}" type="button" data-tab="{{ r.team }}">{{ r.team }}</button>{% endfor %}
+</div>
+{% for t in rk.standings|sort(attribute='team') %}
+<div class="{{ 'hidden' if not loop.first }}" data-tab-panel="tv:{{ t.team }}">
+  <div class="rk-teamhead">{{ m.badge(t.badge) }} <b>{{ t.name }}</b> <span class="dim">{{ t.w }}&ndash;{{ t.l }} &middot; net {{ '%+.1f'|format(t.net) }} &middot; pace {{ t.pace }}</span></div>
+  <div class="table-wrap"><div class="table-scroll"><table class="stat-table rk-table">
+    <thead><tr><th>Stat</th><th class="num">All</th><th class="num">To guards</th><th class="num">To forwards</th><th class="num">To centers</th></tr></thead>
+    <tbody>{% for s, lab in rk.stats %}{% set row = (rk.allowed[s].rows|selectattr('team', 'equalto', t.team)|list|first) if rk.allowed[s] else none %}
+    <tr><td>{{ lab }}</td>{% for k in ('all', 'G', 'F', 'C') %}{% set rnk = row[k ~ '_rank'] if row else none %}
+      <td class="num">{% if row and row[k] is not none %}{{ row[k] }} <span class="rk-pill {{ 'rk-hi' if rnk <= 10 else 'rk-lo' if rnk > 20 }}">#{{ rnk }}</span>{% else %}—{% endif %}</td>{% endfor %}</tr>{% endfor %}</tbody>
+  </table></div></div>
+</div>
+{% endfor %}
+</section>
+
+<section class="hidden" data-tab-panel="rk:lastseason">
+<p class="lede small">The same "allowed" rankings for last season ({{ rk.season - 2 + 1 }}-{{ (rk.season - 1) % 100 }}), a steadier reference while this season's samples are small.</p>
+{{ allowed_tables(rk.allowed_prev, 'alp') }}
+</section>
+
+<script>
+  // tap a column header to sort (numbers by data-v)
+  document.querySelectorAll('table.sortable').forEach(function (t) {
+    t.querySelectorAll('thead th').forEach(function (th, i) {
+      th.style.cursor = 'pointer';
+      th.addEventListener('click', function () {
+        var rows = Array.prototype.slice.call(t.tBodies[0].rows), dir = th.dataset.dir === 'desc' ? 1 : -1;
+        th.dataset.dir = dir === 1 ? 'asc' : 'desc';
+        rows.sort(function (a, b) {
+          var x = a.cells[i].dataset.v, y = b.cells[i].dataset.v, nx = parseFloat(x), ny = parseFloat(y);
+          if (!isNaN(nx) && !isNaN(ny)) return dir * (nx - ny);
+          return dir * String(x || a.cells[i].textContent).localeCompare(String(y || b.cells[i].textContent));
+        });
+        rows.forEach(function (r) { t.tBodies[0].appendChild(r); });
+      });
+    });
+  });
+</script>
+{% endblock %}

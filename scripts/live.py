@@ -103,6 +103,11 @@ def load_fit() -> dict:
     prm = dict(r.get("params") or {})
     if "season_w" in prm:
         prm["season_w"] = tuple(prm["season_w"])
+    if prm.get("use_def") is False and prm.get("def_k") == 20.0 and "def_update" not in prm:
+        # Oct 28: opponent defense vs position switched on, mildly (strength 0.25, shrunk with 40 games of
+        # prior). Re-tested on games it wasn't fitted on: average miss lower in 14 of 15 stat / period checks
+        # (first weeks of 2025-26, mid 2025-26, this season), all by about 0.1%: a small, consistent help.
+        prm.update(use_def=True, a_def=0.25, def_k=40.0)
     if "last_game_w" not in prm:
         # Oct 26 minutes update: trust this season sooner. Tested on games it wasn't fitted on:
         # minutes miss 4.75 -> 4.31 (first 3 weeks of 2025-26), 4.97 -> 4.62 (this season so far),
@@ -334,7 +339,7 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
     for r in proj.sort("proj_pts", descending=True).iter_rows(named=True):
         g = games[r["game_id"]]
         tier = tier_for(r)
-        row = {"player": r["player"], "player_id": r["player_id"], "team": r["team"], "opp": r["opp"],
+        row = {"player": r["player"], "player_id": r["player_id"], "team": r["team"], "opp": r["opp"], "pos": r.get("pos"),
                "home": r["home"], "game_id": r["game_id"], "badge": teams.badge(r["team"]),
                "proj_min": round(r["proj_min"], 1), "tier": tier, "inj_status": r.get("inj_status"),
                "inj_note": r.get("inj_note"), "stats": {},
