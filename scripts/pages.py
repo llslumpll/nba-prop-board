@@ -687,7 +687,7 @@ def render_all(ctx: dict) -> None:
                             "ac": g["away_badge"]["color"], "hc": g["home_badge"]["color"]} for g in sl["games"]],
                  "picks": live_picks, "gpicks": live_g}
     write("games.html", "games.html", "games", slate=sl, cards=gcards, page_ids=page_ids, team_fit=tf,
-          g_best5=g_best5, g_value=g_value, g_mkt=g_mkt, gmoney=gmoney, blend_w=live.GAME_BLEND_W, cap=live.GAME_CHANCE_CAP, live_data=live_data,
+          g_best5=g_best5, g_value=g_value, g_mkt=g_mkt, gmoney=gmoney, ed=ctx.get("edges") or {}, eds=ctx.get("edges_sum") or {}, blend_w=live.GAME_BLEND_W, cap=live.GAME_CHANCE_CAP, live_data=live_data,
           empty_best=_empty_best_text(ctx),
           notices=_notices(ctx)[:1] + ([f"<strong>Kalshi:</strong> {ctx['sources']['kalshi']['error']}"] if ctx['sources']['kalshi']['error'] else []))
 
