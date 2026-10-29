@@ -152,6 +152,8 @@ def tier_for(row: dict) -> str:
 # ---------------------------------------------------------------------------
 
 LIVE_HOLD_H = 5
+MIN_FLOOR_BELOW = 8.0   # a player with a posted line projected under this many minutes...
+MIN_FLOOR_SHARE = 0.8   # ...is floored at this share of his recent minutes (see run())
 
 # ---- recommended units: how much to stake on a pick, from its edge over the price
 # edge = our chance - the price's break-even. Steps chosen so 1U needs a 6-point edge;
@@ -306,6 +308,8 @@ def why_text(r: dict, s: str, cal_bias: float) -> str:
         mins += f", −{abs(r['min_b2b']):.1f} back-to-back"
     if r["min_blowout"] < -0.2:
         mins += f", −{abs(r['min_blowout']):.1f} blowout risk ({r['margin_source']} margin {abs(r['exp_margin']):.0f})"
+    if r.get("min_floor"):
+        mins += f"; the team-minutes cap had him at {r.get('proj_min_raw') or 0:.1f}, but a book posted a line on him, so he's floored at 80% of his recent minutes"
     parts.append(mins + ")")
     w = r[f"w_cur_{s}"]
     if r["c_n"]:
@@ -344,6 +348,29 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
     team_dates = dataio.load_schedule().select(pl.col("home").alias("team"), "date").vstack(
         dataio.load_schedule().select(pl.col("away").alias("team"), "date")).drop_nulls()
     proj = model.project(box, t, fit["params"], team_dates=team_dates, spreads=spreads)
+    # Safety net (Oct 29, DeAndre Jordan): the team-minutes cap can leave the 11th man at 0 even when a book
+    # has posted a line on him (it expects him to play). A player with a line who has played this season
+    # (and averages 10+ recent minutes) is floored at MIN_FLOOR_SHARE of his recent minutes.
+    lined = {(k[0], k[2]) for k in line_book}
+    if lined and proj.height:
+        has_line = pl.Series([(a, b) in lined for a, b in zip(proj["player"].to_list(), proj["game_id"].to_list())])
+        # (a posted line beats the box-score guess: books know when a benched or injured player is back)
+        need = has_line & (proj["proj_min"] < MIN_FLOOR_BELOW) & (proj["c_n"] >= 1) & (proj["min_ewm"].fill_null(0) >= 10)
+        if need.any():
+            new_min = pl.when(pl.Series(need)).then(pl.col("min_ewm") * MIN_FLOOR_SHARE).otherwise(pl.col("proj_min"))
+            proj = proj.with_columns(min_floor=pl.Series(need), proj_min_raw=pl.col("proj_min")).with_columns(proj_min=new_min)
+            fac = pl.col("f_pace") * pl.col("f_home") * pl.col("f_rest")
+            proj = proj.with_columns([pl.when(pl.col("min_floor")).then(pl.col("proj_min") * pl.col(f"rate_{x}") * fac * pl.col(f"f_def_{x}")
+                                      * pl.col(f"f_use_{x}") * pl.col(f"f_team_{x}")).otherwise(pl.col(f"proj_{x}")).alias(f"proj_{x}")
+                                      for x in model.STATS])
+            # the floored minutes come out of everyone else on that team, so the team still adds up to one game
+            grp = ["game_id", "team"]
+            fl_sum = pl.when(pl.col("min_floor")).then(pl.col("proj_min")).otherwise(0.0).sum().over(grp)
+            ot_sum = pl.when(~pl.col("min_floor")).then(pl.col("proj_min")).otherwise(0.0).sum().over(grp)
+            cap = fit["params"].team_min_cap
+            k = pl.when((fl_sum + ot_sum > cap) & (ot_sum > 0)).then(((cap - fl_sum) / ot_sum).clip(0.85, 1.0)).otherwise(1.0)
+            proj = proj.with_columns(k_floor=pl.when(pl.col("min_floor")).then(1.0).otherwise(k))
+            proj = proj.with_columns([(pl.col(c) * pl.col("k_floor")).alias(c) for c in ["proj_min"] + [f"proj_{x}" for x in model.STATS]])
     present_ids = set(proj["player_id"].to_list())
     no_hist = [r for r in t.filter(pl.col("present")).iter_rows(named=True) if r["player_id"] not in present_ids]
     cal = grade.load_calibration()
@@ -359,7 +386,7 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
                "home": r["home"], "game_id": r["game_id"], "badge": teams.badge(r["team"]),
                "proj_min": round(r["proj_min"], 1), "tier": tier, "inj_status": r.get("inj_status"),
                "inj_note": r.get("inj_note"), "starter": r.get("starter"), "stats": {},
-               "factors": {"last_min": r.get("l_min") if r.get("same_season") else None, "role_n": r.get("role_n"), "min_recent": round(r["min_base"], 1), "min_adj": round(r["min_extra"] + r["min_b2b"] + r["min_blowout"], 1),
+               "factors": {"min_floor": bool(r.get("min_floor")), "last_min": r.get("l_min") if r.get("same_season") else None, "role_n": r.get("role_n"), "min_recent": round(r["min_base"], 1), "min_adj": round(r["min_extra"] + r["min_b2b"] + r["min_blowout"], 1),
                            "pace": round(r["f_pace"], 3), "home": round(r["f_home"], 3), "rest": round(r["f_rest"], 3),
                            "rest_days": r.get("rest"), "games_this_season": int(r.get("c_n") or 0),
                            "team": {s: round(r.get(f"f_team_{s}") or 1.0, 3) for s in model.STATS}}}

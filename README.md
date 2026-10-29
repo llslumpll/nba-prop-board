@@ -436,3 +436,16 @@ From the Monahan lecture (market-based betting):
 - Test on live-like rosters (everyone with a box row, DNPs = 0 min): this season minutes miss 6.01 -> 5.60, PRA
   miss 6.02 -> 5.83 (20+ min players 6.76 -> 6.72); first 4 weeks of 2025-26 overall 5.59 -> 5.47 min (20+ min
   players slightly worse, 6.64 -> 6.72 PRA). No effect after a team's 10th game.
+- Also in update 38 (full data sweep, Oct 29):
+  - Sweep: live-style projections for every game day this season + tonight, checking zero-minute regulars,
+    phantom minutes, team minute totals, roster vs box-score teams, names, duplicates, out players with picks and
+    stale box scores. Feeds were clean (no missing finals, no team or name mismatches); two projection bugs found.
+  - DeAndre Jordan (NOP) projected 0.0 min with a 4.5-rebound line: the team-minutes cap left the 11th man at 0.
+    New safety net (live.py MIN_FLOOR_*): a player with a posted line who has played this season (10+ recent min)
+    and is projected under 8 min is floored at 80% of his recent minutes; his teammates shrink (max 15%) so the
+    team still adds up to one game. Historically for such players the miss drops 8.3 -> 5.7 min (Nov 2025),
+    7.1 -> 5.6 (Jan), 9.3 -> 6.5 (this season).
+  - New permanent audit checks on every build (data/projections_today.json snapshot): every team's projected
+    minutes add up to a game (225-247); no player with a posted line who's been playing projected near 0; every
+    player projected once, for one team; every game final 15+ hours has box scores. Plus a printed NOTE listing
+    regulars the cap trims under 8 min with no line posted.

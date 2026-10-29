@@ -278,6 +278,18 @@ def build(args) -> None:
                    sl, roster, inj, line_book, fit, spreads=spreads, pat=pat, open_lines=open_lines)
     print(f"Slate {sl.get('date')}: {len(sl['games'])} games, {len(res['players'])} players projected, "
           f"{sum(len(v) for v in res['picks'].values())} player/stat lines matched.")
+    # projection snapshot for the audit's sanity checks (minutes, lines, injuries, duplicates)
+    try:
+        (DATA / "projections_today.json").write_text(json.dumps({
+            "at": now.strftime("%Y-%m-%d %H:%M UTC"), "date": sl.get("date"),
+            "games": {str(g["game_id"]): {"tip": str(g["tip_utc"]), "started": bool(g.get("started")), "teams": [g["away"], g["home"]]} for g in sl["games"]},
+            "players": [{"player": r["player"], "id": r["player_id"], "team": r["team"], "game_id": r["game_id"],
+                         "proj_min": r["proj_min"], "recent_min": (r.get("factors") or {}).get("min_recent"),
+                         "games": (r.get("factors") or {}).get("games_this_season"), "floor": (r.get("factors") or {}).get("min_floor"),
+                         "inj": r.get("inj_status"), "has_line": any((st or {}).get("lines") for st in (r.get("stats") or {}).values())}
+                        for r in res["players"]]}, default=str))
+    except Exception as e:  # noqa: BLE001
+        print(f"Projection snapshot failed: {e}")
 
     # injury news: who was newly ruled out since the last build, and whose projection jumped while the line didn't
     try:

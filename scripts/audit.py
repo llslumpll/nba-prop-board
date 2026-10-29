@@ -234,6 +234,47 @@ for d in dates:
     check(f"day page {d}: every pick shows its units", dp.count('class="u-tag u-') >= len(tp_) + sum(1 for p in P if p["date"] == d),
           f"{dp.count('class=\"u-tag u-')} tags for {len(tp_) + sum(1 for p in P if p['date'] == d)} picks")
 
+# 9. SANITY: projections and data make sense (added Oct 29 after the Isaiah Stewart 0-minute bug)
+try:
+    snap = json.loads((ROOT / "data" / "projections_today.json").read_text())
+except Exception:  # noqa: BLE001
+    snap = {}
+if snap.get("players"):
+    SP = snap["players"]
+    open_g = {g for g, v in (snap.get("games") or {}).items() if not v.get("started")}
+    sums = defaultdict(float)
+    for r in SP:
+        sums[(r["game_id"], r["team"])] += r["proj_min"] or 0
+    bad_sum = [f"{t} {m:.0f}" for (g, t), m in sums.items() if str(g) in open_g and not 225 <= m <= 247]
+    check("every team's projected minutes add up to a game (225-247)", not bad_sum, str(bad_sum[:4]) if bad_sum else f"{len(sums)} teams")
+    zero = [f"{r['player']} ({r['team']}) {r['proj_min']:.1f} min" for r in SP if str(r["game_id"]) in open_g and r.get("has_line")
+            and (r.get("games") or 0) >= 1 and (r.get("recent_min") or 0) >= 10 and (r["proj_min"] or 0) < 5]
+    check("no player with a posted line who's been playing is projected near 0 minutes", not zero, str(zero[:4]) if zero else f"{len(SP)} players")
+    dupes = [k for k, v in Counter((r["id"], r["game_id"]) for r in SP).items() if v > 1]
+    names = defaultdict(set)
+    for r in SP:
+        names[r["player"]].add(r["team"])
+    two = [n for n, ts in names.items() if len(ts) > 1]
+    check("every player projected once, for one team", not dupes and not two, f"dupes {dupes[:3]}, two teams {two[:3]}" if dupes or two else f"{len(SP)} players")
+    low_reg = [f"{r['player']} ({r['team']}) {r['proj_min']:.1f} of ~{r['recent_min']:.0f}" for r in SP if str(r["game_id"]) in open_g
+               and (r.get("games") or 0) >= 3 and (r.get("recent_min") or 0) >= 15 and (r["proj_min"] or 0) < 8]
+    if low_reg:
+        print(f"NOTE regulars projected under 8 min (team-minutes cap; no line posted): {low_reg[:6]}")
+# data freshness: every game final for 12+ hours is in the box scores
+try:
+    import polars as pl
+    sch = dataio.load_schedule()
+    bx = dataio.load_box()
+    have = set(bx["game_id"].unique().to_list()) if bx.height else set()
+    cutoff = datetime.now(sch["tip_utc"][0].tzinfo) - __import__("datetime").timedelta(hours=15)
+    since = cutoff - __import__("datetime").timedelta(days=30)
+    old_final = sch.filter(pl.col("completed") & (pl.col("tip_utc") < cutoff) & (pl.col("tip_utc") > since))
+    miss = [r["game_id"] for r in old_final.iter_rows(named=True) if r["game_id"] not in have]
+    miss = [g for g in miss if g]  # ignore unknown ids
+    check("every game finished 15+ hours ago has box scores", not miss, f"{len(miss)} missing: {miss[:3]}" if miss else f"{old_final.height} games")
+except Exception as e:  # noqa: BLE001
+    print(f"NOTE freshness check skipped: {e}")
+
 print()
 print("ALL CHECKS PASSED" if not fails else f"{len(fails)} CHECK(S) FAILED: " + "; ".join(fails))
 sys.exit(1 if fails else 0)
