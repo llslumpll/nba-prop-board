@@ -410,3 +410,16 @@ From the Monahan lecture (market-based betting):
   already capture most of it. So both stay off, and the weekly self-tuning (tune.py) now tries a 0.25 step on
   each every week and switches one on only if it beats the current settings on earlier AND recent games.
 - requirements.txt: numpy (used by wowy.py).
+
+## Update 37: role-based scoring rate (ON) + role signals on cards
+
+- `model.py` `role_rate_w` / `role_early` / `role_band` / `role_k`: a player's per-minute rate is blended with his
+  rate in past games (this + last season) where he played within 5 minutes of tonight's projected minutes
+  (n / (n + 10) shrink), weighted most early in the season (x 5 / (games this season + 5)). From the Dr. Profit
+  writeups: players produce at a higher rate in bigger roles (Watson: 0.45 pts/min overall vs ~0.60 in 25+ min games).
+- Backtest Oct 29 (games the setting wasn't fitted on): PRA miss 6.416 -> 6.411 (Nov 2025), 6.215 -> 6.212 (Jan),
+  6.240 -> 6.238 (Mar), 6.562 -> 6.487 this season; reb / ast / threes better in every window, points in 3 of 4.
+  ON by default (live.load_fit); both knobs added to the weekly self-tuning.
+- Pick cards: "IN 25-35 MIN GAMES: 15/19" (how often he cleared tonight's line in games with minutes like
+  tonight's projection) and a MINUTES RISING / FALLING tag when last game's minutes differ from his recent
+  average by 6+.

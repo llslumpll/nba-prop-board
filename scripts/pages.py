@@ -252,8 +252,24 @@ def card_details(p: dict, gidx: dict, graded: dict, prow: dict | None, n_recent:
     vs = [g[s] for g in games if g["opp"] == p.get("opp") and g["season"] >= CURRENT_SEASON - 2]
     f = (prow or {}).get("factors") or {}
     tiles = []
+    role_hit = min_trend = None
     if prow:
         tiles.append({"v": f"{prow['proj_min']:.1f}", "l": f"proj min (recent {f.get('min_recent', 0):.1f})", "css": "neutral"})
+        lm = f.get("last_min")
+        if lm is not None and abs(lm - f.get("min_recent", lm)) >= 6:
+            up = lm > f.get("min_recent", lm)
+            min_trend = {"up": up, "last": round(lm), "avg": round(f.get("min_recent", lm))}
+            tiles.append({"v": f"{lm:.0f} {'▲' if up else '▼'}", "l": f"min last game (MINUTES {'RISING' if up else 'FALLING'})",
+                          "css": "good" if up == (side == "OVER") else "bad"})
+        # Dr. Profit-style: how often he cleared this line in games with minutes like tonight's (this + last season)
+        pm = prow.get("proj_min")
+        if pm and line is not None:
+            sim = [g for g in games if g["season"] >= CURRENT_SEASON - 1 and abs((g.get("min") or 0) - pm) <= 5]
+            if len(sim) >= 5:
+                hit = sum(1 for g in sim if won(g[s], line) == "over")
+                role_hit = {"hit": hit, "n": len(sim), "lo": int(pm - 5), "hi": int(pm + 5)}
+                tiles.append({"v": f"{hit}/{len(sim)}", "l": f"cleared {side.lower()} {_fmtline(line)} in his {int(pm - 5)}-{int(pm + 5)} min games",
+                              "css": "good" if hit / len(sim) >= 0.6 else "bad" if hit / len(sim) <= 0.4 else "neutral"})
     if base is not None:
         tiles.append({"v": _fmtline(round(base, 1)), "l": base_label, "css": "neutral"})
     if rec_vals:
@@ -272,7 +288,7 @@ def card_details(p: dict, gidx: dict, graded: dict, prow: dict | None, n_recent:
     return {
         "chart": svgchart.bar_chart_with_threshold(bars, line=line, baseline=base,
                                                    label=f"{p['player']} {model.STAT_LABEL[s]}, last {len(recent)} games vs the line"),
-        "recent_n": len(rec_vals), "recent_over": over_n,
+        "recent_n": len(rec_vals), "recent_over": over_n, "role_hit": role_hit, "min_trend": min_trend,
         "baseline": round(base, 1) if base is not None else None, "baseline_label": base_label,
         "tiles": tiles,
         "vs_opp": {"n": len(vs), "avg": round(sum(vs) / len(vs), 1), "best": max(vs),

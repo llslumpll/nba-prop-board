@@ -115,6 +115,12 @@ def load_fit() -> dict:
         # 4.18 -> 4.13 mid-season; points, rebounds and PRA misses also down. A retune that saves
         # its own values for these keys takes over from here.
         prm.update(min_prior_k=1.0, last_game_w=0.25)
+    if "role_rate_w" not in prm:
+        # Oct 29 (update 37): per-minute rate partly from his past games with minutes like tonight's projection,
+        # weighted most early in the season (x 5 / (games this season + 5)). Tested on games it wasn't fitted on:
+        # PRA miss 6.416 -> 6.411 (Nov 2025), 6.215 -> 6.212 (Jan), 6.240 -> 6.238 (Mar), 6.562 -> 6.487 this season;
+        # reb, ast and threes better everywhere, points better in 3 of 4. The weekly tuner can move it from here.
+        prm.update(role_rate_w=1.0, role_early=5.0)
     fields = model.Params.__dataclass_fields__
     p = model.Params(**{k: v for k, v in prm.items() if k in fields})
     p_base = p
@@ -353,7 +359,7 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
                "home": r["home"], "game_id": r["game_id"], "badge": teams.badge(r["team"]),
                "proj_min": round(r["proj_min"], 1), "tier": tier, "inj_status": r.get("inj_status"),
                "inj_note": r.get("inj_note"), "starter": r.get("starter"), "stats": {},
-               "factors": {"min_recent": round(r["min_base"], 1), "min_adj": round(r["min_extra"] + r["min_b2b"] + r["min_blowout"], 1),
+               "factors": {"last_min": r.get("l_min") if r.get("same_season") else None, "role_n": r.get("role_n"), "min_recent": round(r["min_base"], 1), "min_adj": round(r["min_extra"] + r["min_b2b"] + r["min_blowout"], 1),
                            "pace": round(r["f_pace"], 3), "home": round(r["f_home"], 3), "rest": round(r["f_rest"], 3),
                            "rest_days": r.get("rest"), "games_this_season": int(r.get("c_n") or 0),
                            "team": {s: round(r.get(f"f_team_{s}") or 1.0, 3) for s in model.STATS}}}

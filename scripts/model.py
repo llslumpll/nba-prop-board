@@ -90,6 +90,10 @@ class Params:
     use_blowout: bool = True
     wowy_w: float = 0.0       # weight on with/without history when a teammate is out (wowy.py); 0 = off
     opp_out_w: float = 0.0    # weight on what the opponent allows without its missing players; 0 = off
+    role_rate_w: float = 0.0  # weight on his per-minute rate in past games with similar minutes (role); 0 = off
+    role_band: float = 5.0    # "similar" = within this many minutes of tonight's projection
+    role_k: float = 10.0      # shrink: n_similar / (n_similar + role_k)
+    role_early: float = 0.0   # >0: role weight fades as this season's games pile up: x role_early / (games + role_early)
     wowy_star: float = 12.0   # only absences of players scoring this many (recent per-game points) count
     wowy_fresh: float = 0.5   # ... and only while the absence is still "fresh" (0-1)
 
@@ -424,6 +428,20 @@ def project(box: pl.DataFrame, targets: pl.DataFrame, p: Params | None = None,
               .then(1 + p.rest3_rate).otherwise(1.0)) if p.use_home_rest else pl.lit(1.0)
     t = t.with_columns(f_pace=f_pace, f_home=f_home, f_rest=f_rest)
 
+    # --- role: per-minute production in his past games (this + last season) with minutes like tonight's projection
+    if p.role_rate_w > 0:
+        hist = played.select("player_id", pl.col("date").alias("h_date"), pl.col("season").alias("h_season"),
+                             pl.col("min").alias("h_min"), *[pl.col(x).alias(f"h_{x}") for x in STATS])
+        keys = t.select("game_id", "player_id", "date", "season", "proj_min").unique(["game_id", "player_id"])
+        sim = keys.join(hist, on="player_id").filter(
+            (pl.col("h_date") < pl.col("date")) & (pl.col("h_season") >= pl.col("season") - 1)
+            & ((pl.col("h_min") - pl.col("proj_min")).abs() <= p.role_band) & (pl.col("h_min") >= 10))
+        sim = sim.group_by(["game_id", "player_id"]).agg(pl.len().alias("role_n"), pl.col("h_min").sum().alias("role_min"),
+                                                       *[pl.col(f"h_{x}").sum().alias(f"role_{x}") for x in STATS])
+        t = t.join(sim, on=["game_id", "player_id"], how="left").with_columns(pl.col("role_n").fill_null(0))
+    else:
+        t = t.with_columns(role_n=pl.lit(0))
+
     out_cols = []
     for s in STATS:
         k = p.k[s]
@@ -434,6 +452,12 @@ def project(box: pl.DataFrame, targets: pl.DataFrame, p: Params | None = None,
         prior_raw = pl.when(pm > 0).then((w0 * pl.col(f"{s}1") + w1 * pl.col(f"{s}2")) / pm).otherwise(0.0)
         prior = (pg * prior_raw + p.k_pos * pl.col(f"pos_{s}")) / (pg + p.k_pos)
         rate = (n * cur + k * prior) / (n + k)
+        if p.role_rate_w > 0:
+            rw = p.role_rate_w * pl.col("role_n") / (pl.col("role_n") + p.role_k)
+            if p.role_early > 0:
+                rw = rw * p.role_early / (pl.col("c_n") + p.role_early)
+            rrate = pl.when(pl.col("role_min") > 0).then(pl.col(f"role_{s}") / pl.col("role_min")).otherwise(None)
+            rate = pl.when(rrate.is_not_null()).then((1 - rw) * rate + rw * rrate).otherwise(rate)
         f_def = capped(p.a_def * (pl.col(f"def_ratio_{s}") - 1)) if p.use_def else pl.lit(1.0)
         share_out = pl.when(pl.col(f"team_e_{s}") > 0).then(pl.col(f"free_{s}") / (pl.col(f"team_e_{s}") + pl.col(f"free_{s}"))).otherwise(0.0)
         f_use = ((1 + p.usage_b * share_out).clip(1.0, 1 + p.usage_cap)) if p.use_out else pl.lit(1.0)

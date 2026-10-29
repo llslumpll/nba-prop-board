@@ -54,6 +54,8 @@ KNOBS = {
     "usage_b":       ("how much teammates' absences boost usage", "add", 0.1, 0.0, 0.6),
     # update 36: with/without history (wowy.py). Backtested Oct 29 on three stretches of 2025-26: every weight
     # made projections slightly worse, so both start at 0; the weekly run keeps testing a step up.
+    "role_rate_w":   ("weight on his scoring rate in past games with similar minutes", "add", 0.25, 0.0, 1.5),
+    "role_early":    ("how long the similar-minutes rate matters into the season (games)", "mul", 1.5, 2.0, 40.0),
     "wowy_w":        ("weight on with/without history when a star teammate is out", "add", 0.25, 0.0, 1.0),
     "opp_out_w":     ("weight on what the opponent allows without its missing players", "add", 0.25, 0.0, 1.0),
 }

@@ -160,6 +160,10 @@
     {{ recent_strip(p.recent) }}
   </div>
   {% endif %}
+  {% if p.role_hit or p.min_trend %}<div class="tc-role">
+    {% if p.role_hit %}<span title="This season and last, in games where he played {{ p.role_hit.lo }}-{{ p.role_hit.hi }} minutes (like tonight's projection)">IN {{ p.role_hit.lo }}&ndash;{{ p.role_hit.hi }} MIN GAMES: <b class="{{ 'stat-good' if p.role_hit.hit / p.role_hit.n >= 0.6 else 'stat-bad' if p.role_hit.hit / p.role_hit.n <= 0.4 else '' }}">{{ p.role_hit.hit }}/{{ p.role_hit.n }}</b></span>{% endif %}
+    {% if p.min_trend %}<span class="mt-tag {{ 'mt-up' if p.min_trend.up else 'mt-down' }}" title="Played {{ p.min_trend.last }} minutes last game vs about {{ p.min_trend.avg }} recently">MINUTES {{ '&#9650; RISING'|safe if p.min_trend.up else '&#9660; FALLING'|safe }} ({{ p.min_trend.last }})</span>{% endif %}
+  </div>{% endif %}
   <div class="tc-foot">
     {{ src_name(p.line_source) }}{% if p.anchor %} <span class="anchor-tag" title="PrizePicks posts no price, so this line's chance starts from Kalshi's market at the same number">KALSHI-PRICED</span>{% endif %} {{ label_tag(edge[p.stat].status) }}
     {% if p.locked %}<span class="locked">locked</span>{% else %}<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span>{% endif %}
