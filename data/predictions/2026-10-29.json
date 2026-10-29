@@ -1138,12 +1138,8 @@
   "anchor": null,
   "be_over": 0.5971,
   "be_under": 0.5275,
-  "best5": [
-   "reb:best5"
-  ],
-  "best5_at": {
-   "reb:best5": "2026-10-29 07:20:47 UTC"
-  },
+  "best5": [],
+  "best5_at": {},
   "blend_mean": 8.02,
   "blend_w": 0.225,
   "break_even": 0.5971,
@@ -2274,9 +2270,11 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [
-   "reb:value"
+   "reb:value",
+   "reb:best5"
   ],
   "best5_at": {
+   "reb:best5": "2026-10-29 07:40:44 UTC",
    "reb:value": "2026-10-29 05:20:53 UTC"
   },
   "blend_mean": 3.91,
@@ -3481,8 +3479,8 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.5772,
-  "be_under": 0.5075,
+  "be_over": 0.325,
+  "be_under": 0.7535,
   "best5": [
    "fg3m:value",
    "fg3m:best5"
@@ -3491,32 +3489,32 @@
    "fg3m:best5": "2026-10-29 07:20:47 UTC",
    "fg3m:value": "2026-10-29 05:20:53 UTC"
   },
-  "blend_mean": 1.91,
+  "blend_mean": 1.88,
   "blend_w": 0.225,
-  "break_even": 0.5772,
-  "call": "OVER",
-  "chance": 0.5404,
-  "close_at": "2026-10-29 07:00 UTC",
-  "close_line": 1.5,
-  "close_mkt": 0.535,
+  "break_even": 0.7535,
+  "call": "UNDER",
+  "chance": 0.704,
+  "close_at": "2026-10-29 07:40 UTC",
+  "close_line": 2.5,
+  "close_mkt": 0.715,
   "date": "2026-10-29",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-29 05:20 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-10-29 07:00 UTC",
+  "frozen_at": "2026-10-29 07:40 UTC",
   "game_id": 401909895,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 1.5,
+  "line": 2.5,
   "line_source": "kalshi",
   "lines": {
-   "kalshi": 1.5
+   "kalshi": 2.5
   },
-  "market_side": 0.535,
-  "move": 0.0,
-  "move_dir": null,
+  "market_side": 0.715,
+  "move": 1.0,
+  "move_dir": "against",
   "opp": "MEM",
   "out_ctx": [
    "Chris Youngblood",
@@ -3552,7 +3550,7 @@
   "tip_utc": "2026-10-30T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 2,
+  "updates": 3,
   "var": 2.062,
   "why": "32.0 min (recent 33.0, \u22121.0 team-minutes adjustment); \u00d7 0.066 3-pointers made/min (50% this season's 0.074 over 3 games, 50% prior 0.057); context: home +1%, shared production on POR \u22127%; calibration +0.0."
  },
@@ -4529,14 +4527,8 @@
   "anchor": null,
   "be_over": 0.6069,
   "be_under": 0.4774,
-  "best5": [
-   "fg3m:best5",
-   "fg3m:value"
-  ],
-  "best5_at": {
-   "fg3m:best5": "2026-10-29 05:20:53 UTC",
-   "fg3m:value": "2026-10-29 07:20:47 UTC"
-  },
+  "best5": [],
+  "best5_at": {},
   "blend_mean": 1.11,
   "blend_w": 0.225,
   "break_even": 0.6069,
@@ -4605,35 +4597,38 @@
  "Donovan Clingan|pa|401909895": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 31% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 33% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 11.61,
+  "blend_mean": 12.39,
   "blend_w": 0.225,
   "break_even": 0.542,
-  "call": "OVER",
+  "call": "UNDER",
   "chance": 0.5015,
-  "close_at": "2026-10-29 05:20 UTC",
-  "close_line": 11.5,
+  "close_at": "2026-10-29 07:40 UTC",
+  "close_line": 12.5,
   "close_mkt": null,
   "date": "2026-10-29",
+  "first_call": "OVER",
+  "first_frozen_at": "2026-10-29 05:20 UTC",
+  "first_line": 11.5,
   "flip": null,
-  "frozen_at": "2026-10-29 05:20 UTC",
+  "frozen_at": "2026-10-29 07:40 UTC",
   "game_id": 401909895,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 11.5,
+  "line": 12.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 11.5
+   "prizepicks": 12.5
   },
   "market_side": null,
-  "move": null,
-  "move_dir": null,
+  "move": 1.0,
+  "move_dir": "against",
   "opp": "MEM",
   "out_ctx": [
    "Chris Youngblood",
@@ -4644,7 +4639,7 @@
   "proj_min": 25.1,
   "projected": 12.0,
   "role_gap": false,
-  "skip": "pa|prizepicks|OVER",
+  "skip": "pa|prizepicks",
   "snaps": {
    "open": {
     "at": "2026-10-29 05:20 UTC",
@@ -4667,6 +4662,7 @@
   "tip_utc": "2026-10-30T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
+  "updates": 1,
   "var": 39.207,
   "why": "25.1 min (recent 25.8, \u22120.8 team-minutes adjustment); \u00d7 0.499 pts+ast/min (50% this season's 0.500 over 3 games, 50% prior 0.498); context: home +1%, opponent defense \u22121%, shared production on POR \u22126%; calibration +0.3."
  },
@@ -5184,32 +5180,32 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 28.14,
+  "blend_mean": 28.92,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5037,
-  "close_at": "2026-10-29 05:20 UTC",
-  "close_line": 28.5,
+  "chance": 0.506,
+  "close_at": "2026-10-29 07:40 UTC",
+  "close_line": 29.5,
   "close_mkt": null,
   "date": "2026-10-29",
   "first_call": "UNDER",
   "first_frozen_at": "2026-10-29 05:20 UTC",
   "first_line": 28.5,
   "flip": null,
-  "frozen_at": "2026-10-29 05:25 UTC",
+  "frozen_at": "2026-10-29 07:40 UTC",
   "game_id": 401909893,
   "hit": null,
   "home": false,
   "label": "lean",
-  "line": 28.5,
+  "line": 29.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 28.5
+   "prizepicks": 29.5
   },
   "market_side": null,
-  "move": 0.0,
-  "move_dir": null,
+  "move": 1.0,
+  "move_dir": "against",
   "opp": "ATL",
   "out_ctx": [
    "Henri Veesaar",
@@ -5243,7 +5239,7 @@
   "tip_utc": "2026-10-30T00:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 1,
+  "updates": 2,
   "var": 81.527,
   "why": "30.8 min (recent 33.0, \u22120.9 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.899 pts+reb/min (57% this season's 0.892 over 4 games, 43% prior 0.908); context: pace vs ATL +1%, road \u22121%, rest \u22122%, opponent defense \u22121%; calibration +0.3."
  },
@@ -7864,35 +7860,38 @@
  "Jarrett Allen|pr|401909893": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 31% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 33% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 21.61,
+  "blend_mean": 22.38,
   "blend_w": 0.225,
   "break_even": 0.542,
-  "call": "OVER",
-  "chance": 0.5011,
-  "close_at": "2026-10-29 05:20 UTC",
-  "close_line": 21.5,
+  "call": "UNDER",
+  "chance": 0.5013,
+  "close_at": "2026-10-29 07:40 UTC",
+  "close_line": 22.5,
   "close_mkt": null,
   "date": "2026-10-29",
+  "first_call": "OVER",
+  "first_frozen_at": "2026-10-29 05:20 UTC",
+  "first_line": 21.5,
   "flip": null,
-  "frozen_at": "2026-10-29 05:20 UTC",
+  "frozen_at": "2026-10-29 07:40 UTC",
   "game_id": 401909893,
   "hit": null,
   "home": false,
   "label": "lean",
-  "line": 21.5,
+  "line": 22.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 21.5
+   "prizepicks": 22.5
   },
   "market_side": null,
-  "move": null,
-  "move_dir": null,
+  "move": 1.0,
+  "move_dir": "against",
   "opp": "ATL",
   "out_ctx": [
    "Henri Veesaar",
@@ -7903,7 +7902,7 @@
   "proj_min": 27.1,
   "projected": 22.0,
   "role_gap": false,
-  "skip": "pr|prizepicks",
+  "skip": "pr|prizepicks|UNDER",
   "snaps": {
    "open": {
     "at": "2026-10-29 05:20 UTC",
@@ -7926,7 +7925,8 @@
   "tip_utc": "2026-10-30T00:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 81.59,
+  "updates": 1,
+  "var": 81.553,
   "why": "27.1 min (recent 27.8, \u22120.7 team-minutes adjustment); \u00d7 0.816 pts+reb/min (57% this season's 0.795 over 4 games, 43% prior 0.845); context: pace vs ATL +1%, road \u22121%, rest \u22122%, opponent defense +1%; calibration +0.3."
  },
  "Jarrett Allen|pts|401909893": {
@@ -9346,28 +9346,30 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.6365,
+  "be_over": 0.6463,
   "be_under": 0.4472,
   "best5": [
-   "fg3m:best5"
+   "fg3m:best5",
+   "fg3m:value"
   ],
   "best5_at": {
-   "fg3m:best5": "2026-10-29 05:20:53 UTC"
+   "fg3m:best5": "2026-10-29 05:20:53 UTC",
+   "fg3m:value": "2026-10-29 07:40:44 UTC"
   },
-  "blend_mean": 2.3,
+  "blend_mean": 2.32,
   "blend_w": 0.225,
-  "break_even": 0.6365,
+  "break_even": 0.6463,
   "call": "OVER",
-  "chance": 0.5721,
-  "close_at": "2026-10-29 07:20 UTC",
+  "chance": 0.576,
+  "close_at": "2026-10-29 07:40 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.595,
+  "close_mkt": 0.6,
   "date": "2026-10-29",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-29 05:20 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-10-29 07:20 UTC",
+  "frozen_at": "2026-10-29 07:40 UTC",
   "game_id": 401909895,
   "hit": null,
   "home": true,
@@ -9377,7 +9379,7 @@
   "lines": {
    "kalshi": 1.5
   },
-  "market_side": 0.595,
+  "market_side": 0.6,
   "move": 0.0,
   "move_dir": null,
   "opp": "MEM",
@@ -9415,7 +9417,7 @@
   "tip_utc": "2026-10-30T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 4,
+  "updates": 5,
   "var": 3.001,
   "why": "28.8 min (recent 29.7, \u22120.9 team-minutes adjustment); \u00d7 0.070 3-pointers made/min (50% this season's 0.065 over 3 games, 50% prior 0.074); context: home +1%, opponent defense +1%, shared production on POR \u22127%; calibration +0.0."
  },
@@ -9995,9 +9997,11 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [
-   "fg3m:value"
+   "fg3m:value",
+   "fg3m:best5"
   ],
   "best5_at": {
+   "fg3m:best5": "2026-10-29 07:40:44 UTC",
    "fg3m:value": "2026-10-29 07:20:47 UTC"
   },
   "blend_mean": 0.88,
@@ -11470,38 +11474,39 @@
  "Robert Williams III|pr|401909895": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 33% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 33% of our lean on PrizePicks lines, pattern)",
+   "-3.6 pts: pick follows the line's move (pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 14.05,
+  "blend_mean": 14.82,
   "blend_w": 0.225,
   "break_even": 0.542,
-  "call": "OVER",
-  "chance": 0.5079,
-  "close_at": "2026-10-29 05:20 UTC",
-  "close_line": 13.5,
+  "call": "UNDER",
+  "chance": 0.531,
+  "close_at": "2026-10-29 07:40 UTC",
+  "close_line": 14.5,
   "close_mkt": null,
   "date": "2026-10-29",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-29 05:20 UTC",
   "first_line": 13.5,
   "flip": null,
-  "frozen_at": "2026-10-29 05:25 UTC",
+  "frozen_at": "2026-10-29 07:40 UTC",
   "game_id": 401909895,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 13.5,
+  "line": 14.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 13.5
+   "prizepicks": 14.5
   },
   "market_side": null,
-  "move": 0.0,
-  "move_dir": null,
+  "move": 1.0,
+  "move_dir": "against",
   "opp": "MEM",
   "out_ctx": [
    "Chris Youngblood",
@@ -11512,7 +11517,7 @@
   "proj_min": 18.3,
   "projected": 15.9,
   "role_gap": false,
-  "skip": "pr|prizepicks",
+  "skip": "pr|prizepicks|UNDER",
   "snaps": {
    "open": {
     "at": "2026-10-29 05:20 UTC",
@@ -11535,7 +11540,7 @@
   "tip_utc": "2026-10-30T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 1,
+  "updates": 2,
   "var": 48.781,
   "why": "18.3 min (recent 18.8, \u22120.6 team-minutes adjustment); \u00d7 0.900 pts+reb/min (50% this season's 1.019 over 3 games, 50% prior 0.782); context: home +1%, opponent defense \u22121%, shared production on POR \u22125%; calibration +0.3."
  },
@@ -12015,6 +12020,74 @@
   "var": 1.559,
   "why": "8.9 min (recent 16.9, \u22128.0 team-minutes adjustment); \u00d7 0.133 rebounds/min (20% this season's 0.183 over 3 games, 80% prior 0.121); context: home +1%, shared production on POR \u22124%; calibration +0.1."
  },
+ "Toumani Camara|ast|401909895": {
+  "actual": null,
+  "adj": [
+   "chance pulled toward 50% (keeps 33% of our lean on PrizePicks lines, pattern)"
+  ],
+  "anchor": null,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "blend_mean": 1.77,
+  "blend_w": 0.225,
+  "break_even": 0.542,
+  "call": "OVER",
+  "chance": 0.5035,
+  "close_at": "2026-10-29 07:40 UTC",
+  "close_line": 1.5,
+  "close_mkt": null,
+  "date": "2026-10-29",
+  "flip": null,
+  "frozen_at": "2026-10-29 07:40 UTC",
+  "game_id": 401909895,
+  "hit": null,
+  "home": true,
+  "label": "lean",
+  "line": 1.5,
+  "line_source": "prizepicks",
+  "lines": {
+   "prizepicks": 1.5
+  },
+  "market_side": null,
+  "move": null,
+  "move_dir": null,
+  "opp": "MEM",
+  "out_ctx": [
+   "Chris Youngblood",
+   "Shaedon Sharpe"
+  ],
+  "player": "Toumani Camara",
+  "player_id": 4431736,
+  "proj_min": 28.6,
+  "projected": 1.9,
+  "role_gap": false,
+  "skip": null,
+  "snaps": {
+   "open": {
+    "at": "2026-10-29 07:40 UTC",
+    "best5": [],
+    "break_even": 0.542,
+    "call": "OVER",
+    "chance": 0.5035,
+    "line": 1.5,
+    "line_source": "prizepicks",
+    "market_side": null,
+    "projected": 1.9,
+    "units": 0.0
+   }
+  },
+  "src_key": "prizepicks",
+  "stat": "ast",
+  "status": "pending",
+  "team": "POR",
+  "tier": "1-4 games this season",
+  "tip_utc": "2026-10-30T02:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 1.83,
+  "why": "28.6 min (recent 29.5, \u22120.9 team-minutes adjustment); \u00d7 0.072 assists/min (38% this season's 0.068 over 3 games, 62% prior 0.074); context: home +1%, shared production on POR \u221211%; calibration +0.1."
+ },
  "Toumani Camara|fg3m|401909895": {
   "actual": null,
   "adj": [],
@@ -12091,39 +12164,38 @@
  "Toumani Camara|pa|401909895": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 33% of our lean on PrizePicks lines, pattern)",
-   "-3.6 pts: pick follows the line's move (pattern)"
+   "chance pulled toward 50% (keeps 33% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 14.19,
+  "blend_mean": 13.41,
   "blend_w": 0.225,
   "break_even": 0.542,
-  "call": "UNDER",
-  "chance": 0.5264,
-  "close_at": "2026-10-29 06:20 UTC",
-  "close_line": 13.5,
+  "call": "OVER",
+  "chance": 0.5125,
+  "close_at": "2026-10-29 07:40 UTC",
+  "close_line": 12.5,
   "close_mkt": null,
   "date": "2026-10-29",
   "first_call": "OVER",
   "first_frozen_at": "2026-10-29 06:00 UTC",
   "first_line": 12.5,
   "flip": null,
-  "frozen_at": "2026-10-29 06:20 UTC",
+  "frozen_at": "2026-10-29 07:40 UTC",
   "game_id": 401909895,
   "hit": null,
   "home": true,
   "label": "lean",
-  "line": 13.5,
+  "line": 12.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 13.5
+   "prizepicks": 12.5
   },
   "market_side": null,
-  "move": 1.0,
-  "move_dir": "against",
+  "move": 0.0,
+  "move_dir": null,
   "opp": "MEM",
   "out_ctx": [
    "Chris Youngblood",
@@ -12134,7 +12206,7 @@
   "proj_min": 28.6,
   "projected": 16.6,
   "role_gap": false,
-  "skip": "pa|prizepicks",
+  "skip": "pa|prizepicks|OVER",
   "snaps": {
    "open": {
     "at": "2026-10-29 06:00 UTC",
@@ -12157,7 +12229,7 @@
   "tip_utc": "2026-10-30T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 1,
+  "updates": 2,
   "var": 46.063,
   "why": "28.6 min (recent 29.5, \u22120.9 team-minutes adjustment); \u00d7 0.599 pts+ast/min (50% this season's 0.730 over 3 games, 50% prior 0.469); context: home +1%, shared production on POR \u22126%; calibration +0.3."
  },
