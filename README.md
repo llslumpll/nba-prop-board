@@ -449,3 +449,8 @@ From the Monahan lecture (market-based betting):
     minutes add up to a game (225-247); no player with a posted line who's been playing projected near 0; every
     player projected once, for one team; every game final 15+ hours has box scores. Plus a printed NOTE listing
     regulars the cap trims under 8 min with no line posted.
+
+## Update 39: "prices checked" stamp on parlay cards
+
+- Every open parlay shows "PRICES CHECKED 5:40 PM CDT · 12 min ago" (the viewer's own time zone; turns amber
+  after 25 minutes, i.e. a build was missed). Parlays re-price every build; the stamp shows how fresh that is.

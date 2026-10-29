@@ -232,7 +232,7 @@ def sync(date: str, now: datetime | None = None) -> dict:
             store.pop(pid, None)
             continue
         used |= {_used_key(l) for l in legs}
-        rec = {"id": pid, "date": date, "family": fam, "size": n, "legs": legs, **_summary(legs),
+        rec = {"id": pid, "date": date, "family": fam, "size": n, "legs": legs, **_summary(legs), "priced_at": now.isoformat(timespec="minutes"),
                "stake": stake_for(fam, n, legs, form), "status": "pending", "hit": None}
         if not cur:
             rec.update(created_at=stamp, updated_at=stamp, changes=0)

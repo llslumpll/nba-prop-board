@@ -797,6 +797,8 @@ def render_all(ctx: dict) -> None:
     for d in pz.get("days") or []:
         for r in d["rows"]:
             r["first_tip_label"] = _tip_label({"tip_utc": r.get("first_tip")})
+            if r.get("priced_at"):
+                r["priced_label"] = datetime.fromisoformat(r["priced_at"]).astimezone(ET).strftime("%-I:%M %p ET")
             for l in r["legs"]:
                 l["badge"] = teams.badge(l["team"] if l["kind"] == "player" else (l["pick"] if l["pick"] in teams.TEAMS else l["home"]))
                 l["tip_label"] = _tip_label(l)

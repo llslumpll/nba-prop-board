@@ -37,6 +37,7 @@
     <div class="pz-nums"><b>{{ '%.1f'|format(r.pays) }}x</b><span>pays about</span></div>
   </div>
   <div class="pz-tags"><span class="pz-stake" title="Recommended stake for this {{ 'play' if r.size == 1 else 'parlay' }}">STAKE {{ m.utag(r.stake or 1) }}</span>{% if r.ev >= 0 %}<span class="pr-tag pr-good" style="margin-left:0" title="Chance all hit x payout is above 1: worth it at these prices">GOOD PRICE</span>{% else %}<span class="pr-tag pr-toohigh" title="Likely-looking, but the payout is too small for its chance: {{ (r.chance * 100)|round|int }}% x {{ '%.2f'|format(r.pays) }} gives back about {{ ((1 + r.ev) * 100)|round|int }}% of what you put in, on average">PRICE TOO HIGH</span>{% endif %}{% if r.all_kalshi %} <span class="anchor-tag">ALL LEGS ON KALSHI</span>{% endif %}</div>
+  {% if r.priced_at and not r.locked_at and r.status == 'pending' %}<div class="pz-fresh" data-priced="{{ r.priced_at }}" title="Every leg's price and GOOD PRICE check were last refreshed at this build (every 20 minutes). If it's been a while, compare each leg's price where you're betting.">&#9201; PRICES CHECKED <span class="pz-at">{{ r.priced_label }}</span> <span class="pz-ago"></span></div>{% endif %}
   <ul class="pz-legs">{% for l in r.legs %}{{ leg_row(l, r.locked_at) }}{% endfor %}</ul>
   {% if r.status == 'graded' %}<div class="pz-foot {{ 'stat-good' if r.hit else 'stat-bad' }}">{{ 'CASHED' if r.hit else 'MISSED' }} {{ '%+.2f'|format(r.staked_units if r.staked_units is defined else r.units) }}U <span class="dim small">({{ r.stake or 1 }}U staked)</span></div>{% endif %}
 </article>
@@ -94,4 +95,20 @@
     <li><b>Chance all hit</b> = the legs' chances multiplied. <b>Pays about</b> = each leg's own price multiplied, how sportsbooks and Kalshi-style combos roughly price them; PrizePicks pays from a fixed table that can be lower.</li>
   </ul>
 </section>
+<script>
+  // "12 min ago" next to each parlay's price-check time; amber after 25 min (a build was missed)
+  (function () {
+    function tick() {
+      document.querySelectorAll('.pz-fresh').forEach(function (e) {
+        var t = Date.parse(e.dataset.priced); if (isNaN(t)) return;
+        var m = Math.max(0, Math.round((Date.now() - t) / 60000));
+        e.querySelector('.pz-ago').textContent = '· ' + (m < 1 ? 'just now' : m + ' min ago');
+        e.classList.toggle('pz-stale', m >= 25);
+        var at = e.querySelector('.pz-at');   // show the time in the viewer's own time zone
+        if (at && !at.dataset.done) { try { at.textContent = new Date(t).toLocaleTimeString([], {hour: 'numeric', minute: '2-digit', timeZoneName: 'short'}); at.dataset.done = 1; } catch (x) {} }
+      });
+    }
+    tick(); setInterval(tick, 30000);
+  })();
+</script>
 {% endblock %}
