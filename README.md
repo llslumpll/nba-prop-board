@@ -399,3 +399,14 @@ From the Monahan lecture (market-based betting):
   news again; tipped games ignored. Audit: news spotted before tip.
 - Note: in testing the projection model spread a star's minutes mostly to the bench (starters +0.5 pts), which is
   why the bump uses with/without history. Feeding with/without into projections themselves is the mid-November item.
+
+## Update 36: with/without absences (tested, kept OFF, re-tested weekly)
+
+- `scripts/wowy.py` + `model.py`: per-minute production of each player in games a star teammate (12+ ppg, fresh
+  absence) missed vs games they shared, and what an opponent allowed without its missing players; both from
+  games before the projected date only. Params `wowy_w`, `opp_out_w` (default 0 = off).
+- Backtest Oct 29 (2025-26 Nov / Jan / Mar + this season): every weight made the average miss slightly WORSE on
+  last season (e.g. Jan: 14.64 -> 14.68 at wowy 0.5); the model's own minutes redistribution + team-total pull
+  already capture most of it. So both stay off, and the weekly self-tuning (tune.py) now tries a 0.25 step on
+  each every week and switches one on only if it beats the current settings on earlier AND recent games.
+- requirements.txt: numpy (used by wowy.py).

@@ -88,6 +88,10 @@ class Params:
     use_home_rest: bool = True
     use_out: bool = True
     use_blowout: bool = True
+    wowy_w: float = 0.0       # weight on with/without history when a teammate is out (wowy.py); 0 = off
+    opp_out_w: float = 0.0    # weight on what the opponent allows without its missing players; 0 = off
+    wowy_star: float = 12.0   # only absences of players scoring this many (recent per-game points) count
+    wowy_fresh: float = 0.5   # ... and only while the absence is still "fresh" (0-1)
 
 
 # ---------------------------------------------------------------------------
@@ -319,6 +323,8 @@ def project(box: pl.DataFrame, targets: pl.DataFrame, p: Params | None = None,
     free = t.filter(pl.col("out_flag")).group_by(["game_id", "team"]).agg(
         [(pl.col("e_min") * pl.col("fresh")).sum().alias("free_min"), pl.col("player").alias("out_players")]
         + [(pl.col(f"e_{s}") * pl.col("fresh")).sum().alias(f"free_{s}") for s in STATS])
+    outs = t.filter(pl.col("out_flag") & (pl.col("e_pts") >= p.wowy_star) & (pl.col("fresh") >= p.wowy_fresh)
+                    ).select("game_id", "team", "player_id", "fresh")
     t = t.filter(pl.col("present") & pl.col("e_min").is_not_null())
     t = t.join(free, on=["game_id", "team"], how="left").with_columns(
         pl.col("free_min").fill_null(0.0), *[pl.col(f"free_{s}").fill_null(0.0) for s in STATS])
@@ -472,6 +478,27 @@ def project(box: pl.DataFrame, targets: pl.DataFrame, p: Params | None = None,
             t = t.with_columns(pl.when(old > 0).then(pl.col(f"proj_{s}") * new / old)
                                .otherwise(pl.col(f"proj_{s}")).alias(f"proj_{s}"),
                                pl.when(old > 0).then(new / old).otherwise(1.0).alias(f"f_team_{s}"))
+
+    # --- absences from real history (wowy.py): teammates out (additive) and opponent's missing players (ratio)
+    t = t.with_columns([pl.lit(0.0).alias(f"wowy_{s}") for s in base_stats] + [pl.lit(1.0).alias(f"oppf_{s}") for s in base_stats])
+    if (p.wowy_w > 0 or p.opp_out_w > 0) and outs.height:
+        import wowy
+        adj = wowy.adjustments(box, t.select("game_id", "player_id", "team", "opp", "date", "season"), outs)
+        if adj.height:
+            t = t.drop([f"wowy_{s}" for s in base_stats] + [f"oppf_{s}" for s in base_stats]).join(
+                adj, on=["game_id", "player_id"], how="left").with_columns(
+                [pl.col(f"wowy_{s}").fill_null(0.0) for s in base_stats] + [pl.col(f"oppf_{s}").fill_null(1.0) for s in base_stats])
+            pre = {x: f"pre_wowy_{x}" for x in base_stats}
+            t = t.with_columns([pl.col(f"proj_{x}").alias(pre[x]) for x in base_stats])
+            t = t.with_columns([((pl.col(f"proj_{x}") + p.wowy_w * pl.col(f"wowy_{x}") * pl.col("proj_min"))
+                                 * (1 + p.opp_out_w * (pl.col(f"oppf_{x}") - 1))).clip(0, None).alias(f"proj_{x}")
+                                for x in base_stats])
+            for s, parts in STATS.items():
+                if len(parts) > 1:
+                    old = sum(pl.col(pre[x]) for x in parts)
+                    new = sum(pl.col(f"proj_{x}") for x in parts)
+                    t = t.with_columns(pl.when(old > 0).then(pl.col(f"proj_{s}") * new / old)
+                                       .otherwise(pl.col(f"proj_{s}")).alias(f"proj_{s}"))
     return t
 
 

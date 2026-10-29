@@ -52,6 +52,10 @@ KNOBS = {
     "def_k":         ("games of prior behind each defense rating", "mul", 1.5, 10.0, 120.0),
     "a_pace":        ("strength of the pace adjustment", "add", 0.1, 0.0, 1.0),
     "usage_b":       ("how much teammates' absences boost usage", "add", 0.1, 0.0, 0.6),
+    # update 36: with/without history (wowy.py). Backtested Oct 29 on three stretches of 2025-26: every weight
+    # made projections slightly worse, so both start at 0; the weekly run keeps testing a step up.
+    "wowy_w":        ("weight on with/without history when a star teammate is out", "add", 0.25, 0.0, 1.0),
+    "opp_out_w":     ("weight on what the opponent allows without its missing players", "add", 0.25, 0.0, 1.0),
 }
 BT = Path(__file__).parent.parent / "data" / "backtest.json"
 
