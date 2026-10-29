@@ -423,3 +423,16 @@ From the Monahan lecture (market-based betting):
 - Pick cards: "IN 25-35 MIN GAMES: 15/19" (how often he cleared tonight's line in games with minutes like
   tonight's projection) and a MINUTES RISING / FALLING tag when last game's minutes differ from his recent
   average by 6+.
+
+## Update 38: early-season rotation fix (players who haven't been playing)
+
+- Bug (Oct 29): Isaiah Stewart projected 0.0 minutes. Memphis players who hadn't played a game this season
+  (Mashack, Small) or only one (Murray) were counted at last season's minutes, filled the ~240 team minutes
+  ahead of him, and pushed him to "fringe" (0 after the team cap).
+- Data: once a team has played 2+ games, a player with 0 appearances plays in 41% of games for ~10 min.
+- Fix (model.py appear_*): in a team's first 10 games, a player who appeared in under half of them is ordered by
+  minutes x his appearance share and treated as fringe; his minutes no longer push rotation players out.
+  Stewart: 0.0 -> ~18 min.
+- Test on live-like rosters (everyone with a box row, DNPs = 0 min): this season minutes miss 6.01 -> 5.60, PRA
+  miss 6.02 -> 5.83 (20+ min players 6.76 -> 6.72); first 4 weeks of 2025-26 overall 5.59 -> 5.47 min (20+ min
+  players slightly worse, 6.64 -> 6.72 PRA). No effect after a team's 10th game.

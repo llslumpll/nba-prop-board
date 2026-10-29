@@ -90,6 +90,10 @@ class Params:
     use_blowout: bool = True
     wowy_w: float = 0.0       # weight on with/without history when a teammate is out (wowy.py); 0 = off
     opp_out_w: float = 0.0    # weight on what the opponent allows without its missing players; 0 = off
+    appear_min_g: int = 2     # once his team has played this many games this season...
+    appear_cut: float = 0.5   # ...a player who appeared in fewer than this share of them...
+    appear_floor: float = 0.2 # ...has his minutes scaled by max(share, floor) (0 games: 41% play, ~10 min, 2025-27)
+    appear_max_g: int = 10    # early season only: later, a low share usually means he was hurt, not benched
     role_rate_w: float = 0.0  # weight on his per-minute rate in past games with similar minutes (role); 0 = off
     role_band: float = 5.0    # "similar" = within this many minutes of tonight's projection
     role_k: float = 10.0      # shrink: n_similar / (n_similar + role_k)
@@ -348,13 +352,26 @@ def project(box: pl.DataFrame, targets: pl.DataFrame, p: Params | None = None,
                            .then((1 - p.last_game_w) * pl.col("e_min") + p.last_game_w * pl.col("l_min"))
                            .otherwise(pl.col("e_min")))
 
+    # Out of the rotation so far this season: once the team has played appear_min_g games, a player who
+    # appeared in under appear_cut of them plays far less than his old minutes (0 games so far: in 41% of
+    # games for ~10 min, 2025-26 and 2026-27). Scale his minutes by his appearance share (floor appear_floor)
+    # so he can't take a rotation spot from players who are actually playing.
+    own_g = pl.when((pl.col("own_tseason") == pl.col("season")).fill_null(False)).then(pl.col("own_n")).otherwise(0)
+    share = pl.col("c_n").cast(pl.Float64) / own_g.cast(pl.Float64)
+    t = t.with_columns(appear=pl.when((own_g >= p.appear_min_g) & (own_g <= p.appear_max_g)).then(share).otherwise(None))
+    # only the ORDER changes (who counts as rotation vs fringe); minutes themselves are untouched, so a
+    # benched player drops to the bottom instead of pushing a real rotation player out
+    t = t.with_columns(e_rot=pl.when(pl.col("appear").is_not_null() & (pl.col("appear") < p.appear_cut))
+                       .then(pl.col("e_min") * pl.max_horizontal(pl.col("appear"), pl.lit(p.appear_floor)))
+                       .otherwise(pl.col("e_min")))
+
     # Rotation: fill each team's minutes in order of recent minutes. A
     # player whose higher-minute teammates already cover ROTATION_CAP is
     # "fringe" (a live roster lists ~18 players; ~10 play) and gets only a
     # fraction of his recent minutes, outside the team-total scaling.
-    t = t.sort(["game_id", "team", "e_min"], descending=[False, False, True]).with_columns(
+    t = t.sort(["game_id", "team", "e_rot"], descending=[False, False, True]).with_columns(
         cum_before=(pl.col("e_min").cum_sum() - pl.col("e_min")).over(["game_id", "team"]))
-    t = t.with_columns(fringe=pl.col("cum_before") >= p.rotation_cap)
+    t = t.with_columns(fringe=(pl.col("cum_before") >= p.rotation_cap) | (pl.col("e_rot") < pl.col("e_min") - 1e-9))
     wt = pl.when((pl.col("e_min") >= 8) & ~pl.col("fringe")).then(pl.col("e_min")).otherwise(0.0)
     t = t.with_columns(w=wt)
     t = t.with_columns(w_sum=pl.col("w").sum().over(["game_id", "team"]))
