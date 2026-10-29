@@ -227,8 +227,9 @@ def sync(date: str, now: datetime | None = None) -> dict:
         cur = store.get(pid)
         legs = _pick_legs(cands[fam], n, used)
         if not legs:
-            if cur:
-                used |= {_used_key(l) for l in cur["legs"]}
+            # can't be built from free legs right now: an open (never locked) parlay is dropped
+            # rather than kept stale, so it can't share a player with one built after it
+            store.pop(pid, None)
             continue
         used |= {_used_key(l) for l in legs}
         rec = {"id": pid, "date": date, "family": fam, "size": n, "legs": legs, **_summary(legs),
