@@ -915,7 +915,11 @@ def render_all(ctx: dict) -> None:
              + "".join(f" · {v}" for k, v in fd.items() if k.endswith("_error"))), warn=not fd.get("lines_at")),
     ]
     n_lines = sum(len(v) for v in res["picks"].values())
-    write("index.html", "home.html", "home", season=season, slate=sl, n_players=len(res["players"]), n_lines=n_lines,
+    nws = ctx.get("news") or {}
+    for ev in nws.get("today") or []:
+        ev["badge"] = teams.badge(ev["team"])
+        ev["seen_label"] = _tip_label({"tip_utc": ev["seen_at"].replace(" UTC", "+00:00")})
+    write("index.html", "home.html", "home", news=nws, season=season, slate=sl, n_players=len(res["players"]), n_lines=n_lines,
           n_graded=sum(1 for p in preds if p["status"] == "graded"), tops=tops, edge=edge, source_rows=source_rows,
           top_all=top_all, top_groups=top_groups, record=record, tiles=tiles, boards=boards,
           maturity=grade.maturity(ctx["cal"]), bt=bt,

@@ -386,3 +386,16 @@ From the Monahan lecture (market-based betting):
   1 / 0.5 / 0.25U, doubled after 10+ graded in profit, halved if down 25%+, max 3U). Scoreboard: parlays cashed
   X/Y, singles X/Y, units at recommended stakes, current streak, last 10. Retired parlay types that never locked
   are dropped.
+
+## Update 35: injury news alerts (Home)
+
+- `scripts/news.py`: every build compares tonight's OUT list (ESPN + NBA.com official inactives) with everyone seen
+  out earlier that day. A newly ruled-out player is NEWS; for each teammate with a line, the bump comes from real
+  history: how he played in games WITHOUT that player vs with him (last season + this one, 4+ games each, shrunk by
+  n/(n+6)). Teammates past a stat threshold (pts 1.5, reb/ast 0.8, threes 0.4, combos 1.2-2) are flagged with
+  the line at the moment of news; later builds show LINE HASN'T MOVED or BOOK MOVED until tip.
+- Every news play is graded against its line/side at the news; Home shows the record (and the record when the
+  line hadn't moved by tip). Guards: no alerts on a slate's first build; a name seen out once that day is never
+  news again; tipped games ignored. Audit: news spotted before tip.
+- Note: in testing the projection model spread a star's minutes mostly to the bench (starters +0.5 pts), which is
+  why the bump uses with/without history. Feeding with/without into projections themselves is the mid-November item.

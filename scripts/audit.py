@@ -93,6 +93,13 @@ for r in PZ:
 check("parlay results match their legs (won = every played leg hit, lost = a leg missed)", not bad_p,
       str(bad_p[:3]) if bad_p else f"{sum(1 for r in PZ if r['status'] != 'pending')} graded")
 
+# 1g. INJURY NEWS plays were all spotted before their game tipped
+NE = []
+for f in sorted((ROOT / "data" / "news").glob("*.json")) if (ROOT / "data" / "news").exists() else []:
+    NE += list(json.loads(f.read_text()).values())
+late_n = [e["id"] for e in NE if ts(e["seen_at"]) >= ts(e["tip_utc"])]
+check("every injury-news play spotted before its game tipped", not late_n, str(late_n[:2]) if late_n else f"{len(NE)} events checked")
+
 # 2. statuses and grading arithmetic
 bad = []
 for p in P:

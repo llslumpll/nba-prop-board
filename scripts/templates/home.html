@@ -23,6 +23,26 @@
   </div>
 </section>
 
+<section class="news-sec">
+  <h2 class="hv-h3">&#128680; Injury news</h2>
+  {% if news.today %}
+  {% for ev in news.today %}
+  <div class="news-ev">
+    <div class="news-head">{{ m.badge(ev.badge) }} <b>{{ ev.player }}</b> ruled <span class="stat-bad">{{ (ev.status or 'OUT')|upper }}</span> <span class="dim small">vs {{ ev.opp }} &middot; spotted {{ ev.seen_label }}</span></div>
+    {% set pl = ev.plays|selectattr('aligned')|list %}
+    {% if pl %}<ul class="news-plays">{% for b in pl %}
+      <li><a class="plink" href="p-{{ b.player_id }}.html">{{ b.player }}</a> <span class="pp-pick pp-{{ b.call|lower }}">{{ b.call }} {{ b.line|fmtline }}</span> {{ stat_short.get(b.stat, b.stat)|upper }}
+        <span class="small" title="How he actually played in {{ b.n_wo }} games without {{ ev.player }} vs {{ b.n_w }} with him (last season + this one), shrunk toward 0 for small samples">without him: <b class="{{ 'stat-good' if b.bump > 0 else 'stat-bad' }}">{{ '%+.1f'|format(b.bump) }}</b> ({{ b.n_wo }} games, {{ '%+.1f'|format(b.min_bump) }} min)</span>
+        {% if b.model_agrees %}{{ m.utag(b.units or 0) }}{% else %}<span class="dim small" title="Our own pick on this line is the other side">model disagrees</span>{% endif %}
+        {% if b.result == 'hit' %}<span class="res res-hit">HIT</span>{% elif b.result == 'miss' %}<span class="res res-miss">MISS</span>{% elif b.moved %}<span class="news-moved" title="The line moved after the news: the book reacted">BOOK MOVED &rarr; {{ b.line_now|fmtline }}</span>{% else %}<span class="news-fresh" title="Same line as before the news">LINE HASN'T MOVED</span>{% endif %}
+        <span class="dim small">{{ src_labels.get(b.src, b.src or '') }}</span></li>{% endfor %}</ul>
+    {% else %}<p class="small dim">No teammate with a line has a big enough with/without difference (or not enough games without him) to flag.</p>{% endif %}
+  </div>
+  {% endfor %}
+  {% else %}<p class="small dim">No late scratches yet today. When a player is newly ruled out, this shows which teammates have done more (or less) in past games without him, while their lines haven't moved yet.</p>{% endif %}
+  {% if news.n %}<p class="small">News plays so far: <b>{{ news.hits }}/{{ news.n }}</b> ({{ news.rate }}%) &middot; <span class="{{ 'stat-good' if news.units > 0 else 'stat-bad' if news.units < 0 }}">{{ '%+.2f'|format(news.units) }}U</span> at 1U each{% if news.unmoved.n %} &middot; when the line hadn't moved by tip: {{ news.unmoved.hits }}/{{ news.unmoved.n }}{% endif %}{% if news.pending %} &middot; {{ news.pending }} pending{% endif %}</p>{% endif %}
+</section>
+
 {% if tiles %}
 <div class="scoreboard">
   {% for t in tiles %}
