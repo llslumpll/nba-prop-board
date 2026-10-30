@@ -463,18 +463,20 @@ From the Monahan lecture (market-based betting):
   (localStorage `pe_theme`) and applied before the page paints. To remove the theme: delete terminal.css and the
   button in base.html.
 
-## Update 41: PRIMETIME style (switchable; ARCADE stays the default)
+## Update 42: PRIMETIME style + BKN minutes fix (the style was removed again in 43)
 
-- `docs/static/court.css` (+ Inter and Barlow Condensed fonts), scoped to `html[data-theme="court"]`. A national-TV
-  broadcast theme in an arena at night: spotlights and faint court lines in the background, a hardwood strip under
-  the header and a hardwood bottom bar, scoreboard-light (LED) numbers for records and units, big italic page titles
-  with a racing stripe, section titles as "LIVE" TV banners.
-- Picks are trading cards: striped header in the team's colors, the chance printed like a jersey number. Picks
-  staked 1U or more become gold "BIG PLAY" foil cards with a moving shine. Tonight's games are split-color
-  matchup cards; parlays are "ADMIT ONE" tickets. One rounded box style everywhere; buttons, badges, tiles and
-  the footer are centered; desktop nav is centered.
-- STYLE button now switches ARCADE / PRIMETIME (a saved TERMINAL or COURTSIDE choice opens as PRIMETIME).
-  terminal.css and the IBM Plex Mono fonts are no longer used (safe to delete from the repo).
-- Fix (live.py): when several players on one team get the posted-line minutes floor, and shrinking teammates
-  (max 15%) isn't enough, the whole team is scaled evenly so it still adds up to one game (seen in a test:
-  BKN 261 -> 241).
+- Fix (live.py, still in use): when several players on one team get the posted-line minutes floor, and shrinking
+  teammates (max 15%) isn't enough, the whole team is scaled evenly so it still adds up to one game (seen in a
+  test: BKN 261 -> 241).
+- A switchable PRIMETIME look (`court.css`); dropped in update 43.
+
+## Update 43: ARCADE theme pack (one look again; the STYLE switch is gone)
+
+- The STYLE button and the alternate looks are removed; the site is ARCADE only. `court.css`, `terminal.css`
+  and the Inter / Barlow Condensed / IBM Plex Mono fonts in `docs/static` are no longer used (safe to delete).
+- Arcade-game touches added to the end of `docs/static/style.css` (all CSS, no data changes):
+  marquee light bulbs around the logo, the tagline scrolls like an LED ticker, faint neon "arcade carpet"
+  shapes in the background, a bouncing basketball on the home title, a blinking cursor after section titles,
+  "ON FIRE!" pixel flames on any pick staked 1U or more, a combo counter on parlays ("3x COMBO", singles
+  say "SOLO SHOT"), and graded parlays say "WINNER!" or "GAME OVER". Animations stop for visitors whose
+  device asks for reduced motion.

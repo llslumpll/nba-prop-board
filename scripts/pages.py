@@ -92,7 +92,7 @@ def _season_label(s):
 def _css_hash() -> str:
     import hashlib
     try:
-        return hashlib.md5(b"".join((DOCS / "static" / f).read_bytes() for f in ("style.css", "court.css")
+        return hashlib.md5(b"".join((DOCS / "static" / f).read_bytes() for f in ("style.css",)
                                      if (DOCS / "static" / f).exists())).hexdigest()[:10]
     except Exception:  # noqa: BLE001
         return "0"
