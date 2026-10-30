@@ -454,3 +454,11 @@ From the Monahan lecture (market-based betting):
 
 - Every open parlay shows "PRICES CHECKED 5:40 PM CDT · 12 min ago" (the viewer's own time zone; turns amber
   after 25 minutes, i.e. a build was missed). Parlays re-price every build; the stamp shows how fresh that is.
+
+## Update 40: optional TERMINAL style (switchable, ARCADE stays the default)
+
+- `docs/static/terminal.css` (+ IBM Plex Mono fonts in docs/static/fonts): a black / amber / monospace look, every
+  rule scoped to `html[data-theme="terminal"]`, so the arcade look is untouched.
+- A "STYLE: ARCADE / TERMINAL" button in the header switches it; the choice is saved per browser/device
+  (localStorage `pe_theme`) and applied before the page paints. To remove the theme: delete terminal.css and the
+  button in base.html.

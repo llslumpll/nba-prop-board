@@ -1,0 +1,143 @@
+/* ==== TERMINAL theme (update 40) ====================================================
+   Optional look, switched with the STYLE button in the header (saved per browser).
+   Every rule is scoped to html[data-theme="terminal"], so the default ARCADE look is
+   untouched. Delete this file + the button to remove the theme entirely. */
+@font-face { font-family: "IBM Plex Mono"; src: url("fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("fonts/ibm-plex-mono-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("fonts/ibm-plex-mono-latin-700-normal.woff2") format("woff2"); font-weight: 700 800; font-display: swap; }
+
+html[data-theme="terminal"] {
+  --bg: #070707; --bg-card: #0d0d0d; --line: #2a2a2a; --text: #d8d8d8; --text-dim: #8c8c8c;
+  --pink: #ffb000; --cyan: #ffb000; --yellow: #ffb000; --amber: #ffb000; --green: #4ade80; --red: #f87171;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace; --sans: var(--mono); --pixel: var(--mono);
+  --t-hi: #f2f2f2; --t-panel: #0d0d0d; --t-line2: #1c1c1c;
+  font-size: 15px;
+}
+html[data-theme="terminal"], html[data-theme="terminal"] body { font-size: 15px; line-height: 1.5; image-rendering: auto; background: #070707; color: #d8d8d8; }
+html[data-theme="terminal"] body::after { display: none; }
+html[data-theme="terminal"] * { box-shadow: none !important; text-shadow: none !important; animation: none !important; border-radius: 0 !important; letter-spacing: 0 !important; }
+html[data-theme="terminal"] *::before, html[data-theme="terminal"] *::after { text-shadow: none !important; }
+
+/* every bordered thing: one thin neutral line (colored ones are re-set below) */
+html[data-theme="terminal"] [class] { border-color: #2a2a2a; }
+html[data-theme="terminal"] h1, html[data-theme="terminal"] h2, html[data-theme="terminal"] h3,
+html[data-theme="terminal"] .hero-h, html[data-theme="terminal"] .h2x, html[data-theme="terminal"] .hv-h3, html[data-theme="terminal"] .hist-h {
+  font-family: var(--mono); font-weight: 700; color: #f2f2f2; text-transform: none; }
+html[data-theme="terminal"] h1 { font-size: 1.6rem; }
+html[data-theme="terminal"] h2 { font-size: 1.25rem; }
+html[data-theme="terminal"] h3 { font-size: 1.05rem; }
+html[data-theme="terminal"] h1::before, html[data-theme="terminal"] h2::before { content: "> "; color: #ffb000; }
+html[data-theme="terminal"] a { color: #ffb000; }
+html[data-theme="terminal"] a:hover { color: #ffd066; }
+
+/* header + nav */
+html[data-theme="terminal"] .site-head { background: #070707; border-bottom: 1px solid #2a2a2a; }
+html[data-theme="terminal"] .brand { font-family: var(--mono); font-weight: 700; color: #ffb000; font-size: 1.2rem; }
+html[data-theme="terminal"] .brand-sub { background: none; color: #6e6e6e; border: 0; font-family: var(--mono); }
+html[data-theme="terminal"] .brand-sub::before { content: "/"; }
+html[data-theme="terminal"] .sys-tagline { background: #070707; color: #6e6e6e; border-color: #2a2a2a; font-family: var(--mono); font-size: 0.75rem; }
+html[data-theme="terminal"] .site-nav a, html[data-theme="terminal"] .chip, html[data-theme="terminal"] .seg button, html[data-theme="terminal"] .seg2 button,
+html[data-theme="terminal"] .slip-type button, html[data-theme="terminal"] .game-tab, html[data-theme="terminal"] .day-chip {
+  font-family: var(--mono); font-size: 0.85rem; font-weight: 500; background: #070707; color: #8c8c8c; border: 1px solid #2a2a2a; text-transform: uppercase; }
+html[data-theme="terminal"] .site-nav a.active, html[data-theme="terminal"] .chip.active, html[data-theme="terminal"] .seg button.active,
+html[data-theme="terminal"] .seg2 button.active, html[data-theme="terminal"] .game-tab.active, html[data-theme="terminal"] .day-chip.active {
+  background: #ffb000; color: #111; border-color: #ffb000; font-weight: 700; }
+html[data-theme="terminal"] .bottom-nav { background: #070707; border-top: 1px solid #2a2a2a; }
+html[data-theme="terminal"] .bottom-nav a { font-family: var(--mono); font-size: 0.62rem; color: #8c8c8c; }
+html[data-theme="terminal"] .bottom-nav a.active { background: #ffb000; color: #111; }
+
+/* panels and cards */
+html[data-theme="terminal"] .tcard, html[data-theme="terminal"] .sb-tile, html[data-theme="terminal"] .ph, html[data-theme="terminal"] .pt-card,
+html[data-theme="terminal"] .bd-top, html[data-theme="terminal"] .game-card, html[data-theme="terminal"] .summary-card, html[data-theme="terminal"] .chart-panel,
+html[data-theme="terminal"] .factor, html[data-theme="terminal"] .hv-tile, html[data-theme="terminal"] .hv-box, html[data-theme="terminal"] .hv-gloss,
+html[data-theme="terminal"] .hv-log, html[data-theme="terminal"] .hv-trust, html[data-theme="terminal"] .hv-verdict, html[data-theme="terminal"] .u-legend,
+html[data-theme="terminal"] .notice, html[data-theme="terminal"] .rec-box, html[data-theme="terminal"] .board, html[data-theme="terminal"] .gp-row,
+html[data-theme="terminal"] .lv-head, html[data-theme="terminal"] .lv-plays, html[data-theme="terminal"] .why-detail-box, html[data-theme="terminal"] .slip,
+html[data-theme="terminal"] .slip-sum div, html[data-theme="terminal"] .pz-card, html[data-theme="terminal"] .prop-card, html[data-theme="terminal"] .empty-state,
+html[data-theme="terminal"] .table-wrap, html[data-theme="terminal"] .hv-help {
+  background: #0d0d0d; border: 1px solid #2a2a2a; }
+html[data-theme="terminal"] .hv-help { border-left: 2px solid #ffb000; }
+html[data-theme="terminal"] .tcard { gap: 10px; padding: 14px; }
+html[data-theme="terminal"] .tc-name, html[data-theme="terminal"] .player-name, html[data-theme="terminal"] .ph-name { font-family: var(--mono); font-weight: 700; color: #f2f2f2; }
+html[data-theme="terminal"] .tc-chance b, html[data-theme="terminal"] .hv-tile b, html[data-theme="terminal"] .rec-box b, html[data-theme="terminal"] .pz-nums b,
+html[data-theme="terminal"] .ph-rec-big, html[data-theme="terminal"] .kv b, html[data-theme="terminal"] .fval {
+  font-family: var(--mono); font-weight: 700; color: #ffb000; }
+html[data-theme="terminal"] .hv-tile b { font-size: 1.6rem; color: #f2f2f2; }
+html[data-theme="terminal"] .hv-tile b.stat-good, html[data-theme="terminal"] .stat-good { color: #4ade80; }
+html[data-theme="terminal"] .hv-tile b.stat-bad, html[data-theme="terminal"] .stat-bad { color: #f87171; }
+html[data-theme="terminal"] .meter i { background: #1c1c1c; }
+html[data-theme="terminal"] .meter i.on, html[data-theme="terminal"] .meter .on { background: #ffb000; }
+
+/* tables */
+html[data-theme="terminal"] table.stat-table th { font-family: var(--mono); font-size: 0.72rem; color: #6e6e6e; background: #070707; border-bottom: 1px solid #2a2a2a; text-transform: uppercase; }
+html[data-theme="terminal"] table.stat-table td { border-bottom: 1px solid #1c1c1c; }
+html[data-theme="terminal"] table.stat-table tr:hover td { background: #141414; }
+html[data-theme="terminal"] tr.why-detail td, html[data-theme="terminal"] .bxt .team-row td, html[data-theme="terminal"] .team-row-lite td { background: #0d0d0d; color: #ffb000; font-family: var(--mono); }
+html[data-theme="terminal"] tr.row-hit td, html[data-theme="terminal"] tr.lv-hit td { background: rgba(74, 222, 128, .06); }
+html[data-theme="terminal"] tr.row-miss td, html[data-theme="terminal"] tr.lv-miss td { background: rgba(248, 113, 113, .06); }
+
+/* pick pills */
+html[data-theme="terminal"] .pill, html[data-theme="terminal"] .pp-pick { font-family: var(--mono); font-weight: 700; background: transparent; border: 1px solid #f2f2f2; color: #f2f2f2; }
+html[data-theme="terminal"] .pill-over, html[data-theme="terminal"] .pp-over { border-color: #4ade80; color: #4ade80; }
+html[data-theme="terminal"] .pill-under, html[data-theme="terminal"] .pp-under { border-color: #f87171; color: #f87171; }
+
+/* units: amber, stronger as the stake grows */
+html[data-theme="terminal"] .u-tag { font-family: var(--mono); font-weight: 700; background: transparent; border: 1px solid #6e5200; color: #ffb000; }
+html[data-theme="terminal"] .u-0 { border: 1px dashed #3a3a3a; color: #8c8c8c; }
+html[data-theme="terminal"] .u-75, html[data-theme="terminal"] .u-100 { border-color: #ffb000; }
+html[data-theme="terminal"] .u-150, html[data-theme="terminal"] .u-200, html[data-theme="terminal"] .u-300 { background: #ffb000; color: #111; border-color: #ffb000; }
+html[data-theme="terminal"] .u-skip { border: 1px solid #f87171; color: #f87171; background: transparent; }
+
+/* status tags keep their meaning colors */
+html[data-theme="terminal"] .pr-tag, html[data-theme="terminal"] .rec-tag, html[data-theme="terminal"] .anchor-tag, html[data-theme="terminal"] .mt-tag, html[data-theme="terminal"] .gap-tag,
+html[data-theme="terminal"] .start-tag, html[data-theme="terminal"] .flip-tag, html[data-theme="terminal"] .mv-tag, html[data-theme="terminal"] .early-tag, html[data-theme="terminal"] .moved-tag,
+html[data-theme="terminal"] .news-fresh, html[data-theme="terminal"] .news-moved, html[data-theme="terminal"] .tier, html[data-theme="terminal"] .lean-tag, html[data-theme="terminal"] .locked {
+  font-family: var(--mono); font-weight: 600; font-size: 0.72rem; background: transparent; }
+html[data-theme="terminal"] .pr-good { border: 1px solid #4ade80; color: #4ade80; background: transparent; }
+html[data-theme="terminal"] .u-tag.pr-wait { border: 1px dashed #ffd066; color: #ffd066; }
+html[data-theme="terminal"] .u-tag.pr-high, html[data-theme="terminal"] .pr-tag.pr-toohigh { border: 1px dashed #f87171; color: #f87171; }
+html[data-theme="terminal"] .rec-tag { border: 1px solid #3a3a3a; color: #c8c8c8; }
+html[data-theme="terminal"] .rec-tag.rec-proven { background: #ffb000; color: #111; border-color: #ffb000; }
+html[data-theme="terminal"] .anchor-tag { border: 1px solid #60a5fa; color: #93c5fd; }
+html[data-theme="terminal"] .mt-up, html[data-theme="terminal"] .start-confirmed { border: 1px solid #4ade80; color: #4ade80; }
+html[data-theme="terminal"] .mt-down { border: 1px solid #f87171; color: #f87171; }
+html[data-theme="terminal"] .gap-tag, html[data-theme="terminal"] .early-tag { border: 1px solid #ffb000; color: #ffb000; }
+html[data-theme="terminal"] .news-ev { border: 1px solid #f87171; background: #0d0d0d; }
+html[data-theme="terminal"] .news-fresh { background: #ffb000; color: #111; }
+html[data-theme="terminal"] .news-moved { border: 1px dashed #3a3a3a; color: #8c8c8c; }
+html[data-theme="terminal"] .pz-card.pz-won { border-color: #4ade80; }
+html[data-theme="terminal"] .pz-card.pz-lost { border-color: #f87171; }
+html[data-theme="terminal"] .pz-title { font-family: var(--mono); color: #ffb000; font-size: 0.8rem; }
+html[data-theme="terminal"] .pz-fresh { color: #4ade80; } html[data-theme="terminal"] .pz-fresh.pz-stale { color: #ffd066; }
+html[data-theme="terminal"] .res-hit, html[data-theme="terminal"] .rs-over { border-color: #4ade80; color: #4ade80; }
+html[data-theme="terminal"] .res-miss, html[data-theme="terminal"] .rs-under { border-color: #f87171; color: #f87171; }
+html[data-theme="terminal"] .team-badge { border-radius: 0; font-family: var(--mono); font-weight: 700; }
+html[data-theme="terminal"] .bd-btn, html[data-theme="terminal"] .why-btn, html[data-theme="terminal"] .slip-add, html[data-theme="terminal"] .live-btn {
+  font-family: var(--mono); font-weight: 700; background: transparent; border: 1px solid #ffb000; color: #ffb000; }
+html[data-theme="terminal"] input, html[data-theme="terminal"] select { background: #0d0d0d; color: #f2f2f2; border: 1px solid #2a2a2a; font-family: var(--mono); }
+
+/* the STYLE switch (both themes) */
+.theme-btn { margin-left: 10px; font: 700 0.6rem "Press Start 2P", monospace; color: var(--text-dim); background: transparent; border: 2px solid var(--line); padding: 6px 8px; cursor: pointer; white-space: nowrap; }
+.theme-btn b { color: var(--yellow); font-weight: 400; }
+html[data-theme="terminal"] .theme-btn { font: 600 0.72rem "IBM Plex Mono", monospace; border: 1px solid #2a2a2a; padding: 5px 8px; }
+html[data-theme="terminal"] .theme-btn b { color: #ffb000; font-weight: 700; }
+
+/* fixes after the first full-site look */
+html[data-theme="terminal"] body, html[data-theme="terminal"] p, html[data-theme="terminal"] .lede, html[data-theme="terminal"] li,
+html[data-theme="terminal"] td, html[data-theme="terminal"] .small { font-weight: 400; }
+html[data-theme="terminal"] .lede { color: #b8b8b8; font-size: 0.95rem; }
+html[data-theme="terminal"] b, html[data-theme="terminal"] strong { font-weight: 700; color: #f2f2f2; }
+html[data-theme="terminal"] .site-nav a, html[data-theme="terminal"] .game-tab { transform: none; }
+html[data-theme="terminal"] .record { background: transparent; padding: 0; gap: 0; border: 1px solid #2a2a2a; }
+html[data-theme="terminal"] .record .rec-box { border: 0; border-right: 1px solid #2a2a2a; background: #0d0d0d; }
+html[data-theme="terminal"] .rec-hit b { color: #4ade80; } html[data-theme="terminal"] .rec-miss b { color: #f87171; } html[data-theme="terminal"] .rec-pend b { color: #f2f2f2; }
+html[data-theme="terminal"] .rec-note { font-family: var(--mono); font-size: 0.8rem; color: #b8b8b8; padding: 8px; border-top: 1px solid #2a2a2a; }
+html[data-theme="terminal"] .rec-up { background: transparent; color: #4ade80; } html[data-theme="terminal"] .rec-down { background: transparent; color: #f87171; }
+html[data-theme="terminal"] .board-h, html[data-theme="terminal"] .kicker { font-family: var(--mono); font-size: 0.8rem; color: #8c8c8c; text-transform: uppercase; }
+html[data-theme="terminal"] .notice, html[data-theme="terminal"] .corr-warning { font-family: var(--mono); font-size: 0.82rem; text-transform: none; font-weight: 400; color: #d8d8d8; border: 1px solid #6e5200; background: #0d0d0d; }
+html[data-theme="terminal"] .notice strong { color: #ffb000; }
+html[data-theme="terminal"] .sys-tagline { display: none; }
+html[data-theme="terminal"] .tc-chance b { font-size: 2rem; }
+html[data-theme="terminal"] .u-legend { font-weight: 400; font-size: 0.8rem; }
+html[data-theme="terminal"] .u-legend > b { color: #ffb000; font-weight: 700; font-family: var(--mono); font-size: 0.8rem; }
