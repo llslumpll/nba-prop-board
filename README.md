@@ -480,3 +480,10 @@ From the Monahan lecture (market-based betting):
   "ON FIRE!" pixel flames on any pick staked 1U or more, a combo counter on parlays ("3x COMBO", singles
   say "SOLO SHOT"), and graded parlays say "WINNER!" or "GAME OVER". Animations stop for visitors whose
   device asks for reduced motion.
+
+## Update 44: lit-up court background (Sunset colors)
+
+- The neon "arcade carpet" shapes behind the site are replaced by a full NBA court drawn in glowing lines,
+  in warm Sunset colors: orange sidelines, pink 3-point arcs, yellow keys and center circle, red rims, with a
+  soft orange glow on the floor. It stands upright on phones and lies sideways on wide screens, and stays put
+  while the page scrolls. CSS only (end of `docs/static/style.css`); no data changes.
