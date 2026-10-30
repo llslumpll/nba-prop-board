@@ -10,7 +10,9 @@
 <link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="static/style.css?v=379ed9f019">
+<link rel="stylesheet" href="static/style.css?v=d8707b5976">
+  <link rel="stylesheet" href="static/terminal.css?v=d8707b5976">
+  <script>try { if (localStorage.getItem('pe_theme') === 'terminal') document.documentElement.dataset.theme = 'terminal'; } catch (e) {}</script>
   <script>
     // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
     (function () {
@@ -27,13 +29,14 @@
 <body>
   <header class="site-head">
     <a class="brand" href="index.html">PROP EDGE<span class="brand-sub">NBA</span></a>
+    <button class="theme-btn" type="button" onclick="peTheme()" title="Switch the site's look (saved on this device)">STYLE: <b id="theme-name">ARCADE</b></button>
     <nav class="site-nav" aria-label="Pages">
 <a href="index.html" class="">Home</a><a href="picks.html" class="">Picks</a><a href="games.html" class="">Games</a><a href="players.html" class="">Players</a><a href="rankings.html" class="">Teams</a><a href="parlays.html" class="">Parlays</a><a href="history.html" class="active">History</a>    </nav>
   </header>
   <div class="sys-tagline">⭐ AUTO-BUILD ⭐ EVERY PICK FROZEN BEFORE TIP ⭐ GRADED IN PUBLIC ⭐</div>
   <main class="site-main">
 <h1>History: Oct 2026</h1>
-<p class="lede"><a href="history.html">&larr; Back to the History summary</a>. 7153 graded, 3732 hit (52.2%), 161 void, 99 push, 961 pending.</p>
+<p class="lede"><a href="history.html">&larr; Back to the History summary</a>. 7153 graded, 3732 hit (52.2%), 161 void, 99 push, 962 pending.</p>
 <div class="pager"><a href="history-2026-10.html" class="active">Oct 2026</a></div>
 
 <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
@@ -41,10 +44,10 @@
   <tbody>
   <tr>
     <td><a href="history-2026-10-30.html">Fri Oct 30</a></td>
-    <td class="num">961</td><td class="num">0</td>
+    <td class="num">962</td><td class="num">0</td>
     <td class="num ">—</td>
     <td class="num">—</td>
-    <td class="num hide-sm">0 / 961</td>
+    <td class="num hide-sm">0 / 962</td>
   </tr>
   <tr>
     <td><a href="history-2026-10-29.html">Thu Oct 29</a></td>
@@ -125,6 +128,13 @@
 <a href="index.html" class=""><span class="bn-ic">⌂</span>Home</a><a href="picks.html" class=""><span class="bn-ic">★</span>Picks</a><a href="games.html" class=""><span class="bn-ic">◎</span>Games</a><a href="players.html" class=""><span class="bn-ic">▦</span>Players</a><a href="rankings.html" class=""><span class="bn-ic">☰</span>Teams</a><a href="parlays.html" class=""><span class="bn-ic">✦</span>Parlays</a><a href="history.html" class="active"><span class="bn-ic">↺</span>History</a>  </nav>
   <script>
     (function () { var a = document.querySelector('.site-nav a.active'); if (a && a.scrollIntoView) a.scrollIntoView({block: 'nearest', inline: 'center'}); })();
+    function peTheme() {
+      var d = document.documentElement, t = d.dataset.theme === 'terminal' ? 'arcade' : 'terminal';
+      if (t === 'terminal') d.dataset.theme = 'terminal'; else delete d.dataset.theme;
+      try { localStorage.setItem('pe_theme', t); } catch (e) {}
+      var n = document.getElementById('theme-name'); if (n) n.textContent = t.toUpperCase();
+    }
+    (function () { var n = document.getElementById('theme-name'); if (n && document.documentElement.dataset.theme === 'terminal') n.textContent = 'TERMINAL'; })();
     function toggleWhy(id, btn) {
       var panel = document.querySelector('[data-why-panel="' + id + '"]');
       if (!panel) return;
@@ -190,10 +200,10 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=379ed9f019"></script>
+  <script src="static/slip.js?v=d8707b5976"></script>
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>
-<div class="foot-row foot-dim"><span>BUILD: 2026-10-30 15:00 UTC &middot; via GitHub Actions</span></div>  </footer>
+<div class="foot-row foot-dim"><span>BUILD: 2026-10-30 15:02 UTC &middot; via GitHub Actions</span></div>  </footer>
 </body>
 </html>

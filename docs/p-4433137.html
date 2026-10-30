@@ -10,7 +10,9 @@
 <link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="static/style.css?v=379ed9f019">
+<link rel="stylesheet" href="static/style.css?v=d8707b5976">
+  <link rel="stylesheet" href="static/terminal.css?v=d8707b5976">
+  <script>try { if (localStorage.getItem('pe_theme') === 'terminal') document.documentElement.dataset.theme = 'terminal'; } catch (e) {}</script>
   <script>
     // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
     (function () {
@@ -27,6 +29,7 @@
 <body>
   <header class="site-head">
     <a class="brand" href="index.html">PROP EDGE<span class="brand-sub">NBA</span></a>
+    <button class="theme-btn" type="button" onclick="peTheme()" title="Switch the site's look (saved on this device)">STYLE: <b id="theme-name">ARCADE</b></button>
     <nav class="site-nav" aria-label="Pages">
 <a href="index.html" class="">Home</a><a href="picks.html" class="">Picks</a><a href="games.html" class="">Games</a><a href="players.html" class="active">Players</a><a href="rankings.html" class="">Teams</a><a href="parlays.html" class="">Parlays</a><a href="history.html" class="">History</a>    </nav>
   </header>
@@ -92,7 +95,7 @@
 <span class="pp-pick pp-over">OVER 8.5</span><span class="pp-ch">51%</span><span class="u-tag u-0 u-skip" title="Skipped by a pattern: this group of picks lost in earlier AND later games (History &rarr; Patterns), so no stake">SKIP</span><span class="rec-tag " title="FanDuel picks at 50-55% have hit 347/733 (47%)">347/733</span>
 <button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.5555555555555556, "chance": 0.5123, "gid": 401909285, "id": "4433137|pts|401909285", "line": 8.5, "opp": "GSW", "pid": 4433137, "player": "Ziaire Williams", "side": "OVER", "src": "fanduel", "stat": "PTS", "team": "LAL"}'>+ SLIP</button></span></div>
     <div class="bd-why"><p class="why-reason"><strong>points 10.7 &middot; <span class="pick-line"><span class="side-over">OVER</span> 8.5</span> <span class="chance">51%</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>:</strong> 25.3 min (recent 26.0, −0.6 team-minutes adjustment); × 0.448 points/min (44% this season&#39;s 0.395 over 4 games, 56% prior 0.440); context: road −1%, shared production on LAL −6%; calibration +0.1; listed Day-To-Day.
-<br>FanDuel 8.5 (-125/-106): we give OVER 51% (from 9.21, our 10.7 blended with the line), market 52% for OVER, break-even 55.6% for OVER; adjusted chance pulled toward 50% (keeps 34% of our lean on FanDuel lines, pattern) <span class="u-tag u-0 u-skip" title="Skipped by a pattern: this group of picks lost in earlier AND later games (History &rarr; Patterns), so no stake">SKIP</span>.<br>PrizePicks 8.5: we give OVER 51% (from 8.98, our 10.7 blended with the line), break-even 54.2% for OVER; adjusted chance pulled toward 50% (keeps 36% of our lean on PrizePicks lines, pattern); line down 1 since our pick opened <span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span> <span class="move">moved from 9.5</span>.<br><span class="mu-line">Matchup: GSW allows <b>42.2</b> points a game to forwards, <b class="">20th most</b> of 30 (+0% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span><br><span class="locked">&#128274; frozen: OVER 8.5 (2026-10-30 14:11 UTC)</span><br>Last 10 (over 8.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">18</i><i class="rs rs-over">16</i><i class="rs rs-over">19</i><i class="rs rs-over">16</i><i class="rs rs-over">10</i><i class="rs rs-under">8</i><i class="rs rs-over">9</i><i class="rs rs-over">14</i><i class="rs rs-over">11</i><i class="rs rs-over">11</i></span></p>
+<br>FanDuel 8.5 (-125/-106): we give OVER 51% (from 9.21, our 10.7 blended with the line), market 52% for OVER, break-even 55.6% for OVER; adjusted chance pulled toward 50% (keeps 34% of our lean on FanDuel lines, pattern) <span class="u-tag u-0 u-skip" title="Skipped by a pattern: this group of picks lost in earlier AND later games (History &rarr; Patterns), so no stake">SKIP</span>.<br>PrizePicks 8.5: we give OVER 51% (from 8.98, our 10.7 blended with the line), break-even 54.2% for OVER; adjusted chance pulled toward 50% (keeps 36% of our lean on PrizePicks lines, pattern); line down 1 since our pick opened <span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span> <span class="move">moved from 9.5</span>.<br><span class="mu-line">Matchup: GSW allows <b>42.2</b> points a game to forwards, <b class="">19th most</b> of 30 (+0% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span><br><span class="locked">&#128274; frozen: OVER 8.5 (2026-10-30 14:11 UTC)</span><br>Last 10 (over 8.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">18</i><i class="rs rs-over">16</i><i class="rs rs-over">19</i><i class="rs rs-over">16</i><i class="rs rs-over">10</i><i class="rs rs-under">8</i><i class="rs rs-over">9</i><i class="rs rs-over">14</i><i class="rs rs-over">11</i><i class="rs rs-over">11</i></span></p>
 <p class="why-reason dim">Injury note: Williams (foot) is questionable for Friday&#39;s game against Golden State.</p></div>
   </div>
   <div class="factor-grid">
@@ -156,7 +159,7 @@
   <span class="pp-proj"><em>PROJ</em><b>1.6</b></span>
 <span class="pp-none">no line</span></span></div>
     <div class="bd-why"><p class="why-reason"><strong>3-pointers made 1.6:</strong> 25.3 min (recent 26.0, −0.6 team-minutes adjustment); × 0.070 3-pointers made/min (57% this season&#39;s 0.061 over 4 games, 43% prior 0.065); context: road −1%, shared production on LAL −9%; calibration +0.0; listed Day-To-Day.
-<br><span class="mu-line">Matchup: GSW allows <b>4.8</b> 3-pointers made a game to forwards, <b class="">15th most</b> of 30 (+7% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
+<br><span class="mu-line">Matchup: GSW allows <b>4.8</b> 3-pointers made a game to forwards, <b class="">14th most</b> of 30 (+7% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
 <p class="why-reason dim">Injury note: Williams (foot) is questionable for Friday&#39;s game against Golden State.</p></div>
   </div>
   <div class="factor-grid">
@@ -291,6 +294,13 @@
 <a href="index.html" class=""><span class="bn-ic">⌂</span>Home</a><a href="picks.html" class=""><span class="bn-ic">★</span>Picks</a><a href="games.html" class=""><span class="bn-ic">◎</span>Games</a><a href="players.html" class="active"><span class="bn-ic">▦</span>Players</a><a href="rankings.html" class=""><span class="bn-ic">☰</span>Teams</a><a href="parlays.html" class=""><span class="bn-ic">✦</span>Parlays</a><a href="history.html" class=""><span class="bn-ic">↺</span>History</a>  </nav>
   <script>
     (function () { var a = document.querySelector('.site-nav a.active'); if (a && a.scrollIntoView) a.scrollIntoView({block: 'nearest', inline: 'center'}); })();
+    function peTheme() {
+      var d = document.documentElement, t = d.dataset.theme === 'terminal' ? 'arcade' : 'terminal';
+      if (t === 'terminal') d.dataset.theme = 'terminal'; else delete d.dataset.theme;
+      try { localStorage.setItem('pe_theme', t); } catch (e) {}
+      var n = document.getElementById('theme-name'); if (n) n.textContent = t.toUpperCase();
+    }
+    (function () { var n = document.getElementById('theme-name'); if (n && document.documentElement.dataset.theme === 'terminal') n.textContent = 'TERMINAL'; })();
     function toggleWhy(id, btn) {
       var panel = document.querySelector('[data-why-panel="' + id + '"]');
       if (!panel) return;
@@ -356,7 +366,7 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=379ed9f019"></script>
+  <script src="static/slip.js?v=d8707b5976"></script>
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>

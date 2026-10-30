@@ -10,7 +10,9 @@
 <link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="static/style.css?v=379ed9f019">
+<link rel="stylesheet" href="static/style.css?v=d8707b5976">
+  <link rel="stylesheet" href="static/terminal.css?v=d8707b5976">
+  <script>try { if (localStorage.getItem('pe_theme') === 'terminal') document.documentElement.dataset.theme = 'terminal'; } catch (e) {}</script>
   <script>
     // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
     (function () {
@@ -27,6 +29,7 @@
 <body>
   <header class="site-head">
     <a class="brand" href="index.html">PROP EDGE<span class="brand-sub">NBA</span></a>
+    <button class="theme-btn" type="button" onclick="peTheme()" title="Switch the site's look (saved on this device)">STYLE: <b id="theme-name">ARCADE</b></button>
     <nav class="site-nav" aria-label="Pages">
 <a href="index.html" class="">Home</a><a href="picks.html" class="">Picks</a><a href="games.html" class="">Games</a><a href="players.html" class="active">Players</a><a href="rankings.html" class="">Teams</a><a href="parlays.html" class="">Parlays</a><a href="history.html" class="">History</a>    </nav>
   </header>
@@ -134,7 +137,7 @@
   <span class="pp-proj"><em>PROJ</em><b>1.3</b></span>
 <span class="pp-none">no line</span></span></div>
     <div class="bd-why"><p class="why-reason"><strong>assists 1.3:</strong> 19.2 min (recent 19.3); × 0.068 assists/min (50% this season&#39;s 0.051 over 5 games, 50% prior 0.076); context: pace vs IND +1%, home +1%, opponent defense −1%, shared production on MIA −1%.
-<br><span class="mu-line">Matchup: IND allows <b>13.0</b> assists a game to guards, <b class="stat-bad">29th most</b> of 30 (-17% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
+<br><span class="mu-line">Matchup: IND allows <b>13.0</b> assists a game to guards, <b class="stat-bad">28th most</b> of 30 (-17% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
 </div>
   </div>
   <div class="factor-grid">
@@ -156,7 +159,7 @@
 <span class="pp-pick pp-under">UNDER 2.5</span><span class="pp-ch">61%</span><span class="u-tag u-0 pr-wait" title="Close: our chance is just under what this price needs. Check again later; if the price drops (or the line moves your way) it can turn into GOOD PRICE">WAIT</span><span class="rec-tag " title="Kalshi picks at 60-65% have hit 226/386 (59%)">226/386</span>
 <button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.6365, "chance": 0.6127, "gid": 401909282, "id": "6475|fg3m|401909282", "line": 2.5, "opp": "IND", "pid": 6475, "player": "Klay Thompson", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "MIA"}'>+ SLIP</button></span></div>
     <div class="bd-why"><p class="why-reason"><strong>3-pointers made 2.3 &middot; <span class="pick-line"><span class="side-under">UNDER</span> 2.5</span> <span class="chance">61%</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>:</strong> 19.2 min (recent 19.3); × 0.119 3-pointers made/min (62% this season&#39;s 0.121 over 5 games, 38% prior 0.117); context: pace vs IND +1%, home +1%, opponent defense −1%, shared production on MIA +2%.
-<br>Kalshi 2.5: we give OVER 39% (from 2.28, our 2.3 blended with the line), market 62% for UNDER, break-even 63.6% for UNDER <span class="u-tag u-0 pr-wait" title="Close: our chance is just under what this price needs. Check again later; if the price drops (or the line moves your way) it can turn into GOOD PRICE">WAIT</span>.<br><span class="mu-line">Matchup: IND allows <b>7.4</b> 3-pointers made a game to guards, <b class="">16th most</b> of 30 (-3% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span><br><span class="locked">&#128274; frozen: UNDER 2.5 (2026-10-30 15:01 UTC)</span><br>Last 10 (under 2.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">1</i><i class="rs rs-under">4</i><i class="rs rs-under">3</i><i class="rs rs-over">1</i><i class="rs rs-under">4</i><i class="rs rs-under">3</i><i class="rs rs-over">2</i><i class="rs rs-under">4</i><i class="rs rs-over">2</i><i class="rs rs-over">1</i></span><br>Kalshi ladder: 1+ 86%, 2+ 64%, 3+ 38%, 5+ 10%.</p>
+<br>Kalshi 2.5: we give OVER 39% (from 2.28, our 2.3 blended with the line), market 62% for UNDER, break-even 63.6% for UNDER <span class="u-tag u-0 pr-wait" title="Close: our chance is just under what this price needs. Check again later; if the price drops (or the line moves your way) it can turn into GOOD PRICE">WAIT</span>.<br><span class="mu-line">Matchup: IND allows <b>7.4</b> 3-pointers made a game to guards, <b class="">15th most</b> of 30 (-3% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span><br><span class="locked">&#128274; frozen: UNDER 2.5 (2026-10-30 15:01 UTC)</span><br>Last 10 (under 2.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">1</i><i class="rs rs-under">4</i><i class="rs rs-under">3</i><i class="rs rs-over">1</i><i class="rs rs-under">4</i><i class="rs rs-under">3</i><i class="rs rs-over">2</i><i class="rs rs-under">4</i><i class="rs rs-over">2</i><i class="rs rs-over">1</i></span><br>Kalshi ladder: 1+ 87%, 2+ 64%, 3+ 38%, 4+ 20%, 5+ 10%.</p>
 </div>
   </div>
   <div class="factor-grid">
@@ -291,6 +294,13 @@
 <a href="index.html" class=""><span class="bn-ic">⌂</span>Home</a><a href="picks.html" class=""><span class="bn-ic">★</span>Picks</a><a href="games.html" class=""><span class="bn-ic">◎</span>Games</a><a href="players.html" class="active"><span class="bn-ic">▦</span>Players</a><a href="rankings.html" class=""><span class="bn-ic">☰</span>Teams</a><a href="parlays.html" class=""><span class="bn-ic">✦</span>Parlays</a><a href="history.html" class=""><span class="bn-ic">↺</span>History</a>  </nav>
   <script>
     (function () { var a = document.querySelector('.site-nav a.active'); if (a && a.scrollIntoView) a.scrollIntoView({block: 'nearest', inline: 'center'}); })();
+    function peTheme() {
+      var d = document.documentElement, t = d.dataset.theme === 'terminal' ? 'arcade' : 'terminal';
+      if (t === 'terminal') d.dataset.theme = 'terminal'; else delete d.dataset.theme;
+      try { localStorage.setItem('pe_theme', t); } catch (e) {}
+      var n = document.getElementById('theme-name'); if (n) n.textContent = t.toUpperCase();
+    }
+    (function () { var n = document.getElementById('theme-name'); if (n && document.documentElement.dataset.theme === 'terminal') n.textContent = 'TERMINAL'; })();
     function toggleWhy(id, btn) {
       var panel = document.querySelector('[data-why-panel="' + id + '"]');
       if (!panel) return;
@@ -356,7 +366,7 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=379ed9f019"></script>
+  <script src="static/slip.js?v=d8707b5976"></script>
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>

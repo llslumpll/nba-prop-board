@@ -10,7 +10,9 @@
 <link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="static/style.css?v=379ed9f019">
+<link rel="stylesheet" href="static/style.css?v=d8707b5976">
+  <link rel="stylesheet" href="static/terminal.css?v=d8707b5976">
+  <script>try { if (localStorage.getItem('pe_theme') === 'terminal') document.documentElement.dataset.theme = 'terminal'; } catch (e) {}</script>
   <script>
     // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
     (function () {
@@ -27,6 +29,7 @@
 <body>
   <header class="site-head">
     <a class="brand" href="index.html">PROP EDGE<span class="brand-sub">NBA</span></a>
+    <button class="theme-btn" type="button" onclick="peTheme()" title="Switch the site's look (saved on this device)">STYLE: <b id="theme-name">ARCADE</b></button>
     <nav class="site-nav" aria-label="Pages">
 <a href="index.html" class="">Home</a><a href="picks.html" class="">Picks</a><a href="games.html" class="">Games</a><a href="players.html" class="active">Players</a><a href="rankings.html" class="">Teams</a><a href="parlays.html" class="">Parlays</a><a href="history.html" class="">History</a>    </nav>
   </header>
@@ -107,7 +110,7 @@
   <span class="pp-proj"><em>PROJ</em><b>2.3</b></span>
 <span class="pp-none">no line</span></span></div>
     <div class="bd-why"><p class="why-reason"><strong>rebounds 2.3:</strong> 18.0 min (recent 18.6, −0.6 team-minutes adjustment with Sergio de Larrea out); × 0.123 rebounds/min (25% this season&#39;s 0.188 over 4 games, 75% prior 0.105); context: home +1%, opponent defense −1%, shared production on DAL +1%; calibration +0.1.
-<br><span class="mu-line">Matchup: HOU allows <b>15.0</b> rebounds a game to guards, <b class="">20th most</b> of 30 (-6% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
+<br><span class="mu-line">Matchup: HOU allows <b>15.0</b> rebounds a game to guards, <b class="stat-bad">21st most</b> of 30 (-6% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
 </div>
   </div>
   <div class="factor-grid">
@@ -149,7 +152,7 @@
   <span class="pp-proj"><em>PROJ</em><b>1.1</b></span>
 <span class="pp-none">no line</span></span></div>
     <div class="bd-why"><p class="why-reason"><strong>3-pointers made 1.1:</strong> 18.0 min (recent 18.6, −0.6 team-minutes adjustment with Sergio de Larrea out); × 0.060 3-pointers made/min (57% this season&#39;s 0.062 over 4 games, 43% prior 0.055); context: home +1%, shared production on DAL −1%; calibration +0.0.
-<br><span class="mu-line">Matchup: HOU allows <b>8.2</b> 3-pointers made a game to guards, <b class="stat-good">7th most</b> of 30 (+8% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
+<br><span class="mu-line">Matchup: HOU allows <b>8.2</b> 3-pointers made a game to guards, <b class="stat-good">8th most</b> of 30 (+8% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
 </div>
   </div>
   <div class="factor-grid">
@@ -170,11 +173,11 @@
   <span class="pp-proj"><em>PROJ</em><b>13.7</b></span>
 <span class="pp-none">no line</span></span></div>
     <div class="bd-why"><p class="why-reason"><strong>pts+reb+ast 13.7:</strong> 18.0 min (recent 18.6, −0.6 team-minutes adjustment with Sergio de Larrea out); × 0.750 pts+reb+ast/min (57% this season&#39;s 0.854 over 4 games, 43% prior 0.691); context: home +1%, opponent defense −1%, shared production on DAL −1%; calibration +0.3.
-<br><span class="mu-line">Matchup: HOU allows <b>88.4</b> pts+reb+ast a game to guards, <b class="">17th most</b> of 30 (-1% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
+<br><span class="mu-line">Matchup: HOU allows <b>88.4</b> pts+reb+ast a game to guards, <b class="">18th most</b> of 30 (-1% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
 <p class="why-reason"><strong>pts+reb 9.7:</strong> 18.0 min (recent 18.6, −0.6 team-minutes adjustment with Sergio de Larrea out); × 0.527 pts+reb/min (57% this season&#39;s 0.562 over 4 games, 43% prior 0.504); context: home +1%, opponent defense −1%, shared production on DAL −1%; calibration +0.3.
 <br><span class="mu-line">Matchup: HOU allows <b>74.4</b> pts+reb a game to guards, <b class="">14th most</b> of 30 (+1% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
 <p class="why-reason"><strong>pts+ast 11.1:</strong> 18.0 min (recent 18.6, −0.6 team-minutes adjustment with Sergio de Larrea out); × 0.611 pts+ast/min (57% this season&#39;s 0.667 over 4 games, 43% prior 0.586); context: home +1%, opponent defense −1%, shared production on DAL −1%; calibration +0.3.
-<br><span class="mu-line">Matchup: HOU allows <b>73.4</b> pts+ast a game to guards, <b class="">17th most</b> of 30 (+0% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
+<br><span class="mu-line">Matchup: HOU allows <b>73.4</b> pts+ast a game to guards, <b class="">18th most</b> of 30 (+0% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
 <p class="why-reason"><strong>reb+ast 6.2:</strong> 18.0 min (recent 18.6, −0.6 team-minutes adjustment with Sergio de Larrea out); × 0.336 reb+ast/min (33% this season&#39;s 0.479 over 4 games, 67% prior 0.291); context: home +1%, opponent defense −1%; calibration +0.2.
 <br><span class="mu-line">Matchup: HOU allows <b>29.0</b> reb+ast a game to guards, <b class="stat-bad">24th most</b> of 30 (-8% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
 </div>
@@ -283,6 +286,13 @@
 <a href="index.html" class=""><span class="bn-ic">⌂</span>Home</a><a href="picks.html" class=""><span class="bn-ic">★</span>Picks</a><a href="games.html" class=""><span class="bn-ic">◎</span>Games</a><a href="players.html" class="active"><span class="bn-ic">▦</span>Players</a><a href="rankings.html" class=""><span class="bn-ic">☰</span>Teams</a><a href="parlays.html" class=""><span class="bn-ic">✦</span>Parlays</a><a href="history.html" class=""><span class="bn-ic">↺</span>History</a>  </nav>
   <script>
     (function () { var a = document.querySelector('.site-nav a.active'); if (a && a.scrollIntoView) a.scrollIntoView({block: 'nearest', inline: 'center'}); })();
+    function peTheme() {
+      var d = document.documentElement, t = d.dataset.theme === 'terminal' ? 'arcade' : 'terminal';
+      if (t === 'terminal') d.dataset.theme = 'terminal'; else delete d.dataset.theme;
+      try { localStorage.setItem('pe_theme', t); } catch (e) {}
+      var n = document.getElementById('theme-name'); if (n) n.textContent = t.toUpperCase();
+    }
+    (function () { var n = document.getElementById('theme-name'); if (n && document.documentElement.dataset.theme === 'terminal') n.textContent = 'TERMINAL'; })();
     function toggleWhy(id, btn) {
       var panel = document.querySelector('[data-why-panel="' + id + '"]');
       if (!panel) return;
@@ -348,7 +358,7 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=379ed9f019"></script>
+  <script src="static/slip.js?v=d8707b5976"></script>
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>
