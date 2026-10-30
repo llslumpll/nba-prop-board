@@ -371,6 +371,10 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
             k = pl.when((fl_sum + ot_sum > cap) & (ot_sum > 0)).then(((cap - fl_sum) / ot_sum).clip(0.85, 1.0)).otherwise(1.0)
             proj = proj.with_columns(k_floor=pl.when(pl.col("min_floor")).then(1.0).otherwise(k))
             proj = proj.with_columns([(pl.col(c) * pl.col("k_floor")).alias(c) for c in ["proj_min"] + [f"proj_{x}" for x in model.STATS]])
+            # still over a game (several floored players on one team)? scale the whole team evenly to fit
+            tot = pl.col("proj_min").sum().over(grp)
+            proj = proj.with_columns(k_all=pl.when(tot > cap).then(cap / tot).otherwise(1.0))
+            proj = proj.with_columns([(pl.col(c) * pl.col("k_all")).alias(c) for c in ["proj_min"] + [f"proj_{x}" for x in model.STATS]])
     present_ids = set(proj["player_id"].to_list())
     no_hist = [r for r in t.filter(pl.col("present")).iter_rows(named=True) if r["player_id"] not in present_ids]
     cal = grade.load_calibration()

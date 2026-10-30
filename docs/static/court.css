@@ -1,0 +1,422 @@
+/* ==== COURTSIDE theme (update 41, replaces TERMINAL) ==================================
+   Optional look, switched with the STYLE button in the header (saved per device).
+   Every rule is scoped to html[data-theme="court"], so the default ARCADE look is
+   untouched. Delete this file + the button to remove the theme.
+   Idea: a modern sports-analytics app. Slate ground, soft rounded cards, Inter for
+   reading, Barlow Condensed for the numbers and headlines you scan, hardwood orange
+   for the brand, and one meaning per color: green = good / over / hit, red = bad /
+   under / miss, amber = wait, blue = Kalshi / info. */
+@font-face { font-family: "Inter"; src: url("fonts/inter-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("fonts/inter-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("fonts/inter-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("fonts/inter-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("fonts/inter-latin-800-normal.woff2") format("woff2"); font-weight: 800 900; font-display: swap; }
+@font-face { font-family: "Barlow Condensed"; src: url("fonts/barlow-condensed-latin-700-normal.woff2") format("woff2"); font-weight: 400 700; font-display: swap; }
+@font-face { font-family: "Barlow Condensed"; src: url("fonts/barlow-condensed-latin-800-normal.woff2") format("woff2"); font-weight: 800 900; font-display: swap; }
+
+html[data-theme="court"] {
+  --c-bg: #0e1217; --c-card: #161b22; --c-raise: #1c232c; --c-line: #273140; --c-line2: #1f2732;
+  --c-text: #e6eaf0; --c-dim: #8b96a5; --c-hi: #ffffff;
+  --c-brand: #ff8a3d; --c-good: #34d399; --c-bad: #f87171; --c-wait: #fbbf24; --c-info: #60a5fa;
+  --bg: var(--c-bg); --bg-card: var(--c-card); --line: var(--c-line); --text: var(--c-text); --text-dim: var(--c-dim);
+  --pink: var(--c-brand); --cyan: var(--c-info); --yellow: var(--c-brand); --amber: var(--c-wait); --green: var(--c-good); --red: var(--c-bad);
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; --mono: var(--sans);
+  --pixel: "Barlow Condensed", "Arial Narrow", sans-serif; --num: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 15px;
+}
+html[data-theme="court"], html[data-theme="court"] body { font-family: var(--sans); font-size: 15px; font-weight: 400; line-height: 1.55;
+  image-rendering: auto; background: var(--c-bg); color: var(--c-text); font-variant-numeric: tabular-nums; }
+html[data-theme="court"] body::after { display: none; }
+html[data-theme="court"] * { text-shadow: none !important; animation: none !important; letter-spacing: normal; }
+html[data-theme="court"] [class] { box-shadow: none; border-color: var(--c-line); }
+html[data-theme="court"] p, html[data-theme="court"] li, html[data-theme="court"] td, html[data-theme="court"] .small { font-weight: 400; }
+html[data-theme="court"] b, html[data-theme="court"] strong { font-weight: 700; color: var(--c-hi); }
+html[data-theme="court"] a { color: var(--c-info); }
+html[data-theme="court"] a:hover { color: #93c5fd; }
+
+/* headings: condensed, uppercase, sporty */
+html[data-theme="court"] h1, html[data-theme="court"] .hero-h { font-family: var(--num); font-weight: 800; font-size: 2.3rem; line-height: 1.05; text-transform: uppercase; color: var(--c-hi); }
+html[data-theme="court"] h2, html[data-theme="court"] .hist-h, html[data-theme="court"] .h2x { font-family: var(--num); font-weight: 800; font-size: 1.55rem; text-transform: uppercase; color: var(--c-hi); }
+html[data-theme="court"] h3, html[data-theme="court"] .hv-h3 { font-family: var(--num); font-weight: 700; font-size: 1.2rem; text-transform: uppercase; color: var(--c-hi); }
+html[data-theme="court"] h2::before, html[data-theme="court"] .hv-h3::before { content: ""; display: inline-block; width: 4px; height: 0.85em; background: var(--c-brand); margin-right: 8px; border-radius: 2px; vertical-align: -1px; }
+html[data-theme="court"] .lede { color: #b4bdc9; font-size: 0.98rem; font-weight: 400; }
+html[data-theme="court"] .kicker, html[data-theme="court"] .board-h { font-family: var(--sans); font-size: 0.75rem; font-weight: 700; color: var(--c-dim); text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* header + navigation */
+html[data-theme="court"] .site-head { background: rgba(14, 18, 23, 0.96); border-bottom: 1px solid var(--c-line); }
+html[data-theme="court"] .brand { font-family: var(--num); font-weight: 800; font-size: 1.6rem; color: var(--c-hi); text-transform: uppercase; }
+html[data-theme="court"] .brand-sub { background: var(--c-brand); color: #1a0c00; border: 0; border-radius: 6px; font-family: var(--num); font-weight: 800; padding: 1px 6px; margin-left: 6px; }
+html[data-theme="court"] .sys-tagline { display: none; }
+html[data-theme="court"] .site-nav a, html[data-theme="court"] .game-tab {
+  transform: none; font-family: var(--sans); font-size: 0.85rem; font-weight: 600; text-transform: none; background: transparent; color: var(--c-dim);
+  border: 1px solid transparent; border-radius: 999px; padding: 7px 14px; }
+html[data-theme="court"] .site-nav a:hover { color: var(--c-hi); text-decoration: none; }
+html[data-theme="court"] .site-nav a.active, html[data-theme="court"] .game-tab.active { background: var(--c-raise); color: var(--c-hi); border-color: var(--c-line); }
+html[data-theme="court"] .chip, html[data-theme="court"] .seg button, html[data-theme="court"] .seg2 button, html[data-theme="court"] .slip-type button, html[data-theme="court"] .day-chip {
+  font-family: var(--sans); font-size: 0.82rem; font-weight: 600; text-transform: none; background: var(--c-card); color: var(--c-dim);
+  border: 1px solid var(--c-line); border-radius: 999px; padding: 7px 14px; min-height: 36px; }
+html[data-theme="court"] .chip.active, html[data-theme="court"] .seg button.active, html[data-theme="court"] .seg2 button.active, html[data-theme="court"] .day-chip.active {
+  background: var(--c-hi); color: #0e1217; border-color: var(--c-hi); }
+html[data-theme="court"] .seg, html[data-theme="court"] .chips { gap: 6px; }
+html[data-theme="court"] .bottom-nav { background: rgba(14, 18, 23, 0.97); border-top: 1px solid var(--c-line); }
+html[data-theme="court"] .bottom-nav a { font-family: var(--sans); font-size: 0.62rem; font-weight: 600; text-transform: none; color: var(--c-dim); }
+html[data-theme="court"] .bottom-nav a.active { background: transparent; color: var(--c-brand); }
+html[data-theme="court"] .bottom-nav a.active .bn-ic { color: var(--c-brand); }
+
+/* cards and panels: soft, rounded, one border */
+html[data-theme="court"] .tcard, html[data-theme="court"] .sb-tile, html[data-theme="court"] .ph, html[data-theme="court"] .pt-card, html[data-theme="court"] .bd-top,
+html[data-theme="court"] .game-card, html[data-theme="court"] .summary-card, html[data-theme="court"] .chart-panel, html[data-theme="court"] .hv-tile,
+html[data-theme="court"] .hv-box, html[data-theme="court"] .hv-gloss, html[data-theme="court"] .hv-log, html[data-theme="court"] .hv-trust, html[data-theme="court"] .hv-verdict,
+html[data-theme="court"] .u-legend, html[data-theme="court"] .notice, html[data-theme="court"] .corr-warning, html[data-theme="court"] .gp-row, html[data-theme="court"] .lv-head,
+html[data-theme="court"] .lv-plays, html[data-theme="court"] .why-detail-box, html[data-theme="court"] .slip, html[data-theme="court"] .pz-card, html[data-theme="court"] .prop-card,
+html[data-theme="court"] .empty-state, html[data-theme="court"] .table-wrap, html[data-theme="court"] .hv-help, html[data-theme="court"] .news-ev, html[data-theme="court"] .record {
+  background: var(--c-card); border: 1px solid var(--c-line); border-radius: 14px; }
+html[data-theme="court"] .table-wrap { overflow: hidden; }
+html[data-theme="court"] .factor, html[data-theme="court"] .rec-box, html[data-theme="court"] .slip-sum div { background: var(--c-raise); border: 0; border-radius: 10px; }
+html[data-theme="court"] .tcard { gap: 12px; padding: 16px; }
+html[data-theme="court"] .tcard::before, html[data-theme="court"] .sb-tile::before { border-radius: 14px 14px 0 0; }
+html[data-theme="court"] .hv-help { border-left: 3px solid var(--c-info); }
+html[data-theme="court"] .notice, html[data-theme="court"] .corr-warning { font-family: var(--sans); font-size: 0.85rem; font-weight: 400; text-transform: none; color: var(--c-text); border-color: #4a3a12; background: #1b1810; }
+html[data-theme="court"] .notice strong { color: var(--c-wait); }
+html[data-theme="court"] .news-ev { border-color: #5a2a2a; background: #1b1416; }
+
+/* names and numbers */
+html[data-theme="court"] .tc-name, html[data-theme="court"] .player-name, html[data-theme="court"] .ph-name { font-family: var(--sans); font-weight: 700; color: var(--c-hi); }
+html[data-theme="court"] .tc-sub, html[data-theme="court"] .player-sub { color: var(--c-dim); }
+html[data-theme="court"] .tc-chance b, html[data-theme="court"] .hv-tile b, html[data-theme="court"] .rec-box b, html[data-theme="court"] .pz-nums b, html[data-theme="court"] .ph-rec-big,
+html[data-theme="court"] .kv b, html[data-theme="court"] .fval, html[data-theme="court"] .tc-nums span, html[data-theme="court"] .sb-n {
+  font-family: var(--num); font-weight: 800; color: var(--c-hi); }
+html[data-theme="court"] .tc-chance b { font-size: 2.4rem; line-height: 1; }
+html[data-theme="court"] .hv-tile b { font-size: 2rem; }
+html[data-theme="court"] .tc-nums em, html[data-theme="court"] .hv-tile > span, html[data-theme="court"] .rec-box span, html[data-theme="court"] .flabel, html[data-theme="court"] .tc-lab {
+  font-family: var(--sans); font-style: normal; font-size: 0.7rem; font-weight: 600; color: var(--c-dim); text-transform: uppercase; letter-spacing: 0.04em; }
+html[data-theme="court"] .stat-good, html[data-theme="court"] .hv-tile b.stat-good { color: var(--c-good); }
+html[data-theme="court"] .stat-bad, html[data-theme="court"] .hv-tile b.stat-bad { color: var(--c-bad); }
+html[data-theme="court"] .meter i { background: var(--c-line); border-radius: 2px; }
+html[data-theme="court"] .meter i.on, html[data-theme="court"] .meter .on { background: var(--c-brand); }
+
+/* home scoreboard */
+html[data-theme="court"] .record { padding: 6px; gap: 6px; }
+html[data-theme="court"] .rec-hit b { color: var(--c-good); } html[data-theme="court"] .rec-miss b { color: var(--c-bad); } html[data-theme="court"] .rec-pend b { color: var(--c-hi); }
+html[data-theme="court"] .rec-note { font-family: var(--sans); font-size: 0.82rem; font-weight: 500; color: #b4bdc9; }
+html[data-theme="court"] .rec-up { background: transparent; color: var(--c-good); } html[data-theme="court"] .rec-down { background: transparent; color: var(--c-bad); }
+
+/* tables */
+html[data-theme="court"] table.stat-table th { font-family: var(--sans); font-size: 0.7rem; font-weight: 700; color: var(--c-dim); background: var(--c-raise); border-bottom: 1px solid var(--c-line); text-transform: uppercase; letter-spacing: 0.04em; }
+html[data-theme="court"] table.stat-table td { border-bottom: 1px solid var(--c-line2); }
+html[data-theme="court"] table.stat-table tr:hover td { background: #1a2029; }
+html[data-theme="court"] tr.why-detail td, html[data-theme="court"] .bxt .team-row td, html[data-theme="court"] .team-row-lite td { background: var(--c-raise); color: var(--c-hi); font-family: var(--num); font-weight: 700; }
+html[data-theme="court"] tr.row-hit td, html[data-theme="court"] tr.lv-hit td { background: rgba(52, 211, 153, .07); }
+html[data-theme="court"] tr.row-miss td, html[data-theme="court"] tr.lv-miss td { background: rgba(248, 113, 113, .07); }
+
+/* the pick itself: a solid pill */
+html[data-theme="court"] .pill, html[data-theme="court"] .pp-pick { font-family: var(--num); font-weight: 800; text-transform: uppercase; border-radius: 10px; border: 0; color: #0e1217; background: var(--c-hi); }
+html[data-theme="court"] .pill-over, html[data-theme="court"] .pp-over { background: var(--c-good); color: #04231a; }
+html[data-theme="court"] .pill-under, html[data-theme="court"] .pp-under { background: var(--c-bad); color: #2a0707; }
+
+/* units: orange, fuller as the stake grows */
+html[data-theme="court"] .u-tag { font-family: var(--num); font-weight: 800; font-size: 1rem; border-radius: 8px; background: transparent; border: 1.5px solid #6b3a17; color: var(--c-brand); }
+html[data-theme="court"] .u-0 { border: 1.5px dashed #3a4554; color: var(--c-dim); font-family: var(--sans); font-size: 0.7rem; font-weight: 700; }
+html[data-theme="court"] .u-75, html[data-theme="court"] .u-100 { border-color: var(--c-brand); background: rgba(255, 138, 61, .12); }
+html[data-theme="court"] .u-150, html[data-theme="court"] .u-200, html[data-theme="court"] .u-300 { background: var(--c-brand); border-color: var(--c-brand); color: #1a0c00; }
+html[data-theme="court"] .u-skip { border: 1.5px solid var(--c-bad); color: var(--c-bad); background: transparent; }
+
+/* status tags: small rounded pills, one meaning per color */
+html[data-theme="court"] .pr-tag, html[data-theme="court"] .rec-tag, html[data-theme="court"] .anchor-tag, html[data-theme="court"] .mt-tag, html[data-theme="court"] .gap-tag,
+html[data-theme="court"] .start-tag, html[data-theme="court"] .flip-tag, html[data-theme="court"] .mv-tag, html[data-theme="court"] .early-tag, html[data-theme="court"] .moved-tag,
+html[data-theme="court"] .news-fresh, html[data-theme="court"] .news-moved, html[data-theme="court"] .tier, html[data-theme="court"] .lean-tag, html[data-theme="court"] .locked, html[data-theme="court"] .src {
+  font-family: var(--sans); font-weight: 700; font-size: 0.7rem; border-radius: 999px; background: transparent; text-transform: none; }
+html[data-theme="court"] .pr-good { border: 1px solid var(--c-good); color: var(--c-good); background: rgba(52, 211, 153, .1); }
+html[data-theme="court"] .u-tag.pr-wait { border: 1px solid var(--c-wait); color: var(--c-wait); background: rgba(251, 191, 36, .08); font-family: var(--sans); font-size: 0.7rem; }
+html[data-theme="court"] .u-tag.pr-high, html[data-theme="court"] .pr-tag.pr-toohigh { border: 1px solid var(--c-bad); color: var(--c-bad); background: rgba(248, 113, 113, .08); font-family: var(--sans); font-size: 0.7rem; }
+html[data-theme="court"] .rec-tag { border: 1px solid #3a4554; color: #c5cdd8; }
+html[data-theme="court"] .rec-tag.rec-proven { background: var(--c-brand); color: #1a0c00; border-color: var(--c-brand); }
+html[data-theme="court"] .anchor-tag { border: 1px solid var(--c-info); color: #93c5fd; }
+html[data-theme="court"] .mt-up, html[data-theme="court"] .start-confirmed { border: 1px solid var(--c-good); color: var(--c-good); }
+html[data-theme="court"] .mt-down { border: 1px solid var(--c-bad); color: var(--c-bad); }
+html[data-theme="court"] .gap-tag { border: 1px solid var(--c-brand); color: var(--c-brand); }
+html[data-theme="court"] .early-tag { border: 1px solid var(--c-line); color: var(--c-dim); }
+html[data-theme="court"] .news-fresh { background: var(--c-wait); color: #241800; }
+html[data-theme="court"] .news-moved { border: 1px dashed #3a4554; color: var(--c-dim); }
+html[data-theme="court"] .pz-card.pz-won { border-color: var(--c-good); }
+html[data-theme="court"] .pz-card.pz-lost { border-color: var(--c-bad); }
+html[data-theme="court"] .pz-title { font-family: var(--num); font-weight: 800; font-size: 1rem; color: var(--c-brand); text-transform: uppercase; }
+html[data-theme="court"] .pz-fresh { color: var(--c-good); } html[data-theme="court"] .pz-fresh.pz-stale { color: var(--c-wait); }
+html[data-theme="court"] .res, html[data-theme="court"] .rs { border-radius: 6px; }
+html[data-theme="court"] .res-hit, html[data-theme="court"] .rs-over { border-color: var(--c-good); color: var(--c-good); }
+html[data-theme="court"] .res-miss, html[data-theme="court"] .rs-under { border-color: var(--c-bad); color: var(--c-bad); }
+html[data-theme="court"] .team-badge { border-radius: 6px; font-family: var(--num); font-weight: 800; }
+html[data-theme="court"] .bd-btn, html[data-theme="court"] .why-btn, html[data-theme="court"] .slip-add, html[data-theme="court"] .live-btn {
+  font-family: var(--sans); font-weight: 700; font-size: 0.8rem; text-transform: none; background: var(--c-raise); border: 1px solid var(--c-line); color: var(--c-hi); border-radius: 10px; min-height: 36px; }
+html[data-theme="court"] .bd-btn:hover, html[data-theme="court"] .slip-add:hover { border-color: var(--c-brand); color: var(--c-brand); text-decoration: none; }
+html[data-theme="court"] input, html[data-theme="court"] select { background: var(--c-card); color: var(--c-hi); border: 1px solid var(--c-line); border-radius: 10px; font-family: var(--sans); }
+html[data-theme="court"] .u-legend { font-size: 0.82rem; font-weight: 400; }
+html[data-theme="court"] .u-legend > b { color: var(--c-hi); font-family: var(--num); font-weight: 800; font-size: 0.95rem; text-transform: uppercase; }
+
+/* the STYLE switch (both themes) */
+.theme-btn { margin-left: 10px; font: 700 0.6rem "Press Start 2P", monospace; color: var(--text-dim); background: transparent; border: 2px solid var(--line); padding: 6px 8px; cursor: pointer; white-space: nowrap; }
+.theme-btn b { color: var(--yellow); font-weight: 400; }
+html[data-theme="court"] .theme-btn { font: 600 0.75rem Inter, sans-serif; border: 1px solid var(--c-line); border-radius: 999px; padding: 6px 12px; color: var(--c-dim); }
+html[data-theme="court"] .theme-btn b { color: var(--c-brand); font-weight: 800; }
+
+/* ==== SHOWTIME pass: more color, more pop (preview) ==== */
+html[data-theme="court"] {
+  --c-bg: #0a0d24; --c-card: #131838; --c-raise: #1b2150; --c-line: #2b3270; --c-line2: #222a5c;
+  --c-text: #eef0ff; --c-dim: #9aa3d6;
+  --c-brand: #ff7a1a; --c-pink: #ff3d8b; --c-violet: #8b5cf6; --c-cyan: #22d3ee; --c-lime: #a3e635;
+  --c-good: #2ee6a6; --c-bad: #ff4d6d; --c-wait: #ffc83d; --c-info: #38bdf8;
+  --g-hot: linear-gradient(90deg, #ff7a1a, #ff3d8b);
+  --g-cool: linear-gradient(90deg, #22d3ee, #8b5cf6);
+  --g-good: linear-gradient(135deg, #2ee6a6, #22d3ee);
+  --g-bad: linear-gradient(135deg, #ff4d6d, #ff7a1a);
+}
+html[data-theme="court"], html[data-theme="court"] body {
+  background: radial-gradient(1200px 600px at 10% -10%, rgba(139, 92, 246, .35), transparent 60%),
+              radial-gradient(900px 500px at 110% 10%, rgba(255, 61, 139, .22), transparent 60%),
+              radial-gradient(900px 600px at 50% 120%, rgba(34, 211, 238, .14), transparent 60%), #0a0d24;
+  background-attachment: fixed; }
+/* headlines: hot gradient text */
+html[data-theme="court"] h1, html[data-theme="court"] .hero-h { background: var(--g-hot); -webkit-background-clip: text; background-clip: text; color: transparent; }
+html[data-theme="court"] h2::before, html[data-theme="court"] .hv-h3::before { background: var(--g-hot); width: 5px; }
+html[data-theme="court"] .kicker, html[data-theme="court"] .board-h { color: var(--c-cyan); }
+/* header */
+html[data-theme="court"] .site-head { background: rgba(10, 13, 36, .85); border-bottom: 1px solid transparent; border-image: var(--g-hot) 1; }
+html[data-theme="court"] .brand-sub { background: var(--g-hot); color: #fff; }
+html[data-theme="court"] .site-nav a.active, html[data-theme="court"] .game-tab.active { background: var(--g-hot); color: #fff; border-color: transparent; box-shadow: 0 4px 18px rgba(255, 61, 139, .35); }
+html[data-theme="court"] .chip.active, html[data-theme="court"] .seg button.active, html[data-theme="court"] .seg2 button.active, html[data-theme="court"] .day-chip.active {
+  background: var(--g-cool); color: #fff; border-color: transparent; box-shadow: 0 4px 16px rgba(139, 92, 246, .35); }
+html[data-theme="court"] .bottom-nav { background: rgba(10, 13, 36, .95); border-top: 1px solid transparent; border-image: var(--g-hot) 1; }
+html[data-theme="court"] .bottom-nav a.active { color: var(--c-pink); }
+html[data-theme="court"] .bottom-nav a.active .bn-ic { color: var(--c-pink); }
+/* cards: glassy, colored glow on the edge */
+html[data-theme="court"] .tcard, html[data-theme="court"] .sb-tile, html[data-theme="court"] .pz-card, html[data-theme="court"] .hv-tile, html[data-theme="court"] .ph, html[data-theme="court"] .game-card, html[data-theme="court"] .record {
+  background: linear-gradient(180deg, rgba(37, 44, 110, .55), rgba(19, 24, 56, .9)); border: 1px solid #343c86; box-shadow: 0 10px 30px rgba(5, 6, 20, .45); }
+html[data-theme="court"] .tcard:hover, html[data-theme="court"] .pz-card:hover { border-color: #ff3d8b; box-shadow: 0 10px 34px rgba(255, 61, 139, .22); }
+html[data-theme="court"] .u-legend, html[data-theme="court"] .hv-box, html[data-theme="court"] .hv-log, html[data-theme="court"] .table-wrap, html[data-theme="court"] .notice, html[data-theme="court"] .corr-warning, html[data-theme="court"] .empty-state {
+  background: rgba(19, 24, 56, .85); border-color: #2b3270; }
+html[data-theme="court"] .corr-warning, html[data-theme="court"] .notice { border-color: rgba(255, 200, 61, .5); background: rgba(60, 45, 10, .35); }
+/* big numbers: the chance glows in a gradient */
+html[data-theme="court"] .tc-chance b { background: var(--g-hot); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 2.7rem; }
+html[data-theme="court"] .meter i.on, html[data-theme="court"] .meter .on { background: var(--g-hot); }
+html[data-theme="court"] .rec-hit { background: linear-gradient(180deg, rgba(46, 230, 166, .22), rgba(46, 230, 166, .06)); }
+html[data-theme="court"] .rec-miss { background: linear-gradient(180deg, rgba(255, 77, 109, .22), rgba(255, 77, 109, .06)); }
+html[data-theme="court"] .rec-pend { background: linear-gradient(180deg, rgba(139, 92, 246, .25), rgba(139, 92, 246, .06)); }
+/* the pick: bold gradient pill */
+html[data-theme="court"] .pill-over, html[data-theme="court"] .pp-over { background: var(--g-good); color: #032319; box-shadow: 0 6px 18px rgba(46, 230, 166, .3); }
+html[data-theme="court"] .pill-under, html[data-theme="court"] .pp-under { background: var(--g-bad); color: #fff; box-shadow: 0 6px 18px rgba(255, 77, 109, .3); }
+/* units: brighter as they grow, glowing at the top */
+html[data-theme="court"] .u-tag { border-color: rgba(255, 122, 26, .6); color: #ffb37a; }
+html[data-theme="court"] .u-75, html[data-theme="court"] .u-100 { background: rgba(255, 122, 26, .18); border-color: #ff7a1a; color: #ffd2b0; }
+html[data-theme="court"] .u-150 { background: var(--g-hot); color: #fff; border-color: transparent; }
+html[data-theme="court"] .u-200, html[data-theme="court"] .u-300 { background: var(--g-hot); color: #fff; border-color: transparent; box-shadow: 0 0 18px rgba(255, 61, 139, .6); }
+html[data-theme="court"] .u-skip { border-color: var(--c-bad); color: var(--c-bad); }
+/* tags */
+html[data-theme="court"] .pr-good { border-color: var(--c-good); color: var(--c-good); background: rgba(46, 230, 166, .14); box-shadow: 0 0 12px rgba(46, 230, 166, .25); }
+html[data-theme="court"] .rec-tag.rec-proven { background: linear-gradient(90deg, #ffc83d, #ff7a1a); color: #1a0c00; border-color: transparent; box-shadow: 0 0 14px rgba(255, 200, 61, .5); }
+html[data-theme="court"] .anchor-tag { border-color: var(--c-cyan); color: var(--c-cyan); background: rgba(34, 211, 238, .1); }
+html[data-theme="court"] .gap-tag { border-color: var(--c-violet); color: #c4b5fd; background: rgba(139, 92, 246, .14); }
+html[data-theme="court"] .early-tag { border-color: #3b4594; color: var(--c-dim); }
+html[data-theme="court"] .news-ev { background: linear-gradient(135deg, rgba(255, 77, 109, .2), rgba(19, 24, 56, .9)); border-color: rgba(255, 77, 109, .6); }
+html[data-theme="court"] .pz-title { background: var(--g-hot); -webkit-background-clip: text; background-clip: text; color: transparent; }
+html[data-theme="court"] .pz-card.pz-won { border-color: var(--c-good); box-shadow: 0 0 22px rgba(46, 230, 166, .25); }
+html[data-theme="court"] .pz-card.pz-lost { border-color: var(--c-bad); }
+html[data-theme="court"] .bd-btn, html[data-theme="court"] .why-btn, html[data-theme="court"] .slip-add, html[data-theme="court"] .live-btn { background: rgba(27, 33, 80, .9); border-color: #3b4594; }
+html[data-theme="court"] .bd-btn:hover, html[data-theme="court"] .slip-add:hover { background: var(--g-hot); color: #fff; border-color: transparent; }
+html[data-theme="court"] table.stat-table th { background: rgba(27, 33, 80, .9); color: var(--c-cyan); }
+html[data-theme="court"] table.stat-table tr:hover td { background: rgba(139, 92, 246, .12); }
+html[data-theme="court"] a { color: var(--c-cyan); }
+html[data-theme="court"] .theme-btn b { background: var(--g-hot); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+
+/* ==== ARENA NIGHT theme layer (preview) ====================================================
+   Courtside at a night game: arena spotlights, court lines in the background, a hardwood
+   floor strip, jumbotron LED numbers, pennant banners, ticket-stub parlays. */
+html[data-theme="court"], html[data-theme="court"] body {
+  background:
+    radial-gradient(420px 900px at 18% -8%, rgba(255, 214, 150, .16), transparent 70%),
+    radial-gradient(420px 900px at 82% -8%, rgba(255, 214, 150, .13), transparent 70%),
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22940%22%20height%3D%22500%22%20viewBox%3D%220%200%20940%20500%22%20fill%3D%22none%22%20stroke%3D%22%239aa3d6%22%20stroke-opacity%3D%22.10%22%20stroke-width%3D%223%22%3E%3Crect%20x%3D%2210%22%20y%3D%2210%22%20width%3D%22920%22%20height%3D%22480%22/%3E%3Cline%20x1%3D%22470%22%20y1%3D%2210%22%20x2%3D%22470%22%20y2%3D%22490%22/%3E%3Ccircle%20cx%3D%22470%22%20cy%3D%22250%22%20r%3D%2260%22/%3E%3Ccircle%20cx%3D%22470%22%20cy%3D%22250%22%20r%3D%2220%22/%3E%3Crect%20x%3D%2210%22%20y%3D%22170%22%20width%3D%22190%22%20height%3D%22160%22/%3E%3Crect%20x%3D%22740%22%20y%3D%22170%22%20width%3D%22190%22%20height%3D%22160%22/%3E%3Ccircle%20cx%3D%22200%22%20cy%3D%22250%22%20r%3D%2260%22/%3E%3Ccircle%20cx%3D%22740%22%20cy%3D%22250%22%20r%3D%2260%22/%3E%3Cpath%20d%3D%22M10%2040%20H150%20A225%20225%200%200%201%20150%20460%20H10%22/%3E%3Cpath%20d%3D%22M930%2040%20H790%20A225%20225%200%200%200%20790%20460%20H930%22/%3E%3Ccircle%20cx%3D%2252%22%20cy%3D%22250%22%20r%3D%228%22/%3E%3Ccircle%20cx%3D%22888%22%20cy%3D%22250%22%20r%3D%228%22/%3E%3C/svg%3E") center 180px / 1400px auto no-repeat,
+    radial-gradient(1100px 700px at 50% 0%, #1d2460, #0a0d24 70%), #0a0d24;
+  background-attachment: fixed; }
+/* jumbotron header + hardwood floor */
+html[data-theme="court"] .site-head { background: linear-gradient(180deg, #05060f, #0b0e26); border-bottom: 0; border-image: none; position: relative; }
+html[data-theme="court"] .site-head::after { content: ""; position: absolute; left: 0; right: 0; bottom: -10px; height: 10px; z-index: 2;
+  background: repeating-linear-gradient(90deg, #b8743a 0 46px, #a8652f 46px 48px, #c98a4d 48px 98px, #9c5c2a 98px 100px, #c27f44 100px 150px, #a8652f 150px 152px),
+              linear-gradient(180deg, rgba(255,255,255,.15), rgba(0,0,0,.25)); background-blend-mode: overlay; box-shadow: 0 4px 14px rgba(0,0,0,.5); }
+html[data-theme="court"] .brand { color: #ffb25a; text-shadow: 0 0 10px rgba(255, 140, 40, .75), 0 0 24px rgba(255, 90, 40, .35) !important; }
+html[data-theme="court"] .site-main { padding-top: 26px; }
+/* LED jumbotron numbers: chance, scoreboard, record tiles */
+html[data-theme="court"] .tc-chance b, html[data-theme="court"] .rec-box b, html[data-theme="court"] .hv-tile b, html[data-theme="court"] .pz-nums b {
+  -webkit-background-clip: border-box; background: none; color: #ffcf5a;
+  text-shadow: 0 0 8px rgba(255, 170, 40, .85), 0 0 22px rgba(255, 110, 30, .45) !important; letter-spacing: .02em; }
+html[data-theme="court"] .rec-hit b, html[data-theme="court"] .hv-tile b.stat-good { color: #5dffc0; text-shadow: 0 0 8px rgba(46, 230, 166, .8), 0 0 20px rgba(46, 230, 166, .35) !important; }
+html[data-theme="court"] .rec-miss b, html[data-theme="court"] .hv-tile b.stat-bad { color: #ff7a90; text-shadow: 0 0 8px rgba(255, 77, 109, .8), 0 0 20px rgba(255, 77, 109, .35) !important; }
+html[data-theme="court"] .rec-box, html[data-theme="court"] .hv-tile { position: relative; background: #05060f !important; border: 1px solid #2a2f5e; }
+html[data-theme="court"] .rec-box::after, html[data-theme="court"] .hv-tile::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(circle, rgba(0,0,0,0) 0 1px, rgba(0,0,0,.28) 1.4px) 0 0 / 4px 4px; }
+/* pennant banners for section titles */
+html[data-theme="court"] h2 { display: inline-block; background: linear-gradient(90deg, #ff7a1a, #ff3d8b); color: #fff; -webkit-background-clip: border-box; background-clip: border-box;
+  padding: 6px 34px 6px 14px; clip-path: polygon(0 0, 100% 0, calc(100% - 18px) 50%, 100% 100%, 0 100%); font-size: 1.25rem; }
+html[data-theme="court"] h2::before, html[data-theme="court"] h2.hv-h3::before { display: none; }
+html[data-theme="court"] h2.hv-h3 { color: #fff; text-shadow: none; }
+html[data-theme="court"] h1, html[data-theme="court"] .hero-h { font-size: 2.6rem; filter: drop-shadow(0 0 14px rgba(255, 90, 60, .35)); }
+/* player cards: team-colored spotlight + court key in the corner */
+html[data-theme="court"] .tcard { overflow: hidden; }
+html[data-theme="court"] .tcard::after { content: ""; position: absolute; right: -40px; bottom: -40px; width: 170px; height: 170px; pointer-events: none;
+  border: 2px solid rgba(154, 163, 214, .10); border-radius: 50%; box-shadow: inset 0 0 0 28px rgba(154, 163, 214, .03); }
+html[data-theme="court"] .tcard { background: radial-gradient(260px 160px at 0% 0%, color-mix(in srgb, var(--tc, #ff7a1a) 35%, transparent), transparent 70%),
+  linear-gradient(180deg, rgba(37, 44, 110, .6), rgba(13, 16, 42, .95)) !important; border-color: color-mix(in srgb, var(--tc, #ff7a1a) 55%, #343c86) !important; }
+/* parlays as game tickets */
+html[data-theme="court"] .pz-card { position: relative; border-radius: 12px; padding-left: 26px;
+  background: linear-gradient(180deg, rgba(37, 44, 110, .6), rgba(13, 16, 42, .95)) !important; border: 1px dashed #4a53a8 !important;
+  -webkit-mask: radial-gradient(circle 9px at 0 50%, transparent 98%, #000) , linear-gradient(#000, #000); -webkit-mask-composite: source-in;
+  mask: radial-gradient(circle 9px at 0 50%, transparent 98%, #000); }
+html[data-theme="court"] .pz-card::before { content: "ADMIT ONE · PROP EDGE"; position: absolute; left: 4px; top: 50%; transform: translateY(-50%) rotate(-90deg); transform-origin: center;
+  width: 0; white-space: nowrap; font: 800 0.6rem "Barlow Condensed", sans-serif; letter-spacing: .2em; color: #ff8a3d; display: flex; justify-content: center; }
+/* bottom nav: hardwood */
+html[data-theme="court"] .bottom-nav { border-top: 0; border-image: none;
+  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55)),
+    repeating-linear-gradient(90deg, #b8743a 0 46px, #a8652f 46px 48px, #c98a4d 48px 98px, #9c5c2a 98px 100px, #c27f44 100px 150px, #a8652f 150px 152px); }
+html[data-theme="court"] .bottom-nav a { color: #f3e2cf; }
+html[data-theme="court"] .bottom-nav a.active { color: #fff; background: rgba(255, 61, 139, .55); }
+html[data-theme="court"] .bottom-nav a.active .bn-ic { color: #fff; }
+
+/* ==== PRIMETIME layer: national-TV broadcast + trading cards ================================ */
+html[data-theme="court"] { --pt-hot: linear-gradient(100deg, #ff6a00, #ff2d78); --pt-gold: #ffcf5a; }
+/* light beams across the arena */
+html[data-theme="court"] body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,220,160,.05) 38%, transparent 46%),
+              linear-gradient(65deg, transparent 54%, rgba(120,180,255,.05) 62%, transparent 70%); }
+html[data-theme="court"] .site-main, html[data-theme="court"] .site-head { position: relative; z-index: 1; }
+
+/* page titles: giant broadcast italic with a speed stripe */
+html[data-theme="court"] h1, html[data-theme="court"] .hero-h { font-style: italic; font-size: 3.2rem; line-height: .95; letter-spacing: -.01em; text-transform: uppercase; position: relative; padding-bottom: 12px; }
+html[data-theme="court"] h1::after, html[data-theme="court"] .hero-h::after { content: ""; position: absolute; left: 0; bottom: 0; width: 140px; height: 6px;
+  background: repeating-linear-gradient(-60deg, #ff6a00 0 10px, #ff2d78 10px 14px, transparent 14px 18px); transform: skewX(-20deg); }
+
+/* section titles: TV lower-third chyron */
+html[data-theme="court"] h2, html[data-theme="court"] h2.hv-h3 { clip-path: none; background: none; padding: 0; display: flex; align-items: stretch; gap: 0; font-style: italic; font-size: 1.35rem; letter-spacing: .03em; margin: 26px 0 12px; }
+html[data-theme="court"] h2::after, html[data-theme="court"] h2.hv-h3::after { content: "LIVE"; order: -1; font: italic 800 .78rem "Barlow Condensed", sans-serif; letter-spacing: .12em;
+  background: #fff; color: #e0004d; padding: 6px 10px 4px; transform: skewX(-12deg); margin-right: -2px; display: flex; align-items: center; }
+html[data-theme="court"] h2, html[data-theme="court"] h2.hv-h3 { color: #fff; }
+html[data-theme="court"] h2 { background: var(--pt-hot); padding: 6px 22px 4px 0; transform: skewX(-12deg); width: fit-content; box-shadow: 6px 6px 0 rgba(0,0,0,.45); }
+html[data-theme="court"] h2 > * { transform: skewX(12deg); }
+
+/* ===== player picks as TRADING CARDS ===== */
+html[data-theme="court"] .tcard { border: 3px solid var(--tc, #ff6a00) !important; border-radius: 16px !important; padding-top: 0;
+  background:
+    linear-gradient(180deg, transparent 0 96px, rgba(9,11,32,.97) 96px),
+    repeating-linear-gradient(-45deg, color-mix(in srgb, var(--tc) 85%, #000) 0 14px, color-mix(in srgb, var(--tc) 70%, #000) 14px 28px) !important;
+  box-shadow: 0 0 0 3px #0a0d24, 0 0 0 5px color-mix(in srgb, var(--tc) 60%, transparent), 0 14px 30px rgba(0,0,0,.55) !important; }
+html[data-theme="court"] .tcard::before { display: none !important; }
+html[data-theme="court"] .tcard::after { right: -30px; bottom: auto; top: 18px; width: 120px; height: 120px; border-color: rgba(255,255,255,.12); box-shadow: none; }
+html[data-theme="court"] .tc-top { min-height: 96px; align-items: center; padding-top: 10px; }
+html[data-theme="court"] .tc-name { font-style: italic; font-size: 1.75rem !important; text-transform: uppercase; color: #fff !important; text-shadow: 2px 2px 0 rgba(0,0,0,.55) !important;
+  -webkit-text-fill-color: #fff !important; text-decoration: none !important; line-height: 1; }
+html[data-theme="court"] .tc-sub { color: rgba(255,255,255,.88) !important; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,.6); }
+html[data-theme="court"] .tc-namerow .team-badge { box-shadow: 0 0 0 2px #fff !important; }
+/* chance as a giant jersey number */
+html[data-theme="court"] .tc-chance b { font-family: "Barlow Condensed", sans-serif; font-style: italic; font-weight: 800; font-size: 3.4rem !important; line-height: .9;
+  color: #fff !important; -webkit-text-stroke: 0; text-shadow: 3px 3px 0 #0a0d24, 5px 5px 0 rgba(255,255,255,.25) !important; }
+html[data-theme="court"] .tc-chance .meter i { background: rgba(0,0,0,.35); }
+html[data-theme="court"] .tc-chance .meter i.on { background: #fff; box-shadow: 0 0 6px rgba(255,255,255,.7); }
+/* the pick itself: big bold ticket strip */
+html[data-theme="court"] .tc-pick .pill { font-style: italic; font-size: 1.45rem !important; padding: 6px 16px !important; border-radius: 4px !important; transform: skewX(-10deg); box-shadow: 4px 4px 0 rgba(0,0,0,.5); }
+html[data-theme="court"] .tc-nums b, html[data-theme="court"] .tc-nums span { font-style: italic; }
+/* FOIL: cards staked 1U or more get an animated holographic sheen */
+html[data-theme="court"] .tcard:has(.u-100, .u-150, .u-200, .u-300) { border-color: transparent !important;
+  background:
+    linear-gradient(180deg, transparent 0 96px, rgba(9,11,32,.97) 96px) padding-box,
+    repeating-linear-gradient(-45deg, color-mix(in srgb, var(--tc) 85%, #000) 0 14px, color-mix(in srgb, var(--tc) 70%, #000) 14px 28px) padding-box,
+    linear-gradient(110deg, #ff3d8b, #ffcf5a, #5dffc0, #4cc9ff, #b388ff, #ff3d8b) border-box !important;
+  background-size: 100% 100%, 100% 100%, 300% 100% !important; animation: pt-foil 5s linear infinite; }
+html[data-theme="court"] .tcard:has(.u-100, .u-150, .u-200, .u-300) .tc-top::after { content: "★ FOIL · BIG PLAY"; position: absolute; top: 8px; right: 12px;
+  font: italic 800 .7rem "Barlow Condensed", sans-serif; letter-spacing: .14em; color: #0a0d24; background: linear-gradient(90deg, #ffcf5a, #fff3b0); padding: 2px 8px; border-radius: 3px; }
+html[data-theme="court"] .tc-top { position: relative; }
+@keyframes pt-foil { to { background-position: 0 0, 0 0, 300% 0; } }
+@media (prefers-reduced-motion: reduce) { html[data-theme="court"] .tcard { animation: none !important; } }
+
+/* units tags: chunky stamps */
+html[data-theme="court"] .u-tag { font-style: italic; font-weight: 800; transform: skewX(-10deg); border-radius: 3px !important; }
+
+/* ===== home scoreboard tiles: split team-color matchup bars ===== */
+html[data-theme="court"] .sb-tile { position: relative; overflow: hidden; border: 0 !important; border-radius: 12px !important;
+  background: linear-gradient(105deg, color-mix(in srgb, var(--ca) 75%, #000) 0 49.6%, #fff 49.6% 50.4%, color-mix(in srgb, var(--ch) 75%, #000) 50.4%) !important;
+  box-shadow: 0 10px 22px rgba(0,0,0,.5) !important; }
+html[data-theme="court"] .sb-tile::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.65)); pointer-events: none; }
+html[data-theme="court"] .sb-tile > * { position: relative; }
+html[data-theme="court"] .sb-teams { justify-content: space-between; }
+html[data-theme="court"] .sb-teams .team-badge { font-size: 1.15rem !important; padding: 6px 14px !important; font-style: italic; box-shadow: 0 0 0 2px #fff !important; }
+html[data-theme="court"] .sb-at { font: italic 800 1.3rem "Barlow Condensed", sans-serif; color: #fff; background: #0a0d24; border-radius: 50%; width: 38px; height: 38px; display: grid; place-items: center; }
+html[data-theme="court"] .sb-meta .st { font-style: italic; font-size: 1.6rem !important; color: #fff !important; text-shadow: 2px 2px 0 rgba(0,0,0,.6); }
+html[data-theme="court"] .sb-tile .dim, html[data-theme="court"] .sb-n { color: rgba(255,255,255,.9) !important; }
+
+/* ===== parlay tickets: gold edge for the ticket price strip ===== */
+html[data-theme="court"] .pz-card { border: 2px dashed #ffcf5a !important; background: linear-gradient(90deg, rgba(255,207,90,.14) 0 22px, transparent 22px), linear-gradient(180deg, #1e2366, #0d102a) !important; }
+html[data-theme="court"] .pz-card::before { color: #ffcf5a; }
+
+/* tabs: broadcast skewed buttons */
+html[data-theme="court"] .chip, html[data-theme="court"] .tab, html[data-theme="court"] .seg a, html[data-theme="court"] .seg button { font-style: italic; }
+/* PRIMETIME fixes: stripe band follows the card header height; chyron on every section title */
+html[data-theme="court"] .tcard, html[data-theme="court"] .tcard:has(.u-100, .u-150, .u-200, .u-300) { background-image: none !important; background-color: #0b0e2a !important; }
+html[data-theme="court"] .tcard:has(.u-100, .u-150, .u-200, .u-300) { border-color: #ffcf5a !important; animation: pt-glow 2.4s ease-in-out infinite; }
+@keyframes pt-glow { 50% { box-shadow: 0 0 0 3px #0a0d24, 0 0 0 5px #ffcf5a, 0 0 28px rgba(255,207,90,.55); } }
+html[data-theme="court"] .tc-top { margin: -16px -16px 0; padding: 16px 16px 14px; min-height: 0;
+  background: repeating-linear-gradient(-45deg, color-mix(in srgb, var(--tc) 85%, #000) 0 14px, color-mix(in srgb, var(--tc) 68%, #000) 14px 28px);
+  border-bottom: 3px solid var(--tc); }
+html[data-theme="court"] .tcard:has(.u-100, .u-150, .u-200, .u-300) .tc-top { padding-top: 30px;
+  background: linear-gradient(115deg, rgba(255,255,255,0) 30%, rgba(255,255,255,.35) 45%, rgba(255,255,255,0) 60%) 0 0 / 250% 100%,
+              repeating-linear-gradient(-45deg, color-mix(in srgb, var(--tc) 85%, #000) 0 14px, color-mix(in srgb, var(--tc) 68%, #000) 14px 28px);
+  animation: pt-sheen 3.5s linear infinite; }
+@keyframes pt-sheen { from { background-position: 150% 0, 0 0; } to { background-position: -100% 0, 0 0; } }
+html[data-theme="court"] h2, html[data-theme="court"] h2.hv-h3 { background: var(--pt-hot) !important; border-top: 0 !important; padding: 6px 22px 4px 0 !important; transform: skewX(-12deg); width: fit-content; box-shadow: 6px 6px 0 rgba(0,0,0,.45); text-shadow: none !important; }
+html[data-theme="court"] h2.hv-h3::before { display: none !important; }
+html[data-theme="court"] .tcard .tc-top { position: relative !important; }
+html[data-theme="court"] .tcard:has(.u-100, .u-150, .u-200, .u-300) .tc-top::after { top: 10px !important; left: 16px; right: auto; }
+html[data-theme="court"] h2::after, html[data-theme="court"] h2.hv-h3::after { margin-right: 12px !important; }
+html[data-theme="court"] .tcard:has(.u-100, .u-150, .u-200, .u-300) .tc-top { padding-top: 36px !important; }
+html[data-theme="court"] .tcard { padding-top: 16px !important; }
+
+/* ==== PRIMETIME consistency pass: one box style, centered buttons/badges/footer ==== */
+/* every boxed panel: same rounded card */
+html[data-theme="court"] details, html[data-theme="court"] summary, html[data-theme="court"] .day-total, html[data-theme="court"] .factor-grid,
+html[data-theme="court"] .stat-strip, html[data-theme="court"] .boxscore, html[data-theme="court"] .hv-top {
+  border: 1px solid #343c86 !important; border-radius: 14px !important; box-shadow: 0 10px 24px rgba(0,0,0,.35) !important; }
+html[data-theme="court"] details { overflow: hidden; background: rgba(19, 24, 56, .85); }
+html[data-theme="court"] details > summary { border: 0 !important; border-radius: 0 !important; box-shadow: none !important; font-family: "Barlow Condensed", sans-serif; font-weight: 800; font-style: italic; letter-spacing: .04em; text-transform: uppercase; color: #fff; }
+html[data-theme="court"] .hv-top { background: linear-gradient(180deg, rgba(37, 44, 110, .6), rgba(13, 16, 42, .95)) !important; }
+html[data-theme="court"] .factor-grid, html[data-theme="court"] .stat-strip { overflow: hidden; }
+/* buttons: text centered vertically and horizontally, same height everywhere */
+html[data-theme="court"] .bd-btn, html[data-theme="court"] .why-btn, html[data-theme="court"] .slip-add, html[data-theme="court"] .live-btn {
+  display: inline-flex !important; align-items: center; justify-content: center; text-align: center; min-height: 36px; height: auto; padding: 0 14px !important; line-height: 1.1; white-space: nowrap; font-style: italic; text-transform: uppercase; }
+html[data-theme="court"] .tc-foot { align-items: center; }
+html[data-theme="court"] .tc-actions { align-items: center; }
+/* team badges: readable everywhere, text centered */
+html[data-theme="court"] .team-badge { display: inline-flex !important; align-items: center; justify-content: center; font-size: .78rem !important; min-width: 44px; height: 28px; padding: 0 8px !important; font-style: italic; letter-spacing: .02em; }
+html[data-theme="court"] .tcard .team-badge { font-size: .85rem !important; height: 30px; min-width: 50px; }
+/* tag pills: centered text */
+html[data-theme="court"] .u-tag, html[data-theme="court"] .pr-tag, html[data-theme="court"] .pill, html[data-theme="court"] .src, html[data-theme="court"] .anchor-tag,
+html[data-theme="court"] .lean-tag, html[data-theme="court"] .early-tag { display: inline-flex; align-items: center; justify-content: center; text-align: center; vertical-align: middle; }
+/* LED tiles + chips: centered */
+html[data-theme="court"] .rec-box, html[data-theme="court"] .hv-tile { text-align: center; }
+html[data-theme="court"] .chip, html[data-theme="court"] .tab, html[data-theme="court"] .seg a, html[data-theme="court"] .seg button { display: inline-flex; align-items: center; justify-content: center; }
+/* footer: centered, framed by a hardwood strip */
+html[data-theme="court"] .site-foot { text-align: center; position: relative; margin-top: 40px; padding-top: 26px; }
+html[data-theme="court"] .site-foot::before { content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: min(420px, 80%); height: 6px; border-radius: 3px;
+  background: repeating-linear-gradient(90deg, #b8743a 0 46px, #a8652f 46px 48px, #c98a4d 48px 98px, #9c5c2a 98px 100px); }
+html[data-theme="court"] .foot-row { justify-content: center; }
+html[data-theme="court"] .site-foot .foot-row span { max-width: 640px; margin: 0 auto; display: block; }
+/* subsection titles (h3): same orange-pink accent bar as everything else */
+html[data-theme="court"] h3 { font-style: italic; }
+html[data-theme="court"] h3::before { background: var(--pt-hot) !important; }
+/* badges stay compact inside tables/lists; big only on cards, matchups and hero */
+html[data-theme="court"] .team-badge { font-size: .68rem !important; min-width: 40px; height: 24px; padding: 0 6px !important; }
+html[data-theme="court"] .tcard .team-badge { font-size: .85rem !important; height: 30px; min-width: 50px; }
+html[data-theme="court"] .sb-teams .team-badge { font-size: 1.15rem !important; height: 40px; padding: 0 14px !important; }
+/* day history tiles: cards, not pills */
+html[data-theme="court"] .day-chip { border-radius: 14px !important; display: flex !important; flex-direction: column; align-items: flex-start; justify-content: center; }
+html[data-theme="court"] .day-chip em { font-family: "Barlow Condensed", sans-serif; font-weight: 800; font-style: italic; }
+html[data-theme="court"] .rk-table td { white-space: nowrap; }
+html[data-theme="court"] .site-nav { justify-content: center; }
+html[data-theme="court"] .site-nav a { font-style: italic; text-transform: uppercase; font-weight: 800; letter-spacing: .04em; }
+@media (min-width: 821px) { html[data-theme="court"] .site-nav { flex: 1 1 100%; width: 100%; } }

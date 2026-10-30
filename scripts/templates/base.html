@@ -7,8 +7,8 @@
   <title>{% block title %}Prop Edge NBA{% endblock %}</title>
   {% for f in ('jersey-10-latin-400-normal', 'oxanium-latin-600-normal', 'oxanium-latin-700-normal', 'oxanium-latin-800-normal', 'press-start-2p-latin-400-normal') %}<link rel="preload" href="static/fonts/{{ f }}.woff2" as="font" type="font/woff2" crossorigin>
   {% endfor %}<link rel="stylesheet" href="static/style.css?v={{ cache_bust }}">
-  <link rel="stylesheet" href="static/terminal.css?v={{ cache_bust }}">
-  <script>try { if (localStorage.getItem('pe_theme') === 'terminal') document.documentElement.dataset.theme = 'terminal'; } catch (e) {}</script>
+  <link rel="stylesheet" href="static/court.css?v={{ cache_bust }}">
+  <script>try { var t = localStorage.getItem('pe_theme'); if (t === 'court' || t === 'terminal') document.documentElement.dataset.theme = 'court'; } catch (e) {}</script>
   <script>
     // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
     (function () {
@@ -41,12 +41,12 @@
   <script>
     (function () { var a = document.querySelector('.site-nav a.active'); if (a && a.scrollIntoView) a.scrollIntoView({block: 'nearest', inline: 'center'}); })();
     function peTheme() {
-      var d = document.documentElement, t = d.dataset.theme === 'terminal' ? 'arcade' : 'terminal';
-      if (t === 'terminal') d.dataset.theme = 'terminal'; else delete d.dataset.theme;
+      var d = document.documentElement, t = d.dataset.theme === 'court' ? 'arcade' : 'court';
+      if (t === 'court') d.dataset.theme = 'court'; else delete d.dataset.theme;
       try { localStorage.setItem('pe_theme', t); } catch (e) {}
-      var n = document.getElementById('theme-name'); if (n) n.textContent = t.toUpperCase();
+      var n = document.getElementById('theme-name'); if (n) n.textContent = t === 'court' ? 'PRIMETIME' : 'ARCADE';
     }
-    (function () { var n = document.getElementById('theme-name'); if (n && document.documentElement.dataset.theme === 'terminal') n.textContent = 'TERMINAL'; })();
+    (function () { var n = document.getElementById('theme-name'); if (n && document.documentElement.dataset.theme === 'court') n.textContent = 'PRIMETIME'; })();
     function toggleWhy(id, btn) {
       var panel = document.querySelector('[data-why-panel="' + id + '"]');
       if (!panel) return;
