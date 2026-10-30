@@ -487,3 +487,15 @@ From the Monahan lecture (market-based betting):
   in warm Sunset colors: orange sidelines, pink 3-point arcs, yellow keys and center circle, red rims, with a
   soft orange glow on the floor. It stands upright on phones and lies sideways on wide screens, and stays put
   while the page scrolls. CSS only (end of `docs/static/style.css`); no data changes.
+
+## Update 45: one side per number, COIN FLIP, no stakes on coin flips
+
+- `live.py` `align_sides`: when two sources post the same line for a player-stat but our chances point opposite
+  ways (different prices, or a pattern that fired on only one source, e.g. Giannis REB 11.5: PrizePicks OVER 50%
+  after the line-move pattern, Kalshi UNDER 53%), every line at that number takes the side of the most confident
+  one; the others keep the leftover chance (shown as 50% at least) and get no stake.
+- Player props under 52% get no stake and show **COIN FLIP** (new tag + legend line). Staked props under 52%
+  went 23-31 (42.6%, -1.56U) through Oct 29: Kalshi's cheap price was right, our sliver of a lean wasn't.
+  Game picks (moneyline underdogs) are unaffected.
+- WHY & STATS now says "we give UNDER 53%" (the side shown and its chance) instead of always quoting the OVER %.
+- New audit check: every recorded pick's chance is for the side shown (50% or more).

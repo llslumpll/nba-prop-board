@@ -1339,3 +1339,6 @@ html:not([data-theme="court"]) .pz-legs:has(> li:only-child)::after { content: "
 html:not([data-theme="court"]) .pz-won .pz-legs::after { content: "WINNER!" !important; color: #5dff8f !important; text-shadow: 2px 2px 0 #2b0a3d, 0 0 10px rgba(93, 255, 143, .7) !important; }
 html:not([data-theme="court"]) .pz-lost .pz-legs::after { content: "GAME OVER" !important; color: #ff2d2d !important; text-shadow: 2px 2px 0 #2b0a3d !important; }
 @media (prefers-reduced-motion: reduce) { html:not([data-theme="court"]) .brand, html:not([data-theme="court"]) .sys-tagline, html:not([data-theme="court"]) .hv-h3::after, html:not([data-theme="court"]) h2::after, html:not([data-theme="court"]) .hero-h::after, html:not([data-theme="court"]) .tcard::after, html:not([data-theme="court"]) .tc-chance::before { animation: none !important; } html:not([data-theme="court"]) .sys-tagline { text-indent: 0; white-space: normal; } }
+
+/* COIN FLIP tag: under 52% for the side shown, no real lean either way */
+.u-tag.pr-coin { border: 2px dashed #9a8cff; color: #c9c0ff; font-size: 0.72rem; white-space: nowrap; }

@@ -75,7 +75,7 @@
     <tr class="why-detail hidden" data-why-panel="{{ rid }}"><td colspan="4">
       {% for s in stat_keys %}{% set st = r.stats[s] %}
       <p class="why-reason"><strong>{{ stat_labels[s] }} {{ st.proj }}:</strong> {{ st.why }}
-        {% for src, ln in st.lines.items() %}<br>{{ src_labels[src] }} {{ ln.line|fmtline }}: we give OVER {{ (ln.p_over * 100)|round(0)|int }}%{% if ln.market_side is not none %}, market {{ (ln.market_side * 100)|round(0)|int }}% for {{ ln.side }}{% endif %}{% if ln.break_even %}, break-even {{ (ln.break_even * 100)|round(1) }}% for {{ ln.side }}{% endif %}.{% endfor %}
+        {% for src, ln in st.lines.items() %}<br>{{ src_labels[src] }} {{ ln.line|fmtline }}: we give {{ ln.side }} {{ (ln.chance * 100)|round(0)|int }}%{% if ln.market_side is not none %}, market {{ (ln.market_side * 100)|round(0)|int }}% for {{ ln.side }}{% endif %}{% if ln.break_even %}, break-even {{ (ln.break_even * 100)|round(1) }}% for {{ ln.side }}{% endif %}.{% endfor %}
         {% if st.recent %}<br>Last {{ st.recent|length }} games ({{ st.pick.side|lower }} {{ st.pick.line|fmtline }}, green = would have hit): {{ m.recent_strip(st.recent) }}{% endif %}
         {% if st.ladder %}<br>Kalshi ladder: {% for x in st.ladder %}{{ x.n }}+ {{ (x.mid * 100)|round(0)|int }}%{{ ', ' if not loop.last }}{% endfor %}.{% endif %}
       </p>

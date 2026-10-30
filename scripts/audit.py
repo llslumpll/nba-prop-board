@@ -60,6 +60,11 @@ bad_flip += [t for t in T if t.get("flip") and t["flip"].get("orig_pick") == t.g
 check("flipped picks are really on the other side", not bad_flip,
       f"{len(bad_flip)} wrong" if bad_flip else f"{sum(1 for p in P + T if p.get('flip'))} flipped")
 
+# 1d2. one side per pick: a recorded chance is never below 50% (that would mean the other side was the lean)
+low = [p for p in P if p.get("chance") is not None and p["chance"] < 0.5 - 1e-9]
+check("every pick's chance is for the side shown (50% or more)", not low,
+      f"{len(low)} under 50%: {[p.get('player') for p in low[:3]]}" if low else f"{len(P)} checked")
+
 # 1e. EDGES were all spotted before their game tipped
 E = []
 for f in sorted((ROOT / "data" / "edges").glob("*.json")) if (ROOT / "data" / "edges").exists() else []:

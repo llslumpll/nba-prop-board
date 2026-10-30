@@ -171,6 +171,11 @@ PROVEN: dict = {}       # proven.compute() groups {src|band: {h, n}}, set by bui
 DEFAULT_BE = 0.5238  # -110 when a source has no price
 
 
+# Player props under this chance get no stake (shown as COIN FLIP). Staked props under 52% hit
+# 23 of 54 (42.6%, -1.56U) through Oct 29: the cheap price was right, our sliver of a lean wasn't.
+COIN_FLIP = 0.52
+
+
 def unit_rec(chance, be, role_gap=False, inj=None, trust=None) -> float:
     if chance is None:
         return 0.0
@@ -332,6 +337,37 @@ def why_text(r: dict, s: str, cal_bias: float) -> str:
     return "; ".join(parts) + "."
 
 
+def align_sides(lines: dict) -> int:
+    """One side per number: when two sources post the same line for a player-stat but our chances
+    point opposite ways (different prices, or a pattern that only fired on one source), every line at
+    that number takes the side of the most confident one. The others keep the leftover chance (never
+    shown below 50%: that's a coin flip) and get no stake. Returns how many lines were changed."""
+    by = {}
+    for src, ln in lines.items():
+        if ln.get("side") and ln.get("line") is not None:
+            by.setdefault(ln["line"], []).append(src)
+    changed = 0
+    for srcs in by.values():
+        if len({lines[x]["side"] for x in srcs}) < 2:
+            continue
+        top = max(srcs, key=lambda x: lines[x]["chance"])
+        side = lines[top]["side"]
+        for x in srcs:
+            ln = lines[x]
+            if ln["side"] == side:
+                continue
+            ch = max(0.5, round(1 - ln["chance"], 4))
+            be = ln.get("be_over") if side == "OVER" else ln.get("be_under")
+            ms = ln.get("market_side")
+            ln.update(side=side, chance=ch, p_over=ch if side == "OVER" else 1 - ch, break_even=be,
+                      value=round(ch - be, 4) if be is not None else None,
+                      market_side=round(1 - ms, 4) if ms is not None else None,
+                      units=0.0, units_raw=0.0, proven=None, rec=None, aligned_to=top,
+                      adj=(ln.get("adj") or []) + [f"side set to {side} to match {markets.SOURCE_LABEL.get(top, top)} at the same line (books disagreed); no stake"])
+            changed += 1
+    return changed
+
+
 def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | None = None,
         pat: dict | None = None, open_lines: dict | None = None) -> dict:
     """Projects the slate. Returns players (per game), picks (per stat) and
@@ -462,10 +498,13 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
                 u_cap = NEW_GROUP_CAP if sk in NEW_GROUPS and sk not in pat.get("proven", set()) else 9.0
                 if u_cap < 9 and unit_rec(chance, be, role_gap, r.get("inj_status")) > u_cap:
                     adj.append(f"stake capped at {u_cap:g}U until this kind of pick has a track record")
-                u_now = 0.0 if skip else min(u_cap, unit_rec(chance, be, role_gap, r.get("inj_status")))
-                u_raw = 0.0 if skip else min(u_cap, unit_rec(chance, be, role_gap, r.get("inj_status"), trust=1.0))
+                coin = chance < COIN_FLIP  # no real lean: a cheap price alone doesn't make it a bet
+                if coin and unit_rec(chance, be, role_gap, r.get("inj_status")) > 0:
+                    adj.append(f"no stake: {chance * 100:.0f}% is a coin flip, even at a cheap price")
+                u_now = 0.0 if skip or coin else min(u_cap, unit_rec(chance, be, role_gap, r.get("inj_status")))
+                u_raw = 0.0 if skip or coin else min(u_cap, unit_rec(chance, be, role_gap, r.get("inj_status"), trust=1.0))
                 prec = PROVEN.get(f"{sk}|{proven.band(chance)}")
-                pu = None if skip or r.get("inj_status") else proven.units(prec, be)
+                pu = None if skip or coin or r.get("inj_status") else proven.units(prec, be)
                 if pu:
                     adj.append(f"{pu:g}U PROVEN: picks like this hit {prec['h']} of {prec['n']}, enough to beat this price even on a cold streak")
                     u_now, u_raw = max(u_now, pu), max(u_raw, pu)
@@ -475,6 +514,7 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
                                     "p_over": round(po, 4), "side": side, "chance": round(chance, 4), "blend_mean": round(mu_b, 2), "market_mean": round(m_mkt, 2), "role_gap": role_gap,
                                     "break_even": be, "value": round(chance - be, 4) if be is not None else None,
                                     "market_side": round(mkt_side, 4) if mkt_side is not None else None}
+            align_sides(st["lines"])
             psrc, _ = markets.primary(st["lines"])
             if psrc:
                 pk = st["lines"][psrc]
