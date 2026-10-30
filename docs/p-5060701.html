@@ -10,9 +10,9 @@
 <link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="static/style.css?v=d8707b5976">
-  <link rel="stylesheet" href="static/terminal.css?v=d8707b5976">
-  <script>try { if (localStorage.getItem('pe_theme') === 'terminal') document.documentElement.dataset.theme = 'terminal'; } catch (e) {}</script>
+<link rel="stylesheet" href="static/style.css?v=edcfe1fee6">
+  <link rel="stylesheet" href="static/court.css?v=edcfe1fee6">
+  <script>try { var t = localStorage.getItem('pe_theme'); if (t === 'court' || t === 'terminal') document.documentElement.dataset.theme = 'court'; } catch (e) {}</script>
   <script>
     // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
     (function () {
@@ -257,12 +257,12 @@
   <script>
     (function () { var a = document.querySelector('.site-nav a.active'); if (a && a.scrollIntoView) a.scrollIntoView({block: 'nearest', inline: 'center'}); })();
     function peTheme() {
-      var d = document.documentElement, t = d.dataset.theme === 'terminal' ? 'arcade' : 'terminal';
-      if (t === 'terminal') d.dataset.theme = 'terminal'; else delete d.dataset.theme;
+      var d = document.documentElement, t = d.dataset.theme === 'court' ? 'arcade' : 'court';
+      if (t === 'court') d.dataset.theme = 'court'; else delete d.dataset.theme;
       try { localStorage.setItem('pe_theme', t); } catch (e) {}
-      var n = document.getElementById('theme-name'); if (n) n.textContent = t.toUpperCase();
+      var n = document.getElementById('theme-name'); if (n) n.textContent = t === 'court' ? 'PRIMETIME' : 'ARCADE';
     }
-    (function () { var n = document.getElementById('theme-name'); if (n && document.documentElement.dataset.theme === 'terminal') n.textContent = 'TERMINAL'; })();
+    (function () { var n = document.getElementById('theme-name'); if (n && document.documentElement.dataset.theme === 'court') n.textContent = 'PRIMETIME'; })();
     function toggleWhy(id, btn) {
       var panel = document.querySelector('[data-why-panel="' + id + '"]');
       if (!panel) return;
@@ -328,7 +328,7 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=d8707b5976"></script>
+  <script src="static/slip.js?v=edcfe1fee6"></script>
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>
