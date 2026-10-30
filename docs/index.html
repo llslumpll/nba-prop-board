@@ -10,9 +10,7 @@
 <link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="static/style.css?v=edcfe1fee6">
-  <link rel="stylesheet" href="static/court.css?v=edcfe1fee6">
-  <script>try { var t = localStorage.getItem('pe_theme'); if (t === 'court' || t === 'terminal') document.documentElement.dataset.theme = 'court'; } catch (e) {}</script>
+<link rel="stylesheet" href="static/style.css?v=631be8ff57">
   <script>
     // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
     (function () {
@@ -29,7 +27,6 @@
 <body>
   <header class="site-head">
     <a class="brand" href="index.html">PROP EDGE<span class="brand-sub">NBA</span></a>
-    <button class="theme-btn" type="button" onclick="peTheme()" title="Switch the site's look (saved on this device)">STYLE: <b id="theme-name">ARCADE</b></button>
     <nav class="site-nav" aria-label="Pages">
 <a href="index.html" class="active">Home</a><a href="picks.html" class="">Picks</a><a href="games.html" class="">Games</a><a href="players.html" class="">Players</a><a href="rankings.html" class="">Teams</a><a href="parlays.html" class="">Parlays</a><a href="history.html" class="">History</a>    </nav>
   </header>
@@ -127,7 +124,34 @@
     <button class="chip active" data-filter="all">ALL</button>
 <button class="chip" data-filter="pts">PTS</button><button class="chip" data-filter="reb">REB</button><button class="chip" data-filter="ast">AST</button><button class="chip" data-filter="fg3m">3PM</button><button class="chip" data-filter="combos">PRA+</button>  </div>
 </div>
-<div data-filter-panel="all"><div class="slip-fill"><button class="chip" type="button" data-fill='[{"be": 0.7438, "chance": 0.7111, "gid": 401909280, "id": "5124612|AST|401909280", "line": 1.5, "opp": "NYK", "pid": 5124612, "player": "VJ Edgecombe", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "PHI"}, {"be": 0.7824, "chance": 0.7081, "gid": 401909283, "id": "4684740|PRA|401909283", "line": 24.5, "opp": "DAL", "pid": 4684740, "player": "Amen Thompson", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "HOU"}, {"be": 0.7535, "chance": 0.698, "gid": 401909284, "id": "4431671|AST|401909284", "line": 1.5, "opp": "LAC", "pid": 4431671, "player": "Jaden McDaniels", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "MIN"}, {"be": 0.7341, "chance": 0.696, "gid": 401909285, "id": "4277811|AST|401909285", "line": 1.5, "opp": "GSW", "pid": 4277811, "player": "Collin Sexton", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "LAL"}, {"be": 0.8112, "chance": 0.6931, "gid": 401909285, "id": "4433136|PRA|401909285", "line": 19.5, "opp": "GSW", "pid": 4433136, "player": "Walker Kessler", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "LAL"}, {"be": 0.6855, "chance": 0.6914, "gid": 401909281, "id": "4433134|3PM|401909281", "line": 1.5, "opp": "ORL", "pid": 4433134, "player": "Scottie Barnes", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "TOR"}]'>+ ADD ALL TO SLIP</button><button class="chip" type="button" data-fill='[{"be": 0.7438, "chance": 0.7111, "gid": 401909280, "id": "5124612|AST|401909280", "line": 1.5, "opp": "NYK", "pid": 5124612, "player": "VJ Edgecombe", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "PHI"}, {"be": 0.7824, "chance": 0.7081, "gid": 401909283, "id": "4684740|PRA|401909283", "line": 24.5, "opp": "DAL", "pid": 4684740, "player": "Amen Thompson", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "HOU"}, {"be": 0.7535, "chance": 0.698, "gid": 401909284, "id": "4431671|AST|401909284", "line": 1.5, "opp": "LAC", "pid": 4431671, "player": "Jaden McDaniels", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "MIN"}, {"be": 0.7341, "chance": 0.696, "gid": 401909285, "id": "4277811|AST|401909285", "line": 1.5, "opp": "GSW", "pid": 4277811, "player": "Collin Sexton", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "LAL"}, {"be": 0.8112, "chance": 0.6931, "gid": 401909285, "id": "4433136|PRA|401909285", "line": 19.5, "opp": "GSW", "pid": 4433136, "player": "Walker Kessler", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "LAL"}, {"be": 0.6855, "chance": 0.6914, "gid": 401909281, "id": "4433134|3PM|401909281", "line": 1.5, "opp": "ORL", "pid": 4433134, "player": "Scottie Barnes", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "TOR"}]' data-one-per-game="1">+ ADD, MAX 1 PER GAME</button></div><div class="tgrid"><article class="tcard" style="--tc:#1D428A">
+<div data-filter-panel="all"><div class="slip-fill"><button class="chip" type="button" data-fill='[{"be": 0.7631, "chance": 0.7121, "gid": 401909284, "id": "4431671|AST|401909284", "line": 1.5, "opp": "LAC", "pid": 4431671, "player": "Jaden McDaniels", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "MIN"}, {"be": 0.7438, "chance": 0.7111, "gid": 401909280, "id": "5124612|AST|401909280", "line": 1.5, "opp": "NYK", "pid": 5124612, "player": "VJ Edgecombe", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "PHI"}, {"be": 0.7824, "chance": 0.7081, "gid": 401909283, "id": "4684740|PRA|401909283", "line": 24.5, "opp": "DAL", "pid": 4684740, "player": "Amen Thompson", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "HOU"}, {"be": 0.7341, "chance": 0.696, "gid": 401909285, "id": "4277811|AST|401909285", "line": 1.5, "opp": "GSW", "pid": 4277811, "player": "Collin Sexton", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "LAL"}, {"be": 0.6855, "chance": 0.6914, "gid": 401909281, "id": "4433134|3PM|401909281", "line": 1.5, "opp": "ORL", "pid": 4433134, "player": "Scottie Barnes", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "TOR"}, {"be": 0.8016, "chance": 0.6859, "gid": 401909285, "id": "4433136|PRA|401909285", "line": 19.5, "opp": "GSW", "pid": 4433136, "player": "Walker Kessler", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "LAL"}]'>+ ADD ALL TO SLIP</button><button class="chip" type="button" data-fill='[{"be": 0.7631, "chance": 0.7121, "gid": 401909284, "id": "4431671|AST|401909284", "line": 1.5, "opp": "LAC", "pid": 4431671, "player": "Jaden McDaniels", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "MIN"}, {"be": 0.7438, "chance": 0.7111, "gid": 401909280, "id": "5124612|AST|401909280", "line": 1.5, "opp": "NYK", "pid": 5124612, "player": "VJ Edgecombe", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "PHI"}, {"be": 0.7824, "chance": 0.7081, "gid": 401909283, "id": "4684740|PRA|401909283", "line": 24.5, "opp": "DAL", "pid": 4684740, "player": "Amen Thompson", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "HOU"}, {"be": 0.7341, "chance": 0.696, "gid": 401909285, "id": "4277811|AST|401909285", "line": 1.5, "opp": "GSW", "pid": 4277811, "player": "Collin Sexton", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "LAL"}, {"be": 0.6855, "chance": 0.6914, "gid": 401909281, "id": "4433134|3PM|401909281", "line": 1.5, "opp": "ORL", "pid": 4433134, "player": "Scottie Barnes", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "TOR"}, {"be": 0.8016, "chance": 0.6859, "gid": 401909285, "id": "4433136|PRA|401909285", "line": 19.5, "opp": "GSW", "pid": 4433136, "player": "Walker Kessler", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "LAL"}]' data-one-per-game="1">+ ADD, MAX 1 PER GAME</button></div><div class="tgrid"><article class="tcard" style="--tc:#266092">
+  <div class="tc-top">
+    <div class="tc-who">
+      <div class="tc-namerow"><span class="team-badge" style="background:#266092;color:#ffffff;box-shadow:0 0 0 2px transparent">MIN</span><a class="tc-name" href="p-4431671.html">Jaden McDaniels</a></div>
+      <div class="tc-sub">assists &middot; vs LAC &middot; Fri 8:00 PM ET</div>
+    </div>
+    <div class="tc-chance">
+<b>71%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
+  </div>
+  <div class="tc-pick">
+    <span class="pill pill-over">OVER 1.5</span><span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span><span class="rec-tag " title="Kalshi picks at 70-75% have hit 21/24 (88%)">21/24</span>
+    <div class="tc-nums">
+      <span><em>PROJ</em>2.8</span>
+      <span><em>LINE</em>1.5</span>
+<span class="good"><em>PROJ &minus; LINE</em>+1.3</span>    </div>
+  </div>
+<div class="tc-blend">Chance uses <b>2.66</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
+    <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>8/10</b></div>
+    <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">3</i><i class="rs rs-over">3</i><i class="rs rs-under">0</i><i class="rs rs-over">2</i><i class="rs rs-over">2</i><i class="rs rs-under">1</i><i class="rs rs-over">3</i><i class="rs rs-over">3</i><i class="rs rs-over">4</i><i class="rs rs-over">4</i></span>
+  </div>
+<div class="tc-role">
+<span title="This season and last, in games where he played 26-36 minutes (like tonight's projection)">IN 26&ndash;36 MIN GAMES: <b class="stat-good">37/47</b></span>  </div>  <div class="tc-foot">
+    <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
+<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened OVER 2.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.7631, "chance": 0.7121, "gid": 401909284, "id": "4431671|ast|401909284", "line": 1.5, "opp": "LAC", "pid": 4431671, "player": "Jaden McDaniels", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "MIN"}'>+ SLIP</button>
+    <a class="bd-btn" href="p-4431671.html#ast">WHY &amp; STATS &#9656;</a></span>
+  </div>
+</article>
+<article class="tcard" style="--tc:#1D428A">
   <div class="tc-top">
     <div class="tc-who">
       <div class="tc-namerow"><span class="team-badge" style="background:#1D428A;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">PHI</span><a class="tc-name" href="p-5124612.html">VJ Edgecombe</a></div>
@@ -181,33 +205,6 @@
     <a class="bd-btn" href="p-4684740.html#pra">WHY &amp; STATS &#9656;</a></span>
   </div>
 </article>
-<article class="tcard" style="--tc:#266092">
-  <div class="tc-top">
-    <div class="tc-who">
-      <div class="tc-namerow"><span class="team-badge" style="background:#266092;color:#ffffff;box-shadow:0 0 0 2px transparent">MIN</span><a class="tc-name" href="p-4431671.html">Jaden McDaniels</a></div>
-      <div class="tc-sub">assists &middot; vs LAC &middot; Fri 8:00 PM ET</div>
-    </div>
-    <div class="tc-chance">
-<b>70%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
-  </div>
-  <div class="tc-pick">
-    <span class="pill pill-over">OVER 1.5</span><span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span><span class="rec-tag " title="Kalshi picks at 65-70% have hit 67/110 (61%)">67/110</span>
-    <div class="tc-nums">
-      <span><em>PROJ</em>2.8</span>
-      <span><em>LINE</em>1.5</span>
-<span class="good"><em>PROJ &minus; LINE</em>+1.3</span>    </div>
-  </div>
-<div class="tc-blend">Chance uses <b>2.58</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
-    <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>8/10</b></div>
-    <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">3</i><i class="rs rs-over">3</i><i class="rs rs-under">0</i><i class="rs rs-over">2</i><i class="rs rs-over">2</i><i class="rs rs-under">1</i><i class="rs rs-over">3</i><i class="rs rs-over">3</i><i class="rs rs-over">4</i><i class="rs rs-over">4</i></span>
-  </div>
-<div class="tc-role">
-<span title="This season and last, in games where he played 26-36 minutes (like tonight's projection)">IN 26&ndash;36 MIN GAMES: <b class="stat-good">37/47</b></span>  </div>  <div class="tc-foot">
-    <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
-<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened OVER 2.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.7535, "chance": 0.698, "gid": 401909284, "id": "4431671|ast|401909284", "line": 1.5, "opp": "LAC", "pid": 4431671, "player": "Jaden McDaniels", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "MIN"}'>+ SLIP</button>
-    <a class="bd-btn" href="p-4431671.html#ast">WHY &amp; STATS &#9656;</a></span>
-  </div>
-</article>
 <article class="tcard" style="--tc:#552583">
   <div class="tc-top">
     <div class="tc-who">
@@ -233,33 +230,6 @@
     <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
 <span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.7341, "chance": 0.696, "gid": 401909285, "id": "4277811|ast|401909285", "line": 1.5, "opp": "GSW", "pid": 4277811, "player": "Collin Sexton", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "LAL"}'>+ SLIP</button>
     <a class="bd-btn" href="p-4277811.html#ast">WHY &amp; STATS &#9656;</a></span>
-  </div>
-</article>
-<article class="tcard" style="--tc:#552583">
-  <div class="tc-top">
-    <div class="tc-who">
-      <div class="tc-namerow"><span class="team-badge" style="background:#552583;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">LAL</span><a class="tc-name" href="p-4433136.html">Walker Kessler</a></div>
-      <div class="tc-sub">pts+reb+ast &middot; @ GSW &middot; Fri 10:00 PM ET</div>
-    </div>
-    <div class="tc-chance">
-<b>69%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
-  </div>
-  <div class="tc-pick">
-    <span class="pill pill-over">OVER 19.5</span><span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span><span class="rec-tag " title="Kalshi picks at 65-70% have hit 67/110 (61%)">67/110</span>
-    <div class="tc-nums">
-      <span><em>PROJ</em>21.9</span>
-      <span><em>LINE</em>19.5</span>
-<span class="good"><em>PROJ &minus; LINE</em>+2.4</span>    </div>
-  </div>
-<div class="tc-blend">Chance uses <b>26.48</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
-    <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>7/10</b></div>
-    <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">35</i><i class="rs rs-under">14</i><i class="rs rs-over">40</i><i class="rs rs-over">34</i><i class="rs rs-under">18</i><i class="rs rs-over">36</i><i class="rs rs-over">33</i><i class="rs rs-under">9</i><i class="rs rs-over">21</i><i class="rs rs-over">21</i></span>
-  </div>
-<div class="tc-role">
-<span title="This season and last, in games where he played 23-33 minutes (like tonight's projection)">IN 23&ndash;33 MIN GAMES: <b class="stat-good">5/8</b></span>  </div>  <div class="tc-foot">
-    <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
-<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened UNDER 25.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.8112, "chance": 0.6931, "gid": 401909285, "id": "4433136|pra|401909285", "line": 19.5, "opp": "GSW", "pid": 4433136, "player": "Walker Kessler", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "LAL"}'>+ SLIP</button>
-    <a class="bd-btn" href="p-4433136.html#pra">WHY &amp; STATS &#9656;</a></span>
   </div>
 </article>
 <article class="tcard" style="--tc:#D91244">
@@ -289,9 +259,36 @@
     <a class="bd-btn" href="p-4433134.html#fg3m">WHY &amp; STATS &#9656;</a></span>
   </div>
 </article>
+<article class="tcard" style="--tc:#552583">
+  <div class="tc-top">
+    <div class="tc-who">
+      <div class="tc-namerow"><span class="team-badge" style="background:#552583;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">LAL</span><a class="tc-name" href="p-4433136.html">Walker Kessler</a></div>
+      <div class="tc-sub">pts+reb+ast &middot; @ GSW &middot; Fri 10:00 PM ET</div>
+    </div>
+    <div class="tc-chance">
+<b>69%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
+  </div>
+  <div class="tc-pick">
+    <span class="pill pill-over">OVER 19.5</span><span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span><span class="rec-tag " title="Kalshi picks at 65-70% have hit 67/110 (61%)">67/110</span>
+    <div class="tc-nums">
+      <span><em>PROJ</em>21.9</span>
+      <span><em>LINE</em>19.5</span>
+<span class="good"><em>PROJ &minus; LINE</em>+2.4</span>    </div>
+  </div>
+<div class="tc-blend">Chance uses <b>26.14</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
+    <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>7/10</b></div>
+    <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">35</i><i class="rs rs-under">14</i><i class="rs rs-over">40</i><i class="rs rs-over">34</i><i class="rs rs-under">18</i><i class="rs rs-over">36</i><i class="rs rs-over">33</i><i class="rs rs-under">9</i><i class="rs rs-over">21</i><i class="rs rs-over">21</i></span>
+  </div>
+<div class="tc-role">
+<span title="This season and last, in games where he played 23-33 minutes (like tonight's projection)">IN 23&ndash;33 MIN GAMES: <b class="stat-good">5/8</b></span>  </div>  <div class="tc-foot">
+    <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
+<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened UNDER 25.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.8016, "chance": 0.6859, "gid": 401909285, "id": "4433136|pra|401909285", "line": 19.5, "opp": "GSW", "pid": 4433136, "player": "Walker Kessler", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "LAL"}'>+ SLIP</button>
+    <a class="bd-btn" href="p-4433136.html#pra">WHY &amp; STATS &#9656;</a></span>
+  </div>
+</article>
 </div>
 </div>
-<div class="hidden" data-filter-panel="pts"><div class="slip-fill"><button class="chip" type="button" data-fill='[{"be": 0.705, "chance": 0.647, "gid": 401909285, "id": "4277811|PTS|401909285", "line": 9.5, "opp": "GSW", "pid": 4277811, "player": "Collin Sexton", "side": "OVER", "src": "kalshi", "stat": "PTS", "team": "LAL"}]'>+ ADD ALL TO SLIP</button><button class="chip" type="button" data-fill='[{"be": 0.705, "chance": 0.647, "gid": 401909285, "id": "4277811|PTS|401909285", "line": 9.5, "opp": "GSW", "pid": 4277811, "player": "Collin Sexton", "side": "OVER", "src": "kalshi", "stat": "PTS", "team": "LAL"}]' data-one-per-game="1">+ ADD, MAX 1 PER GAME</button></div><div class="tgrid"><article class="tcard" style="--tc:#552583">
+<div class="hidden" data-filter-panel="pts"><div class="slip-fill"><button class="chip" type="button" data-fill='[{"be": 0.6952, "chance": 0.647, "gid": 401909285, "id": "4277811|PTS|401909285", "line": 9.5, "opp": "GSW", "pid": 4277811, "player": "Collin Sexton", "side": "OVER", "src": "kalshi", "stat": "PTS", "team": "LAL"}]'>+ ADD ALL TO SLIP</button><button class="chip" type="button" data-fill='[{"be": 0.6952, "chance": 0.647, "gid": 401909285, "id": "4277811|PTS|401909285", "line": 9.5, "opp": "GSW", "pid": 4277811, "player": "Collin Sexton", "side": "OVER", "src": "kalshi", "stat": "PTS", "team": "LAL"}]' data-one-per-game="1">+ ADD, MAX 1 PER GAME</button></div><div class="tgrid"><article class="tcard" style="--tc:#552583">
   <div class="tc-top">
     <div class="tc-who">
       <div class="tc-namerow"><span class="team-badge" style="background:#552583;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">LAL</span><a class="tc-name" href="p-4277811.html">Collin Sexton</a></div>
@@ -314,46 +311,19 @@
 <div class="tc-role">
 <span title="This season and last, in games where he played 17-27 minutes (like tonight's projection)">IN 17&ndash;27 MIN GAMES: <b class="stat-good">31/34</b></span>  </div>  <div class="tc-foot">
     <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
-<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened OVER 12.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.705, "chance": 0.647, "gid": 401909285, "id": "4277811|pts|401909285", "line": 9.5, "opp": "GSW", "pid": 4277811, "player": "Collin Sexton", "side": "OVER", "src": "kalshi", "stat": "PTS", "team": "LAL"}'>+ SLIP</button>
+<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened OVER 12.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.6952, "chance": 0.647, "gid": 401909285, "id": "4277811|pts|401909285", "line": 9.5, "opp": "GSW", "pid": 4277811, "player": "Collin Sexton", "side": "OVER", "src": "kalshi", "stat": "PTS", "team": "LAL"}'>+ SLIP</button>
     <a class="bd-btn" href="p-4277811.html#pts">WHY &amp; STATS &#9656;</a></span>
   </div>
 </article>
 </div>
-<p class="small"><a href="picks.html#pts">Best Value and more on Picks &rarr;</a></p></div><div class="hidden" data-filter-panel="reb"><div class="slip-fill"><button class="chip" type="button" data-fill='[{"be": 0.7244, "chance": 0.6627, "gid": 401909277, "id": "4277905|REB|401909277", "line": 3.5, "opp": "CHA", "pid": 4277905, "player": "Trae Young", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "WAS"}, {"be": 0.7244, "chance": 0.6604, "gid": 401909286, "id": "3978|REB|401909286", "line": 3.5, "opp": "PHX", "pid": 3978, "player": "DeMar DeRozan", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "DEN"}, {"be": 0.6855, "chance": 0.6573, "gid": 401909284, "id": "4396907|REB|401909284", "line": 3.5, "opp": "MIN", "pid": 4396907, "player": "Darius Garland", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "LAC"}, {"be": 0.6659, "chance": 0.6375, "gid": 401909280, "id": "3147657|REB|401909280", "line": 3.5, "opp": "PHI", "pid": 3147657, "player": "Mikal Bridges", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "NYK"}, {"be": 0.6659, "chance": 0.6327, "gid": 401909278, "id": "4066354|REB|401909278", "line": 3.5, "opp": "CHI", "pid": 4066354, "player": "Payton Pritchard", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "BOS"}]'>+ ADD ALL TO SLIP</button><button class="chip" type="button" data-fill='[{"be": 0.7244, "chance": 0.6627, "gid": 401909277, "id": "4277905|REB|401909277", "line": 3.5, "opp": "CHA", "pid": 4277905, "player": "Trae Young", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "WAS"}, {"be": 0.7244, "chance": 0.6604, "gid": 401909286, "id": "3978|REB|401909286", "line": 3.5, "opp": "PHX", "pid": 3978, "player": "DeMar DeRozan", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "DEN"}, {"be": 0.6855, "chance": 0.6573, "gid": 401909284, "id": "4396907|REB|401909284", "line": 3.5, "opp": "MIN", "pid": 4396907, "player": "Darius Garland", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "LAC"}, {"be": 0.6659, "chance": 0.6375, "gid": 401909280, "id": "3147657|REB|401909280", "line": 3.5, "opp": "PHI", "pid": 3147657, "player": "Mikal Bridges", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "NYK"}, {"be": 0.6659, "chance": 0.6327, "gid": 401909278, "id": "4066354|REB|401909278", "line": 3.5, "opp": "CHI", "pid": 4066354, "player": "Payton Pritchard", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "BOS"}]' data-one-per-game="1">+ ADD, MAX 1 PER GAME</button></div><div class="tgrid"><article class="tcard" style="--tc:#E31837">
-  <div class="tc-top">
-    <div class="tc-who">
-      <div class="tc-namerow"><span class="team-badge" style="background:#E31837;color:#ffffff;box-shadow:0 0 0 2px transparent">WAS</span><a class="tc-name" href="p-4277905.html">Trae Young</a></div>
-      <div class="tc-sub">rebounds &middot; vs CHA &middot; Fri 7:00 PM ET</div>
-    </div>
-    <div class="tc-chance">
-<b>66%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
-  </div>
-  <div class="tc-pick">
-    <span class="pill pill-under">UNDER 3.5</span><span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span><span class="rec-tag " title="Kalshi picks at 65-70% have hit 67/110 (61%)">67/110</span>
-    <div class="tc-nums">
-      <span><em>PROJ</em>2.4</span>
-      <span><em>LINE</em>3.5</span>
-<span class="bad"><em>PROJ &minus; LINE</em>-1.1</span>    </div>
-  </div>
-<div class="tc-blend">Chance uses <b>2.81</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
-    <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>5/10</b></div>
-    <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">2</i><i class="rs rs-under">4</i><i class="rs rs-over">3</i><i class="rs rs-under">4</i><i class="rs rs-over">2</i><i class="rs rs-over">0</i><i class="rs rs-over">1</i><i class="rs rs-under">4</i><i class="rs rs-under">6</i><i class="rs rs-under">5</i></span>
-  </div>
-<div class="tc-role">
-<span title="This season and last, in games where he played 22-32 minutes (like tonight's projection)">IN 22&ndash;32 MIN GAMES: <b class="stat-good">4/6</b></span>  </div>  <div class="tc-foot">
-    <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
-<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.7244, "chance": 0.6627, "gid": 401909277, "id": "4277905|reb|401909277", "line": 3.5, "opp": "CHA", "pid": 4277905, "player": "Trae Young", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "WAS"}'>+ SLIP</button>
-    <a class="bd-btn" href="p-4277905.html#reb">WHY &amp; STATS &#9656;</a></span>
-  </div>
-</article>
-<article class="tcard" style="--tc:#0E2240">
+<p class="small"><a href="picks.html#pts">Best Value and more on Picks &rarr;</a></p></div><div class="hidden" data-filter-panel="reb"><div class="slip-fill"><button class="chip" type="button" data-fill='[{"be": 0.7535, "chance": 0.6705, "gid": 401909286, "id": "3978|REB|401909286", "line": 3.5, "opp": "PHX", "pid": 3978, "player": "DeMar DeRozan", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "DEN"}, {"be": 0.6855, "chance": 0.6573, "gid": 401909284, "id": "4396907|REB|401909284", "line": 3.5, "opp": "MIN", "pid": 4396907, "player": "Darius Garland", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "LAC"}, {"be": 0.6952, "chance": 0.6559, "gid": 401909277, "id": "4277905|REB|401909277", "line": 3.5, "opp": "CHA", "pid": 4277905, "player": "Trae Young", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "WAS"}, {"be": 0.6757, "chance": 0.6445, "gid": 401909281, "id": "4066320|REB|401909281", "line": 5.5, "opp": "TOR", "pid": 4066320, "player": "Desmond Bane", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "ORL"}, {"be": 0.6659, "chance": 0.6375, "gid": 401909280, "id": "3147657|REB|401909280", "line": 3.5, "opp": "PHI", "pid": 3147657, "player": "Mikal Bridges", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "NYK"}]'>+ ADD ALL TO SLIP</button><button class="chip" type="button" data-fill='[{"be": 0.7535, "chance": 0.6705, "gid": 401909286, "id": "3978|REB|401909286", "line": 3.5, "opp": "PHX", "pid": 3978, "player": "DeMar DeRozan", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "DEN"}, {"be": 0.6855, "chance": 0.6573, "gid": 401909284, "id": "4396907|REB|401909284", "line": 3.5, "opp": "MIN", "pid": 4396907, "player": "Darius Garland", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "LAC"}, {"be": 0.6952, "chance": 0.6559, "gid": 401909277, "id": "4277905|REB|401909277", "line": 3.5, "opp": "CHA", "pid": 4277905, "player": "Trae Young", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "WAS"}, {"be": 0.6757, "chance": 0.6445, "gid": 401909281, "id": "4066320|REB|401909281", "line": 5.5, "opp": "TOR", "pid": 4066320, "player": "Desmond Bane", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "ORL"}, {"be": 0.6659, "chance": 0.6375, "gid": 401909280, "id": "3147657|REB|401909280", "line": 3.5, "opp": "PHI", "pid": 3147657, "player": "Mikal Bridges", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "NYK"}]' data-one-per-game="1">+ ADD, MAX 1 PER GAME</button></div><div class="tgrid"><article class="tcard" style="--tc:#0E2240">
   <div class="tc-top">
     <div class="tc-who">
       <div class="tc-namerow"><span class="team-badge" style="background:#0E2240;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">DEN</span><a class="tc-name" href="p-3978.html">DeMar DeRozan</a></div>
       <div class="tc-sub">rebounds &middot; @ PHX &middot; Fri 10:00 PM ET</div>
     </div>
     <div class="tc-chance">
-<b>66%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
+<b>67%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
   </div>
   <div class="tc-pick">
     <span class="pill pill-under">UNDER 3.5</span><span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span><span class="rec-tag " title="Kalshi picks at 65-70% have hit 67/110 (61%)">67/110</span>
@@ -362,14 +332,14 @@
       <span><em>LINE</em>3.5</span>
 <span class="bad"><em>PROJ &minus; LINE</em>-0.6</span>    </div>
   </div>
-<div class="tc-blend">Chance uses <b>2.83</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
+<div class="tc-blend">Chance uses <b>2.77</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
     <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>6/10</b></div>
     <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-under">4</i><i class="rs rs-under">6</i><i class="rs rs-under">4</i><i class="rs rs-over">1</i><i class="rs rs-over">2</i><i class="rs rs-over">0</i><i class="rs rs-over">2</i><i class="rs rs-over">3</i><i class="rs rs-under">4</i><i class="rs rs-over">2</i></span>
   </div>
 <div class="tc-role">
 <span title="This season and last, in games where he played 21-31 minutes (like tonight's projection)">IN 21&ndash;31 MIN GAMES: <b class="stat-good">17/27</b></span>  </div>  <div class="tc-foot">
     <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
-<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened OVER 2.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.7244, "chance": 0.6604, "gid": 401909286, "id": "3978|reb|401909286", "line": 3.5, "opp": "PHX", "pid": 3978, "player": "DeMar DeRozan", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "DEN"}'>+ SLIP</button>
+<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened OVER 2.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.7535, "chance": 0.6705, "gid": 401909286, "id": "3978|reb|401909286", "line": 3.5, "opp": "PHX", "pid": 3978, "player": "DeMar DeRozan", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "DEN"}'>+ SLIP</button>
     <a class="bd-btn" href="p-3978.html#reb">WHY &amp; STATS &#9656;</a></span>
   </div>
 </article>
@@ -400,6 +370,60 @@
     <a class="bd-btn" href="p-4396907.html#reb">WHY &amp; STATS &#9656;</a></span>
   </div>
 </article>
+<article class="tcard" style="--tc:#E31837">
+  <div class="tc-top">
+    <div class="tc-who">
+      <div class="tc-namerow"><span class="team-badge" style="background:#E31837;color:#ffffff;box-shadow:0 0 0 2px transparent">WAS</span><a class="tc-name" href="p-4277905.html">Trae Young</a></div>
+      <div class="tc-sub">rebounds &middot; vs CHA &middot; Fri 7:00 PM ET</div>
+    </div>
+    <div class="tc-chance">
+<b>66%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
+  </div>
+  <div class="tc-pick">
+    <span class="pill pill-under">UNDER 3.5</span><span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span><span class="rec-tag " title="Kalshi picks at 65-70% have hit 67/110 (61%)">67/110</span>
+    <div class="tc-nums">
+      <span><em>PROJ</em>2.4</span>
+      <span><em>LINE</em>3.5</span>
+<span class="bad"><em>PROJ &minus; LINE</em>-1.1</span>    </div>
+  </div>
+<div class="tc-blend">Chance uses <b>2.85</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
+    <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>5/10</b></div>
+    <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">2</i><i class="rs rs-under">4</i><i class="rs rs-over">3</i><i class="rs rs-under">4</i><i class="rs rs-over">2</i><i class="rs rs-over">0</i><i class="rs rs-over">1</i><i class="rs rs-under">4</i><i class="rs rs-under">6</i><i class="rs rs-under">5</i></span>
+  </div>
+<div class="tc-role">
+<span title="This season and last, in games where he played 22-32 minutes (like tonight's projection)">IN 22&ndash;32 MIN GAMES: <b class="stat-good">4/6</b></span>  </div>  <div class="tc-foot">
+    <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
+<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.6952, "chance": 0.6559, "gid": 401909277, "id": "4277905|reb|401909277", "line": 3.5, "opp": "CHA", "pid": 4277905, "player": "Trae Young", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "WAS"}'>+ SLIP</button>
+    <a class="bd-btn" href="p-4277905.html#reb">WHY &amp; STATS &#9656;</a></span>
+  </div>
+</article>
+<article class="tcard" style="--tc:#0150B5">
+  <div class="tc-top">
+    <div class="tc-who">
+      <div class="tc-namerow"><span class="team-badge" style="background:#0150B5;color:#ffffff;box-shadow:0 0 0 2px transparent">ORL</span><a class="tc-name" href="p-4066320.html">Desmond Bane</a></div>
+      <div class="tc-sub">rebounds &middot; @ TOR &middot; Fri 7:30 PM ET</div>
+    </div>
+    <div class="tc-chance">
+<b>64%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
+  </div>
+  <div class="tc-pick">
+    <span class="pill pill-under">UNDER 5.5</span><span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span><span class="rec-tag " title="Kalshi picks at 60-65% have hit 226/386 (59%)">226/386</span>
+    <div class="tc-nums">
+      <span><em>PROJ</em>4.4</span>
+      <span><em>LINE</em>5.5</span>
+<span class="bad"><em>PROJ &minus; LINE</em>-1.1</span>    </div>
+  </div>
+<div class="tc-blend">Chance uses <b>4.7</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
+    <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>7/10</b></div>
+    <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-under">7</i><i class="rs rs-under">6</i><i class="rs rs-over">3</i><i class="rs rs-over">4</i><i class="rs rs-over">1</i><i class="rs rs-over">2</i><i class="rs rs-over">5</i><i class="rs rs-over">2</i><i class="rs rs-under">6</i><i class="rs rs-over">5</i></span>
+  </div>
+<div class="tc-role">
+<span title="This season and last, in games where he played 27-37 minutes (like tonight's projection)">IN 27&ndash;37 MIN GAMES: <b class="stat-good">40/58</b></span>  </div>  <div class="tc-foot">
+    <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
+<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened UNDER 4.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.6757, "chance": 0.6445, "gid": 401909281, "id": "4066320|reb|401909281", "line": 5.5, "opp": "TOR", "pid": 4066320, "player": "Desmond Bane", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "ORL"}'>+ SLIP</button>
+    <a class="bd-btn" href="p-4066320.html#reb">WHY &amp; STATS &#9656;</a></span>
+  </div>
+</article>
 <article class="tcard" style="--tc:#1D428A">
   <div class="tc-top">
     <div class="tc-who">
@@ -427,35 +451,35 @@
     <a class="bd-btn" href="p-3147657.html#reb">WHY &amp; STATS &#9656;</a></span>
   </div>
 </article>
-<article class="tcard" style="--tc:#008348">
+</div>
+<p class="small"><a href="picks.html#reb">Best Value and more on Picks &rarr;</a></p></div><div class="hidden" data-filter-panel="ast"><div class="slip-fill"><button class="chip" type="button" data-fill='[{"be": 0.7631, "chance": 0.7121, "gid": 401909284, "id": "4431671|AST|401909284", "line": 1.5, "opp": "LAC", "pid": 4431671, "player": "Jaden McDaniels", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "MIN"}, {"be": 0.7438, "chance": 0.7111, "gid": 401909280, "id": "5124612|AST|401909280", "line": 1.5, "opp": "NYK", "pid": 5124612, "player": "VJ Edgecombe", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "PHI"}, {"be": 0.7341, "chance": 0.696, "gid": 401909285, "id": "4277811|AST|401909285", "line": 1.5, "opp": "GSW", "pid": 4277811, "player": "Collin Sexton", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "LAL"}, {"be": 0.7341, "chance": 0.6837, "gid": 401909280, "id": "3147657|AST|401909280", "line": 1.5, "opp": "PHI", "pid": 3147657, "player": "Mikal Bridges", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "NYK"}, {"be": 0.7244, "chance": 0.6805, "gid": 401909284, "id": "4433247|AST|401909284", "line": 1.5, "opp": "LAC", "pid": 4433247, "player": "Jonathan Kuminga", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "MIN"}]'>+ ADD ALL TO SLIP</button><button class="chip" type="button" data-fill='[{"be": 0.7631, "chance": 0.7121, "gid": 401909284, "id": "4431671|AST|401909284", "line": 1.5, "opp": "LAC", "pid": 4431671, "player": "Jaden McDaniels", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "MIN"}, {"be": 0.7438, "chance": 0.7111, "gid": 401909280, "id": "5124612|AST|401909280", "line": 1.5, "opp": "NYK", "pid": 5124612, "player": "VJ Edgecombe", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "PHI"}, {"be": 0.7341, "chance": 0.696, "gid": 401909285, "id": "4277811|AST|401909285", "line": 1.5, "opp": "GSW", "pid": 4277811, "player": "Collin Sexton", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "LAL"}, {"be": 0.7341, "chance": 0.6837, "gid": 401909280, "id": "3147657|AST|401909280", "line": 1.5, "opp": "PHI", "pid": 3147657, "player": "Mikal Bridges", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "NYK"}, {"be": 0.7244, "chance": 0.6805, "gid": 401909284, "id": "4433247|AST|401909284", "line": 1.5, "opp": "LAC", "pid": 4433247, "player": "Jonathan Kuminga", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "MIN"}]' data-one-per-game="1">+ ADD, MAX 1 PER GAME</button></div><div class="tgrid"><article class="tcard" style="--tc:#266092">
   <div class="tc-top">
     <div class="tc-who">
-      <div class="tc-namerow"><span class="team-badge" style="background:#008348;color:#ffffff;box-shadow:0 0 0 2px transparent">BOS</span><a class="tc-name" href="p-4066354.html">Payton Pritchard</a></div>
-      <div class="tc-sub">rebounds &middot; vs CHI &middot; Fri 7:30 PM ET</div>
+      <div class="tc-namerow"><span class="team-badge" style="background:#266092;color:#ffffff;box-shadow:0 0 0 2px transparent">MIN</span><a class="tc-name" href="p-4431671.html">Jaden McDaniels</a></div>
+      <div class="tc-sub">assists &middot; vs LAC &middot; Fri 8:00 PM ET</div>
     </div>
     <div class="tc-chance">
-<b>63%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
+<b>71%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
   </div>
   <div class="tc-pick">
-    <span class="pill pill-under">UNDER 3.5</span><span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span><span class="rec-tag " title="Kalshi picks at 60-65% have hit 226/386 (59%)">226/386</span>
+    <span class="pill pill-over">OVER 1.5</span><span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span><span class="rec-tag " title="Kalshi picks at 70-75% have hit 21/24 (88%)">21/24</span>
     <div class="tc-nums">
-      <span><em>PROJ</em>2.9</span>
-      <span><em>LINE</em>3.5</span>
-<span class="bad"><em>PROJ &minus; LINE</em>-0.6</span>    </div>
+      <span><em>PROJ</em>2.8</span>
+      <span><em>LINE</em>1.5</span>
+<span class="good"><em>PROJ &minus; LINE</em>+1.3</span>    </div>
   </div>
-<div class="tc-blend">Chance uses <b>2.98</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
+<div class="tc-blend">Chance uses <b>2.66</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
     <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>8/10</b></div>
-    <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">3</i><i class="rs rs-over">3</i><i class="rs rs-over">1</i><i class="rs rs-under">4</i><i class="rs rs-over">3</i><i class="rs rs-over">3</i><i class="rs rs-under">4</i><i class="rs rs-over">1</i><i class="rs rs-over">1</i><i class="rs rs-over">2</i></span>
+    <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">3</i><i class="rs rs-over">3</i><i class="rs rs-under">0</i><i class="rs rs-over">2</i><i class="rs rs-over">2</i><i class="rs rs-under">1</i><i class="rs rs-over">3</i><i class="rs rs-over">3</i><i class="rs rs-over">4</i><i class="rs rs-over">4</i></span>
   </div>
 <div class="tc-role">
-<span title="This season and last, in games where he played 21-31 minutes (like tonight's projection)">IN 21&ndash;31 MIN GAMES: <b class="stat-good">25/37</b></span>  </div>  <div class="tc-foot">
+<span title="This season and last, in games where he played 26-36 minutes (like tonight's projection)">IN 26&ndash;36 MIN GAMES: <b class="stat-good">37/47</b></span>  </div>  <div class="tc-foot">
     <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
-<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened OVER 2.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.6659, "chance": 0.6327, "gid": 401909278, "id": "4066354|reb|401909278", "line": 3.5, "opp": "CHI", "pid": 4066354, "player": "Payton Pritchard", "side": "UNDER", "src": "kalshi", "stat": "REB", "team": "BOS"}'>+ SLIP</button>
-    <a class="bd-btn" href="p-4066354.html#reb">WHY &amp; STATS &#9656;</a></span>
+<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened OVER 2.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.7631, "chance": 0.7121, "gid": 401909284, "id": "4431671|ast|401909284", "line": 1.5, "opp": "LAC", "pid": 4431671, "player": "Jaden McDaniels", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "MIN"}'>+ SLIP</button>
+    <a class="bd-btn" href="p-4431671.html#ast">WHY &amp; STATS &#9656;</a></span>
   </div>
 </article>
-</div>
-<p class="small"><a href="picks.html#reb">Best Value and more on Picks &rarr;</a></p></div><div class="hidden" data-filter-panel="ast"><div class="slip-fill"><button class="chip" type="button" data-fill='[{"be": 0.7438, "chance": 0.7111, "gid": 401909280, "id": "5124612|AST|401909280", "line": 1.5, "opp": "NYK", "pid": 5124612, "player": "VJ Edgecombe", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "PHI"}, {"be": 0.7535, "chance": 0.698, "gid": 401909284, "id": "4431671|AST|401909284", "line": 1.5, "opp": "LAC", "pid": 4431671, "player": "Jaden McDaniels", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "MIN"}, {"be": 0.7341, "chance": 0.696, "gid": 401909285, "id": "4277811|AST|401909285", "line": 1.5, "opp": "GSW", "pid": 4277811, "player": "Collin Sexton", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "LAL"}, {"be": 0.7341, "chance": 0.6911, "gid": 401909284, "id": "4433247|AST|401909284", "line": 1.5, "opp": "LAC", "pid": 4433247, "player": "Jonathan Kuminga", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "MIN"}, {"be": 0.705, "chance": 0.6774, "gid": 401909286, "id": "3064290|AST|401909286", "line": 3.5, "opp": "PHX", "pid": 3064290, "player": "Aaron Gordon", "side": "UNDER", "src": "kalshi", "stat": "AST", "team": "DEN"}]'>+ ADD ALL TO SLIP</button><button class="chip" type="button" data-fill='[{"be": 0.7438, "chance": 0.7111, "gid": 401909280, "id": "5124612|AST|401909280", "line": 1.5, "opp": "NYK", "pid": 5124612, "player": "VJ Edgecombe", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "PHI"}, {"be": 0.7535, "chance": 0.698, "gid": 401909284, "id": "4431671|AST|401909284", "line": 1.5, "opp": "LAC", "pid": 4431671, "player": "Jaden McDaniels", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "MIN"}, {"be": 0.7341, "chance": 0.696, "gid": 401909285, "id": "4277811|AST|401909285", "line": 1.5, "opp": "GSW", "pid": 4277811, "player": "Collin Sexton", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "LAL"}, {"be": 0.7341, "chance": 0.6911, "gid": 401909284, "id": "4433247|AST|401909284", "line": 1.5, "opp": "LAC", "pid": 4433247, "player": "Jonathan Kuminga", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "MIN"}, {"be": 0.705, "chance": 0.6774, "gid": 401909286, "id": "3064290|AST|401909286", "line": 3.5, "opp": "PHX", "pid": 3064290, "player": "Aaron Gordon", "side": "UNDER", "src": "kalshi", "stat": "AST", "team": "DEN"}]' data-one-per-game="1">+ ADD, MAX 1 PER GAME</button></div><div class="tgrid"><article class="tcard" style="--tc:#1D428A">
+<article class="tcard" style="--tc:#1D428A">
   <div class="tc-top">
     <div class="tc-who">
       <div class="tc-namerow"><span class="team-badge" style="background:#1D428A;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">PHI</span><a class="tc-name" href="p-5124612.html">VJ Edgecombe</a></div>
@@ -480,33 +504,6 @@
     <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
 <span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened OVER 2.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.7438, "chance": 0.7111, "gid": 401909280, "id": "5124612|ast|401909280", "line": 1.5, "opp": "NYK", "pid": 5124612, "player": "VJ Edgecombe", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "PHI"}'>+ SLIP</button>
     <a class="bd-btn" href="p-5124612.html#ast">WHY &amp; STATS &#9656;</a></span>
-  </div>
-</article>
-<article class="tcard" style="--tc:#266092">
-  <div class="tc-top">
-    <div class="tc-who">
-      <div class="tc-namerow"><span class="team-badge" style="background:#266092;color:#ffffff;box-shadow:0 0 0 2px transparent">MIN</span><a class="tc-name" href="p-4431671.html">Jaden McDaniels</a></div>
-      <div class="tc-sub">assists &middot; vs LAC &middot; Fri 8:00 PM ET</div>
-    </div>
-    <div class="tc-chance">
-<b>70%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
-  </div>
-  <div class="tc-pick">
-    <span class="pill pill-over">OVER 1.5</span><span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span><span class="rec-tag " title="Kalshi picks at 65-70% have hit 67/110 (61%)">67/110</span>
-    <div class="tc-nums">
-      <span><em>PROJ</em>2.8</span>
-      <span><em>LINE</em>1.5</span>
-<span class="good"><em>PROJ &minus; LINE</em>+1.3</span>    </div>
-  </div>
-<div class="tc-blend">Chance uses <b>2.58</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
-    <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>8/10</b></div>
-    <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">3</i><i class="rs rs-over">3</i><i class="rs rs-under">0</i><i class="rs rs-over">2</i><i class="rs rs-over">2</i><i class="rs rs-under">1</i><i class="rs rs-over">3</i><i class="rs rs-over">3</i><i class="rs rs-over">4</i><i class="rs rs-over">4</i></span>
-  </div>
-<div class="tc-role">
-<span title="This season and last, in games where he played 26-36 minutes (like tonight's projection)">IN 26&ndash;36 MIN GAMES: <b class="stat-good">37/47</b></span>  </div>  <div class="tc-foot">
-    <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
-<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened OVER 2.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.7535, "chance": 0.698, "gid": 401909284, "id": "4431671|ast|401909284", "line": 1.5, "opp": "LAC", "pid": 4431671, "player": "Jaden McDaniels", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "MIN"}'>+ SLIP</button>
-    <a class="bd-btn" href="p-4431671.html#ast">WHY &amp; STATS &#9656;</a></span>
   </div>
 </article>
 <article class="tcard" style="--tc:#552583">
@@ -536,6 +533,33 @@
     <a class="bd-btn" href="p-4277811.html#ast">WHY &amp; STATS &#9656;</a></span>
   </div>
 </article>
+<article class="tcard" style="--tc:#1D428A">
+  <div class="tc-top">
+    <div class="tc-who">
+      <div class="tc-namerow"><span class="team-badge" style="background:#1D428A;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">NYK</span><a class="tc-name" href="p-3147657.html">Mikal Bridges</a></div>
+      <div class="tc-sub">assists &middot; @ PHI &middot; Fri 7:30 PM ET</div>
+    </div>
+    <div class="tc-chance">
+<b>68%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
+  </div>
+  <div class="tc-pick">
+    <span class="pill pill-over">OVER 1.5</span><span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span><span class="rec-tag " title="Kalshi picks at 65-70% have hit 67/110 (61%)">67/110</span>
+    <div class="tc-nums">
+      <span><em>PROJ</em>2.6</span>
+      <span><em>LINE</em>1.5</span>
+<span class="good"><em>PROJ &minus; LINE</em>+1.1</span>    </div>
+  </div>
+<div class="tc-blend">Chance uses <b>2.64</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
+    <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>5/10</b></div>
+    <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-under">1</i><i class="rs rs-under">0</i><i class="rs rs-over">2</i><i class="rs rs-over">6</i><i class="rs rs-over">3</i><i class="rs rs-under">1</i><i class="rs rs-over">4</i><i class="rs rs-under">1</i><i class="rs rs-over">4</i><i class="rs rs-under">0</i></span>
+  </div>
+<div class="tc-role">
+<span title="This season and last, in games where he played 19-29 minutes (like tonight's projection)">IN 19&ndash;29 MIN GAMES: <b class="stat-good">16/19</b></span><span class="mt-tag mt-down" title="Played 13 minutes last game vs about 25 recently">MINUTES &#9660; FALLING (13)</span>  </div>  <div class="tc-foot">
+    <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
+<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened UNDER 2.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.7341, "chance": 0.6837, "gid": 401909280, "id": "3147657|ast|401909280", "line": 1.5, "opp": "PHI", "pid": 3147657, "player": "Mikal Bridges", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "NYK"}'>+ SLIP</button>
+    <a class="bd-btn" href="p-3147657.html#ast">WHY &amp; STATS &#9656;</a></span>
+  </div>
+</article>
 <article class="tcard" style="--tc:#266092">
   <div class="tc-top">
     <div class="tc-who">
@@ -543,7 +567,7 @@
       <div class="tc-sub">assists &middot; vs LAC &middot; Fri 8:00 PM ET</div>
     </div>
     <div class="tc-chance">
-<b>69%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
+<b>68%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
   </div>
   <div class="tc-pick">
     <span class="pill pill-over">OVER 1.5</span><span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span><span class="rec-tag " title="Kalshi picks at 65-70% have hit 67/110 (61%)">67/110</span>
@@ -552,46 +576,19 @@
       <span><em>LINE</em>1.5</span>
 <span class="good"><em>PROJ &minus; LINE</em>+1.2</span>    </div>
   </div>
-<div class="tc-blend">Chance uses <b>2.51</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
+<div class="tc-blend">Chance uses <b>2.45</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
     <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>5/10</b></div>
     <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-under">1</i><i class="rs rs-under">1</i><i class="rs rs-over">2</i><i class="rs rs-over">3</i><i class="rs rs-under">1</i><i class="rs rs-over">3</i><i class="rs rs-over">5</i><i class="rs rs-under">1</i><i class="rs rs-under">1</i><i class="rs rs-over">5</i></span>
   </div>
 <div class="tc-role">
 <span title="This season and last, in games where he played 21-31 minutes (like tonight's projection)">IN 21&ndash;31 MIN GAMES: <b class="stat-good">13/17</b></span>  </div>  <div class="tc-foot">
     <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
-<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened UNDER 2.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.7341, "chance": 0.6911, "gid": 401909284, "id": "4433247|ast|401909284", "line": 1.5, "opp": "LAC", "pid": 4433247, "player": "Jonathan Kuminga", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "MIN"}'>+ SLIP</button>
+<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened UNDER 2.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.7244, "chance": 0.6805, "gid": 401909284, "id": "4433247|ast|401909284", "line": 1.5, "opp": "LAC", "pid": 4433247, "player": "Jonathan Kuminga", "side": "OVER", "src": "kalshi", "stat": "AST", "team": "MIN"}'>+ SLIP</button>
     <a class="bd-btn" href="p-4433247.html#ast">WHY &amp; STATS &#9656;</a></span>
   </div>
 </article>
-<article class="tcard" style="--tc:#0E2240">
-  <div class="tc-top">
-    <div class="tc-who">
-      <div class="tc-namerow"><span class="team-badge" style="background:#0E2240;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">DEN</span><a class="tc-name" href="p-3064290.html">Aaron Gordon</a></div>
-      <div class="tc-sub">assists &middot; @ PHX &middot; Fri 10:00 PM ET</div>
-    </div>
-    <div class="tc-chance">
-<b>68%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
-  </div>
-  <div class="tc-pick">
-    <span class="pill pill-under">UNDER 3.5</span><span class="u-tag u-0 pr-wait" title="Close: our chance is just under what this price needs. Check again later; if the price drops (or the line moves your way) it can turn into GOOD PRICE">WAIT</span><span class="rec-tag " title="Kalshi picks at 65-70% have hit 67/110 (61%)">67/110</span>
-    <div class="tc-nums">
-      <span><em>PROJ</em>2.5</span>
-      <span><em>LINE</em>3.5</span>
-<span class="bad"><em>PROJ &minus; LINE</em>-1.0</span>    </div>
-  </div>
-<div class="tc-blend">Chance uses <b>2.79</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
-    <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>7/10</b></div>
-    <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">3</i><i class="rs rs-over">1</i><i class="rs rs-over">2</i><i class="rs rs-over">3</i><i class="rs rs-under">5</i><i class="rs rs-under">6</i><i class="rs rs-over">1</i><i class="rs rs-under">4</i><i class="rs rs-over">2</i><i class="rs rs-over">3</i></span>
-  </div>
-<div class="tc-role">
-<span title="This season and last, in games where he played 23-33 minutes (like tonight's projection)">IN 23&ndash;33 MIN GAMES: <b class="stat-good">19/26</b></span>  </div>  <div class="tc-foot">
-    <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
-<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.705, "chance": 0.6774, "gid": 401909286, "id": "3064290|ast|401909286", "line": 3.5, "opp": "PHX", "pid": 3064290, "player": "Aaron Gordon", "side": "UNDER", "src": "kalshi", "stat": "AST", "team": "DEN"}'>+ SLIP</button>
-    <a class="bd-btn" href="p-3064290.html#ast">WHY &amp; STATS &#9656;</a></span>
-  </div>
-</article>
 </div>
-<p class="small"><a href="picks.html#ast">Best Value and more on Picks &rarr;</a></p></div><div class="hidden" data-filter-panel="fg3m"><div class="slip-fill"><button class="chip" type="button" data-fill='[{"be": 0.6855, "chance": 0.6914, "gid": 401909281, "id": "4433134|3PM|401909281", "line": 1.5, "opp": "ORL", "pid": 4433134, "player": "Scottie Barnes", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "TOR"}, {"be": 0.7147, "chance": 0.6748, "gid": 401909283, "id": "4684740|3PM|401909283", "line": 0.5, "opp": "DAL", "pid": 4684740, "player": "Amen Thompson", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "HOU"}, {"be": 0.6855, "chance": 0.649, "gid": 401909283, "id": "4433192|3PM|401909283", "line": 0.5, "opp": "DAL", "pid": 4433192, "player": "Tari Eason", "side": "OVER", "src": "kalshi", "stat": "3PM", "team": "HOU"}, {"be": 0.6757, "chance": 0.6473, "gid": 401909279, "id": "5107199|3PM|401909279", "line": 1.5, "opp": "BKN", "pid": 5107199, "player": "Daniss Jenkins", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "DET"}, {"be": 0.6561, "chance": 0.6464, "gid": 401909278, "id": "4871145|3PM|401909278", "line": 1.5, "opp": "BOS", "pid": 4871145, "player": "Josh Giddey", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "CHI"}]'>+ ADD ALL TO SLIP</button><button class="chip" type="button" data-fill='[{"be": 0.6855, "chance": 0.6914, "gid": 401909281, "id": "4433134|3PM|401909281", "line": 1.5, "opp": "ORL", "pid": 4433134, "player": "Scottie Barnes", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "TOR"}, {"be": 0.7147, "chance": 0.6748, "gid": 401909283, "id": "4684740|3PM|401909283", "line": 0.5, "opp": "DAL", "pid": 4684740, "player": "Amen Thompson", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "HOU"}, {"be": 0.6855, "chance": 0.649, "gid": 401909283, "id": "4433192|3PM|401909283", "line": 0.5, "opp": "DAL", "pid": 4433192, "player": "Tari Eason", "side": "OVER", "src": "kalshi", "stat": "3PM", "team": "HOU"}, {"be": 0.6757, "chance": 0.6473, "gid": 401909279, "id": "5107199|3PM|401909279", "line": 1.5, "opp": "BKN", "pid": 5107199, "player": "Daniss Jenkins", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "DET"}, {"be": 0.6561, "chance": 0.6464, "gid": 401909278, "id": "4871145|3PM|401909278", "line": 1.5, "opp": "BOS", "pid": 4871145, "player": "Josh Giddey", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "CHI"}]' data-one-per-game="1">+ ADD, MAX 1 PER GAME</button></div><div class="tgrid"><article class="tcard" style="--tc:#D91244">
+<p class="small"><a href="picks.html#ast">Best Value and more on Picks &rarr;</a></p></div><div class="hidden" data-filter-panel="fg3m"><div class="slip-fill"><button class="chip" type="button" data-fill='[{"be": 0.6855, "chance": 0.6914, "gid": 401909281, "id": "4433134|3PM|401909281", "line": 1.5, "opp": "ORL", "pid": 4433134, "player": "Scottie Barnes", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "TOR"}, {"be": 0.7147, "chance": 0.6748, "gid": 401909283, "id": "4684740|3PM|401909283", "line": 0.5, "opp": "DAL", "pid": 4684740, "player": "Amen Thompson", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "HOU"}, {"be": 0.6757, "chance": 0.6473, "gid": 401909279, "id": "5107199|3PM|401909279", "line": 1.5, "opp": "BKN", "pid": 5107199, "player": "Daniss Jenkins", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "DET"}, {"be": 0.6561, "chance": 0.6464, "gid": 401909278, "id": "4871145|3PM|401909278", "line": 1.5, "opp": "BOS", "pid": 4871145, "player": "Josh Giddey", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "CHI"}, {"be": 0.6463, "chance": 0.6458, "gid": 401909279, "id": "3908845|3PM|401909279", "line": 1.5, "opp": "BKN", "pid": 3908845, "player": "John Collins", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "DET"}]'>+ ADD ALL TO SLIP</button><button class="chip" type="button" data-fill='[{"be": 0.6855, "chance": 0.6914, "gid": 401909281, "id": "4433134|3PM|401909281", "line": 1.5, "opp": "ORL", "pid": 4433134, "player": "Scottie Barnes", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "TOR"}, {"be": 0.7147, "chance": 0.6748, "gid": 401909283, "id": "4684740|3PM|401909283", "line": 0.5, "opp": "DAL", "pid": 4684740, "player": "Amen Thompson", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "HOU"}, {"be": 0.6757, "chance": 0.6473, "gid": 401909279, "id": "5107199|3PM|401909279", "line": 1.5, "opp": "BKN", "pid": 5107199, "player": "Daniss Jenkins", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "DET"}, {"be": 0.6561, "chance": 0.6464, "gid": 401909278, "id": "4871145|3PM|401909278", "line": 1.5, "opp": "BOS", "pid": 4871145, "player": "Josh Giddey", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "CHI"}, {"be": 0.6463, "chance": 0.6458, "gid": 401909279, "id": "3908845|3PM|401909279", "line": 1.5, "opp": "BKN", "pid": 3908845, "player": "John Collins", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "DET"}]' data-one-per-game="1">+ ADD, MAX 1 PER GAME</button></div><div class="tgrid"><article class="tcard" style="--tc:#D91244">
   <div class="tc-top">
     <div class="tc-who">
       <div class="tc-namerow"><span class="team-badge" style="background:#D91244;color:#ffffff;box-shadow:0 0 0 2px transparent">TOR</span><a class="tc-name" href="p-4433134.html">Scottie Barnes</a></div>
@@ -643,33 +640,6 @@
     <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
 <span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.7147, "chance": 0.6748, "gid": 401909283, "id": "4684740|fg3m|401909283", "line": 0.5, "opp": "DAL", "pid": 4684740, "player": "Amen Thompson", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "HOU"}'>+ SLIP</button>
     <a class="bd-btn" href="p-4684740.html#fg3m">WHY &amp; STATS &#9656;</a></span>
-  </div>
-</article>
-<article class="tcard" style="--tc:#CE1141">
-  <div class="tc-top">
-    <div class="tc-who">
-      <div class="tc-namerow"><span class="team-badge" style="background:#CE1141;color:#ffffff;box-shadow:0 0 0 2px transparent">HOU</span><a class="tc-name" href="p-4433192.html">Tari Eason</a></div>
-      <div class="tc-sub">3-pointers made &middot; @ DAL &middot; Fri 8:00 PM ET</div>
-    </div>
-    <div class="tc-chance">
-<b>65%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
-  </div>
-  <div class="tc-pick">
-    <span class="pill pill-over">OVER 0.5</span><span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span><span class="rec-tag " title="Kalshi picks at 60-65% have hit 226/386 (59%)">226/386</span>
-    <div class="tc-nums">
-      <span><em>PROJ</em>1.2</span>
-      <span><em>LINE</em>0.5</span>
-<span class="good"><em>PROJ &minus; LINE</em>+0.7</span>    </div>
-  </div>
-<div class="tc-blend">Chance uses <b>1.24</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
-    <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>4/10</b></div>
-    <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-under">0</i><i class="rs rs-under">0</i><i class="rs rs-over">3</i><i class="rs rs-under">0</i><i class="rs rs-over">1</i><i class="rs rs-under">0</i><i class="rs rs-under">0</i><i class="rs rs-under">0</i><i class="rs rs-over">1</i><i class="rs rs-over">1</i></span>
-  </div>
-<div class="tc-role">
-<span title="This season and last, in games where he played 22-32 minutes (like tonight's projection)">IN 22&ndash;32 MIN GAMES: <b class="stat-good">23/32</b></span>  </div>  <div class="tc-foot">
-    <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
-<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened UNDER 1.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.6855, "chance": 0.649, "gid": 401909283, "id": "4433192|fg3m|401909283", "line": 0.5, "opp": "DAL", "pid": 4433192, "player": "Tari Eason", "side": "OVER", "src": "kalshi", "stat": "3PM", "team": "HOU"}'>+ SLIP</button>
-    <a class="bd-btn" href="p-4433192.html#fg3m">WHY &amp; STATS &#9656;</a></span>
   </div>
 </article>
 <article class="tcard" style="--tc:#1D428A">
@@ -726,8 +696,35 @@
     <a class="bd-btn" href="p-4871145.html#fg3m">WHY &amp; STATS &#9656;</a></span>
   </div>
 </article>
+<article class="tcard" style="--tc:#1D428A">
+  <div class="tc-top">
+    <div class="tc-who">
+      <div class="tc-namerow"><span class="team-badge" style="background:#1D428A;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">DET</span><a class="tc-name" href="p-3908845.html">John Collins</a></div>
+      <div class="tc-sub">3-pointers made &middot; @ BKN &middot; Fri 7:30 PM ET</div>
+    </div>
+    <div class="tc-chance">
+<b>65%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
+  </div>
+  <div class="tc-pick">
+    <span class="pill pill-under">UNDER 1.5</span><span class="u-tag u-0 pr-wait" title="Close: our chance is just under what this price needs. Check again later; if the price drops (or the line moves your way) it can turn into GOOD PRICE">WAIT</span><span class="rec-tag " title="Kalshi picks at 60-65% have hit 226/386 (59%)">226/386</span>
+    <div class="tc-nums">
+      <span><em>PROJ</em>1.1</span>
+      <span><em>LINE</em>1.5</span>
+<span class="bad"><em>PROJ &minus; LINE</em>-0.4</span>    </div>
+  </div>
+<div class="tc-blend">Chance uses <b>1.36</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
+    <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>7/10</b></div>
+    <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-under">4</i><i class="rs rs-over">1</i><i class="rs rs-over">1</i><i class="rs rs-over">0</i><i class="rs rs-over">0</i><i class="rs rs-over">0</i><i class="rs rs-under">5</i><i class="rs rs-under">2</i><i class="rs rs-over">0</i><i class="rs rs-over">0</i></span>
+  </div>
+<div class="tc-role">
+<span title="This season and last, in games where he played 19-29 minutes (like tonight's projection)">IN 19&ndash;29 MIN GAMES: <b class="stat-good">31/46</b></span>  </div>  <div class="tc-foot">
+    <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
+<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.6463, "chance": 0.6458, "gid": 401909279, "id": "3908845|fg3m|401909279", "line": 1.5, "opp": "BKN", "pid": 3908845, "player": "John Collins", "side": "UNDER", "src": "kalshi", "stat": "3PM", "team": "DET"}'>+ SLIP</button>
+    <a class="bd-btn" href="p-3908845.html#fg3m">WHY &amp; STATS &#9656;</a></span>
+  </div>
+</article>
 </div>
-<p class="small"><a href="picks.html#fg3m">Best Value and more on Picks &rarr;</a></p></div><div class="hidden" data-filter-panel="combos"><div class="slip-fill"><button class="chip" type="button" data-fill='[{"be": 0.7824, "chance": 0.7081, "gid": 401909283, "id": "4684740|PRA|401909283", "line": 24.5, "opp": "DAL", "pid": 4684740, "player": "Amen Thompson", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "HOU"}, {"be": 0.8112, "chance": 0.6931, "gid": 401909285, "id": "4433136|PRA|401909285", "line": 19.5, "opp": "GSW", "pid": 4433136, "player": "Walker Kessler", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "LAL"}, {"be": 0.7341, "chance": 0.6676, "gid": 401909277, "id": "5142718|PRA|401909277", "line": 24.5, "opp": "CHA", "pid": 5142718, "player": "AJ Dybantsa", "side": "UNDER", "src": "kalshi", "stat": "PRA", "team": "WAS"}, {"be": 0.6952, "chance": 0.636, "gid": 401909280, "id": "3934672|PRA|401909280", "line": 39.5, "opp": "PHI", "pid": 3934672, "player": "Jalen Brunson", "side": "UNDER", "src": "kalshi", "stat": "PRA", "team": "NYK"}, {"be": 0.6952, "chance": 0.636, "gid": 401909277, "id": "4277905|PRA|401909277", "line": 34.5, "opp": "CHA", "pid": 4277905, "player": "Trae Young", "side": "UNDER", "src": "kalshi", "stat": "PRA", "team": "WAS"}]'>+ ADD ALL TO SLIP</button><button class="chip" type="button" data-fill='[{"be": 0.7824, "chance": 0.7081, "gid": 401909283, "id": "4684740|PRA|401909283", "line": 24.5, "opp": "DAL", "pid": 4684740, "player": "Amen Thompson", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "HOU"}, {"be": 0.8112, "chance": 0.6931, "gid": 401909285, "id": "4433136|PRA|401909285", "line": 19.5, "opp": "GSW", "pid": 4433136, "player": "Walker Kessler", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "LAL"}, {"be": 0.7341, "chance": 0.6676, "gid": 401909277, "id": "5142718|PRA|401909277", "line": 24.5, "opp": "CHA", "pid": 5142718, "player": "AJ Dybantsa", "side": "UNDER", "src": "kalshi", "stat": "PRA", "team": "WAS"}, {"be": 0.6952, "chance": 0.636, "gid": 401909280, "id": "3934672|PRA|401909280", "line": 39.5, "opp": "PHI", "pid": 3934672, "player": "Jalen Brunson", "side": "UNDER", "src": "kalshi", "stat": "PRA", "team": "NYK"}, {"be": 0.6952, "chance": 0.636, "gid": 401909277, "id": "4277905|PRA|401909277", "line": 34.5, "opp": "CHA", "pid": 4277905, "player": "Trae Young", "side": "UNDER", "src": "kalshi", "stat": "PRA", "team": "WAS"}]' data-one-per-game="1">+ ADD, MAX 1 PER GAME</button></div><div class="tgrid"><article class="tcard" style="--tc:#CE1141">
+<p class="small"><a href="picks.html#fg3m">Best Value and more on Picks &rarr;</a></p></div><div class="hidden" data-filter-panel="combos"><div class="slip-fill"><button class="chip" type="button" data-fill='[{"be": 0.7824, "chance": 0.7081, "gid": 401909283, "id": "4684740|PRA|401909283", "line": 24.5, "opp": "DAL", "pid": 4684740, "player": "Amen Thompson", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "HOU"}, {"be": 0.8016, "chance": 0.6859, "gid": 401909285, "id": "4433136|PRA|401909285", "line": 19.5, "opp": "GSW", "pid": 4433136, "player": "Walker Kessler", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "LAL"}, {"be": 0.705, "chance": 0.6424, "gid": 401909277, "id": "4277905|PRA|401909277", "line": 34.5, "opp": "CHA", "pid": 4277905, "player": "Trae Young", "side": "UNDER", "src": "kalshi", "stat": "PRA", "team": "WAS"}, {"be": 0.6855, "chance": 0.6313, "gid": 401909282, "id": "3149673|PRA|401909282", "line": 39.5, "opp": "MIA", "pid": 3149673, "player": "Pascal Siakam", "side": "UNDER", "src": "kalshi", "stat": "PRA", "team": "IND"}, {"be": 0.705, "chance": 0.6268, "gid": 401909277, "id": "4433287|PRA|401909277", "line": 39.5, "opp": "WAS", "pid": 4433287, "player": "Brandon Miller", "side": "UNDER", "src": "kalshi", "stat": "PRA", "team": "CHA"}]'>+ ADD ALL TO SLIP</button><button class="chip" type="button" data-fill='[{"be": 0.7824, "chance": 0.7081, "gid": 401909283, "id": "4684740|PRA|401909283", "line": 24.5, "opp": "DAL", "pid": 4684740, "player": "Amen Thompson", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "HOU"}, {"be": 0.8016, "chance": 0.6859, "gid": 401909285, "id": "4433136|PRA|401909285", "line": 19.5, "opp": "GSW", "pid": 4433136, "player": "Walker Kessler", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "LAL"}, {"be": 0.705, "chance": 0.6424, "gid": 401909277, "id": "4277905|PRA|401909277", "line": 34.5, "opp": "CHA", "pid": 4277905, "player": "Trae Young", "side": "UNDER", "src": "kalshi", "stat": "PRA", "team": "WAS"}, {"be": 0.6855, "chance": 0.6313, "gid": 401909282, "id": "3149673|PRA|401909282", "line": 39.5, "opp": "MIA", "pid": 3149673, "player": "Pascal Siakam", "side": "UNDER", "src": "kalshi", "stat": "PRA", "team": "IND"}, {"be": 0.705, "chance": 0.6268, "gid": 401909277, "id": "4433287|PRA|401909277", "line": 39.5, "opp": "WAS", "pid": 4433287, "player": "Brandon Miller", "side": "UNDER", "src": "kalshi", "stat": "PRA", "team": "CHA"}]' data-one-per-game="1">+ ADD, MAX 1 PER GAME</button></div><div class="tgrid"><article class="tcard" style="--tc:#CE1141">
   <div class="tc-top">
     <div class="tc-who">
       <div class="tc-namerow"><span class="team-badge" style="background:#CE1141;color:#ffffff;box-shadow:0 0 0 2px transparent">HOU</span><a class="tc-name" href="p-4684740.html">Amen Thompson</a></div>
@@ -770,68 +767,15 @@
       <span><em>LINE</em>19.5</span>
 <span class="good"><em>PROJ &minus; LINE</em>+2.4</span>    </div>
   </div>
-<div class="tc-blend">Chance uses <b>26.48</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
+<div class="tc-blend">Chance uses <b>26.14</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
     <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>7/10</b></div>
     <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">35</i><i class="rs rs-under">14</i><i class="rs rs-over">40</i><i class="rs rs-over">34</i><i class="rs rs-under">18</i><i class="rs rs-over">36</i><i class="rs rs-over">33</i><i class="rs rs-under">9</i><i class="rs rs-over">21</i><i class="rs rs-over">21</i></span>
   </div>
 <div class="tc-role">
 <span title="This season and last, in games where he played 23-33 minutes (like tonight's projection)">IN 23&ndash;33 MIN GAMES: <b class="stat-good">5/8</b></span>  </div>  <div class="tc-foot">
     <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
-<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened UNDER 25.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.8112, "chance": 0.6931, "gid": 401909285, "id": "4433136|pra|401909285", "line": 19.5, "opp": "GSW", "pid": 4433136, "player": "Walker Kessler", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "LAL"}'>+ SLIP</button>
+<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened UNDER 25.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.8016, "chance": 0.6859, "gid": 401909285, "id": "4433136|pra|401909285", "line": 19.5, "opp": "GSW", "pid": 4433136, "player": "Walker Kessler", "side": "OVER", "src": "kalshi", "stat": "PRA", "team": "LAL"}'>+ SLIP</button>
     <a class="bd-btn" href="p-4433136.html#pra">WHY &amp; STATS &#9656;</a></span>
-  </div>
-</article>
-<article class="tcard" style="--tc:#E31837">
-  <div class="tc-top">
-    <div class="tc-who">
-      <div class="tc-namerow"><span class="team-badge" style="background:#E31837;color:#ffffff;box-shadow:0 0 0 2px transparent">WAS</span><a class="tc-name" href="p-5142718.html">AJ Dybantsa</a></div>
-      <div class="tc-sub">pts+reb+ast &middot; vs CHA &middot; Fri 7:00 PM ET</div>
-    </div>
-    <div class="tc-chance">
-<b>67%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
-  </div>
-  <div class="tc-pick">
-    <span class="pill pill-under">UNDER 24.5</span><span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span><span class="rec-tag " title="Kalshi picks at 65-70% have hit 67/110 (61%)">67/110</span>
-    <div class="tc-nums">
-      <span><em>PROJ</em>17.4</span>
-      <span><em>LINE</em>24.5</span>
-<span class="bad"><em>PROJ &minus; LINE</em>-7.1</span>    </div>
-  </div>
-<div class="tc-blend">Chance uses <b>19.27</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
-    <div class="tc-lab">LAST 1 &middot; WOULD HAVE HIT <b>1/1</b></div>
-    <span class="recent-strip" title="last 1 games: green = this pick would have hit"><i class="rs rs-over">23</i></span>
-  </div>
-  <div class="tc-foot">
-    <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
-<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened UNDER 21.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.7341, "chance": 0.6676, "gid": 401909277, "id": "5142718|pra|401909277", "line": 24.5, "opp": "CHA", "pid": 5142718, "player": "AJ Dybantsa", "side": "UNDER", "src": "kalshi", "stat": "PRA", "team": "WAS"}'>+ SLIP</button>
-    <a class="bd-btn" href="p-5142718.html#pra">WHY &amp; STATS &#9656;</a></span>
-  </div>
-</article>
-<article class="tcard" style="--tc:#1D428A">
-  <div class="tc-top">
-    <div class="tc-who">
-      <div class="tc-namerow"><span class="team-badge" style="background:#1D428A;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">NYK</span><a class="tc-name" href="p-3934672.html">Jalen Brunson</a></div>
-      <div class="tc-sub">pts+reb+ast &middot; @ PHI &middot; Fri 7:30 PM ET</div>
-    </div>
-    <div class="tc-chance">
-<b>64%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
-  </div>
-  <div class="tc-pick">
-    <span class="pill pill-under">UNDER 39.5</span><span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span><span class="rec-tag " title="Kalshi picks at 60-65% have hit 226/386 (59%)">226/386</span>
-    <div class="tc-nums">
-      <span><em>PROJ</em>33.9</span>
-      <span><em>LINE</em>39.5</span>
-<span class="bad"><em>PROJ &minus; LINE</em>-5.6</span>    </div>
-  </div>
-<div class="tc-blend">Chance uses <b>35.18</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
-    <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>8/10</b></div>
-    <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">26</i><i class="rs rs-over">28</i><i class="rs rs-under">46</i><i class="rs rs-over">36</i><i class="rs rs-over">34</i><i class="rs rs-over">29</i><i class="rs rs-over">25</i><i class="rs rs-over">35</i><i class="rs rs-over">31</i><i class="rs rs-under">46</i></span>
-  </div>
-<div class="tc-role">
-<span title="This season and last, in games where he played 29-39 minutes (like tonight's projection)">IN 29&ndash;39 MIN GAMES: <b class="stat-good">45/71</b></span>  </div>  <div class="tc-foot">
-    <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
-<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened UNDER 36.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.6952, "chance": 0.636, "gid": 401909280, "id": "3934672|pra|401909280", "line": 39.5, "opp": "PHI", "pid": 3934672, "player": "Jalen Brunson", "side": "UNDER", "src": "kalshi", "stat": "PRA", "team": "NYK"}'>+ SLIP</button>
-    <a class="bd-btn" href="p-3934672.html#pra">WHY &amp; STATS &#9656;</a></span>
   </div>
 </article>
 <article class="tcard" style="--tc:#E31837">
@@ -850,15 +794,69 @@
       <span><em>LINE</em>34.5</span>
 <span class="bad"><em>PROJ &minus; LINE</em>-8.0</span>    </div>
   </div>
-<div class="tc-blend">Chance uses <b>29.82</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
+<div class="tc-blend">Chance uses <b>29.6</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
     <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>7/10</b></div>
     <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">20</i><i class="rs rs-over">29</i><i class="rs rs-over">24</i><i class="rs rs-over">21</i><i class="rs rs-over">28</i><i class="rs rs-over">33</i><i class="rs rs-under">35</i><i class="rs rs-under">38</i><i class="rs rs-under">38</i><i class="rs rs-over">27</i></span>
   </div>
 <div class="tc-role">
 <span title="This season and last, in games where he played 22-32 minutes (like tonight's projection)">IN 22&ndash;32 MIN GAMES: <b class="">3/6</b></span>  </div>  <div class="tc-foot">
     <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
-<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened UNDER 32.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.6952, "chance": 0.636, "gid": 401909277, "id": "4277905|pra|401909277", "line": 34.5, "opp": "CHA", "pid": 4277905, "player": "Trae Young", "side": "UNDER", "src": "kalshi", "stat": "PRA", "team": "WAS"}'>+ SLIP</button>
+<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened UNDER 32.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.705, "chance": 0.6424, "gid": 401909277, "id": "4277905|pra|401909277", "line": 34.5, "opp": "CHA", "pid": 4277905, "player": "Trae Young", "side": "UNDER", "src": "kalshi", "stat": "PRA", "team": "WAS"}'>+ SLIP</button>
     <a class="bd-btn" href="p-4277905.html#pra">WHY &amp; STATS &#9656;</a></span>
+  </div>
+</article>
+<article class="tcard" style="--tc:#0C2340">
+  <div class="tc-top">
+    <div class="tc-who">
+      <div class="tc-namerow"><span class="team-badge" style="background:#0C2340;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">IND</span><a class="tc-name" href="p-3149673.html">Pascal Siakam</a></div>
+      <div class="tc-sub">pts+reb+ast &middot; @ MIA &middot; Fri 8:00 PM ET</div>
+    </div>
+    <div class="tc-chance">
+<b>63%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
+  </div>
+  <div class="tc-pick">
+    <span class="pill pill-under">UNDER 39.5</span><span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span><span class="rec-tag " title="Kalshi picks at 60-65% have hit 226/386 (59%)">226/386</span>
+    <div class="tc-nums">
+      <span><em>PROJ</em>34.7</span>
+      <span><em>LINE</em>39.5</span>
+<span class="bad"><em>PROJ &minus; LINE</em>-4.8</span>    </div>
+  </div>
+<div class="tc-blend">Chance uses <b>35.44</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
+    <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>8/10</b></div>
+    <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">29</i><i class="rs rs-over">20</i><i class="rs rs-under">47</i><i class="rs rs-over">34</i><i class="rs rs-over">39</i><i class="rs rs-over">39</i><i class="rs rs-over">29</i><i class="rs rs-over">34</i><i class="rs rs-over">39</i><i class="rs rs-under">40</i></span>
+  </div>
+<div class="tc-role">
+<span title="This season and last, in games where he played 27-37 minutes (like tonight's projection)">IN 27&ndash;37 MIN GAMES: <b class="stat-good">44/57</b></span>  </div>  <div class="tc-foot">
+    <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
+<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened UNDER 35.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.6855, "chance": 0.6313, "gid": 401909282, "id": "3149673|pra|401909282", "line": 39.5, "opp": "MIA", "pid": 3149673, "player": "Pascal Siakam", "side": "UNDER", "src": "kalshi", "stat": "PRA", "team": "IND"}'>+ SLIP</button>
+    <a class="bd-btn" href="p-3149673.html#pra">WHY &amp; STATS &#9656;</a></span>
+  </div>
+</article>
+<article class="tcard" style="--tc:#008CA8">
+  <div class="tc-top">
+    <div class="tc-who">
+      <div class="tc-namerow"><span class="team-badge" style="background:#008CA8;color:#ffffff;box-shadow:0 0 0 2px transparent">CHA</span><a class="tc-name" href="p-4433287.html">Brandon Miller</a></div>
+      <div class="tc-sub">pts+reb+ast &middot; @ WAS &middot; Fri 7:00 PM ET</div>
+    </div>
+    <div class="tc-chance">
+<b>63%</b><span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>    </div>
+  </div>
+  <div class="tc-pick">
+    <span class="pill pill-under">UNDER 39.5</span><span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span><span class="rec-tag " title="Kalshi picks at 60-65% have hit 226/386 (59%)">226/386</span>
+    <div class="tc-nums">
+      <span><em>PROJ</em>34.2</span>
+      <span><em>LINE</em>39.5</span>
+<span class="bad"><em>PROJ &minus; LINE</em>-5.3</span>    </div>
+  </div>
+<div class="tc-blend">Chance uses <b>35.0</b>: 22% our projection + 78% the line</div>  <div class="tc-recent">
+    <div class="tc-lab">LAST 10 &middot; WOULD HAVE HIT <b>7/10</b></div>
+    <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">31</i><i class="rs rs-over">16</i><i class="rs rs-over">22</i><i class="rs rs-over">25</i><i class="rs rs-over">24</i><i class="rs rs-over">22</i><i class="rs rs-over">8</i><i class="rs rs-under">46</i><i class="rs rs-under">46</i><i class="rs rs-under">46</i></span>
+  </div>
+<div class="tc-role">
+<span title="This season and last, in games where he played 29-39 minutes (like tonight's projection)">IN 29&ndash;39 MIN GAMES: <b class="stat-good">38/45</b></span>  </div>  <div class="tc-foot">
+    <span class="src">Kalshi</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>
+<span class="early-tag" title="Follows line moves and injury news until tip-off, then locks">UPDATES TILL TIP</span><span class="moved-tag" title="Where this pick started">opened UNDER 36.5</span>    <span class="tc-actions"><button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.705, "chance": 0.6268, "gid": 401909277, "id": "4433287|pra|401909277", "line": 39.5, "opp": "WAS", "pid": 4433287, "player": "Brandon Miller", "side": "UNDER", "src": "kalshi", "stat": "PRA", "team": "CHA"}'>+ SLIP</button>
+    <a class="bd-btn" href="p-4433287.html#pra">WHY &amp; STATS &#9656;</a></span>
   </div>
 </article>
 </div>
@@ -868,7 +866,7 @@
 <div class="stat-strip">
   <div class="stat-block"><div class="num">LIVE</div><div class="label">71 of 1200 regular-season games in the data</div></div>
   <div class="stat-block"><div class="num">288</div><div class="label">players projected</div></div>
-  <div class="stat-block"><div class="num">457</div><div class="label">player lines matched</div></div>
+  <div class="stat-block"><div class="num">459</div><div class="label">player lines matched</div></div>
   <div class="stat-block"><div class="num">7153</div><div class="label">picks graded so far</div></div>
 </div>
 <p class="lede small">History behind the model: 3962 games from 2023-24, 2024-25, 2025-26, plus 10 days of this season (through 2026-10-29).</p>
@@ -878,9 +876,9 @@
   <tbody>
   <tr><td>Box scores (sportsdataverse)</td><td><span class="status-ok">ok</span> <span class="dim small">upstream file updated Fri, 30 Oct 2026 12:03:41 GMT; checked 2026-10-30 17:00 UTC</span></td></tr>
   <tr><td>Schedule</td><td><span class="status-ok">ok</span> <span class="dim small">updated Fri, 30 Oct 2026 12:04:17 GMT</span></td></tr>
-  <tr><td>ESPN injuries</td><td><span class="status-ok">ok</span> <span class="dim small">95 listed · fetched 2026-10-30 17:02 UTC</span></td></tr>
+  <tr><td>ESPN injuries</td><td><span class="status-ok">ok</span> <span class="dim small">95 listed · fetched 2026-10-30 17:11 UTC</span></td></tr>
   <tr><td>ESPN rosters</td><td><span class="status-ok">ESPN roster</span> <span class="dim small">521 players · fetched 2026-10-30 17:00 UTC</span></td></tr>
-  <tr><td>Kalshi</td><td><span class="status-ok">ok</span> <span class="dim small">KXNBAGAME: 36 event(s), 72 market(s), kept 72, 65 priced (bid/ask within 10c); KXNBASPREAD: 10 event(s), 330 market(s), kept 330, 329 priced (bid/ask within 10c); KXNBATOTAL: 10 event(s), 290 market(s), kept 290, 290 priced (bid/ask within 10c); KXNBATEAMTOTAL: 10 event(s), 380 market(s), kept 380, 374 priced (bid/ask within 10c); KXNBAPTS: 10 event(s), 385 market(s), kept 385, 378 priced (bid/ask within 10c); KXNBAREB: 10 event(s), 433 market(s), kept 400, 385 priced (bid/ask within 10c); KXNBAAST: 10 event(s), 368 market(s), kept 368, 348 priced (bid/ask within 10c); KXNBA3PT: 10 event(s), 475 market(s), kept 400, 400 priced (bid/ask within 10c); KXNBAPRA: 10 event(s), 165 market(s), kept 165, 105 priced (bid/ask within 10c)</span></td></tr>
+  <tr><td>Kalshi</td><td><span class="status-ok">ok</span> <span class="dim small">KXNBAGAME: 36 event(s), 72 market(s), kept 72, 65 priced (bid/ask within 10c); KXNBASPREAD: 10 event(s), 330 market(s), kept 330, 329 priced (bid/ask within 10c); KXNBATOTAL: 10 event(s), 290 market(s), kept 290, 290 priced (bid/ask within 10c); KXNBATEAMTOTAL: 10 event(s), 380 market(s), kept 380, 377 priced (bid/ask within 10c); KXNBAPTS: 10 event(s), 385 market(s), kept 385, 373 priced (bid/ask within 10c); KXNBAREB: 10 event(s), 433 market(s), kept 400, 374 priced (bid/ask within 10c); KXNBAAST: 10 event(s), 368 market(s), kept 368, 351 priced (bid/ask within 10c); KXNBA3PT: 10 event(s), 475 market(s), kept 400, 400 priced (bid/ask within 10c); KXNBAPRA: 10 event(s), 165 market(s), kept 165, 115 priced (bid/ask within 10c)</span></td></tr>
   <tr><td>PrizePicks (experimental)</td><td><span class="status-bad">error</span> <span class="dim small">HTTP 429 from the server</span></td></tr>
   <tr><td>FanDuel (The Odds API)</td><td><span class="status-ok">cached</span> <span class="dim small">game lines 2026-10-30 14:11 UTC · points props 2026-10-30 14:11 UTC · credits left 362</span></td></tr>
   </tbody>
@@ -904,13 +902,6 @@
 <a href="index.html" class="active"><span class="bn-ic">⌂</span>Home</a><a href="picks.html" class=""><span class="bn-ic">★</span>Picks</a><a href="games.html" class=""><span class="bn-ic">◎</span>Games</a><a href="players.html" class=""><span class="bn-ic">▦</span>Players</a><a href="rankings.html" class=""><span class="bn-ic">☰</span>Teams</a><a href="parlays.html" class=""><span class="bn-ic">✦</span>Parlays</a><a href="history.html" class=""><span class="bn-ic">↺</span>History</a>  </nav>
   <script>
     (function () { var a = document.querySelector('.site-nav a.active'); if (a && a.scrollIntoView) a.scrollIntoView({block: 'nearest', inline: 'center'}); })();
-    function peTheme() {
-      var d = document.documentElement, t = d.dataset.theme === 'court' ? 'arcade' : 'court';
-      if (t === 'court') d.dataset.theme = 'court'; else delete d.dataset.theme;
-      try { localStorage.setItem('pe_theme', t); } catch (e) {}
-      var n = document.getElementById('theme-name'); if (n) n.textContent = t === 'court' ? 'PRIMETIME' : 'ARCADE';
-    }
-    (function () { var n = document.getElementById('theme-name'); if (n && document.documentElement.dataset.theme === 'court') n.textContent = 'PRIMETIME'; })();
     function toggleWhy(id, btn) {
       var panel = document.querySelector('[data-why-panel="' + id + '"]');
       if (!panel) return;
@@ -976,10 +967,10 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=edcfe1fee6"></script>
+  <script src="static/slip.js?v=631be8ff57"></script>
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>
-<div class="foot-row foot-dim"><span>BUILD: 2026-10-30 17:02 UTC &middot; via GitHub Actions</span></div>  </footer>
+<div class="foot-row foot-dim"><span>BUILD: 2026-10-30 17:11 UTC &middot; via GitHub Actions</span></div>  </footer>
 </body>
 </html>

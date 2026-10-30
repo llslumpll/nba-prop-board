@@ -10,9 +10,7 @@
 <link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="static/style.css?v=edcfe1fee6">
-  <link rel="stylesheet" href="static/court.css?v=edcfe1fee6">
-  <script>try { var t = localStorage.getItem('pe_theme'); if (t === 'court' || t === 'terminal') document.documentElement.dataset.theme = 'court'; } catch (e) {}</script>
+<link rel="stylesheet" href="static/style.css?v=631be8ff57">
   <script>
     // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
     (function () {
@@ -29,7 +27,6 @@
 <body>
   <header class="site-head">
     <a class="brand" href="index.html">PROP EDGE<span class="brand-sub">NBA</span></a>
-    <button class="theme-btn" type="button" onclick="peTheme()" title="Switch the site's look (saved on this device)">STYLE: <b id="theme-name">ARCADE</b></button>
     <nav class="site-nav" aria-label="Pages">
 <a href="index.html" class="">Home</a><a href="picks.html" class="">Picks</a><a href="games.html" class="">Games</a><a href="players.html" class="active">Players</a><a href="rankings.html" class="">Teams</a><a href="parlays.html" class="">Parlays</a><a href="history.html" class="">History</a>    </nav>
   </header>
@@ -159,7 +156,7 @@
   <span class="pp-proj"><em>PROJ</em><b>2.0</b></span>
 <span class="pp-none">no line</span></span></div>
     <div class="bd-why"><p class="why-reason"><strong>3-pointers made 2.0:</strong> 20.8 min (recent 20.6); × 0.095 3-pointers made/min (62% this season&#39;s 0.096 over 5 games, 38% prior 0.072); context: pace vs MIA +1%, road −1%, shared production on IND +1%.
-<br><span class="mu-line">Matchup: MIA allows <b>5.8</b> 3-pointers made a game to forwards, <b class="stat-good">4th most</b> of 30 (+29% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
+<br><span class="mu-line">Matchup: MIA allows <b>5.8</b> 3-pointers made a game to forwards, <b class="stat-good">3rd most</b> of 30 (+29% vs league, 5 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
 </div>
   </div>
   <div class="factor-grid">
@@ -294,13 +291,6 @@
 <a href="index.html" class=""><span class="bn-ic">⌂</span>Home</a><a href="picks.html" class=""><span class="bn-ic">★</span>Picks</a><a href="games.html" class=""><span class="bn-ic">◎</span>Games</a><a href="players.html" class="active"><span class="bn-ic">▦</span>Players</a><a href="rankings.html" class=""><span class="bn-ic">☰</span>Teams</a><a href="parlays.html" class=""><span class="bn-ic">✦</span>Parlays</a><a href="history.html" class=""><span class="bn-ic">↺</span>History</a>  </nav>
   <script>
     (function () { var a = document.querySelector('.site-nav a.active'); if (a && a.scrollIntoView) a.scrollIntoView({block: 'nearest', inline: 'center'}); })();
-    function peTheme() {
-      var d = document.documentElement, t = d.dataset.theme === 'court' ? 'arcade' : 'court';
-      if (t === 'court') d.dataset.theme = 'court'; else delete d.dataset.theme;
-      try { localStorage.setItem('pe_theme', t); } catch (e) {}
-      var n = document.getElementById('theme-name'); if (n) n.textContent = t === 'court' ? 'PRIMETIME' : 'ARCADE';
-    }
-    (function () { var n = document.getElementById('theme-name'); if (n && document.documentElement.dataset.theme === 'court') n.textContent = 'PRIMETIME'; })();
     function toggleWhy(id, btn) {
       var panel = document.querySelector('[data-why-panel="' + id + '"]');
       if (!panel) return;
@@ -366,7 +356,7 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=edcfe1fee6"></script>
+  <script src="static/slip.js?v=631be8ff57"></script>
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>
