@@ -44,6 +44,7 @@ import patterns  # noqa: E402
 import rankings  # noqa: E402
 import tune  # noqa: E402
 import edges  # noqa: E402
+import market  # noqa: E402
 import parlays  # noqa: E402
 import news  # noqa: E402
 import pages  # noqa: E402
@@ -336,6 +337,8 @@ def build(args) -> None:
             rec.update(projected=p["proj"], call=p["side"], line_source=p["source"],
                        blend_mean=p.get("blend_mean"), blend_w=p.get("blend_w"),
                        lines={src: ln["line"] for src, ln in p["lines"].items()},
+                       mkt={src: [ln["line"], ln.get("be_over"), ln.get("be_under")] for src, ln in p["lines"].items()},
+                       kladder=market.ladder_snapshot((p["lines"] or {}).get("kalshi")),
                        label=est[s]["status"], why=p["why"][:400], out_ctx=out_ctx)
             if predictions.freeze(rec, p["tip_utc"]):
                 frozen += 1
@@ -424,6 +427,11 @@ def build(args) -> None:
     try:
         edge_found = edges.find(sl, kal, line_book, res)
         n_edge = edges.record(edge_found, now)
+        try:  # Kalshi lagging the books (market.py): recorded with the real price, tracked until proven
+            lags = market.find_lags(line_book, sl)
+            print(f"Kalshi lags: {len(lags)} open, {market.record(lags, now)} new")
+        except Exception as e:  # noqa: BLE001
+            print(f"Kalshi lags failed: {e}")
         print(f"EDGES: {len(edge_found['edges'])} +EV of {edge_found['checked']} matched Kalshi prices, "
               f"{len(edge_found['arbs'])} arbitrage, {len(edge_found['middles'])} middles; {n_edge} newly recorded")
     except Exception as e:  # noqa: BLE001  (never let the extra page stop a build)
@@ -464,6 +472,10 @@ def build(args) -> None:
         gr["edges"] = edges.grade(box, sched)
     except Exception as e:  # noqa: BLE001
         print(f"EDGES grading failed: {e}")
+    try:
+        gr["market"] = market.grade(now)
+    except Exception as e:  # noqa: BLE001
+        print(f"Kalshi lag grading failed: {e}")
     try:
         gr["news"] = news.grade()
     except Exception as e:  # noqa: BLE001
@@ -509,7 +521,7 @@ def build(args) -> None:
     pages.render_all({
         "now": now, "slate": sl, "res": res, "best": best, "edge": est, "cal": cal, "preds": preds_all,
         "tpreds": predictions.load_all(team=True), "sources": sources, "health": health, "lm": lm,
-        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj, "trust": trust, "espn": espn, "patterns": pat_out, "rankings": rankings.build(box), "edges": edge_found, "edges_sum": edges.summary(), "tuning": tune.load(), "parlays": parlays.summary(), "news": news.summary(sl.get("date")), "lineups": lineups,
+        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj, "trust": trust, "espn": espn, "patterns": pat_out, "rankings": rankings.build(box), "edges": edge_found, "edges_sum": edges.summary(), "tuning": tune.load(), "parlays": parlays.summary(), "news": news.summary(sl.get("date")), "lag": market.lag_summary(sl.get("date")), "lineups": lineups,
     })
     # consistency audit on what was just built; its result shows on History -> Pipeline next build
     import subprocess

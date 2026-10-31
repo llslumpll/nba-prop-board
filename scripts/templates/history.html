@@ -93,7 +93,7 @@
 </details>
 
 <div class="seg hist-tabs" data-tabs="hist" data-hash="1" data-tab-scroll="1">
-  <button data-tab="overview" class="active">OVERVIEW</button><button data-tab="units">UNITS</button><button data-tab="when">WHEN TO BET</button><button data-tab="patterns">PATTERNS</button><button data-tab="best5">BEST 5</button><button data-tab="news">NEWS PLAYS</button><button data-tab="stats">BY STAT</button><button data-tab="games">GAME PICKS</button><button data-tab="players">PLAYERS</button><button data-tab="confidence">CONFIDENCE</button><button data-tab="days">DAY BY DAY</button><button data-tab="model">MODEL &amp; PIPELINE</button>
+  <button data-tab="overview" class="active">OVERVIEW</button><button data-tab="units">UNITS</button><button data-tab="when">WHEN TO BET</button><button data-tab="patterns">PATTERNS</button><button data-tab="best5">BEST 5</button><button data-tab="news">NEWS PLAYS</button><button data-tab="market">MARKET</button><button data-tab="stats">BY STAT</button><button data-tab="games">GAME PICKS</button><button data-tab="players">PLAYERS</button><button data-tab="confidence">CONFIDENCE</button><button data-tab="days">DAY BY DAY</button><button data-tab="model">MODEL &amp; PIPELINE</button>
 </div>
 
 {# ---------- OVERVIEW ---------- #}
@@ -240,6 +240,37 @@
 {% for b in news.recent %}<tr><td>{{ b.date[5:] }}</td><td>{{ b.out }}</td><td><a class="plink" href="p-{{ b.player_id }}.html">{{ b.player }}</a> {{ b.call }} {{ b.line|fmtline }} {{ stat_short.get(b.stat, b.stat)|upper }}</td><td>{{ 'yes' if b.moved else 'no' }}</td><td>{% if b.result == 'hit' %}<span class="res res-hit">HIT</span>{% else %}<span class="res res-miss">MISS</span>{% endif %}</td></tr>{% endfor %}
 </tbody></table>
 {% else %}<div class="empty-state"><h3>No graded news plays yet</h3><p>They show up the morning after a late scratch.</p></div>{% endif %}
+</section>
+
+<section class="hist-panel hidden" data-tab-panel="hist:market" id="market">
+{{ help('Which lines deserve trust, learned from every graded pick. <b>Hit rate</b> vs <b>needed</b> = what that price needs to break even. <b>Cautious</b> = the low end of the likely hit rate (95%); a line is <b>TRUSTED</b> only when even that beats what it needs. So far the prices have been sharper than our own disagreements with them: picks where the site disagrees most with the market have done worst.') }}
+{% macro trow(r) %}<tr><td>{{ r.name }}</td><td class="num">{{ r.n }}</td><td class="num">{{ r.rate }}%</td><td class="num">{{ r.need }}%</td><td class="num">{{ r.low }}%</td><td class="num">{{ sgn(r.units, 1, 'U') }} <span class="dim small">({{ '%+.1f'|format(r.roi) }}%)</span></td><td>{% if r.verdict == 'TRUSTED' %}<span class="res res-hit">TRUSTED</span>{% elif r.verdict == 'CLOSE' %}<span class="pr-wait u-tag">CLOSE</span>{% else %}<span class="res res-miss">NOT YET</span>{% endif %}</td></tr>{% endmacro %}
+<h3 class="hv-h3">Every graded pick, by line source</h3>
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+  <thead><tr><th>Line</th><th class="num">Picks</th><th class="num">Hit rate</th><th class="num">Needed</th><th class="num">Cautious</th><th class="num">Flat 1U</th><th>Trust</th></tr></thead>
+  <tbody>{% for r in mtrust.sources %}{{ trow(r) }}{% endfor %}</tbody></table></div></div>
+{% if mtrust.kalshi_bands %}
+<h3 class="hv-h3">Kalshi, by the price of the side picked</h3>
+<div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+  <thead><tr><th>Price</th><th class="num">Picks</th><th class="num">Hit rate</th><th class="num">Needed</th><th class="num">Cautious</th><th class="num">Flat 1U</th><th>Trust</th></tr></thead>
+  <tbody>{% for r in mtrust.kalshi_bands %}{{ trow(r) }}{% endfor %}</tbody></table></div></div>
+{% endif %}
+<h3 class="hv-h3">Kalshi lagging the books</h3>
+{{ help('When PrizePicks and FanDuel both have a line 1+ points away from Kalshi&rsquo;s even-money number, bet Kalshi toward the books. Past picks hit about 62%; this record uses the real Kalshi price at the time of each bet. Tracking only until 100+ are graded and the cautious end beats the average price.') }}
+{% if lag and lag.n %}
+<div class="hv-rec">
+  <div class="hv-tile"><b>{{ lag.priced_hits }}&ndash;{{ lag.priced - lag.priced_hits }}</b><span>record with a real price{% if lag.pending %} &middot; {{ lag.pending }} pending{% endif %}</span></div>
+  <div class="hv-tile"><b>{{ (100 * lag.priced_hits / lag.priced)|round(1) if lag.priced else '—' }}%</b><span>hit rate</span></div>
+  <div class="hv-tile"><b class="hv-need">{{ lag.avg_cost or '—' }}%</b><span>average price paid</span></div>
+  <div class="hv-tile"><b>{{ sgn(lag.units, 2, 'U') }}</b><span>flat 1U each</span></div>
+</div>
+<div class="hv-verdict hv-{{ 'good' if lag.earned else 'early' }}"><span class="hv-vk">{{ 'STAKE EARNED' if lag.earned else 'TRACKING ONLY' }}</span> {{ lag.priced }} graded with a real price; cautious end {{ lag.low }}% vs average price {{ lag.avg_cost or '—' }}%.</div>
+<details class="hv-log"><summary>Every graded lag bet &#9662;</summary>
+<div class="table-wrap"><div class="table-scroll hv-log-scroll"><table class="stat-table dayt">
+  <thead><tr><th>Day</th><th>Bet</th><th>Books</th><th class="num">Price</th><th class="num">Result</th></tr></thead>
+  <tbody>{% for r in lag.recent %}<tr><td class="small nowrap">{{ r.date[5:] }}</td><td>{{ r.label }}</td><td class="small">{% for b, v in r.books.items() %}{{ src_labels.get(b, b) }} {{ v|fmtline }}{{ ' · ' if not loop.last }}{% endfor %}</td><td class="num">{{ ((r.cost or 0) * 100)|round(0)|int if r.cost else '—' }}{{ '%' if r.cost }}</td><td class="num"><span class="res {{ 'res-hit' if r.hit else 'res-miss' }}">{{ 'HIT' if r.hit else 'MISS' }}</span></td></tr>{% endfor %}</tbody>
+</table></div></div></details>
+{% else %}<div class="empty-state"><h3>No graded lag bets yet</h3><p>They start recording with this update and show up here the morning after.</p></div>{% endif %}
 </section>
 
 <section class="hist-panel hidden" data-tab-panel="hist:best5">

@@ -20,6 +20,7 @@ from jinja2 import Environment, FileSystemLoader
 import grade
 import history_view
 import live
+import market
 import logs
 import markets
 import model
@@ -722,7 +723,7 @@ def render_all(ctx: dict) -> None:
                             "ac": g["away_badge"]["color"], "hc": g["home_badge"]["color"]} for g in sl["games"]],
                  "picks": live_picks, "gpicks": live_g}
     write("games.html", "games.html", "games", slate=sl, cards=gcards, page_ids=page_ids, team_fit=tf,
-          g_best5=g_best5, g_value=g_value, g_mkt=g_mkt, gmoney=gmoney, ed=ctx.get("edges") or {}, eds=ctx.get("edges_sum") or {}, blend_w=live.GAME_BLEND_W, cap=live.GAME_CHANCE_CAP, live_data=live_data,
+          g_best5=g_best5, g_value=g_value, g_mkt=g_mkt, gmoney=gmoney, ed=ctx.get("edges") or {}, eds=ctx.get("edges_sum") or {}, lag=ctx.get("lag") or {}, blend_w=live.GAME_BLEND_W, cap=live.GAME_CHANCE_CAP, live_data=live_data,
           empty_best=_empty_best_text(ctx),
           notices=_notices(ctx)[:1] + ([f"<strong>Kalshi:</strong> {ctx['sources']['kalshi']['error']}"] if ctx['sources']['kalshi']['error'] else []))
 
@@ -788,7 +789,7 @@ def render_all(ctx: dict) -> None:
     except Exception:  # noqa: BLE001
         audit = None
     hv = history_view.build(preds, ctx["tpreds"], ctx["health"], keep_p, ctx.get("trust"))
-    write("history.html", "history.html", "history", news=ctx.get("news") or {}, hv=hv, pat=ctx.get("patterns") or {}, espn=ctx.get("espn"), hc=hc, money=money, day_index=day_index, audit=audit, gmoney=grade.team_money(ctx["tpreds"]), months=mlist, retune_log=retune_log, tuning=ctx.get("tuning") or {}, lineups=ctx.get("lineups") or {}, scoreboard=grade.stat_scoreboard(preds), edge=edge,
+    write("history.html", "history.html", "history", news=ctx.get("news") or {}, lag=ctx.get("lag") or {}, mtrust=market.trust_table(preds), hv=hv, pat=ctx.get("patterns") or {}, espn=ctx.get("espn"), hc=hc, money=money, day_index=day_index, audit=audit, gmoney=grade.team_money(ctx["tpreds"]), months=mlist, retune_log=retune_log, tuning=ctx.get("tuning") or {}, lineups=ctx.get("lineups") or {}, scoreboard=grade.stat_scoreboard(preds), edge=edge,
           buckets=grade.chance_buckets(preds), best5_rec=b5rec, team_rec=grade.team_record(ctx["tpreds"]),
           maturity=grade.maturity(ctx["cal"]), bt=bt, bt_cal=bt_all.get("calibration") or {},
           bt_n=(bt.get("pts") or {}).get("n"), health=list(reversed(ctx["health"][-30:])),

@@ -86,6 +86,18 @@
   <p class="small dim">Chance both win from a normal curve around FanDuel's number (the widths the game picks use).</p>
   {% endif %}
 
+  <h3 class="hv-h3">Kalshi lagging the books</h3>
+  <div class="hv-help"><span class="hv-help-k">WHAT THIS IS</span> Kalshi's main number for a prop is its rung priced nearest 50%. When PrizePicks and FanDuel both have the line 1+ points away on the same side, the bigger books have usually been right: betting Kalshi toward their number hit about 62% over 849 past picks. Each one is recorded with the real Kalshi price at that moment and graded. {% if lag.earned %}It has earned a stake: {{ lag.priced_hits }}/{{ lag.priced }} at an average price of {{ lag.avg_cost }}%.{% else %}<b>Tracking only</b> until {{ lag.earn_n }}+ are graded and even the cautious end of the hit rate beats the average price paid{% if lag.priced %} (now {{ lag.priced_hits }}/{{ lag.priced }}, cautious {{ lag.low }}% vs average price {{ lag.avg_cost }}%){% endif %}.{% endif %}</div>
+  {% if lag.today %}
+  <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+    <thead><tr><th>Bet on Kalshi</th><th class="num">Kalshi line</th><th>Books</th><th class="num">Price</th><th class="num">Stake</th></tr></thead>
+    <tbody>{% for r in lag.today %}<tr><td><b>{{ r.label }}</b> <span class="dim small">{{ r.bet }}</span></td><td class="num">{{ r.kalshi_line|fmtline }}</td>
+      <td class="small">{% for b, v in r.books.items() %}{{ src_labels.get(b, b) }} {{ v|fmtline }}{{ ' · ' if not loop.last }}{% endfor %}</td>
+      <td class="num">{% if r.cost %}{{ (r.cost * 100)|round(0)|int }}%{% else %}<span class="dim">no price</span>{% endif %}</td>
+      <td class="num">{% if lag.earned and r.cost %}{{ m.utag(0.5) }}{% else %}<span class="u-tag u-0" title="Tracked with no stake until Kalshi-lag bets earn one">TRACKING</span>{% endif %}</td></tr>{% endfor %}</tbody>
+  </table></div></div>
+  {% else %}<p class="small dim">No Kalshi lines lagging the books on tonight's open games right now.</p>{% endif %}
+
   {% if eds.recent %}
   <details class="hv-log"><summary>Recorded edges ({{ eds.recent|length }} most recent) &#9662;</summary>
   <div class="table-wrap"><div class="table-scroll hv-log-scroll"><table class="stat-table dayt">

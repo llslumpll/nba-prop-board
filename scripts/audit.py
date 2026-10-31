@@ -119,6 +119,19 @@ paid_news = [r["id"] + " " + r["date"] for r in PZ if r["family"] == "news" and 
 check("one injury-news play per player-stat per game; news parlays unstaked until earned", not dup_n and not paid_news,
       f"repeats {dup_n[:2]}, staked {paid_news[:2]}" if dup_n or paid_news else "")
 
+# 1h. KALSHI LAGS (market.py): recorded before tip, one per player-stat-game, prices are real chances, and
+#     graded results follow from the actual stat
+LG = []
+for f in sorted((ROOT / "data" / "market").glob("*.json")) if (ROOT / "data" / "market").exists() else []:
+    LG += list(json.loads(f.read_text()).values())
+bad_lg = [r["label"] for r in LG if ts(r["first_seen"]) >= ts(r["tip_utc"]) or ts(r["last_seen"]) >= ts(r["tip_utc"])
+          or (r.get("cost") is not None and not 0 < r["cost"] < 1)
+          or (r["status"] == "graded" and r.get("actual") is not None
+              and r["hit"] != ((r["actual"] > r["kalshi_line"]) == (r["side"] == "OVER")))]
+dup_lg = [k for k, v in Counter((r["game_id"], r["player"], r["stat"]) for r in LG).items() if v > 1]
+check("Kalshi-lag bets recorded before tip, one per player-stat, real prices, graded right", not bad_lg and not dup_lg,
+      f"bad {bad_lg[:2]}, dup {dup_lg[:2]}" if bad_lg or dup_lg else f"{len(LG)} checked")
+
 # 2. statuses and grading arithmetic
 bad = []
 for p in P:

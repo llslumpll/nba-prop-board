@@ -534,3 +534,23 @@ From the Monahan lecture (market-based betting):
   and a 2-leg from the later games, while the early single stays locked.
 - All TRACKING ONLY until news plays earn a stake (then the single shows 0.5U, parlays 1 / 0.5 / 0.25U); kept
   out of the main parlay record; every news play is also graded on its own (History -> NEWS PLAYS).
+
+## Update 48: market reading (which lines to trust, Kalshi lagging the books, prices saved for learning)
+
+- Tested first (walk-forward, each day learning only from earlier days): a "trusted situations" table by
+  source x stat x side x price x disagreement x line move did NOT predict next-day results with 11 days of data
+  (TRUSTED -6.6% vs AVOID -3.9%), so it is not used for stakes. What the data does show: the prices are sharper
+  than our disagreements with them (the bigger our chance above Kalshi / FanDuel, the worse), and picks whose
+  line later moved past our number (beat the close) hit 64%.
+- `market.py` KALSHI LAGGING THE BOOKS: when PrizePicks and FanDuel both have a prop line 1+ points from Kalshi's
+  even-money rung (same side), the Kalshi bet toward their number hit 62.5% over 849 past picks (both sides,
+  10 of 11 days 55%+). Past prices on those rungs weren't saved (some "even-money" rungs cost 60%+), so every lag
+  is now recorded with the real Kalshi price (ask / 1 - bid, fee included), kept fresh until tip, graded from
+  the player's pick, voided after 36 h if the player has no pick. TRACKING ONLY until 100+ graded and the
+  cautious end of the hit rate beats the average price paid; then 0.5U. Games -> EDGES lists tonight's; History
+  -> MARKET has the record.
+- History -> MARKET: every graded pick by line source and Kalshi by price of the side picked: hit rate vs needed,
+  cautious end, flat units, TRUSTED / CLOSE / NOT YET.
+- Every pick record now also keeps each book's number and break-evens (`mkt`) and Kalshi's ladder
+  (`kladder`: [rung, bid, ask]) so future market ideas can be tested with real prices.
+- Audit: lag bets recorded before tip, one per player-stat, real prices, graded correctly.
