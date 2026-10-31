@@ -518,6 +518,9 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
                 u_now = 0.0 if skip or coin else min(u_cap, unit_rec(chance, be, role_gap, r.get("inj_status")))
                 u_raw = 0.0 if skip or coin else min(u_cap, unit_rec(chance, be, role_gap, r.get("inj_status"), trust=1.0))
                 prec = PROVEN.get(f"{sk}|{proven.band(chance)}")
+                if u_now > 0 and not proven.earned(prec):
+                    adj.append(proven.earn_note(prec))
+                    u_now = u_raw = 0.0
                 pu = None if skip or coin or r.get("inj_status") else proven.units(prec, be)
                 if pu:
                     adj.append(f"{pu:g}U PROVEN: picks like this hit {prec['h']} of {prec['n']}, enough to beat this price even on a cold streak")
@@ -710,6 +713,8 @@ def game_picks(g: dict, tp: dict, kal_ml: dict | None = None, total_offset: floa
         if sk:
             p.update(units=0.0, units_raw=0.0, skip=sk)
         prec = PROVEN.get(f"{p['market']}|{proven.band(p['chance'])}")
+        if (p.get("units") or 0) > 0 and not proven.earned(prec):
+            p.update(units=0.0, units_raw=0.0, earn_note=proven.earn_note(prec))
         pu = None if p.get("skip") else proven.units(prec, p["break_even"])
         p.update(rec=proven.label(prec), proven=pu)
         if pu:

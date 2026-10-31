@@ -145,10 +145,12 @@ def candidates(date: str, now: datetime) -> dict:
     pl = [extra(_player_leg(k, p), p) for k, p in ps.items() if open_(p) and p.get("call") and p.get("line") is not None]
     gl = [extra(_game_leg(k, t), t) for k, t in ts.items() if open_(t)]
     ml = [g for g in gl if g["market"] == "moneyline"]
-    good = [x for x in pl if (ps[x["key"]].get("units") or 0) > 0] + [g for g in gl if (ts[g["key"]].get("units") or 0) > 0]
+    # GOOD PRICE = the chance beats what the price needs (stakes are now earned per group, so units can be 0)
+    beats = lambda r: (r.get("chance") or 0) >= max(0.52, r.get("break_even") or 0.5238)  # noqa: E731
+    good = [x for x in pl if beats(ps[x["key"]])] + [g for g in gl if beats(ts[g["key"]])]
     by = lambda xs: sorted(xs, key=lambda x: -x["chance"])  # noqa: E731
     gap = sorted([x for x in pl + gl if x["gap"] is not None and x["gap"] >= GAP_MIN and x["chance"] >= 0.55], key=lambda x: -x["gap"])
-    good_all = [x for x in pl + gl if x["units"] > 0]
+    good_all = [x for x in pl + gl if x["units"] > 0] or [x for x in pl + gl if x["chance"] >= max(0.52, x["be"])]
     single = sorted(good_all or pl + gl, key=lambda x: (-x["trust"], -x["chance"]))
     return {"single": single, "gap": gap, "safe": by(pl), "value": by(good), "ml": by(ml), "news": news_legs(date, now, ps)}
 

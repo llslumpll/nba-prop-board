@@ -578,3 +578,15 @@ From the Monahan lecture (market-based betting):
 - Faster checks: add a second cron-job.org job that triggers the same "Daily build" workflow every 5 minutes
   from 4:00 to 9:55 PM CT (`*/5 16-21 * * *`, America/Chicago), when injury news lands. Builds take ~1-2 min
   and the workflow queues instead of overlapping; Kalshi / ESPN / PrizePicks are free, so no Odds API credits.
+
+## Update 51: stakes only where they've been earned
+
+- `proven.py` group records now also add up what each pick's price needed (`b`). `proven.earned(rec)`: a regular
+  pick carries a stake only when its group (source + 5-point chance band) has 30+ graded picks hitting at least
+  2 points above what their prices needed (EARN_N, EARN_MARGIN). Otherwise units 0, a "no stake yet: picks like
+  this are H/N ..." note in WHY & STATS, and a NOT EARNED tag (new legend line) instead of a stake.
+- Applies to player props and game picks; PROVEN 2U / 3U unchanged (stricter); news plays and Kalshi lags keep
+  their own earn rules. Parlays' GOOD PRICE legs and Best Single now mean "chance beats the price" (not "has
+  units"), so parlays and Best Value lists build as before.
+- Walk-forward backtest Oct 20-30 (each day judged only on earlier days): every recommended stake 670 bets,
+  -14.66U on 172U (-8.5%); earned-only 94 bets, -0.43U on 25U (-1.7%). Groups earn and lose it automatically.

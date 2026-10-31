@@ -25,6 +25,8 @@
 <span class="u-tag u-{{ (u * 100)|round|int }}" title="{{ unit_names.get(u, '') }} confidence: stake {{ u|fmtu }} unit{{ 's' if u != 1 }}">{{ u|fmtu }}U</span>{% if ch is not none %}<span class="pr-tag pr-good" title="Worth betting at today's price: our chance beats what the price needs to break even">GOOD PRICE</span>{% endif %}
 {%- elif ch is not none and ch < 0.52 -%}
 <span class="u-tag u-0 pr-coin" title="Coin flip: our chance for this side is under 52%, so there's no real lean either way. No stake">COIN FLIP</span>
+{%- elif ch is not none and be and ch >= be -%}
+<span class="u-tag u-0 pr-earn" title="Beats the price, but this kind of pick (same source, same chance band) hasn't earned a stake yet: it needs 30+ graded picks hitting 2+ points above what their prices needed. Tracked like every pick">NOT EARNED</span>
 {%- elif ch is not none and be and ch - be >= -0.03 -%}
 <span class="u-tag u-0 pr-wait" title="Close: our chance is just under what this price needs. Check again later; if the price drops (or the line moves your way) it can turn into GOOD PRICE">WAIT</span>
 {%- elif ch is not none and be -%}
@@ -52,7 +54,7 @@
 <div class="u-legend"><b>UNITS</b> recommended stake from our edge over the price:
 {% for u in [0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0] %}<span>{{ utag(u) }} {{ unit_names[u]|lower }}</span>{% endfor %} <a href="history.html#units">track record &rarr;</a>
 <br><b>TRACK RECORD</b> <span><span class="rec-tag" style="margin-left:0">52/91</span> picks like this have hit 52 of 91</span><span><span class="rec-tag rec-proven" style="margin-left:0">&#10004; 18/20 PROVEN</span> cashed 80%+ over 20+ and beats the price: 2U (3U at 85%+ over 30+)</span>
-<br><b>PRICE CHECK</b> <span><span class="pr-tag pr-good">GOOD PRICE</span> worth betting now</span><span>{{ utag(0, none, 0.5, 0.51) }} close &ndash; check back, the price may drop</span><span>{{ utag(0, none, 0.4, 0.55) }} could still win, but you'd pay too much</span><span>{{ utag(0, none, 0.505, 0.54) }} no real lean either way</span></div>
+<br><b>PRICE CHECK</b> <span><span class="pr-tag pr-good">GOOD PRICE</span> worth betting now</span><span>{{ utag(0, none, 0.5, 0.51) }} close &ndash; check back, the price may drop</span><span>{{ utag(0, none, 0.4, 0.55) }} could still win, but you'd pay too much</span><span>{{ utag(0, none, 0.505, 0.54) }} no real lean either way</span><span>{{ utag(0, none, 0.56, 0.54) }} beats the price, but picks like it haven't earned a stake yet</span></div>
 {%- endmacro %}
 
 {% macro src_name(src) -%}

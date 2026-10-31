@@ -48,10 +48,35 @@ def compute(preds: list[dict], tpreds: list[dict]) -> dict:
         if p.get("status") != "graded" or p.get("hit") is None or p.get("chance") is None:
             continue
         k = key(p)
-        r = out.setdefault(k, {"h": 0, "n": 0})
+        r = out.setdefault(k, {"h": 0, "n": 0, "b": 0.0})
         r["n"] += 1
         r["h"] += 1 if p["hit"] else 0
+        be = p.get("break_even")
+        r["b"] += be if be and 0.05 < be < 0.98 else 0.5238
     return out
+
+
+# Earned stakes (update 51): a regular pick only carries a stake once its group (source + 5-point chance band)
+# has EARN_N+ graded picks hitting at least EARN_MARGIN above what their prices needed. Walk-forward backtest
+# Oct 20-30 (each day judged only on earlier days): every recommended stake -14.66U on 172U (-8.5%); earned
+# only -0.43U on 25U (-1.7%). Groups earn (and lose) it automatically as results come in.
+EARN_N = 30
+EARN_MARGIN = 0.02
+
+
+def earned(rec: dict | None) -> bool:
+    if not rec or rec["n"] < EARN_N:
+        return False
+    need = rec.get("b", 0.5238 * rec["n"]) / rec["n"]
+    return rec["h"] / rec["n"] >= need + EARN_MARGIN
+
+
+def earn_note(rec: dict | None) -> str:
+    if not rec or not rec["n"]:
+        return "no stake yet: no graded picks like this"
+    need = rec.get("b", 0.5238 * rec["n"]) / rec["n"]
+    return (f"no stake yet: picks like this are {rec['h']}/{rec['n']} ({100 * rec['h'] / rec['n']:.0f}%); a stake needs "
+            f"{EARN_N}+ graded at {100 * (need + EARN_MARGIN):.0f}%+ (2 points over the {100 * need:.0f}% their prices need)")
 
 
 def wilson_low(h: int, n: int, z: float = 1.96) -> float:
