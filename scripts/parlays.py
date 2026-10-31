@@ -7,8 +7,9 @@ Families (each in 2-, 3- and 4-leg sizes unless noted):
   safe      "Safest props"   player props, any source, highest chance
   value     "Good price"     only legs whose chance beats their price (GOOD PRICE); 2 and 3 legs
   ml        "Moneyline"      game moneyline picks, highest chance
-  news      "Injury news"    2 legs from today's injury-news plays (update 46): one per game, line still the
-                             same as at the news, biggest with/without bump first. NO STAKE (tracked only)
+  news      "Injury news"    1-4 legs from today's injury-news plays (update 46): one per game, line still the
+                             same as at the news, biggest with/without bump first (a size appears only when
+                             news hit that many games). NO STAKE (tracked only)
                              until news plays earn one (news.EARN_N / EARN_BE); its record is kept apart from
                              the main parlay record.
 
@@ -50,9 +51,10 @@ FAMILIES = [
     ("safe", "Safest props", (2, 3, 4), "The highest-chance player props on the board, one per game."),
     ("value", "Good price", (2, 3), "Only legs marked GOOD PRICE (their chance beats their price), highest chance first."),
     ("ml", "Moneyline", (2, 3, 4), "The site's moneyline picks with the highest chance to win, one per game."),
-    ("news", "Injury news", (2,), "Two of today's injury-news plays from different games, while their lines still haven't moved: teammates who have done more (or less) without the player just ruled out. Tracked with no stake until news plays earn one; kept out of the main record."),
+    ("news", "Injury news", (1, 2, 3, 4), "Today's injury-news plays while their lines still haven't moved (teammates who have done more, or less, without the player just ruled out): the strongest one as a single, and 2-, 3- and 4-leg parlays when news hits that many games. Tracked with no stake until news plays earn one; kept out of the main record."),
 ]
 PAPER = {"news"}   # families tracked without a stake (until earned) and kept out of the main record
+WAVES = 6          # news parlays of one size per day: a new one can start after the last one locked
 FAMILY = {f[0]: f for f in FAMILIES}
 MIN_CHANCE = 0.5
 GAP_MIN = 0.03
@@ -212,12 +214,14 @@ def stake_for(fam: str, n: int, legs: list[dict], form: dict) -> float:
     """Recommended units for a parlay. Singles: the pick's own units. Parlays: 1U (2 legs), 0.5U (3),
     0.25U (4); after 10+ graded of that type, doubled if the type is in profit, halved if it's
     down 25%+ per parlay. Capped at 3U."""
-    if n == 1:
-        return max(legs[0].get("units") or 0.0, 0.25)
     if fam in PAPER:
         import news
         if not news.summary(None).get("earned"):
             return 0.0
+        if n == 1:
+            return news.EARN_UNITS
+    if n == 1:
+        return max(legs[0].get("units") or 0.0, 0.25)
     base = BASE_STAKE.get(n, 0.25)
     g, u = form.get((fam, n), (0, 0.0))
     if g >= 10:
@@ -245,22 +249,27 @@ def sync(date: str, now: datetime | None = None) -> dict:
         del store[pid]
     made = updated = locked = 0
     order = [(fam, n) for fam, _label, sizes, _desc in FAMILIES for n in sizes]
-    # 1) parlays already locked (or locking now) keep their legs, and those players / games are taken
+    # 1) parlays already locked (or locking now) keep their legs, and those players / games are taken.
+    #    News parlays come in WAVES: news lands at different times and games tip at different times, so once
+    #    a news single / parlay locks at its first tip, a new one of the same size can be built later in the
+    #    day from news on games that haven't started ("news-2", then "news-2-w2", ...).
     used, open_ids = set(), []
     for fam, n in order:
-        pid = f"{fam}-{n}"
-        cur = store.get(pid)
-        if cur and not cur.get("locked_at") and cur.get("status") == "pending" and now >= datetime.fromisoformat(cur["first_tip"]):
-            cur["locked_at"] = stamp
-        if cur and (cur.get("locked_at") or cur.get("status") != "pending"):
-            locked += 1
-            used |= {_used_key(l) for l in cur["legs"]}
-        else:
-            open_ids.append((fam, n))
+        waves = WAVES if fam in PAPER else 1
+        for w in range(1, waves + 1):
+            pid = f"{fam}-{n}" if w == 1 else f"{fam}-{n}-w{w}"
+            cur = store.get(pid)
+            if cur and not cur.get("locked_at") and cur.get("status") == "pending" and now >= datetime.fromisoformat(cur["first_tip"]):
+                cur["locked_at"] = stamp
+            if cur and (cur.get("locked_at") or cur.get("status") != "pending"):
+                locked += 1
+                used |= {_used_key(l) for l in cur["legs"]}
+                continue
+            open_ids.append((fam, n, pid))
+            break  # one open slot per family-size at a time
     # 2) open parlays are rebuilt in a fixed order from players / games no other parlay uses,
     #    so one bad leg can't sink several parlays at once
-    for fam, n in open_ids:
-        pid = f"{fam}-{n}"
+    for fam, n, pid in open_ids:
         cur = store.get(pid)
         legs = _pick_legs(cands[fam], n, used)
         if not legs:

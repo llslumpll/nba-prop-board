@@ -518,7 +518,19 @@ From the Monahan lecture (market-based betting):
 - History -> NEWS PLAYS tab: record, hit rate vs 52.4% needed, flat units, record when the line hadn't moved by
   tip, games that came out ahead, by day, every graded play, and progress toward a stake (40+ graded and the
   cautious end of the hit rate above 52.4%; once earned, news plays show 0.5U).
-- `parlays.py` family "Injury news" (2 legs): two counted news plays from different games whose lines haven't
-  moved, biggest bump first; same rules as other parlays. TRACKING ONLY (0 stake) until news plays earn a
+- `parlays.py` family "Injury news" (single, 2, 3 and 4 legs, each only when news hit that many games): counted
+  news plays whose lines haven't moved, biggest bump first; same rules as other parlays. TRACKING ONLY (0 stake) until news plays earn a
   stake, kept out of the main parlay record. A 0 stake now stays 0 when graded (was treated as 1U).
 - Audit: one counted news play per player-stat per game; news parlays unstaked until earned.
+
+## Update 47: injury-news singles and parlays in waves, following tip times
+
+- The "Injury news" family builds a single plus 2-, 3- and 4-leg parlays from news plays whose lines haven't
+  moved, each only when news has hit that many games (one leg per game, no player in two parlays).
+- WAVES: news lands at different times and games tip at different times. Each news single / parlay locks at its
+  first leg's tip; after that, a NEW one of the same size can be built later the same day from news on games that
+  haven't started (ids news-2, news-2-w2, ... up to 6 per size). Example (tested): Embiid out at 4 PM CT ->
+  news single on a PHI teammate, locked at the 5 PM tip; Mitchell + Trae Young out at 5:20 PM -> a new single
+  and a 2-leg from the later games, while the early single stays locked.
+- All TRACKING ONLY until news plays earn a stake (then the single shows 0.5U, parlays 1 / 0.5 / 0.25U); kept
+  out of the main parlay record; every news play is also graded on its own (History -> NEWS PLAYS).
