@@ -530,6 +530,11 @@ def build(args) -> None:
     _write_if_changed(DATA / "audit.json", {"at": now.strftime("%Y-%m-%d %H:%M UTC"), "passed": r.returncode == 0,
                                             "checks": len(lines), "fails": [ln[5:] for ln in lines if ln.startswith("FAIL")]})
     print("Audit:", "all checks passed" if r.returncode == 0 else r.stdout[-800:])
+    try:  # phone alerts (alerts.py): new injury news, news parlays, earned Kalshi lags, morning recap
+        import alerts
+        print(f"Alerts: {alerts.run(sl, now)}")
+    except Exception as e:  # noqa: BLE001
+        print(f"Alerts failed: {e}")
     print(f"Build complete at {now:%Y-%m-%d %H:%M UTC}")
 
 

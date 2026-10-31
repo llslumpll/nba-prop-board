@@ -565,3 +565,16 @@ From the Monahan lecture (market-based betting):
   the chance the site gave, with each type's record.
 - History -> News Plays: running units at 1U. History -> Market: hit rate vs what the price needs, by line
   source and by Kalshi price.
+
+## Update 50: phone alerts (Discord) + faster checks around tip time
+
+- `scripts/alerts.py`, called at the end of every build: posts to a Discord channel when a player is newly
+  ruled out (with the teammate plays whose lines haven't moved), when a new injury-news single / parlay is built,
+  Kalshi lags once that tracker has earned a stake, and a morning recap (first build after 9 AM CT) of last
+  night's results in units and dollars (1U = $100). Each message is sent once (`data/alerts_state.json`, kept
+  through a push-conflict rebuild). Needs the repository secret `DISCORD_WEBHOOK`; without it nothing is sent.
+- `.github/workflows/build.yml`: passes `DISCORD_WEBHOOK` to the build and keeps `data/alerts_state.json` on a
+  rebuild.
+- Faster checks: add a second cron-job.org job that triggers the same "Daily build" workflow every 5 minutes
+  from 4:00 to 9:55 PM CT (`*/5 16-21 * * *`, America/Chicago), when injury news lands. Builds take ~1-2 min
+  and the workflow queues instead of overlapping; Kalshi / ESPN / PrizePicks are free, so no Odds API credits.
