@@ -105,6 +105,20 @@ for f in sorted((ROOT / "data" / "news").glob("*.json")) if (ROOT / "data" / "ne
 late_n = [e["id"] for e in NE if ts(e["seen_at"]) >= ts(e["tip_utc"])]
 check("every injury-news play spotted before its game tipped", not late_n, str(late_n[:2]) if late_n else f"{len(NE)} events checked")
 
+# 1g2. one news play per player-stat per game (absences combined, net side), and news parlays
+#       carry no stake until news plays have earned one
+import news as _news
+dup_n = []
+for f in sorted((ROOT / "data" / "news").glob("*.json")) if (ROOT / "data" / "news").exists() else []:
+    day = json.loads(f.read_text())
+    _news.mark_counted(day)
+    c = Counter((e["game_id"], b["player"], b["stat"]) for e in day.values() for b in e["plays"] if b.get("counted"))
+    dup_n += [f"{f.stem} {k[1]} {k[2]}" for k, v in c.items() if v > 1]
+earned = _news.summary(None).get("earned")
+paid_news = [r["id"] + " " + r["date"] for r in PZ if r["family"] == "news" and (r.get("stake") or 0) > 0 and not earned]
+check("one injury-news play per player-stat per game; news parlays unstaked until earned", not dup_n and not paid_news,
+      f"repeats {dup_n[:2]}, staked {paid_news[:2]}" if dup_n or paid_news else "")
+
 # 2. statuses and grading arithmetic
 bad = []
 for p in P:

@@ -36,10 +36,10 @@
     <div class="pz-nums"><b>{{ (r.chance * 100)|round(1) }}%</b><span>{{ 'chance it hits' if r.size == 1 else 'chance all hit' }}</span></div>
     <div class="pz-nums"><b>{{ '%.1f'|format(r.pays) }}x</b><span>pays about</span></div>
   </div>
-  <div class="pz-tags"><span class="pz-stake" title="Recommended stake for this {{ 'play' if r.size == 1 else 'parlay' }}">STAKE {{ m.utag(r.stake or 1) }}</span>{% if r.ev >= 0 %}<span class="pr-tag pr-good" style="margin-left:0" title="Chance all hit x payout is above 1: worth it at these prices">GOOD PRICE</span>{% else %}<span class="pr-tag pr-toohigh" title="Likely-looking, but the payout is too small for its chance: {{ (r.chance * 100)|round|int }}% x {{ '%.2f'|format(r.pays) }} gives back about {{ ((1 + r.ev) * 100)|round|int }}% of what you put in, on average">PRICE TOO HIGH</span>{% endif %}{% if r.all_kalshi %} <span class="anchor-tag">ALL LEGS ON KALSHI</span>{% endif %}</div>
+  <div class="pz-tags"><span class="pz-stake" title="Recommended stake for this {{ 'play' if r.size == 1 else 'parlay' }}">{% if r.stake is defined and r.stake == 0 %}<span class="u-tag u-0" title="Tracked with no stake until injury-news plays earn one (History &rarr; News plays)">TRACKING ONLY</span>{% else %}STAKE {{ m.utag(r.stake or 1) }}{% endif %}</span>{% if r.ev >= 0 %}<span class="pr-tag pr-good" style="margin-left:0" title="Chance all hit x payout is above 1: worth it at these prices">GOOD PRICE</span>{% else %}<span class="pr-tag pr-toohigh" title="Likely-looking, but the payout is too small for its chance: {{ (r.chance * 100)|round|int }}% x {{ '%.2f'|format(r.pays) }} gives back about {{ ((1 + r.ev) * 100)|round|int }}% of what you put in, on average">PRICE TOO HIGH</span>{% endif %}{% if r.all_kalshi %} <span class="anchor-tag">ALL LEGS ON KALSHI</span>{% endif %}</div>
   {% if r.priced_at and not r.locked_at and r.status == 'pending' %}<div class="pz-fresh" data-priced="{{ r.priced_at }}" title="Every leg's price and GOOD PRICE check were last refreshed at this build (every 20 minutes). If it's been a while, compare each leg's price where you're betting.">&#9201; PRICES CHECKED <span class="pz-at">{{ r.priced_label }}</span> <span class="pz-ago"></span></div>{% endif %}
   <ul class="pz-legs">{% for l in r.legs %}{{ leg_row(l, r.locked_at) }}{% endfor %}</ul>
-  {% if r.status == 'graded' %}<div class="pz-foot {{ 'stat-good' if r.hit else 'stat-bad' }}">{{ 'CASHED' if r.hit else 'MISSED' }} {{ '%+.2f'|format(r.staked_units if r.staked_units is defined else r.units) }}U <span class="dim small">({{ r.stake or 1 }}U staked)</span></div>{% endif %}
+  {% if r.status == 'graded' %}<div class="pz-foot {{ 'stat-good' if r.hit else 'stat-bad' }}">{{ 'CASHED' if r.hit else 'MISSED' }} {{ '%+.2f'|format(r.units if (r.stake is defined and r.stake == 0) else (r.staked_units if r.staked_units is defined else r.units)) }}U <span class="dim small">{% if r.stake is defined and r.stake == 0 %}(at 1U; tracking only, nothing staked){% else %}({{ r.stake or 1 }}U staked){% endif %}</span></div>{% endif %}
 </article>
 {%- endmacro %}
 
@@ -60,7 +60,7 @@
 {% if pz.rows %}
   <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
     <thead><tr><th>Type</th><th class="num">Cashed</th><th class="num">Hit %</th><th class="num hide-sm">Expected</th><th class="num">Last 10</th><th class="hide-sm">Streak</th><th class="num">Units</th><th class="num hide-sm">ROI</th><th class="num hide-sm">Legs hit</th></tr></thead>
-    <tbody>{% for r in pz.rows %}<tr><td>{{ 'Single' if r.size == 1 else r.size ~ '-leg' }} {{ r.label }}</td>
+    <tbody>{% for r in pz.rows %}<tr><td>{{ 'Single' if r.size == 1 else r.size ~ '-leg' }} {{ r.label }}{% if r.paper %} <span class="dim small">(tracking only, not in the totals)</span>{% endif %}</td>
       <td class="num"><b>{{ r.hits }}/{{ r.n }}</b>{% if r.pending %} <span class="dim small">+{{ r.pending }}</span>{% endif %}</td>
       <td class="num">{{ (r.rate ~ '%') if r.rate is not none else '—' }}</td><td class="num dim hide-sm">{{ (r.expected ~ '%') if r.expected is not none else '—' }}</td>
       <td class="num">{{ r.last10 or '—' }}</td><td class="small hide-sm">{{ streak(r.streak) }}</td>

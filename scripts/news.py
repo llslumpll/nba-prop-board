@@ -12,6 +12,11 @@ threshold and whose line is still the same are flagged: the book (or Kalshi /
 PrizePicks) hasn't reacted yet. The play's side follows the history (OVER if
 he does more without the player); "model agrees" when our pick is that side.
 
+The news also moves the projection itself (update 46b): every teammate gets NEWS_W (half) of his
+with/without difference added to every stat, summed over each absence that day, and the build re-projects
+the moment news lands, so picks, lists and parlays use it right away. When two absences flag the same
+player-stat, their bumps combine (net) and count once (mark_counted).
+
 Each later build (until the game tips) checks whether the line has moved since
 the news ("BOOK CAUGHT UP"). Every flagged play is graded from the box score
 against the line and side it had AT the news, so the record shows whether
@@ -35,6 +40,7 @@ import polars as pl
 
 import dataio
 import predictions
+import proven
 
 ROOT = Path(__file__).parent.parent / "data"
 STATE = ROOT / "news_state.json"
@@ -42,6 +48,12 @@ DIR = ROOT / "news"
 STATS = ("pts", "reb", "ast", "fg3m", "pra", "pr", "pa", "ra")
 BUMP_MIN = {"pts": 1.5, "reb": 0.8, "ast": 0.8, "fg3m": 0.4, "pra": 2.0, "pr": 1.8, "pa": 1.8, "ra": 1.2}
 MAX_PER_EVENT = 8
+# News plays earn a stake the same way any group does: enough of them graded, and even the cautious end of
+# their hit rate (95% Wilson low) clears break-even at a standard -110 price. Plays from one game win or lose
+# together, so the bar is 40 plays, not 20. Until then they're tracked with no stake.
+EARN_N = 40
+EARN_BE = 0.5238
+EARN_UNITS = 0.5
 
 
 def _load(p: Path, default):
@@ -145,6 +157,7 @@ def process(sl: dict, inj: dict, res: dict, now: datetime | None = None, box: pl
     else:
         state = {"date": date, "outs": {}, "proj": {}}
     prev = state.get("proj") or {}
+    earned = None
     for name, p, g in new:
         bens = []
         ww = with_without(box, p["team"], name)
@@ -172,6 +185,12 @@ def process(sl: dict, inj: dict, res: dict, now: datetime | None = None, box: pl
                          "aligned": True, "model_agrees": pk["side"] == call,
                          "key": predictions.key(pl_, s, row["game_id"]),
                          "line_now": pk["line"], "moved": False, "result": None})
+        if earned is None:
+            earned = summary(None).get("earned")
+        if earned:
+            for b in bens:
+                b["units"] = max(b["units"] or 0.0, EARN_UNITS)
+                b["stake_reason"] = "news plays have earned a stake"
         bens.sort(key=lambda b: -abs(b["bump"]) / BUMP_MIN[b["stat"]])
         # one play per teammate (his biggest bump), so a single player can't fill the list
         seen, top = set(), []
@@ -201,13 +220,67 @@ def process(sl: dict, inj: dict, res: dict, now: datetime | None = None, box: pl
     state["proj"] = proj_now
     STATE.write_text(json.dumps(state, indent=1, default=str))
     if events:
+        mark_counted(events)
         _save_date(date, events)
     return {"events": len(events), "new": len(new),
-            "plays": sum(1 for e in events.values() for b in e["plays"] if b["aligned"])}
+            "plays": sum(1 for e in events.values() for b in e["plays"] if b["aligned"] and b.get("counted", True))}
 
 
 def _dt(x):
     return x if isinstance(x, datetime) else datetime.fromisoformat(str(x))
+
+
+def mark_counted(events: dict) -> None:
+    """One news play per game + player + stat, using the COMBINED effect of every absence that day.
+    When a second teammate is ruled out later and flags the same player-stat again, the two with/without
+    bumps add up (net). The play that counts is the first one on the net side; if the absences offset each
+    other so the net is below the stat's threshold, there's nothing left to call. Deterministic, so re-running
+    it on old days gives the same record."""
+    groups = {}
+    for ev in sorted(events.values(), key=lambda e: e["seen_at"]):
+        for b in ev["plays"]:
+            groups.setdefault((ev["game_id"], b["player"], b["stat"]), []).append((ev, b))
+    for (_g, _p, stat), lst in groups.items():
+        for _ev, b in lst:
+            b["counted"], b["note"], b["net_bump"] = len(lst) == 1, None, None
+        if len(lst) == 1:
+            continue
+        net = round(sum(b["bump"] for _ev, b in lst), 2)
+        outs = ", ".join(ev["player"] for ev, _b in lst)
+        side = "OVER" if net > 0 else "UNDER"
+        keep = next(((ev, b) for ev, b in lst if b["call"] == side), None) if abs(net) >= BUMP_MIN[stat] else None
+        for ev, b in lst:
+            b["net_bump"] = net
+            if keep and b is keep[1]:
+                b["counted"], b["note"] = True, f"combined: {outs} out, net {net:+.1f}"
+            elif keep:
+                b["note"] = (f"combined into the {keep[0]['player']} play (net {net:+.1f})" if b["call"] == side
+                             else f"outweighed: with {outs} out the net is {net:+.1f}, so {side}")
+            else:
+                b["note"] = f"combined: {outs} out, net {net:+.1f}, too small to call"
+
+
+# The news moves the projection itself: each teammate of a player newly ruled out today gets NEWS_W of his
+# with/without difference (summed over every absence that day) added to his projection, every stat.
+# Tested Oct 31 on the 39 news situations so far: the model alone moved those projections +0.4 on average
+# while the history said about 3; adding half the history put the projection on the right side of the line
+# 68% of the time (vs 55%) with the same average miss; the full history overshot (miss 3.67 -> 4.16).
+NEWS_W = 0.5
+
+
+def projection_adj(date: str | None, box: pl.DataFrame | None) -> dict:
+    """{(player, game_id): {"pts", "reb", "ast", "fg3m": points to add, "outs": [names]}} from today's news."""
+    out = {}
+    if not date or box is None:
+        return out
+    for ev in sorted(load_date(date).values(), key=lambda e: e["seen_at"]):
+        for mate, r in with_without(box, ev["team"], ev["player"]).items():
+            a = out.setdefault((mate, ev["game_id"]), {"pts": 0.0, "reb": 0.0, "ast": 0.0, "fg3m": 0.0, "outs": []})
+            for x in ("pts", "reb", "ast", "fg3m"):
+                a[x] = round(a[x] + NEWS_W * r[x], 3)
+            if ev["player"] not in a["outs"]:
+                a["outs"].append(ev["player"])
+    return out
 
 
 def grade() -> int:
@@ -241,15 +314,34 @@ def grade() -> int:
 def summary(today: str | None) -> dict:
     allp, evs = [], []
     for d in all_dates():
-        for ev in load_date(d).values():
+        day = load_date(d)
+        mark_counted(day)  # older days were saved before this rule; the record always uses it
+        for ev in day.values():
             evs.append(ev)
-            allp += [b | {"date": d, "out": ev["player"]} for b in ev["plays"] if b["aligned"]]
+            allp += [b | {"date": d, "out": ev["player"], "game_id": ev["game_id"], "tip_utc": ev["tip_utc"]}
+                     for b in ev["plays"] if b["aligned"] and b["counted"]]
     done = [b for b in allp if b.get("result") in ("hit", "miss")]
     hits = sum(1 for b in done if b["result"] == "hit")
+    low = proven.wilson_low(hits, len(done))
+    more = None
+    if done and low < EARN_BE and hits / len(done) > EARN_BE:
+        r, k = hits / len(done), len(done)
+        while k < 2000 and (k < EARN_N or proven.wilson_low(round(r * k), k) < EARN_BE):
+            k += 1
+        more = k - len(done)
     units = sum(((1 / (b.get("be") or 0.5238)) - 1) if b["result"] == "hit" else -1 for b in done)
     still = [b for b in done if not b.get("moved")]
     return {"n": len(done), "hits": hits, "rate": round(100 * hits / len(done), 1) if done else None,
             "units": round(units, 2), "pending": sum(1 for b in allp if b.get("result") is None),
             "unmoved": {"n": len(still), "hits": sum(1 for b in still if b["result"] == "hit")},
+            "games": len({b["game_id"] for b in done}),
+            "games_up": sum(1 for g in {b["game_id"] for b in done}
+                            if sum(1 if x["result"] == "hit" else -1 for x in done if x["game_id"] == g) > 0),
+            "by_day": [{"date": d, "n": sum(1 for b in done if b["date"] == d),
+                        "hits": sum(1 for b in done if b["date"] == d and b["result"] == "hit")}
+                       for d in sorted({b["date"] for b in done}, reverse=True)],
+            "units_unmoved": round(sum(((1 / (b.get("be") or 0.5238)) - 1) if b["result"] == "hit" else -1 for b in still), 2),
+            "plays": allp, "low": round(100 * low, 1), "be": round(100 * EARN_BE, 1),
+            "earned": len(done) >= EARN_N and low >= EARN_BE, "earn_n": EARN_N, "more": more,
             "today": sorted([e for e in evs if e["date"] == today], key=lambda e: e["seen_at"], reverse=True),
-            "recent": sorted(done, key=lambda b: (b["date"], b["player"]), reverse=True)[:40], "events_total": len(evs)}
+            "recent": sorted(done, key=lambda b: (b["date"], b["player"]), reverse=True)[:200], "events_total": len(evs)}

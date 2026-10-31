@@ -93,7 +93,7 @@
 </details>
 
 <div class="seg hist-tabs" data-tabs="hist" data-hash="1" data-tab-scroll="1">
-  <button data-tab="overview" class="active">OVERVIEW</button><button data-tab="units">UNITS</button><button data-tab="when">WHEN TO BET</button><button data-tab="patterns">PATTERNS</button><button data-tab="best5">BEST 5</button><button data-tab="stats">BY STAT</button><button data-tab="games">GAME PICKS</button><button data-tab="players">PLAYERS</button><button data-tab="confidence">CONFIDENCE</button><button data-tab="days">DAY BY DAY</button><button data-tab="model">MODEL &amp; PIPELINE</button>
+  <button data-tab="overview" class="active">OVERVIEW</button><button data-tab="units">UNITS</button><button data-tab="when">WHEN TO BET</button><button data-tab="patterns">PATTERNS</button><button data-tab="best5">BEST 5</button><button data-tab="news">NEWS PLAYS</button><button data-tab="stats">BY STAT</button><button data-tab="games">GAME PICKS</button><button data-tab="players">PLAYERS</button><button data-tab="confidence">CONFIDENCE</button><button data-tab="days">DAY BY DAY</button><button data-tab="model">MODEL &amp; PIPELINE</button>
 </div>
 
 {# ---------- OVERVIEW ---------- #}
@@ -217,6 +217,31 @@
 </section>
 
 {# ---------- BEST 5 ---------- #}
+<section class="hist-panel hidden" data-tab-panel="hist:news" id="news">
+{{ help('When a player is ruled out late, the site flags teammates who have done more (or less) in past games without him, at the line they had <b>at the news</b>, and grades every one. One play per player-stat per game, using every absence added together: if a second teammate is ruled out and moves the same player again, the two effects combine (net) and the play follows the net; if they offset to almost nothing there is nothing left to call. The news also moves the projection itself (half of the with/without difference), so picks, lists and parlays use it too. News plays carry no stake until they earn one.') }}
+{% if news and news.n %}
+<div class="hv-rec">
+  <div class="hv-tile"><b>{{ news.hits }}&ndash;{{ news.n - news.hits }}</b><span>record{% if news.pending %} &middot; {{ news.pending }} pending{% endif %}</span></div>
+  <div class="hv-tile"><b class="{{ 'stat-good' if news.rate > news.be else 'stat-bad' }}">{{ news.rate }}%</b><span>hit rate</span></div>
+  <div class="hv-tile"><b class="hv-need">{{ news.be }}%</b><span>needed to profit (-110)</span></div>
+  <div class="hv-tile"><b>{{ sgn(news.units, 2, 'U') }}</b><span>flat 1U each</span></div>
+  <div class="hv-tile"><b>{{ news.unmoved.hits }}&ndash;{{ news.unmoved.n - news.unmoved.hits }}</b><span>line hadn't moved by tip &middot; {{ sgn(news.units_unmoved, 2, 'U') }}</span></div>
+  <div class="hv-tile"><b>{{ news.games_up }}/{{ news.games }}</b><span>games where the plays came out ahead</span></div>
+</div>
+<div class="hv-verdict hv-{{ 'good' if news.earned else 'early' }}"><span class="hv-vk">{{ 'STAKE EARNED' if news.earned else 'NO STAKE YET' }}</span>
+{% if news.earned %}{{ news.n }} graded and even the cautious end of the hit rate ({{ news.low }}%) clears {{ news.be }}%: new news plays now carry 0.5U.
+{% else %}A stake needs {{ news.earn_n }}+ graded plays with the cautious end of the hit rate above {{ news.be }}%. Now: {{ news.n }} graded, cautious end {{ news.low }}%{% if news.more %}; at this pace about {{ news.more }} more plays{% endif %}.{% endif %}</div>
+<h3 class="hv-h3">By day</h3>
+<table class="stat-table"><thead><tr><th>Day</th><th>Record</th><th>Hit rate</th></tr></thead><tbody>
+{% for d in news.by_day %}<tr><td>{{ d.date }}</td><td>{{ d.hits }}&ndash;{{ d.n - d.hits }}</td><td>{{ (100 * d.hits / d.n)|round(1) }}%</td></tr>{% endfor %}
+</tbody></table>
+<h3 class="hv-h3">Every graded news play</h3>
+<table class="stat-table"><thead><tr><th>Day</th><th>Out</th><th>Play</th><th>Line moved?</th><th>Result</th></tr></thead><tbody>
+{% for b in news.recent %}<tr><td>{{ b.date[5:] }}</td><td>{{ b.out }}</td><td><a class="plink" href="p-{{ b.player_id }}.html">{{ b.player }}</a> {{ b.call }} {{ b.line|fmtline }} {{ stat_short.get(b.stat, b.stat)|upper }}</td><td>{{ 'yes' if b.moved else 'no' }}</td><td>{% if b.result == 'hit' %}<span class="res res-hit">HIT</span>{% else %}<span class="res res-miss">MISS</span>{% endif %}</td></tr>{% endfor %}
+</tbody></table>
+{% else %}<div class="empty-state"><h3>No graded news plays yet</h3><p>They show up the morning after a late scratch.</p></div>{% endif %}
+</section>
+
 <section class="hist-panel hidden" data-tab-panel="hist:best5">
 <h2 class="hist-h">Best 5 &amp; Best Value</h2>
 {{ help('Each list on its own: its record, whether it beats the price, a chart of every day, and every pick it made. <b>Game picks</b> (moneyline, spread, total) have their own Best 5 too.') }}

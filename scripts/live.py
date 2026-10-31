@@ -369,7 +369,7 @@ def align_sides(lines: dict) -> int:
 
 
 def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | None = None,
-        pat: dict | None = None, open_lines: dict | None = None) -> dict:
+        pat: dict | None = None, open_lines: dict | None = None, news_adj: dict | None = None) -> dict:
     """Projects the slate. Returns players (per game), picks (per stat) and
     team projections. line_book: {(player, stat, game_id): {source: rec}}.
     pat: active pattern corrections (patterns.active()); open_lines:
@@ -411,6 +411,13 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
             tot = pl.col("proj_min").sum().over(grp)
             proj = proj.with_columns(k_all=pl.when(tot > cap).then(cap / tot).otherwise(1.0))
             proj = proj.with_columns([(pl.col(c) * pl.col("k_all")).alias(c) for c in ["proj_min"] + [f"proj_{x}" for x in model.STATS]])
+    # injury news (news.projection_adj): teammates of a player ruled out today move by part of their real
+    # with/without history, every stat (combos = the sum of their parts)
+    news_adj = news_adj or {}
+    if news_adj and proj.height:
+        keys = list(zip(proj["player"].to_list(), proj["game_id"].to_list()))
+        proj = proj.with_columns([(pl.col(f"proj_{x}") + pl.Series([sum((news_adj.get(k) or {}).get(c, 0.0) for c in parts) for k in keys]))
+                                  .clip(lower_bound=0.0).alias(f"proj_{x}") for x, parts in model.STATS.items()])
     present_ids = set(proj["player_id"].to_list())
     no_hist = [r for r in t.filter(pl.col("present")).iter_rows(named=True) if r["player_id"] not in present_ids]
     cal = grade.load_calibration()
@@ -437,6 +444,13 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
             vf = fit["var"][s]
             var = (vf["phi"] * mu + vf["kappa"] * mu * mu) * (vmult.get(str(r["player_id"]), {}).get(s, 1.0))
             st = {"proj": round(mu, 1), "var": round(var, 3), "why": why_text(r, s, bias), "lines": {}, "pick": None}
+            na = news_adj.get((r["player"], r["game_id"]))
+            if na:
+                nb = sum(na.get(c, 0.0) for c in model.STATS[s])
+                if abs(nb) >= 0.1:
+                    st["news"] = round(nb, 2)
+                    st["why"] = st["why"][:-1] + (f"; injury news: {nb:+.1f} with {', '.join(na['outs'][:3])} ruled out today "
+                                                  f"(half of how he's actually played without {'him' if len(na['outs']) == 1 else 'them'})" + ".")
             book = line_book.get((r["player"], s, r["game_id"])) or {}
             shrink = (((cal.get("chance_shrink") or {}).get(s) or {}).get("shrink", 1.0)
                       if (((cal.get("chance_shrink") or {}).get(s) or {}).get("status") == "active") else 1.0)

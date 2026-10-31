@@ -274,8 +274,24 @@ def build(args) -> None:
         print(f"Proven groups: {len(live.PROVEN)} tracked, {npv} hitting 80%+ over {proven.MIN_N}+ picks")
     except Exception as e:  # noqa: BLE001
         print(f"Proven groups failed: {e}")
-    res = live.run(box.filter(~pl.col("game_id").is_in(sl_ids)) if box.height and sl_ids else box,
-                   sl, roster, inj, line_book, fit, spreads=spreads, pat=pat, open_lines=open_lines)
+    box_pre = box.filter(~pl.col("game_id").is_in(sl_ids)) if box.height and sl_ids else box
+    try:  # injury news found by earlier builds today moves teammates' projections (news.projection_adj)
+        news_adj = news.projection_adj(sl.get("date"), box_pre)
+    except Exception as e:  # noqa: BLE001
+        news_adj = {}
+        print(f"News projection adjustments failed: {e}")
+    res = live.run(box_pre, sl, roster, inj, line_book, fit, spreads=spreads, pat=pat, open_lines=open_lines, news_adj=news_adj)
+    # injury news: who was newly ruled out since the last build. New news re-projects right away, so this
+    # build's picks, lists and parlays already use it (not 20 minutes later)
+    try:
+        nw = news.process(sl, inj, res, now, box=box_pre)
+        print(f"Injury news: {nw}")
+        if nw.get("new"):
+            news_adj = news.projection_adj(sl.get("date"), box_pre)
+            res = live.run(box_pre, sl, roster, inj, line_book, fit, spreads=spreads, pat=pat, open_lines=open_lines, news_adj=news_adj)
+            print(f"Re-projected after the news: {len(news_adj)} teammates adjusted")
+    except Exception as e:  # noqa: BLE001
+        print(f"Injury news failed: {e}")
     print(f"Slate {sl.get('date')}: {len(sl['games'])} games, {len(res['players'])} players projected, "
           f"{sum(len(v) for v in res['picks'].values())} player/stat lines matched.")
     # projection snapshot for the audit's sanity checks (minutes, lines, injuries, duplicates)
@@ -291,12 +307,6 @@ def build(args) -> None:
     except Exception as e:  # noqa: BLE001
         print(f"Projection snapshot failed: {e}")
 
-    # injury news: who was newly ruled out since the last build, and whose projection jumped while the line didn't
-    try:
-        nw = news.process(sl, inj, res, now, box=box)
-        print(f"Injury news: {nw}")
-    except Exception as e:  # noqa: BLE001
-        print(f"Injury news failed: {e}")
 
     # ---- freeze (game-day window), re-freeze on late scratches, track closing lines
     preds_all = predictions.load_all()

@@ -499,3 +499,26 @@ From the Monahan lecture (market-based betting):
   Game picks (moneyline underdogs) are unaffected.
 - WHY & STATS now says "we give UNDER 53%" (the side shown and its chance) instead of always quoting the OVER %.
 - New audit check: every recorded pick's chance is for the side shown (50% or more).
+
+## Update 46: injury news moves the projections, combined news record, News tab, news parlays
+
+- The news now changes the projection itself (`news.projection_adj` -> `live.run(news_adj=...)`): every
+  teammate of a player ruled out today gets half (NEWS_W 0.5) of his real with/without difference added to
+  every stat (combos = sum of parts), summed over each absence that day. The build re-projects the moment news
+  lands, so that build's picks, Best 5 / Value lists and open parlays already use it. WHY & STATS says
+  "injury news: +1.9 with X ruled out today". Tested on the 39 news situations so far: the model alone moved
+  those projections +0.4 on average while the history said ~3; half the history put the projection on the
+  right side of the line 68% of the time (vs 55%) with the same average miss; the full history overshot.
+  (The update-36 with/without boost for EVERY game, not just same-day news, stays off: it made projections
+  worse; the weekly tuner keeps re-testing it.)
+- `news.mark_counted`: one news play per game + player + stat, using every absence combined. When a second
+  teammate is ruled out and flags the same player-stat again, the bumps add up (net) and the play follows the
+  net; if they offset to below the stat's threshold there is nothing left to call (Oct 29 Derik Queen REB:
+  +1.7 and -1.4 = +0.3). Applied to old days too: 28/43 -> 24/37 (64.9%). Home tags COMBINED plays.
+- History -> NEWS PLAYS tab: record, hit rate vs 52.4% needed, flat units, record when the line hadn't moved by
+  tip, games that came out ahead, by day, every graded play, and progress toward a stake (40+ graded and the
+  cautious end of the hit rate above 52.4%; once earned, news plays show 0.5U).
+- `parlays.py` family "Injury news" (2 legs): two counted news plays from different games whose lines haven't
+  moved, biggest bump first; same rules as other parlays. TRACKING ONLY (0 stake) until news plays earn a
+  stake, kept out of the main parlay record. A 0 stake now stays 0 when graded (was treated as 1U).
+- Audit: one counted news play per player-stat per game; news parlays unstaked until earned.

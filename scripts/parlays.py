@@ -7,6 +7,10 @@ Families (each in 2-, 3- and 4-leg sizes unless noted):
   safe      "Safest props"   player props, any source, highest chance
   value     "Good price"     only legs whose chance beats their price (GOOD PRICE); 2 and 3 legs
   ml        "Moneyline"      game moneyline picks, highest chance
+  news      "Injury news"    2 legs from today's injury-news plays (update 46): one per game, line still the
+                             same as at the news, biggest with/without bump first. NO STAKE (tracked only)
+                             until news plays earn one (news.EARN_N / EARN_BE); its record is kept apart from
+                             the main parlay record.
 
 Rules
   * legs come from picks the site has already recorded (data/predictions,
@@ -46,7 +50,9 @@ FAMILIES = [
     ("safe", "Safest props", (2, 3, 4), "The highest-chance player props on the board, one per game."),
     ("value", "Good price", (2, 3), "Only legs marked GOOD PRICE (their chance beats their price), highest chance first."),
     ("ml", "Moneyline", (2, 3, 4), "The site's moneyline picks with the highest chance to win, one per game."),
+    ("news", "Injury news", (2,), "Two of today's injury-news plays from different games, while their lines still haven't moved: teammates who have done more (or less) without the player just ruled out. Tracked with no stake until news plays earn one; kept out of the main record."),
 ]
+PAPER = {"news"}   # families tracked without a stake (until earned) and kept out of the main record
 FAMILY = {f[0]: f for f in FAMILIES}
 MIN_CHANCE = 0.5
 GAP_MIN = 0.03
@@ -142,7 +148,34 @@ def candidates(date: str, now: datetime) -> dict:
     gap = sorted([x for x in pl + gl if x["gap"] is not None and x["gap"] >= GAP_MIN and x["chance"] >= 0.55], key=lambda x: -x["gap"])
     good_all = [x for x in pl + gl if x["units"] > 0]
     single = sorted(good_all or pl + gl, key=lambda x: (-x["trust"], -x["chance"]))
-    return {"single": single, "gap": gap, "safe": by(pl), "value": by(good), "ml": by(ml)}
+    return {"single": single, "gap": gap, "safe": by(pl), "value": by(good), "ml": by(ml), "news": news_legs(date, now, ps)}
+
+
+def news_legs(date: str, now: datetime, ps: dict) -> list[dict]:
+    """Today's counted injury-news plays whose game hasn't tipped and whose line hasn't moved, biggest bump
+    first. Each leg is the news play itself (its side and the line it had at the news)."""
+    import news
+    evs = news.load_date(date)
+    news.mark_counted(evs)
+    out = []
+    for ev in evs.values():
+        try:
+            tip = datetime.fromisoformat(ev["tip_utc"])
+        except Exception:  # noqa: BLE001
+            continue
+        if now >= tip:
+            continue
+        for b in ev["plays"]:
+            p = ps.get(b["key"])
+            if not b.get("aligned") or not b.get("counted", True) or b.get("moved") or not p or p.get("status") != "pending":
+                continue
+            leg = _player_leg(b["key"], {**p, "call": b["call"], "line": b["line"], "line_source": b.get("src"),
+                                         "anchor": b.get("anchor"), "chance": max(0.5, b.get("chance") or 0.5),
+                                         "break_even": b.get("be")})
+            leg.update(units=0.0, market_side=None, gap=None, rec=None, proven=None, trust=0.0,
+                       news_out=ev["player"], bump=b["bump"], strength=abs(b["bump"]) / news.BUMP_MIN[b["stat"]])
+            out.append(leg)
+    return sorted(out, key=lambda l: -l["strength"])
 
 
 def _used_key(l):
@@ -181,6 +214,10 @@ def stake_for(fam: str, n: int, legs: list[dict], form: dict) -> float:
     down 25%+ per parlay. Capped at 3U."""
     if n == 1:
         return max(legs[0].get("units") or 0.0, 0.25)
+    if fam in PAPER:
+        import news
+        if not news.summary(None).get("earned"):
+            return 0.0
     base = BASE_STAKE.get(n, 0.25)
     g, u = form.get((fam, n), (0, 0.0))
     if g >= 10:
@@ -315,8 +352,8 @@ def grade(now: datetime | None = None) -> dict:
                 r["legs_played"] = len(live)
                 r["pays_final"] = round(math.prod(1 / l["be"] for l in live), 2) if live else None
                 r["units"] = round(r["pays_final"] - 1, 2) if r["hit"] else (-1.0 if r["hit"] is False else 0.0)
-                st_ = r.get("stake") or 1.0
-                r["staked_units"] = round(st_ * r["units"], 2)
+                st_ = r.get("stake") if r.get("stake") is not None else 1.0
+                r["staked_units"] = round(st_ * r["units"], 2) + 0.0
                 n_new += 1
                 changed = True
         if changed:
@@ -349,7 +386,7 @@ def _stats(g: list[dict], allp: list[dict]) -> dict:
     hits = sum(1 for r in g if r["hit"])
     units = round(sum(r.get("units") or 0 for r in g), 2)
     staked = round(sum(r.get("staked_units", r.get("units")) or 0 for r in g), 2)
-    risked = sum(r.get("stake") or 1.0 for r in g)
+    risked = sum(r.get("stake") if r.get("stake") is not None else 1.0 for r in g)
     legs = [l for r in g for l in r["legs"] if l.get("result") in ("hit", "miss")]
     last = sorted(g, key=lambda r: (r["date"], r.get("graded_at") or ""))[-10:]
     return {"n": len(g), "hits": hits, "rate": round(100 * hits / len(g), 1) if g else None,
@@ -362,16 +399,17 @@ def _stats(g: list[dict], allp: list[dict]) -> dict:
 
 
 def summary() -> dict:
-    allp = [r for r in load_all() if r["family"] in FAMILY]
+    every = [r for r in load_all() if r["family"] in FAMILY]
+    allp = [r for r in every if r["family"] not in PAPER]   # the main record: staked families only
     done = [r for r in allp if r["status"] == "graded"]
     rows = []
     for fam, label, sizes, desc in FAMILIES:
         for n in sizes:
-            mine = [r for r in allp if r["family"] == fam and r["size"] == n]
+            mine = [r for r in every if r["family"] == fam and r["size"] == n]
             if not mine:
                 continue
             g = [r for r in mine if r["status"] == "graded"]
-            rows.append({"family": fam, "label": label, "size": n, **_stats(g, mine)})
+            rows.append({"family": fam, "label": label, "size": n, "paper": fam in PAPER, **_stats(g, mine)})
     order = [f[0] for f in FAMILIES]
     days = []
     for d in reversed(all_dates()):
