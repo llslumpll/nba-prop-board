@@ -57,6 +57,8 @@
 </section>
 
 <section class="hidden" data-tab-panel="pz:record">
+{% if pz_charts.units %}<div class="chart-panel hv-chart"><h3>Running units</h3><p class="sub">Every graded parlay and single at its recommended stake, added up day by day (tracking-only news parlays not included). Green area = ahead, red = behind.</p>{{ pz_charts.units|safe }}</div>{% endif %}
+{% if pz_charts.types %}<div class="chart-panel hv-chart"><h3>Hit rate by type</h3><p class="sub">How often each type cashed (green = more often than the chance the site gave it, red = less). White tick = the chance the site gave.</p>{{ pz_charts.types|safe }}</div>{% endif %}
 {% if pz.rows %}
   <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
     <thead><tr><th>Type</th><th class="num">Cashed</th><th class="num">Hit %</th><th class="num hide-sm">Expected</th><th class="num">Last 10</th><th class="hide-sm">Streak</th><th class="num">Units</th><th class="num hide-sm">ROI</th><th class="num hide-sm">Legs hit</th></tr></thead>

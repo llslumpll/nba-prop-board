@@ -23,6 +23,8 @@
   </div>
 </section>
 
+{% if home_chart %}<div class="chart-panel hv-chart home-chart"><h3>Last 10 days</h3><p class="sub">How often the site's player picks hit each day (yellow) vs what their prices needed on average (orange dashed line). Above the line = a winning day.</p>{{ home_chart|safe }}</div>{% endif %}
+
 <section class="news-sec">
   <h2 class="hv-h3">&#128680; Injury news</h2>
   {% if news.today %}

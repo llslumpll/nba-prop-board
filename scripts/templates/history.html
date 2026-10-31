@@ -231,6 +231,7 @@
 <div class="hv-verdict hv-{{ 'good' if news.earned else 'early' }}"><span class="hv-vk">{{ 'STAKE EARNED' if news.earned else 'NO STAKE YET' }}</span>
 {% if news.earned %}{{ news.n }} graded and even the cautious end of the hit rate ({{ news.low }}%) clears {{ news.be }}%: new news plays now carry 0.5U.
 {% else %}A stake needs {{ news.earn_n }}+ graded plays with the cautious end of the hit rate above {{ news.be }}%. Now: {{ news.n }} graded, cautious end {{ news.low }}%{% if news.more %}; at this pace about {{ news.more }} more plays{% endif %}.{% endif %}</div>
+{% if vis.news_units %}<div class="chart-panel hv-chart"><h3>Running units</h3><p class="sub">Every counted news play at 1U, added up day by day. Green area = ahead, red = behind.</p>{{ vis.news_units|safe }}</div>{% endif %}
 <h3 class="hv-h3">By day</h3>
 <table class="stat-table"><thead><tr><th>Day</th><th>Record</th><th>Hit rate</th></tr></thead><tbody>
 {% for d in news.by_day %}<tr><td>{{ d.date }}</td><td>{{ d.hits }}&ndash;{{ d.n - d.hits }}</td><td>{{ (100 * d.hits / d.n)|round(1) }}%</td></tr>{% endfor %}
@@ -245,6 +246,7 @@
 <section class="hist-panel hidden" data-tab-panel="hist:market" id="market">
 {{ help('Which lines deserve trust, learned from every graded pick. <b>Hit rate</b> vs <b>needed</b> = what that price needs to break even. <b>Cautious</b> = the low end of the likely hit rate (95%); a line is <b>TRUSTED</b> only when even that beats what it needs. So far the prices have been sharper than our own disagreements with them: picks where the site disagrees most with the market have done worst.') }}
 {% macro trow(r) %}<tr><td>{{ r.name }}</td><td class="num">{{ r.n }}</td><td class="num">{{ r.rate }}%</td><td class="num">{{ r.need }}%</td><td class="num">{{ r.low }}%</td><td class="num">{{ sgn(r.units, 1, 'U') }} <span class="dim small">({{ '%+.1f'|format(r.roi) }}%)</span></td><td>{% if r.verdict == 'TRUSTED' %}<span class="res res-hit">TRUSTED</span>{% elif r.verdict == 'CLOSE' %}<span class="pr-wait u-tag">CLOSE</span>{% else %}<span class="res res-miss">NOT YET</span>{% endif %}</td></tr>{% endmacro %}
+{% if vis.market_src %}<div class="chart-panel hv-chart"><h3>Hit rate vs what the price needs</h3><p class="sub">Green = the line beat what its price needs, red = it didn't. White tick = the hit rate needed to break even.</p>{{ vis.market_src|safe }}{% if vis.market_kalshi %}<h3 style="margin-top:14px">Kalshi, by price</h3>{{ vis.market_kalshi|safe }}{% endif %}</div>{% endif %}
 <h3 class="hv-h3">Every graded pick, by line source</h3>
 <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
   <thead><tr><th>Line</th><th class="num">Picks</th><th class="num">Hit rate</th><th class="num">Needed</th><th class="num">Cautious</th><th class="num">Flat 1U</th><th>Trust</th></tr></thead>

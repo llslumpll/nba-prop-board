@@ -554,3 +554,14 @@ From the Monahan lecture (market-based betting):
 - Every pick record now also keeps each book's number and break-evens (`mkt`) and Kalshi's ladder
   (`kladder`: [rung, bid, ask]) so future market ideas can be tested with real prices.
 - Audit: lag bets recorded before tip, one per player-stat, real prices, graded correctly.
+
+## Update 49: more charts
+
+- `svgchart.py`: `hbar_vs_need` (one bar per row: hit rate, green when it beats what it needs, white tick at the
+  needed rate, record on the right) and `running_units` (cumulative units by day on a clean scale with 0 on a
+  gridline, green above / red below).
+- Home: "Last 10 days" daily hit rate of player picks vs what their prices needed on average.
+- Parlays -> Track Record: running units at the recommended stakes (main record only) and hit rate by type vs
+  the chance the site gave, with each type's record.
+- History -> News Plays: running units at 1U. History -> Market: hit rate vs what the price needs, by line
+  source and by Kalshi price.

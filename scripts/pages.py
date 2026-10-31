@@ -21,6 +21,7 @@ import grade
 import history_view
 import live
 import market
+import parlays
 import logs
 import markets
 import model
@@ -789,7 +790,28 @@ def render_all(ctx: dict) -> None:
     except Exception:  # noqa: BLE001
         audit = None
     hv = history_view.build(preds, ctx["tpreds"], ctx["health"], keep_p, ctx.get("trust"))
-    write("history.html", "history.html", "history", news=ctx.get("news") or {}, lag=ctx.get("lag") or {}, mtrust=market.trust_table(preds), hv=hv, pat=ctx.get("patterns") or {}, espn=ctx.get("espn"), hc=hc, money=money, day_index=day_index, audit=audit, gmoney=grade.team_money(ctx["tpreds"]), months=mlist, retune_log=retune_log, tuning=ctx.get("tuning") or {}, lineups=ctx.get("lineups") or {}, scoreboard=grade.stat_scoreboard(preds), edge=edge,
+    # visuals for History: news plays running units, market trust bars
+    mtrust = market.trust_table(preds)
+    vis = {}
+    try:
+        nw_ = ctx.get("news") or {}
+        nd = {}
+        for b in nw_.get("plays") or []:
+            if b.get("result") in ("hit", "miss"):
+                nd[b["date"]] = nd.get(b["date"], 0.0) + (((1 / (b.get("be") or 0.5238)) - 1) if b["result"] == "hit" else -1.0)
+        if nd:
+            ds = sorted(nd)
+            vis["news_units"] = svgchart.running_units(ds, [nd[d] for d in ds], label="injury-news plays, units by day at 1U each")
+        rows = [{"name": r["name"].replace("PrizePicks (Kalshi-priced)", "PP (Kalshi-priced)"), "value": r["rate"], "need": r["need"], "n": r["n"],
+                 "rec": f"{r['n']:,} picks"} for r in mtrust["sources"]]
+        if rows:
+            vis["market_src"] = svgchart.hbar_vs_need(rows, label="hit rate vs needed by line source", need_label="what the price needs", lo=40, hi=70)
+        rows = [{"name": r["name"], "value": r["rate"], "need": r["need"], "n": r["n"], "rec": f"{r['n']:,} picks"} for r in mtrust["kalshi_bands"]]
+        if rows:
+            vis["market_kalshi"] = svgchart.hbar_vs_need(rows, label="Kalshi hit rate vs price", need_label="what the price needs", lo=40, hi=80)
+    except Exception as e:  # noqa: BLE001
+        print(f"History visuals failed: {e}")
+    write("history.html", "history.html", "history", news=ctx.get("news") or {}, lag=ctx.get("lag") or {}, mtrust=mtrust, vis=vis, hv=hv, pat=ctx.get("patterns") or {}, espn=ctx.get("espn"), hc=hc, money=money, day_index=day_index, audit=audit, gmoney=grade.team_money(ctx["tpreds"]), months=mlist, retune_log=retune_log, tuning=ctx.get("tuning") or {}, lineups=ctx.get("lineups") or {}, scoreboard=grade.stat_scoreboard(preds), edge=edge,
           buckets=grade.chance_buckets(preds), best5_rec=b5rec, team_rec=grade.team_record(ctx["tpreds"]),
           maturity=grade.maturity(ctx["cal"]), bt=bt, bt_cal=bt_all.get("calibration") or {},
           bt_n=(bt.get("pts") or {}).get("n"), health=list(reversed(ctx["health"][-30:])),
@@ -805,7 +827,27 @@ def render_all(ctx: dict) -> None:
                 l["badge"] = teams.badge(l["team"] if l["kind"] == "player" else (l["pick"] if l["pick"] in teams.TEAMS else l["home"]))
                 l["tip_label"] = _tip_label(l)
     today = next((d for d in pz.get("days") or [] if d["date"] == sl.get("date")), None)
-    write("parlays.html", "parlays.html", "parlays", pz=pz, today=today,
+    # visuals: running units at the recommended stakes (main record), and each type's hit rate vs expected
+    pz_charts = {}
+    try:
+        days_u = {}
+        for d in pz.get("days") or []:
+            g = [r for r in d["rows"] if r["status"] == "graded" and r["family"] not in parlays.PAPER]
+            if g:
+                days_u[d["date"]] = sum(r.get("staked_units", r.get("units")) or 0 for r in g)
+        if len(days_u) >= 2:
+            ds = sorted(days_u)
+            pz_charts["units"] = svgchart.running_units(ds, [days_u[d] for d in ds], label="parlay units by day")
+        short = {"Best single": "Best", "Books got it wrong": "Books wrong", "Safest props": "Safest", "Good price": "Good price",
+                 "Moneyline": "Moneyline", "Injury news": "News"}
+        bars = [{"name": f"{'Single' if r['size'] == 1 else str(r['size']) + '-leg'} {short.get(r['label'], r['label'])}", "value": r["rate"],
+                 "need": r["expected"], "n": r["n"], "rec": f"{r['hits']}/{r['n']}"} for r in pz.get("rows") or [] if r["n"] and r["rate"] is not None]
+        if bars:
+            pz_charts["types"] = svgchart.hbar_vs_need(bars, label="parlay hit rate by type vs expected", need_label="the chance the site gave",
+                                                       lo=0, hi=100)
+    except Exception as e:  # noqa: BLE001
+        print(f"Parlay charts failed: {e}")
+    write("parlays.html", "parlays.html", "parlays", pz=pz, today=today, pz_charts=pz_charts,
           fam_label={f["key"]: f["label"] for f in pz.get("families") or []})
     keep = set()
     finals_by_date = _finals(ctx.get("box"))
@@ -939,7 +981,25 @@ def render_all(ctx: dict) -> None:
     for ev in nws.get("today") or []:
         ev["badge"] = teams.badge(ev["team"])
         ev["seen_label"] = _tip_label({"tip_utc": ev["seen_at"].replace(" UTC", "+00:00")})
-    write("index.html", "home.html", "home", news=nws, season=season, slate=sl, n_players=len(res["players"]), n_lines=n_lines,
+    home_chart = None
+    try:  # last 10 graded days: how often player picks hit, against what their prices needed on average
+        gd = sorted({p["date"] for p in preds if p["status"] == "graded"})[-10:]
+        if len(gd) >= 2:
+            rate, need = [], []
+            for d in gd:
+                g = [p for p in preds if p["date"] == d and p["status"] == "graded" and p.get("hit") is not None]
+                rate.append(round(100 * sum(bool(p["hit"]) for p in g) / len(g), 1) if g else None)
+                b = [p["break_even"] for p in g if p.get("break_even")]
+                need.append(round(100 * sum(b) / len(b), 1) if b else None)
+            nb = [x for x in need if x is not None]
+            avg_need = round(sum(nb) / len(nb), 1) if nb else None
+            home_chart = svgchart.line_chart([{"points": rate, "color": "#ffc531"}], height=210, y_min=45, y_max=65, big=True,
+                                             references=[{"y": avg_need, "color": "#ff6a13"}] if avg_need else None,
+                                             point_labels=[d[5:].replace("-", "/") for d in gd], y_suffix="%", show_values=True,
+                                             label="daily hit rate, last 10 days")
+    except Exception as e:  # noqa: BLE001
+        print(f"Home chart failed: {e}")
+    write("index.html", "home.html", "home", news=nws, home_chart=home_chart, season=season, slate=sl, n_players=len(res["players"]), n_lines=n_lines,
           n_graded=sum(1 for p in preds if p["status"] == "graded"), tops=tops, edge=edge, source_rows=source_rows,
           top_all=top_all, top_groups=top_groups, record=record, tiles=tiles, boards=boards,
           maturity=grade.maturity(ctx["cal"]), bt=bt,

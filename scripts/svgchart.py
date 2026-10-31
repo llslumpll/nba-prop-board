@@ -11,6 +11,7 @@ Adapted from the NFL site's svgchart.py.
 
 from __future__ import annotations
 
+import math
 from html import escape
 
 GREEN, RED, YELLOW, CYAN, PINK = "#3dff8f", "#ff3d57", "#ffc531", "#4f86ff", "#ff6a13"
@@ -157,3 +158,64 @@ def bar_chart_with_threshold(bars: list[dict], width: int = 640, height: int = 1
         out.append(f'<text x="{cx:.1f}" y="{height - 6}" text-anchor="middle" font-size="13" fill="{AXIS}" {FONT}>{escape(str(b.get("label", "")))}</text>')
     out.append("</svg>")
     return "".join(out)
+
+
+def hbar_vs_need(rows: list[dict], width: int = 640, label: str = "", need_label: str = "needed",
+                 lo: float = 30, hi: float = 75) -> str:
+    """One horizontal bar per row: its hit rate, green when it beats what it needs, red when it doesn't,
+    with a white tick at the needed rate. rows: [{"name", "value", "need", "n"}] (percents)."""
+    rh, pad_l, pad_r, pad_t = 34, 150, 118, 22
+    height = pad_t + rh * len(rows) + 22
+    pw = width - pad_l - pad_r
+
+    def x_at(v):
+        return pad_l + pw * (max(lo, min(hi, v)) - lo) / (hi - lo)
+
+    out = [f'<svg viewBox="0 0 {width} {height}" xmlns="http://www.w3.org/2000/svg" role="img" '
+           f'aria-label="{escape(label)}" style="width:100%;height:auto;display:block">']
+    for v in range(int(lo), int(hi) + 1, 5 if hi - lo <= 50 else 10):
+        x = x_at(v)
+        out.append(f'<line x1="{x:.1f}" y1="{pad_t - 6}" x2="{x:.1f}" y2="{height - 20}" stroke="{GRID}"/>')
+        if v % 10 == 0:
+            out.append(f'<text x="{x:.1f}" y="{height - 6}" text-anchor="middle" font-size="13" fill="{AXIS}" {FONT}>{v}%</text>')
+    for i, r in enumerate(rows):
+        y = pad_t + rh * i
+        good = r["value"] >= r["need"]
+        c = GREEN if good else RED
+        out.append(f'<text x="{pad_l - 8}" y="{y + rh / 2 + 4:.1f}" text-anchor="end" font-size="14" fill="{TEXT}" {FONTB}>{escape(r["name"])}</text>')
+        out.append(f'<rect x="{pad_l}" y="{y + 7}" width="{max(x_at(r["value"]) - pad_l, 2):.1f}" height="{rh - 14}" fill="{c}" opacity="0.85"/>')
+        nx = x_at(r["need"])
+        out.append(f'<line x1="{nx:.1f}" y1="{y + 3}" x2="{nx:.1f}" y2="{y + rh - 3}" stroke="{TEXT}" stroke-width="3"/>')
+        out.append(f'<text x="{width - pad_r + 6}" y="{y + rh / 2 + 5:.1f}" font-size="16" fill="{c}" {FONTB}>{r["value"]:.0f}%</text>')
+        if r.get("rec"):
+            out.append(f'<text x="{width - pad_r + 52}" y="{y + rh / 2 + 5:.1f}" font-size="14" fill="{AXIS}" {FONT}>{escape(r["rec"])}</text>')
+    out.append(f'<text x="{width - 4}" y="{12}" text-anchor="end" font-size="13" fill="{AXIS}" {FONT}>white tick = {escape(need_label)}</text>')
+    out.append("</svg>")
+    return "".join(out)
+
+
+def running_units(dates: list[str], daily: list[float], width: int = 640, height: int = 200, label: str = "",
+                  color: str = YELLOW) -> str:
+    """Cumulative units by day, shaded green above 0 and red below."""
+    run, t = [], 0.0
+    for v in daily:
+        t += v
+        run.append(round(t, 2))
+    mn, mx = min(run + [0]), max(run + [0])
+    # a clean scale: 4 equal steps of a round size, with 0 on a gridline
+    for step in (0.5, 1, 2, 2.5, 5, 10, 20, 25, 50, 100, 200, 500):
+        neg = math.ceil(-mn / step - 1e-9) if mn < 0 else 0
+        pos = math.ceil(mx / step - 1e-9) if mx > 0 else 0
+        if neg + pos <= 4:
+            while neg + pos < 4:
+                if mx >= -mn:
+                    pos += 1
+                else:
+                    neg += 1
+            break
+    lo, hi = -neg * step, pos * step
+    labs = [d[5:].replace("-", "/") for d in dates]
+    return line_chart([{"points": run, "color": color}], width=width, height=height, y_min=lo, y_max=hi,
+                      y_suffix="U", label=label, fill_zero=True, show_values="last", value_fmt="{:+.1f}U", big=True,
+                      point_labels=labs if len(labs) <= 14 else None,
+                      x_labels=(labs[0], labs[-1]) if labs else None)
