@@ -29,6 +29,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Heavy build
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}   # phone alerts (alerts.py); empty = no alerts
         run: python scripts/build.py
       - name: Commit and push (rebuild on top if main moved)
-        run: bash scripts/push_or_rebuild.sh "Daily build" "python scripts/build.py"
+        # alerts_state.json is kept through a rebuild so an alert that already went out isn't sent twice
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: bash scripts/push_or_rebuild.sh "Daily build" "python scripts/build.py" data/alerts_state.json
