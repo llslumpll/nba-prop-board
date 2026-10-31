@@ -2631,7 +2631,7 @@
   "why": "28.7 min (recent 27.1, +1.6 team-minutes adjustment with Tyrese Haliburton, Ben Sheppard, Obi Toppin out); \u00d7 0.133 rebounds/min (25% this season's 0.080 over 4 games, 75% prior 0.144); context: pace vs MIA +1%, road \u22121%, opponent defense +1%, shared production on IND +5%; calibration +0.1."
  },
  "Al Horford|ast|401909285": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -2652,10 +2652,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:41 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 1.5,
@@ -2665,6 +2670,7 @@
   "move": null,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 1.8,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -2734,7 +2740,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -2745,7 +2751,7 @@
   "why": "19.9 min (recent 20.3, \u22120.4 team-minutes adjustment with Graham Ike out); \u00d7 0.092 assists/min (44% this season's 0.055 over 4 games, 56% prior 0.097); context: home +1%, opponent defense \u22121%, shared production on GSW \u22123%; calibration +0.1."
  },
  "Al Horford|fg3m|401909285": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6659,
@@ -2767,10 +2773,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 0.5
@@ -2779,6 +2789,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 0.2,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -2850,7 +2861,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -2861,7 +2872,7 @@
   "why": "19.9 min (recent 20.3, \u22120.4 team-minutes adjustment with Graham Ike out); \u00d7 0.064 3-pointers made/min (57% this season's 0.055 over 4 games, 43% prior 0.065); context: home +1%, opponent defense \u22124%, shared production on GSW \u22124%; calibration +0.0."
  },
  "Al Horford|pra|401909285": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)",
    "-3.6 pts: pick follows the line's move (pattern)"
@@ -2885,10 +2896,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 11.0,
+  "line_errs": {
+   "prizepicks": 6.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.0
@@ -2897,6 +2912,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "LAL",
+  "our_err": 8.0,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -2966,7 +2982,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -2977,7 +2993,7 @@
   "why": "19.9 min (recent 20.3, \u22120.4 team-minutes adjustment with Graham Ike out); \u00d7 0.645 pts+reb+ast/min (57% this season's 0.534 over 4 games, 43% prior 0.710); context: home +1%, opponent defense \u22121%, shared production on GSW \u22121%; calibration +0.3."
  },
  "Al Horford|pr|401909285": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -3000,10 +3016,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 9.0,
+  "line_errs": {
+   "prizepicks": 4.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.0
@@ -3012,6 +3032,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "LAL",
+  "our_err": 6.3,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -3081,7 +3102,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -3092,7 +3113,7 @@
   "why": "19.9 min (recent 20.3, \u22120.4 team-minutes adjustment with Graham Ike out); \u00d7 0.557 pts+reb/min (57% this season's 0.479 over 4 games, 43% prior 0.612); context: home +1%, opponent defense \u22121%; calibration +0.3."
  },
  "Al Horford|pts|401909285": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "chance pulled toward 50% (keeps 34% of our lean on FanDuel lines, pattern)"
   ],
@@ -3115,10 +3136,15 @@
   "flip": null,
   "frozen_at": "2026-10-30 14:11 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "fanduel": 2.5,
+   "prizepicks": 2.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 5.5,
@@ -3128,6 +3154,7 @@
   "move": null,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 3.6,
   "out_ctx": [
    "Adou Thiero",
    "Cameron Carr",
@@ -3193,7 +3220,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -3204,7 +3231,7 @@
   "why": "19.9 min (recent 20.3, \u22120.4 team-minutes adjustment); \u00d7 0.331 points/min (44% this season's 0.247 over 4 games, 56% prior 0.375); context: home +1%, opponent defense \u22121%, shared production on GSW \u22121%; calibration +0.1."
  },
  "Al Horford|reb|401909285": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -3226,10 +3253,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:01 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -3239,6 +3271,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 2.8,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -3311,7 +3344,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -12250,7 +12283,7 @@
   "why": "28.0 min (recent 26.9, +1.1 team-minutes adjustment with Jalen Duren, Isaiah Joe out); \u00d7 0.223 rebounds/min (25% this season's 0.274 over 4 games, 75% prior 0.211); context: road \u22121%, shared production on DET +3%; calibration +0.1."
  },
  "Austin Reaves|ast|401909285": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -12272,10 +12305,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -12285,6 +12323,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 0.1,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -12354,7 +12393,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -12365,7 +12404,7 @@
   "why": "34.4 min (recent 34.1); \u00d7 0.155 assists/min (50% this season's 0.153 over 5 games, 50% prior 0.157); context: road \u22121%, shared production on LAL \u22122%."
  },
  "Austin Reaves|fg3m|401909285": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4269,
@@ -12386,10 +12425,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:01 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -12398,6 +12441,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 1.3,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -12463,7 +12507,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -12474,7 +12518,7 @@
   "why": "34.4 min (recent 34.1); \u00d7 0.071 3-pointers made/min (62% this season's 0.074 over 5 games, 38% prior 0.071); context: road \u22121%, shared production on LAL \u22127%."
  },
  "Austin Reaves|pa|401909285": {
-  "actual": null,
+  "actual": 26.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -12497,10 +12541,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 28.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 28.5
@@ -12509,6 +12557,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "GSW",
+  "our_err": 0.7,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -12578,7 +12627,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -12589,7 +12638,7 @@
   "why": "34.4 min (recent 34.1); \u00d7 0.820 pts+ast/min (62% this season's 0.847 over 5 games, 38% prior 0.769); context: road \u22121%, opponent defense +1%, shared production on LAL \u22125%."
  },
  "Austin Reaves|pra|401909285": {
-  "actual": null,
+  "actual": 30.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -12613,10 +12662,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 33.5,
+  "line_errs": {
+   "kalshi": 4.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 34.5,
@@ -12626,6 +12680,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "GSW",
+  "our_err": 0.6,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -12695,7 +12750,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -12706,7 +12761,7 @@
   "why": "34.4 min (recent 34.1); \u00d7 0.939 pts+reb+ast/min (62% this season's 0.943 over 5 games, 38% prior 0.902); context: road \u22121%, opponent defense +1%, shared production on LAL \u22125%."
  },
  "Austin Reaves|pr|401909285": {
-  "actual": null,
+  "actual": 25.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -12729,10 +12784,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 27.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 27.5
@@ -12741,6 +12800,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "GSW",
+  "our_err": 0.5,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -12810,7 +12870,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -12821,7 +12881,7 @@
   "why": "34.4 min (recent 34.1); \u00d7 0.785 pts+reb/min (62% this season's 0.790 over 5 games, 38% prior 0.745); context: road \u22121%, opponent defense +1%, shared production on LAL \u22125%."
  },
  "Austin Reaves|pts|401909285": {
-  "actual": null,
+  "actual": 21.0,
   "adj": [
    "chance pulled toward 50% (keeps 34% of our lean on FanDuel lines, pattern)"
   ],
@@ -12844,10 +12904,16 @@
   "flip": null,
   "frozen_at": "2026-10-30 20:18 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "fanduel": 2.5,
+   "kalshi": 3.5,
+   "prizepicks": 2.0
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 23.5,
@@ -12858,6 +12924,7 @@
   "move": null,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 0.3,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -12923,7 +12990,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -12934,7 +13001,7 @@
   "why": "34.4 min (recent 34.1); \u00d7 0.660 points/min (50% this season's 0.693 over 5 games, 50% prior 0.611); context: road \u22121%, opponent defense +1%, shared production on LAL \u22126%."
  },
  "Austin Reaves|ra|401909285": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -12957,10 +13024,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 10.0,
+  "line_errs": {
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.0
@@ -12969,6 +13040,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "GSW",
+  "our_err": 0.3,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -13038,7 +13110,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -13049,7 +13121,7 @@
   "why": "34.4 min (recent 34.1); \u00d7 0.279 reb+ast/min (38% this season's 0.250 over 5 games, 62% prior 0.291); context: road \u22121%, shared production on LAL \u22122%."
  },
  "Austin Reaves|reb|401909285": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6267,
@@ -13070,10 +13142,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:01 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -13082,6 +13158,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 0.2,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -13147,7 +13224,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -16433,7 +16510,7 @@
   "why": "23.9 min (recent 24.0); \u00d7 0.283 rebounds/min (29% this season's 0.342 over 5 games, 71% prior 0.272); context: pace vs IND +1%, home +1%, opponent defense +1%, shared production on MIA \u22121%."
  },
  "Brandin Podziemski|ast|401909285": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -16455,10 +16532,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:41 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -16468,6 +16550,7 @@
   "move": null,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 1.9,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -16539,7 +16622,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -16550,7 +16633,7 @@
   "why": "30.0 min (recent 30.5, \u22120.6 team-minutes adjustment with Graham Ike out); \u00d7 0.137 assists/min (38% this season's 0.143 over 3 games, 62% prior 0.130); context: home +1%, opponent defense +1%, shared production on GSW \u22123%; calibration +0.1."
  },
  "Brandin Podziemski|fg3m|401909285": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6069,
@@ -16572,10 +16655,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:41 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -16584,6 +16671,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "LAL",
+  "our_err": 2.2,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -16655,7 +16743,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -16666,7 +16754,7 @@
   "why": "30.0 min (recent 30.5, \u22120.6 team-minutes adjustment with Graham Ike out); \u00d7 0.062 3-pointers made/min (50% this season's 0.051 over 3 games, 50% prior 0.066); context: home +1%, opponent defense \u22121%, shared production on GSW \u22124%; calibration +0.0."
  },
  "Brandin Podziemski|pa|401909285": {
-  "actual": null,
+  "actual": 27.0,
   "adj": [
    "chance pulled toward 50% (keeps 36% of our lean on PrizePicks lines, pattern)"
   ],
@@ -16689,10 +16777,14 @@
   "flip": null,
   "frozen_at": "2026-10-30 19:41 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 18.5,
+  "line_errs": {
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 18.5
@@ -16701,6 +16793,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 8.6,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -16765,7 +16858,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -16776,7 +16869,7 @@
   "why": "30.0 min (recent 30.5, \u22120.6 team-minutes adjustment); \u00d7 0.608 pts+ast/min (50% this season's 0.592 over 3 games, 50% prior 0.603); context: home +1%, shared production on GSW \u22122%; calibration +0.3."
  },
  "Brandin Podziemski|pra|401909285": {
-  "actual": null,
+  "actual": 32.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -16799,10 +16892,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 23.5
@@ -16811,6 +16908,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "LAL",
+  "our_err": 8.5,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -16880,7 +16978,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -16891,7 +16989,7 @@
   "why": "30.0 min (recent 30.5, \u22120.6 team-minutes adjustment with Graham Ike out); \u00d7 0.776 pts+reb+ast/min (50% this season's 0.735 over 3 games, 50% prior 0.780); context: home +1%, shared production on GSW \u22121%; calibration +0.3."
  },
  "Brandin Podziemski|pr|401909285": {
-  "actual": null,
+  "actual": 26.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)",
    "-3.6 pts: pick follows the line's move (pattern)"
@@ -16915,10 +17013,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 20.0,
+  "line_errs": {
+   "prizepicks": 6.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 20.0
@@ -16927,6 +17029,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "LAL",
+  "our_err": 6.6,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -16996,7 +17099,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -17007,7 +17110,7 @@
   "why": "30.0 min (recent 30.5, \u22120.6 team-minutes adjustment with Graham Ike out); \u00d7 0.638 pts+reb/min (50% this season's 0.592 over 3 games, 50% prior 0.650); context: home +1%, shared production on GSW \u22121%; calibration +0.3."
  },
  "Brandin Podziemski|pts|401909285": {
-  "actual": null,
+  "actual": 21.0,
   "adj": [
    "chance pulled toward 50% (keeps 34% of our lean on FanDuel lines, pattern)"
   ],
@@ -17030,10 +17133,15 @@
   "flip": null,
   "frozen_at": "2026-10-30 14:11 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "fanduel": 5.5,
+   "prizepicks": 5.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 15.5,
@@ -17043,6 +17151,7 @@
   "move": null,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 6.8,
   "out_ctx": [
    "Adou Thiero",
    "Cameron Carr",
@@ -17108,7 +17217,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -17119,7 +17228,7 @@
   "why": "30.0 min (recent 30.5, \u22120.6 team-minutes adjustment); \u00d7 0.471 points/min (38% this season's 0.449 over 3 games, 62% prior 0.473); context: home +1%, shared production on GSW \u22121%; calibration +0.1."
  },
  "Brandin Podziemski|ra|401909285": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [
    "chance pulled toward 50% (keeps 34% of our lean on PrizePicks lines, pattern)"
   ],
@@ -17139,10 +17248,14 @@
   "flip": null,
   "frozen_at": "2026-10-30 04:21 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.5
@@ -17151,6 +17264,7 @@
   "move": null,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 1.6,
   "out_ctx": [
    "Adou Thiero",
    "Cameron Carr",
@@ -17216,7 +17330,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -17226,7 +17340,7 @@
   "why": "30.0 min (recent 30.5, \u22120.6 team-minutes adjustment); \u00d7 0.309 reb+ast/min (27% this season's 0.286 over 3 games, 73% prior 0.307); context: home +1%, shared production on GSW \u22121%; calibration +0.2."
  },
  "Brandin Podziemski|reb|401909285": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "chance pulled toward 50% (keeps 36% of our lean on PrizePicks lines, pattern)"
   ],
@@ -17250,10 +17364,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:01 UTC",
   "game_id": 401909285,
+  "graded_at": "2026-10-31 05:01 UTC",
   "hit": null,
   "home": true,
   "label": "lean",
   "line": 5.0,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -17263,6 +17382,7 @@
   "move": null,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 0.3,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -17331,7 +17451,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "push",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -24513,7 +24633,7 @@
   "why": "18.8 min (recent 18.8); \u00d7 0.231 rebounds/min (25% this season's 0.278 over 4 games, 75% prior 0.222); context: pace vs ORL +1%, home +1%, opponent defense \u22121%, shared production on TOR \u22121%; calibration +0.1."
  },
  "Collin Sexton|ast|401909285": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6365,
@@ -24535,10 +24655,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -24547,6 +24671,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 2.1,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -24622,7 +24747,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -24633,7 +24758,7 @@
   "why": "23.1 min (recent 22.9); \u00d7 0.135 assists/min (44% this season's 0.127 over 4 games, 56% prior 0.141); context: road \u22121%, shared production on LAL \u22122%; calibration +0.1."
  },
  "Collin Sexton|fg3m|401909285": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4472,
@@ -24655,10 +24780,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:21 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -24667,6 +24796,7 @@
   "move": null,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 1.6,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -24740,7 +24870,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -24751,7 +24881,7 @@
   "why": "23.1 min (recent 22.9); \u00d7 0.074 3-pointers made/min (57% this season's 0.085 over 4 games, 43% prior 0.067); context: road \u22121%, shared production on LAL \u22127%; calibration +0.0."
  },
  "Collin Sexton|pa|401909285": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -24774,10 +24904,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 12.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -24786,6 +24920,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 16.7,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -24831,7 +24966,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -24842,7 +24977,7 @@
   "why": "23.1 min (recent 22.9); \u00d7 0.802 pts+ast/min (57% this season's 0.803 over 4 games, 43% prior 0.772); context: road \u22121%, opponent defense +1%, shared production on LAL \u22125%; calibration +0.3."
  },
  "Collin Sexton|pra|401909285": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -24865,10 +25000,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 16.0,
+  "line_errs": {
+   "prizepicks": 13.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 16.0
@@ -24877,6 +25016,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "GSW",
+  "our_err": 17.1,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -24946,7 +25086,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -24957,7 +25097,7 @@
   "why": "23.1 min (recent 22.9); \u00d7 0.906 pts+reb+ast/min (57% this season's 0.915 over 4 games, 43% prior 0.874); context: road \u22121%, opponent defense +1%, shared production on LAL \u22125%; calibration +0.3."
  },
  "Collin Sexton|pr|401909285": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [
    "chance pulled toward 50% (keeps 36% of our lean on PrizePicks lines, pattern)"
   ],
@@ -24977,10 +25117,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 00:01 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 11.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -24989,6 +25133,7 @@
   "move": null,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 15.1,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -25030,7 +25175,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -25040,7 +25185,7 @@
   "why": "23.1 min (recent 22.9); \u00d7 0.772 pts+reb/min (57% this season's 0.789 over 4 games, 43% prior 0.732); context: road \u22121%, opponent defense +1%, shared production on LAL \u22125%; calibration +0.3."
  },
  "Collin Sexton|pts|401909285": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -25070,10 +25215,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "kalshi": 9.5,
+   "prizepicks": 11.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -25083,6 +25233,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "GSW",
+  "our_err": 14.6,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -25161,7 +25312,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -25172,7 +25323,7 @@
   "why": "23.1 min (recent 22.9); \u00d7 0.664 points/min (44% this season's 0.676 over 4 games, 56% prior 0.631); context: road \u22121%, opponent defense +1%, shared production on LAL \u22126%; calibration +0.1."
  },
  "Collin Sexton|reb|401909285": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5872,
@@ -25193,10 +25344,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:21 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -25205,6 +25360,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 0.4,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -25250,7 +25406,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -30564,7 +30720,7 @@
   "why": "19.2 min (recent 19.1); \u00d7 0.349 rebounds/min (25% this season's 0.302 over 4 games, 75% prior 0.351); context: home +1%, rest +1%, shared production on BKN \u22125%; calibration +0.1."
  },
  "De'Anthony Melton|ast|401909285": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6365,
@@ -30585,10 +30741,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -30597,6 +30757,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 0.8,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -30666,7 +30827,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -30677,7 +30838,7 @@
   "why": "21.5 min (recent 21.9, \u22120.4 team-minutes adjustment with Graham Ike out); \u00d7 0.105 assists/min (50% this season's 0.093 over 5 games, 50% prior 0.117); context: home +1%, opponent defense +1%, shared production on GSW \u22123%."
  },
  "De'Anthony Melton|fg3m|401909285": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3863,
@@ -30699,10 +30860,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:41 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -30711,6 +30876,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 2.5,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -30782,7 +30948,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -30793,7 +30959,7 @@
   "why": "21.5 min (recent 21.9, \u22120.4 team-minutes adjustment with Graham Ike out); \u00d7 0.073 3-pointers made/min (62% this season's 0.084 over 5 games, 38% prior 0.066); context: home +1%, opponent defense \u22121%, shared production on GSW \u22124%."
  },
  "De'Anthony Melton|pa|401909285": {
-  "actual": null,
+  "actual": 19.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -30816,10 +30982,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -30828,6 +30998,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "LAL",
+  "our_err": 6.5,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -30897,7 +31068,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -30908,7 +31079,7 @@
   "why": "21.5 min (recent 21.9, \u22120.4 team-minutes adjustment with Graham Ike out); \u00d7 0.583 pts+ast/min (62% this season's 0.523 over 5 games, 38% prior 0.639); context: home +1%, shared production on GSW \u22122%."
  },
  "De'Anthony Melton|pra|401909285": {
-  "actual": null,
+  "actual": 24.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -30931,10 +31102,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "prizepicks": 9.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.5
@@ -30943,6 +31118,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 8.2,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -31012,7 +31188,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -31023,7 +31199,7 @@
   "why": "21.5 min (recent 21.9, \u22120.4 team-minutes adjustment with Graham Ike out); \u00d7 0.733 pts+reb+ast/min (62% this season's 0.692 over 5 games, 38% prior 0.779); context: home +1%, shared production on GSW \u22121%."
  },
  "De'Anthony Melton|pr|401909285": {
-  "actual": null,
+  "actual": 21.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -31046,10 +31222,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 9.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -31058,6 +31238,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "LAL",
+  "our_err": 7.4,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -31127,7 +31308,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -31138,7 +31319,7 @@
   "why": "21.5 min (recent 21.9, \u22120.4 team-minutes adjustment with Graham Ike out); \u00d7 0.630 pts+reb/min (62% this season's 0.598 over 5 games, 38% prior 0.662); context: home +1%, shared production on GSW \u22121%."
  },
  "De'Anthony Melton|pts|401909285": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [
    "chance pulled toward 50% (keeps 34% of our lean on FanDuel lines, pattern)",
    "side set to UNDER to match Kalshi at the same line (books disagreed); no stake"
@@ -31163,10 +31344,16 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:01 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "fanduel": 6.5,
+   "kalshi": 6.5,
+   "prizepicks": 7.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 9.5,
@@ -31177,6 +31364,7 @@
   "move": null,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 5.5,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -31242,7 +31430,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -31253,7 +31441,7 @@
   "why": "21.5 min (recent 21.9, \u22120.4 team-minutes adjustment); \u00d7 0.487 points/min (50% this season's 0.430 over 5 games, 50% prior 0.522); context: home +1%, shared production on GSW \u22121%."
  },
  "De'Anthony Melton|ra|401909285": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -31276,10 +31464,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 5.0,
+  "line_errs": {
+   "prizepicks": 3.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 5.0
@@ -31288,6 +31480,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "LAL",
+  "our_err": 2.6,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -31357,7 +31550,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -31368,7 +31561,7 @@
   "why": "21.5 min (recent 21.9, \u22120.4 team-minutes adjustment with Graham Ike out); \u00d7 0.252 reb+ast/min (38% this season's 0.262 over 5 games, 62% prior 0.257); context: home +1%, shared production on GSW \u22121%."
  },
  "De'Anthony Melton|reb|401909285": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3863,
@@ -31390,10 +31583,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -31402,6 +31599,7 @@
   "move": null,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 1.9,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -31471,7 +31669,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -39027,7 +39225,7 @@
   "why": "29.7 min (recent 30.5, \u22120.8 team-minutes adjustment); \u00d7 0.122 rebounds/min (20% this season's 0.117 over 3 games, 80% prior 0.128); context: home +1%, rest +1%, shared production on PHX +4%; calibration +0.1."
  },
  "Draymond Green|ast|401909285": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -39051,10 +39249,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 6.0,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 3.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -39064,6 +39267,7 @@
   "move": null,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 3.2,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -39135,7 +39339,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -39146,7 +39350,7 @@
   "why": "28.5 min (recent 29.1, \u22120.5 team-minutes adjustment with Graham Ike out); \u00d7 0.207 assists/min (44% this season's 0.243 over 4 games, 56% prior 0.185); context: home +1%, shared production on GSW \u22123%; calibration +0.1."
  },
  "Draymond Green|fg3m|401909285": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5673,
@@ -39168,10 +39372,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 00:21 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 0.5
@@ -39180,6 +39388,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 1.2,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -39247,7 +39456,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -39258,7 +39467,7 @@
   "why": "28.5 min (recent 29.1, \u22120.5 team-minutes adjustment); \u00d7 0.043 3-pointers made/min (57% this season's 0.018 over 4 games, 43% prior 0.050); context: home +1%, opponent defense +1%, shared production on GSW \u22124%; calibration +0.0."
  },
  "Draymond Green|pa|401909285": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -39281,10 +39490,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -39293,6 +39506,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "LAL",
+  "our_err": 2.3,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -39362,7 +39576,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -39373,7 +39587,7 @@
   "why": "28.5 min (recent 29.1, \u22120.5 team-minutes adjustment with Graham Ike out); \u00d7 0.463 pts+ast/min (57% this season's 0.360 over 4 games, 43% prior 0.513); context: home +1%, shared production on GSW \u22122%; calibration +0.3."
  },
  "Draymond Green|pra|401909285": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -39396,10 +39610,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 17.5
@@ -39408,6 +39626,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "LAL",
+  "our_err": 4.1,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -39477,7 +39696,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -39488,7 +39707,7 @@
   "why": "28.5 min (recent 29.1, \u22120.5 team-minutes adjustment with Graham Ike out); \u00d7 0.664 pts+reb+ast/min (57% this season's 0.559 over 4 games, 43% prior 0.716); context: home +1%, shared production on GSW \u22121%; calibration +0.3."
  },
  "Draymond Green|pr|401909285": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -39511,10 +39730,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -39523,6 +39746,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "LAL",
+  "our_err": 7.2,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -39592,7 +39816,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -39603,7 +39827,7 @@
   "why": "28.5 min (recent 29.1, \u22120.5 team-minutes adjustment with Graham Ike out); \u00d7 0.453 pts+reb/min (57% this season's 0.315 over 4 games, 43% prior 0.531); context: home +1%; calibration +0.3."
  },
  "Draymond Green|pts|401909285": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -39627,10 +39851,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 5.5
@@ -39639,6 +39867,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "LAL",
+  "our_err": 5.7,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -39708,7 +39937,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -39719,7 +39948,7 @@
   "why": "28.5 min (recent 29.1, \u22120.5 team-minutes adjustment with Graham Ike out); \u00d7 0.267 points/min (44% this season's 0.117 over 4 games, 56% prior 0.328); context: home +1%, shared production on GSW \u22121%; calibration +0.1."
  },
  "Draymond Green|ra|401909285": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -39742,10 +39971,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -39754,6 +39987,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "LAL",
+  "our_err": 1.4,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -39823,7 +40057,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -39834,7 +40068,7 @@
   "why": "28.5 min (recent 29.1, \u22120.5 team-minutes adjustment with Graham Ike out); \u00d7 0.404 reb+ast/min (33% this season's 0.441 over 4 games, 67% prior 0.387); context: home +1%, opponent defense \u22121%, shared production on GSW \u22121%; calibration +0.2."
  },
  "Draymond Green|reb|401909285": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4774,
@@ -39856,10 +40090,14 @@
   "flip": null,
   "frozen_at": "2026-10-30 21:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 5.5
@@ -39868,6 +40106,7 @@
   "move": null,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 1.9,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -39933,7 +40172,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -42789,7 +43028,7 @@
   "why": "34.4 min (recent 31.6, +2.8 team-minutes adjustment with Steven Adams, Alperen Sengun, Reed Sheppard out); \u00d7 0.114 rebounds/min (25% this season's 0.125 over 4 games, 75% prior 0.115); context: pace vs DAL +1%, road \u22121%, shared production on HOU +1%; calibration +0.1."
  },
  "Georges Niang|ast|401909285": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [
    "chance pulled toward 50% (keeps 36% of our lean on PrizePicks lines, pattern)"
   ],
@@ -42809,10 +43048,14 @@
   "flip": null,
   "frozen_at": "2026-10-30 14:21 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 1.5
@@ -42821,6 +43064,7 @@
   "move": null,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 0.3,
   "out_ctx": [
    "Adou Thiero",
    "Cameron Carr",
@@ -42886,7 +43130,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -42896,7 +43140,7 @@
   "why": "20.3 min (recent 20.7, \u22120.4 team-minutes adjustment); \u00d7 0.068 assists/min (50% this season's 0.062 over 5 games, 50% prior 0.072); context: home +1%, shared production on GSW \u22123%."
  },
  "Georges Niang|fg3m|401909285": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "chance pulled toward 50% (keeps 36% of our lean on PrizePicks lines, pattern)"
   ],
@@ -42920,10 +43164,14 @@
   "flip": null,
   "frozen_at": "2026-10-30 04:41 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 1.5
@@ -42932,6 +43180,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 1.9,
   "out_ctx": [
    "Adou Thiero",
    "Cameron Carr",
@@ -42999,7 +43248,7 @@
   },
   "src_key": "prizepicks",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -43010,7 +43259,7 @@
   "why": "20.3 min (recent 20.7, \u22120.4 team-minutes adjustment); \u00d7 0.056 3-pointers made/min (62% this season's 0.041 over 5 games, 38% prior 0.086); context: home +1%, opponent defense +1%, shared production on GSW \u22124%."
  },
  "Georges Niang|pra|401909285": {
-  "actual": null,
+  "actual": 17.0,
   "adj": [
    "chance pulled toward 50% (keeps 36% of our lean on PrizePicks lines, pattern)"
   ],
@@ -43033,10 +43282,14 @@
   "flip": null,
   "frozen_at": "2026-10-30 18:01 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 12.0,
+  "line_errs": {
+   "prizepicks": 5.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.0
@@ -43045,6 +43298,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "LAL",
+  "our_err": 5.2,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -43109,7 +43363,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -43120,7 +43374,7 @@
   "why": "20.3 min (recent 20.7, \u22120.4 team-minutes adjustment); \u00d7 0.584 pts+reb+ast/min (62% this season's 0.526 over 5 games, 38% prior 0.709); context: home +1%, shared production on GSW \u22121%."
  },
  "Georges Niang|pr|401909285": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -43143,10 +43397,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -43155,6 +43413,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "LAL",
+  "our_err": 5.5,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -43224,7 +43483,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -43235,7 +43494,7 @@
   "why": "20.3 min (recent 20.7, \u22120.4 team-minutes adjustment with Graham Ike out); \u00d7 0.518 pts+reb/min (62% this season's 0.464 over 5 games, 38% prior 0.637); context: home +1%, shared production on GSW \u22121%."
  },
  "Georges Niang|pts|401909285": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [
    "chance pulled toward 50% (keeps 34% of our lean on FanDuel lines, pattern)"
   ],
@@ -43258,10 +43517,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 00:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "fanduel": 3.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 7.5
@@ -43270,6 +43533,7 @@
   "move": null,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 3.2,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -43335,7 +43599,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -43346,7 +43610,7 @@
   "why": "20.3 min (recent 20.7, \u22120.4 team-minutes adjustment); \u00d7 0.383 points/min (50% this season's 0.320 over 5 games, 50% prior 0.467); context: home +1%, shared production on GSW \u22121%."
  },
  "Georges Niang|reb|401909285": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -43369,10 +43633,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 2.5
@@ -43381,6 +43649,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 1.8,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -43450,7 +43719,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -45365,7 +45634,7 @@
   "why": "28.2 min (recent 27.6, +0.6 team-minutes adjustment); \u00d7 0.112 rebounds/min (29% this season's 0.106 over 5 games, 71% prior 0.116); context: road \u22121%, shared production on CHA \u22122%."
  },
  "Gui Santos|pra|401909285": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -45388,10 +45657,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 16.5,
+  "line_errs": {
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 16.5
@@ -45400,6 +45673,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 10.4,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -45457,7 +45731,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -45468,7 +45742,7 @@
   "why": "25.9 min (recent 26.3, \u22120.5 team-minutes adjustment with Graham Ike out); \u00d7 0.701 pts+reb+ast/min (57% this season's 0.615 over 4 games, 43% prior 0.730); context: home +1%, shared production on GSW \u22121%; calibration +0.3."
  },
  "Gui Santos|pr|401909285": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -45491,10 +45765,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -45503,6 +45781,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 8.9,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -45536,7 +45815,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -45547,7 +45826,7 @@
   "why": "25.9 min (recent 26.3, \u22120.5 team-minutes adjustment with Graham Ike out); \u00d7 0.603 pts+reb/min (57% this season's 0.552 over 4 games, 43% prior 0.621); context: home +1%, shared production on GSW \u22121%; calibration +0.3."
  },
  "Gui Santos|pts|401909285": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -45570,10 +45849,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -45582,6 +45865,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 9.2,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -45639,7 +45923,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -45650,7 +45934,7 @@
   "why": "25.9 min (recent 26.3, \u22120.5 team-minutes adjustment with Graham Ike out); \u00d7 0.428 points/min (44% this season's 0.385 over 4 games, 56% prior 0.423); context: home +1%, shared production on GSW \u22121%; calibration +0.1."
  },
  "Gui Santos|reb|401909285": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "chance pulled toward 50% (keeps 36% of our lean on PrizePicks lines, pattern)"
   ],
@@ -45670,10 +45954,14 @@
   "flip": null,
   "frozen_at": "2026-10-30 20:18 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 4.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 4.5
@@ -45682,6 +45970,7 @@
   "move": null,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 0.1,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -45735,7 +46024,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -50365,7 +50654,7 @@
   "why": "31.9 min (recent 32.6, \u22120.7 team-minutes adjustment with Anthony Edwards out); \u00d7 0.159 rebounds/min (29% this season's 0.204 over 5 games, 71% prior 0.156); context: pace vs LAC \u22121%, home +1%, shared production on MIN \u22123%."
  },
  "Jake LaRavia|fg3m|401909285": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [
    "chance pulled toward 50% (keeps 36% of our lean on PrizePicks lines, pattern)"
   ],
@@ -50388,10 +50677,14 @@
   "flip": null,
   "frozen_at": "2026-10-30 20:18 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 0.5
@@ -50400,6 +50693,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 1.1,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -50453,7 +50747,7 @@
   },
   "src_key": "prizepicks",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -50464,7 +50758,7 @@
   "why": "27.6 min (recent 27.4); \u00d7 0.035 3-pointers made/min (57% this season's 0.034 over 4 games, 43% prior 0.041); context: road \u22121%, shared production on LAL \u22127%; calibration +0.0."
  },
  "Jake LaRavia|pra|401909285": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [
    "chance pulled toward 50% (keeps 36% of our lean on PrizePicks lines, pattern)"
   ],
@@ -50487,10 +50781,14 @@
   "flip": null,
   "frozen_at": "2026-10-30 20:18 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -50499,6 +50797,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 1.9,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -50552,7 +50851,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -50563,7 +50862,7 @@
   "why": "27.6 min (recent 27.4); \u00d7 0.519 pts+reb+ast/min (57% this season's 0.437 over 4 games, 43% prior 0.599); context: road \u22121%, shared production on LAL \u22124%; calibration +0.3."
  },
  "Jake LaRavia|pts|401909285": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -50583,10 +50882,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 6.5
@@ -50595,6 +50898,7 @@
   "move": null,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 2.3,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -50628,7 +50932,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -50638,7 +50942,7 @@
   "why": "27.6 min (recent 27.4); \u00d7 0.293 points/min (44% this season's 0.195 over 4 games, 56% prior 0.347); context: road \u22121%, shared production on LAL \u22126%; calibration +0.1."
  },
  "Jake LaRavia|reb|401909285": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -50658,10 +50962,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 3.5
@@ -50670,6 +50978,7 @@
   "move": null,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 2.4,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -50703,7 +51012,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -80459,7 +80768,7 @@
   "why": "20.9 min (recent 21.3, \u22120.4 team-minutes adjustment); \u00d7 0.234 rebounds/min (29% this season's 0.216 over 5 games, 71% prior 0.241); context: pace vs BOS \u22121%, road \u22121%, shared production on CHI \u22122%."
  },
  "Luka Doncic|ast|401909285": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -80480,10 +80789,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:01 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 7.5,
@@ -80493,6 +80807,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 2.9,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -80558,7 +80873,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -80569,7 +80884,7 @@
   "why": "36.3 min (recent 36.1); \u00d7 0.223 assists/min (44% this season's 0.232 over 4 games, 56% prior 0.214); context: road \u22121%, shared production on LAL \u22122%; calibration +0.1."
  },
  "Luka Doncic|fg3m|401909285": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5971,
@@ -80590,10 +80905,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:03 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -80602,6 +80921,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 1.9,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -80667,7 +80987,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -80678,7 +80998,7 @@
   "why": "36.3 min (recent 36.1); \u00d7 0.121 3-pointers made/min (57% this season's 0.148 over 4 games, 43% prior 0.102); context: road \u22121%, shared production on LAL \u22127%; calibration +0.0."
  },
  "Luka Doncic|pa|401909285": {
-  "actual": null,
+  "actual": 42.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -80701,10 +81021,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 42.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 42.5
@@ -80713,6 +81037,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 1.5,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -80782,7 +81107,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -80793,7 +81118,7 @@
   "why": "36.3 min (recent 36.1); \u00d7 1.171 pts+ast/min (57% this season's 1.246 over 4 games, 43% prior 1.050); context: road \u22121%, opponent defense +1%, shared production on LAL \u22125%; calibration +0.3."
  },
  "Luka Doncic|pra|401909285": {
-  "actual": null,
+  "actual": 49.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -80815,10 +81140,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 49.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 49.5,
@@ -80828,6 +81158,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "GSW",
+  "our_err": 1.2,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -80897,7 +81228,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -80908,7 +81239,7 @@
   "why": "36.3 min (recent 36.1); \u00d7 1.376 pts+reb+ast/min (57% this season's 1.437 over 4 games, 43% prior 1.258); context: road \u22121%, opponent defense +1%, shared production on LAL \u22125%; calibration +0.3."
  },
  "Luka Doncic|pr|401909285": {
-  "actual": null,
+  "actual": 44.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -80931,10 +81262,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 41.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 41.5
@@ -80943,6 +81278,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "GSW",
+  "our_err": 4.1,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -81012,7 +81348,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -81023,7 +81359,7 @@
   "why": "36.3 min (recent 36.1); \u00d7 1.152 pts+reb/min (57% this season's 1.204 over 4 games, 43% prior 1.045); context: road \u22121%, opponent defense +1%, shared production on LAL \u22125%; calibration +0.3."
  },
  "Luka Doncic|pts|401909285": {
-  "actual": null,
+  "actual": 37.0,
   "adj": [
    "chance pulled toward 50% (keeps 34% of our lean on FanDuel lines, pattern)"
   ],
@@ -81047,10 +81383,16 @@
   "flip": null,
   "frozen_at": "2026-10-30 20:18 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 34.5,
+  "line_errs": {
+   "fanduel": 2.5,
+   "kalshi": 2.5,
+   "prizepicks": 2.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 34.5,
@@ -81061,6 +81403,7 @@
   "move": null,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 4.9,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -81126,7 +81469,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -81137,7 +81480,7 @@
   "why": "36.3 min (recent 36.1); \u00d7 0.935 points/min (44% this season's 1.014 over 4 games, 56% prior 0.837); context: road \u22121%, opponent defense +1%, shared production on LAL \u22126%; calibration +0.1."
  },
  "Luka Doncic|ra|401909285": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [
    "chance pulled toward 50% (keeps 36% of our lean on PrizePicks lines, pattern)"
   ],
@@ -81160,10 +81503,14 @@
   "flip": null,
   "frozen_at": "2026-10-30 21:01 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 15.0,
+  "line_errs": {
+   "prizepicks": 3.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.0
@@ -81172,6 +81519,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 3.3,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -81237,7 +81585,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -81248,7 +81596,7 @@
   "why": "36.3 min (recent 36.1); \u00d7 0.429 reb+ast/min (33% this season's 0.423 over 4 games, 67% prior 0.422); context: road \u22121%, shared production on LAL \u22122%; calibration +0.2."
  },
  "Luka Doncic|reb|401909285": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "chance pulled toward 50% (keeps 36% of our lean on PrizePicks lines, pattern)",
    "-3.6 pts: pick follows the line's move (pattern)"
@@ -81273,10 +81621,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:01 UTC",
   "game_id": 401909285,
+  "graded_at": "2026-10-31 05:01 UTC",
   "hit": null,
   "home": false,
   "label": "lean",
   "line": 7.0,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 7.5,
@@ -81286,6 +81639,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "GSW",
+  "our_err": 0.4,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -81353,7 +81707,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "push",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -83200,7 +83554,7 @@
   "why": "28.1 min (recent 29.8, \u22120.6 team-minutes adjustment with Dailyn Swain out, \u22121.1 blowout risk (market margin 16)); \u00d7 0.188 rebounds/min (29% this season's 0.167 over 5 games, 71% prior 0.195); context: pace vs BOS \u22121%, road \u22121%, shared production on CHI \u22122%."
  },
  "Matisse Thybulle|fg3m|401909285": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [
    "chance pulled toward 50% (keeps 34% of our lean on PrizePicks lines, pattern)"
   ],
@@ -83220,10 +83574,14 @@
   "flip": null,
   "frozen_at": "2026-10-30 04:21 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 1.5
@@ -83232,6 +83590,7 @@
   "move": null,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 0.2,
   "out_ctx": [
    "Adou Thiero",
    "Cameron Carr",
@@ -83297,7 +83656,7 @@
   },
   "src_key": "prizepicks",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -83307,7 +83666,7 @@
   "why": "16.3 min (recent 22.8, \u22126.5 team-minutes adjustment); \u00d7 0.083 3-pointers made/min (62% this season's 0.098 over 5 games, 38% prior 0.072); context: road \u22121%, shared production on LAL \u22129%."
  },
  "Matisse Thybulle|pra|401909285": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -83330,10 +83689,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -83342,6 +83705,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 1.7,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -83411,7 +83775,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -83422,7 +83786,7 @@
   "why": "23.0 min (recent 22.8); \u00d7 0.519 pts+reb+ast/min (62% this season's 0.488 over 5 games, 38% prior 0.614); context: road \u22121%, opponent defense +1%, shared production on LAL \u22125%."
  },
  "Matisse Thybulle|pr|401909285": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -83445,10 +83809,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -83457,6 +83825,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 2.8,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -83526,7 +83895,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -83537,7 +83906,7 @@
   "why": "23.0 min (recent 22.8); \u00d7 0.466 pts+reb/min (62% this season's 0.447 over 5 games, 38% prior 0.530); context: road \u22121%, opponent defense +1%, shared production on LAL \u22125%."
  },
  "Matisse Thybulle|pts|401909285": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "chance pulled toward 50% (keeps 34% of our lean on FanDuel lines, pattern)"
   ],
@@ -83560,10 +83929,15 @@
   "flip": null,
   "frozen_at": "2026-10-30 20:18 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "fanduel": 3.5,
+   "prizepicks": 3.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 6.5,
@@ -83573,6 +83947,7 @@
   "move": null,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 2.0,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -83638,7 +84013,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -103131,7 +103506,7 @@
   "why": "30.1 min (recent 30.2); \u00d7 0.127 rebounds/min (29% this season's 0.117 over 5 games, 71% prior 0.130); context: pace vs IND +1%, home +1%, opponent defense +1%, shared production on MIA \u22121%."
  },
  "Quentin Grimes|ast|401909285": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6757,
@@ -103157,10 +103532,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -103169,6 +103548,7 @@
   "move": null,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 1.3,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -103245,7 +103625,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -103256,7 +103636,7 @@
   "why": "30.1 min (recent 29.9); \u00d7 0.114 assists/min (50% this season's 0.104 over 5 games, 50% prior 0.114); context: road \u22121%, shared production on LAL \u22122%."
  },
  "Quentin Grimes|fg3m|401909285": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3863,
@@ -103278,10 +103658,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:41 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -103290,6 +103674,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 0.3,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -103361,7 +103746,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -103372,7 +103757,7 @@
   "why": "30.1 min (recent 29.9); \u00d7 0.047 3-pointers made/min (62% this season's 0.022 over 5 games, 38% prior 0.065); context: road \u22121%, shared production on LAL \u22127%."
  },
  "Quentin Grimes|pa|401909285": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)",
    "-3.6 pts: pick follows the line's move (pattern)"
@@ -103396,10 +103781,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -103408,6 +103797,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "GSW",
+  "our_err": 10.8,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -103477,7 +103867,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -103488,7 +103878,7 @@
   "why": "30.1 min (recent 29.9); \u00d7 0.556 pts+ast/min (62% this season's 0.481 over 5 games, 38% prior 0.596); context: road \u22121%, opponent defense +1%, shared production on LAL \u22125%."
  },
  "Quentin Grimes|pra|401909285": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)",
    "-3.6 pts: pick follows the line's move (pattern)"
@@ -103512,10 +103902,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.5
@@ -103524,6 +103918,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "GSW",
+  "our_err": 11.5,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -103593,7 +103988,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -103604,7 +103999,7 @@
   "why": "30.1 min (recent 29.9); \u00d7 0.683 pts+reb+ast/min (62% this season's 0.615 over 5 games, 38% prior 0.731); context: road \u22121%, opponent defense +1%, shared production on LAL \u22124%."
  },
  "Quentin Grimes|pr|401909285": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)",
    "-3.6 pts: pick follows the line's move (pattern)"
@@ -103628,10 +104023,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.5
@@ -103640,6 +104039,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "GSW",
+  "our_err": 10.2,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -103709,7 +104109,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -103720,7 +104120,7 @@
   "why": "30.1 min (recent 29.9); \u00d7 0.569 pts+reb/min (62% this season's 0.511 over 5 games, 38% prior 0.617); context: road \u22121%, opponent defense +1%, shared production on LAL \u22125%."
  },
  "Quentin Grimes|pts|401909285": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "chance pulled toward 50% (keeps 34% of our lean on FanDuel lines, pattern)"
   ],
@@ -103743,10 +104143,16 @@
   "flip": null,
   "frozen_at": "2026-10-30 20:18 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "fanduel": 4.5,
+   "kalshi": 6.5,
+   "prizepicks": 5.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 7.5,
@@ -103757,6 +104163,7 @@
   "move": null,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 9.7,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -103822,7 +104229,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -103833,7 +104240,7 @@
   "why": "30.1 min (recent 29.9); \u00d7 0.450 points/min (50% this season's 0.378 over 5 games, 50% prior 0.482); context: road \u22121%, opponent defense +1%, shared production on LAL \u22126%."
  },
  "Quentin Grimes|ra|401909285": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)",
    "-3.6 pts: pick follows the line's move (pattern)"
@@ -103857,10 +104264,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 5.5
@@ -103869,6 +104280,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "GSW",
+  "our_err": 2.1,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -103938,7 +104350,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -103949,7 +104361,7 @@
   "why": "30.1 min (recent 29.9); \u00d7 0.242 reb+ast/min (38% this season's 0.237 over 5 games, 62% prior 0.249); context: road \u22121%, shared production on LAL \u22122%."
  },
  "Quentin Grimes|reb|401909285": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4371,
@@ -103970,10 +104382,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:21 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -103982,6 +104398,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 0.7,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -104051,7 +104468,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -107810,7 +108227,7 @@
   "why": "24.0 min (recent 24.5, \u22120.6 team-minutes adjustment); \u00d7 0.158 rebounds/min (25% this season's 0.163 over 4 games, 75% prior 0.158); context: pace vs CHI +2%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22127%; calibration +0.1."
  },
  "Sandro Mamukelashvili|ast|401909285": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -107831,10 +108248,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:01 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 1.5,
@@ -107844,6 +108266,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 2.0,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -107909,7 +108332,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -107920,7 +108343,7 @@
   "why": "24.9 min (recent 24.7); \u00d7 0.082 assists/min (50% this season's 0.074 over 5 games, 50% prior 0.084); context: road \u22121%, opponent defense +1%, shared production on LAL \u22122%."
  },
  "Sandro Mamukelashvili|fg3m|401909285": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3352,
@@ -107946,10 +108369,14 @@
   "flip": null,
   "frozen_at": "2026-10-30 23:40 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -107958,6 +108385,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 1.3,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -108027,7 +108455,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -108038,7 +108466,7 @@
   "why": "24.9 min (recent 24.7); \u00d7 0.059 3-pointers made/min (62% this season's 0.041 over 5 games, 38% prior 0.067); context: road \u22121%, shared production on LAL \u22127%."
  },
  "Sandro Mamukelashvili|pra|401909285": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -108061,10 +108489,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -108073,6 +108505,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 7.7,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -108142,7 +108575,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -108153,7 +108586,7 @@
   "why": "24.9 min (recent 24.7); \u00d7 0.794 pts+reb+ast/min (62% this season's 0.694 over 5 games, 38% prior 0.827); context: road \u22121%, shared production on LAL \u22124%."
  },
  "Sandro Mamukelashvili|pr|401909285": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)",
    "-3.6 pts: pick follows the line's move (pattern)"
@@ -108177,10 +108610,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 14.0,
+  "line_errs": {
+   "prizepicks": 3.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.0
@@ -108189,6 +108626,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "GSW",
+  "our_err": 5.7,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -108258,7 +108696,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -108269,7 +108707,7 @@
   "why": "24.9 min (recent 24.7); \u00d7 0.713 pts+reb/min (62% this season's 0.620 over 5 games, 38% prior 0.743); context: road \u22121%, shared production on LAL \u22125%."
  },
  "Sandro Mamukelashvili|pts|401909285": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [
    "chance pulled toward 50% (keeps 34% of our lean on FanDuel lines, pattern)",
    "no stake: 50% is a coin flip, even at a cheap price"
@@ -108293,10 +108731,16 @@
   "flip": null,
   "frozen_at": "2026-10-30 20:18 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "fanduel": 5.5,
+   "kalshi": 5.5,
+   "prizepicks": 5.0
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 9.5,
@@ -108307,6 +108751,7 @@
   "move": null,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 7.6,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -108372,7 +108817,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -108383,7 +108828,7 @@
   "why": "24.9 min (recent 24.7); \u00d7 0.503 points/min (50% this season's 0.421 over 5 games, 50% prior 0.514); context: road \u22121%, shared production on LAL \u22126%."
  },
  "Sandro Mamukelashvili|reb|401909285": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6365,
@@ -108409,10 +108854,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 3.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -108421,6 +108870,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 1.6,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -108493,7 +108943,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -110285,7 +110735,7 @@
   "why": "23.2 min (recent 22.7, +0.5 team-minutes adjustment); \u00d7 0.141 rebounds/min (29% this season's 0.109 over 5 games, 71% prior 0.153); context: road \u22121%, shared production on CHA \u22122%."
  },
  "Stephen Curry|ast|401909285": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6463,
@@ -110307,10 +110757,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -110319,6 +110773,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "LAL",
+  "our_err": 1.6,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -110392,7 +110847,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -110403,7 +110858,7 @@
   "why": "29.1 min (recent 29.6, \u22120.5 team-minutes adjustment with Graham Ike out); \u00d7 0.153 assists/min (44% this season's 0.127 over 4 games, 56% prior 0.163); context: home +1%, opponent defense +1%, shared production on GSW \u22123%; calibration +0.1."
  },
  "Stephen Curry|fg3m|401909285": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -110425,10 +110880,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:41 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 4.5,
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -110438,6 +110898,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 4.3,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -110507,7 +110968,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -110518,7 +110979,7 @@
   "why": "29.1 min (recent 29.6, \u22120.5 team-minutes adjustment with Graham Ike out); \u00d7 0.132 3-pointers made/min (57% this season's 0.127 over 4 games, 43% prior 0.128); context: home +1%, opponent defense \u22121%, shared production on GSW \u22124%; calibration +0.0."
  },
  "Stephen Curry|pa|401909285": {
-  "actual": null,
+  "actual": 37.0,
   "adj": [
    "chance pulled toward 50% (keeps 34% of our lean on PrizePicks lines, pattern)"
   ],
@@ -110538,10 +110999,14 @@
   "flip": null,
   "frozen_at": "2026-10-30 04:21 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 29.5,
+  "line_errs": {
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 29.5
@@ -110550,6 +111015,7 @@
   "move": null,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 6.7,
   "out_ctx": [
    "Adou Thiero",
    "Cameron Carr",
@@ -110615,7 +111081,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -110625,7 +111091,7 @@
   "why": "29.1 min (recent 29.6, \u22120.5 team-minutes adjustment); \u00d7 1.037 pts+ast/min (57% this season's 1.173 over 4 games, 43% prior 0.924); context: home +1%, shared production on GSW \u22122%; calibration +0.3."
  },
  "Stephen Curry|pra|401909285": {
-  "actual": null,
+  "actual": 41.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -110648,10 +111114,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 32.5,
+  "line_errs": {
+   "kalshi": 11.5,
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 29.5,
@@ -110661,6 +111132,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 7.0,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -110730,7 +111202,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -110741,7 +111213,7 @@
   "why": "29.1 min (recent 29.6, \u22120.5 team-minutes adjustment with Graham Ike out); \u00d7 1.161 pts+reb+ast/min (57% this season's 1.309 over 4 games, 43% prior 1.051); context: home +1%, shared production on GSW \u22121%; calibration +0.3."
  },
  "Stephen Curry|pr|401909285": {
-  "actual": null,
+  "actual": 35.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -110764,10 +111236,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 28.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 28.5
@@ -110776,6 +111252,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 5.4,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -110845,7 +111322,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -110856,7 +111333,7 @@
   "why": "29.1 min (recent 29.6, \u22120.5 team-minutes adjustment with Graham Ike out); \u00d7 1.010 pts+reb/min (57% this season's 1.182 over 4 games, 43% prior 0.889); context: home +1%, shared production on GSW \u22121%; calibration +0.3."
  },
  "Stephen Curry|pts|401909285": {
-  "actual": null,
+  "actual": 31.0,
   "adj": [
    "chance pulled toward 50% (keeps 34% of our lean on FanDuel lines, pattern)"
   ],
@@ -110880,10 +111357,16 @@
   "flip": null,
   "frozen_at": "2026-10-30 14:11 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 24.5,
+  "line_errs": {
+   "fanduel": 6.5,
+   "kalshi": 6.5,
+   "prizepicks": 5.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 24.5,
@@ -110894,6 +111377,7 @@
   "move": null,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 5.7,
   "out_ctx": [
    "Adou Thiero",
    "Cameron Carr",
@@ -110962,7 +111446,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -110973,7 +111457,7 @@
   "why": "29.1 min (recent 29.6, \u22120.5 team-minutes adjustment); \u00d7 0.866 points/min (44% this season's 1.045 over 4 games, 56% prior 0.761); context: home +1%, shared production on GSW \u22121%; calibration +0.1."
  },
  "Stephen Curry|ra|401909285": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -110996,10 +111480,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.5
@@ -111008,6 +111496,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 1.8,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -111077,7 +111566,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -111088,7 +111577,7 @@
   "why": "29.1 min (recent 29.6, \u22120.5 team-minutes adjustment with Graham Ike out); \u00d7 0.279 reb+ast/min (33% this season's 0.264 over 4 games, 67% prior 0.290); context: home +1%, shared production on GSW \u22121%; calibration +0.2."
  },
  "Stephen Curry|reb|401909285": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4371,
@@ -111110,10 +111599,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:01 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -111122,6 +111615,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 0.3,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -111190,7 +111684,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -118994,7 +119488,7 @@
   "why": "34.3 min (recent 32.7, +1.6 team-minutes adjustment with Jaylen Brown out); \u00d7 0.172 rebounds/min (25% this season's 0.244 over 4 games, 75% prior 0.157); context: home +1%, shared production on PHI +4%; calibration +0.1."
  },
  "Walker Kessler|ast|401909285": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4774,
@@ -119016,10 +119510,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -119028,6 +119526,7 @@
   "move": null,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 0.5,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -119099,7 +119598,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -119110,7 +119609,7 @@
   "why": "29.3 min (recent 29.1); \u00d7 0.052 assists/min (50% this season's 0.033 over 5 games, 50% prior 0.069); context: road \u22121%, opponent defense +1%, shared production on LAL \u22122%."
  },
  "Walker Kessler|pra|401909285": {
-  "actual": null,
+  "actual": 25.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -119134,10 +119633,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 25.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 24.5,
@@ -119147,6 +119651,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 2.7,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -119216,7 +119721,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -119227,7 +119732,7 @@
   "why": "29.3 min (recent 29.1); \u00d7 0.807 pts+reb+ast/min (62% this season's 0.789 over 5 games, 38% prior 0.847); context: road \u22121%, opponent defense \u22121%, shared production on LAL \u22124%."
  },
  "Walker Kessler|pr|401909285": {
-  "actual": null,
+  "actual": 23.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -119250,10 +119755,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 24.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 24.5
@@ -119262,6 +119771,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 2.1,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -119331,7 +119841,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -119342,7 +119852,7 @@
   "why": "29.3 min (recent 29.1); \u00d7 0.759 pts+reb/min (62% this season's 0.757 over 5 games, 38% prior 0.778); context: road \u22121%, opponent defense \u22121%, shared production on LAL \u22124%."
  },
  "Walker Kessler|pts|401909285": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "chance pulled toward 50% (keeps 34% of our lean on FanDuel lines, pattern)"
   ],
@@ -119366,10 +119876,16 @@
   "flip": null,
   "frozen_at": "2026-10-30 20:18 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "fanduel": 4.5,
+   "kalshi": 4.5,
+   "prizepicks": 4.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 14.5,
@@ -119380,6 +119896,7 @@
   "move": null,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 1.9,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -119445,7 +119962,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -119456,7 +119973,7 @@
   "why": "29.3 min (recent 29.1); \u00d7 0.441 points/min (50% this season's 0.487 over 5 games, 50% prior 0.409); context: road \u22121%, opponent defense \u22121%, shared production on LAL \u22126%."
  },
  "Walker Kessler|ra|401909285": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)"
   ],
@@ -119479,10 +119996,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -119491,6 +120012,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
+  "our_err": 4.1,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -119560,7 +120082,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -119571,7 +120093,7 @@
   "why": "29.3 min (recent 29.1); \u00d7 0.384 reb+ast/min (38% this season's 0.303 over 5 games, 62% prior 0.438); context: road \u22121%, shared production on LAL \u22122%."
  },
  "Walker Kessler|reb|401909285": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)",
    "-3.6 pts: pick follows the line's move (pattern)"
@@ -119595,10 +120117,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": false,
   "label": "lean",
   "line": 10.0,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 3.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -119608,6 +120135,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "GSW",
+  "our_err": 3.5,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -119677,7 +120205,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "LAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -120638,7 +121166,7 @@
   "why": "28.3 min (recent 28.0, +0.3 team-minutes adjustment with Paolo Banchero, Jalen Suggs out); \u00d7 0.267 rebounds/min (25% this season's 0.303 over 4 games, 75% prior 0.265); context: road \u22121%, opponent defense +1%; calibration +0.1."
  },
  "Yaxel Lendeborg|ast|401909285": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5474,
@@ -120660,10 +121188,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 00:03 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 3.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -120672,6 +121204,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 3.5,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -120737,7 +121270,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -120748,7 +121281,7 @@
   "why": "33.4 min (recent 34.1, \u22120.6 team-minutes adjustment); \u00d7 0.107 assists/min (50% this season's 0.119 over 5 games, 50% prior 0.090); context: home +1%, shared production on GSW \u22123%."
  },
  "Yaxel Lendeborg|fg3m|401909285": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -120769,10 +121302,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:01 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": false,
   "home": true,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 1.5,
@@ -120782,6 +121320,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 1.0,
   "out_ctx": [
    "Adou Thiero",
    "Jimmy Butler III",
@@ -120847,7 +121386,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -120858,7 +121397,7 @@
   "why": "33.4 min (recent 34.1, \u22120.6 team-minutes adjustment); \u00d7 0.062 3-pointers made/min (62% this season's 0.065 over 5 games, 38% prior 0.053); context: home +1%, opponent defense +1%, shared production on GSW \u22124%."
  },
  "Yaxel Lendeborg|pa|401909285": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "chance pulled toward 50% (keeps 36% of our lean on PrizePicks lines, pattern)",
    "-3.6 pts: pick follows the line's move (pattern)"
@@ -120882,10 +121421,14 @@
   "flip": null,
   "frozen_at": "2026-10-30 14:41 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "prizepicks": 17.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 23.5
@@ -120894,6 +121437,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "LAL",
+  "our_err": 17.9,
   "out_ctx": [
    "Adou Thiero",
    "Cameron Carr",
@@ -120959,7 +121503,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -120970,7 +121514,7 @@
   "why": "33.4 min (recent 34.1, \u22120.6 team-minutes adjustment); \u00d7 0.722 pts+ast/min (62% this season's 0.792 over 5 games, 38% prior 0.569); context: home +1%, shared production on GSW \u22122%."
  },
  "Yaxel Lendeborg|pra|401909285": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)",
    "-3.6 pts: pick follows the line's move (pattern)"
@@ -120994,10 +121538,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 31.0,
+  "line_errs": {
+   "prizepicks": 24.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 31.0
@@ -121006,6 +121554,7 @@
   "move": 2.5,
   "move_dir": "against",
   "opp": "LAL",
+  "our_err": 25.4,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -121075,7 +121624,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -121086,7 +121635,7 @@
   "why": "33.4 min (recent 34.1, \u22120.6 team-minutes adjustment with Graham Ike out); \u00d7 0.972 pts+reb+ast/min (62% this season's 1.065 over 5 games, 38% prior 0.765); context: home +1%, shared production on GSW \u22121%."
  },
  "Yaxel Lendeborg|pr|401909285": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "chance pulled toward 50% (keeps 26% of our lean on PrizePicks lines, pattern)",
    "-3.6 pts: pick follows the line's move (pattern)"
@@ -121110,10 +121659,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 26.5,
+  "line_errs": {
+   "prizepicks": 19.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 26.5
@@ -121122,6 +121675,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "LAL",
+  "our_err": 21.8,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -121191,7 +121745,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -121202,7 +121756,7 @@
   "why": "33.4 min (recent 34.1, \u22120.6 team-minutes adjustment with Graham Ike out); \u00d7 0.862 pts+reb/min (62% this season's 0.946 over 5 games, 38% prior 0.675); context: home +1%, shared production on GSW \u22121%."
  },
  "Yaxel Lendeborg|pts|401909285": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "chance pulled toward 50% (keeps 34% of our lean on FanDuel lines, pattern)"
   ],
@@ -121225,10 +121779,16 @@
   "flip": null,
   "frozen_at": "2026-10-30 14:11 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 19.5,
+  "line_errs": {
+   "fanduel": 13.5,
+   "kalshi": 13.5,
+   "prizepicks": 12.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 19.5,
@@ -121239,6 +121799,7 @@
   "move": null,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 13.7,
   "out_ctx": [
    "Adou Thiero",
    "Cameron Carr",
@@ -121304,7 +121865,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -121315,7 +121876,7 @@
   "why": "33.4 min (recent 34.1, \u22120.6 team-minutes adjustment); \u00d7 0.592 points/min (50% this season's 0.673 over 5 games, 50% prior 0.478); context: home +1%, shared production on GSW \u22121%."
  },
  "Yaxel Lendeborg|ra|401909285": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [
    "chance pulled toward 50% (keeps 36% of our lean on PrizePicks lines, pattern)"
   ],
@@ -121335,10 +121896,14 @@
   "flip": null,
   "frozen_at": "2026-10-30 10:41 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 10.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -121347,6 +121912,7 @@
   "move": null,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 10.3,
   "out_ctx": [
    "Adou Thiero",
    "Cameron Carr",
@@ -121412,7 +121978,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -121422,7 +121988,7 @@
   "why": "33.4 min (recent 34.1, \u22120.6 team-minutes adjustment); \u00d7 0.338 reb+ast/min (38% this season's 0.393 over 5 games, 62% prior 0.287); context: home +1%, opponent defense \u22121%."
  },
  "Yaxel Lendeborg|reb|401909285": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -121443,10 +122009,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 01:43 UTC",
   "game_id": 401909285,
-  "hit": null,
+  "graded_at": "2026-10-31 05:01 UTC",
+  "hit": true,
   "home": true,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "kalshi": 6.5,
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 7.5,
@@ -121456,6 +122027,7 @@
   "move": null,
   "move_dir": null,
   "opp": "LAL",
+  "our_err": 6.7,
   "out_ctx": [
    "Adou Thiero",
    "Arthur Kaluma",
@@ -121525,7 +122097,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "GSW",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -122034,6 +122606,7 @@
   "flip": null,
   "frozen_at": "2026-10-30 18:21 UTC",
   "game_id": 401909285,
+  "graded_at": "2026-10-31 05:01 UTC",
   "hit": null,
   "home": false,
   "label": "lean",
@@ -122110,7 +122683,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "void",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -122118,6 +122691,7 @@
   "units_raw": 0.0,
   "updates": 1,
   "var": 49.651,
+  "void_reason": "did not play",
   "why": "25.3 min (recent 26.0, \u22120.6 team-minutes adjustment); \u00d7 0.622 pts+reb+ast/min (57% this season's 0.579 over 4 games, 43% prior 0.640); context: road \u22121%, shared production on LAL \u22125%; calibration +0.3; listed Day-To-Day."
  },
  "Ziaire Williams|pr|401909285": {
@@ -122141,6 +122715,7 @@
   "flip": null,
   "frozen_at": "2026-10-30 04:41 UTC",
   "game_id": 401909285,
+  "graded_at": "2026-10-31 05:01 UTC",
   "hit": null,
   "home": false,
   "label": "lean",
@@ -122218,13 +122793,14 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "void",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
   "var": 44.503,
+  "void_reason": "did not play",
   "why": "25.3 min (recent 26.0, \u22120.6 team-minutes adjustment); \u00d7 0.557 pts+reb/min (57% this season's 0.500 over 4 games, 43% prior 0.584); context: road \u22121%, shared production on LAL \u22125%; calibration +0.3; listed Day-To-Day."
  },
  "Ziaire Williams|pts|401909285": {
@@ -122251,6 +122827,7 @@
   "flip": null,
   "frozen_at": "2026-10-30 14:11 UTC",
   "game_id": 401909285,
+  "graded_at": "2026-10-31 05:01 UTC",
   "hit": null,
   "home": false,
   "label": "lean",
@@ -122329,7 +122906,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "void",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
@@ -122337,6 +122914,7 @@
   "units_raw": 0.0,
   "updates": 2,
   "var": 37.763,
+  "void_reason": "did not play",
   "why": "25.3 min (recent 26.0, \u22120.6 team-minutes adjustment); \u00d7 0.448 points/min (44% this season's 0.395 over 4 games, 56% prior 0.440); context: road \u22121%, shared production on LAL \u22126%; calibration +0.1; listed Day-To-Day."
  },
  "Ziaire Williams|reb|401909285": {
@@ -122360,6 +122938,7 @@
   "flip": null,
   "frozen_at": "2026-10-30 04:21 UTC",
   "game_id": 401909285,
+  "graded_at": "2026-10-31 05:01 UTC",
   "hit": null,
   "home": false,
   "label": "lean",
@@ -122437,13 +123016,14 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "void",
   "team": "LAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
   "var": 3.608,
+  "void_reason": "did not play",
   "why": "25.3 min (recent 26.0, \u22120.6 team-minutes adjustment); \u00d7 0.119 rebounds/min (25% this season's 0.105 over 4 games, 75% prior 0.144); context: road \u22121%, shared production on LAL +1%; calibration +0.1; listed Day-To-Day."
  }
 }
