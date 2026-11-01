@@ -249,7 +249,7 @@
   "why": "25.2 min (recent 25.6, \u22120.4 team-minutes adjustment); \u00d7 0.370 points/min (50% this season's 0.421 over 5 games, 50% prior 0.363); context: pace vs CLE +1%, home +1%, rest +1%, shared production on MIL \u22121%; calibration -0.4; injury news: -0.8 with Pete Nance, Cormac Ryan ruled out today (half of how he's actually played without them)."
  },
  "Aaron Wiggins|fg3m|401909898": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6069,
@@ -271,7 +271,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:22 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -302,6 +303,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -317,6 +321,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 0.1,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -390,7 +395,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -401,7 +406,7 @@
   "why": "22.8 min (recent 22.7); \u00d7 0.091 3-pointers made/min (67% this season's 0.114 over 6 games, 33% prior 0.070); context: pace vs NOP +1%, road \u22121%; calibration +0.0."
  },
  "Aaron Wiggins|pra|401909898": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [
    "-3.5 pts: pick follows the line's move (pattern)"
   ],
@@ -424,11 +429,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 17.5
@@ -444,6 +453,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 3.1,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -509,7 +519,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -520,7 +530,7 @@
   "why": "22.8 min (recent 22.7); \u00d7 0.735 pts+reb+ast/min (67% this season's 0.816 over 6 games, 33% prior 0.701); context: pace vs NOP +1%, road \u22121%, shared production on ATL \u22121%; calibration -0.4."
  },
  "Aaron Wiggins|pr|401909898": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -541,11 +551,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -561,6 +575,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 2.5,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -626,7 +641,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -637,7 +652,7 @@
   "why": "22.8 min (recent 22.7); \u00d7 0.656 pts+reb/min (67% this season's 0.741 over 6 games, 33% prior 0.617); context: pace vs NOP +1%, road \u22121%; calibration -0.4."
  },
  "Aaron Wiggins|pts|401909898": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.49019607843137253,
@@ -658,7 +673,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -679,6 +695,11 @@
   ],
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "fanduel": 2.5,
+   "kalshi": 0.5,
+   "prizepicks": 2.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 12.5,
@@ -706,6 +727,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 1.0,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -771,7 +793,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -782,7 +804,7 @@
   "why": "22.8 min (recent 22.7); \u00d7 0.502 points/min (55% this season's 0.589 over 6 games, 45% prior 0.468); context: pace vs NOP +1%, road \u22121%; calibration -0.4."
  },
  "Aaron Wiggins|reb|401909898": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4774,
@@ -804,7 +826,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:20 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -825,6 +848,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -840,6 +866,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 1.3,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -907,7 +934,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -11247,7 +11274,7 @@
   "why": "20.1 min (recent 20.9, \u22120.8 team-minutes adjustment with Jaren Jackson Jr. out); \u00d7 0.583 points/min (50% this season's 0.622 over 5 games, 50% prior 0.590); context: home +1%, rest +1%; calibration -0.3."
  },
  "CJ McCollum|ast|401909898": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4673,
@@ -11268,7 +11295,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:41 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -11289,6 +11317,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -11304,6 +11335,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 1.3,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -11375,7 +11407,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -11386,7 +11418,7 @@
   "why": "29.0 min (recent 28.9); \u00d7 0.122 assists/min (55% this season's 0.108 over 6 games, 45% prior 0.129); context: pace vs NOP +1%, road \u22121%, shared production on ATL \u22125%; calibration -0.1."
  },
  "CJ McCollum|fg3m|401909898": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4168,
@@ -11407,7 +11439,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:41 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -11438,6 +11471,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -11453,6 +11489,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 0.3,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -11524,7 +11561,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -11535,7 +11572,7 @@
   "why": "29.0 min (recent 28.9); \u00d7 0.078 3-pointers made/min (67% this season's 0.076 over 6 games, 33% prior 0.084); context: pace vs NOP +1%, road \u22121%; calibration +0.0."
  },
  "CJ McCollum|pa|401909898": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -11556,11 +11593,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:41 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 19.0,
+  "line_errs": {
+   "prizepicks": 3.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 19.0
@@ -11576,6 +11617,7 @@
   "move": -1.5,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 4.0,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -11647,7 +11689,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -11658,7 +11700,7 @@
   "why": "29.0 min (recent 28.9); \u00d7 0.711 pts+ast/min (67% this season's 0.658 over 6 games, 33% prior 0.744); context: pace vs NOP +1%, road \u22121%, shared production on ATL \u22121%; calibration -0.4."
  },
  "CJ McCollum|pra|401909898": {
-  "actual": null,
+  "actual": 18.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6561,
@@ -11684,7 +11726,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -11710,6 +11753,9 @@
   ],
   "label": "lean",
   "line": 19.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 19.5
@@ -11725,6 +11771,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 4.7,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -11796,7 +11843,7 @@
   },
   "src_key": "kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -11807,7 +11854,7 @@
   "why": "29.0 min (recent 28.9); \u00d7 0.806 pts+reb+ast/min (67% this season's 0.728 over 6 games, 33% prior 0.859); context: pace vs NOP +1%, road \u22121%, shared production on ATL \u22121%; calibration -0.4."
  },
  "CJ McCollum|pr|401909898": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -11828,11 +11875,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 18.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 18.5
@@ -11848,6 +11899,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 3.4,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -11913,7 +11965,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -11924,7 +11976,7 @@
   "why": "29.0 min (recent 28.9); \u00d7 0.686 pts+reb/min (67% this season's 0.620 over 6 games, 33% prior 0.730); context: pace vs NOP +1%, road \u22121%; calibration -0.4."
  },
  "CJ McCollum|pts|401909898": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5555555555555556,
@@ -11945,7 +11997,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -11971,6 +12024,11 @@
   ],
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "fanduel": 1.5,
+   "kalshi": 0.5,
+   "prizepicks": 1.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 15.5,
@@ -11998,6 +12056,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 2.8,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -12063,7 +12122,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -12074,7 +12133,7 @@
   "why": "29.0 min (recent 28.9); \u00d7 0.595 points/min (55% this season's 0.551 over 6 games, 45% prior 0.615); context: pace vs NOP +1%, road \u22121%; calibration -0.4."
  },
  "CJ McCollum|ra|401909898": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -12092,11 +12151,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 06:01 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 5.5
@@ -12112,6 +12175,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 2.4,
   "out_ctx": [
    "Henri Veesaar",
    "Jordan Poole",
@@ -12176,7 +12240,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -12186,7 +12250,7 @@
   "why": "29.0 min (recent 28.9); \u00d7 0.226 reb+ast/min (43% this season's 0.177 over 6 games, 57% prior 0.244); context: pace vs NOP +1%, road \u22121%, opponent defense \u22121%, shared production on ATL \u22122%; calibration +0.1."
  },
  "CJ McCollum|reb|401909898": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.7244,
@@ -12212,7 +12276,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -12233,6 +12298,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -12248,6 +12316,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 1.1,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -12319,7 +12388,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -20794,6 +20863,7 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:20 UTC",
   "game_id": 401909898,
+  "graded_at": "2026-11-01 01:40 UTC",
   "hit": null,
   "home": true,
   "kladder": [
@@ -20899,7 +20969,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "void",
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -20907,6 +20977,7 @@
   "units_raw": 0.0,
   "updates": 31,
   "var": 7.525,
+  "void_reason": "did not play",
   "why": "29.7 min (recent 29.8); \u00d7 0.203 assists/min (44% this season's 0.186 over 4 games, 56% prior 0.195); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP \u22122%; calibration +0.1."
  },
  "Dejounte Murray|fg3m|401909898": {
@@ -20932,6 +21003,7 @@
   "flip": null,
   "frozen_at": "2026-10-31 20:20 UTC",
   "game_id": 401909898,
+  "graded_at": "2026-11-01 01:40 UTC",
   "hit": null,
   "home": true,
   "kladder": [
@@ -21039,7 +21111,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "void",
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -21047,6 +21119,7 @@
   "units_raw": 0.0,
   "updates": 18,
   "var": 1.448,
+  "void_reason": "did not play",
   "why": "29.7 min (recent 29.8); \u00d7 0.040 3-pointers made/min (57% this season's 0.023 over 4 games, 43% prior 0.055); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP +7%; calibration +0.0."
  },
  "Dejounte Murray|pa|401909898": {
@@ -21071,6 +21144,7 @@
   "flip": null,
   "frozen_at": "2026-10-31 05:09 UTC",
   "game_id": 401909898,
+  "graded_at": "2026-11-01 01:40 UTC",
   "hit": null,
   "home": true,
   "label": "lean",
@@ -21147,7 +21221,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "void",
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -21155,6 +21229,7 @@
   "units_raw": 0.0,
   "updates": 1,
   "var": 65.802,
+  "void_reason": "did not play",
   "why": "29.7 min (recent 29.8); \u00d7 0.754 pts+ast/min (57% this season's 0.736 over 4 games, 43% prior 0.731); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP \u22123%; calibration +0.3."
  },
  "Dejounte Murray|pra|401909898": {
@@ -21180,6 +21255,7 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:20 UTC",
   "game_id": 401909898,
+  "graded_at": "2026-11-01 01:40 UTC",
   "hit": null,
   "home": true,
   "kladder": [
@@ -21273,7 +21349,7 @@
   },
   "src_key": "kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "void",
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -21281,6 +21357,7 @@
   "units_raw": 0.0,
   "updates": 53,
   "var": 83.184,
+  "void_reason": "did not play",
   "why": "29.7 min (recent 29.8); \u00d7 0.933 pts+reb+ast/min (57% this season's 0.915 over 4 games, 43% prior 0.906); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP \u22123%; calibration +0.3."
  },
  "Dejounte Murray|pr|401909898": {
@@ -21305,6 +21382,7 @@
   "flip": null,
   "frozen_at": "2026-10-31 05:09 UTC",
   "game_id": 401909898,
+  "graded_at": "2026-11-01 01:40 UTC",
   "hit": null,
   "home": true,
   "label": "lean",
@@ -21381,7 +21459,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "void",
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -21389,6 +21467,7 @@
   "units_raw": 0.0,
   "updates": 1,
   "var": 69.744,
+  "void_reason": "did not play",
   "why": "29.7 min (recent 29.8); \u00d7 0.730 pts+reb/min (57% this season's 0.729 over 4 games, 43% prior 0.711); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP \u22123%; calibration +0.3."
  },
  "Dejounte Murray|pts|401909898": {
@@ -21413,6 +21492,7 @@
   "flip": null,
   "frozen_at": "2026-10-31 14:10 UTC",
   "game_id": 401909898,
+  "graded_at": "2026-11-01 01:40 UTC",
   "hit": null,
   "home": true,
   "kladder": [
@@ -21525,7 +21605,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "void",
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -21533,6 +21613,7 @@
   "units_raw": 0.0,
   "updates": 2,
   "var": 53.01,
+  "void_reason": "did not play",
   "why": "29.7 min (recent 29.8); \u00d7 0.550 points/min (44% this season's 0.550 over 4 games, 56% prior 0.536); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP \u22124%; calibration +0.1."
  },
  "Dejounte Murray|ra|401909898": {
@@ -21557,6 +21638,7 @@
   "flip": null,
   "frozen_at": "2026-10-31 05:09 UTC",
   "game_id": 401909898,
+  "graded_at": "2026-11-01 01:40 UTC",
   "hit": null,
   "home": true,
   "label": "lean",
@@ -21633,7 +21715,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "void",
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -21641,6 +21723,7 @@
   "units_raw": 0.0,
   "updates": 1,
   "var": 14.324,
+  "void_reason": "did not play",
   "why": "29.7 min (recent 29.8); \u00d7 0.383 reb+ast/min (33% this season's 0.364 over 4 games, 67% prior 0.370); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP \u22121%; calibration +0.2."
  },
  "Dejounte Murray|reb|401909898": {
@@ -21665,6 +21748,7 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:22 UTC",
   "game_id": 401909898,
+  "graded_at": "2026-11-01 01:40 UTC",
   "hit": null,
   "home": true,
   "kladder": [
@@ -21765,7 +21849,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "void",
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -21773,6 +21857,7 @@
   "units_raw": 0.0,
   "updates": 45,
   "var": 6.324,
+  "void_reason": "did not play",
   "why": "29.7 min (recent 29.8); \u00d7 0.179 rebounds/min (25% this season's 0.178 over 4 games, 75% prior 0.175); context: pace vs ATL +1%, home +1%; calibration +0.1."
  },
  "Deni Avdija|ast|401909896": {
@@ -23844,7 +23929,7 @@
   "why": "27.4 min (recent 27.1); \u00d7 0.115 rebounds/min (33% this season's 0.115 over 6 games, 67% prior 0.109); context: home +1%, rest \u22122%, opponent defense +1%, shared production on CHA \u22123%; calibration +0.1."
  },
  "Derik Queen|ast|401909898": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3761,
@@ -23866,7 +23951,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:41 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -23887,6 +23973,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -23902,6 +23991,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 0.0,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -23977,7 +24067,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -23988,7 +24078,7 @@
   "why": "26.4 min (recent 24.7, +1.7 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.121 assists/min (50% this season's 0.076 over 5 games, 50% prior 0.137); context: pace vs ATL +1%, home +1%, opponent defense +2%, shared production on NOP +4%; calibration -0.1; injury news: +0.7 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Derik Queen|pa|401909898": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [
    "-3.5 pts: pick follows the line's move (pattern)"
   ],
@@ -24011,11 +24101,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.5
@@ -24031,6 +24125,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 5.3,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -24096,7 +24191,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -24107,7 +24202,7 @@
   "why": "26.4 min (recent 24.7, +1.7 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.592 pts+ast/min (62% this season's 0.571 over 5 games, 38% prior 0.605); context: pace vs ATL +1%, home +1%, opponent defense +1%, shared production on NOP \u22122%; calibration -0.4; injury news: +2.0 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Derik Queen|pra|401909898": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [
    "-3.5 pts: pick follows the line's move (pattern)"
   ],
@@ -24130,11 +24225,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 21.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 21.5
@@ -24150,6 +24249,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 5.8,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -24215,7 +24315,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -24226,7 +24326,7 @@
   "why": "26.4 min (recent 24.7, +1.7 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.882 pts+reb+ast/min (62% this season's 0.899 over 5 games, 38% prior 0.891); context: pace vs ATL +1%, home +1%, opponent defense +1%, shared production on NOP \u22122%; calibration -0.4; injury news: +2.8 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Derik Queen|pr|401909898": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -24247,11 +24347,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 18.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 18.5
@@ -24267,6 +24371,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 5.9,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -24332,7 +24437,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -24343,7 +24448,7 @@
   "why": "26.4 min (recent 24.7, +1.7 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.765 pts+reb/min (62% this season's 0.824 over 5 games, 38% prior 0.753); context: pace vs ATL +1%, home +1%, opponent defense +1%, shared production on NOP \u22123%; calibration -0.4; injury news: +2.1 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Derik Queen|pts|401909898": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.49504950495049505,
@@ -24364,7 +24469,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -24385,6 +24491,11 @@
   ],
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "fanduel": 3.5,
+   "kalshi": 1.5,
+   "prizepicks": 3.0
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 11.5,
@@ -24412,6 +24523,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 5.3,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -24477,7 +24589,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -24488,7 +24600,7 @@
   "why": "26.4 min (recent 24.7, +1.7 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.473 points/min (50% this season's 0.496 over 5 games, 50% prior 0.468); context: pace vs ATL +1%, home +1%, opponent defense +1%, shared production on NOP \u22123%; calibration -0.4; injury news: +1.3 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Derik Queen|ra|401909898": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [
    "-3.5 pts: pick follows the line's move (pattern)"
   ],
@@ -24511,11 +24623,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:00 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -24531,6 +24647,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 0.6,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -24596,7 +24713,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -24607,7 +24724,7 @@
   "why": "26.4 min (recent 24.7, +1.7 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.410 reb+ast/min (38% this season's 0.403 over 5 games, 62% prior 0.423); context: pace vs ATL +1%, home +1%, opponent defense +1%; calibration +0.1; injury news: +1.5 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Derik Queen|reb|401909898": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4472,
@@ -24629,7 +24746,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -24660,6 +24778,9 @@
   ],
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 7.5
@@ -24675,6 +24796,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.4,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -24746,7 +24868,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -29902,7 +30024,7 @@
   "why": "28.2 min (recent 29.8, \u22120.9 team-minutes adjustment, \u22120.7 blowout risk (market margin 12)); \u00d7 0.155 rebounds/min (29% this season's 0.161 over 5 games, 71% prior 0.149); context: pace vs MIN +1%, home +1%, rest +1%, shared production on SAS \u22122%; calibration +0.1."
  },
  "Dyson Daniels|ast|401909898": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3761,
@@ -29923,7 +30045,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -29949,6 +30072,9 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 5.5
@@ -29964,6 +30090,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 1.9,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -30035,7 +30162,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -30046,7 +30173,7 @@
   "why": "31.4 min (recent 31.3); \u00d7 0.166 assists/min (55% this season's 0.154 over 6 games, 45% prior 0.158); context: pace vs NOP +1%, road \u22121%, shared production on ATL \u22125%; calibration -0.1."
  },
  "Dyson Daniels|fg3m|401909898": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3659,
@@ -30072,7 +30199,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:20 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -30098,6 +30226,9 @@
   ],
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 0.5
@@ -30113,6 +30244,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 0.3,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -30186,7 +30318,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -30197,7 +30329,7 @@
   "why": "31.4 min (recent 31.3); \u00d7 0.010 3-pointers made/min (67% this season's 0.006 over 6 games, 33% prior 0.022); context: pace vs NOP +1%, road \u22121%, shared production on ATL +1%; calibration +0.0."
  },
  "Dyson Daniels|pa|401909898": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -30218,11 +30350,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -30238,6 +30374,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 5.1,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -30303,7 +30440,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -30314,7 +30451,7 @@
   "why": "31.4 min (recent 31.3); \u00d7 0.535 pts+ast/min (67% this season's 0.520 over 6 games, 33% prior 0.548); context: pace vs NOP +1%, road \u22121%, shared production on ATL \u22122%; calibration -0.4."
  },
  "Dyson Daniels|pra|401909898": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6659,
@@ -30340,7 +30477,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -30366,6 +30504,9 @@
   ],
   "label": "lean",
   "line": 19.5,
+  "line_errs": {
+   "kalshi": 4.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 19.5
@@ -30381,6 +30522,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 7.0,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -30452,7 +30594,7 @@
   },
   "src_key": "kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -30463,7 +30605,7 @@
   "why": "31.4 min (recent 31.3); \u00d7 0.725 pts+reb+ast/min (67% this season's 0.697 over 6 games, 33% prior 0.736); context: pace vs NOP +1%, road \u22121%, shared production on ATL \u22121%; calibration -0.4."
  },
  "Dyson Daniels|pr|401909898": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -30484,11 +30626,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:20 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 17.5
@@ -30504,6 +30650,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 5.1,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -30569,7 +30716,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -30580,7 +30727,7 @@
   "why": "31.4 min (recent 31.3); \u00d7 0.559 pts+reb/min (67% this season's 0.543 over 6 games, 33% prior 0.578); context: pace vs NOP +1%, road \u22121%; calibration -0.4."
  },
  "Dyson Daniels|pts|401909898": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5238095238095238,
@@ -30601,7 +30748,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -30622,6 +30770,11 @@
   ],
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "fanduel": 3.5,
+   "kalshi": 1.5,
+   "prizepicks": 3.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 11.5,
@@ -30649,6 +30802,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 3.2,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -30714,7 +30868,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -30725,7 +30879,7 @@
   "why": "31.4 min (recent 31.3); \u00d7 0.371 points/min (55% this season's 0.366 over 6 games, 45% prior 0.390); context: pace vs NOP +1%, road \u22121%; calibration -0.4."
  },
  "Dyson Daniels|ra|401909898": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -30746,11 +30900,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -30766,6 +30924,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 4.0,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -30831,7 +30990,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -30842,7 +31001,7 @@
   "why": "31.4 min (recent 31.3); \u00d7 0.358 reb+ast/min (43% this season's 0.331 over 6 games, 57% prior 0.347); context: pace vs NOP +1%, road \u22121%, opponent defense \u22121%, shared production on ATL \u22122%; calibration +0.1."
  },
  "Dyson Daniels|reb|401909898": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5474,
@@ -30864,7 +31023,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -30890,6 +31050,9 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 5.5
@@ -30905,6 +31068,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 2.0,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -30976,7 +31140,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -33105,7 +33269,7 @@
   "why": "25.0 min (recent 24.8); \u00d7 0.112 rebounds/min (33% this season's 0.111 over 6 games, 67% prior 0.116); context: home +1%, rest \u22122%, opponent defense +1%, shared production on CHA \u22123%; calibration +0.1."
  },
  "Herbert Jones|fg3m|401909898": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6365,
@@ -33127,7 +33291,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -33148,6 +33313,9 @@
   ],
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 0.5
@@ -33163,6 +33331,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.1,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -33234,7 +33403,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -33245,7 +33414,7 @@
   "why": "27.7 min (recent 25.9, +1.8 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.037 3-pointers made/min (62% this season's 0.020 over 5 games, 38% prior 0.049); context: pace vs ATL +1%, home +1%, shared production on NOP +8%; calibration +0.0."
  },
  "Herbert Jones|pra|401909898": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -33263,11 +33432,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 14:41 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -33283,6 +33456,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 3.5,
   "out_ctx": [
    "Henri Veesaar",
    "Jordan Poole",
@@ -33347,7 +33521,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -33357,7 +33531,7 @@
   "why": "25.9 min (recent 25.9); \u00d7 0.499 pts+reb+ast/min (62% this season's 0.431 over 5 games, 38% prior 0.574); context: pace vs ATL +1%, home +1%, shared production on NOP \u22123%; calibration -0.3."
  },
  "Herbert Jones|pr|401909898": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [
    "-3.5 pts: pick follows the line's move (pattern)"
   ],
@@ -33380,11 +33554,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -33400,6 +33578,7 @@
   "move": 3.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 1.6,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -33465,7 +33644,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -33476,7 +33655,7 @@
   "why": "27.7 min (recent 25.9, +1.8 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.430 pts+reb/min (62% this season's 0.412 over 5 games, 38% prior 0.477); context: pace vs ATL +1%, home +1%, shared production on NOP \u22123%; calibration -0.4; injury news: +1.0 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Herbert Jones|pts|401909898": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3455,
@@ -33498,7 +33677,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -33514,6 +33694,9 @@
   ],
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 9.5
@@ -33529,6 +33712,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 2.0,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -33609,7 +33793,7 @@
   },
   "src_key": "kalshi",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -33620,7 +33804,7 @@
   "why": "27.7 min (recent 25.9, +1.8 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.317 points/min (50% this season's 0.294 over 5 games, 50% prior 0.343); context: pace vs ATL +1%, home +1%, shared production on NOP \u22123%; calibration -0.4; injury news: +0.7 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Herbert Jones|reb|401909898": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4067,
@@ -33642,7 +33826,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -33663,6 +33848,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -33678,6 +33866,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 0.7,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -33755,7 +33944,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -38945,7 +39134,7 @@
   "why": "27.4 min (recent 27.8, \u22120.5 team-minutes adjustment); \u00d7 0.196 rebounds/min (29% this season's 0.248 over 5 games, 71% prior 0.186); context: pace vs CLE +1%, home +1%, rest +1%, shared production on MIL \u22123%; calibration +0.1."
  },
  "Jalen Johnson|ast|401909898": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5574,
@@ -38967,7 +39156,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -38998,6 +39188,9 @@
   ],
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "kalshi": 3.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 7.5
@@ -39013,6 +39206,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 3.3,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -39084,7 +39278,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -39095,7 +39289,7 @@
   "why": "34.2 min (recent 34.1); \u00d7 0.227 assists/min (55% this season's 0.254 over 6 games, 45% prior 0.190); context: pace vs NOP +1%, road \u22121%, shared production on ATL \u22125%; calibration -0.1."
  },
  "Jalen Johnson|fg3m|401909898": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5175,
@@ -39117,7 +39311,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -39143,6 +39338,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -39158,6 +39356,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 0.4,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -39229,7 +39428,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -39240,7 +39439,7 @@
   "why": "34.2 min (recent 34.1); \u00d7 0.041 3-pointers made/min (67% this season's 0.035 over 6 games, 33% prior 0.046); context: pace vs NOP +1%, road \u22121%, opponent defense +1%; calibration +0.0."
  },
  "Jalen Johnson|pa|401909898": {
-  "actual": null,
+  "actual": 17.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -39261,11 +39460,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 30.5,
+  "line_errs": {
+   "prizepicks": 13.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 30.5
@@ -39281,6 +39484,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 10.6,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -39346,7 +39550,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -39357,7 +39561,7 @@
   "why": "34.2 min (recent 34.1); \u00d7 0.827 pts+ast/min (67% this season's 0.826 over 6 games, 33% prior 0.787); context: pace vs NOP +1%, road \u22121%, shared production on ATL \u22121%; calibration -0.4."
  },
  "Jalen Johnson|pra|401909898": {
-  "actual": null,
+  "actual": 24.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5375,
@@ -39383,7 +39587,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -39404,6 +39609,9 @@
   ],
   "label": "lean",
   "line": 39.5,
+  "line_errs": {
+   "kalshi": 15.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 39.5
@@ -39419,6 +39627,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 13.4,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -39490,7 +39699,7 @@
   },
   "src_key": "kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -39501,7 +39710,7 @@
   "why": "34.2 min (recent 34.1); \u00d7 1.107 pts+reb+ast/min (67% this season's 1.104 over 6 games, 33% prior 1.063); context: pace vs NOP +1%, road \u22121%, opponent defense +1%, shared production on ATL \u22121%; calibration -0.4."
  },
  "Jalen Johnson|pr|401909898": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -39522,11 +39731,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 31.5,
+  "line_errs": {
+   "prizepicks": 11.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 31.5
@@ -39542,6 +39755,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 9.8,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -39607,7 +39821,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -39618,7 +39832,7 @@
   "why": "34.2 min (recent 34.1); \u00d7 0.876 pts+reb/min (67% this season's 0.851 over 6 games, 33% prior 0.873); context: pace vs NOP +1%, road \u22121%, opponent defense +1%; calibration -0.4."
  },
  "Jalen Johnson|pts|401909898": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5412844036697247,
@@ -39639,7 +39853,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -39665,6 +39880,11 @@
   ],
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "fanduel": 9.5,
+   "kalshi": 6.5,
+   "prizepicks": 9.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 22.5,
@@ -39692,6 +39912,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 7.1,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -39757,7 +39978,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -39768,7 +39989,7 @@
   "why": "34.2 min (recent 34.1); \u00d7 0.597 points/min (55% this season's 0.572 over 6 games, 45% prior 0.597); context: pace vs NOP +1%, road \u22121%; calibration -0.4."
  },
  "Jalen Johnson|ra|401909898": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -39789,11 +40010,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 17.5
@@ -39809,6 +40034,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 6.1,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -39874,7 +40100,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -39885,7 +40111,7 @@
   "why": "34.2 min (recent 34.1); \u00d7 0.503 reb+ast/min (43% this season's 0.532 over 6 games, 57% prior 0.466); context: pace vs NOP +1%, road \u22121%, opponent defense +1%, shared production on ATL \u22122%; calibration +0.1."
  },
  "Jalen Johnson|reb|401909898": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5075,
@@ -39906,7 +40132,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -39937,6 +40164,9 @@
   ],
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 9.5
@@ -39952,6 +40182,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 2.8,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -40023,7 +40254,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -46863,7 +47094,7 @@
   "why": "31.0 min (recent 27.7, +3.3 team-minutes adjustment with Ty Jerome, Scotty Pippen Jr., Quinten Post out); \u00d7 0.112 rebounds/min (29% this season's 0.098 over 5 games, 71% prior 0.127); context: home +1%, shared production on MEM \u22127%; calibration +0.1."
  },
  "Jeremiah Fears|ast|401909898": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4067,
@@ -46885,7 +47116,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -46911,6 +47143,9 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 5.5
@@ -46926,6 +47161,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 2.3,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -46999,7 +47235,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -47010,7 +47246,7 @@
   "why": "29.9 min (recent 28.0, +1.9 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.145 assists/min (50% this season's 0.165 over 5 games, 50% prior 0.132); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP +4%; calibration -0.1; injury news: +0.3 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Jeremiah Fears|fg3m|401909898": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4371,
@@ -47031,7 +47267,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:22 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -47057,6 +47294,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -47072,6 +47312,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.4,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -47143,7 +47384,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -47154,7 +47395,7 @@
   "why": "29.9 min (recent 28.0, +1.9 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.048 3-pointers made/min (62% this season's 0.050 over 5 games, 38% prior 0.050); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP +8%; calibration +0.0; injury news: -0.2 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Jeremiah Fears|pa|401909898": {
-  "actual": null,
+  "actual": 27.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -47175,11 +47416,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:20 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 21.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 21.5
@@ -47195,6 +47440,7 @@
   "move": 5.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 6.1,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -47260,7 +47506,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -47271,7 +47517,7 @@
   "why": "29.9 min (recent 28.0, +1.9 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.670 pts+ast/min (62% this season's 0.645 over 5 games, 38% prior 0.675); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP \u22122%; calibration -0.4; injury news: +1.5 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Jeremiah Fears|pra|401909898": {
-  "actual": null,
+  "actual": 32.0,
   "adj": [
    "-3.5 pts: pick follows the line's move (pattern)"
   ],
@@ -47294,11 +47540,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:00 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 25.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 25.5
@@ -47314,6 +47564,7 @@
   "move": 6.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 5.6,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -47379,7 +47630,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -47390,7 +47641,7 @@
   "why": "29.9 min (recent 28.0, +1.9 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.827 pts+reb+ast/min (62% this season's 0.818 over 5 games, 38% prior 0.816); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP \u22122%; calibration -0.4; injury news: +2.4 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Jeremiah Fears|pr|401909898": {
-  "actual": null,
+  "actual": 25.0,
   "adj": [
    "-3.5 pts: pick follows the line's move (pattern)"
   ],
@@ -47413,11 +47664,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 20.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 20.5
@@ -47433,6 +47688,7 @@
   "move": 3.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 3.4,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -47498,7 +47754,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -47509,7 +47765,7 @@
   "why": "29.9 min (recent 28.0, +1.9 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.680 pts+reb/min (62% this season's 0.653 over 5 games, 38% prior 0.684); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP \u22123%; calibration -0.4; injury news: +2.1 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Jeremiah Fears|pts|401909898": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5412844036697247,
@@ -47531,7 +47787,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:40 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -47552,6 +47809,11 @@
   ],
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "fanduel": 6.5,
+   "kalshi": 5.5,
+   "prizepicks": 3.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 13.5,
@@ -47579,6 +47841,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 3.8,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -47644,7 +47907,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -47655,7 +47918,7 @@
   "why": "29.9 min (recent 28.0, +1.9 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.528 points/min (50% this season's 0.479 over 5 games, 50% prior 0.543); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP \u22123%; calibration -0.3; injury news: +1.2 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Jeremiah Fears|ra|401909898": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [
    "-3.5 pts: pick follows the line's move (pattern)"
   ],
@@ -47678,11 +47941,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:20 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 9.0,
+  "line_errs": {
+   "prizepicks": 3.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.0
@@ -47698,6 +47965,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 1.8,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -47763,7 +48031,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -47774,7 +48042,7 @@
   "why": "29.9 min (recent 28.0, +1.9 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.295 reb+ast/min (38% this season's 0.339 over 5 games, 62% prior 0.273); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP +1%; calibration +0.1; injury news: +1.1 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Jeremiah Fears|reb|401909898": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6069,
@@ -47800,7 +48068,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:41 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -47826,6 +48095,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -47841,6 +48113,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.4,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -47914,7 +48187,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -48418,7 +48691,7 @@
   "why": "15.7 min (recent 14.9, +0.8 team-minutes adjustment with Anthony Edwards, Rudy Gobert out); \u00d7 0.333 rebounds/min (33% this season's 0.433 over 6 games, 67% prior 0.266); context: road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on MIN +8%; calibration +0.1; injury news: +1.1 with Rudy Gobert ruled out today (half of how he's actually played without him)."
  },
  "Jock Landale|pra|401909898": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -48439,11 +48712,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 15:41 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 13.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -48459,6 +48736,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 15.1,
   "out_ctx": [
    "Henri Veesaar",
    "Jordan Poole",
@@ -48523,7 +48801,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -48534,7 +48812,7 @@
   "why": "18.3 min (recent 18.2); \u00d7 0.836 pts+reb+ast/min (67% this season's 0.868 over 6 games, 33% prior 0.809); context: pace vs NOP +1%, road \u22121%, opponent defense +1%; calibration -0.3."
  },
  "Jock Landale|pts|401909898": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -48556,10 +48834,14 @@
   "flip": null,
   "frozen_at": "2026-10-31 05:09 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.5
@@ -48568,6 +48850,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 8.1,
   "out_ctx": [
    "Henri Veesaar",
    "Jordan Poole",
@@ -48635,7 +48918,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -48646,7 +48929,7 @@
   "why": "18.3 min (recent 18.2); \u00d7 0.456 points/min (55% this season's 0.415 over 6 games, 45% prior 0.466); context: pace vs NOP +1%, road \u22121%, opponent defense +1%; calibration -0.3."
  },
  "Jock Landale|reb|401909898": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -48667,11 +48950,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 07:41 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 5.0,
+  "line_errs": {
+   "prizepicks": 5.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 5.0
@@ -48687,6 +48974,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 5.1,
   "out_ctx": [
    "Henri Veesaar",
    "Jordan Poole",
@@ -48751,7 +49039,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -51502,7 +51790,7 @@
   "why": "27.0 min (recent 28.5, \u22120.9 team-minutes adjustment, \u22120.7 blowout risk (market margin 12)); \u00d7 0.186 rebounds/min (29% this season's 0.120 over 5 games, 71% prior 0.195); context: pace vs MIN +1%, home +1%, rest +1%, shared production on SAS \u22122%; calibration +0.1."
  },
  "Karlo Matkovic|pra|401909898": {
-  "actual": null,
+  "actual": 19.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -51520,11 +51808,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:41 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -51540,6 +51832,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 4.8,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -51587,7 +51880,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -51597,7 +51890,7 @@
   "why": "21.0 min (recent 19.6, +1.3 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.685 pts+reb+ast/min (57% this season's 0.651 over 4 games, 43% prior 0.714); context: pace vs ATL +1%, home +1%, shared production on NOP \u22122%; calibration +0.3; injury news: -0.4 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Karlo Matkovic|pr|401909898": {
-  "actual": null,
+  "actual": 18.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -51618,11 +51911,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -51638,6 +51935,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 5.1,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -51703,7 +52001,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -51714,7 +52012,7 @@
   "why": "21.0 min (recent 19.6, +1.3 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.630 pts+reb/min (57% this season's 0.603 over 4 games, 43% prior 0.653); context: pace vs ATL +1%, home +1%, shared production on NOP \u22123%; calibration +0.3; injury news: -0.5 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Karlo Matkovic|pts|401909898": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.576271186440678,
@@ -51735,11 +52033,16 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "fanduel": 0.5,
+   "prizepicks": 0.0
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 7.5,
@@ -51761,6 +52064,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.0,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -51826,7 +52130,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -51837,7 +52141,7 @@
   "why": "21.0 min (recent 19.6, +1.3 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.407 points/min (44% this season's 0.429 over 4 games, 56% prior 0.407); context: pace vs ATL +1%, home +1%, shared production on NOP \u22123%; calibration +0.1; injury news: -0.5 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Karlo Matkovic|ra|401909898": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -51855,11 +52159,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:41 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.5
@@ -51875,6 +52183,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 4.6,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -51922,7 +52231,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -51932,7 +52241,7 @@
   "why": "21.0 min (recent 19.6, +1.3 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.289 reb+ast/min (33% this season's 0.222 over 4 games, 67% prior 0.308); context: pace vs ATL +1%, home +1%, shared production on NOP \u22121%; calibration +0.2; injury news: +0.1 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Karlo Matkovic|reb|401909898": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -51953,11 +52262,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:40 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 5.0,
+  "line_errs": {
+   "prizepicks": 5.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 5.0
@@ -51973,6 +52286,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 4.9,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -52038,7 +52352,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -56888,7 +57202,7 @@
   "why": "31.3 min (recent 32.6, \u22121.2 team-minutes adjustment with Jaren Jackson Jr. out); \u00d7 0.119 rebounds/min (29% this season's 0.122 over 5 games, 71% prior 0.118); context: home +1%, rest +1%, opponent defense \u22122%, shared production on UTA +4%; calibration +0.1."
  },
  "Kingston Flemings|ast|401909898": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4673,
@@ -56909,7 +57223,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -56930,6 +57245,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -56945,6 +57263,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 2.7,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -57010,7 +57329,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -57021,7 +57340,7 @@
   "why": "18.8 min (recent 18.7); \u00d7 0.190 assists/min (55% this season's 0.231 over 6 games, 45% prior 0.133); context: pace vs NOP +1%, road \u22121%, shared production on ATL \u22125%; calibration -0.1."
  },
  "Kingston Flemings|fg3m|401909898": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -57039,11 +57358,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 15:01 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 0.5
@@ -57059,6 +57382,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 0.2,
   "out_ctx": [
    "Henri Veesaar",
    "Jordan Poole",
@@ -57123,7 +57447,7 @@
   },
   "src_key": "prizepicks",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -57133,7 +57457,7 @@
   "why": "18.8 min (recent 18.7); \u00d7 0.039 3-pointers made/min (67% this season's 0.034 over 6 games, 33% prior 0.065); context: pace vs NOP +1%, road \u22121%, shared production on ATL +1%; calibration +0.0."
  },
  "Kingston Flemings|pa|401909898": {
-  "actual": null,
+  "actual": 18.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -57154,11 +57478,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -57174,6 +57502,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 8.3,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -57239,7 +57568,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -57250,7 +57579,7 @@
   "why": "18.8 min (recent 18.7); \u00d7 0.550 pts+ast/min (67% this season's 0.556 over 6 games, 33% prior 0.616); context: pace vs NOP +1%, road \u22121%, shared production on ATL \u22122%; calibration -0.4."
  },
  "Kingston Flemings|pra|401909898": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -57271,11 +57600,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -57291,6 +57624,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 7.6,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -57356,7 +57690,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -57367,7 +57701,7 @@
   "why": "18.8 min (recent 18.7); \u00d7 0.692 pts+reb+ast/min (67% this season's 0.709 over 6 games, 33% prior 0.751); context: pace vs NOP +1%, road \u22121%, shared production on ATL \u22121%; calibration -0.4."
  },
  "Kingston Flemings|pr|401909898": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [
    "-3.5 pts: pick follows the line's move (pattern)"
   ],
@@ -57390,11 +57724,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -57410,6 +57748,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 5.2,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -57475,7 +57814,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -57486,7 +57825,7 @@
   "why": "18.8 min (recent 18.7); \u00d7 0.491 pts+reb/min (67% this season's 0.479 over 6 games, 33% prior 0.618); context: pace vs NOP +1%, road \u22121%; calibration -0.4."
  },
  "Kingston Flemings|pts|401909898": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5412844036697247,
@@ -57507,7 +57846,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -57523,6 +57863,11 @@
   ],
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "fanduel": 4.5,
+   "kalshi": 2.5,
+   "prizepicks": 5.0
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 7.5,
@@ -57550,6 +57895,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 5.5,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -57615,7 +57961,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -57626,7 +57972,7 @@
   "why": "18.8 min (recent 18.7); \u00d7 0.365 points/min (55% this season's 0.325 over 6 games, 45% prior 0.483); context: pace vs NOP +1%, road \u22121%; calibration -0.4."
  },
  "Kingston Flemings|ra|401909898": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -57644,11 +57990,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 08:01 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 5.5
@@ -57664,6 +58014,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 2.1,
   "out_ctx": [
    "Henri Veesaar",
    "Jordan Poole",
@@ -57728,7 +58079,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -57738,7 +58089,7 @@
   "why": "18.8 min (recent 18.7); \u00d7 0.319 reb+ast/min (43% this season's 0.385 over 6 games, 57% prior 0.268); context: pace vs NOP +1%, road \u22121%, opponent defense \u22121%, shared production on ATL \u22123%; calibration +0.1."
  },
  "Kingston Flemings|reb|401909898": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.705,
@@ -57760,7 +58111,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -57781,6 +58133,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -57796,6 +58151,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 0.6,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -57867,7 +58223,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -62041,7 +62397,7 @@
   "why": "30.2 min (recent 32.9, \u22121.3 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.192 rebounds/min (29% this season's 0.210 over 5 games, 71% prior 0.198); context: pace vs CHA \u22121%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on PHI +5%; calibration +0.1; listed Day-To-Day."
  },
  "Luguentz Dort|fg3m|401909898": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4572,
@@ -62063,7 +62419,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -62089,6 +62446,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -62104,6 +62464,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 0.4,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -62177,7 +62538,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -62188,7 +62549,7 @@
   "why": "23.0 min (recent 22.9); \u00d7 0.062 3-pointers made/min (67% this season's 0.051 over 6 games, 33% prior 0.072); context: pace vs NOP +1%, road \u22121%; calibration +0.0."
  },
  "Luguentz Dort|pra|401909898": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -62209,11 +62570,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -62229,6 +62594,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 2.3,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -62294,7 +62660,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -62305,7 +62671,7 @@
   "why": "23.0 min (recent 22.9); \u00d7 0.534 pts+reb+ast/min (67% this season's 0.577 over 6 games, 33% prior 0.538); context: pace vs NOP +1%, road \u22121%; calibration -0.4."
  },
  "Luguentz Dort|pr|401909898": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -62326,11 +62692,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -62346,6 +62716,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 3.6,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -62411,7 +62782,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -62422,7 +62793,7 @@
   "why": "23.0 min (recent 22.9); \u00d7 0.472 pts+reb/min (67% this season's 0.496 over 6 games, 33% prior 0.479); context: pace vs NOP +1%, road \u22121%; calibration -0.4."
  },
  "Luguentz Dort|pts|401909898": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5283018867924528,
@@ -62443,7 +62814,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -62459,6 +62831,11 @@
   ],
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "fanduel": 3.5,
+   "kalshi": 1.5,
+   "prizepicks": 3.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 7.5,
@@ -62486,6 +62863,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 3.6,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -62551,7 +62929,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -62562,7 +62940,7 @@
   "why": "23.0 min (recent 22.9); \u00d7 0.338 points/min (55% this season's 0.358 over 6 games, 45% prior 0.343); context: pace vs NOP +1%, road \u22121%; calibration -0.4."
  },
  "Luguentz Dort|reb|401909898": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3659,
@@ -62584,7 +62962,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -62605,6 +62984,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -62620,6 +63002,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 0.1,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -62691,7 +63074,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -67773,7 +68156,7 @@
   "why": "28.0 min (recent 27.7); \u00d7 0.258 rebounds/min (33% this season's 0.327 over 6 games, 67% prior 0.239); context: home +1%, rest \u22122%, opponent defense +2%, shared production on CHA \u22123%; calibration +0.1."
  },
  "Nickeil Alexander-Walker|ast|401909898": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4673,
@@ -67795,7 +68178,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:41 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -67816,6 +68200,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -67831,6 +68218,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 2.0,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -67902,7 +68290,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -67913,7 +68301,7 @@
   "why": "32.1 min (recent 32.0); \u00d7 0.102 assists/min (55% this season's 0.094 over 6 games, 45% prior 0.112); context: pace vs NOP +1%, road \u22121%, shared production on ATL \u22125%; calibration -0.1."
  },
  "Nickeil Alexander-Walker|fg3m|401909898": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5971,
@@ -67934,7 +68322,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:41 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -67970,6 +68359,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -67985,6 +68377,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 3.4,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -68056,7 +68449,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -68067,7 +68460,7 @@
   "why": "32.1 min (recent 32.0); \u00d7 0.105 3-pointers made/min (67% this season's 0.122 over 6 games, 33% prior 0.086); context: pace vs NOP +1%, road \u22121%; calibration +0.0."
  },
  "Nickeil Alexander-Walker|pa|401909898": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -68088,11 +68481,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "prizepicks": 10.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 23.5
@@ -68108,6 +68505,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 9.9,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -68173,7 +68571,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -68184,7 +68582,7 @@
   "why": "32.1 min (recent 32.0); \u00d7 0.731 pts+ast/min (67% this season's 0.773 over 6 games, 33% prior 0.656); context: pace vs NOP +1%, road \u22121%, shared production on ATL \u22121%; calibration -0.4."
  },
  "Nickeil Alexander-Walker|pra|401909898": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6069,
@@ -68205,7 +68603,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -68221,6 +68620,9 @@
   ],
   "label": "lean",
   "line": 24.5,
+  "line_errs": {
+   "kalshi": 9.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 24.5
@@ -68236,6 +68638,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 11.2,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -68307,7 +68710,7 @@
   },
   "src_key": "kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -68318,7 +68721,7 @@
   "why": "32.1 min (recent 32.0); \u00d7 0.839 pts+reb+ast/min (67% this season's 0.884 over 6 games, 33% prior 0.769); context: pace vs NOP +1%, road \u22121%, shared production on ATL \u22121%; calibration -0.4."
  },
  "Nickeil Alexander-Walker|pr|401909898": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -68339,11 +68742,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:20 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "prizepicks": 9.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 23.5
@@ -68359,6 +68766,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 9.2,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -68424,7 +68832,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -68435,7 +68843,7 @@
   "why": "32.1 min (recent 32.0); \u00d7 0.738 pts+reb/min (67% this season's 0.790 over 6 games, 33% prior 0.657); context: pace vs NOP +1%, road \u22121%; calibration -0.4."
  },
  "Nickeil Alexander-Walker|pts|401909898": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5283018867924528,
@@ -68456,7 +68864,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -68487,6 +68896,11 @@
   ],
   "label": "lean",
   "line": 19.5,
+  "line_errs": {
+   "fanduel": 7.5,
+   "kalshi": 7.5,
+   "prizepicks": 7.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 19.5,
@@ -68514,6 +68928,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 7.5,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -68579,7 +68994,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -68590,7 +69005,7 @@
   "why": "32.1 min (recent 32.0); \u00d7 0.621 points/min (55% this season's 0.680 over 6 games, 45% prior 0.545); context: pace vs NOP +1%, road \u22121%; calibration -0.4."
  },
  "Nickeil Alexander-Walker|ra|401909898": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -68611,11 +69026,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 6.5
@@ -68631,6 +69050,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 3.7,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -68696,7 +69116,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -68707,7 +69127,7 @@
   "why": "32.1 min (recent 32.0); \u00d7 0.211 reb+ast/min (43% this season's 0.204 over 6 games, 57% prior 0.225); context: pace vs NOP +1%, road \u22121%, opponent defense \u22121%, shared production on ATL \u22122%; calibration +0.1."
  },
  "Nickeil Alexander-Walker|reb|401909898": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4472,
@@ -68728,7 +69148,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:00 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -68754,6 +69175,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -68769,6 +69193,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 1.5,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -68834,7 +69259,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -68845,7 +69270,7 @@
   "why": "32.1 min (recent 32.0); \u00d7 0.108 rebounds/min (33% this season's 0.110 over 6 games, 67% prior 0.113); context: pace vs NOP +1%, road \u22121%, opponent defense \u22122%; calibration +0.1."
  },
  "Onyeka Okongwu|ast|401909898": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.7147,
@@ -68871,7 +69296,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -68892,6 +69318,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -68907,6 +69336,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 1.8,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -68978,7 +69408,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -68989,7 +69419,7 @@
   "why": "30.7 min (recent 30.6); \u00d7 0.098 assists/min (55% this season's 0.100 over 6 games, 45% prior 0.094); context: pace vs NOP +1%, road \u22121%, shared production on ATL \u22125%; calibration -0.1."
  },
  "Onyeka Okongwu|fg3m|401909898": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4874,
@@ -69011,7 +69441,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -69037,6 +69468,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -69052,6 +69486,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 1.6,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -69125,7 +69560,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -69136,7 +69571,7 @@
   "why": "30.7 min (recent 30.6); \u00d7 0.052 3-pointers made/min (67% this season's 0.047 over 6 games, 33% prior 0.051); context: pace vs NOP +1%, road \u22121%, opponent defense +1%; calibration +0.0."
  },
  "Onyeka Okongwu|pa|401909898": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -69157,11 +69592,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -69177,6 +69616,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 9.8,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -69242,7 +69682,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -69253,7 +69693,7 @@
   "why": "30.7 min (recent 30.6); \u00d7 0.564 pts+ast/min (67% this season's 0.553 over 6 games, 33% prior 0.579); context: pace vs NOP +1%, road \u22121%, shared production on ATL \u22121%; calibration -0.4."
  },
  "Onyeka Okongwu|pra|401909898": {
-  "actual": null,
+  "actual": 17.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4472,
@@ -69274,7 +69714,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -69295,6 +69736,9 @@
   ],
   "label": "lean",
   "line": 24.5,
+  "line_errs": {
+   "kalshi": 7.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 24.5
@@ -69310,6 +69754,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 7.4,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -69381,7 +69826,7 @@
   },
   "src_key": "kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -69392,7 +69837,7 @@
   "why": "30.7 min (recent 30.6); \u00d7 0.810 pts+reb+ast/min (67% this season's 0.788 over 6 games, 33% prior 0.838); context: pace vs NOP +1%, road \u22121%, opponent defense +1%, shared production on ATL \u22121%; calibration -0.4."
  },
  "Onyeka Okongwu|pr|401909898": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -69413,11 +69858,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 20.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 20.5
@@ -69433,6 +69882,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 5.6,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -69498,7 +69948,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -69509,7 +69959,7 @@
   "why": "30.7 min (recent 30.6); \u00d7 0.711 pts+reb/min (67% this season's 0.688 over 6 games, 33% prior 0.744); context: pace vs NOP +1%, road \u22121%, opponent defense +1%; calibration -0.4."
  },
  "Onyeka Okongwu|pts|401909898": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5652173913043478,
@@ -69530,7 +69980,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -69551,6 +70002,11 @@
   ],
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "fanduel": 6.5,
+   "kalshi": 8.5,
+   "prizepicks": 7.0
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 12.5,
@@ -69578,6 +70034,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 8.0,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -69643,7 +70100,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -69654,7 +70111,7 @@
   "why": "30.7 min (recent 30.6); \u00d7 0.468 points/min (55% this season's 0.453 over 6 games, 45% prior 0.485); context: pace vs NOP +1%, road \u22121%; calibration -0.4."
  },
  "Onyeka Okongwu|ra|401909898": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [
    "-3.6 pts: pick follows the line's move (pattern)"
   ],
@@ -69677,11 +70134,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 12:41 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 10.0,
+  "line_errs": {
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.0
@@ -69697,6 +70158,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 0.3,
   "out_ctx": [
    "Henri Veesaar",
    "Jordan Poole",
@@ -69761,7 +70223,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -69772,7 +70234,7 @@
   "why": "30.7 min (recent 30.6); \u00d7 0.347 reb+ast/min (43% this season's 0.335 over 6 games, 57% prior 0.353); context: pace vs NOP +1%, road \u22121%, opponent defense +1%, shared production on ATL \u22121%; calibration +0.1."
  },
  "Onyeka Okongwu|reb|401909898": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4572,
@@ -69793,7 +70255,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -69824,6 +70287,9 @@
   ],
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 7.5
@@ -69839,6 +70305,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 2.1,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -69910,7 +70377,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -75440,7 +75907,7 @@
   "why": "25.8 min (recent 26.3, \u22120.5 team-minutes adjustment); \u00d7 0.141 rebounds/min (29% this season's 0.174 over 5 games, 71% prior 0.140); context: pace vs CLE +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on MIL \u22123%; calibration +0.1; injury news: +0.7 with Pete Nance, Cormac Ryan ruled out today (half of how he's actually played without them)."
  },
  "Saddiq Bey|ast|401909898": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5872,
@@ -75462,7 +75929,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:22 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -75483,6 +75951,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -75498,6 +75969,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 1.6,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -75569,7 +76041,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -75580,7 +76052,7 @@
   "why": "29.6 min (recent 27.8, +1.9 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.082 assists/min (50% this season's 0.083 over 5 games, 50% prior 0.090); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP +4%; calibration -0.1."
  },
  "Saddiq Bey|fg3m|401909898": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5275,
@@ -75602,7 +76074,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -75628,6 +76101,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -75643,6 +76119,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 1.1,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -75714,7 +76191,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -75725,7 +76202,7 @@
   "why": "29.6 min (recent 27.8, +1.9 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.070 3-pointers made/min (62% this season's 0.074 over 5 games, 38% prior 0.067); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP +8%; calibration +0.0; injury news: -0.2 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Saddiq Bey|pa|401909898": {
-  "actual": null,
+  "actual": 26.0,
   "adj": [
    "-3.5 pts: pick follows the line's move (pattern)"
   ],
@@ -75748,11 +76225,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:41 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 10.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -75768,6 +76249,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 7.6,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -75839,7 +76321,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -75850,7 +76332,7 @@
   "why": "29.6 min (recent 27.8, +1.9 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.648 pts+ast/min (62% this season's 0.628 over 5 games, 38% prior 0.642); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP \u22123%; calibration -0.4."
  },
  "Saddiq Bey|pra|401909898": {
-  "actual": null,
+  "actual": 32.0,
   "adj": [
    "-3.5 pts: pick follows the line's move (pattern)"
   ],
@@ -75873,11 +76355,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:41 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 19.0,
+  "line_errs": {
+   "prizepicks": 13.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 19.0
@@ -75893,6 +76379,7 @@
   "move": 0.5,
   "move_dir": "agree",
   "opp": "ATL",
+  "our_err": 8.5,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -75964,7 +76451,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -75975,7 +76462,7 @@
   "why": "29.6 min (recent 27.8, +1.9 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.810 pts+reb+ast/min (62% this season's 0.760 over 5 games, 38% prior 0.812); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP \u22122%; calibration -0.4; injury news: +0.3 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Saddiq Bey|pr|401909898": {
-  "actual": null,
+  "actual": 31.0,
   "adj": [
    "-3.5 pts: pick follows the line's move (pattern)"
   ],
@@ -75998,11 +76485,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "prizepicks": 13.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 17.5
@@ -76018,6 +76509,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 10.1,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -76083,7 +76575,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -76094,7 +76586,7 @@
   "why": "29.6 min (recent 27.8, +1.9 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.728 pts+reb/min (62% this season's 0.678 over 5 games, 38% prior 0.722); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP \u22123%; calibration -0.4; injury news: +0.2 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Saddiq Bey|pts|401909898": {
-  "actual": null,
+  "actual": 25.0,
   "adj": [
    "no stake: 51% is a coin flip, even at a cheap price"
   ],
@@ -76118,7 +76610,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -76139,6 +76632,11 @@
   ],
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "fanduel": 12.5,
+   "kalshi": 10.5,
+   "prizepicks": 12.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 12.5,
@@ -76166,6 +76664,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 9.2,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -76234,7 +76733,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -76245,7 +76744,7 @@
   "why": "29.6 min (recent 27.8, +1.9 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.567 points/min (50% this season's 0.545 over 5 games, 50% prior 0.552); context: pace vs ATL +1%, home +1%, opponent defense \u22121%, shared production on NOP \u22123%; calibration -0.4; injury news: -0.1 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Saddiq Bey|ra|401909898": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -76267,11 +76766,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 6.0,
+  "line_errs": {
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 6.0
@@ -76287,6 +76790,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 1.0,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -76355,7 +76859,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -76366,7 +76870,7 @@
   "why": "29.6 min (recent 27.8, +1.9 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.251 reb+ast/min (38% this season's 0.215 over 5 games, 62% prior 0.261); context: pace vs ATL +1%, home +1%, opponent defense \u22121%; calibration +0.1; injury news: +0.4 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Saddiq Bey|reb|401909898": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "no stake yet: picks like this are 271/459 (59%); a stake needs 30+ graded at 66%+ (2 points over the 64% their prices need)"
   ],
@@ -76394,7 +76898,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -76415,6 +76920,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -76430,6 +76938,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.6,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -76505,7 +77014,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -83763,7 +84272,7 @@
   "why": "29.3 min (recent 29.5); \u00d7 0.146 rebounds/min (25% this season's 0.070 over 4 games, 75% prior 0.165); context: pace vs UTA +1%, road \u22121%, opponent defense +1%, shared production on POR \u22125%; calibration +0.1; injury news: +0.5 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Trey Murphy III|ast|401909898": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4269,
@@ -83785,7 +84294,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -83806,6 +84316,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -83821,6 +84334,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 1.1,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -83888,7 +84402,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -83899,7 +84413,7 @@
   "why": "35.9 min (recent 33.6, +2.3 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.098 assists/min (50% this season's 0.086 over 5 games, 50% prior 0.103); context: pace vs ATL +1%, home +1%, shared production on NOP +4%; calibration -0.1; injury news: +0.3 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Trey Murphy III|fg3m|401909898": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4874,
@@ -83920,7 +84434,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -83951,6 +84466,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -83966,6 +84484,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 2.2,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -84037,7 +84556,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -84048,7 +84567,7 @@
   "why": "35.9 min (recent 33.6, +2.3 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.081 3-pointers made/min (62% this season's 0.068 over 5 games, 38% prior 0.085); context: pace vs ATL +1%, home +1%, shared production on NOP +8%; calibration +0.0."
  },
  "Trey Murphy III|pa|401909898": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [
    "-3.5 pts: pick follows the line's move (pattern)"
   ],
@@ -84071,11 +84590,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 20.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 20.5
@@ -84091,6 +84614,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 4.6,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -84156,7 +84680,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -84167,7 +84691,7 @@
   "why": "35.9 min (recent 33.6, +2.3 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.638 pts+ast/min (62% this season's 0.525 over 5 games, 38% prior 0.692); context: pace vs ATL +1%, home +1%, shared production on NOP \u22122%; calibration -0.4; injury news: +2.3 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Trey Murphy III|pra|401909898": {
-  "actual": null,
+  "actual": 25.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5673,
@@ -84193,7 +84717,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -84214,6 +84739,9 @@
   ],
   "label": "lean",
   "line": 24.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 24.5
@@ -84229,6 +84757,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 5.3,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -84300,7 +84829,7 @@
   },
   "src_key": "kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -84311,7 +84840,7 @@
   "why": "35.9 min (recent 33.6, +2.3 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.789 pts+reb+ast/min (62% this season's 0.660 over 5 games, 38% prior 0.854); context: pace vs ATL +1%, home +1%, shared production on NOP \u22122%; calibration -0.4; injury news: +2.4 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Trey Murphy III|pr|401909898": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [
    "-3.5 pts: pick follows the line's move (pattern)"
   ],
@@ -84334,11 +84863,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 22.5
@@ -84354,6 +84887,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 6.4,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -84419,7 +84953,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -84430,7 +84964,7 @@
   "why": "35.9 min (recent 33.6, +2.3 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.692 pts+reb/min (62% this season's 0.574 over 5 games, 38% prior 0.750); context: pace vs ATL +1%, home +1%, shared production on NOP \u22123%; calibration -0.4; injury news: +2.2 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Trey Murphy III|pts|401909898": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5,
@@ -84451,7 +84985,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:40 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -84477,6 +85012,11 @@
   ],
   "label": "lean",
   "line": 16.5,
+  "line_errs": {
+   "fanduel": 1.5,
+   "kalshi": 0.5,
+   "prizepicks": 1.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 16.5,
@@ -84504,6 +85044,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 6.1,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -84569,7 +85110,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -84580,7 +85121,7 @@
   "why": "35.9 min (recent 33.6, +2.3 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.551 points/min (50% this season's 0.438 over 5 games, 50% prior 0.588); context: pace vs ATL +1%, home +1%, shared production on NOP \u22123%; calibration -0.3; injury news: +2.0 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Trey Murphy III|ra|401909898": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -84598,11 +85139,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 08:01 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.5
@@ -84618,6 +85163,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 1.2,
   "out_ctx": [
    "Henri Veesaar",
    "Jordan Poole",
@@ -84682,7 +85228,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -84692,7 +85238,7 @@
   "why": "33.5 min (recent 33.6); \u00d7 0.255 reb+ast/min (38% this season's 0.222 over 5 games, 62% prior 0.265); context: pace vs ATL +1%, home +1%, shared production on NOP \u22121%; calibration +0.1."
  },
  "Trey Murphy III|reb|401909898": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3659,
@@ -84714,7 +85260,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:41 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -84740,6 +85287,9 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 5.5
@@ -84755,6 +85305,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.9,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -84826,7 +85377,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -92030,7 +92581,7 @@
   "why": "32.8 min (recent 33.7, \u22120.7 team-minutes adjustment with Keegan Murray out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.102 rebounds/min (29% this season's 0.093 over 5 games, 71% prior 0.110); context: road \u22121%; calibration +0.1."
  },
  "Zion Williamson|ast|401909898": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3557,
@@ -92052,7 +92603,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:20 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -92073,6 +92625,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -92088,6 +92643,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.2,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -92153,7 +92709,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -92164,7 +92720,7 @@
   "why": "32.8 min (recent 30.7, +2.1 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.097 assists/min (50% this season's 0.068 over 5 games, 50% prior 0.117); context: pace vs ATL +1%, home +1%, shared production on NOP +4%; calibration -0.1; injury news: +0.5 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Zion Williamson|pa|401909898": {
-  "actual": null,
+  "actual": 19.0,
   "adj": [
    "-3.5 pts: pick follows the line's move (pattern)"
   ],
@@ -92187,11 +92743,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 24.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 24.5
@@ -92207,6 +92767,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 7.0,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -92272,7 +92833,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -92283,7 +92844,7 @@
   "why": "32.8 min (recent 30.7, +2.1 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.787 pts+ast/min (62% this season's 0.745 over 5 games, 38% prior 0.812); context: pace vs ATL +1%, home +1%, shared production on NOP \u22123%; calibration -0.4; injury news: +0.8 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Zion Williamson|pra|401909898": {
-  "actual": null,
+  "actual": 25.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5673,
@@ -92305,7 +92866,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -92326,6 +92888,9 @@
   ],
   "label": "lean",
   "line": 29.5,
+  "line_errs": {
+   "kalshi": 4.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 29.5
@@ -92341,6 +92906,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 7.2,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -92412,7 +92978,7 @@
   },
   "src_key": "kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -92423,7 +92989,7 @@
   "why": "32.8 min (recent 30.7, +2.1 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.955 pts+reb+ast/min (62% this season's 0.870 over 5 games, 38% prior 1.014); context: pace vs ATL +1%, home +1%, shared production on NOP \u22122%; calibration -0.4; injury news: +1.4 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Zion Williamson|pr|401909898": {
-  "actual": null,
+  "actual": 21.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -92444,11 +93010,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:00 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 26.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 26.5
@@ -92464,6 +93034,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 7.5,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -92529,7 +93100,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -92540,7 +93111,7 @@
   "why": "32.8 min (recent 30.7, +2.1 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.861 pts+reb/min (62% this season's 0.801 over 5 games, 38% prior 0.897); context: pace vs ATL +1%, home +1%, shared production on NOP \u22123%; calibration -0.4; injury news: +0.9 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Zion Williamson|pts|401909898": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5412844036697247,
@@ -92561,7 +93132,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:40 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -92587,6 +93159,11 @@
   ],
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "fanduel": 7.5,
+   "kalshi": 4.5,
+   "prizepicks": 6.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 22.5,
@@ -92614,6 +93191,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 7.4,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -92679,7 +93257,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -92690,7 +93268,7 @@
   "why": "32.8 min (recent 30.7, +2.1 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.695 points/min (50% this season's 0.677 over 5 games, 50% prior 0.694); context: pace vs ATL +1%, home +1%, shared production on NOP \u22123%; calibration -0.3; injury news: +0.2 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Zion Williamson|ra|401909898": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "-3.6 pts: pick follows the line's move (pattern)"
   ],
@@ -92713,11 +93291,15 @@
   "flip": null,
   "frozen_at": "2026-10-31 21:40 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.5
@@ -92733,6 +93315,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 0.6,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -92798,7 +93381,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
@@ -92809,7 +93392,7 @@
   "why": "32.8 min (recent 30.7, +2.1 team-minutes adjustment with Yves Missi, Dejounte Murray, Jordan Poole out); \u00d7 0.279 reb+ast/min (38% this season's 0.193 over 5 games, 62% prior 0.320); context: pace vs ATL +1%, home +1%; calibration +0.1; injury news: +1.2 with Dejounte Murray ruled out today (half of how he's actually played without him)."
  },
  "Zion Williamson|reb|401909898": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "no stake: 51% is a coin flip, even at a cheap price"
   ],
@@ -92837,7 +93420,8 @@
   "flip": null,
   "frozen_at": "2026-10-31 22:42 UTC",
   "game_id": 401909898,
-  "hit": null,
+  "graded_at": "2026-11-01 01:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -92858,6 +93442,9 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 5.5
@@ -92873,6 +93460,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.8,
   "out_ctx": [
    "Dejounte Murray",
    "Henri Veesaar",
@@ -92946,7 +93534,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-10-31T23:00:00+00:00",
