@@ -1635,20 +1635,20 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 2.08,
+  "blend_mean": 2.1,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5062,
-  "close_at": "2026-11-01 14:20 UTC",
+  "chance": 0.5101,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.515,
+  "close_mkt": 0.52,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 03:00 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:20 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909903,
   "hit": null,
   "home": true,
@@ -1661,12 +1661,12 @@
    [
     2,
     0.51,
-    0.52
+    0.53
    ],
    [
     3,
     0.24,
-    0.27
+    0.28
    ],
    [
     4,
@@ -1681,11 +1681,11 @@
    "kalshi": 1.5,
    "prizepicks": 1.5
   },
-  "market_side": 0.515,
+  "market_side": 0.52,
   "mkt": {
    "kalshi": [
     1.5,
-    0.5375,
+    0.5474,
     0.5075
    ],
    "prizepicks": [
@@ -1733,7 +1733,7 @@
   "tip_utc": "2026-11-01T20:30:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 22,
+  "updates": 23,
   "var": 3.474,
   "why": "28.6 min (recent 27.1, +1.5 team-minutes adjustment with Paolo Banchero, Jalen Suggs out); \u00d7 0.067 3-pointers made/min (50% this season's 0.101 over 3 games, 50% prior 0.048); context: pace vs BOS \u22121%, home +1%, opponent defense +1%, shared production on ORL \u22121%; calibration +0.0."
  },
@@ -3006,30 +3006,28 @@
  },
  "Brandin Podziemski|ast|401909905": {
   "actual": null,
-  "adj": [],
-  "anchor": null,
-  "be_over": 0.6659,
-  "be_under": 0.4371,
-  "best5": [
-   "ast:best5"
+  "adj": [
+   "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
-  "best5_at": {
-   "ast:best5": "2026-11-01 14:00:57 UTC"
-  },
-  "blend_mean": 4.7,
+  "anchor": null,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "best5_at": {},
+  "blend_mean": 4.88,
   "blend_w": 0.225,
-  "break_even": 0.6659,
-  "call": "OVER",
-  "chance": 0.6134,
-  "close_at": "2026-11-01 14:00 UTC",
-  "close_line": 3.5,
-  "close_mkt": 0.615,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5011,
+  "close_at": "2026-11-01 15:00 UTC",
+  "close_line": 4.5,
+  "close_mkt": null,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 03:00 UTC",
   "first_line": 4.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:20 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909905,
   "hit": null,
   "home": true,
@@ -3041,25 +3039,31 @@
    ],
    [
     6,
-    0.23,
+    0.22,
     0.27
    ]
   ],
   "label": "lean",
-  "line": 3.5,
-  "line_source": "kalshi",
+  "line": 4.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 3.5
+   "kalshi": 3.5,
+   "prizepicks": 4.5
   },
-  "market_side": 0.615,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     3.5,
     0.6659,
     0.4371
+   ],
+   "prizepicks": [
+    4.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "LAC",
   "out_ctx": [
@@ -3094,7 +3098,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks",
   "stat": "ast",
   "status": "pending",
   "team": "GSW",
@@ -3102,7 +3106,7 @@
   "tip_utc": "2026-11-02T01:30:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 5,
+  "updates": 6,
   "var": 6.958,
   "why": "31.4 min (recent 31.0, +0.4 team-minutes adjustment with Stephen Curry, Draymond Green out); \u00d7 0.139 assists/min (44% this season's 0.153 over 4 games, 56% prior 0.130); context: pace vs LAC \u22121%, home +1%, shared production on GSW +8%; calibration +0.1."
  },
@@ -4110,11 +4114,9 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [
-   "pts:value",
-   "pts:best5"
+   "pts:value"
   ],
   "best5_at": {
-   "pts:best5": "2026-11-01 14:41:02 UTC",
    "pts:value": "2026-11-01 14:00:57 UTC"
   },
   "blend_mean": 13.88,
@@ -4280,7 +4282,7 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.4067,
+  "be_over": 0.4168,
   "be_under": 0.6365,
   "best5": [
    "fg3m:best5"
@@ -4288,38 +4290,43 @@
   "best5_at": {
    "fg3m:best5": "2026-11-01 12:41:10 UTC"
   },
-  "blend_mean": 1.44,
+  "blend_mean": 1.45,
   "blend_w": 0.225,
   "break_even": 0.6365,
   "call": "UNDER",
-  "chance": 0.6196,
-  "close_at": "2026-11-01 14:41 UTC",
+  "chance": 0.6158,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.615,
+  "close_mkt": 0.61,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 05:39 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:41 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909905,
   "hit": null,
   "home": false,
   "kladder": [
    [
     1,
-    0.67,
-    0.77
+    0.68,
+    0.74
    ],
    [
     2,
     0.38,
-    0.39
+    0.4
    ],
    [
     3,
     0.16,
     0.21
+   ],
+   [
+    4,
+    0.04,
+    0.09
    ]
   ],
   "label": "lean",
@@ -4328,11 +4335,11 @@
   "lines": {
    "kalshi": 1.5
   },
-  "market_side": 0.615,
+  "market_side": 0.61,
   "mkt": {
    "kalshi": [
     1.5,
-    0.4067,
+    0.4168,
     0.6365
    ]
   },
@@ -4379,7 +4386,7 @@
   "tip_utc": "2026-11-02T01:30:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 9,
+  "updates": 10,
   "var": 2.04,
   "why": "23.8 min (recent 23.5, +0.3 team-minutes adjustment); \u00d7 0.061 3-pointers made/min (62% this season's 0.062 over 5 games, 38% prior 0.059); context: road \u22121%, opponent defense \u22124%; calibration -0.0."
  },
@@ -4750,12 +4757,8 @@
   "anchor": "kalshi",
   "be_over": 0.542,
   "be_under": 0.542,
-  "best5": [
-   "ast:value"
-  ],
-  "best5_at": {
-   "ast:value": "2026-11-01 14:41:02 UTC"
-  },
+  "best5": [],
+  "best5_at": {},
   "blend_mean": 1.76,
   "blend_w": 0.225,
   "break_even": 0.542,
@@ -5193,28 +5196,30 @@
  },
  "Collin Murray-Boyles|pts|401909906": {
   "actual": null,
-  "adj": [
-   "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
-  ],
+  "adj": [],
   "anchor": null,
-  "be_over": 0.542,
-  "be_under": 0.542,
-  "best5": [],
-  "best5_at": {},
-  "blend_mean": 8.6,
+  "be_over": 0.4673,
+  "be_under": 0.5772,
+  "best5": [
+   "pts:best5"
+  ],
+  "best5_at": {
+   "pts:best5": "2026-11-01 15:00:59 UTC"
+  },
+  "blend_mean": 8.79,
   "blend_w": 0.225,
-  "break_even": 0.542,
-  "call": "OVER",
-  "chance": 0.502,
-  "close_at": "2026-11-01 14:41 UTC",
-  "close_line": 8.5,
-  "close_mkt": null,
+  "break_even": 0.5772,
+  "call": "UNDER",
+  "chance": 0.5432,
+  "close_at": "2026-11-01 15:00 UTC",
+  "close_line": 9.5,
+  "close_mkt": 0.555,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 04:00 UTC",
   "first_line": 9.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:41 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909906,
   "hit": null,
   "home": false,
@@ -5226,8 +5231,8 @@
    ],
    [
     15,
-    0.13,
-    0.2
+    0.12,
+    0.19
    ],
    [
     20,
@@ -5236,27 +5241,21 @@
    ]
   ],
   "label": "lean",
-  "line": 8.5,
-  "line_source": "prizepicks",
+  "line": 9.5,
+  "line_source": "kalshi",
   "lines": {
-   "kalshi": 9.5,
-   "prizepicks": 8.5
+   "kalshi": 9.5
   },
-  "market_side": null,
+  "market_side": 0.555,
   "mkt": {
    "kalshi": [
     9.5,
     0.4673,
     0.5772
-   ],
-   "prizepicks": [
-    8.5,
-    0.542,
-    0.542
    ]
   },
-  "move": -1.0,
-  "move_dir": "against",
+  "move": null,
+  "move_dir": null,
   "opp": "LAL",
   "out_ctx": [
    "Adou Thiero",
@@ -5283,7 +5282,7 @@
     "units": 0.0
    }
   },
-  "src_key": "prizepicks",
+  "src_key": "kalshi",
   "stat": "pts",
   "status": "pending",
   "team": "TOR",
@@ -5291,7 +5290,7 @@
   "tip_utc": "2026-11-02T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 8,
+  "updates": 9,
   "var": 27.187,
   "why": "21.0 min (recent 21.0); \u00d7 0.438 points/min (50% this season's 0.442 over 5 games, 50% prior 0.407); context: road \u22121%, shared production on TOR +3%; calibration -0.3."
  },
@@ -5388,38 +5387,38 @@
    "reb:best5": "2026-11-01 13:21:03 UTC",
    "reb:value": "2026-11-01 04:41:02 UTC"
   },
-  "blend_mean": 5.53,
+  "blend_mean": 5.57,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5673,
-  "close_at": "2026-11-01 14:20 UTC",
+  "chance": 0.5636,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 5.5,
-  "close_mkt": 0.55,
+  "close_mkt": 0.545,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 04:00 UTC",
   "first_line": 5.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:20 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909906,
   "hit": null,
   "home": false,
   "kladder": [
    [
     4,
-    0.71,
+    0.69,
     0.78
    ],
    [
     6,
     0.44,
-    0.46
+    0.47
    ],
    [
     8,
     0.17,
-    0.24
+    0.23
    ]
   ],
   "label": "lean",
@@ -5429,11 +5428,11 @@
    "kalshi": 5.5,
    "prizepicks": 5.5
   },
-  "market_side": 0.55,
+  "market_side": 0.545,
   "mkt": {
    "kalshi": [
     5.5,
-    0.4774,
+    0.4874,
     0.5772
    ],
    "prizepicks": [
@@ -5478,7 +5477,7 @@
   "tip_utc": "2026-11-02T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 21,
+  "updates": 22,
   "var": 10.764,
   "why": "21.0 min (recent 21.0); \u00d7 0.238 rebounds/min (29% this season's 0.263 over 5 games, 71% prior 0.222); context: road \u22121%, opponent defense \u22121%; calibration -0.0."
  },
@@ -5594,28 +5593,24 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.6757,
+  "be_over": 0.6659,
   "be_under": 0.4472,
-  "best5": [
-   "fg3m:best5"
-  ],
-  "best5_at": {
-   "fg3m:best5": "2026-11-01 12:00:57 UTC"
-  },
-  "blend_mean": 1.28,
+  "best5": [],
+  "best5_at": {},
+  "blend_mean": 1.27,
   "blend_w": 0.225,
-  "break_even": 0.6757,
+  "break_even": 0.6659,
   "call": "OVER",
-  "chance": 0.616,
-  "close_at": "2026-11-01 14:00 UTC",
+  "chance": 0.6122,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 0.5,
-  "close_mkt": 0.615,
+  "close_mkt": 0.61,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 04:41 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:00 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909906,
   "hit": null,
   "home": true,
@@ -5623,7 +5618,7 @@
    [
     1,
     0.57,
-    0.66
+    0.65
    ],
    [
     2,
@@ -5637,11 +5632,11 @@
   "lines": {
    "kalshi": 0.5
   },
-  "market_side": 0.615,
+  "market_side": 0.61,
   "mkt": {
    "kalshi": [
     0.5,
-    0.6757,
+    0.6659,
     0.4472
    ]
   },
@@ -5683,7 +5678,7 @@
   "tip_utc": "2026-11-02T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 18,
+  "updates": 19,
   "var": 1.994,
   "why": "20.3 min (recent 21.0, \u22120.7 team-minutes adjustment); \u00d7 0.073 3-pointers made/min (62% this season's 0.069 over 5 games, 38% prior 0.067); context: home +1%, shared production on LAL \u221210%; calibration -0.0."
  },
@@ -5921,10 +5916,8 @@
  },
  "Collin Sexton|pts|401909906": {
   "actual": null,
-  "adj": [
-   "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
-  ],
-  "anchor": null,
+  "adj": [],
+  "anchor": "kalshi",
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [
@@ -5935,20 +5928,20 @@
    "pts:best5": "2026-11-01 11:00:59 UTC",
    "pts:value": "2026-11-01 12:00:57 UTC"
   },
-  "blend_mean": 9.26,
+  "blend_mean": 9.7,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.516,
-  "close_at": "2026-11-01 14:41 UTC",
-  "close_line": 8.5,
-  "close_mkt": null,
+  "chance": 0.5127,
+  "close_at": "2026-11-01 15:00 UTC",
+  "close_line": 9.5,
+  "close_mkt": 0.465,
   "date": "2026-11-01",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-01 04:00 UTC",
   "first_line": 9.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:41 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909906,
   "hit": null,
   "home": true,
@@ -5960,7 +5953,7 @@
    ],
    [
     15,
-    0.11,
+    0.09,
     0.15
    ],
    [
@@ -5970,13 +5963,13 @@
    ]
   ],
   "label": "lean",
-  "line": 8.5,
+  "line": 9.5,
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
-   "prizepicks": 8.5
+   "prizepicks": 9.5
   },
-  "market_side": null,
+  "market_side": 0.465,
   "mkt": {
    "kalshi": [
     9.5,
@@ -5984,13 +5977,13 @@
     0.5574
    ],
    "prizepicks": [
-    8.5,
+    9.5,
     0.542,
     0.542
    ]
   },
-  "move": -1.0,
-  "move_dir": "against",
+  "move": 0.0,
+  "move_dir": null,
   "opp": "TOR",
   "out_ctx": [
    "Adou Thiero",
@@ -6020,7 +6013,7 @@
     "units": 0.0
    }
   },
-  "src_key": "prizepicks",
+  "src_key": "prizepicks+kalshi",
   "stat": "pts",
   "status": "pending",
   "team": "LAL",
@@ -6028,7 +6021,7 @@
   "tip_utc": "2026-11-02T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 9,
+  "updates": 10,
   "var": 28.429,
   "why": "20.3 min (recent 21.0, \u22120.7 team-minutes adjustment); \u00d7 0.632 points/min (50% this season's 0.552 over 5 games, 50% prior 0.631); context: home +1%, shared production on LAL \u22126%; calibration -0.3."
  },
@@ -6113,32 +6106,37 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.5673,
-  "be_under": 0.4975,
+  "be_over": 0.5275,
+  "be_under": 0.5175,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 2.01,
+  "blend_mean": 1.91,
   "blend_w": 0.225,
-  "break_even": 0.5673,
+  "break_even": 0.5275,
   "call": "OVER",
-  "chance": 0.536,
-  "close_at": "2026-11-01 14:41 UTC",
+  "chance": 0.5138,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.535,
+  "close_mkt": 0.505,
   "date": "2026-11-01",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-01 12:20 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:41 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909906,
   "hit": null,
   "home": true,
   "kladder": [
    [
     2,
-    0.52,
-    0.55
+    0.5,
+    0.51
+   ],
+   [
+    6,
+    0.02,
+    0.1
    ]
   ],
   "label": "lean",
@@ -6147,12 +6145,12 @@
   "lines": {
    "kalshi": 1.5
   },
-  "market_side": 0.535,
+  "market_side": 0.505,
   "mkt": {
    "kalshi": [
     1.5,
-    0.5673,
-    0.4975
+    0.5275,
+    0.5175
    ]
   },
   "move": 0.0,
@@ -6191,21 +6189,27 @@
   "tip_utc": "2026-11-02T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 4,
+  "updates": 5,
   "var": 2.728,
   "why": "20.3 min (recent 21.0, \u22120.7 team-minutes adjustment); \u00d7 0.101 rebounds/min (29% this season's 0.115 over 5 games, 71% prior 0.101); context: home +1%, opponent defense \u22121%, shared production on LAL +1%; calibration -0.0."
  },
  "Darius Garland|ast|401909905": {
   "actual": null,
-  "adj": [],
-  "anchor": null,
-  "be_over": 0.4572,
-  "be_under": 0.5872,
-  "best5": [],
-  "best5_at": {},
+  "adj": [
+   "no stake yet: picks like this are 3/8 (38%); a stake needs 30+ graded at 56%+ (2 points over the 54% their prices need)"
+  ],
+  "anchor": "kalshi",
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [
+   "ast:value"
+  ],
+  "best5_at": {
+   "ast:value": "2026-11-01 15:00:59 UTC"
+  },
   "blend_mean": 7.15,
   "blend_w": 0.225,
-  "break_even": 0.5872,
+  "break_even": 0.542,
   "call": "UNDER",
   "chance": 0.5784,
   "close_at": "2026-11-01 14:41 UTC",
@@ -6216,20 +6220,20 @@
   "first_frozen_at": "2026-11-01 03:00 UTC",
   "first_line": 7.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:41 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909905,
   "hit": null,
   "home": false,
   "kladder": [
    [
     4,
-    0.84,
-    0.94
+    0.85,
+    0.92
    ],
    [
     6,
-    0.65,
-    0.75
+    0.66,
+    0.74
    ],
    [
     8,
@@ -6240,13 +6244,19 @@
     10,
     0.21,
     0.23
+   ],
+   [
+    12,
+    0.02,
+    0.09
    ]
   ],
   "label": "lean",
   "line": 7.5,
-  "line_source": "kalshi",
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 7.5
+   "kalshi": 7.5,
+   "prizepicks": 7.5
   },
   "market_side": 0.565,
   "mkt": {
@@ -6254,9 +6264,14 @@
     7.5,
     0.4572,
     0.5872
+   ],
+   "prizepicks": [
+    7.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
   "out_ctx": [
@@ -6294,7 +6309,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks+kalshi",
   "stat": "ast",
   "status": "pending",
   "team": "LAC",
@@ -6302,7 +6317,7 @@
   "tip_utc": "2026-11-02T01:30:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 13,
+  "updates": 14,
   "var": 8.799,
   "why": "31.4 min (recent 30.9, +0.4 team-minutes adjustment); \u00d7 0.211 assists/min (50% this season's 0.191 over 5 games, 50% prior 0.209); context: road \u22121%, shared production on LAC +3%; calibration -0.1."
  },
@@ -6981,8 +6996,12 @@
   "anchor": null,
   "be_over": 0.6267,
   "be_under": 0.4168,
-  "best5": [],
-  "best5_at": {},
+  "best5": [
+   "ast:best5"
+  ],
+  "best5_at": {
+   "ast:best5": "2026-11-01 15:00:59 UTC"
+  },
   "blend_mean": 2.31,
   "blend_w": 0.225,
   "break_even": 0.6267,
@@ -7361,40 +7380,40 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 17.2,
+  "blend_mean": 16.42,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5038,
-  "close_at": "2026-11-01 10:20 UTC",
-  "close_line": 17.5,
+  "chance": 0.501,
+  "close_at": "2026-11-01 15:00 UTC",
+  "close_line": 16.5,
   "close_mkt": null,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 04:00 UTC",
   "first_line": 16.5,
   "flip": null,
-  "frozen_at": "2026-11-01 10:20 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909904,
   "hit": null,
   "home": false,
   "kladder": null,
   "label": "lean",
-  "line": 17.5,
+  "line": 16.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 17.5
+   "prizepicks": 16.5
   },
   "market_side": null,
   "mkt": {
    "prizepicks": [
-    17.5,
+    16.5,
     0.542,
     0.542
    ]
   },
-  "move": 1.0,
-  "move_dir": "against",
+  "move": 0.0,
+  "move_dir": null,
   "opp": "IND",
   "out_ctx": [
    "Ben Sheppard",
@@ -7434,7 +7453,7 @@
   "tip_utc": "2026-11-01T22:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 5,
+  "updates": 6,
   "var": 52.59,
   "why": "23.4 min (recent 21.2, +2.2 team-minutes adjustment with Mikel Brown Jr., Egor Demin out); \u00d7 0.728 pts+reb/min (62% this season's 0.600 over 5 games, 38% prior 0.810); context: pace vs IND +1%, road \u22121%, opponent defense +1%, shared production on BKN \u22124%; calibration -0.3."
  },
@@ -8346,32 +8365,32 @@
   "be_under": 0.542,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 3.76,
+  "blend_mean": 3.79,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5185,
-  "close_at": "2026-11-01 14:41 UTC",
+  "chance": 0.5147,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.495,
+  "close_mkt": 0.49,
   "date": "2026-11-01",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-01 05:21 UTC",
   "first_line": 3.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:41 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909905,
   "hit": null,
   "home": true,
   "kladder": [
    [
     4,
-    0.49,
+    0.5,
     0.52
    ],
    [
     8,
-    0.01,
+    0.02,
     0.09
    ]
   ],
@@ -8382,12 +8401,12 @@
    "kalshi": 3.5,
    "prizepicks": 3.5
   },
-  "market_side": 0.495,
+  "market_side": 0.49,
   "mkt": {
    "kalshi": [
     3.5,
     0.5375,
-    0.5275
+    0.5175
    ],
    "prizepicks": [
     3.5,
@@ -8438,7 +8457,7 @@
   "tip_utc": "2026-11-02T01:30:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 14,
+  "updates": 15,
   "var": 4.703,
   "why": "22.3 min (recent 22.1); \u00d7 0.149 rebounds/min (33% this season's 0.180 over 6 games, 67% prior 0.140); context: pace vs LAC \u22121%, home +1%, shared production on GSW \u22122%; calibration -0.0."
  },
@@ -8899,23 +8918,23 @@
   "adj": [],
   "anchor": null,
   "be_over": 0.6561,
-  "be_under": 0.4472,
+  "be_under": 0.4572,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 2.13,
+  "blend_mean": 2.11,
   "blend_w": 0.225,
   "break_even": 0.6561,
   "call": "OVER",
-  "chance": 0.5983,
-  "close_at": "2026-11-01 14:41 UTC",
+  "chance": 0.5944,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.605,
+  "close_mkt": 0.6,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 03:40 UTC",
   "first_line": 2.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:41 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909903,
   "hit": null,
   "home": false,
@@ -8927,7 +8946,7 @@
    ],
    [
     2,
-    0.57,
+    0.56,
     0.64
    ],
    [
@@ -8937,7 +8956,7 @@
    ],
    [
     4,
-    0.11,
+    0.1,
     0.18
    ]
   ],
@@ -8947,12 +8966,12 @@
   "lines": {
    "kalshi": 1.5
   },
-  "market_side": 0.605,
+  "market_side": 0.6,
   "mkt": {
    "kalshi": [
     1.5,
     0.6561,
-    0.4472
+    0.4572
    ]
   },
   "move": -1.0,
@@ -8997,7 +9016,7 @@
   "tip_utc": "2026-11-01T20:30:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 21,
+  "updates": 22,
   "var": 2.173,
   "why": "29.1 min (recent 29.9, \u22120.8 team-minutes adjustment); \u00d7 0.072 3-pointers made/min (62% this season's 0.055 over 5 games, 38% prior 0.085); context: road \u22121%; calibration -0.0."
  },
@@ -10684,37 +10703,37 @@
    "combos:best5": "2026-11-01 14:20:59 UTC",
    "combos:value": "2026-11-01 14:20:59 UTC"
   },
-  "blend_mean": 34.52,
+  "blend_mean": 34.63,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5008,
-  "close_at": "2026-11-01 14:41 UTC",
+  "chance": 0.5042,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 34.5,
-  "close_mkt": 0.515,
+  "close_mkt": 0.52,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 03:00 UTC",
   "first_line": 34.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:41 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909903,
   "hit": null,
   "home": true,
   "kladder": [
    [
     30,
-    0.63,
-    0.73
+    0.65,
+    0.72
    ],
    [
     35,
-    0.5,
+    0.51,
     0.53
    ],
    [
     40,
-    0.26,
+    0.25,
     0.32
    ]
   ],
@@ -10725,12 +10744,12 @@
    "kalshi": 34.5,
    "prizepicks": 34.5
   },
-  "market_side": 0.515,
+  "market_side": 0.52,
   "mkt": {
    "kalshi": [
     34.5,
     0.5474,
-    0.5175
+    0.5075
    ],
    "prizepicks": [
     34.5,
@@ -10777,7 +10796,7 @@
   "tip_utc": "2026-11-01T20:30:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 7,
+  "updates": 8,
   "var": 87.927,
   "why": "33.8 min (recent 32.0, +1.8 team-minutes adjustment with Paolo Banchero, Jalen Suggs out); \u00d7 0.981 pts+reb+ast/min (62% this season's 1.006 over 5 games, 38% prior 0.954); context: pace vs BOS \u22121%, home +1%, shared production on ORL +1%; calibration -0.4."
  },
@@ -12723,40 +12742,40 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 18.7,
+  "blend_mean": 17.93,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5094,
-  "close_at": "2026-11-01 12:00 UTC",
-  "close_line": 19.5,
+  "chance": 0.5069,
+  "close_at": "2026-11-01 15:00 UTC",
+  "close_line": 18.5,
   "close_mkt": null,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 03:00 UTC",
   "first_line": 18.5,
   "flip": null,
-  "frozen_at": "2026-11-01 12:00 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909905,
   "hit": null,
   "home": false,
   "kladder": null,
   "label": "lean",
-  "line": 19.5,
+  "line": 18.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 19.5
+   "prizepicks": 18.5
   },
   "market_side": null,
   "mkt": {
    "prizepicks": [
-    19.5,
+    18.5,
     0.542,
     0.542
    ]
   },
-  "move": 1.0,
-  "move_dir": "against",
+  "move": 0.0,
+  "move_dir": null,
   "opp": "GSW",
   "out_ctx": [
    "Bradley Beal",
@@ -12798,7 +12817,7 @@
   "tip_utc": "2026-11-02T01:30:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 2,
+  "updates": 3,
   "var": 61.982,
   "why": "19.9 min (recent 19.7); \u00d7 0.784 pts+reb+ast/min (62% this season's 0.778 over 5 games, 38% prior 0.781); context: road \u22121%, shared production on LAC +6%; calibration -0.4."
  },
@@ -13718,23 +13737,28 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.5673,
+  "be_over": 0.5474,
   "be_under": 0.5175,
-  "best5": [],
-  "blend_mean": 1.82,
+  "best5": [
+   "ast:value"
+  ],
+  "best5_at": {
+   "ast:value": "2026-11-01 15:00:59 UTC"
+  },
+  "blend_mean": 1.79,
   "blend_w": 0.225,
   "break_even": 0.5175,
   "call": "UNDER",
-  "chance": 0.5066,
-  "close_at": "2026-11-01 14:20 UTC",
+  "chance": 0.5144,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.475,
+  "close_mkt": 0.485,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 06:21 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:20 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909906,
   "hit": null,
   "home": false,
@@ -13742,11 +13766,11 @@
    [
     2,
     0.5,
-    0.55
+    0.53
    ],
    [
     4,
-    0.08,
+    0.11,
     0.15
    ],
    [
@@ -13761,11 +13785,11 @@
   "lines": {
    "kalshi": 1.5
   },
-  "market_side": 0.475,
+  "market_side": 0.485,
   "mkt": {
    "kalshi": [
     1.5,
-    0.5673,
+    0.5474,
     0.5175
    ]
   },
@@ -13805,7 +13829,7 @@
   "tip_utc": "2026-11-02T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 6,
+  "updates": 7,
   "var": 1.802,
   "why": "22.1 min (recent 22.2); \u00d7 0.069 assists/min (50% this season's 0.050 over 5 games, 50% prior 0.086); context: road \u22121%, opponent defense \u22121%, shared production on TOR \u22123%; calibration -0.1."
  },
@@ -13899,37 +13923,40 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 14.32,
+  "blend_mean": 13.55,
   "blend_w": 0.225,
   "break_even": 0.542,
-  "call": "UNDER",
-  "chance": 0.5022,
-  "close_at": "2026-11-01 04:00 UTC",
-  "close_line": 14.5,
+  "call": "OVER",
+  "chance": 0.5006,
+  "close_at": "2026-11-01 15:00 UTC",
+  "close_line": 13.5,
   "close_mkt": null,
   "date": "2026-11-01",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-01 04:00 UTC",
+  "first_line": 14.5,
   "flip": null,
-  "frozen_at": "2026-11-01 04:00 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909906,
   "hit": null,
   "home": false,
   "kladder": null,
   "label": "lean",
-  "line": 14.5,
+  "line": 13.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 14.5
+   "prizepicks": 13.5
   },
   "market_side": null,
   "mkt": {
    "prizepicks": [
-    14.5,
+    13.5,
     0.542,
     0.542
    ]
   },
-  "move": null,
-  "move_dir": null,
+  "move": -1.0,
+  "move_dir": "against",
   "opp": "LAL",
   "out_ctx": [
    "Adou Thiero",
@@ -13941,7 +13968,7 @@
   "proj_min": 22.1,
   "projected": 13.7,
   "role_gap": false,
-  "skip": "pr|prizepicks",
+  "skip": "pr|prizepicks|OVER",
   "snaps": {
    "open": {
     "at": "2026-11-01 04:00 UTC",
@@ -13964,6 +13991,7 @@
   "tip_utc": "2026-11-02T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
+  "updates": 1,
   "var": 55.302,
   "why": "22.1 min (recent 22.2); \u00d7 0.640 pts+reb/min (62% this season's 0.515 over 5 games, 38% prior 0.757); context: road \u22121%, opponent defense \u22121%, shared production on TOR +2%; calibration -0.3."
  },
@@ -14236,45 +14264,135 @@
   "var": 10.038,
   "why": "22.1 min (recent 22.2); \u00d7 0.296 rebounds/min (29% this season's 0.287 over 5 games, 71% prior 0.300); context: road \u22121%, opponent defense \u22121%; calibration -0.0."
  },
+ "Jamal Cain|reb|401909903": {
+  "actual": null,
+  "adj": [
+   "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
+  ],
+  "anchor": null,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "blend_mean": 2.83,
+  "blend_w": 0.225,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5062,
+  "close_at": "2026-11-01 15:00 UTC",
+  "close_line": 2.5,
+  "close_mkt": null,
+  "date": "2026-11-01",
+  "flip": null,
+  "frozen_at": "2026-11-01 15:00 UTC",
+  "game_id": 401909903,
+  "hit": null,
+  "home": true,
+  "kladder": null,
+  "label": "lean",
+  "line": 2.5,
+  "line_source": "prizepicks",
+  "lines": {
+   "prizepicks": 2.5
+  },
+  "market_side": null,
+  "mkt": {
+   "prizepicks": [
+    2.5,
+    0.542,
+    0.542
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "BOS",
+  "out_ctx": [
+   "Devin Carter",
+   "Izaiyah Nelson",
+   "Jalen Suggs",
+   "Jonathan Isaac",
+   "Noah Penda",
+   "Paolo Banchero"
+  ],
+  "player": "Jamal Cain",
+  "player_id": 4278572,
+  "proj_min": 16.5,
+  "projected": 2.5,
+  "role_gap": false,
+  "skip": null,
+  "snaps": {
+   "open": {
+    "at": "2026-11-01 15:00 UTC",
+    "best5": [],
+    "break_even": 0.542,
+    "call": "UNDER",
+    "chance": 0.5062,
+    "line": 2.5,
+    "line_source": "prizepicks",
+    "market_side": null,
+    "projected": 2.5,
+    "units": 0.0
+   }
+  },
+  "src_key": "prizepicks",
+  "stat": "reb",
+  "status": "pending",
+  "team": "ORL",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-01T20:30:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 3.854,
+  "why": "16.5 min (recent 15.7, +0.9 team-minutes adjustment with Paolo Banchero, Jalen Suggs out); \u00d7 0.148 rebounds/min (29% this season's 0.099 over 5 games, 71% prior 0.171); context: pace vs BOS \u22121%, home +1%, opponent defense +1%; calibration -0.0."
+ },
  "Jamal Shead|ast|401909906": {
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.3965,
-  "be_under": 0.6757,
+  "be_over": 0.3863,
+  "be_under": 0.6952,
   "best5": [
    "ast:best5"
   ],
   "best5_at": {
    "ast:best5": "2026-11-01 13:21:03 UTC"
   },
-  "blend_mean": 4.88,
+  "blend_mean": 4.8,
   "blend_w": 0.225,
-  "break_even": 0.6757,
+  "break_even": 0.6952,
   "call": "UNDER",
-  "chance": 0.6295,
-  "close_at": "2026-11-01 14:41 UTC",
+  "chance": 0.6406,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 5.5,
-  "close_mkt": 0.64,
+  "close_mkt": 0.655,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 13:21 UTC",
   "first_line": 5.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:41 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909906,
   "hit": null,
   "home": false,
   "kladder": [
    [
+    2,
+    0.86,
+    0.93
+   ],
+   [
     4,
-    0.65,
-    0.71
+    0.64,
+    0.73
    ],
    [
     6,
-    0.34,
-    0.38
+    0.32,
+    0.37
+   ],
+   [
+    8,
+    0.12,
+    0.17
    ]
   ],
   "label": "lean",
@@ -14283,12 +14401,12 @@
   "lines": {
    "kalshi": 5.5
   },
-  "market_side": 0.64,
+  "market_side": 0.655,
   "mkt": {
    "kalshi": [
     5.5,
-    0.3965,
-    0.6757
+    0.3863,
+    0.6952
    ]
   },
   "move": 0.0,
@@ -14329,7 +14447,7 @@
   "tip_utc": "2026-11-02T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 3,
+  "updates": 4,
   "var": 6.412,
   "why": "23.0 min (recent 23.0); \u00d7 0.227 assists/min (50% this season's 0.234 over 5 games, 50% prior 0.222); context: road \u22121%, opponent defense +1%, shared production on TOR \u22123%; calibration -0.1."
  },
@@ -14420,37 +14538,40 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 13.4,
+  "blend_mean": 12.63,
   "blend_w": 0.225,
   "break_even": 0.542,
-  "call": "UNDER",
-  "chance": 0.5016,
-  "close_at": "2026-11-01 07:40 UTC",
-  "close_line": 13.5,
+  "call": "OVER",
+  "chance": 0.5022,
+  "close_at": "2026-11-01 15:00 UTC",
+  "close_line": 12.5,
   "close_mkt": null,
   "date": "2026-11-01",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-01 07:40 UTC",
+  "first_line": 13.5,
   "flip": null,
-  "frozen_at": "2026-11-01 07:40 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909906,
   "hit": null,
   "home": false,
   "kladder": null,
   "label": "lean",
-  "line": 13.5,
+  "line": 12.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 13.5
+   "prizepicks": 12.5
   },
   "market_side": null,
   "mkt": {
    "prizepicks": [
-    13.5,
+    12.5,
     0.542,
     0.542
    ]
   },
-  "move": null,
-  "move_dir": null,
+  "move": -1.0,
+  "move_dir": "against",
   "opp": "LAL",
   "out_ctx": [
    "Adou Thiero",
@@ -14462,7 +14583,7 @@
   "proj_min": 23.0,
   "projected": 13.1,
   "role_gap": false,
-  "skip": "pra|prizepicks",
+  "skip": "pra|prizepicks|OVER",
   "snaps": {
    "open": {
     "at": "2026-11-01 07:40 UTC",
@@ -14485,6 +14606,7 @@
   "tip_utc": "2026-11-02T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
+  "updates": 1,
   "var": 35.96,
   "why": "23.0 min (recent 23.0); \u00d7 0.590 pts+reb+ast/min (62% this season's 0.570 over 5 games, 38% prior 0.640); context: road \u22121%; calibration -0.4."
  },
@@ -14570,34 +14692,34 @@
   "adj": [],
   "anchor": null,
   "be_over": 0.6659,
-  "be_under": 0.4168,
+  "be_under": 0.3761,
   "best5": [
    "ast:best5"
   ],
   "best5_at": {
    "ast:best5": "2026-11-01 13:41:10 UTC"
   },
-  "blend_mean": 2.37,
+  "blend_mean": 2.45,
   "blend_w": 0.225,
   "break_even": 0.6659,
   "call": "OVER",
-  "chance": 0.6229,
-  "close_at": "2026-11-01 14:41 UTC",
+  "chance": 0.6377,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.625,
+  "close_mkt": 0.645,
   "date": "2026-11-01",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-01 11:00 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:41 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909904,
   "hit": null,
   "home": true,
   "kladder": [
    [
     2,
-    0.6,
+    0.64,
     0.65
    ],
    [
@@ -14617,12 +14739,12 @@
   "lines": {
    "kalshi": 1.5
   },
-  "market_side": 0.625,
+  "market_side": 0.645,
   "mkt": {
    "kalshi": [
     1.5,
     0.6659,
-    0.4168
+    0.3761
    ]
   },
   "move": 0.0,
@@ -14668,21 +14790,27 @@
   "tip_utc": "2026-11-01T22:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 7,
+  "updates": 8,
   "var": 3.138,
   "why": "26.5 min (recent 26.1, +0.4 team-minutes adjustment with Tyrese Haliburton, Ivica Zubac out); \u00d7 0.092 assists/min (55% this season's 0.082 over 6 games, 45% prior 0.096); context: home +1%, shared production on IND +1%; calibration -0.1."
  },
  "Jarace Walker|fg3m|401909904": {
   "actual": null,
-  "adj": [],
-  "anchor": null,
-  "be_over": 0.4975,
-  "be_under": 0.5772,
-  "best5": [],
-  "best5_at": {},
+  "adj": [
+   "no stake yet: picks like this are 43/81 (53%); a stake needs 30+ graded at 56%+ (2 points over the 54% their prices need)"
+  ],
+  "anchor": "kalshi",
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [
+   "fg3m:value"
+  ],
+  "best5_at": {
+   "fg3m:value": "2026-11-01 15:00:59 UTC"
+  },
   "blend_mean": 1.61,
   "blend_w": 0.225,
-  "break_even": 0.5772,
+  "break_even": 0.542,
   "call": "UNDER",
   "chance": 0.5448,
   "close_at": "2026-11-01 14:41 UTC",
@@ -14693,7 +14821,7 @@
   "first_frozen_at": "2026-11-01 05:01 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:41 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909904,
   "hit": null,
   "home": true,
@@ -14707,13 +14835,19 @@
     3,
     0.17,
     0.23
+   ],
+   [
+    4,
+    0.02,
+    0.1
    ]
   ],
   "label": "lean",
   "line": 1.5,
-  "line_source": "kalshi",
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 1.5
+   "kalshi": 1.5,
+   "prizepicks": 1.5
   },
   "market_side": 0.54,
   "mkt": {
@@ -14721,9 +14855,14 @@
     1.5,
     0.4975,
     0.5772
+   ],
+   "prizepicks": [
+    1.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "BKN",
   "out_ctx": [
@@ -14756,7 +14895,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks+kalshi",
   "stat": "fg3m",
   "status": "pending",
   "team": "IND",
@@ -14764,7 +14903,7 @@
   "tip_utc": "2026-11-01T22:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 14,
+  "updates": 15,
   "var": 1.744,
   "why": "26.5 min (recent 26.1, +0.4 team-minutes adjustment with Tyrese Haliburton, Ivica Zubac out); \u00d7 0.060 3-pointers made/min (67% this season's 0.052 over 6 games, 33% prior 0.065); context: home +1%, opponent defense \u22121%, shared production on IND \u22121%; calibration -0.0."
  },
@@ -19086,24 +19225,24 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.5474,
+  "be_over": 0.5574,
   "be_under": 0.5075,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 1.77,
+  "blend_mean": 1.79,
   "blend_w": 0.225,
-  "break_even": 0.5474,
+  "break_even": 0.5574,
   "call": "OVER",
-  "chance": 0.5042,
-  "close_at": "2026-11-01 14:00 UTC",
+  "chance": 0.508,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.52,
+  "close_mkt": 0.525,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 04:00 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:00 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909904,
   "hit": null,
   "home": true,
@@ -19111,7 +19250,7 @@
    [
     2,
     0.51,
-    0.53
+    0.54
    ],
    [
     4,
@@ -19130,11 +19269,11 @@
   "lines": {
    "kalshi": 1.5
   },
-  "market_side": 0.52,
+  "market_side": 0.525,
   "mkt": {
    "kalshi": [
     1.5,
-    0.5474,
+    0.5574,
     0.5075
    ]
   },
@@ -19179,7 +19318,7 @@
   "tip_utc": "2026-11-01T22:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 11,
+  "updates": 12,
   "var": 1.741,
   "why": "25.9 min (recent 25.5, +0.4 team-minutes adjustment with Tyrese Haliburton, Ivica Zubac out); \u00d7 0.061 assists/min (55% this season's 0.070 over 6 games, 45% prior 0.064); context: home +1%, opponent defense +1%, shared production on IND +1%; calibration -0.1."
  },
@@ -19188,34 +19327,34 @@
   "adj": [],
   "anchor": null,
   "be_over": 0.6659,
-  "be_under": 0.3965,
+  "be_under": 0.4067,
   "best5": [
    "fg3m:best5"
   ],
   "best5_at": {
    "fg3m:best5": "2026-11-01 05:21:00 UTC"
   },
-  "blend_mean": 1.14,
+  "blend_mean": 1.13,
   "blend_w": 0.225,
   "break_even": 0.6659,
   "call": "OVER",
-  "chance": 0.6258,
-  "close_at": "2026-11-01 14:41 UTC",
+  "chance": 0.6219,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 0.5,
-  "close_mkt": 0.635,
+  "close_mkt": 0.63,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 05:21 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:41 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909904,
   "hit": null,
   "home": true,
   "kladder": [
    [
     1,
-    0.62,
+    0.61,
     0.65
    ],
    [
@@ -19226,7 +19365,7 @@
    [
     3,
     0.03,
-    0.13
+    0.12
    ]
   ],
   "label": "lean",
@@ -19235,12 +19374,12 @@
   "lines": {
    "kalshi": 0.5
   },
-  "market_side": 0.635,
+  "market_side": 0.63,
   "mkt": {
    "kalshi": [
     0.5,
     0.6659,
-    0.3965
+    0.4067
    ]
   },
   "move": -1.0,
@@ -19286,7 +19425,7 @@
   "tip_utc": "2026-11-01T22:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 13,
+  "updates": 14,
   "var": 1.255,
   "why": "25.9 min (recent 25.5, +0.4 team-minutes adjustment with Tyrese Haliburton, Ivica Zubac out); \u00d7 0.042 3-pointers made/min (67% this season's 0.035 over 6 games, 33% prior 0.049); context: home +1%, shared production on IND \u22121%; calibration -0.0."
  },
@@ -20176,6 +20315,90 @@
   "var": 50.513,
   "why": "21.2 min (recent 20.9, +0.3 team-minutes adjustment); \u00d7 0.580 pts+reb+ast/min (62% this season's 0.569 over 5 games, 38% prior 0.594); context: road \u22121%, opponent defense +1%, shared production on LAC +5%; calibration -0.4."
  },
+ "Kobe Sanders|pts|401909905": {
+  "actual": null,
+  "adj": [
+   "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
+  ],
+  "anchor": null,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "blend_mean": 7.55,
+  "blend_w": 0.225,
+  "break_even": 0.542,
+  "call": "OVER",
+  "chance": 0.5009,
+  "close_at": "2026-11-01 15:00 UTC",
+  "close_line": 7.5,
+  "close_mkt": null,
+  "date": "2026-11-01",
+  "flip": null,
+  "frozen_at": "2026-11-01 15:00 UTC",
+  "game_id": 401909905,
+  "hit": null,
+  "home": false,
+  "kladder": null,
+  "label": "lean",
+  "line": 7.5,
+  "line_source": "prizepicks",
+  "lines": {
+   "prizepicks": 7.5
+  },
+  "market_side": null,
+  "mkt": {
+   "prizepicks": [
+    7.5,
+    0.542,
+    0.542
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "GSW",
+  "out_ctx": [
+   "Bradley Beal",
+   "Brandon Ingram",
+   "Draymond Green",
+   "Jimmy Butler III",
+   "Jordan Miller",
+   "Kristaps Porzingis",
+   "Max Strus",
+   "Moses Moody",
+   "Stephen Curry",
+   "Yanic Konan Niederhauser"
+  ],
+  "player": "Kobe Sanders",
+  "player_id": 4702352,
+  "proj_min": 21.2,
+  "projected": 7.7,
+  "role_gap": false,
+  "skip": null,
+  "snaps": {
+   "open": {
+    "at": "2026-11-01 15:00 UTC",
+    "best5": [],
+    "break_even": 0.542,
+    "call": "OVER",
+    "chance": 0.5009,
+    "line": 7.5,
+    "line_source": "prizepicks",
+    "market_side": null,
+    "projected": 7.7,
+    "units": 0.0
+   }
+  },
+  "src_key": "prizepicks",
+  "stat": "pts",
+  "status": "pending",
+  "team": "LAC",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-02T01:30:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 28.597,
+  "why": "21.2 min (recent 20.9, +0.3 team-minutes adjustment); \u00d7 0.360 points/min (50% this season's 0.321 over 5 games, 50% prior 0.387); context: road \u22121%, opponent defense +1%, shared production on LAC +5%; calibration -0.3."
+ },
  "Kobe Sanders|reb|401909905": {
   "actual": null,
   "adj": [
@@ -20996,44 +21219,40 @@
   "adj": [],
   "anchor": null,
   "be_over": 0.4774,
-  "be_under": 0.5772,
-  "best5": [
-   "fg3m:value"
-  ],
-  "best5_at": {
-   "fg3m:value": "2026-11-01 14:00:57 UTC"
-  },
-  "blend_mean": 4.42,
+  "be_under": 0.5872,
+  "best5": [],
+  "best5_at": {},
+  "blend_mean": 4.39,
   "blend_w": 0.225,
-  "break_even": 0.5772,
+  "break_even": 0.5872,
   "call": "UNDER",
-  "chance": 0.5665,
-  "close_at": "2026-11-01 14:20 UTC",
+  "chance": 0.5703,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 4.5,
-  "close_mkt": 0.55,
+  "close_mkt": 0.555,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 03:21 UTC",
   "first_line": 4.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:20 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909906,
   "hit": null,
   "home": true,
   "kladder": [
    [
     3,
-    0.74,
+    0.72,
     0.8
    ],
    [
     4,
-    0.6,
+    0.59,
     0.63
    ],
    [
     5,
-    0.44,
+    0.43,
     0.46
    ],
    [
@@ -21048,12 +21267,12 @@
   "lines": {
    "kalshi": 4.5
   },
-  "market_side": 0.55,
+  "market_side": 0.555,
   "mkt": {
    "kalshi": [
     4.5,
     0.4774,
-    0.5772
+    0.5872
    ]
   },
   "move": null,
@@ -21095,7 +21314,7 @@
   "tip_utc": "2026-11-02T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 13,
+  "updates": 14,
   "var": 5.569,
   "why": "34.9 min (recent 36.2, \u22121.3 team-minutes adjustment); \u00d7 0.128 3-pointers made/min (62% this season's 0.151 over 5 games, 38% prior 0.102); context: home +1%, shared production on LAL \u221210%; calibration -0.0."
  },
@@ -21879,12 +22098,8 @@
   "anchor": null,
   "be_over": 0.5971,
   "be_under": 0.4472,
-  "best5": [
-   "ast:value"
-  ],
-  "best5_at": {
-   "ast:value": "2026-11-01 12:00:57 UTC"
-  },
+  "best5": [],
+  "best5_at": {},
   "blend_mean": 2.14,
   "blend_w": 0.225,
   "break_even": 0.5971,
@@ -25274,47 +25489,69 @@
  },
  "Pascal Siakam|pra|401909904": {
   "actual": null,
-  "adj": [
-   "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
-  ],
-  "anchor": null,
+  "adj": [],
+  "anchor": "kalshi",
   "be_over": 0.542,
   "be_under": 0.542,
-  "best5": [],
-  "blend_mean": 34.73,
+  "best5": [
+   "combos:best5",
+   "combos:value"
+  ],
+  "best5_at": {
+   "combos:best5": "2026-11-01 15:00:59 UTC",
+   "combos:value": "2026-11-01 15:00:59 UTC"
+  },
+  "blend_mean": 34.15,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5084,
-  "close_at": "2026-11-01 04:41 UTC",
-  "close_line": 35.5,
-  "close_mkt": null,
+  "chance": 0.5123,
+  "close_at": "2026-11-01 15:00 UTC",
+  "close_line": 34.5,
+  "close_mkt": 0.49,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 03:00 UTC",
   "first_line": 34.5,
   "flip": null,
-  "frozen_at": "2026-11-01 04:41 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909904,
   "hit": null,
   "home": true,
-  "kladder": null,
+  "kladder": [
+   [
+    30,
+    0.65,
+    0.75
+   ],
+   [
+    35,
+    0.49,
+    0.53
+   ]
+  ],
   "label": "lean",
-  "line": 35.5,
+  "line": 34.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 35.5
+   "kalshi": 34.5,
+   "prizepicks": 34.5
   },
-  "market_side": null,
+  "market_side": 0.49,
   "mkt": {
+   "kalshi": [
+    34.5,
+    0.5474,
+    0.5275
+   ],
    "prizepicks": [
-    35.5,
+    34.5,
     0.542,
     0.542
    ]
   },
-  "move": 1.0,
-  "move_dir": "against",
+  "move": 0.0,
+  "move_dir": null,
   "opp": "BKN",
   "out_ctx": [
    "Ben Sheppard",
@@ -25331,7 +25568,7 @@
   "proj_min": 31.4,
   "projected": 32.1,
   "role_gap": false,
-  "skip": "pra|prizepicks",
+  "skip": null,
   "snaps": {
    "open": {
     "at": "2026-11-01 03:00 UTC",
@@ -25346,7 +25583,7 @@
     "units": 0.0
    }
   },
-  "src_key": "prizepicks",
+  "src_key": "prizepicks+kalshi",
   "stat": "pra",
   "status": "pending",
   "team": "IND",
@@ -25354,7 +25591,7 @@
   "tip_utc": "2026-11-01T22:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 2,
+  "updates": 3,
   "var": 79.202,
   "why": "31.4 min (recent 30.9, +0.5 team-minutes adjustment with Tyrese Haliburton, Ivica Zubac out); \u00d7 1.029 pts+reb+ast/min (67% this season's 1.068 over 6 games, 33% prior 0.967); context: home +1%, shared production on IND \u22121%; calibration -0.4."
  },
@@ -25635,12 +25872,10 @@
  },
  "Pascal Siakam|reb|401909904": {
   "actual": null,
-  "adj": [
-   "no stake yet: picks like this are 3/8 (38%); a stake needs 30+ graded at 56%+ (2 points over the 54% their prices need)"
-  ],
-  "anchor": "kalshi",
-  "be_over": 0.542,
-  "be_under": 0.542,
+  "adj": [],
+  "anchor": null,
+  "be_over": 0.4774,
+  "be_under": 0.5673,
   "best5": [
    "reb:value",
    "reb:best5"
@@ -25651,7 +25886,7 @@
   },
   "blend_mean": 7.26,
   "blend_w": 0.225,
-  "break_even": 0.542,
+  "break_even": 0.5673,
   "call": "UNDER",
   "chance": 0.5632,
   "close_at": "2026-11-01 14:00 UTC",
@@ -25662,7 +25897,7 @@
   "first_frozen_at": "2026-11-01 03:00 UTC",
   "first_line": 7.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:00 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909904,
   "hit": null,
   "home": true,
@@ -25673,17 +25908,21 @@
     0.46
    ],
    [
+    10,
+    0.16,
+    0.25
+   ],
+   [
     12,
-    0.02,
-    0.12
+    0.01,
+    0.1
    ]
   ],
   "label": "lean",
   "line": 7.5,
-  "line_source": "prizepicks",
+  "line_source": "kalshi",
   "lines": {
-   "kalshi": 7.5,
-   "prizepicks": 7.5
+   "kalshi": 7.5
   },
   "market_side": 0.545,
   "mkt": {
@@ -25691,14 +25930,9 @@
     7.5,
     0.4774,
     0.5673
-   ],
-   "prizepicks": [
-    7.5,
-    0.542,
-    0.542
    ]
   },
-  "move": 0.0,
+  "move": null,
   "move_dir": null,
   "opp": "BKN",
   "out_ctx": [
@@ -25734,7 +25968,7 @@
     "units": 0.0
    }
   },
-  "src_key": "prizepicks+kalshi",
+  "src_key": "kalshi",
   "stat": "reb",
   "status": "pending",
   "team": "IND",
@@ -25742,7 +25976,7 @@
   "tip_utc": "2026-11-01T22:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 15,
+  "updates": 16,
   "var": 7.862,
   "why": "31.4 min (recent 30.9, +0.5 team-minutes adjustment with Tyrese Haliburton, Ivica Zubac out); \u00d7 0.209 rebounds/min (33% this season's 0.247 over 6 games, 67% prior 0.203); context: home +1%, shared production on IND +1%; calibration -0.0."
  },
@@ -25750,37 +25984,42 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.4472,
+  "be_over": 0.4572,
   "be_under": 0.5971,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 3.4,
+  "blend_mean": 3.42,
   "blend_w": 0.225,
   "break_even": 0.5971,
   "call": "UNDER",
-  "chance": 0.562,
-  "close_at": "2026-11-01 14:20 UTC",
+  "chance": 0.5583,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.575,
+  "close_mkt": 0.57,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 03:40 UTC",
   "first_line": 3.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:20 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909903,
   "hit": null,
   "home": false,
   "kladder": [
    [
     2,
-    0.79,
+    0.8,
     0.86
    ],
    [
     4,
     0.42,
-    0.43
+    0.44
+   ],
+   [
+    6,
+    0.05,
+    0.15
    ]
   ],
   "label": "lean",
@@ -25789,11 +26028,11 @@
   "lines": {
    "kalshi": 3.5
   },
-  "market_side": 0.575,
+  "market_side": 0.57,
   "mkt": {
    "kalshi": [
     3.5,
-    0.4472,
+    0.4572,
     0.5971
    ]
   },
@@ -25838,7 +26077,7 @@
   "tip_utc": "2026-11-01T20:30:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 14,
+  "updates": 15,
   "var": 3.545,
   "why": "28.9 min (recent 29.7, \u22120.8 team-minutes adjustment); \u00d7 0.128 assists/min (50% this season's 0.144 over 5 games, 50% prior 0.117); context: road \u22121%, opponent defense \u22121%; calibration -0.1."
  },
@@ -27107,36 +27346,41 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.4269,
-  "be_under": 0.6561,
+  "be_over": 0.4472,
+  "be_under": 0.6267,
   "best5": [
    "reb:best5"
   ],
   "best5_at": {
    "reb:best5": "2026-11-01 08:21:03 UTC"
   },
-  "blend_mean": 3.2,
+  "blend_mean": 3.29,
   "blend_w": 0.225,
-  "break_even": 0.6561,
+  "break_even": 0.6267,
   "call": "UNDER",
-  "chance": 0.6006,
-  "close_at": "2026-11-01 14:41 UTC",
+  "chance": 0.582,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.615,
+  "close_mkt": 0.59,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 08:21 UTC",
   "first_line": 3.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:41 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909903,
   "hit": null,
   "home": false,
   "kladder": [
    [
     4,
-    0.36,
-    0.41
+    0.39,
+    0.43
+   ],
+   [
+    6,
+    0.06,
+    0.15
    ],
    [
     8,
@@ -27150,12 +27394,12 @@
   "lines": {
    "kalshi": 3.5
   },
-  "market_side": 0.615,
+  "market_side": 0.59,
   "mkt": {
    "kalshi": [
     3.5,
-    0.4269,
-    0.6561
+    0.4472,
+    0.6267
    ]
   },
   "move": 0.0,
@@ -27199,7 +27443,7 @@
   "tip_utc": "2026-11-01T20:30:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 8,
+  "updates": 9,
   "var": 3.131,
   "why": "30.6 min (recent 31.4, \u22120.8 team-minutes adjustment); \u00d7 0.116 rebounds/min (29% this season's 0.079 over 5 games, 71% prior 0.127); context: road \u22121%, opponent defense +1%, shared production on BOS \u22125%; calibration -0.0."
  },
@@ -27500,33 +27744,38 @@
    "combos:best5": "2026-11-01 04:02:35 UTC",
    "combos:value": "2026-11-01 04:02:35 UTC"
   },
-  "blend_mean": 29.77,
+  "blend_mean": 29.59,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5102,
-  "close_at": "2026-11-01 14:41 UTC",
+  "chance": 0.5036,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 29.5,
-  "close_mkt": 0.525,
+  "close_mkt": 0.515,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 03:40 UTC",
   "first_line": 29.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:41 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909906,
   "hit": null,
   "home": false,
   "kladder": [
    [
     25,
-    0.69,
-    0.73
+    0.68,
+    0.71
    ],
    [
     30,
-    0.51,
-    0.54
+    0.5,
+    0.53
+   ],
+   [
+    35,
+    0.21,
+    0.3
    ]
   ],
   "label": "lean",
@@ -27536,12 +27785,12 @@
    "kalshi": 29.5,
    "prizepicks": 29.5
   },
-  "market_side": 0.525,
+  "market_side": 0.515,
   "mkt": {
    "kalshi": [
     29.5,
-    0.5574,
-    0.5075
+    0.5474,
+    0.5175
    ],
    "prizepicks": [
     29.5,
@@ -27585,7 +27834,7 @@
   "tip_utc": "2026-11-02T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 21,
+  "updates": 22,
   "var": 68.335,
   "why": "32.0 min (recent 32.0); \u00d7 0.913 pts+reb+ast/min (62% this season's 0.911 over 5 games, 38% prior 0.927); context: road \u22121%, shared production on TOR +2%; calibration -0.4."
  },
@@ -28615,36 +28864,41 @@
   "adj": [],
   "anchor": null,
   "be_over": 0.4673,
-  "be_under": 0.5872,
+  "be_under": 0.5772,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 1.63,
+  "blend_mean": 1.65,
   "blend_w": 0.225,
-  "break_even": 0.5872,
+  "break_even": 0.5772,
   "call": "UNDER",
-  "chance": 0.5614,
-  "close_at": "2026-11-01 14:41 UTC",
+  "chance": 0.5576,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.56,
+  "close_mkt": 0.555,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 04:41 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:41 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909906,
   "hit": null,
   "home": true,
   "kladder": [
    [
     2,
-    0.43,
+    0.44,
     0.45
    ],
    [
     4,
     0.02,
     0.09
+   ],
+   [
+    6,
+    0.02,
+    0.12
    ]
   ],
   "label": "lean",
@@ -28653,12 +28907,12 @@
   "lines": {
    "kalshi": 1.5
   },
-  "market_side": 0.56,
+  "market_side": 0.555,
   "mkt": {
    "kalshi": [
     1.5,
     0.4673,
-    0.5872
+    0.5772
    ]
   },
   "move": 0.0,
@@ -28697,7 +28951,7 @@
   "tip_utc": "2026-11-02T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 22,
+  "updates": 23,
   "var": 2.28,
   "why": "21.2 min (recent 22.0, \u22120.8 team-minutes adjustment); \u00d7 0.077 assists/min (55% this season's 0.064 over 6 games, 45% prior 0.084); context: home +1%, opponent defense \u22122%; calibration -0.1."
  },
@@ -28705,7 +28959,7 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.6855,
+  "be_over": 0.6757,
   "be_under": 0.3761,
   "best5": [
    "fg3m:best5"
@@ -28713,20 +28967,20 @@
   "best5_at": {
    "fg3m:best5": "2026-11-01 04:41:02 UTC"
   },
-  "blend_mean": 1.18,
+  "blend_mean": 1.16,
   "blend_w": 0.225,
-  "break_even": 0.6855,
+  "break_even": 0.6757,
   "call": "OVER",
-  "chance": 0.6355,
-  "close_at": "2026-11-01 14:41 UTC",
+  "chance": 0.6315,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 0.5,
-  "close_mkt": 0.655,
+  "close_mkt": 0.65,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 04:41 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:41 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909906,
   "hit": null,
   "home": true,
@@ -28734,12 +28988,17 @@
    [
     1,
     0.64,
-    0.67
+    0.66
    ],
    [
     2,
     0.32,
     0.35
+   ],
+   [
+    3,
+    0.06,
+    0.15
    ]
   ],
   "label": "lean",
@@ -28748,11 +29007,11 @@
   "lines": {
    "kalshi": 0.5
   },
-  "market_side": 0.655,
+  "market_side": 0.65,
   "mkt": {
    "kalshi": [
     0.5,
-    0.6855,
+    0.6757,
     0.3761
    ]
   },
@@ -28794,7 +29053,7 @@
   "tip_utc": "2026-11-02T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 15,
+  "updates": 16,
   "var": 1.168,
   "why": "21.2 min (recent 22.0, \u22120.8 team-minutes adjustment); \u00d7 0.054 3-pointers made/min (67% this season's 0.035 over 6 games, 33% prior 0.067); context: home +1%, opponent defense \u22122%, shared production on LAL \u221210%; calibration -0.0."
  },
@@ -29379,13 +29638,17 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.6757,
-  "be_under": 0.3965,
-  "best5": [],
-  "best5_at": {},
+  "be_over": 0.6855,
+  "be_under": 0.4067,
+  "best5": [
+   "fg3m:best5"
+  ],
+  "best5_at": {
+   "fg3m:best5": "2026-11-01 15:00:59 UTC"
+  },
   "blend_mean": 1.05,
   "blend_w": 0.225,
-  "break_even": 0.6757,
+  "break_even": 0.6855,
   "call": "OVER",
   "chance": 0.6152,
   "close_at": "2026-11-01 14:20 UTC",
@@ -29396,15 +29659,15 @@
   "first_frozen_at": "2026-11-01 04:00 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:20 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909906,
   "hit": null,
   "home": false,
   "kladder": [
    [
     1,
-    0.62,
-    0.66
+    0.61,
+    0.67
    ],
    [
     2,
@@ -29413,8 +29676,8 @@
    ],
    [
     3,
-    0.04,
-    0.13
+    0.05,
+    0.14
    ]
   ],
   "label": "lean",
@@ -29427,8 +29690,8 @@
   "mkt": {
    "kalshi": [
     0.5,
-    0.6757,
-    0.3965
+    0.6855,
+    0.4067
    ]
   },
   "move": -1.0,
@@ -29470,7 +29733,7 @@
   "tip_utc": "2026-11-02T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 11,
+  "updates": 12,
   "var": 0.843,
   "why": "33.7 min (recent 33.8); \u00d7 0.024 3-pointers made/min (62% this season's 0.019 over 5 games, 38% prior 0.031); context: road \u22121%, opponent defense +1%, shared production on TOR +7%; calibration -0.0."
  },
@@ -29642,40 +29905,40 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 30.65,
+  "blend_mean": 29.88,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5084,
-  "close_at": "2026-11-01 14:41 UTC",
-  "close_line": 31.5,
+  "chance": 0.5063,
+  "close_at": "2026-11-01 15:00 UTC",
+  "close_line": 30.5,
   "close_mkt": null,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 03:40 UTC",
   "first_line": 31.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:41 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909906,
   "hit": null,
   "home": false,
   "kladder": null,
   "label": "lean",
-  "line": 31.5,
+  "line": 30.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 31.5
+   "prizepicks": 30.5
   },
   "market_side": null,
   "mkt": {
    "prizepicks": [
-    31.5,
+    30.5,
     0.542,
     0.542
    ]
   },
-  "move": 0.0,
-  "move_dir": null,
+  "move": -1.0,
+  "move_dir": "agree",
   "opp": "LAL",
   "out_ctx": [
    "Adou Thiero",
@@ -29710,7 +29973,7 @@
   "tip_utc": "2026-11-02T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 2,
+  "updates": 3,
   "var": 80.154,
   "why": "33.7 min (recent 33.8); \u00d7 0.829 pts+reb/min (62% this season's 0.957 over 5 games, 38% prior 0.768); context: road \u22121%, shared production on TOR +2%; calibration -0.3."
  },
@@ -30685,7 +30948,9 @@
  },
  "Walker Kessler|pra|401909906": {
   "actual": null,
-  "adj": [],
+  "adj": [
+   "no stake yet: picks like this are 43/81 (53%); a stake needs 30+ graded at 56%+ (2 points over the 54% their prices need)"
+  ],
   "anchor": "kalshi",
   "be_over": 0.542,
   "be_under": 0.542,
@@ -30697,28 +30962,28 @@
    "combos:best5": "2026-11-01 11:41:02 UTC",
    "combos:value": "2026-11-01 11:41:02 UTC"
   },
-  "blend_mean": 23.52,
+  "blend_mean": 23.22,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5325,
-  "close_at": "2026-11-01 14:41 UTC",
+  "chance": 0.5425,
+  "close_at": "2026-11-01 15:00 UTC",
   "close_line": 24.5,
-  "close_mkt": 0.53,
+  "close_mkt": 0.545,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 03:40 UTC",
   "first_line": 24.5,
   "flip": null,
-  "frozen_at": "2026-11-01 14:41 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909906,
   "hit": null,
   "home": true,
   "kladder": [
    [
     25,
-    0.45,
-    0.49
+    0.44,
+    0.47
    ]
   ],
   "label": "lean",
@@ -30728,12 +30993,12 @@
    "kalshi": 24.5,
    "prizepicks": 24.5
   },
-  "market_side": 0.53,
+  "market_side": 0.545,
   "mkt": {
    "kalshi": [
     24.5,
-    0.5075,
-    0.5673
+    0.4874,
+    0.5772
    ],
    "prizepicks": [
     24.5,
@@ -30777,7 +31042,7 @@
   "tip_utc": "2026-11-02T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 16,
+  "updates": 17,
   "var": 91.319,
   "why": "29.4 min (recent 30.4, \u22121.1 team-minutes adjustment); \u00d7 0.807 pts+reb+ast/min (67% this season's 0.792 over 6 games, 33% prior 0.847); context: home +1%, shared production on LAL \u22123%; calibration -0.4."
  },
@@ -30964,39 +31229,39 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 11.54,
+  "blend_mean": 11.15,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5008,
-  "close_at": "2026-11-01 10:20 UTC",
-  "close_line": 11.5,
+  "chance": 0.5034,
+  "close_at": "2026-11-01 15:00 UTC",
+  "close_line": 11.0,
   "close_mkt": null,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 03:40 UTC",
   "first_line": 12.5,
   "flip": null,
-  "frozen_at": "2026-11-01 10:20 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909906,
   "hit": null,
   "home": true,
   "kladder": null,
   "label": "lean",
-  "line": 11.5,
+  "line": 11.0,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 11.5
+   "prizepicks": 11.0
   },
   "market_side": null,
   "mkt": {
    "prizepicks": [
-    11.5,
+    11.0,
     0.542,
     0.542
    ]
   },
-  "move": -1.0,
+  "move": -1.5,
   "move_dir": "against",
   "opp": "TOR",
   "out_ctx": [
@@ -31032,7 +31297,7 @@
   "tip_utc": "2026-11-02T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 1,
+  "updates": 2,
   "var": 14.672,
   "why": "29.4 min (recent 30.4, \u22121.1 team-minutes adjustment); \u00d7 0.392 reb+ast/min (43% this season's 0.333 over 6 games, 57% prior 0.438); context: home +1%, shared production on LAL +1%; calibration -0.0."
  },
@@ -32062,39 +32327,39 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 23.62,
+  "blend_mean": 24.4,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5304,
-  "close_at": "2026-11-01 13:21 UTC",
-  "close_line": 24.5,
+  "chance": 0.5321,
+  "close_at": "2026-11-01 15:00 UTC",
+  "close_line": 25.5,
   "close_mkt": null,
   "date": "2026-11-01",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-01 03:00 UTC",
   "first_line": 28.5,
   "flip": null,
-  "frozen_at": "2026-11-01 13:21 UTC",
+  "frozen_at": "2026-11-01 15:00 UTC",
   "game_id": 401909905,
   "hit": null,
   "home": true,
   "kladder": null,
   "label": "lean",
-  "line": 24.5,
+  "line": 25.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 24.5
+   "prizepicks": 25.5
   },
   "market_side": null,
   "mkt": {
    "prizepicks": [
-    24.5,
+    25.5,
     0.542,
     0.542
    ]
   },
-  "move": -4.0,
+  "move": -3.0,
   "move_dir": "agree",
   "opp": "LAC",
   "out_ctx": [
@@ -32137,7 +32402,7 @@
   "tip_utc": "2026-11-02T01:30:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 3,
+  "updates": 4,
   "var": 87.847,
   "why": "30.0 min (recent 29.6, +0.4 team-minutes adjustment with Stephen Curry, Draymond Green out); \u00d7 0.686 pts+ast/min (67% this season's 0.724 over 6 games, 33% prior 0.569); context: pace vs LAC \u22121%, home +1%, opponent defense \u22121%, shared production on GSW +3%; calibration -0.4."
  },
