@@ -195,8 +195,16 @@
 {% macro game_stripe(g) -%}style="--ca:{{ g.away_badge.color }};--ch:{{ g.home_badge.color }}"{%- endmacro %}
 
 {# Projection cell: labeled PROJ number + colored pick pill (green over / red under). #}
+{# COPY BET (update 53): one tab-separated row for the My Bets sheet: date, bet, stat, side, line, book, price, units #}
+{% macro bet_price(src, be) -%}
+{%- if be and src == 'kalshi' -%}{{ (be * 100)|round|int }}{%- elif be and src == 'fanduel' -%}{{ ('-' ~ ((100 * be / (1 - be))|round|int)) if be > 0.5 else ('+' ~ ((100 * (1 - be) / be)|round|int)) }}{%- endif -%}
+{%- endmacro %}
+{% macro copy_bet(bet, stat, side, line, book, price='', units='1') -%}
+<button class="copy-bet" type="button" title="Copy this bet as a row for your My Bets sheet" data-bet="{{ [bet_date, bet, stat, side, line|fmtline if line is not none else '', book, price, units]|join('	') }}">&#128203; COPY BET</button>
+{%- endmacro %}
 {% macro slip_leg(pid, player, team, opp, gid, stat, side, line, chance, src, started, be=none) -%}
 {%- if not started -%}
+{{ copy_bet(player, stat_short.get(stat, stat)|upper, side, line, src_labels.get(src, src or ''), bet_price(src, be)) }}
 <button class="slip-add" type="button" title="Add to slip" data-leg='{{ {"id": pid ~ "|" ~ stat ~ "|" ~ gid, "player": player, "pid": pid, "team": team, "opp": opp, "gid": gid, "stat": stat_short.get(stat, stat), "side": side, "line": line, "chance": chance, "src": src, "be": be}|tojson }}'>+ SLIP</button>
 {%- endif -%}
 {%- endmacro %}

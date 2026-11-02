@@ -597,5 +597,21 @@ From the Monahan lecture (market-based betting):
   teams up to a full game (new model floor at 228/232/236/240) on last season's early / mid stretches and this
   season: every version made projections slightly worse (the model already runs high on points for short-handed
   teams; deep-bench garbage-time minutes go to players the site doesn't project). Model unchanged.
-- `audit.py`: the lower bound now drops 3 minutes per player out beyond three (not below 205). Over 247, or under
-  that floor, is still flagged.
+- `audit.py`: the lower bound now drops 10 minutes per player out beyond three (not below 160). Over 247, or under
+  that floor, is still flagged. (Same day, IND with eight out projected 176-186; a floor that only lifts teams
+  under 205-225 fixed the minutes number but made points / PRA slightly worse on past short-handed teams, so the
+  model is unchanged.)
+
+## Update 53: My Bets (your own bets from a Google Sheet, graded automatically)
+
+- `scripts/mybets.py`: reads the sheet published as CSV (GitHub secret `MYBETS_CSV`), columns
+  date, bet, stat, side, line, book, price, units. Grades props from the site's graded pick for that player-stat-
+  date (else the box score), ML / SPREAD / TOTAL from final scores, site parlays by id (safe-2, news-1-w2...).
+  Price: 52 (= 52%), -110 / +150, 3.4x; blank = -110; units blank = 1. Rows that can't be matched (typo, no
+  game) are listed at the top of the page; future-date bets wait as pending. data/mybets.json keeps the latest
+  graded copy (units only).
+- `mybets.html` (linked from Home): record, hit rate vs needed, units, running units, me vs the site, record by
+  kind of bet, every bet. COPY BET button on every open pick, news play and parlay copies one tab-separated row
+  that pastes straight into the sheet's columns (`_macros.copy_bet`, script in base.html).
+- Morning Discord recap adds "Your bets: H/N · +1.5U (+$150)" with the season total.
+- Workflow `build.yml` passes `MYBETS_CSV` (edit the file on GitHub, it doesn't upload by drag).

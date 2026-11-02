@@ -518,10 +518,18 @@ def build(args) -> None:
                     "usage": oddsapi_client.current_usage()},
         "line_counts": src_counts,
     }
+    try:  # My Bets (mybets.py): the user's own bets from the published Google Sheet, graded
+        import mybets
+        mb = mybets.run(box)
+        print(f"My Bets: {'not set up' if not mb.get('setup') else str(mb.get('n', 0)) + ' graded, ' + str(mb.get('pending', 0)) + ' pending'}"
+              + (f" ({mb['error']})" if mb.get("error") else ""))
+    except Exception as e:  # noqa: BLE001
+        mb = {"setup": False}
+        print(f"My Bets failed: {e}")
     pages.render_all({
         "now": now, "slate": sl, "res": res, "best": best, "edge": est, "cal": cal, "preds": preds_all,
         "tpreds": predictions.load_all(team=True), "sources": sources, "health": health, "lm": lm,
-        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj, "trust": trust, "espn": espn, "patterns": pat_out, "rankings": rankings.build(box), "edges": edge_found, "edges_sum": edges.summary(), "tuning": tune.load(), "parlays": parlays.summary(), "news": news.summary(sl.get("date")), "lag": market.lag_summary(sl.get("date")), "lineups": lineups,
+        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj, "trust": trust, "espn": espn, "patterns": pat_out, "rankings": rankings.build(box), "edges": edge_found, "edges_sum": edges.summary(), "tuning": tune.load(), "parlays": parlays.summary(), "news": news.summary(sl.get("date")), "lag": market.lag_summary(sl.get("date")), "lineups": lineups, "mybets": mb,
     })
     # consistency audit on what was just built; its result shows on History -> Pipeline next build
     import subprocess

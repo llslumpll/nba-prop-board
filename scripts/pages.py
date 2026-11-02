@@ -566,6 +566,8 @@ SOURCE_LABEL_SHORT = {"kalshi": "Kalshi", "prizepicks": "PrizePicks", "prizepick
 def render_all(ctx: dict) -> None:
     env = _env()
     now = ctx["now"]
+    sd = (ctx.get("slate") or {}).get("date") or now.strftime("%Y-%m-%d")
+    env.globals["bet_date"] = f"{int(sd[5:7])}/{int(sd[8:10])}"   # COPY BET rows
     common = {"nav_pages": NAV, "nav_icon": NAV_ICON, "build_time": now.strftime("%Y-%m-%d %H:%M UTC"),
               "cache_bust": _css_hash()}
     DOCS.mkdir(exist_ok=True)
@@ -847,6 +849,27 @@ def render_all(ctx: dict) -> None:
                                                        lo=0, hi=100)
     except Exception as e:  # noqa: BLE001
         print(f"Parlay charts failed: {e}")
+    # My Bets (update 53)
+    mb = ctx.get("mybets") or {"setup": False}
+    mbc = {}
+    try:
+        if mb.get("by_day") and len(mb["by_day"]) >= 2:
+            ds = list(mb["by_day"])
+            mbc["units"] = svgchart.running_units(ds, [mb["by_day"][d] for d in ds], label="my units by day")
+        if mb.get("n"):
+            gp = [p for p in preds if p["status"] == "graded" and p.get("hit") is not None]
+            sb = [p.get("break_even") or 0.5238 for p in gp]
+            rows = [{"name": "Your bets", "value": mb["rate"], "need": mb["need"] or 52.4, "rec": f"{mb['hits']}/{mb['n']}"}]
+            if gp:
+                rows.append({"name": "Site: all picks", "value": round(100 * sum(bool(p["hit"]) for p in gp) / len(gp), 1),
+                             "need": round(100 * sum(sb) / len(sb), 1), "rec": ""})
+            nw_ = ctx.get("news") or {}
+            if nw_.get("n"):
+                rows.append({"name": "Site: news plays", "value": nw_["rate"], "need": 52.4, "rec": ""})
+            mbc["vs"] = svgchart.hbar_vs_need(rows, label="you vs the site", need_label="what the prices needed", lo=30, hi=80)
+    except Exception as e:  # noqa: BLE001
+        print(f"My Bets charts failed: {e}")
+    write("mybets.html", "mybets.html", "mybets", mb=mb, mbc=mbc)
     write("parlays.html", "parlays.html", "parlays", pz=pz, today=today, pz_charts=pz_charts,
           fam_label={f["key"]: f["label"] for f in pz.get("families") or []})
     keep = set()

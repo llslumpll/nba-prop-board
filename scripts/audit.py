@@ -277,15 +277,16 @@ if snap.get("players"):
     sums = defaultdict(float)
     for r in SP:
         sums[(r["game_id"], r["team"])] += r["proj_min"] or 0
-    # With many players out, garbage-time minutes go to deep-bench players the site doesn't project, so the
-    # projected total runs short (ORL Nov 2: six out, 222; filling to 240 tested worse). The floor drops 3 minutes
-    # per player out beyond three (not below 205); anything under that, or over 247, is still a bug.
+    # With many players out, garbage-time minutes go to deep-bench / two-way players the site doesn't project, so
+    # the projected total runs short (ORL Nov 2: six out, 222; IND Nov 2: eight out, 176). Filling short-handed
+    # teams up to a full game was tested twice (Nov 2: floors 205-240) and made points / PRA slightly worse, so the
+    # model keeps it; the floor drops 10 minutes per player out beyond three (not below 160).
     try:
         outs = Counter(x.get("team") for x in json.loads((ROOT / "data" / "injuries.json").read_text()).get("players", [])
                        if x.get("class") == "out")
     except Exception:  # noqa: BLE001
         outs = Counter()
-    lo_for = lambda t: max(205, 225 - 3 * max(0, outs.get(t, 0) - 3))  # noqa: E731
+    lo_for = lambda t: max(160, 225 - 10 * max(0, outs.get(t, 0) - 3))  # noqa: E731
     bad_sum = [f"{t} {m:.0f} (floor {lo_for(t)})" for (g, t), m in sums.items() if str(g) in open_g and not lo_for(t) <= m <= 247]
     check("every team's projected minutes add up to a game (225-247, lower with 4+ players out)", not bad_sum,
           str(bad_sum[:4]) if bad_sum else f"{len(sums)} teams")

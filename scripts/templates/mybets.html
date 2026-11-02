@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}My Bets — Prop Edge NBA{% endblock %}
+{% block content %}
+<h1>My Bets</h1>
+<p class="lede">Your real bets, read from your Google Sheet every build and graded automatically from the box scores and final scores. Tap <b>&#128203; COPY BET</b> on any pick, news play or parlay, then paste it as a new row in the sheet.</p>
+{% if not mb.setup %}
+<div class="empty-state"><h3>Not connected yet</h3><p>Make a Google Sheet with the columns <b>date, bet, stat, side, line, book, price, units</b>, publish it as CSV (File &rarr; Share &rarr; Publish to web), and save that link as the GitHub secret <b>MYBETS_CSV</b>.</p></div>
+{% else %}
+{% if mb.error %}<div class="notice">Couldn't read your sheet this build ({{ mb.error }}); showing the last good copy.</div>{% endif %}
+{% if mb.unmatched %}<div class="notice"><b>{{ mb.unmatched|length }} row{{ 's' if mb.unmatched|length != 1 }} to check:</b>{% for g in mb.unmatched[:8] %}<br>row {{ g.row }} ({{ g.date }} {{ g.bet }} {{ g.stat }}): {{ g.note }}{% endfor %}</div>{% endif %}
+<div class="hv-rec">
+  <div class="hv-tile"><b>{{ mb.hits or 0 }}&ndash;{{ (mb.n or 0) - (mb.hits or 0) }}</b><span>my record{% if mb.pending %} &middot; {{ mb.pending }} pending{% endif %}</span></div>
+  <div class="hv-tile"><b class="{{ 'stat-good' if mb.rate and mb.need and mb.rate > mb.need else 'stat-bad' if mb.rate is not none }}">{{ (mb.rate ~ '%') if mb.rate is not none else '—' }}</b><span>hit rate{% if mb.need %} (needed {{ mb.need }}%){% endif %}</span></div>
+  <div class="hv-tile"><b class="{{ 'stat-good' if (mb.units or 0) > 0 else 'stat-bad' if (mb.units or 0) < 0 }}">{{ '%+.2f'|format(mb.units or 0) }}U</b><span>my units</span></div>
+  <div class="hv-tile"><b>{{ '%g'|format(mb.staked or 0) }}U</b><span>total staked</span></div>
+</div>
+{% if mbc.units %}<div class="chart-panel hv-chart"><h3>My running units</h3><p class="sub">Your graded bets at the units you staked, added up day by day.</p>{{ mbc.units|safe }}</div>{% endif %}
+{% if mbc.vs %}<div class="chart-panel hv-chart"><h3>Me vs the site</h3><p class="sub">Your hit rate next to the site's, against what the prices needed (white tick).</p>{{ mbc.vs|safe }}</div>{% endif %}
+{% if mb.kinds %}
+<h3 class="hv-h3">What I win at</h3>
+<table class="stat-table"><thead><tr><th>Kind of bet</th><th class="num">Record</th><th class="num">Units</th></tr></thead><tbody>
+{% for k in mb.kinds %}<tr><td>{{ k.name }}</td><td class="num">{{ k.h }}/{{ k.n }}</td><td class="num {{ 'stat-good' if k.u > 0 else 'stat-bad' if k.u < 0 }}">{{ '%+.2f'|format(k.u) }}U</td></tr>{% endfor %}
+</tbody></table>
+{% endif %}
+<h3 class="hv-h3">Every bet</h3>
+{% if mb.rows %}
+<table class="stat-table mb-table">
+<thead><tr><th>Day</th><th>Bet</th><th class="num">Result</th></tr></thead><tbody>
+{% for g in mb.rows %}<tr class="{{ 'row-hit' if g.result == 'hit' else 'row-miss' if g.result == 'miss' }}"><td class="small nowrap">{{ g.date_iso[5:]|replace('-', '/') }}</td>
+<td><b>{{ g.label }}</b><br><span class="dim small">{{ '%g'|format(g.units_f or 0) }}U{% if g.book %} &middot; {{ g.book }}{% endif %}{% if g.price %} {{ g.price }}{% endif %}{% if g.actual is defined and g.actual is not none %} &middot; had {{ g.actual|fmtnum }}{% endif %}</span></td>
+<td class="num"><span class="res {{ {'hit': 'res-hit', 'miss': 'res-miss', 'void': 'res-void', 'push': 'res-void'}.get(g.result, 'res-pend') }}">{{ g.result|upper }}</span>{% if g.result in ('hit', 'miss') %}<br><span class="small {{ 'stat-good' if g.pl > 0 else 'stat-bad' }}">{{ '%+.2f'|format(g.pl) }}U</span>{% endif %}</td></tr>{% endfor %}
+</tbody></table>
+{% else %}<div class="empty-state"><h3>No bets yet</h3><p>Add a row to your sheet; it shows up here on the next build.</p></div>{% endif %}
+<p class="small dim">Price: 52 = 52% (Kalshi-style), -110 / +150 (American), 3.4x (payout multiple); blank = -110. Units: blank = 1. Units only here; your Discord morning recap shows dollars.</p>
+{% endif %}
+{% endblock %}

@@ -1346,3 +1346,12 @@ html:not([data-theme="court"]) .pz-lost .pz-legs::after { content: "GAME OVER" !
 .news-dup { font-weight: 800; font-size: 0.72rem; color: #c9c0ff; border: 1px dashed #6b5cff; padding: 1px 6px; }
 /* NOT EARNED tag: beats the price, but its group hasn't earned a stake yet */
 .u-tag.pr-earn { border: 2px dashed #3dff8f; color: #9dffc4; font-size: 0.72rem; white-space: nowrap; }
+/* COPY BET button (My Bets) */
+.copy-bet { font: inherit; font-size: 0.72rem; font-weight: 800; letter-spacing: .5px; color: #3dff8f; background: transparent; border: 2px solid #3dff8f; padding: 3px 8px; cursor: pointer; text-transform: uppercase; }
+.copy-bet:hover { background: #3dff8f; color: #0a0814; }
+.copy-bet.copied { background: #3dff8f; color: #0a0814; }
+/* My Bets table: fits a phone (day | bet + details | result) */
+.mb-table { width: 100%; table-layout: fixed; }
+.mb-table th:nth-child(1), .mb-table td:nth-child(1) { width: 16%; }
+.mb-table th:nth-child(3), .mb-table td:nth-child(3) { width: 24%; }
+.mb-table td { white-space: normal; overflow-wrap: anywhere; vertical-align: top; }

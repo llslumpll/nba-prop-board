@@ -19,7 +19,7 @@
       </div>
     </div>
     {% endfor %}
-    <a class="board-all small" href="history.html">All-time: {{ record.hits }}&ndash;{{ record.misses }}{% if record.rate is not none %} ({{ record.rate }}%){% endif %} &middot; {{ '%+.1f'|format(record.money.units) }} units &rarr; History</a>
+    <a class="board-all small" href="mybets.html" style="margin-right:12px">&#128203; My Bets &rarr;</a><a class="board-all small" href="history.html">All-time: {{ record.hits }}&ndash;{{ record.misses }}{% if record.rate is not none %} ({{ record.rate }}%){% endif %} &middot; {{ '%+.1f'|format(record.money.units) }} units &rarr; History</a>
   </div>
 </section>
 
@@ -37,7 +37,7 @@
         <span class="small" title="How he actually played in {{ b.n_wo }} games without {{ ev.player }} vs {{ b.n_w }} with him (last season + this one), shrunk toward 0 for small samples">without him: <b class="{{ 'stat-good' if b.bump > 0 else 'stat-bad' }}">{{ '%+.1f'|format(b.bump) }}</b> ({{ b.n_wo }} games, {{ '%+.1f'|format(b.min_bump) }} min)</span>
         {% if b.counted is defined and not b.counted %}<span class="news-dup" title="Counted once, with every absence added together: {{ b.note }}">COMBINED</span> <span class="dim small">{{ b.note }}</span>{% elif b.model_agrees %}{{ m.utag(b.units or 0) }}{% else %}<span class="dim small" title="Our own pick on this line is the other side">model disagrees</span>{% endif %}
         {% if b.result == 'hit' %}<span class="res res-hit">HIT</span>{% elif b.result == 'miss' %}<span class="res res-miss">MISS</span>{% elif b.moved %}<span class="news-moved" title="The line moved after the news: the book reacted">BOOK MOVED &rarr; {{ b.line_now|fmtline }}</span>{% else %}<span class="news-fresh" title="Same line as before the news">LINE HASN'T MOVED</span>{% endif %}
-        <span class="dim small">{{ src_labels.get(b.src, b.src or '') }}</span>{% if b.counted and b.note %} <span class="dim small">&middot; {{ b.note }}</span>{% endif %}</li>{% endfor %}</ul>
+        <span class="dim small">{{ src_labels.get(b.src, b.src or '') }}</span>{% if not b.result and not b.moved and (b.counted is not defined or b.counted) %} {{ m.copy_bet(b.player, stat_short.get(b.stat, b.stat)|upper, b.call, b.line, src_labels.get(b.src, b.src or ''), m.bet_price(b.src, b.be)) }}{% endif %}{% if b.counted and b.note %} <span class="dim small">&middot; {{ b.note }}</span>{% endif %}</li>{% endfor %}</ul>
     {% else %}<p class="small dim">No teammate with a line has a big enough with/without difference (or not enough games without him) to flag.</p>{% endif %}
   </div>
   {% endfor %}

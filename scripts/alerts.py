@@ -153,6 +153,15 @@ def recap_message(now: datetime) -> tuple[str, str] | None:
     nd = [b for ev in news.load_date(y).values() for b in ev["plays"] if b.get("result") in ("hit", "miss")]
     if nd:
         lines.append(f"News plays: {sum(1 for b in nd if b['result'] == 'hit')}/{len(nd)}")
+    try:  # the user's own bets (mybets.py), in units and dollars
+        mb = json.loads((ROOT / "mybets.json").read_text())
+        mine = [g for g in mb.get("rows", []) if g.get("date_iso") == y and g.get("result") in ("hit", "miss")]
+        if mine:
+            u = sum(g["pl"] for g in mine)
+            lines.append(f"**Your bets: {sum(1 for g in mine if g['result'] == 'hit')}/{len(mine)} · {_money(u)}** "
+                         f"(season {mb.get('hits', 0)}/{mb.get('n', 0)} · {_money(mb.get('units', 0))})")
+    except Exception:  # noqa: BLE001
+        pass
     lines.append(SITE)
     return (f"recap|{y}", "\n".join(lines))
 
