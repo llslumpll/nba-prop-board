@@ -1,5 +1,5 @@
 {
- "at": "2026-10-28T17:18+00:00",
+ "at": "2026-11-02T17:20+00:00",
  "base_sig": "{\"a_def\": 0.25, \"a_pace\": 0.5, \"absent_window_days\": 10, \"b2b_min\": -0.04, \"b2b_min_threshold\": 28.0, \"b2b_rate\": -0.02, \"blowout_c\": 0.15, \"blowout_cap\": 3.0, \"blowout_threshold\": 8.0, \"cap\": 0.06, \"cap_mode\": \"waterfall\", \"def_k\": 20.0, \"fringe_share\": 0.35, \"home\": 0.01, \"k\": {\"ast\": 5, \"fg3m\": 3, \"pa\": 3, \"pr\": 3, \"pra\": 3, \"pts\": 5, \"ra\": 8, \"reb\": 12}, \"k_pos\": 15.0, \"min_cap\": 44.0, \"min_half_life\": 5.0, \"min_mode\": \"normalize\", \"min_prior_k\": 4.0, \"redistribute\": 0.5, \"rest3_rate\": 0.01, \"rotation_cap\": 250.0, \"rotation_min\": 12.0, \"season_w\": [1.0, 0.5], \"team_min_cap\": 241.0, \"team_share_alpha\": 0.5, \"team_share_cap\": 0.12, \"usage_b\": 0.0, \"usage_cap\": 0.1, \"use_blowout\": true, \"use_def\": false, \"use_home_rest\": true, \"use_out\": true, \"use_pace\": true, \"var_k\": 20.0}",
  "params": {},
  "settings": {
@@ -10,7 +10,11 @@
   "a_def": 0.25,
   "def_k": 40.0,
   "a_pace": 0.5,
-  "usage_b": 0.0
+  "usage_b": 0.0,
+  "role_rate_w": 1.0,
+  "role_early": 5.0,
+  "wowy_w": 0.0,
+  "opp_out_w": 0.0
  },
  "labels": {
   "last_game_w": "weight on a player's most recent game's minutes",
@@ -20,7 +24,11 @@
   "a_def": "strength of the opponent-defense adjustment",
   "def_k": "games of prior behind each defense rating",
   "a_pace": "strength of the pace adjustment",
-  "usage_b": "how much teammates' absences boost usage"
+  "usage_b": "how much teammates' absences boost usage",
+  "role_rate_w": "weight on his scoring rate in past games with similar minutes",
+  "role_early": "how long the similar-minutes rate matters into the season (games)",
+  "wowy_w": "weight on with/without history when a star teammate is out",
+  "opp_out_w": "weight on what the opponent allows without its missing players"
  },
  "history": [
   {
@@ -133,6 +141,121 @@
     "a_pace": 0.5,
     "usage_b": 0.0
    }
+  },
+  {
+   "at": "2026-11-02T17:20+00:00",
+   "windows": {
+    "B": [
+     [
+      2027,
+      "2026-10-26",
+      "2026-11-01"
+     ]
+    ],
+    "C": [
+     [
+      2026,
+      "2026-01-04",
+      "2026-01-24"
+     ]
+    ],
+    "A": [
+     [
+      2027,
+      "2026-10-20",
+      "2026-10-25"
+     ],
+     [
+      2026,
+      "2025-10-21",
+      "2025-11-10"
+     ]
+    ]
+   },
+   "rows": {
+    "A": 2707,
+    "B": 672,
+    "C": 2129
+   },
+   "changes": [],
+   "tried": 20,
+   "gain": {
+    "A": 0.0,
+    "B": 0.0,
+    "C": 0.0
+   },
+   "miss_before": {
+    "A": {
+     "n": 2707,
+     "min": 4.378,
+     "pts": 5.138,
+     "reb": 1.999,
+     "ast": 1.538,
+     "fg3m": 1.029,
+     "pra": 6.457
+    },
+    "B": {
+     "n": 672,
+     "min": 4.499,
+     "pts": 5.272,
+     "reb": 1.989,
+     "ast": 1.506,
+     "fg3m": 1.11,
+     "pra": 6.62
+    },
+    "C": {
+     "n": 2129,
+     "min": 4.147,
+     "pts": 4.885,
+     "reb": 1.964,
+     "ast": 1.507,
+     "fg3m": 1.043,
+     "pra": 6.163
+    }
+   },
+   "miss_after": {
+    "A": {
+     "n": 2707,
+     "min": 4.378,
+     "pts": 5.138,
+     "reb": 1.999,
+     "ast": 1.538,
+     "fg3m": 1.029,
+     "pra": 6.457
+    },
+    "B": {
+     "n": 672,
+     "min": 4.499,
+     "pts": 5.272,
+     "reb": 1.989,
+     "ast": 1.506,
+     "fg3m": 1.11,
+     "pra": 6.62
+    },
+    "C": {
+     "n": 2129,
+     "min": 4.147,
+     "pts": 4.885,
+     "reb": 1.964,
+     "ast": 1.507,
+     "fg3m": 1.043,
+     "pra": 6.163
+    }
+   },
+   "settings": {
+    "last_game_w": 0.25,
+    "min_prior_k": 1.0,
+    "min_half_life": 5.0,
+    "k_scale": 1.0,
+    "a_def": 0.25,
+    "def_k": 40.0,
+    "a_pace": 0.5,
+    "usage_b": 0.0,
+    "role_rate_w": 1.0,
+    "role_early": 5.0,
+    "wowy_w": 0.0,
+    "opp_out_w": 0.0
+   }
   }
  ],
  "last_tried": [
@@ -141,9 +264,9 @@
    "from": 0.25,
    "to": 0.2,
    "score": {
-    "A": 1.00277,
-    "B": 1.00435,
-    "C": 0.99913
+    "A": 1.00245,
+    "B": 1.00319,
+    "C": 0.99917
    },
    "ok": false
   },
@@ -152,9 +275,9 @@
    "from": 0.25,
    "to": 0.3,
    "score": {
-    "A": 0.99936,
-    "B": 0.99713,
-    "C": 1.00316
+    "A": 0.99941,
+    "B": 1.00014,
+    "C": 1.00322
    },
    "ok": false
   },
@@ -163,9 +286,9 @@
    "from": 1.0,
    "to": 0.6667,
    "score": {
-    "A": 0.99963,
-    "B": 0.99846,
-    "C": 1.00042
+    "A": 1.00008,
+    "B": 0.99677,
+    "C": 1.00046
    },
    "ok": false
   },
@@ -174,9 +297,9 @@
    "from": 1.0,
    "to": 1.5,
    "score": {
-    "A": 1.00179,
-    "B": 0.99996,
-    "C": 1.00019
+    "A": 1.00083,
+    "B": 1.00379,
+    "C": 1.00024
    },
    "ok": false
   },
@@ -185,9 +308,9 @@
    "from": 5.0,
    "to": 7.0,
    "score": {
-    "A": 1.00515,
-    "B": 0.99836,
-    "C": 1.00122
+    "A": 1.0018,
+    "B": 1.00626,
+    "C": 1.00124
    },
    "ok": false
   },
@@ -196,9 +319,9 @@
    "from": 1.0,
    "to": 0.8,
    "score": {
-    "A": 1.00083,
-    "B": 1.00152,
-    "C": 1.00013
+    "A": 0.9999,
+    "B": 0.99978,
+    "C": 1.00005
    },
    "ok": false
   },
@@ -207,9 +330,9 @@
    "from": 1.0,
    "to": 1.25,
    "score": {
-    "A": 0.99964,
-    "B": 0.9991,
-    "C": 0.99994
+    "A": 1.00023,
+    "B": 1.00045,
+    "C": 1.00003
    },
    "ok": false
   },
@@ -219,7 +342,7 @@
    "to": 0.2,
    "score": {
     "A": 1.0001,
-    "B": 1.00006,
+    "B": 1.00001,
     "C": 1.00003
    },
    "ok": false
@@ -230,7 +353,7 @@
    "to": 0.3,
    "score": {
     "A": 0.99991,
-    "B": 0.99995,
+    "B": 0.99998,
     "C": 0.99998
    },
    "ok": false
@@ -240,8 +363,8 @@
    "from": 40.0,
    "to": 26.6667,
    "score": {
-    "A": 0.99999,
-    "B": 1.00008,
+    "A": 0.99998,
+    "B": 1.00002,
     "C": 0.99997
    },
    "ok": false
@@ -252,7 +375,7 @@
    "to": 60.0,
    "score": {
     "A": 1.00002,
-    "B": 0.99995,
+    "B": 0.99999,
     "C": 1.00005
    },
    "ok": false
@@ -262,9 +385,9 @@
    "from": 0.5,
    "to": 0.4,
    "score": {
-    "A": 0.99997,
-    "B": 0.99996,
-    "C": 0.99991
+    "A": 0.9999,
+    "B": 0.9999,
+    "C": 0.9999
    },
    "ok": false
   },
@@ -273,8 +396,8 @@
    "from": 0.5,
    "to": 0.6,
    "score": {
-    "A": 1.00004,
-    "B": 1.00004,
+    "A": 1.0001,
+    "B": 1.00011,
     "C": 1.00011
    },
    "ok": false
@@ -284,9 +407,75 @@
    "from": 0.0,
    "to": 0.1,
    "score": {
-    "A": 1.00046,
-    "B": 1.0,
+    "A": 1.00094,
+    "B": 1.00175,
     "C": 1.00085
+   },
+   "ok": false
+  },
+  {
+   "knob": "role_rate_w",
+   "from": 1.0,
+   "to": 0.75,
+   "score": {
+    "A": 0.99985,
+    "B": 0.99935,
+    "C": 1.0001
+   },
+   "ok": false
+  },
+  {
+   "knob": "role_rate_w",
+   "from": 1.0,
+   "to": 1.25,
+   "score": {
+    "A": 1.0008,
+    "B": 1.00119,
+    "C": 0.99993
+   },
+   "ok": false
+  },
+  {
+   "knob": "role_early",
+   "from": 5.0,
+   "to": 3.3333,
+   "score": {
+    "A": 0.99996,
+    "B": 0.99948,
+    "C": 1.00008
+   },
+   "ok": false
+  },
+  {
+   "knob": "role_early",
+   "from": 5.0,
+   "to": 7.5,
+   "score": {
+    "A": 1.00021,
+    "B": 1.00073,
+    "C": 0.99996
+   },
+   "ok": false
+  },
+  {
+   "knob": "wowy_w",
+   "from": 0.0,
+   "to": 0.25,
+   "score": {
+    "A": 1.00007,
+    "B": 1.00024,
+    "C": 1.00057
+   },
+   "ok": false
+  },
+  {
+   "knob": "opp_out_w",
+   "from": 0.0,
+   "to": 0.25,
+   "score": {
+    "A": 0.99997,
+    "B": 0.99987,
+    "C": 0.99997
    },
    "ok": false
   }
