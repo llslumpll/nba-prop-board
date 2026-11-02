@@ -590,3 +590,12 @@ From the Monahan lecture (market-based betting):
   units"), so parlays and Best Value lists build as before.
 - Walk-forward backtest Oct 20-30 (each day judged only on earlier days): every recommended stake 670 bets,
   -14.66U on 172U (-8.5%); earned-only 94 bets, -0.43U on 25U (-1.7%). Groups earn and lose it automatically.
+
+## Update 52: team-minutes check allows for heavy injuries
+
+- Nov 2: ORL (six players out) projected to 222 minutes and failed the 225-247 check. Tested filling short-handed
+  teams up to a full game (new model floor at 228/232/236/240) on last season's early / mid stretches and this
+  season: every version made projections slightly worse (the model already runs high on points for short-handed
+  teams; deep-bench garbage-time minutes go to players the site doesn't project). Model unchanged.
+- `audit.py`: the lower bound now drops 3 minutes per player out beyond three (not below 205). Over 247, or under
+  that floor, is still flagged.
