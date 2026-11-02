@@ -8,7 +8,8 @@ Setup: Google Sheet with the header row  date, bet, stat, side, line, book, pric
 Rows (one bet each; the COPY BET buttons on the site produce them, tab-separated so they paste into columns):
   date   11/02 or 2026-11-02 (the slate's date)
   bet    player name | team (ML / SPREAD) | "CHA@WAS" or a team (TOTAL) | parlay id from the site (safe-2, news-1-w2)
-  stat   PTS REB AST 3PM PRA P+R P+A R+A | ML SPREAD TOTAL | PARLAY
+  stat   PTS REB AST 3PM PRA P+R P+A R+A | ML SPREAD TOTAL | PARLAY (also 2-MAN, 3-LEG, SINGLE: legs in "bet"
+         joined with " + ", e.g. "SAS ML + NYK ML" or "LeBron James OVER 24.5 PTS + LAL ML")
   side   OVER / UNDER (props, totals); blank for ML / SPREAD / PARLAY
   line   the number (SPREAD: the team's number, e.g. -5.5 or +3.5)
   book   free text (Kalshi, PrizePicks, FanDuel, ...)
@@ -197,11 +198,13 @@ def grade_rows(rows: list[dict], box=None) -> list[dict]:
             preds[d] = predictions.load_date(d)
             tps[d] = predictions.load_date(d, team=True)
             pzs[d] = parlays.load_date(d)
-        if stat == "PARLAY":
+        multi = re.match(r"^(PARLAY|SINGLE|STRAIGHT|\d+-?(MAN|LEGS?|PICKS?|TEAM))$", stat) or (" + " in r["bet"] and stat not in STAT)
+        if multi:
             # "ml-2: SAS ML + NYK ML": the legs you copied are graded themselves (a site parlay can still change legs
             # before its first tip); a bare id ("ml-2") falls back to the site's own graded parlay
             g["kind"] = "parlay"
-            pid, _, legtxt = r["bet"].partition(":")
+            pid, colon, legtxt = r["bet"].partition(":")
+            legtxt = legtxt if colon else r["bet"]          # "SAS ML + NYK ML" with no id works too
             legs = [x.strip() for x in legtxt.split("+") if x.strip()]
             parsed = [_parse_leg(x) for x in legs]
             if legs and all(parsed):
@@ -219,6 +222,8 @@ def grade_rows(rows: list[dict], box=None) -> list[dict]:
                     g["result"] = "hit"   # void / pushed legs drop out, like most books (payout as entered)
                 g["legs"] = [{"label": legs[i], "result": x} for i, x in enumerate(res)]
                 g["label"] = " + ".join(legs)
+                if len(legs) == 1:   # a single written as "ATL ML" / "Name OVER 14.5 PTS" counts with game bets / props
+                    g["kind"] = "game" if parsed[0][0] == "ml" else "prop"
             else:
                 pz = pzs[d].get(pid.strip().lower())
                 if not pz:

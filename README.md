@@ -622,3 +622,9 @@ From the Monahan lecture (market-based betting):
   themselves (player legs "Name OVER 14.5 PTS", moneylines "SAS ML"), so a site parlay that swaps legs before its
   first tip can't change your bet. Void / pushed legs drop out; a bare id ("ml-2") still uses the site's graded
   parlay; a leg that can't be found is listed in "rows to check".
+
+## Update 55: My Bets accepts the way you write parlays and singles
+
+- STAT can be PARLAY, SINGLE, STRAIGHT, 2-MAN, 3-LEG, 4-PICK..., and the bet column can list the legs with no id
+  ("SAS ML + NYK ML", "ATL ML", "LeBron James OVER 24.5 PTS + LAL ML"); each leg is graded. A one-leg "single" counts
+  with game bets / player props in "What I win at".
