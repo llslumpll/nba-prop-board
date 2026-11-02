@@ -125,6 +125,47 @@ def _box_lookup(box):
     return {(str(r["date"]), _norm(r["player"])): r for r in b.iter_rows(named=True)}
 
 
+LEG_PROP = re.compile(r"^(.+?)\s+(OVER|UNDER)\s+([\d.]+)\s+([A-Z0-9+]+)$", re.I)
+LEG_ML = re.compile(r"^([A-Z]{2,4})\s+ML$", re.I)
+
+
+def _parse_leg(txt: str):
+    m = LEG_ML.match(txt)
+    if m:
+        return ("ml", m[1].upper())
+    m = LEG_PROP.match(txt)
+    if m and STAT.get(m[4].upper()):
+        return ("prop", m[1], STAT[m[4].upper()], m[2].upper(), float(m[3]))
+    return None
+
+
+def _grade_leg(leg, d, preds_d, tps_d, boxd, played_dates) -> str:
+    """'hit' | 'miss' | 'push' | 'void' | 'pending' | 'unmatched' for one parsed parlay leg."""
+    if leg[0] == "ml":
+        rec = next((t for t in tps_d.values() if leg[1] in (t["home"], t["away"])), None)
+        if not rec:
+            return "unmatched" if d in played_dates else "pending"
+        if not rec.get("scores"):
+            return "pending"
+        hs, as_ = rec["scores"]
+        return "hit" if (hs > as_) == (leg[1] == rec["home"]) else "miss"
+    _, name, st, side, line = leg
+    nm = _norm(name)
+    p = next((v for v in preds_d.values() if v.get("stat") == st and _norm(v["player"]) == nm), None)
+    if p and p.get("status") == "void":
+        return "void"
+    actual = p["actual"] if p and p.get("actual") is not None else None
+    if actual is None:
+        bx = boxd.get((d, nm))
+        if bx:
+            actual = sum(bx[x] or 0 for x in PARTS[st])
+    if actual is None:
+        if d in played_dates and not p and not any(_norm(v["player"]) == nm for v in preds_d.values()):
+            return "unmatched"
+        return "pending" if not (d in played_dates and p and p.get("status") == "graded") else "void"
+    return "push" if actual == line else ("hit" if (actual > line) == (side == "OVER") else "miss")
+
+
 def grade_rows(rows: list[dict], box=None) -> list[dict]:
     import parlays
     import predictions
@@ -157,17 +198,38 @@ def grade_rows(rows: list[dict], box=None) -> list[dict]:
             tps[d] = predictions.load_date(d, team=True)
             pzs[d] = parlays.load_date(d)
         if stat == "PARLAY":
+            # "ml-2: SAS ML + NYK ML": the legs you copied are graded themselves (a site parlay can still change legs
+            # before its first tip); a bare id ("ml-2") falls back to the site's own graded parlay
             g["kind"] = "parlay"
-            pz = pzs[d].get(r["bet"].strip().lower())
-            if not pz:
-                g.update(result="unmatched", note="no site parlay with that id on that date")
-            elif pz["status"] == "graded":
-                g["result"] = "hit" if pz["hit"] else "miss"
-                if pz["hit"] and not r["price"]:
-                    g["payout"] = pz.get("pays_final") or pz.get("pays")   # the site's own payout when none was entered
-            elif pz["status"] == "void":
-                g["result"] = "void"
-            g["label"] = " + ".join(l["label"] for l in (pz or {}).get("legs", [])) or r["bet"]
+            pid, _, legtxt = r["bet"].partition(":")
+            legs = [x.strip() for x in legtxt.split("+") if x.strip()]
+            parsed = [_parse_leg(x) for x in legs]
+            if legs and all(parsed):
+                res = [_grade_leg(x, d, preds[d], tps[d], boxd, played_dates) for x in parsed]
+                bad = [legs[i] for i, x in enumerate(res) if x == "unmatched"]
+                if bad:
+                    g.update(result="unmatched", note=f"can't find leg: {bad[0]}")
+                elif "miss" in res:
+                    g["result"] = "miss"
+                elif "pending" in res:
+                    g["result"] = "pending"
+                elif all(x in ("void", "push") for x in res):
+                    g["result"] = "void"
+                else:
+                    g["result"] = "hit"   # void / pushed legs drop out, like most books (payout as entered)
+                g["legs"] = [{"label": legs[i], "result": x} for i, x in enumerate(res)]
+                g["label"] = " + ".join(legs)
+            else:
+                pz = pzs[d].get(pid.strip().lower())
+                if not pz:
+                    g.update(result="unmatched", note="no site parlay with that id on that date (or a leg couldn't be read)")
+                elif pz["status"] == "graded":
+                    g["result"] = "hit" if pz["hit"] else "miss"
+                    if pz["hit"] and not r["price"]:
+                        g["payout"] = pz.get("pays_final") or pz.get("pays")   # the site's own payout when none was entered
+                elif pz["status"] == "void":
+                    g["result"] = "void"
+                g["label"] = " + ".join(l["label"] for l in (pz or {}).get("legs", [])) or r["bet"]
         elif stat in ("ML", "SPREAD", "TOTAL"):
             g["kind"] = "game"
             team = re.sub(r"[^A-Z@]", "", r["bet"].upper())

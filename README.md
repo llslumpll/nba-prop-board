@@ -615,3 +615,10 @@ From the Monahan lecture (market-based betting):
   that pastes straight into the sheet's columns (`_macros.copy_bet`, script in base.html).
 - Morning Discord recap adds "Your bets: H/N · +1.5U (+$150)" with the season total.
 - Workflow `build.yml` passes `MYBETS_CSV` (edit the file on GitHub, it doesn't upload by drag).
+
+## Update 54: My Bets grades the parlay legs you copied
+
+- COPY BET on a parlay now copies its id and legs ("ml-2: SAS ML + NYK ML"). `mybets.py` grades those legs
+  themselves (player legs "Name OVER 14.5 PTS", moneylines "SAS ML"), so a site parlay that swaps legs before its
+  first tip can't change your bet. Void / pushed legs drop out; a bare id ("ml-2") still uses the site's graded
+  parlay; a leg that can't be found is listed in "rows to check".
