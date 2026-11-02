@@ -34,7 +34,19 @@
   <main class="site-main">
 <h1>My Bets</h1>
 <p class="lede">Your real bets, read from your Google Sheet every build and graded automatically from the box scores and final scores. Tap <b>&#128203; COPY BET</b> on any pick, news play or parlay, then paste it as a new row in the sheet.</p>
-<div class="empty-state"><h3>Not connected yet</h3><p>Make a Google Sheet with the columns <b>date, bet, stat, side, line, book, price, units</b>, publish it as CSV (File &rarr; Share &rarr; Publish to web), and save that link as the GitHub secret <b>MYBETS_CSV</b>.</p></div>
+<div class="hv-rec">
+  <div class="hv-tile"><b>0&ndash;0</b><span>my record &middot; 1 pending</span></div>
+  <div class="hv-tile"><b class="">—</b><span>hit rate</span></div>
+  <div class="hv-tile"><b class="">+0.00U</b><span>my units</span></div>
+  <div class="hv-tile"><b>0U</b><span>total staked</span></div>
+</div>
+<h3 class="hv-h3">Every bet</h3>
+<table class="stat-table mb-table">
+<thead><tr><th>Day</th><th>Bet</th><th class="num">Result</th></tr></thead><tbody>
+<tr class=""><td class="small nowrap">11/02</td>
+<td><b>SAS ML + NYK ML</b><br><span class="dim small">1U 1.22x</span></td>
+<td class="num"><span class="res res-pend">PENDING</span></td></tr></tbody></table>
+<p class="small dim">Price: 52 = 52% (Kalshi-style), -110 / +150 (American), 3.4x (payout multiple); blank = -110. Units: blank = 1. Units only here; your Discord morning recap shows dollars.</p>
   </main>
   <aside id="slip" class="slip hidden" aria-label="Your slip"></aside>
   <nav class="bottom-nav" aria-label="Pages">
@@ -119,6 +131,6 @@
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>
-<div class="foot-row foot-dim"><span>BUILD: 2026-11-02 19:20 UTC &middot; via GitHub Actions</span></div>  </footer>
+<div class="foot-row foot-dim"><span>BUILD: 2026-11-02 19:23 UTC &middot; via GitHub Actions</span></div>  </footer>
 </body>
 </html>
