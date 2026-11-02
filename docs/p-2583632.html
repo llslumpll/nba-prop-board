@@ -10,7 +10,7 @@
 <link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="static/style.css?v=5999e91547">
+<link rel="stylesheet" href="static/style.css?v=cb93a2544e">
   <script>
     // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
     (function () {
@@ -176,7 +176,7 @@
     <div class="bd-why"><p class="why-reason"><strong>pts+reb+ast 12.5:</strong> 22.4 min (recent 22.0, +0.4 team-minutes adjustment); × 0.553 pts+reb+ast/min (70% this season&#39;s 0.484 over 7 games, 30% prior 0.636); context: home +1%, opponent defense −1%, shared production on CHA +3%; calibration -0.3.
 <br><span class="mu-line">Matchup: DET allows <b>70.7</b> pts+reb+ast a game to forwards, <b class="">13th most</b> of 30 (+0% vs league, 6 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span><br><span class="locked">&#128274; frozen: OVER 9.5 (2026-11-02 15:21 UTC)</span></p>
 <p class="why-reason"><strong>pts+reb 11.3:</strong> 22.4 min (recent 22.0, +0.4 team-minutes adjustment); × 0.497 pts+reb/min (70% this season&#39;s 0.460 over 7 games, 30% prior 0.544); context: home +1%, opponent defense −1%, shared production on CHA +3%; calibration -0.2.
-<br><span class="mu-line">Matchup: DET allows <b>63.2</b> pts+reb a game to forwards, <b class="">12th most</b> of 30 (+1% vs league, 6 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
+<br><span class="mu-line">Matchup: DET allows <b>63.2</b> pts+reb a game to forwards, <b class="">13th most</b> of 30 (+1% vs league, 6 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
 <p class="why-reason"><strong>pts+ast 8.9:</strong> 22.4 min (recent 22.0, +0.4 team-minutes adjustment); × 0.387 pts+ast/min (70% this season&#39;s 0.325 over 7 games, 30% prior 0.459); context: home +1%, opponent defense −1%, shared production on CHA +5%; calibration -0.2.
 <br><span class="mu-line">Matchup: DET allows <b>50.7</b> pts+ast a game to forwards, <b class="">19th most</b> of 30 (-2% vs league, 6 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
 <p class="why-reason"><strong>reb+ast 5.3:</strong> 22.4 min (recent 22.0, +0.4 team-minutes adjustment); × 0.237 reb+ast/min (47% this season&#39;s 0.183 over 7 games, 53% prior 0.269); context: home +1%, opponent defense −1%; calibration -0.0.
@@ -352,7 +352,16 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=5999e91547"></script>
+  <script src="static/slip.js?v=cb93a2544e"></script>
+  <script>
+    /* COPY BET: copies one row (tab-separated, so it pastes into the sheet's columns) */
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest('.copy-bet'); if (!b) return;
+      var t = b.dataset.bet, done = function () { var o = b.innerHTML; b.innerHTML = '&#10004; COPIED'; b.classList.add('copied'); setTimeout(function () { b.innerHTML = o; b.classList.remove('copied'); }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(t).then(done, function () { window.prompt('Copy this row:', t); }); }
+      else { window.prompt('Copy this row:', t); }
+    });
+  </script>
   <footer class="site-foot">
     <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
     <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>

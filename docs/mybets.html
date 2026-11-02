@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>My Bets — Prop Edge NBA</title>
+<link rel="preload" href="static/fonts/jersey-10-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/oxanium-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="static/style.css?v=cb93a2544e">
+  <script>
+    // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
+    (function () {
+      var d = document.documentElement; d.classList.add('fonts-wait');
+      function ready() { d.classList.remove('fonts-wait'); }
+      setTimeout(ready, 1500);
+      if (document.fonts && document.fonts.ready) {
+        Promise.all(['400 1em "Jersey 10"', '600 1em Oxanium', '700 1em Oxanium', '800 1em Oxanium', '400 1em "Press Start 2P"'].map(function (f) { return document.fonts.load(f); }))
+          .then(function () { return document.fonts.ready; }).then(ready, ready);
+      } else { ready(); }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-head">
+    <a class="brand" href="index.html">PROP EDGE<span class="brand-sub">NBA</span></a>
+    <nav class="site-nav" aria-label="Pages">
+<a href="index.html" class="">Home</a><a href="picks.html" class="">Picks</a><a href="games.html" class="">Games</a><a href="players.html" class="">Players</a><a href="rankings.html" class="">Teams</a><a href="parlays.html" class="">Parlays</a><a href="history.html" class="">History</a>    </nav>
+  </header>
+  <div class="sys-tagline">⭐ AUTO-BUILD ⭐ EVERY PICK FROZEN BEFORE TIP ⭐ GRADED IN PUBLIC ⭐</div>
+  <main class="site-main">
+<h1>My Bets</h1>
+<p class="lede">Your real bets, read from your Google Sheet every build and graded automatically from the box scores and final scores. Tap <b>&#128203; COPY BET</b> on any pick, news play or parlay, then paste it as a new row in the sheet.</p>
+<div class="empty-state"><h3>Not connected yet</h3><p>Make a Google Sheet with the columns <b>date, bet, stat, side, line, book, price, units</b>, publish it as CSV (File &rarr; Share &rarr; Publish to web), and save that link as the GitHub secret <b>MYBETS_CSV</b>.</p></div>
+  </main>
+  <aside id="slip" class="slip hidden" aria-label="Your slip"></aside>
+  <nav class="bottom-nav" aria-label="Pages">
+<a href="index.html" class=""><span class="bn-ic">⌂</span>Home</a><a href="picks.html" class=""><span class="bn-ic">★</span>Picks</a><a href="games.html" class=""><span class="bn-ic">◎</span>Games</a><a href="players.html" class=""><span class="bn-ic">▦</span>Players</a><a href="rankings.html" class=""><span class="bn-ic">☰</span>Teams</a><a href="parlays.html" class=""><span class="bn-ic">✦</span>Parlays</a><a href="history.html" class=""><span class="bn-ic">↺</span>History</a>  </nav>
+  <script>
+    (function () { var a = document.querySelector('.site-nav a.active'); if (a && a.scrollIntoView) a.scrollIntoView({block: 'nearest', inline: 'center'}); })();
+    function toggleWhy(id, btn) {
+      var panel = document.querySelector('[data-why-panel="' + id + '"]');
+      if (!panel) return;
+      var hidden = panel.classList.contains('hidden');
+      panel.classList.toggle('hidden', !hidden);
+      btn.classList.toggle('open', hidden);
+      btn.textContent = hidden ? 'hide' : 'why';
+    }
+    document.querySelectorAll('.game-picker').forEach(function (picker) {
+      var scope = picker.parentElement;
+      picker.querySelectorAll('.game-tab').forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          picker.querySelectorAll('.game-tab').forEach(function (t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+          scope.querySelectorAll(':scope > .game-panel').forEach(function (p) {
+            p.classList.toggle('hidden', p.dataset.panel !== tab.dataset.panel);
+          });
+        });
+      });
+    });
+    // Generic tabs: <div data-tabs="name"><button data-tab="x">...</button></div> + <div data-tab-panel="name:x">.
+    function showTab(name, key) {
+      var btns = document.querySelectorAll('[data-tabs="' + name + '"] [data-tab]');
+      var ok = false;
+      btns.forEach(function (b) { var on = b.dataset.tab === key; b.classList.toggle('active', on); ok = ok || on; });
+      if (!ok) return false;
+      document.querySelectorAll('[data-tab-panel^="' + name + ':"]').forEach(function (p) {
+        p.classList.toggle('hidden', p.dataset.tabPanel !== name + ':' + key);
+      });
+      return true;
+    }
+    document.querySelectorAll('[data-tabs]').forEach(function (bar) {
+      bar.querySelectorAll('[data-tab]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          showTab(bar.dataset.tabs, b.dataset.tab);
+          if (bar.dataset.hash) history.replaceState(null, '', '#' + b.dataset.tab);
+          if (bar.dataset.tabScroll) {
+            var ref = bar.previousElementSibling || bar; var y = ref.getBoundingClientRect().bottom + window.scrollY - 80;
+            if (window.scrollY > y) window.scrollTo(0, y);
+          }
+        });
+      });
+    });
+    function applyHash() {
+      var h = location.hash.slice(1); if (!h) return;
+      document.querySelectorAll('[data-tabs][data-hash]').forEach(function (bar) {
+        if (showTab(bar.dataset.tabs, h) && bar.dataset.hashScroll) {
+          var t = document.getElementById(bar.dataset.hashScroll) || bar;
+          setTimeout(function () { t.scrollIntoView({block: 'start'}); }, 0);
+        }
+      });
+      document.dispatchEvent(new CustomEvent('pe-hash', {detail: h}));
+    }
+    applyHash();
+    window.addEventListener('hashchange', applyHash);
+    // Home: filter top-play cards by stat
+    document.querySelectorAll('[data-filter-bar]').forEach(function (bar) {
+      bar.querySelectorAll('[data-filter]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          bar.querySelectorAll('[data-filter]').forEach(function (x) { x.classList.toggle('active', x === b); });
+          document.querySelectorAll('[data-filter-panel]').forEach(function (p) { p.classList.toggle('hidden', p.dataset.filterPanel !== b.dataset.filter); });
+        });
+      });
+    });
+  </script>
+  <script src="static/slip.js?v=cb93a2544e"></script>
+  <script>
+    /* COPY BET: copies one row (tab-separated, so it pastes into the sheet's columns) */
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest('.copy-bet'); if (!b) return;
+      var t = b.dataset.bet, done = function () { var o = b.innerHTML; b.innerHTML = '&#10004; COPIED'; b.classList.add('copied'); setTimeout(function () { b.innerHTML = o; b.classList.remove('copied'); }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(t).then(done, function () { window.prompt('Copy this row:', t); }); }
+      else { window.prompt('Copy this row:', t); }
+    });
+  </script>
+  <footer class="site-foot">
+    <div class="foot-row"><span>DATA: sportsdataverse ESPN box scores &amp; schedule &middot; ESPN injuries &amp; rosters &middot; Kalshi public markets &middot; PrizePicks (unofficial, experimental) &middot; FanDuel via The Odds API. Unofficial; not affiliated with the NBA or any team.</span></div>
+    <div class="foot-row foot-dim"><span>Projections are estimates, not advice. Bet responsibly.</span></div>
+<div class="foot-row foot-dim"><span>BUILD: 2026-11-02 18:40 UTC &middot; via GitHub Actions</span></div>  </footer>
+</body>
+</html>
