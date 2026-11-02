@@ -31,9 +31,11 @@ jobs:
       - name: Heavy build
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}   # phone alerts (alerts.py); empty = no alerts
+          MYBETS_CSV: ${{ secrets.MYBETS_CSV }}             # My Bets sheet (mybets.py); empty = not set up
         run: python scripts/build.py
       - name: Commit and push (rebuild on top if main moved)
         # alerts_state.json is kept through a rebuild so an alert that already went out isn't sent twice
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          MYBETS_CSV: ${{ secrets.MYBETS_CSV }}
         run: bash scripts/push_or_rebuild.sh "Daily build" "python scripts/build.py" data/alerts_state.json
