@@ -634,3 +634,15 @@ From the Monahan lecture (market-based betting):
 - After 615 graded at real prices (Oct 31-Nov 2): 385 hit (62.6%) at an average cost of 67% = -41.7U flat. No edge.
   `market.LAG_ON = False`: no new lag bets are recorded; ones already recorded still grade. Removed from
   Games -> EDGES; History -> Market keeps the final record, marked RETIRED. Never staked.
+
+## Update 57: focus on this season (tested), players on new teams
+
+- Asked: lean on this season more, since rosters changed. New settings in `model.py`: `team_k` (games of last
+  season's team pace / strength, was a fixed 15), `moved_k` (prior weight for players on a new team), `share_own_w`
+  (team-output norm weight on the team's own last-season roster). Tested on every 2026-27 game so far (2,915
+  player-games, walk-forward) and 2025-26's first three weeks: player k x0.33-0.75, team_k 4-8, def_k 10-20,
+  share_own_w 0-0.25, min_prior_k 0 were all within +/-0.1% (minutes prior 0 was worse, +0.8%), so unchanged.
+- ON: `moved_k = 0.5` (live.load_fit): players whose main team last season differs lean on last season's rates
+  half as much. On those players: PRA miss 6.370 -> 6.359 (120 players this season), 6.514 -> 6.476 (167 in
+  2025-26's first weeks); points better in both.
+- `tune.py`: the weekly self-tuner now also tries `moved_k` and `team_k`.

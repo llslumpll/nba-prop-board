@@ -98,6 +98,9 @@ class Params:
     role_band: float = 5.0    # "similar" = within this many minutes of tonight's projection
     role_k: float = 10.0      # shrink: n_similar / (n_similar + role_k)
     role_early: float = 0.0   # >0: role weight fades as this season's games pile up: x role_early / (games + role_early)
+    team_k: float = 15.0      # games of last season's team pace / strength behind this season's (update 57 test)
+    moved_k: float = 1.0      # players on a NEW team: k (prior weight on last season's rates) x this (1 = no change)
+    share_own_w: float = 0.5  # shared-production norm: weight on the team's own LAST-season output (rest = league)
     wowy_star: float = 12.0   # only absences of players scoring this many (recent per-game points) count
     wowy_fresh: float = 0.5   # ... and only while the absence is still "fresh" (0-1)
 
@@ -294,8 +297,8 @@ def project(box: pl.DataFrame, targets: pl.DataFrame, p: Params | None = None,
         prior_pace = (0.5 * pl.col(f"{side}_ppace").fill_null(pl.col("lg_pace")) + 0.5 * pl.col("lg_pace"))
         prior_net = 0.5 * pl.col(f"{side}_pnet").fill_null(0.0)
         t = t.with_columns(
-            ((n * cur_pace.fill_null(0) + 15 * prior_pace) / (n + 15)).alias(f"{side}_pace"),
-            ((n * cur_net.fill_null(0) + 15 * prior_net) / (n + 15)).alias(f"{side}_net"),
+            ((n * cur_pace.fill_null(0) + p.team_k * prior_pace) / (n + p.team_k)).alias(f"{side}_pace"),
+            ((n * cur_net.fill_null(0) + p.team_k * prior_net) / (n + p.team_k)).alias(f"{side}_net"),
         )
 
     ds = dstate.rename({"def_team": "opp"})
@@ -459,9 +462,18 @@ def project(box: pl.DataFrame, targets: pl.DataFrame, p: Params | None = None,
     else:
         t = t.with_columns(role_n=pl.lit(0))
 
+    # players on a new team this season (main team last season differs): their old role / teammates may not carry over
+    if p.moved_k != 1.0:
+        main = played.group_by(["player_id", "season", "team"]).agg(pl.len().alias("_g")).sort("_g", descending=True) \
+            .unique(subset=["player_id", "season"], keep="first").select("player_id", (pl.col("season") + 1).alias("season"),
+                                                                          pl.col("team").alias("prev_main_team"))
+        t = t.join(main, on=["player_id", "season"], how="left")
+        moved = pl.col("prev_main_team").is_not_null() & (pl.col("prev_main_team") != pl.col("team"))
+    else:
+        moved = pl.lit(False)
     out_cols = []
     for s in STATS:
-        k = p.k[s]
+        k = pl.when(moved).then(p.k[s] * p.moved_k).otherwise(p.k[s])
         n = pl.col("c_n")
         cur = pl.when(pl.col("c_min") > 0).then(pl.col(f"c_{s}") / pl.col("c_min")).otherwise(0.0)
         pm = w0 * pl.col("m1") + w1 * pl.col("m2")
@@ -504,7 +516,7 @@ def project(box: pl.DataFrame, targets: pl.DataFrame, p: Params | None = None,
     t = t.join(lg_team, on="season", how="left").join(own_team, on=["team", "season"], how="left")
     for s in base_stats:
         lgv = pl.col(f"lgt_{s}").fill_null(tg_all[s].mean())
-        norm = 0.5 * lgv + 0.5 * pl.col(f"own_{s}").fill_null(lgv)
+        norm = (1 - p.share_own_w) * lgv + p.share_own_w * pl.col(f"own_{s}").fill_null(lgv)
         tot = pl.col(f"proj_{s}").sum().over(["game_id", "team"])
         ratio = (norm * pl.col("f_pace") / tot).clip(0.5, 2.0)
         f = pl.when(tot > 0).then(ratio.pow(p.team_share_alpha)).otherwise(1.0).clip(1 - p.team_share_cap, 1 + p.team_share_cap)

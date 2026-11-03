@@ -121,6 +121,12 @@ def load_fit() -> dict:
         # PRA miss 6.416 -> 6.411 (Nov 2025), 6.215 -> 6.212 (Jan), 6.240 -> 6.238 (Mar), 6.562 -> 6.487 this season;
         # reb, ast and threes better everywhere, points better in 3 of 4. The weekly tuner can move it from here.
         prm.update(role_rate_w=1.0, role_early=5.0)
+    if "moved_k" not in prm:
+        # Nov 3 (update 57): players on a NEW team lean on last season's rates half as much (their role and teammates
+        # changed). On those players only: PRA miss 6.370 -> 6.359 this season, 6.514 -> 6.476 in 2025-26's first three
+        # weeks; points better in both. Other "this season counts more" settings (player k, team pace / strength,
+        # defense, team-output norm, minutes) were within +/-0.1% on this season's games, so unchanged.
+        prm.update(moved_k=0.5)
     fields = model.Params.__dataclass_fields__
     p = model.Params(**{k: v for k, v in prm.items() if k in fields})
     p_base = p
