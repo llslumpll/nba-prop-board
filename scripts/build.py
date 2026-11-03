@@ -427,11 +427,12 @@ def build(args) -> None:
     try:
         edge_found = edges.find(sl, kal, line_book, res)
         n_edge = edges.record(edge_found, now)
-        try:  # Kalshi lagging the books (market.py): recorded with the real price, tracked until proven
-            lags = market.find_lags(line_book, sl)
-            print(f"Kalshi lags: {len(lags)} open, {market.record(lags, now)} new")
-        except Exception as e:  # noqa: BLE001
-            print(f"Kalshi lags failed: {e}")
+        if market.LAG_ON:  # Kalshi lagging the books (market.py); retired Nov 3 (no edge at real prices)
+            try:
+                lags = market.find_lags(line_book, sl)
+                print(f"Kalshi lags: {len(lags)} open, {market.record(lags, now)} new")
+            except Exception as e:  # noqa: BLE001
+                print(f"Kalshi lags failed: {e}")
         print(f"EDGES: {len(edge_found['edges'])} +EV of {edge_found['checked']} matched Kalshi prices, "
               f"{len(edge_found['arbs'])} arbitrage, {len(edge_found['middles'])} middles; {n_edge} newly recorded")
     except Exception as e:  # noqa: BLE001  (never let the extra page stop a build)

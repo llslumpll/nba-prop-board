@@ -628,3 +628,9 @@ From the Monahan lecture (market-based betting):
 - STAT can be PARLAY, SINGLE, STRAIGHT, 2-MAN, 3-LEG, 4-PICK..., and the bet column can list the legs with no id
   ("SAS ML + NYK ML", "ATL ML", "LeBron James OVER 24.5 PTS + LAL ML"); each leg is graded. A one-leg "single" counts
   with game bets / player props in "What I win at".
+
+## Update 56: Kalshi-lag tracker retired
+
+- After 615 graded at real prices (Oct 31-Nov 2): 385 hit (62.6%) at an average cost of 67% = -41.7U flat. No edge.
+  `market.LAG_ON = False`: no new lag bets are recorded; ones already recorded still grade. Removed from
+  Games -> EDGES; History -> Market keeps the final record, marked RETIRED. Never staked.

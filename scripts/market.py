@@ -31,6 +31,9 @@ import predictions
 import proven
 
 DIR = Path(__file__).parent.parent / "data" / "market"
+# RETIRED Nov 3 2026: 385/615 (62.6%) at an average real price of 67% = -41.7U flat. No new lags are recorded;
+# ones already recorded are still graded and the record stays on History -> Market.
+LAG_ON = False
 LAG_MIN = 1.0          # points between Kalshi's even-money rung and the books' line
 LAG_EARN_N = 100       # graded lag bets before they can earn a stake
 LAG_UNITS = 0.5

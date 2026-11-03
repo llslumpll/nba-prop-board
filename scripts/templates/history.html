@@ -257,8 +257,8 @@
   <thead><tr><th>Price</th><th class="num">Picks</th><th class="num">Hit rate</th><th class="num">Needed</th><th class="num">Cautious</th><th class="num">Flat 1U</th><th>Trust</th></tr></thead>
   <tbody>{% for r in mtrust.kalshi_bands %}{{ trow(r) }}{% endfor %}</tbody></table></div></div>
 {% endif %}
-<h3 class="hv-h3">Kalshi lagging the books</h3>
-{{ help('When PrizePicks and FanDuel both have a line 1+ points away from Kalshi&rsquo;s even-money number, bet Kalshi toward the books. Past picks hit about 62%; this record uses the real Kalshi price at the time of each bet. Tracking only until 100+ are graded and the cautious end beats the average price.') }}
+<h3 class="hv-h3">Kalshi lagging the books (retired)</h3>
+{{ help('When PrizePicks and FanDuel both had a line 1+ points away from Kalshi&rsquo;s even-money number, the idea was to bet Kalshi toward the books. Tracked at the real Kalshi price from Oct 31; <b>retired Nov 3</b>: it hit about 63%, but those Kalshi prices cost about 67%, so it lost money. Never staked. Final record below.') }}
 {% if lag and lag.n %}
 <div class="hv-rec">
   <div class="hv-tile"><b>{{ lag.priced_hits }}&ndash;{{ lag.priced - lag.priced_hits }}</b><span>record with a real price{% if lag.pending %} &middot; {{ lag.pending }} pending{% endif %}</span></div>
@@ -266,7 +266,7 @@
   <div class="hv-tile"><b class="hv-need">{{ lag.avg_cost or '—' }}%</b><span>average price paid</span></div>
   <div class="hv-tile"><b>{{ sgn(lag.units, 2, 'U') }}</b><span>flat 1U each</span></div>
 </div>
-<div class="hv-verdict hv-{{ 'good' if lag.earned else 'early' }}"><span class="hv-vk">{{ 'STAKE EARNED' if lag.earned else 'TRACKING ONLY' }}</span> {{ lag.priced }} graded with a real price; cautious end {{ lag.low }}% vs average price {{ lag.avg_cost or '—' }}%.</div>
+<div class="hv-verdict hv-bad"><span class="hv-vk">RETIRED</span> {{ lag.priced }} graded with a real price; cautious end {{ lag.low }}% vs average price {{ lag.avg_cost or '—' }}%.</div>
 <details class="hv-log"><summary>Every graded lag bet &#9662;</summary>
 <div class="table-wrap"><div class="table-scroll hv-log-scroll"><table class="stat-table dayt">
   <thead><tr><th>Day</th><th>Bet</th><th>Books</th><th class="num">Price</th><th class="num">Result</th></tr></thead>
