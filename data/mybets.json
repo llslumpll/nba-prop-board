@@ -1,17 +1,23 @@
 {
  "setup": true,
- "n": 2,
+ "n": 3,
  "hits": 1,
- "rate": 50.0,
- "need": 58.2,
- "units": -0.44,
- "staked": 2.0,
- "pending": 2,
+ "rate": 33.3,
+ "need": 57.3,
+ "units": -1.44,
+ "staked": 3.0,
+ "pending": 1,
  "unmatched": [],
  "by_day": {
-  "2026-11-02": -0.43999999999999995
+  "2026-11-02": -1.44
  },
  "kinds": [
+  {
+   "name": "Parlays",
+   "n": 1,
+   "h": 0,
+   "u": -1.0
+  },
   {
    "name": "Game bets",
    "n": 1,
@@ -82,7 +88,7 @@
    "date_iso": "2026-11-02",
    "units_f": 1.0,
    "payout": 1.8,
-   "result": "pending",
+   "result": "miss",
    "kind": "parlay",
    "legs": [
     {
@@ -91,15 +97,15 @@
     },
     {
      "label": "DAL ML",
-     "result": "pending"
+     "result": "miss"
     },
     {
      "label": "MIN ML",
-     "result": "pending"
+     "result": "hit"
     }
    ],
    "label": "PHI ML + DAL ML + MIN ML",
-   "pl": 0.0
+   "pl": -1.0
   },
   {
    "date": "11/2",
