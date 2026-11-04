@@ -646,3 +646,17 @@ From the Monahan lecture (market-based betting):
   half as much. On those players: PRA miss 6.370 -> 6.359 (120 players this season), 6.514 -> 6.476 (167 in
   2025-26's first weeks); points better in both.
 - `tune.py`: the weekly self-tuner now also tries `moved_k` and `team_k`.
+
+## Update 58: line-implied minutes (the biggest gap to the books)
+
+- Where we trailed the lines most (Oct 20-Nov 2): players we projected under 20 minutes (miss 5.26 vs line 3.78,
+  under-projected by ~3 points). Players projected <12 min actually played 21.6 on average (we said 4.8): back from
+  injury / newly in the rotation; the books knew. UNDER picks on players projected <20 min hit 49.9% (-68.5U flat)
+  vs 54.6% for other UNDERs.
+- `live.py`: a player projected under 24 minutes whose posted line (points first, then PRA / P+R / P+A / reb / ast;
+  median across books) implies 25%+ more minutes (line / our per-minute rate) has his minutes moved 75% of the way
+  there, all stats scaled with them. The extra minutes come from teammates (up to 25% each); if that isn't enough the
+  raises shrink, so every team still adds up to one game and a raised player never ends below the model's minutes.
+  WHY & STATS says so.
+- Tested on graded picks: those players' miss 4.94 -> 3.86 (week 1) and 4.82 -> 3.73 (week 2), minutes miss
+  9.9 -> 5.8; all other picks unchanged.

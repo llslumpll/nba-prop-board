@@ -160,6 +160,15 @@ def tier_for(row: dict) -> str:
 LIVE_HOLD_H = 5
 MIN_FLOOR_BELOW = 8.0   # a player with a posted line projected under this many minutes...
 MIN_FLOOR_SHARE = 0.8   # ...is floored at this share of his recent minutes (see run())
+# Line-implied minutes (update 58). Players projected under 24 minutes whose posted line implies 25%+ more minutes
+# (line / our per-minute rate) have their minutes moved LINE_MIN_W of the way there; all their stats scale with it.
+# Graded Oct 20-Nov 2: players projected <12 min actually played 21.6 on average (we said 4.8), and UNDER picks on
+# players projected <20 min hit 49.9% (-68.5U flat). With the fix those 383 picks' miss went 4.94 -> 3.86 (week 1)
+# and 4.82 -> 3.73 (week 2), minutes miss 9.9 -> 5.8; nothing else changes.
+LINE_MIN_BELOW = 24.0
+LINE_MIN_RATIO = 1.25
+LINE_MIN_W = 0.75
+LINE_MIN_ORDER = ("pts", "pra", "pr", "pa", "reb", "ast")
 
 # ---- recommended units: how much to stake on a pick, from its edge over the price
 # edge = our chance - the price's break-even. Steps chosen so 1U needs a 6-point edge;
@@ -319,6 +328,9 @@ def why_text(r: dict, s: str, cal_bias: float) -> str:
         mins += f", −{abs(r['min_b2b']):.1f} back-to-back"
     if r["min_blowout"] < -0.2:
         mins += f", −{abs(r['min_blowout']):.1f} blowout risk ({r['margin_source']} margin {abs(r['exp_margin']):.0f})"
+    if r.get("line_min"):
+        mins += (f"; the model had him at {r.get('proj_min_model') or 0:.1f}, but the posted "
+                 f"{model.STAT_LABEL.get(r.get('line_min_from'), 'stat')} line implies more, so minutes moved most of the way toward it")
     if r.get("min_floor"):
         mins += f"; the team-minutes cap had him at {r.get('proj_min_raw') or 0:.1f}, but a book posted a line on him, so he's floored at 80% of his recent minutes"
     parts.append(mins + ")")
@@ -417,6 +429,46 @@ def run(box, sl, roster, injuries, line_book: dict, fit: dict, spreads: dict | N
             tot = pl.col("proj_min").sum().over(grp)
             proj = proj.with_columns(k_all=pl.when(tot > cap).then(cap / tot).otherwise(1.0))
             proj = proj.with_columns([(pl.col(c) * pl.col("k_all")).alias(c) for c in ["proj_min"] + [f"proj_{x}" for x in model.STATS]])
+    # line-implied minutes: the books post a line expecting him to play; a projection far below it is usually our
+    # minutes being wrong (back from injury, newly in the rotation), not the book
+    if line_book and proj.height:
+        imp = {}
+        for r in proj.select(["player", "game_id", "proj_min"] + [f"proj_{x}" for x in LINE_MIN_ORDER]).iter_rows(named=True):
+            pm = r["proj_min"] or 0
+            if not 0 < pm < LINE_MIN_BELOW:
+                continue
+            for x in LINE_MIN_ORDER:
+                srcs = line_book.get((r["player"], x, r["game_id"])) or {}
+                ls = sorted(v["line"] for v in srcs.values() if v.get("line") is not None)
+                if ls and (r[f"proj_{x}"] or 0) > 0.3:
+                    im = ls[len(ls) // 2] / (r[f"proj_{x}"] / pm)
+                    if im > LINE_MIN_RATIO * pm:
+                        imp[(r["player"], r["game_id"])] = (min(model.Params().min_cap, pm + LINE_MIN_W * (im - pm)), x)
+                    break
+        if imp:
+            keys = list(zip(proj["player"].to_list(), proj["game_id"].to_list()))
+            grp = ["game_id", "team"]
+            cap = fit["params"].team_min_cap
+            proj = proj.with_columns(line_min=pl.Series([k in imp for k in keys]),
+                                     line_min_from=pl.Series([imp[k][1] if k in imp else None for k in keys]),
+                                     proj_min_model=pl.col("proj_min"),
+                                     lm_want=pl.Series([imp[k][0] if k in imp else None for k in keys], dtype=pl.Float64))
+            # minutes have to fit in one game: teammates give up to 25%; if that's not enough the raises shrink
+            # (never below the model's own minutes)
+            delta = pl.when(pl.col("line_min")).then(pl.col("lm_want") - pl.col("proj_min")).otherwise(0.0)
+            proj = proj.with_columns(lm_delta=delta)
+            room_tot = pl.col("proj_min").sum().over(grp)
+            ot_sum = pl.when(~pl.col("line_min")).then(pl.col("proj_min")).otherwise(0.0).sum().over(grp)
+            d_sum = pl.col("lm_delta").sum().over(grp)
+            give = (room_tot + d_sum - cap).clip(0, None)              # minutes teammates must give up
+            k_o = pl.when(ot_sum > 0).then((1 - give / ot_sum).clip(0.75, 1.0)).otherwise(1.0)
+            left = (room_tot + d_sum - cap - (1 - k_o) * ot_sum).clip(0, None)   # still over after teammates
+            f_d = pl.when(d_sum > 0).then((1 - left / d_sum).clip(0.0, 1.0)).otherwise(1.0)
+            proj = proj.with_columns(k_lm=pl.when(pl.col("line_min"))
+                                     .then((pl.col("proj_min") + f_d * pl.col("lm_delta")) / pl.col("proj_min"))
+                                     .otherwise(pl.when(room_tot + d_sum > cap).then(k_o).otherwise(1.0)))
+            proj = proj.with_columns([(pl.col(c) * pl.col("k_lm")).alias(c) for c in ["proj_min"] + [f"proj_{x}" for x in model.STATS]])
+            proj = proj.with_columns(line_min=pl.col("line_min") & (pl.col("proj_min") > pl.col("proj_min_model") + 0.5))
     # injury news (news.projection_adj): teammates of a player ruled out today move by part of their real
     # with/without history, every stat (combos = the sum of their parts)
     news_adj = news_adj or {}
