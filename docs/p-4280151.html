@@ -10,7 +10,7 @@
 <link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="static/style.css?v=fc7c54e907">
+<link rel="stylesheet" href="static/style.css?v=33e21a9704">
   <script>
     // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
     (function () {
@@ -174,7 +174,7 @@
   <span class="pp-proj"><em>PROJ</em><b>11.5</b></span>
 <span class="pp-none">no line</span></span></div>
     <div class="bd-why"><p class="why-reason"><strong>pts+reb+ast 11.5:</strong> 14.5 min (recent 14.9, −0.4 team-minutes adjustment with Jock Landale out); × 0.791 pts+reb+ast/min (57% this season&#39;s 1.000 over 4 games, 43% prior 0.679); context: road −1%, opponent defense +1%; calibration +0.3; injury news: -0.4 with Jock Landale ruled out today (half of how he&#39;s actually played without him).
-<br><span class="mu-line">Matchup: WAS allows <b>75.6</b> pts+reb+ast a game to forwards, <b class="stat-good">9th most</b> of 30 (+8% vs league, 7 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span><br><span class="mu-line">Shot zones: <b>59%</b> of his points come from three (rim 35% &middot; mid 6% &middot; three 59%); WAS allows <b>35.6</b> points a game from three, <b class="stat-bad">23rd most</b> of 30 (-10% vs league, 7 games). <span class="dim">Shown for reference; the projection starts using it at 15 games.</span></span></p>
+<br><span class="mu-line">Matchup: WAS allows <b>75.6</b> pts+reb+ast a game to forwards, <b class="stat-good">10th most</b> of 30 (+8% vs league, 7 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span><br><span class="mu-line">Shot zones: <b>59%</b> of his points come from three (rim 35% &middot; mid 6% &middot; three 59%); WAS allows <b>35.6</b> points a game from three, <b class="stat-bad">23rd most</b> of 30 (-10% vs league, 7 games). <span class="dim">Shown for reference; the projection starts using it at 15 games.</span></span></p>
 <p class="why-reason"><strong>pts+reb 10.6:</strong> 14.5 min (recent 14.9, −0.4 team-minutes adjustment with Jock Landale out); × 0.721 pts+reb/min (57% this season&#39;s 0.941 over 4 games, 43% prior 0.601); context: road −1%, opponent defense +1%, shared production on ATL +1%; calibration +0.3; injury news: -0.3 with Jock Landale ruled out today (half of how he&#39;s actually played without him).
 <br><span class="mu-line">Matchup: WAS allows <b>69.0</b> pts+reb a game to forwards, <b class="stat-good">6th most</b> of 30 (+11% vs league, 7 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span><br><span class="mu-line">Shot zones: <b>59%</b> of his points come from three (rim 35% &middot; mid 6% &middot; three 59%); WAS allows <b>35.6</b> points a game from three, <b class="stat-bad">23rd most</b> of 30 (-10% vs league, 7 games). <span class="dim">Shown for reference; the projection starts using it at 15 games.</span></span></p>
 <p class="why-reason"><strong>pts+ast 10.2:</strong> 14.5 min (recent 14.9, −0.4 team-minutes adjustment with Jock Landale out); × 0.691 pts+ast/min (57% this season&#39;s 0.941 over 4 games, 43% prior 0.549); context: road −1%, opponent defense +1%; calibration +0.3; injury news: -0.2 with Jock Landale ruled out today (half of how he&#39;s actually played without him).
@@ -287,6 +287,80 @@
 <a href="index.html" class=""><span class="bn-ic">⌂</span>Home</a><a href="picks.html" class=""><span class="bn-ic">★</span>Picks</a><a href="games.html" class=""><span class="bn-ic">◎</span>Games</a><a href="rankings.html" class=""><span class="bn-ic">☰</span>Teams</a><a href="parlays.html" class=""><span class="bn-ic">✦</span>Parlays</a><a href="history.html" class=""><span class="bn-ic">↺</span>History</a>  </nav>
   <script src="static/players.js" defer></script>
   <script>
+    // Live pick tracker: once a game tips, every pick shows its stat so far, where it's headed and whether it's on
+    // track. Data: static/live.json, written by each build (every ~5 minutes during games).
+    (function () {
+      var els = document.querySelectorAll('[data-lv],[data-lvg]');
+      if (!els.length) return;
+      var NAME = {pts: 'PTS', reb: 'REB', ast: 'AST', fg3m: '3PM', pra: 'PRA', pr: 'P+R', pa: 'P+A', ra: 'R+A'};
+      function val(v, s) {
+        var m = {pts: v[1], reb: v[2], ast: v[3], fg3m: v[4]};
+        return s in m ? m[s] : {pra: v[1] + v[2] + v[3], pr: v[1] + v[2], pa: v[1] + v[3], ra: v[2] + v[3]}[s];
+      }
+      function fmt(x) { return (Math.round(x * 10) / 10).toString(); }
+      function draw(d) {
+        var anyLive = false;
+        Object.keys(d.games || {}).forEach(function (k) { if (d.games[k].s === 'in') anyLive = true; });
+        els.forEach(function (el) {
+          var gidOnly = el.getAttribute('data-lvg');
+          if (gidOnly) {
+            var gg = (d.games || {})[gidOnly];
+            if (!gg || gg.hs == null) { el.hidden = true; return; }
+            el.className = 'lv lv-game' + (gg.s === 'in' ? ' lv-in' : '');
+            el.innerHTML = '<span class="lv-dot"></span><b></b>';
+            el.lastChild.textContent = gg.a + ' ' + gg['as'] + ' – ' + gg.h + ' ' + gg.hs + ' · ' + (gg.s === 'post' ? 'FINAL' : gg.d);
+            el.hidden = false; return;
+          }
+          var f = el.getAttribute('data-lv').split('|'), gid = f[0], pid = f[1], st = f[2], line = parseFloat(f[3]),
+              side = f[4], proj = parseFloat(f[5]), pm = parseFloat(f[6]), g = (d.games || {})[gid];
+          if (!g || g.s === 'pre') { el.hidden = true; return; }
+          var v = (d.p || {})[gid + '|' + pid], fin = g.s === 'post', over = side === 'OVER', cls, tag, txt;
+          var clock = fin ? 'FINAL' : g.d;
+          if (!v) {
+            el.className = 'lv lv-wait'; el.hidden = false;
+            el.innerHTML = '<span class="lv-txt"></span>';
+            el.firstChild.textContent = fin ? 'Did not play · void' : 'Not in yet · ' + clock;
+            return;
+          }
+          var cur = val(v, st), mins = v[0], exp = null;
+          if (!fin && proj > 0 && pm > 0) exp = cur + proj * Math.max(0, pm - mins) / pm;
+          if (fin) exp = cur;
+          if (fin && cur === line) { cls = 'push'; tag = 'PUSH'; }
+          else if (over && cur > line) { cls = 'hit'; tag = fin ? '✔ HIT' : '✔ CASHED'; }
+          else if (!over && cur > line) { cls = 'miss'; tag = '✘ MISSED'; }
+          else if (fin) { cls = over ? 'miss' : 'hit'; tag = over ? '✘ MISSED' : '✔ HIT'; }
+          else if (exp == null) { cls = 'live'; tag = 'LIVE'; }
+          else if (over ? exp >= line : exp < line) { cls = 'good'; tag = 'ON PACE'; }
+          else { cls = 'bad'; tag = 'BEHIND'; }
+          var top = Math.max(line * 1.5, cur, exp || 0, 1);
+          el.className = 'lv lv-' + cls; el.hidden = false;
+          el.innerHTML = '<span class="lv-now"><b></b><em></em></span><span class="lv-bar"><i class="lv-exp"></i><i class="lv-cur"></i><s></s></span><span class="lv-tag"></span><span class="lv-txt"></span>';
+          el.querySelector('.lv-now b').textContent = cur;
+          el.querySelector('.lv-now em').textContent = NAME[st] || st.toUpperCase();
+          el.querySelector('.lv-cur').style.width = (100 * Math.min(cur, top) / top) + '%';
+          el.querySelector('.lv-exp').style.width = (100 * Math.min(exp == null ? cur : exp, top) / top) + '%';
+          el.querySelector('.lv-bar s').style.left = (100 * line / top) + '%';
+          el.querySelector('.lv-tag').textContent = tag;
+          el.querySelector('.lv-txt').textContent = mins + ' min · ' + clock + (exp != null && !fin && cls !== 'hit' && cls !== 'miss' ? ' · headed for ' + fmt(exp) : '');
+        });
+        return anyLive;
+      }
+      var timer = null;
+      function load() {
+        fetch('static/live.json?t=' + Date.now(), {cache: 'no-store'}).then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (d) {
+            if (!d) return;
+            var live = draw(d);
+            if (live && !timer) timer = setInterval(load, 60000);
+            if (!live && timer) { clearInterval(timer); timer = null; }
+          }).catch(function () {});
+      }
+      load();
+      document.addEventListener('visibilitychange', function () { if (!document.hidden) load(); });
+    })();
+  </script>
+
+  <script>
     // Header player search: type part of a name (accents optional), pick from the list or press Enter for the first.
     (function () {
       var box = document.getElementById('psrch-in'), list = document.getElementById('psrch-list'), hits = [], sel = 0;
@@ -384,7 +458,7 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=fc7c54e907"></script>
+  <script src="static/slip.js?v=33e21a9704"></script>
   <script>
     /* COPY BET: copies one row (tab-separated, so it pastes into the sheet's columns) */
     document.addEventListener('click', function (e) {
