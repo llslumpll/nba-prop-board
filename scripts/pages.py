@@ -39,7 +39,6 @@ NAV = [
     ("home", "Home", "index.html"),
     ("picks", "Picks", "picks.html"),
     ("games", "Games", "games.html"),
-    ("players", "Players", "players.html"),
     ("rankings", "Teams", "rankings.html"),
     ("parlays", "Parlays", "parlays.html"),
     ("history", "History", "history.html"),
@@ -48,7 +47,8 @@ NAV_ICON = {"home": "\u2302", "picks": "\u2605", "games": "\u25ce", "players": "
 # Old URLs from the 9-page layout forward to their new home, so bookmarks keep working.
 REDIRECTS = {"points.html": "picks.html#pts", "rebounds.html": "picks.html#reb", "assists.html": "picks.html#ast",
              "threes.html": "picks.html#fg3m", "pra.html": "picks.html#combos",
-             "moneyline.html": "games.html", "matchups.html": "games.html"}
+             "moneyline.html": "games.html", "matchups.html": "games.html",
+             "players.html": "picks.html"}  # Players tab retired Nov 4 2026: search any player from the header instead
 BOX_STATS = ["pts", "reb", "ast", "fg3m", "pra"]
 ALL_STATS = ["pts", "reb", "ast", "fg3m", "pra", "pr", "pa", "ra"]
 
@@ -631,9 +631,11 @@ def render_all(ctx: dict) -> None:
         rows = player_rows(g, ALL_STATS)
         pgames.append({"g": g, "teams": [{"badge": teams.badge(tm), "name": teams.full_name(tm),
                                           "rows": [r for r in rows if r["team"] == tm]} for tm in (g["away"], g["home"])]})
-    write("players.html", "players.html", "players", slate=sl, edge=edge, games=pgames, box_stats=BOX_STATS,
-          search_index=sorted({(r["player"], r["player_id"], r["team"]) for gm in pgames for tm in gm["teams"] for r in tm["rows"]}),
-          combo_stats=["pr", "pa", "ra"], notices=_notices(ctx, ["pts"]), no_history=res["no_history"])
+    # Header search (every page): today's players -> their page. A small data file, so pages that didn't change
+    # aren't rewritten just because the slate did.
+    idx = sorted({(r["player"], r["player_id"], r["team"]) for gm in pgames for tm in gm["teams"] for r in tm["rows"]})
+    (DOCS / "static" / "players.js").write_text("window.PE_PLAYERS=" + json.dumps([[n, f"p-{pid}.html", t] for n, pid, t in idx],
+                                                                                 separators=(",", ":")) + ";\n")
 
     # ---- player pages (everyone on the current slate)
     by_player_preds = defaultdict(list)

@@ -820,7 +820,7 @@ td.bx { text-align: right; white-space: nowrap; }
   .tgrid { grid-template-columns: 1fr; }
   .tc-name { font-size: 1.6rem; }
   .tc-chance b { font-size: 2.5rem; }
-  .bottom-nav { display: grid; grid-template-columns: repeat(5, 1fr); position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; background: #12091f; border-top: 4px solid var(--pink); box-shadow: 0 -4px 0 var(--yellow); padding-bottom: env(safe-area-inset-bottom); }
+  .bottom-nav { display: grid; grid-template-columns: repeat(6, 1fr); position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; background: #12091f; border-top: 4px solid var(--pink); box-shadow: 0 -4px 0 var(--yellow); padding-bottom: env(safe-area-inset-bottom); }
   .bottom-nav a { text-align: center; font-family: var(--pixel); font-size: 1rem; color: var(--text-dim); padding: 6px 0 8px; }
   .bottom-nav a:hover { text-decoration: none; }
   .bottom-nav a.active { color: #fff; background: var(--pink); }
@@ -1355,3 +1355,18 @@ html:not([data-theme="court"]) .pz-lost .pz-legs::after { content: "GAME OVER" !
 .mb-table th:nth-child(1), .mb-table td:nth-child(1) { width: 16%; }
 .mb-table th:nth-child(3), .mb-table td:nth-child(3) { width: 24%; }
 .mb-table td { white-space: normal; overflow-wrap: anywhere; vertical-align: top; }
+
+/* Header player search (Nov 4 2026, replaces the Players tab) */
+.psrch { position: relative; flex: 0 1 250px; min-width: 190px; }
+.psrch input { width: 100%; box-sizing: border-box; font-family: var(--pixel); font-size: 1.15rem; color: #fff; background: #1a0f2e; border: 3px solid var(--line); padding: 5px 12px; transform: skewX(-8deg); outline: none; }
+.psrch input::placeholder { color: var(--text-dim); }
+.psrch input:focus { border-color: var(--yellow); box-shadow: 3px 3px 0 var(--pink); }
+.psrch input::-webkit-search-cancel-button { filter: invert(1); }
+.psrch-list { position: absolute; left: 0; right: 0; top: calc(100% + 6px); z-index: 60; list-style: none; margin: 0; padding: 0; background: #12091f; border: 3px solid var(--yellow); box-shadow: 4px 4px 0 var(--pink); max-height: 340px; overflow-y: auto; }
+.psrch-list li { display: flex; justify-content: space-between; gap: 10px; padding: 7px 12px; font-family: var(--mono); font-size: 1rem; color: var(--text); cursor: pointer; border-bottom: 1px solid var(--line); }
+.psrch-list li b { font-family: var(--pixel); font-weight: 400; color: var(--cyan); }
+.psrch-list li.on, .psrch-list li:hover { background: var(--pink); color: #fff; }
+.psrch-list li.on b, .psrch-list li:hover b { color: var(--yellow); }
+.psrch-list li.none { color: var(--text-dim); cursor: default; }
+.psrch-list li.none:hover { background: none; }
+@media (max-width: 760px) { .psrch { flex: 1 1 100%; max-width: 420px; margin: 0 auto; } .psrch input { font-size: 16px; } }
