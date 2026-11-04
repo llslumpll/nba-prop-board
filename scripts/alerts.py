@@ -10,6 +10,8 @@ What gets sent (each thing once; data/alerts_state.json remembers what was sent)
   * injury news: a player newly ruled out, with the teammate plays whose lines haven't moved yet
   * a new injury-news single / parlay
   * Kalshi lagging the books: only once that tracker has earned a stake
+  * a player pick that turns GOOD PRICE (carries a stake: its chance beats the price and its kind of pick has
+    earned one) before its game tips; once per player / stat / side a day, all new ones in one message
   * a morning recap (first build after 9 AM CT): last night's results in units and dollars (1U = $100)
   * a one-time "connected" message the first time the secret works
 """
@@ -124,6 +126,25 @@ def lag_messages(date: str) -> list[tuple[str, str]]:
     return out
 
 
+def good_price_messages(res: dict | None, now: datetime) -> list[tuple[str, str]]:
+    """Every open player pick carrying a stake (shown as GOOD PRICE on the site), one message for the new ones."""
+    if not res:
+        return []
+    picks = [p for s in res.get("picks", {}).values() for p in s
+             if (p.get("units") or 0) > 0 and not p.get("started") and not p.get("skip")
+             and now < (p["tip_utc"] if isinstance(p["tip_utc"], datetime) else datetime.fromisoformat(str(p["tip_utc"])))]
+    out = []
+    for p in sorted(picks, key=lambda p: (-(p.get("units") or 0), -(p.get("chance") or 0))):
+        key = f"good|{p['date']}|{p['game_id']}|{p['player']}|{p['stat']}|{p['side']}"
+        need = p.get("break_even")
+        out.append((key, f"• **{p['player']} {p['side']} {p['line']:g} {STAT.get(p['stat'], p['stat'].upper())}** "
+                         f"({SRC.get(p.get('source'), p.get('source') or '')}) · **{p['units']:g}U** · our chance {100 * p['chance']:.0f}%"
+                         + (f" vs {100 * need:.0f}% needed" if need else "")
+                         + (f" · picks like this {p['rec']}" if p.get("rec") else "")
+                         + f" · tip {_ct(p['tip_utc'])}"))
+    return out
+
+
 def recap_message(now: datetime) -> tuple[str, str] | None:
     """Once a day, the first build after 9 AM CT: yesterday's slate."""
     local = now.astimezone(CT)
@@ -166,7 +187,7 @@ def recap_message(now: datetime) -> tuple[str, str] | None:
     return (f"recap|{y}", "\n".join(lines))
 
 
-def run(sl: dict, now: datetime | None = None) -> dict:
+def run(sl: dict, now: datetime | None = None, res: dict | None = None) -> dict:
     now = now or datetime.now(timezone.utc)
     url = _url()
     if not url:
@@ -185,6 +206,13 @@ def run(sl: dict, now: datetime | None = None) -> dict:
                 msgs += fn()
         except Exception as e:  # noqa: BLE001
             print(f"Alert check failed: {e}")
+    try:  # new GOOD PRICE picks go out together, in one message
+        new = [(k, t) for k, t in good_price_messages(res, now) if k not in sent]
+        if new:
+            body = "\n".join(t for _, t in new[:12])
+            msgs.append(([k for k, _ in new[:12]], f"💰 **GOOD PRICE{'S' if len(new) > 1 else ''}: worth betting now**\n{body}\n{SITE}picks.html"))
+    except Exception as e:  # noqa: BLE001
+        print(f"Good-price check failed: {e}")
     try:
         rc = recap_message(now)
         if rc:
@@ -193,10 +221,12 @@ def run(sl: dict, now: datetime | None = None) -> dict:
         print(f"Recap failed: {e}")
     n = 0
     for key, text in msgs:
-        if key in sent:
+        keys = key if isinstance(key, list) else [key]  # a combined good-price message carries one key per pick
+        if all(k in sent for k in keys):
             continue
         if _post(url, text):
-            sent[key] = stamp
+            for k in keys:
+                sent[k] = stamp
             n += 1
             if key == "connected":
                 st["connected"] = stamp

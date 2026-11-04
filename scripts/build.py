@@ -546,7 +546,7 @@ def build(args) -> None:
     print("Audit:", "all checks passed" if r.returncode == 0 else r.stdout[-800:])
     try:  # phone alerts (alerts.py): new injury news, news parlays, earned Kalshi lags, morning recap
         import alerts
-        print(f"Alerts: {alerts.run(sl, now)}")
+        print(f"Alerts: {alerts.run(sl, now, res)}")
     except Exception as e:  # noqa: BLE001
         print(f"Alerts failed: {e}")
     print(f"Build complete at {now:%Y-%m-%d %H:%M UTC}")
