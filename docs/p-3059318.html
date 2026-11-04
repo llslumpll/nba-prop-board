@@ -10,7 +10,7 @@
 <link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="static/style.css?v=cb93a2544e">
+<link rel="stylesheet" href="static/style.css?v=fc7c54e907">
   <script>
     // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
     (function () {
@@ -27,12 +27,16 @@
 <body>
   <header class="site-head">
     <a class="brand" href="index.html">PROP EDGE<span class="brand-sub">NBA</span></a>
+    <div class="psrch" role="search">
+      <input id="psrch-in" type="search" placeholder="&#128269; Search a player…" autocomplete="off" spellcheck="false" aria-label="Search a player" aria-controls="psrch-list">
+      <ul id="psrch-list" class="psrch-list hidden" role="listbox"></ul>
+    </div>
     <nav class="site-nav" aria-label="Pages">
-<a href="index.html" class="">Home</a><a href="picks.html" class="">Picks</a><a href="games.html" class="">Games</a><a href="players.html" class="active">Players</a><a href="rankings.html" class="">Teams</a><a href="parlays.html" class="">Parlays</a><a href="history.html" class="">History</a>    </nav>
+<a href="index.html" class="">Home</a><a href="picks.html" class="">Picks</a><a href="games.html" class="">Games</a><a href="rankings.html" class="">Teams</a><a href="parlays.html" class="">Parlays</a><a href="history.html" class="">History</a>    </nav>
   </header>
   <div class="sys-tagline">⭐ AUTO-BUILD ⭐ EVERY PICK FROZEN BEFORE TIP ⭐ GRADED IN PUBLIC ⭐</div>
   <main class="site-main">
-<p class="small"><a href="players.html">&larr; All players</a></p>
+<p class="small"><a href="picks.html">&larr; Today's picks</a></p>
 <section class="ph" style="--tc:#1D428A">
   <div class="ph-main">
     <div class="ph-name"><span class="team-badge" style="background:#1D428A;color:#ffffff;box-shadow:0 0 0 2px #c8c8d8">PHI</span><h1>Joel Embiid</h1></div>
@@ -100,7 +104,7 @@
 <button class="copy-bet" type="button" title="Copy this bet as a row for your My Bets sheet" data-bet="11/4	Joel Embiid	PTS	UNDER	19.5	FanDuel	-125	1">&#128203; COPY BET</button>
 <button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.5555555555555556, "chance": 0.512, "gid": 401909922, "id": "3059318|pts|401909922", "line": 19.5, "opp": "DET", "pid": 3059318, "player": "Joel Embiid", "side": "UNDER", "src": "fanduel", "stat": "PTS", "team": "PHI"}'>+ SLIP</button></span></div>
     <div class="bd-why"><p class="why-reason"><strong>points 19.5 &middot; <span class="pick-line"><span class="side-under">UNDER</span> 19.5</span> <span class="chance">51%</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>:</strong> 30.3 min (recent 31.0, −0.7 team-minutes adjustment); × 0.695 points/min (55% this season&#39;s 0.555 over 6 games, 45% prior 0.751); context: road −1%, opponent defense −2%, shared production on PHI −4%; calibration -0.1.
-<br>FanDuel 19.5 (-106/-125): we give UNDER 51% (from 19.21, our 19.5 blended with the line), market 52% for UNDER, break-even 55.6% for UNDER <span class="u-tag u-0 u-skip" title="Skipped by a pattern: this group of picks lost in earlier AND later games (History &rarr; Patterns), so no stake">SKIP</span>.<br>PrizePicks 19.5 (priced from Kalshi's 20+ market): we give UNDER 52% (from 18.98, our 19.5 blended with the line), market 54% for UNDER, break-even 54.2% for UNDER <span class="u-tag u-0 pr-wait" title="Close: our chance is just under what this price needs. Check again later; if the price drops (or the line moves your way) it can turn into GOOD PRICE">WAIT</span>.<br>Kalshi 19.5: we give UNDER 52% (from 18.98, our 19.5 blended with the line), market 54% for UNDER, break-even 55.7% for UNDER <span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span>.<br><span class="mu-line">Matchup: DET allows <b>14.7</b> points a game to centers, <b class="stat-good">14th most</b> of 30 (+4% vs league, 7 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span><br><span class="mu-line">Shot zones: <b>49%</b> of his points come from midrange (rim 30% &middot; mid 49% &middot; three 21%); DET allows <b>13.4</b> points a game from midrange, <b class="stat-bad">28th most</b> of 30 (-31% vs league, 7 games). <span class="dim">Shown for reference; the projection starts using it at 15 games.</span></span><br><span class="locked">&#128274; frozen: UNDER 19.5 (2026-11-04 15:11 UTC)</span><br>Last 10 (under 19.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-under">29</i><i class="rs rs-under">26</i><i class="rs rs-over">19</i><i class="rs rs-under">34</i><i class="rs rs-over">13</i><i class="rs rs-under">24</i><i class="rs rs-under">28</i><i class="rs rs-under">21</i><i class="rs rs-over">10</i><i class="rs rs-over">15</i></span><br>Kalshi ladder: 10+ 89%, 15+ 72%, 20+ 46%, 25+ 20%, 30+ 8%.</p>
+<br>FanDuel 19.5 (-106/-125): we give UNDER 51% (from 19.21, our 19.5 blended with the line), market 52% for UNDER, break-even 55.6% for UNDER <span class="u-tag u-0 u-skip" title="Skipped by a pattern: this group of picks lost in earlier AND later games (History &rarr; Patterns), so no stake">SKIP</span>.<br>PrizePicks 19.5 (priced from Kalshi's 20+ market): we give UNDER 52% (from 18.98, our 19.5 blended with the line), market 54% for UNDER, break-even 54.2% for UNDER <span class="u-tag u-0 pr-wait" title="Close: our chance is just under what this price needs. Check again later; if the price drops (or the line moves your way) it can turn into GOOD PRICE">WAIT</span>.<br>Kalshi 19.5: we give UNDER 52% (from 18.98, our 19.5 blended with the line), market 54% for UNDER, break-even 55.7% for UNDER <span class="u-tag u-0 pr-high" title="This pick may still win, but you'd be paying too much for it: our chance is well under what the price needs">PRICE TOO HIGH</span>.<br><span class="mu-line">Matchup: DET allows <b>14.7</b> points a game to centers, <b class="stat-good">14th most</b> of 30 (+4% vs league, 7 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span><br><span class="mu-line">Shot zones: <b>49%</b> of his points come from midrange (rim 30% &middot; mid 49% &middot; three 21%); DET allows <b>13.4</b> points a game from midrange, <b class="stat-bad">28th most</b> of 30 (-31% vs league, 7 games). <span class="dim">Shown for reference; the projection starts using it at 15 games.</span></span><br><span class="locked">&#128274; frozen: UNDER 19.5 (2026-11-04 15:11 UTC)</span><br>Last 10 (under 19.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-under">29</i><i class="rs rs-under">26</i><i class="rs rs-over">19</i><i class="rs rs-under">34</i><i class="rs rs-over">13</i><i class="rs rs-under">24</i><i class="rs rs-under">28</i><i class="rs rs-under">21</i><i class="rs rs-over">10</i><i class="rs rs-over">15</i></span><br>Kalshi ladder: 15+ 72%, 20+ 46%, 25+ 22%, 30+ 8%.</p>
 </div>
   </div>
   <div class="factor-grid">
@@ -146,7 +150,7 @@
 <button class="copy-bet" type="button" title="Copy this bet as a row for your My Bets sheet" data-bet="11/4	Joel Embiid	AST	UNDER	3.5	PrizePicks		1">&#128203; COPY BET</button>
 <button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.542, "chance": 0.5247, "gid": 401909922, "id": "3059318|ast|401909922", "line": 3.5, "opp": "DET", "pid": 3059318, "player": "Joel Embiid", "side": "UNDER", "src": "prizepicks", "stat": "AST", "team": "PHI"}'>+ SLIP</button></span></div>
     <div class="bd-why"><p class="why-reason"><strong>assists 3.6 &middot; <span class="pick-line"><span class="side-under">UNDER</span> 3.5</span> <span class="chance">52%</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>:</strong> 30.3 min (recent 31.0, −0.7 team-minutes adjustment); × 0.129 assists/min (55% this season&#39;s 0.145 over 6 games, 45% prior 0.119); context: road −1%, opponent defense −1%, shared production on PHI −6%; calibration -0.0.
-<br>PrizePicks 3.5 (priced from Kalshi's 4+ market): we give UNDER 52% (from 3.69, our 3.6 blended with the line), market 52% for UNDER, break-even 54.2% for UNDER <span class="u-tag u-0 pr-wait" title="Close: our chance is just under what this price needs. Check again later; if the price drops (or the line moves your way) it can turn into GOOD PRICE">WAIT</span>.<br>Kalshi 3.5: we give UNDER 52% (from 3.69, our 3.6 blended with the line), market 52% for UNDER, break-even 54.7% for UNDER <span class="u-tag u-0 pr-wait" title="Close: our chance is just under what this price needs. Check again later; if the price drops (or the line moves your way) it can turn into GOOD PRICE">WAIT</span>.<br><span class="mu-line">Matchup: DET allows <b>2.4</b> assists a game to centers, <b class="stat-bad">17th most</b> of 30 (-8% vs league, 7 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span><br><span class="locked">&#128274; frozen: UNDER 3.5 (2026-11-04 16:41 UTC)</span><br>Last 10 (under 3.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">2</i><i class="rs rs-over">3</i><i class="rs rs-under">7</i><i class="rs rs-over">1</i><i class="rs rs-under">6</i><i class="rs rs-over">1</i><i class="rs rs-under">10</i><i class="rs rs-over">2</i><i class="rs rs-under">7</i><i class="rs rs-over">3</i></span><br>Kalshi ladder: 2+ 83%, 4+ 48%, 6+ 20%, 8+ 4%.</p>
+<br>PrizePicks 3.5 (priced from Kalshi's 4+ market): we give UNDER 52% (from 3.69, our 3.6 blended with the line), market 52% for UNDER, break-even 54.2% for UNDER <span class="u-tag u-0 pr-wait" title="Close: our chance is just under what this price needs. Check again later; if the price drops (or the line moves your way) it can turn into GOOD PRICE">WAIT</span>.<br>Kalshi 3.5: we give UNDER 52% (from 3.69, our 3.6 blended with the line), market 52% for UNDER, break-even 54.7% for UNDER <span class="u-tag u-0 pr-wait" title="Close: our chance is just under what this price needs. Check again later; if the price drops (or the line moves your way) it can turn into GOOD PRICE">WAIT</span>.<br><span class="mu-line">Matchup: DET allows <b>2.4</b> assists a game to centers, <b class="stat-bad">16th most</b> of 30 (-8% vs league, 7 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span><br><span class="locked">&#128274; frozen: UNDER 3.5 (2026-11-04 16:41 UTC)</span><br>Last 10 (under 3.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">2</i><i class="rs rs-over">3</i><i class="rs rs-under">7</i><i class="rs rs-over">1</i><i class="rs rs-under">6</i><i class="rs rs-over">1</i><i class="rs rs-under">10</i><i class="rs rs-over">2</i><i class="rs rs-under">7</i><i class="rs rs-over">3</i></span><br>Kalshi ladder: 2+ 83%, 4+ 48%, 6+ 20%, 8+ 4%.</p>
 </div>
   </div>
   <div class="factor-grid">
@@ -169,7 +173,7 @@
 <button class="copy-bet" type="button" title="Copy this bet as a row for your My Bets sheet" data-bet="11/4	Joel Embiid	3PM	OVER	0.5	Kalshi	69	1">&#128203; COPY BET</button>
 <button class="slip-add" type="button" title="Add to slip" data-leg='{"be": 0.6855, "chance": 0.6352, "gid": 401909922, "id": "3059318|fg3m|401909922", "line": 0.5, "opp": "DET", "pid": 3059318, "player": "Joel Embiid", "side": "OVER", "src": "kalshi", "stat": "3PM", "team": "PHI"}'>+ SLIP</button></span></div>
     <div class="bd-why"><p class="why-reason"><strong>3-pointers made 0.9 &middot; <span class="pick-line"><span class="side-over">OVER</span> 0.5</span> <span class="chance">64%</span> <span class="lean-tag" title="Not yet proven against the line on this stat">lean</span>:</strong> 30.3 min (recent 31.0, −0.7 team-minutes adjustment); × 0.028 3-pointers made/min (67% this season&#39;s 0.015 over 6 games, 33% prior 0.039); context: road −1%, shared production on PHI +1%.
-<br>Kalshi 0.5: we give OVER 64% (from 1.08, our 0.9 blended with the line), market 66% for OVER, break-even 68.5% for OVER <span class="u-tag u-0 u-skip" title="Skipped by a pattern: this group of picks lost in earlier AND later games (History &rarr; Patterns), so no stake">SKIP</span>.<br><span class="mu-line">Matchup: DET allows <b>0.9</b> 3-pointers made a game to centers, <b class="stat-good">12th most</b> of 30 (+0% vs league, 7 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span><br><span class="mu-line">Shot zones: <b>21%</b> of his points come from three (rim 30% &middot; mid 49% &middot; three 21%); DET allows <b>37.3</b> points a game from three, <b class="stat-bad">19th most</b> of 30 (-6% vs league, 7 games). <span class="dim">Shown for reference; the projection starts using it at 15 games.</span></span><br><span class="locked">&#128274; frozen: OVER 0.5 (2026-11-04 16:41 UTC)</span><br>Last 10 (over 0.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">3</i><i class="rs rs-over">2</i><i class="rs rs-over">1</i><i class="rs rs-over">2</i><i class="rs rs-over">2</i><i class="rs rs-over">1</i><i class="rs rs-under">0</i><i class="rs rs-under">0</i><i class="rs rs-under">0</i><i class="rs rs-under">0</i></span><br>Kalshi ladder: 1+ 66%, 3+ 10%.</p>
+<br>Kalshi 0.5: we give OVER 64% (from 1.08, our 0.9 blended with the line), market 66% for OVER, break-even 68.5% for OVER <span class="u-tag u-0 u-skip" title="Skipped by a pattern: this group of picks lost in earlier AND later games (History &rarr; Patterns), so no stake">SKIP</span>.<br><span class="mu-line">Matchup: DET allows <b>0.9</b> 3-pointers made a game to centers, <b class="stat-good">10th most</b> of 30 (+0% vs league, 7 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span><br><span class="mu-line">Shot zones: <b>21%</b> of his points come from three (rim 30% &middot; mid 49% &middot; three 21%); DET allows <b>37.3</b> points a game from three, <b class="stat-bad">20th most</b> of 30 (-6% vs league, 7 games). <span class="dim">Shown for reference; the projection starts using it at 15 games.</span></span><br><span class="locked">&#128274; frozen: OVER 0.5 (2026-11-04 16:41 UTC)</span><br>Last 10 (over 0.5, green = would have hit): <span class="recent-strip" title="last 10 games: green = this pick would have hit"><i class="rs rs-over">3</i><i class="rs rs-over">2</i><i class="rs rs-over">1</i><i class="rs rs-over">2</i><i class="rs rs-over">2</i><i class="rs rs-over">1</i><i class="rs rs-under">0</i><i class="rs rs-under">0</i><i class="rs rs-under">0</i><i class="rs rs-under">0</i></span><br>Kalshi ladder: 1+ 66%, 3+ 10%.</p>
 </div>
   </div>
   <div class="factor-grid">
@@ -302,8 +306,40 @@
   </main>
   <aside id="slip" class="slip hidden" aria-label="Your slip"></aside>
   <nav class="bottom-nav" aria-label="Pages">
-<a href="index.html" class=""><span class="bn-ic">⌂</span>Home</a><a href="picks.html" class=""><span class="bn-ic">★</span>Picks</a><a href="games.html" class=""><span class="bn-ic">◎</span>Games</a><a href="players.html" class="active"><span class="bn-ic">▦</span>Players</a><a href="rankings.html" class=""><span class="bn-ic">☰</span>Teams</a><a href="parlays.html" class=""><span class="bn-ic">✦</span>Parlays</a><a href="history.html" class=""><span class="bn-ic">↺</span>History</a>  </nav>
+<a href="index.html" class=""><span class="bn-ic">⌂</span>Home</a><a href="picks.html" class=""><span class="bn-ic">★</span>Picks</a><a href="games.html" class=""><span class="bn-ic">◎</span>Games</a><a href="rankings.html" class=""><span class="bn-ic">☰</span>Teams</a><a href="parlays.html" class=""><span class="bn-ic">✦</span>Parlays</a><a href="history.html" class=""><span class="bn-ic">↺</span>History</a>  </nav>
+  <script src="static/players.js" defer></script>
   <script>
+    // Header player search: type part of a name (accents optional), pick from the list or press Enter for the first.
+    (function () {
+      var box = document.getElementById('psrch-in'), list = document.getElementById('psrch-list'), hits = [], sel = 0;
+      if (!box) return;
+      function norm(x) { return x.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9 ]/g, ''); }
+      function draw() {
+        list.innerHTML = '';
+        hits.forEach(function (h, i) {
+          var li = document.createElement('li'); li.setAttribute('role', 'option'); if (i === sel) li.className = 'on';
+          li.innerHTML = '<span></span><b></b>'; li.firstChild.textContent = h[0]; li.lastChild.textContent = h[2];
+          li.addEventListener('mousedown', function (e) { e.preventDefault(); location.href = h[1]; });
+          list.appendChild(li);
+        });
+        if (!hits.length && box.value.trim()) { var li = document.createElement('li'); li.className = 'none'; li.textContent = 'Not on tonight\'s slate'; list.appendChild(li); }
+        list.classList.toggle('hidden', !box.value.trim());
+      }
+      box.addEventListener('input', function () {
+        var q = norm(box.value.trim()), all = window.PE_PLAYERS || [];
+        sel = 0;
+        hits = !q ? [] : all.filter(function (p) { var n = norm(p[0]); return n.indexOf(q) === 0 || n.indexOf(' ' + q) >= 0 || (q.length > 2 && n.indexOf(q) >= 0); }).slice(0, 8);
+        draw();
+      });
+      box.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowDown' && hits.length) { sel = (sel + 1) % hits.length; draw(); e.preventDefault(); }
+        else if (e.key === 'ArrowUp' && hits.length) { sel = (sel - 1 + hits.length) % hits.length; draw(); e.preventDefault(); }
+        else if (e.key === 'Enter' && hits[sel]) { location.href = hits[sel][1]; }
+        else if (e.key === 'Escape') { box.value = ''; hits = []; draw(); box.blur(); }
+      });
+      box.addEventListener('blur', function () { setTimeout(function () { list.classList.add('hidden'); }, 150); });
+      box.addEventListener('focus', function () { if (box.value.trim()) list.classList.remove('hidden'); });
+    })();
     (function () { var a = document.querySelector('.site-nav a.active'); if (a && a.scrollIntoView) a.scrollIntoView({block: 'nearest', inline: 'center'}); })();
     function toggleWhy(id, btn) {
       var panel = document.querySelector('[data-why-panel="' + id + '"]');
@@ -370,7 +406,7 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=cb93a2544e"></script>
+  <script src="static/slip.js?v=fc7c54e907"></script>
   <script>
     /* COPY BET: copies one row (tab-separated, so it pastes into the sheet's columns) */
     document.addEventListener('click', function (e) {

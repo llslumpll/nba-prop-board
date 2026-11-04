@@ -10,7 +10,7 @@
 <link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="static/style.css?v=cb93a2544e">
+<link rel="stylesheet" href="static/style.css?v=fc7c54e907">
   <script>
     // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
     (function () {
@@ -27,12 +27,16 @@
 <body>
   <header class="site-head">
     <a class="brand" href="index.html">PROP EDGE<span class="brand-sub">NBA</span></a>
+    <div class="psrch" role="search">
+      <input id="psrch-in" type="search" placeholder="&#128269; Search a player…" autocomplete="off" spellcheck="false" aria-label="Search a player" aria-controls="psrch-list">
+      <ul id="psrch-list" class="psrch-list hidden" role="listbox"></ul>
+    </div>
     <nav class="site-nav" aria-label="Pages">
-<a href="index.html" class="">Home</a><a href="picks.html" class="">Picks</a><a href="games.html" class="">Games</a><a href="players.html" class="active">Players</a><a href="rankings.html" class="">Teams</a><a href="parlays.html" class="">Parlays</a><a href="history.html" class="">History</a>    </nav>
+<a href="index.html" class="">Home</a><a href="picks.html" class="">Picks</a><a href="games.html" class="">Games</a><a href="rankings.html" class="">Teams</a><a href="parlays.html" class="">Parlays</a><a href="history.html" class="">History</a>    </nav>
   </header>
   <div class="sys-tagline">⭐ AUTO-BUILD ⭐ EVERY PICK FROZEN BEFORE TIP ⭐ GRADED IN PUBLIC ⭐</div>
   <main class="site-main">
-<p class="small"><a href="players.html">&larr; All players</a></p>
+<p class="small"><a href="picks.html">&larr; Today's picks</a></p>
 <section class="ph" style="--tc:#266092">
   <div class="ph-main">
     <div class="ph-name"><span class="team-badge" style="background:#266092;color:#ffffff;box-shadow:0 0 0 2px transparent">MIN</span><h1>Terrence Shannon Jr.</h1></div>
@@ -109,7 +113,7 @@
   <span class="pp-proj"><em>PROJ</em><b>2.2</b></span>
 <span class="pp-none">no line</span></span></div>
     <div class="bd-why"><p class="why-reason"><strong>rebounds 2.2:</strong> 17.7 min (recent 18.7, −0.5 team-minutes adjustment with Anthony Edwards out); × 0.126 rebounds/min (37% this season&#39;s 0.162 over 7 games, 63% prior 0.109); context: pace vs HOU −1%, road −1%, opponent defense −1%; listed Day-To-Day.
-<br><span class="mu-line">Matchup: HOU allows <b>14.9</b> rebounds a game to guards, <b class="stat-bad">19th most</b> of 30 (-4% vs league, 8 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
+<br><span class="mu-line">Matchup: HOU allows <b>14.9</b> rebounds a game to guards, <b class="stat-bad">20th most</b> of 30 (-4% vs league, 8 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
 <p class="why-reason dim">Injury note: Shannon (hip) is listed as questionable for Wednesday&#39;s game in Houston.</p></div>
   </div>
   <div class="factor-grid">
@@ -178,7 +182,7 @@
 <p class="why-reason"><strong>pts+ast 10.9:</strong> 17.7 min (recent 18.7, −0.5 team-minutes adjustment with Anthony Edwards out); × 0.611 pts+ast/min (70% this season&#39;s 0.662 over 7 games, 30% prior 0.537); context: pace vs HOU −1%, road −1%, opponent defense −1%, shared production on MIN +4%; calibration -0.1; listed Day-To-Day.
 <br><span class="mu-line">Matchup: HOU allows <b>69.0</b> pts+ast a game to guards, <b class="stat-bad">19th most</b> of 30 (-4% vs league, 8 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span><br><span class="mu-line">Shot zones: <b>53%</b> of his points come from three (rim 35% &middot; mid 11% &middot; three 53%); HOU allows <b>34.9</b> points a game from three, <b class="stat-bad">26th most</b> of 30 (-12% vs league, 8 games). <span class="dim">Shown for reference; the projection starts using it at 15 games.</span></span></p>
 <p class="why-reason"><strong>reb+ast 3.9:</strong> 17.7 min (recent 18.7, −0.5 team-minutes adjustment with Anthony Edwards out); × 0.224 reb+ast/min (47% this season&#39;s 0.279 over 7 games, 53% prior 0.198); context: pace vs HOU −1%, road −1%, opponent defense −1%, shared production on MIN +1%; listed Day-To-Day.
-<br><span class="mu-line">Matchup: HOU allows <b>28.1</b> reb+ast a game to guards, <b class="stat-bad">21st most</b> of 30 (-10% vs league, 8 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
+<br><span class="mu-line">Matchup: HOU allows <b>28.1</b> reb+ast a game to guards, <b class="stat-bad">24th most</b> of 30 (-10% vs league, 8 games). <a href="rankings.html#allowed">Rankings &rarr;</a></span></p>
 <p class="why-reason dim">Injury note: Shannon (hip) is listed as questionable for Wednesday&#39;s game in Houston.</p></div>
   </div>
   <div class="factor-grid">
@@ -282,8 +286,40 @@
   </main>
   <aside id="slip" class="slip hidden" aria-label="Your slip"></aside>
   <nav class="bottom-nav" aria-label="Pages">
-<a href="index.html" class=""><span class="bn-ic">⌂</span>Home</a><a href="picks.html" class=""><span class="bn-ic">★</span>Picks</a><a href="games.html" class=""><span class="bn-ic">◎</span>Games</a><a href="players.html" class="active"><span class="bn-ic">▦</span>Players</a><a href="rankings.html" class=""><span class="bn-ic">☰</span>Teams</a><a href="parlays.html" class=""><span class="bn-ic">✦</span>Parlays</a><a href="history.html" class=""><span class="bn-ic">↺</span>History</a>  </nav>
+<a href="index.html" class=""><span class="bn-ic">⌂</span>Home</a><a href="picks.html" class=""><span class="bn-ic">★</span>Picks</a><a href="games.html" class=""><span class="bn-ic">◎</span>Games</a><a href="rankings.html" class=""><span class="bn-ic">☰</span>Teams</a><a href="parlays.html" class=""><span class="bn-ic">✦</span>Parlays</a><a href="history.html" class=""><span class="bn-ic">↺</span>History</a>  </nav>
+  <script src="static/players.js" defer></script>
   <script>
+    // Header player search: type part of a name (accents optional), pick from the list or press Enter for the first.
+    (function () {
+      var box = document.getElementById('psrch-in'), list = document.getElementById('psrch-list'), hits = [], sel = 0;
+      if (!box) return;
+      function norm(x) { return x.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9 ]/g, ''); }
+      function draw() {
+        list.innerHTML = '';
+        hits.forEach(function (h, i) {
+          var li = document.createElement('li'); li.setAttribute('role', 'option'); if (i === sel) li.className = 'on';
+          li.innerHTML = '<span></span><b></b>'; li.firstChild.textContent = h[0]; li.lastChild.textContent = h[2];
+          li.addEventListener('mousedown', function (e) { e.preventDefault(); location.href = h[1]; });
+          list.appendChild(li);
+        });
+        if (!hits.length && box.value.trim()) { var li = document.createElement('li'); li.className = 'none'; li.textContent = 'Not on tonight\'s slate'; list.appendChild(li); }
+        list.classList.toggle('hidden', !box.value.trim());
+      }
+      box.addEventListener('input', function () {
+        var q = norm(box.value.trim()), all = window.PE_PLAYERS || [];
+        sel = 0;
+        hits = !q ? [] : all.filter(function (p) { var n = norm(p[0]); return n.indexOf(q) === 0 || n.indexOf(' ' + q) >= 0 || (q.length > 2 && n.indexOf(q) >= 0); }).slice(0, 8);
+        draw();
+      });
+      box.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowDown' && hits.length) { sel = (sel + 1) % hits.length; draw(); e.preventDefault(); }
+        else if (e.key === 'ArrowUp' && hits.length) { sel = (sel - 1 + hits.length) % hits.length; draw(); e.preventDefault(); }
+        else if (e.key === 'Enter' && hits[sel]) { location.href = hits[sel][1]; }
+        else if (e.key === 'Escape') { box.value = ''; hits = []; draw(); box.blur(); }
+      });
+      box.addEventListener('blur', function () { setTimeout(function () { list.classList.add('hidden'); }, 150); });
+      box.addEventListener('focus', function () { if (box.value.trim()) list.classList.remove('hidden'); });
+    })();
     (function () { var a = document.querySelector('.site-nav a.active'); if (a && a.scrollIntoView) a.scrollIntoView({block: 'nearest', inline: 'center'}); })();
     function toggleWhy(id, btn) {
       var panel = document.querySelector('[data-why-panel="' + id + '"]');
@@ -350,7 +386,7 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=cb93a2544e"></script>
+  <script src="static/slip.js?v=fc7c54e907"></script>
   <script>
     /* COPY BET: copies one row (tab-separated, so it pastes into the sheet's columns) */
     document.addEventListener('click', function (e) {
