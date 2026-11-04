@@ -660,3 +660,17 @@ From the Monahan lecture (market-based betting):
   WHY & STATS says so.
 - Tested on graded picks: those players' miss 4.94 -> 3.86 (week 1) and 4.82 -> 3.73 (week 2), minutes miss
   9.9 -> 5.8; all other picks unchanged.
+
+## Update 59: shot-zone matchups from play-by-play (switch on by themselves at 15 games)
+
+- `scripts/zones.py`: sportsdataverse's free ESPN play-by-play, summarized per player-game into points scored at the
+  RIM (layups, dunks, tips...), MID and THREE, with the defense faced -> data/cache/zones_{season}.parquet (~85 KB a
+  season). The raw file is downloaded only when upstream changed (HEAD Last-Modified), then thrown away. (ESPN's
+  play-by-play has no defender data, so player-vs-defender matchups aren't possible from free data.)
+- `model.py` (zone_w 0.75, zone_min_g 15): a defense that gives up more than average in the zones a player scores
+  from nudges his points (and PRA / P+R / P+A); threes follow the defense's threes allowed. Max +/-10%. Only once the
+  opponent has 15+ games this season; WHY & STATS shows "shot-zone matchup +3% ...".
+- Tested inside the full model, walk-forward, 2025-26: overall miss -0.20% (Dec), -0.14% (Feb), -0.21% (Mar), better
+  on points, threes, PRA, P+R and P+A in every month. A first test on this season's two weeks showed no signal yet
+  (defensive profiles too noisy), hence the 15-game gate: it starts working around late November.
+- Weekly tuner tries zone_w too. The first build after this update downloads last season's play-by-play once (~22 MB).

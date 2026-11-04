@@ -121,6 +121,11 @@ def load_fit() -> dict:
         # PRA miss 6.416 -> 6.411 (Nov 2025), 6.215 -> 6.212 (Jan), 6.240 -> 6.238 (Mar), 6.562 -> 6.487 this season;
         # reb, ast and threes better everywhere, points better in 3 of 4. The weekly tuner can move it from here.
         prm.update(role_rate_w=1.0, role_early=5.0)
+    if "zone_w" not in prm:
+        # Nov 4 (update 59): shot-zone matchups from play-by-play (zones.py), only once the opponent has 15+ games this
+        # season. Inside the full model, walk-forward on 2025-26: overall miss -0.20% (Dec), -0.14% (Feb), -0.21% (Mar),
+        # better on points, threes, PRA, P+R and P+A in every month. No effect in a season's first ~4 weeks.
+        prm.update(zone_w=0.75)
     if "moved_k" not in prm:
         # Nov 3 (update 57): players on a NEW team lean on last season's rates half as much (their role and teammates
         # changed). On those players only: PRA miss 6.370 -> 6.359 this season, 6.514 -> 6.476 in 2025-26's first three
@@ -348,6 +353,9 @@ def why_text(r: dict, s: str, cal_bias: float) -> str:
             ctx.append(f"{name} {_pct(f - 1)}")
     if ctx:
         parts.append("context: " + ", ".join(ctx))
+    fz = r.get("f_zone_3" if s == "fg3m" else "f_zone_pts")
+    if s in ("pts", "fg3m", "pra", "pr", "pa") and fz and abs(fz - 1) >= 0.005:
+        parts.append(f"shot-zone matchup {_pct(fz - 1)} (where he scores vs where {r['opp']} gives up points)")
     if cal_bias:
         parts.append(f"calibration {cal_bias:+.1f}")
     if r.get("inj_status"):

@@ -171,6 +171,11 @@ def build(args) -> None:
     if not args.no_fetch:
         print("Refreshing sportsdataverse box scores + schedule...")
         dataio.refresh()
+        try:  # shot-zone summaries from play-by-play (zones.py); downloads only when the upstream file changed
+            import zones
+            print(f"Shot zones: {zones.refresh()}")
+        except Exception as e:  # noqa: BLE001
+            print(f"Shot zones failed: {e}")
         print("Fetching ESPN rosters...")
         r = rosters_client.fetch()
         print(f"  rosters: {len(r.get('players', []))} players, error={r.get('error')}")
