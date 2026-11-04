@@ -674,3 +674,11 @@ From the Monahan lecture (market-based betting):
   on points, threes, PRA, P+R and P+A in every month. A first test on this season's two weeks showed no signal yet
   (defensive profiles too noisy), hence the 15-game gate: it starts working around late November.
 - Weekly tuner tries zone_w too. The first build after this update downloads last season's play-by-play once (~22 MB).
+
+## Update 60: shot-zone matchup shown on player pages now
+
+- WHY & STATS (points, threes, PRA, P+R, P+A) gets a "Shot zones" line under the existing matchup line: the player's
+  scoring mix (rim / mid / three, this season + last), and what the opponent allows in his main zone (threes for
+  3PM): points a game, rank of 30, vs league, games. Until the opponent has 15 games it's labelled "shown for
+  reference; the projection starts using it at 15 games" (the model's use, update 59, is unchanged).
+- `zones.page_info()` / `zones.matchup_line()`.

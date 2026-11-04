@@ -149,3 +149,52 @@ def factors(t: pl.DataFrame, min_g: int = 15, k: float = 10.0) -> pl.DataFrame:
 
 def _cast_join_keys(t: pl.DataFrame, zf: pl.DataFrame) -> pl.DataFrame:
     return zf.with_columns(pl.col("game_id").cast(t.schema["game_id"]), pl.col("player_id").cast(t.schema["player_id"]))
+
+
+_page = None
+
+
+def page_info() -> dict:
+    """For player pages (shown from day one, unlike the model's use): each defense's points allowed per game by zone this
+    season with its rank (1 = most), and each player's share of his points by zone (this season + last)."""
+    global _page
+    if _page is not None:
+        return _page
+    z = load()
+    out = {"teams": {}, "players": {}}
+    if not z.height:
+        _page = out
+        return out
+    z = z.filter(pl.col("season_type") == 2) if "season_type" in z.columns else z
+    cur = z.filter(pl.col("season") == dataio.CURRENT_SEASON)
+    if cur.height:
+        d = cur.group_by(["game_id", "def_team"]).agg([pl.col(c).sum() for c in ZONES]).group_by("def_team").agg(
+            [pl.col(c).mean().alias(c) for c in ZONES] + [pl.len().alias("g")])
+        lg = {c: d[c].mean() for c in ZONES}
+        for c in ZONES:
+            d = d.with_columns(pl.col(c).rank("ordinal", descending=True).alias(f"r_{c}"))
+        for r in d.iter_rows(named=True):
+            out["teams"][r["def_team"]] = {c: {"pg": round(r[c], 1), "rank": int(r[f"r_{c}"]), "vs": round(100 * (r[c] / lg[c] - 1))}
+                                           for c in ZONES} | {"g": r["g"], "n": d.height}
+    p = z.group_by("player_id").agg([pl.col(c).sum() for c in ZONES])
+    for r in p.iter_rows(named=True):
+        tot = sum(r[c] for c in ZONES)
+        if tot >= 50:
+            out["players"][r["player_id"]] = {c: round(100 * r[c] / tot) for c in ZONES}
+    _page = out
+    return out
+
+
+ZONE_NAME = {"rim": "at the rim", "mid": "from midrange", "three": "from three"}
+
+
+def matchup_line(player_id, opp: str, stat: str) -> dict | None:
+    """The shot-zone line for a player page: his main scoring zone vs what the opponent allows there."""
+    info = page_info()
+    mix, tm = info["players"].get(player_id), info["teams"].get(opp)
+    if not mix or not tm or stat not in ("pts", "fg3m", "pra", "pr", "pa"):
+        return None
+    zone = "three" if stat == "fg3m" else max(ZONES, key=lambda c: mix[c])
+    t = tm[zone]
+    return {"zone": ZONE_NAME[zone], "share": mix[zone], "mix": mix, "opp": opp, "pg": t["pg"], "rank": t["rank"],
+            "vs": t["vs"], "g": tm["g"], "n": tm["n"], "live": tm["g"] >= 15}

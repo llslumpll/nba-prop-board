@@ -611,6 +611,11 @@ def render_all(ctx: dict) -> None:
                 st["ladder"] = (r["stats"][s]["lines"].get("kalshi") or {}).get("ladder")
                 st["frozen"] = predictions.get(g["date"], r["player"], s, r["game_id"])
                 st["matchup"] = rankings.matchup(rk, r["opp"], r.get("pos"), s)
+                try:
+                    import zones
+                    st["zone"] = zones.matchup_line(r["player_id"], r["opp"], s)
+                except Exception:  # noqa: BLE001
+                    st["zone"] = None
                 st["recent"] = (recent_strip(gidx, r["player_id"], s, st["pick"]["line"], st["pick"]["side"])
                                 if st.get("pick") else [])
                 any_line = any_line or bool(st["lines"])
