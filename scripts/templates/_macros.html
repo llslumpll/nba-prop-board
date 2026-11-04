@@ -134,6 +134,12 @@
 {%- endmacro %}
 
 {# Trading-card pick. kind = 'best5' | 'value'. The full breakdown lives on the player page (WHY & STATS). #}
+{# Live pick tracker: filled in the browser from static/live.json (scores and stats so far) once the game tips. #}
+{% macro live_tag(gid, pid, stat, line, side, proj=none, pm=none) -%}
+{%- if line is not none and gid and pid -%}<span class="lv" hidden data-lv="{{ gid }}|{{ pid }}|{{ stat }}|{{ line }}|{{ side|upper }}|{{ proj if proj is not none else '' }}|{{ pm if pm is not none else '' }}"></span>{%- endif -%}
+{%- endmacro %}
+{% macro live_game(gid) -%}<span class="lv" hidden data-lvg="{{ gid }}"></span>{%- endmacro %}
+
 {% macro tcard(p, kind, edge, uid) %}
 {% set side = 'over' if p.call == 'OVER' else 'under' %}
 {% set diff = (p.projected - p.line) if p.line is not none else none %}
@@ -156,6 +162,7 @@
       {% if diff is not none %}<span class="{{ 'good' if diff > 0 else 'bad' if diff < 0 else '' }}"><em>PROJ &minus; LINE</em>{{ '%+.1f'|format(diff) }}</span>{% endif %}
       {% if kind == 'value' %}<span><em>CHANCE</em>{{ (p.chance * 100)|round(0)|int }}%</span>{% endif %}
     </div>
+    {{ live_tag(p.game_id, p.player_id, p.stat, p.line, p.call, p.projected, p.proj_min) }}
   </div>
   {% if p.blend_mean is defined and p.blend_mean is not none %}<div class="tc-blend">Chance uses <b>{{ p.blend_mean }}</b>: {{ (p.blend_w * 100)|round(0)|int }}% our projection + {{ 100 - (p.blend_w * 100)|round(0)|int }}% the line</div>{% endif %}
   {% if p.recent %}
@@ -217,6 +224,7 @@
   {% else %}<span class="pp-none">no line</span>{% endif %}
   {% if st.pick and st.pick.role_gap %}<span class="pp-gap" title="Our projection is far from the line, most likely a role change the market knows about. Chance pulled toward 50%; kept out of Best 5.">&#9888; big gap vs line</span>{% endif %}
   {% if st.pick and st.frozen and not (st.frozen.call == st.pick.side and st.frozen.line == st.pick.line) %}<span class="pp-fz">&#128274; frozen earlier: {{ st.frozen.call }} {{ st.frozen.line|fmtline }}</span>{% endif %}
+  {% if r is not none %}{% set lp = st.pick or st.frozen %}{% if lp %}{{ live_tag(r.game_id, r.player_id, s, lp.line, lp.side or lp.call, st.proj, r.proj_min) }}{% endif %}{% endif %}
   {% if r is not none and st.pick %}{{ slip_leg(r.player_id, r.player, r.team, r.opp, r.game_id, s, st.pick.side, st.pick.line, st.pick.chance, st.pick.source, g.started if g else false, st.pick.break_even) }}{% endif %}
 </span>
 {%- endmacro %}
@@ -258,6 +266,7 @@
       {% else %}<span><em>OUR MARGIN</em>{{ '%+.1f'|format(p.our_margin) }}</span><span><em>MARKET</em>{{ '%+.1f'|format(p.market_margin) }}</span>{% endif %}
       {% if kind == 'value' %}<span><em>CHANCE</em>{{ (p.chance * 100)|round(0)|int }}%</span>{% endif %}
     </div>
+    {{ live_game(p.game_id) }}
   </div>
   <div class="tc-blend">{% if p.market == 'total' %}Blended total <b>{{ p.blend_total }}</b>{% else %}Blended margin <b>{{ '%+.1f'|format(p.blend_margin) }}</b> for {{ g.home }}{% endif %}: ours gets {{ (p.blend_w * 100)|round(0)|int }}% weight (tracks the market at r={{ p.agree if p.agree is defined else '—' }}){% if p.price_str %} &middot; price {{ p.price_str }}{% endif %}</div>
   <div class="tc-foot">

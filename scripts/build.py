@@ -225,6 +225,10 @@ def build(args) -> None:
 
     # ---- slate, lines, projections
     sl = live.slate(now)
+    try:  # live pick tracker: tonight's scores and stats so far, read by the pages in the browser
+        print(f"Live feed: {espn_finals.live_feed(espn, box, sl.get('date'), Path(__file__).parent.parent / 'docs' / 'static' / 'live.json', now)}")
+    except Exception as e:  # noqa: BLE001
+        print(f"Live feed failed: {e}")
     roster, roster_src = live.roster_rows(box, rosters)
     roster_team = {name: team for _pid, name, team in roster}
     # final check before tip: NBA.com starting lineups + official inactives

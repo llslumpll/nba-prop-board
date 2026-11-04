@@ -1370,3 +1370,31 @@ html:not([data-theme="court"]) .pz-lost .pz-legs::after { content: "GAME OVER" !
 .psrch-list li.none { color: var(--text-dim); cursor: default; }
 .psrch-list li.none:hover { background: none; }
 @media (max-width: 760px) { .psrch { flex: 1 1 100%; max-width: 420px; margin: 0 auto; } .psrch input { font-size: 16px; } }
+
+/* Live pick tracker (Nov 4 2026): filled from static/live.json once a game tips */
+.lv { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; flex-basis: 100%; margin-top: 8px; padding: 6px 10px; border: 2px solid var(--line); background: #140b24; font-family: var(--mono); font-size: 0.95rem; color: var(--text); }
+.lv[hidden] { display: none; }
+.lv-now { font-family: var(--pixel); line-height: 1; white-space: nowrap; }
+.lv-now b { font-size: 1.7rem; color: #fff; font-weight: 400; margin-right: 4px; }
+.lv-now em { font-style: normal; font-size: 0.95rem; color: var(--text-dim); letter-spacing: 1px; }
+.lv-bar { position: relative; flex: 1 1 110px; min-width: 90px; height: 10px; background: #2a1d45; }
+.lv-bar i { position: absolute; left: 0; top: 0; bottom: 0; }
+.lv-exp { background: rgba(255,255,255,0.18); }
+.lv-cur { background: var(--cyan); }
+.lv-bar s { position: absolute; top: -4px; bottom: -4px; width: 3px; margin-left: -1px; background: var(--yellow); text-decoration: none; }
+.lv-tag { font-family: var(--pixel); font-size: 1.05rem; padding: 2px 8px; border: 2px solid currentColor; letter-spacing: 1px; white-space: nowrap; }
+.lv-txt { flex-basis: 100%; font-size: 0.85rem; color: var(--text-dim); }
+.lv-wait .lv-txt, .lv-game b { flex-basis: auto; }
+.lv-good { border-color: var(--green); } .lv-good .lv-tag, .lv-hit .lv-tag { color: var(--green); } .lv-good .lv-cur { background: var(--green); }
+.lv-bad { border-color: var(--red); } .lv-bad .lv-tag, .lv-miss .lv-tag { color: var(--red); } .lv-bad .lv-cur { background: var(--red); }
+.lv-hit { border-color: var(--green); background: rgba(57,255,140,0.10); } .lv-hit .lv-cur { background: var(--green); }
+.lv-hit .lv-tag { background: var(--green); color: #0b0614; border-color: var(--green); }
+.lv-miss { border-color: var(--red); background: rgba(255,60,90,0.10); opacity: 0.85; } .lv-miss .lv-cur { background: var(--red); }
+.lv-push .lv-tag, .lv-live .lv-tag { color: var(--yellow); }
+.lv-game { font-family: var(--pixel); font-size: 1.05rem; padding: 3px 10px; gap: 8px; }
+.lv-game b { font-weight: 400; color: #fff; }
+.lv-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--text-dim); }
+.lv-in .lv-dot { background: var(--red); box-shadow: 0 0 6px var(--red); animation: lvblink 1.4s infinite; }
+@keyframes lvblink { 50% { opacity: 0.25; } }
+.pz-leg .lv { grid-column: 2 / -1; }
+@media (prefers-reduced-motion: reduce) { .lv-in .lv-dot { animation: none; } }

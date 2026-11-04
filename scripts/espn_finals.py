@@ -75,6 +75,7 @@ def parse_scoreboard(j: dict) -> dict:
             "away": teams.canon(((a.get("team") or {}).get("abbreviation")), "espn") if a.get("team") else None,
             "home_score": _int(h.get("score")), "away_score": _int(a.get("score")),
             "detail": ty.get("shortDetail") or ty.get("detail") or "",
+            "period": _int(st.get("period")), "clock": st.get("displayClock"),
         }
     return out
 
@@ -205,6 +206,18 @@ def refresh(sched: pl.DataFrame, box: pl.DataFrame, pending_dates: set[str], now
         if sum(1 for r in rows if r["played"]) >= 10:  # a real final box has 10+ players who played
             store["games"][str(gid)] = {"date": gdate, "rows": rows, "final": s}
             fetched += 1
+    # games in progress: their box score so far, every build (the live pick tracker, docs/static/live.json)
+    store["live"] = {}
+    for gid, s in status.items():
+        if s.get("state") != "in":
+            continue
+        gdate, stype = meta.get(gid, (None, 2))
+        try:
+            rows = parse_summary(_get(API + f"summary?event={gid}"), gid, gdate or "", _season(gdate) if gdate else 0, stype or 2, s)
+            store["live"][str(gid)] = {str(r["player_id"]): [round(r["min"]), r["pts"], r["reb"], r["ast"], r["fg3m"]]
+                                       for r in rows if r["played"]}
+        except Exception as e:  # noqa: BLE001
+            errors.append(f"live {gid}: {type(e).__name__}: {str(e)[:120]}")
     # forget games the daily file now has, and anything old
     cutoff = (today - timedelta(days=KEEP_DAYS)).isoformat()
     store["games"] = {k: v for k, v in store["games"].items() if int(k) not in in_box and v.get("date", "") >= cutoff}
@@ -254,3 +267,33 @@ def merge_schedule(sched: pl.DataFrame, store: dict) -> pl.DataFrame:
         away_score=pl.coalesce(pl.col("_as"), pl.col("away_score")),
         status=pl.when(pl.col("_hs").is_not_null()).then(pl.lit("STATUS_FINAL")).otherwise(pl.col("status")),
     ).drop("_hs", "_as")
+
+
+def live_feed(store: dict, box: pl.DataFrame, date_iso: str | None, path: Path, now: datetime | None = None) -> dict:
+    """docs/static/live.json for the live pick tracker: tonight's games (state, clock, score) and each player's
+    stats so far: [minutes, pts, reb, ast, 3pm]. Games in progress come from this build's ESPN box scores, finished
+    ones from the box table. Pages read it in the browser, so they don't have to be rebuilt to show it."""
+    now = now or datetime.now(timezone.utc)
+    out = {"at": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "date": date_iso, "games": {}, "p": {}}
+    if date_iso:
+        st = store.get("status") or {}
+        day = box.filter(pl.col("date").cast(pl.Utf8) == date_iso) if box.height else box
+        finals = {}
+        if day.height:
+            for r in day.select("game_id", "player_id", "min", "pts", "reb", "ast", "fg3m", "played").iter_rows(named=True):
+                if r["played"]:
+                    finals.setdefault(str(r["game_id"]), {})[str(r["player_id"])] = [round(r["min"] or 0), r["pts"], r["reb"], r["ast"], r["fg3m"]]
+        gids = set(finals) | {k for k in (store.get("live") or {})}
+        gids |= {k for k, v in st.items() if v.get("state") in ("in", "post")}
+        for gid in gids:
+            g = st.get(gid) or {}
+            state = "post" if gid in finals else g.get("state", "pre")
+            if gid not in finals and gid not in (store.get("live") or {}) and state != "post":
+                continue
+            out["games"][gid] = {"s": state, "d": g.get("detail", "Final" if state == "post" else ""), "h": g.get("home"),
+                                 "a": g.get("away"), "hs": g.get("home_score"), "as": g.get("away_score")}
+            for pid, v in (finals.get(gid) or (store.get("live") or {}).get(gid) or {}).items():
+                out["p"][f"{gid}|{pid}"] = v
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(out, separators=(",", ":")))
+    return {"games": len(out["games"]), "live": sum(1 for g in out["games"].values() if g["s"] == "in"), "players": len(out["p"])}
