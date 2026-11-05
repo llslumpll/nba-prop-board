@@ -297,3 +297,18 @@ def live_feed(store: dict, box: pl.DataFrame, date_iso: str | None, path: Path, 
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(out, separators=(",", ":")))
     return {"games": len(out["games"]), "live": sum(1 for g in out["games"].values() if g["s"] == "in"), "players": len(out["p"])}
+
+
+def tonight_picks(recs: dict, date_iso: str | None, path: Path) -> int:
+    """docs/static/tonight.json for Home's "Tonight so far" bar: every frozen player pick on the slate, grouped by
+    player-game: {"gid|pid": [proj_min, [stat, line, side, projected, best5], ...]}."""
+    out = {}
+    for p in recs.values():
+        if not p.get("call") or p.get("line") is None or p.get("status") == "void" or not p.get("game_id"):
+            continue
+        k = f"{p['game_id']}|{p['player_id']}"
+        row = out.setdefault(k, [p.get("proj_min") or 0])
+        row.append([p["stat"], p["line"], p["call"], p.get("projected"), 1 if p.get("best5") else 0])
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps({"date": date_iso, "p": out}, separators=(",", ":")))
+    return sum(len(v) - 1 for v in out.values())

@@ -548,6 +548,12 @@ def build(args) -> None:
     _write_if_changed(DATA / "audit.json", {"at": now.strftime("%Y-%m-%d %H:%M UTC"), "passed": r.returncode == 0,
                                             "checks": len(lines), "fails": [ln[5:] for ln in lines if ln.startswith("FAIL")]})
     print("Audit:", "all checks passed" if r.returncode == 0 else r.stdout[-800:])
+    try:  # Home's "Tonight so far" bar: tonight's frozen picks, scored in the browser against live.json
+        n = espn_finals.tonight_picks(predictions.load_date(sl["date"]) if sl.get("date") else {}, sl.get("date"),
+                                      Path(__file__).parent.parent / "docs" / "static" / "tonight.json")
+        print(f"Tonight picks: {n}")
+    except Exception as e:  # noqa: BLE001
+        print(f"Tonight picks failed: {e}")
     try:  # phone alerts (alerts.py): new injury news, news parlays, earned Kalshi lags, morning recap
         import alerts
         print(f"Alerts: {alerts.run(sl, now, res)}")

@@ -1401,3 +1401,20 @@ html:not([data-theme="court"]) .pz-lost .pz-legs::after { content: "GAME OVER" !
 /* Picks -> ALL PROJECTIONS loads its board on first open (update 65) */
 .board-slot { min-height: 120px; }
 .board-wait { padding: 30px 0; text-align: center; }
+
+/* Home: Tonight so far (update 67) */
+.tonight { margin: 18px 0 24px; padding: 14px 18px; border: 3px solid var(--yellow); background: #140b24; box-shadow: 5px 5px 0 var(--pink); }
+.tonight[hidden] { display: none; }
+.tn-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 14px; margin-bottom: 10px; }
+.tn-title { display: inline-flex; align-items: center; gap: 8px; font-family: var(--pixel); font-size: 1.5rem; color: var(--yellow); letter-spacing: 1px; }
+.tn-on { background: var(--red); box-shadow: 0 0 6px var(--red); animation: lvblink 1.4s infinite; }
+.tn-rate { font-family: var(--pixel); font-size: 1.15rem; color: #fff; }
+.tn-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.tn-chip { font-family: var(--pixel); font-size: 1.05rem; padding: 4px 10px; border: 2px solid currentColor; white-space: nowrap; }
+.tn-chip b { font-size: 1.35rem; font-weight: 400; margin-right: 2px; }
+.tn-hit { color: #0b0614; background: var(--green); border-color: var(--green); }
+.tn-miss { color: var(--red); } .tn-good { color: var(--green); } .tn-bad { color: var(--red); opacity: 0.85; }
+.tn-push, .tn-live { color: var(--yellow); } .tn-pre { color: var(--text-dim); }
+.tn-b5 { margin-top: 10px; font-family: var(--mono); color: var(--text); } .tn-b5 b { font-family: var(--pixel); font-weight: 400; color: var(--cyan); margin-right: 6px; }
+.tn-foot { margin-top: 8px; font-size: 0.8rem; color: var(--text-dim); }
+@media (prefers-reduced-motion: reduce) { .tn-on { animation: none; } }
