@@ -11,7 +11,7 @@ from __future__ import annotations
 import json
 import shutil
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -89,6 +89,9 @@ def _fmtnum(x):
 
 def _season_label(s):
     return f"{int(s) - 1}-{str(int(s))[-2:]}"
+
+
+EARN_SINCE = "2026-10-31"  # first slate where a stake had to be earned (proven.py); the Home "bets" record starts here
 
 
 def _css_hash() -> str:
@@ -948,7 +951,20 @@ def render_all(ctx: dict) -> None:
               "void": sum(1 for p in preds if p["status"] == "void"), "push": sum(1 for p in preds if p["status"] == "push")}
     record["graded"] = record["hits"] + record["misses"]
     record["rate"] = round(100 * record["hits"] / record["graded"], 1) if record["graded"] else None
-    record["money"] = grade.money_summary(preds)["total"]
+    msum = grade.money_summary(preds)
+    record["money"] = msum["total"]
+    # Home "track record" panel (update 68): what the site actually stands behind first, every projection last
+    wk0 = (now - timedelta(days=7)).strftime("%Y-%m-%d")
+    record["lists"] = []
+    for row in msum["lists"]:
+        tag = "best5" if row["label"] == "Best 5" else "value"
+        wk = [p for p in preds if p["date"] >= wk0 and p["status"] == "graded" and any(t.endswith(":" + tag) for t in p.get("best5", []))]
+        wh = sum(1 for p in wk if p["hit"])
+        record["lists"].append({**row, "wk_n": len(wk), "wk_h": wh, "wk_u": round(sum(grade.units(p) or 0 for p in wk), 1)})
+    bets = [p for p in preds + ctx["tpreds"] if p["date"] >= EARN_SINCE and p.get("status") == "graded" and grade.stake(p) > 0]
+    record["bets"] = {"n": len(bets), "hits": sum(1 for p in bets if p.get("hit")), "since": EARN_SINCE,
+                      "pl": round(sum(grade.staked_pl(p) or 0 for p in bets), 2),
+                      "open": sum(1 for p in preds + ctx["tpreds"] if p.get("status") == "pending" and grade.stake(p) > 0)}
 
     def day_board(date, label):
         ps = [p for p in preds if p["date"] == date]

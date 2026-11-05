@@ -1418,3 +1418,19 @@ html:not([data-theme="court"]) .pz-lost .pz-legs::after { content: "GAME OVER" !
 .tn-b5 { margin-top: 10px; font-family: var(--mono); color: var(--text); } .tn-b5 b { font-family: var(--pixel); font-weight: 400; color: var(--cyan); margin-right: 6px; }
 .tn-foot { margin-top: 8px; font-size: 0.8rem; color: var(--text-dim); }
 @media (prefers-reduced-motion: reduce) { .tn-on { animation: none; } }
+
+/* Home: track record panel (update 68) */
+.trk { margin: 18px 0 8px; }
+.trk-h { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 10px; }
+.trk-h span { font-family: var(--pixel); font-size: 1.4rem; color: var(--yellow); letter-spacing: 1px; }
+.trk-h a { font-size: 0.9rem; color: var(--text-dim); } .trk-h a:hover { color: var(--yellow); }
+.trk-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.trk-tile { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border: 3px solid var(--line); background: #140b24; color: var(--text); text-decoration: none; }
+.trk-tile:hover { border-color: var(--yellow); box-shadow: 4px 4px 0 var(--pink); }
+.trk-tile em { font-style: normal; font-family: var(--pixel); font-size: 1rem; color: var(--cyan); letter-spacing: 1px; }
+.trk-tile b { font-family: var(--pixel); font-weight: 400; font-size: 2.1rem; color: #fff; line-height: 1.05; }
+.trk-tile > span { font-family: var(--mono); font-size: 0.95rem; }
+.trk-tile small { font-size: 0.78rem; color: var(--text-dim); line-height: 1.35; }
+.trk-all { margin: 8px 2px 0; color: var(--text-dim); text-align: right; }
+@media (max-width: 900px) { .trk-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .trk-tile b { font-size: 1.7rem; } .trk-all { text-align: left; } }

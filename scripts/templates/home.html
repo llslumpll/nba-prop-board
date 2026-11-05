@@ -19,8 +19,38 @@
       </div>
     </div>
     {% endfor %}
-    <a class="board-all small" href="mybets.html" style="margin-right:12px">&#128203; My Bets &rarr;</a><a class="board-all small" href="history.html">All-time: {{ record.hits }}&ndash;{{ record.misses }}{% if record.rate is not none %} ({{ record.rate }}%){% endif %} &middot; {{ '%+.1f'|format(record.money.units) }} units &rarr; History</a>
+    <a class="board-all small" href="mybets.html">&#128203; My Bets &rarr;</a>
   </div>
+</section>
+
+{# Track record: the lists and bets the site stands behind first; every projection (coin flips included) last #}
+<section class="trk">
+  <div class="trk-h"><span>TRACK RECORD</span><a href="history.html">full history &rarr;</a></div>
+  <div class="trk-grid">
+    {% for l in record.lists %}
+    <a class="trk-tile" href="history.html">
+      <em>{{ l.label|upper }}</em>
+      <b>{{ l.hits }}&ndash;{{ l.graded - l.hits }}</b>
+      <span>{{ l.rate }}% &middot; <span class="{{ 'rec-up' if l.units > 0 else 'rec-down' if l.units < 0 }}">{{ '%+.1f'|format(l.units) }}U</span></span>
+      {% if l.wk_n %}<small>last 7 days: {{ l.wk_h }}&ndash;{{ l.wk_n - l.wk_h }} ({{ (100 * l.wk_h / l.wk_n)|round|int }}%) &middot; {{ '%+.1f'|format(l.wk_u) }}U</small>{% endif %}
+    </a>
+    {% endfor %}
+    {% if record.money.clv_rate is not none %}
+    <a class="trk-tile" href="history.html">
+      <em>BEAT THE CLOSE</em>
+      <b>{{ record.money.clv_rate|round|int }}%</b>
+      <span>of picks the line moved toward</span>
+      <small>after the site picks, the line moves its way before tip &mdash; the best early sign of real skill</small>
+    </a>
+    {% endif %}
+    <a class="trk-tile" href="picks.html">
+      <em>BETS IT STAKES</em>
+      <b>{{ record.bets.hits }}&ndash;{{ record.bets.n - record.bets.hits }}</b>
+      <span>{% if record.bets.n %}<span class="{{ 'rec-up' if record.bets.pl > 0 else 'rec-down' if record.bets.pl < 0 }}">{{ '%+.2f'|format(record.bets.pl) }}U</span>{% else %}none graded yet{% endif %}{% if record.bets.open %} &middot; {{ record.bets.open }} open{% endif %}</span>
+      <small>GOOD PRICE picks only; a stake has to be earned first, so these are rare (since {{ record.bets.since[5:]|replace('-', '/') }})</small>
+    </a>
+  </div>
+  <p class="trk-all small">Every projection (each player &amp; stat, not bets): {{ record.hits }}&ndash;{{ record.misses }}{% if record.rate is not none %} ({{ record.rate }}%){% endif %} &middot; {{ '%+.1f'|format(record.money.units) }}U flat</p>
 </section>
 
 {# Tonight so far: filled in the browser once a game tips (static/tonight.json picks vs static/live.json stats) #}
