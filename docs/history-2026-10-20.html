@@ -10,7 +10,7 @@
 <link rel="preload" href="static/fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/oxanium-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="static/fonts/press-start-2p-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="static/style.css?v=b489c72e6f">
+<link rel="stylesheet" href="static/style.css?v=2338e863e2">
   <script>
     // Show the page once its fonts are ready (max 1.2 s) so text never jumps from a backup font.
     (function () {
@@ -3238,9 +3238,55 @@
         return s in m ? m[s] : {pra: v[1] + v[2] + v[3], pr: v[1] + v[2], pa: v[1] + v[3], ra: v[2] + v[3]}[s];
       }
       function fmt(x) { return (Math.round(x * 10) / 10).toString(); }
+      // where a pick stands: hit / miss / push once decided, on pace / behind while live
+      function judge(v, st, line, over, fin, proj, pm) {
+        var cur = val(v, st), exp = null, cls, tag;
+        if (!fin && proj > 0 && pm > 0) exp = cur + proj * Math.max(0, pm - v[0]) / pm;
+        if (fin) exp = cur;
+        if (fin && cur === line) { cls = 'push'; tag = 'PUSH'; }
+        else if (over && cur > line) { cls = 'hit'; tag = fin ? '✔ HIT' : '✔ CASHED'; }
+        else if (!over && cur > line) { cls = 'miss'; tag = '✘ MISSED'; }
+        else if (fin) { cls = over ? 'miss' : 'hit'; tag = over ? '✘ MISSED' : '✔ HIT'; }
+        else if (exp == null) { cls = 'live'; tag = 'LIVE'; }
+        else if (over ? exp >= line : exp < line) { cls = 'good'; tag = 'ON PACE'; }
+        else { cls = 'bad'; tag = 'BEHIND'; }
+        return {cur: cur, exp: exp, cls: cls, tag: tag};
+      }
+      // Home: "Tonight so far" for every frozen pick on the slate (and Best 5 on its own)
+      var tonight = document.getElementById('tonight'), picks = null;
+      function drawTonight(d) {
+        if (!tonight || !picks || picks.date !== d.date) return;
+        var c = {hit: 0, miss: 0, push: 0, good: 0, bad: 0, live: 0, wait: 0, pre: 0}, b = {hit: 0, miss: 0, live: 0, pre: 0, push: 0}, started = false;
+        Object.keys(picks.p).forEach(function (k) {
+          var row = picks.p[k], gid = k.split('|')[0], g = (d.games || {})[gid], v = (d.p || {})[k];
+          var fin = !!(g && g.s === 'post');
+          row.slice(1).forEach(function (pk) {
+            var cls;
+            if (!g || g.s === 'pre') cls = 'pre';
+            else if (!v) cls = fin ? 'void' : 'wait';
+            else cls = judge(v, pk[0], pk[1], pk[2] === 'OVER', fin, pk[3], row[0]).cls;
+            if (g && g.s !== 'pre') started = true;
+            if (cls in c) c[cls]++;
+            if (pk[4] && cls !== 'void') { var bc = (cls in b) ? cls : 'live'; b[bc]++; }
+          });
+        });
+        if (!started) { tonight.hidden = true; return; }
+        var dec = c.hit + c.miss, live = c.good + c.bad + c.live + c.wait;
+        var t = new Date(d.at), at = isNaN(t) ? '' : t.toLocaleTimeString([], {hour: 'numeric', minute: '2-digit'});
+        function chip(cl, n, label) { return n ? '<span class="tn-chip tn-' + cl + '"><b>' + n + '</b> ' + label + '</span>' : ''; }
+        var bp = [b.hit ? b.hit + ' hit' : '', b.miss ? b.miss + ' missed' : '', b.push ? b.push + ' push' : '', b.live ? b.live + ' live' : '', b.pre ? b.pre + ' to tip' : ''].filter(Boolean);
+        tonight.innerHTML = '<div class="tn-head"><span class="tn-title"><span class="lv-dot' + (live ? ' tn-on' : '') + '"></span>TONIGHT SO FAR</span>'
+          + (dec ? '<span class="tn-rate">' + Math.round(100 * c.hit / dec) + '% of decided picks hit</span>' : '') + '</div>'
+          + '<div class="tn-chips">' + chip('hit', c.hit, '✔ HIT') + chip('miss', c.miss, '✘ MISSED') + chip('push', c.push, 'PUSH')
+          + chip('good', c.good, 'ON PACE') + chip('bad', c.bad, 'BEHIND') + chip('live', c.live + c.wait, 'LIVE / NOT IN YET') + chip('pre', c.pre, 'TO TIP') + '</div>'
+          + (bp.length ? '<div class="tn-b5"><b>BEST 5</b> ' + bp.join(' · ') + '</div>' : '')
+          + '<div class="tn-foot">Live stats from ESPN, updated with each build' + (at ? ' · last ' + at : '') + '. Final grades land on <a href="history-' + d.date + '.html">History</a>.</div>';
+        tonight.hidden = false;
+      }
       function draw(d) {
         var anyLive = false;
         els = document.querySelectorAll('[data-lv],[data-lvg]');
+        drawTonight(d);
         Object.keys(d.games || {}).forEach(function (k) { if (d.games[k].s === 'in') anyLive = true; });
         els.forEach(function (el) {
           var gidOnly = el.getAttribute('data-lvg');
@@ -3263,16 +3309,8 @@
             el.firstChild.textContent = fin ? 'Did not play · void' : 'Not in yet · ' + clock;
             return;
           }
-          var cur = val(v, st), mins = v[0], exp = null;
-          if (!fin && proj > 0 && pm > 0) exp = cur + proj * Math.max(0, pm - mins) / pm;
-          if (fin) exp = cur;
-          if (fin && cur === line) { cls = 'push'; tag = 'PUSH'; }
-          else if (over && cur > line) { cls = 'hit'; tag = fin ? '✔ HIT' : '✔ CASHED'; }
-          else if (!over && cur > line) { cls = 'miss'; tag = '✘ MISSED'; }
-          else if (fin) { cls = over ? 'miss' : 'hit'; tag = over ? '✘ MISSED' : '✔ HIT'; }
-          else if (exp == null) { cls = 'live'; tag = 'LIVE'; }
-          else if (over ? exp >= line : exp < line) { cls = 'good'; tag = 'ON PACE'; }
-          else { cls = 'bad'; tag = 'BEHIND'; }
+          var r = judge(v, st, line, over, fin, proj, pm), cur = r.cur, mins = v[0], exp = r.exp;
+          cls = r.cls; tag = r.tag;
           var top = Math.max(line * 1.5, cur, exp || 0, 1);
           el.className = 'lv lv-' + cls; el.hidden = false;
           el.innerHTML = '<span class="lv-now"><b></b><em></em></span><span class="lv-bar"><i class="lv-exp"></i><i class="lv-cur"></i><s></s></span><span class="lv-tag"></span><span class="lv-txt"></span>';
@@ -3289,8 +3327,10 @@
       var timer = null;
       window.peLive = function () { load(); };
       function load() {
-        if (!document.querySelector('[data-lv],[data-lvg]')) return;
-        fetch('static/live.json?t=' + Date.now(), {cache: 'no-store'}).then(function (r) { return r.ok ? r.json() : null; })
+        if (!document.querySelector('[data-lv],[data-lvg]') && !tonight) return;
+        var pp = tonight && !picks ? fetch('static/tonight.json?t=' + Math.floor(Date.now() / 300000), {cache: 'no-store'})
+          .then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { picks = j; }).catch(function () {}) : Promise.resolve();
+        pp.then(function () { return fetch('static/live.json?t=' + Date.now(), {cache: 'no-store'}); }).then(function (r) { return r.ok ? r.json() : null; })
           .then(function (d) {
             if (!d) return;
             var live = draw(d);
@@ -3414,7 +3454,7 @@
       });
     });
   </script>
-  <script src="static/slip.js?v=b489c72e6f"></script>
+  <script src="static/slip.js?v=2338e863e2"></script>
   <script>
     /* COPY BET: copies one row (tab-separated, so it pastes into the sheet's columns) */
     document.addEventListener('click', function (e) {
