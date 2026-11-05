@@ -1,10 +1,8 @@
 {
  "Anthony Black|fg3m|401909936": {
   "actual": null,
-  "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
-  ],
-  "anchor": null,
+  "adj": [],
+  "anchor": "kalshi",
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [
@@ -15,36 +13,61 @@
    "fg3m:best5": "2026-11-05 06:40:55 UTC",
    "fg3m:value": "2026-11-05 06:40:55 UTC"
   },
-  "blend_mean": 1.98,
+  "blend_mean": 2.13,
   "blend_w": 0.225,
   "break_even": 0.542,
-  "call": "UNDER",
-  "chance": 0.5028,
-  "close_at": "2026-11-05 06:40 UTC",
+  "call": "OVER",
+  "chance": 0.5214,
+  "close_at": "2026-11-05 07:00 UTC",
   "close_line": 1.5,
-  "close_mkt": null,
+  "close_mkt": 0.54,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": false,
-  "kladder": null,
+  "kladder": [
+   [
+    2,
+    0.52,
+    0.56
+   ],
+   [
+    4,
+    0.1,
+    0.13
+   ],
+   [
+    5,
+    0.04,
+    0.06
+   ]
+  ],
   "label": "lean",
   "line": 1.5,
   "line_source": "prizepicks",
   "lines": {
+   "kalshi": 1.5,
    "prizepicks": 1.5
   },
-  "market_side": null,
+  "market_side": 0.54,
   "mkt": {
+   "kalshi": [
+    1.5,
+    0.5772,
+    0.4975
+   ],
    "prizepicks": [
     1.5,
     0.542,
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "PHX",
   "out_ctx": [
@@ -80,7 +103,7 @@
     "units": 0.0
    }
   },
-  "src_key": "prizepicks",
+  "src_key": "prizepicks+kalshi",
   "stat": "fg3m",
   "status": "pending",
   "team": "ORL",
@@ -88,6 +111,7 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
+  "updates": 1,
   "var": 3.239,
   "why": "28.7 min (recent 28.0, +0.7 team-minutes adjustment); \u00d7 0.063 3-pointers made/min (57% this season's 0.080 over 4 games, 43% prior 0.048); context: road \u22121%, rest +1%, opponent defense +1%, shared production on ORL \u22121%; calibration +0.0."
  },
@@ -660,43 +684,46 @@
  "Brandin Podziemski|pr|401909937": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 20.5,
+  "blend_mean": 21.28,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5,
-  "close_at": "2026-11-05 06:40 UTC",
-  "close_line": 20.5,
+  "chance": 0.502,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 21.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 20.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909937,
   "hit": null,
   "home": true,
   "kladder": null,
   "label": "lean",
-  "line": 20.5,
+  "line": 21.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 20.5
+   "prizepicks": 21.5
   },
   "market_side": null,
   "mkt": {
    "prizepicks": [
-    20.5,
+    21.5,
     0.542,
     0.542
    ]
   },
-  "move": null,
-  "move_dir": null,
+  "move": 1.0,
+  "move_dir": "against",
   "opp": "MIA",
   "out_ctx": [
    "Gui Santos",
@@ -732,7 +759,8 @@
   "tip_utc": "2026-11-06T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 57.169,
+  "updates": 1,
+  "var": 57.253,
   "why": "30.7 min (recent 31.8, \u22121.1 team-minutes adjustment with Gui Santos out); \u00d7 0.661 pts+reb/min (67% this season's 0.657 over 6 games, 33% prior 0.650); context: pace vs MIA +1%, home +1%, rest +1%, opponent defense +1%, shared production on GSW \u22123%; calibration -0.1."
  },
  "Brandin Podziemski|pts|401909937": {
@@ -812,6 +840,502 @@
   "units_raw": 0.0,
   "var": 43.863,
   "why": "30.7 min (recent 31.8, \u22121.1 team-minutes adjustment with Gui Santos out); \u00d7 0.493 points/min (55% this season's 0.507 over 6 games, 45% prior 0.473); context: pace vs MIA +1%, home +1%, rest +1%, opponent defense +1%, shared production on GSW \u22123%; calibration -0.1."
+ },
+ "De'Anthony Melton|pa|401909937": {
+  "actual": null,
+  "adj": [
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
+  ],
+  "anchor": null,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "blend_mean": 12.88,
+  "blend_w": 0.225,
+  "break_even": 0.542,
+  "call": "OVER",
+  "chance": 0.5033,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 12.5,
+  "close_mkt": null,
+  "date": "2026-11-05",
+  "flip": null,
+  "frozen_at": "2026-11-05 07:00 UTC",
+  "game_id": 401909937,
+  "hit": null,
+  "home": true,
+  "kladder": null,
+  "label": "lean",
+  "line": 12.5,
+  "line_source": "prizepicks",
+  "lines": {
+   "prizepicks": 12.5
+  },
+  "market_side": null,
+  "mkt": {
+   "prizepicks": [
+    12.5,
+    0.542,
+    0.542
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "MIA",
+  "out_ctx": [
+   "Gui Santos",
+   "Jimmy Butler III",
+   "Kristaps Porzingis",
+   "Moses Moody"
+  ],
+  "player": "De'Anthony Melton",
+  "player_id": 4066436,
+  "proj_min": 23.8,
+  "projected": 14.2,
+  "role_gap": false,
+  "skip": "pa|prizepicks|OVER",
+  "snaps": {
+   "open": {
+    "at": "2026-11-05 07:00 UTC",
+    "best5": [],
+    "break_even": 0.542,
+    "call": "OVER",
+    "chance": 0.5033,
+    "line": 12.5,
+    "line_source": "prizepicks",
+    "market_side": null,
+    "projected": 14.2,
+    "units": 0.0
+   }
+  },
+  "src_key": "prizepicks",
+  "stat": "pa",
+  "status": "pending",
+  "team": "GSW",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-06T03:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 57.583,
+  "why": "23.8 min (recent 24.7, \u22120.9 team-minutes adjustment with Gui Santos out); \u00d7 0.592 pts+ast/min (73% this season's 0.560 over 8 games, 27% prior 0.639); context: pace vs MIA +1%, home +1%, rest +1%, opponent defense +1%, shared production on GSW \u22123%; calibration -0.0."
+ },
+ "De'Anthony Melton|pra|401909937": {
+  "actual": null,
+  "adj": [
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
+  ],
+  "anchor": null,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "blend_mean": 16.92,
+  "blend_w": 0.225,
+  "break_even": 0.542,
+  "call": "OVER",
+  "chance": 0.5041,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 16.5,
+  "close_mkt": null,
+  "date": "2026-11-05",
+  "flip": null,
+  "frozen_at": "2026-11-05 07:00 UTC",
+  "game_id": 401909937,
+  "hit": null,
+  "home": true,
+  "kladder": null,
+  "label": "lean",
+  "line": 16.5,
+  "line_source": "prizepicks",
+  "lines": {
+   "prizepicks": 16.5
+  },
+  "market_side": null,
+  "mkt": {
+   "prizepicks": [
+    16.5,
+    0.542,
+    0.542
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "MIA",
+  "out_ctx": [
+   "Gui Santos",
+   "Jimmy Butler III",
+   "Kristaps Porzingis",
+   "Moses Moody"
+  ],
+  "player": "De'Anthony Melton",
+  "player_id": 4066436,
+  "proj_min": 23.8,
+  "projected": 18.4,
+  "role_gap": false,
+  "skip": "pra|prizepicks|OVER",
+  "snaps": {
+   "open": {
+    "at": "2026-11-05 07:00 UTC",
+    "best5": [],
+    "break_even": 0.542,
+    "call": "OVER",
+    "chance": 0.5041,
+    "line": 16.5,
+    "line_source": "prizepicks",
+    "market_side": null,
+    "projected": 18.4,
+    "units": 0.0
+   }
+  },
+  "src_key": "prizepicks",
+  "stat": "pra",
+  "status": "pending",
+  "team": "GSW",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-06T03:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 77.044,
+  "why": "23.8 min (recent 24.7, \u22120.9 team-minutes adjustment with Gui Santos out); \u00d7 0.763 pts+reb+ast/min (73% this season's 0.755 over 8 games, 27% prior 0.779); context: pace vs MIA +1%, home +1%, rest +1%, opponent defense +1%, shared production on GSW \u22123%; calibration -0.1."
+ },
+ "De'Anthony Melton|pr|401909937": {
+  "actual": null,
+  "adj": [
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
+  ],
+  "anchor": null,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "blend_mean": 14.04,
+  "blend_w": 0.225,
+  "break_even": 0.542,
+  "call": "OVER",
+  "chance": 0.5048,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 13.5,
+  "close_mkt": null,
+  "date": "2026-11-05",
+  "flip": null,
+  "frozen_at": "2026-11-05 07:00 UTC",
+  "game_id": 401909937,
+  "hit": null,
+  "home": true,
+  "kladder": null,
+  "label": "lean",
+  "line": 13.5,
+  "line_source": "prizepicks",
+  "lines": {
+   "prizepicks": 13.5
+  },
+  "market_side": null,
+  "mkt": {
+   "prizepicks": [
+    13.5,
+    0.542,
+    0.542
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "MIA",
+  "out_ctx": [
+   "Gui Santos",
+   "Jimmy Butler III",
+   "Kristaps Porzingis",
+   "Moses Moody"
+  ],
+  "player": "De'Anthony Melton",
+  "player_id": 4066436,
+  "proj_min": 23.8,
+  "projected": 15.9,
+  "role_gap": false,
+  "skip": "pr|prizepicks|OVER",
+  "snaps": {
+   "open": {
+    "at": "2026-11-05 07:00 UTC",
+    "best5": [],
+    "break_even": 0.542,
+    "call": "OVER",
+    "chance": 0.5048,
+    "line": 13.5,
+    "line_source": "prizepicks",
+    "market_side": null,
+    "projected": 15.9,
+    "units": 0.0
+   }
+  },
+  "src_key": "prizepicks",
+  "stat": "pr",
+  "status": "pending",
+  "team": "GSW",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-06T03:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 71.895,
+  "why": "23.8 min (recent 24.7, \u22120.9 team-minutes adjustment with Gui Santos out); \u00d7 0.659 pts+reb/min (73% this season's 0.658 over 8 games, 27% prior 0.662); context: pace vs MIA +1%, home +1%, rest +1%, opponent defense +1%, shared production on GSW \u22123%; calibration -0.1."
+ },
+ "De'Anthony Melton|pts|401909937": {
+  "actual": null,
+  "adj": [
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
+  ],
+  "anchor": null,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "blend_mean": 10.77,
+  "blend_w": 0.225,
+  "break_even": 0.542,
+  "call": "OVER",
+  "chance": 0.503,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 10.5,
+  "close_mkt": null,
+  "date": "2026-11-05",
+  "flip": null,
+  "frozen_at": "2026-11-05 07:00 UTC",
+  "game_id": 401909937,
+  "hit": null,
+  "home": true,
+  "kladder": null,
+  "label": "lean",
+  "line": 10.5,
+  "line_source": "prizepicks",
+  "lines": {
+   "prizepicks": 10.5
+  },
+  "market_side": null,
+  "mkt": {
+   "prizepicks": [
+    10.5,
+    0.542,
+    0.542
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "MIA",
+  "out_ctx": [
+   "Gui Santos",
+   "Jimmy Butler III",
+   "Kristaps Porzingis",
+   "Moses Moody"
+  ],
+  "player": "De'Anthony Melton",
+  "player_id": 4066436,
+  "proj_min": 23.8,
+  "projected": 11.7,
+  "role_gap": false,
+  "skip": null,
+  "snaps": {
+   "open": {
+    "at": "2026-11-05 07:00 UTC",
+    "best5": [],
+    "break_even": 0.542,
+    "call": "OVER",
+    "chance": 0.503,
+    "line": 10.5,
+    "line_source": "prizepicks",
+    "market_side": null,
+    "projected": 11.7,
+    "units": 0.0
+   }
+  },
+  "src_key": "prizepicks",
+  "stat": "pts",
+  "status": "pending",
+  "team": "GSW",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-06T03:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 53.071,
+  "why": "23.8 min (recent 24.7, \u22120.9 team-minutes adjustment with Gui Santos out); \u00d7 0.492 points/min (62% this season's 0.462 over 8 games, 38% prior 0.522); context: pace vs MIA +1%, home +1%, rest +1%, opponent defense +1%, shared production on GSW \u22123%; calibration -0.1."
+ },
+ "De'Anthony Melton|reb|401909937": {
+  "actual": null,
+  "adj": [
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
+  ],
+  "anchor": null,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [
+   "reb:best5",
+   "reb:value"
+  ],
+  "best5_at": {
+   "reb:best5": "2026-11-05 07:00:51 UTC",
+   "reb:value": "2026-11-05 07:00:51 UTC"
+  },
+  "blend_mean": 3.88,
+  "blend_w": 0.225,
+  "break_even": 0.542,
+  "call": "OVER",
+  "chance": 0.5009,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 3.5,
+  "close_mkt": null,
+  "date": "2026-11-05",
+  "flip": null,
+  "frozen_at": "2026-11-05 07:00 UTC",
+  "game_id": 401909937,
+  "hit": null,
+  "home": true,
+  "kladder": null,
+  "label": "lean",
+  "line": 3.5,
+  "line_source": "prizepicks",
+  "lines": {
+   "prizepicks": 3.5
+  },
+  "market_side": null,
+  "mkt": {
+   "prizepicks": [
+    3.5,
+    0.542,
+    0.542
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "MIA",
+  "out_ctx": [
+   "Gui Santos",
+   "Jimmy Butler III",
+   "Kristaps Porzingis",
+   "Moses Moody"
+  ],
+  "player": "De'Anthony Melton",
+  "player_id": 4066436,
+  "proj_min": 23.8,
+  "projected": 4.0,
+  "role_gap": false,
+  "skip": null,
+  "snaps": {
+   "open": {
+    "at": "2026-11-05 07:00 UTC",
+    "best5": [
+     "reb:best5",
+     "reb:value"
+    ],
+    "break_even": 0.542,
+    "call": "OVER",
+    "chance": 0.5009,
+    "line": 3.5,
+    "line_source": "prizepicks",
+    "market_side": null,
+    "projected": 4.0,
+    "units": 0.0
+   }
+  },
+  "src_key": "prizepicks",
+  "stat": "reb",
+  "status": "pending",
+  "team": "GSW",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-06T03:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 5.897,
+  "why": "23.8 min (recent 24.7, \u22120.9 team-minutes adjustment with Gui Santos out); \u00d7 0.159 rebounds/min (40% this season's 0.196 over 8 games, 60% prior 0.140); context: pace vs MIA +1%, home +1%, rest +1%, opponent defense +1%; calibration +0.0."
+ },
+ "Desmond Bane|fg3m|401909936": {
+  "actual": null,
+  "adj": [],
+  "anchor": null,
+  "be_over": 0.4371,
+  "be_under": 0.6267,
+  "best5": [],
+  "blend_mean": 3.18,
+  "blend_w": 0.225,
+  "break_even": 0.6267,
+  "call": "UNDER",
+  "chance": 0.6159,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 3.5,
+  "close_mkt": 0.595,
+  "date": "2026-11-05",
+  "flip": null,
+  "frozen_at": "2026-11-05 07:00 UTC",
+  "game_id": 401909936,
+  "hit": null,
+  "home": false,
+  "kladder": [
+   [
+    4,
+    0.39,
+    0.42
+   ],
+   [
+    5,
+    0.15,
+    0.24
+   ],
+   [
+    6,
+    0.08,
+    0.13
+   ]
+  ],
+  "label": "lean",
+  "line": 3.5,
+  "line_source": "kalshi",
+  "lines": {
+   "kalshi": 3.5
+  },
+  "market_side": 0.595,
+  "mkt": {
+   "kalshi": [
+    3.5,
+    0.4371,
+    0.6267
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "PHX",
+  "out_ctx": [
+   "Izaiyah Nelson",
+   "Jalen Suggs",
+   "Jonathan Isaac",
+   "Jordan Goodwin",
+   "Mark Williams",
+   "Noah Penda",
+   "Paolo Banchero",
+   "Rasheer Fleming"
+  ],
+  "player": "Desmond Bane",
+  "player_id": 4066320,
+  "proj_min": 34.8,
+  "projected": 2.8,
+  "role_gap": false,
+  "skip": "fg3m|kalshi",
+  "snaps": {
+   "open": {
+    "at": "2026-11-05 07:00 UTC",
+    "best5": [],
+    "break_even": 0.6267,
+    "call": "UNDER",
+    "chance": 0.6159,
+    "line": 3.5,
+    "line_source": "kalshi",
+    "market_side": 0.595,
+    "projected": 2.8,
+    "units": 0.0
+   }
+  },
+  "src_key": "kalshi",
+  "stat": "fg3m",
+  "status": "pending",
+  "team": "ORL",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-06T02:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 3.727,
+  "why": "34.8 min (recent 33.9, +0.9 team-minutes adjustment); \u00d7 0.081 3-pointers made/min (70% this season's 0.102 over 7 games, 30% prior 0.065); context: road \u22121%, rest +1%, opponent defense +1%, shared production on ORL \u22121%; calibration -0.0."
  },
  "Desmond Bane|pa|401909936": {
   "actual": null,
@@ -1062,43 +1586,46 @@
  "Desmond Bane|pts|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 19.59,
+  "blend_mean": 20.37,
   "blend_w": 0.225,
   "break_even": 0.542,
-  "call": "OVER",
-  "chance": 0.501,
-  "close_at": "2026-11-05 06:40 UTC",
-  "close_line": 19.5,
+  "call": "UNDER",
+  "chance": 0.5012,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 20.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "OVER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 19.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": false,
   "kladder": null,
   "label": "lean",
-  "line": 19.5,
+  "line": 20.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 19.5
+   "prizepicks": 20.5
   },
   "market_side": null,
   "mkt": {
    "prizepicks": [
-    19.5,
+    20.5,
     0.542,
     0.542
    ]
   },
-  "move": null,
-  "move_dir": null,
+  "move": 1.0,
+  "move_dir": "against",
   "opp": "PHX",
   "out_ctx": [
    "Izaiyah Nelson",
@@ -1138,13 +1665,14 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 63.88,
+  "updates": 1,
+  "var": 63.944,
   "why": "34.8 min (recent 33.9, +0.9 team-minutes adjustment); \u00d7 0.566 points/min (58% this season's 0.512 over 7 games, 42% prior 0.586); context: road \u22121%, rest +1%, shared production on ORL +2%; calibration -0.1."
  },
  "Desmond Bane|ra|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
@@ -1154,13 +1682,16 @@
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5042,
+  "chance": 0.5036,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 7.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "OVER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 7.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": false,
@@ -1179,7 +1710,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "PHX",
   "out_ctx": [
@@ -1220,7 +1751,8 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 9.357,
+  "updates": 1,
+  "var": 9.368,
   "why": "34.8 min (recent 33.9, +0.9 team-minutes adjustment); \u00d7 0.236 reb+ast/min (47% this season's 0.176 over 7 games, 53% prior 0.276); context: road \u22121%, rest +1%, shared production on ORL +3%; calibration +0.0."
  },
  "Devin Booker|ast|401909936": {
@@ -1317,10 +1849,8 @@
  },
  "Devin Booker|fg3m|401909936": {
   "actual": null,
-  "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
-  ],
-  "anchor": null,
+  "adj": [],
+  "anchor": "kalshi",
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [
@@ -1331,36 +1861,66 @@
    "fg3m:best5": "2026-11-05 06:40:55 UTC",
    "fg3m:value": "2026-11-05 06:40:55 UTC"
   },
-  "blend_mean": 1.78,
+  "blend_mean": 1.87,
   "blend_w": 0.225,
   "break_even": 0.542,
-  "call": "UNDER",
-  "chance": 0.5008,
-  "close_at": "2026-11-05 06:40 UTC",
+  "call": "OVER",
+  "chance": 0.5203,
+  "close_at": "2026-11-05 07:00 UTC",
   "close_line": 1.5,
-  "close_mkt": null,
+  "close_mkt": 0.53,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": true,
-  "kladder": null,
+  "kladder": [
+   [
+    2,
+    0.52,
+    0.54
+   ],
+   [
+    3,
+    0.2,
+    0.29
+   ],
+   [
+    4,
+    0.1,
+    0.14
+   ],
+   [
+    5,
+    0.04,
+    0.06
+   ]
+  ],
   "label": "lean",
   "line": 1.5,
   "line_source": "prizepicks",
   "lines": {
+   "kalshi": 1.5,
    "prizepicks": 1.5
   },
-  "market_side": null,
+  "market_side": 0.53,
   "mkt": {
+   "kalshi": [
+    1.5,
+    0.5574,
+    0.4975
+   ],
    "prizepicks": [
     1.5,
     0.542,
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "ORL",
   "out_ctx": [
@@ -1396,7 +1956,7 @@
     "units": 0.0
    }
   },
-  "src_key": "prizepicks",
+  "src_key": "prizepicks+kalshi",
   "stat": "fg3m",
   "status": "pending",
   "team": "PHX",
@@ -1404,29 +1964,33 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
+  "updates": 1,
   "var": 2.093,
   "why": "32.9 min (recent 34.3, \u22121.4 back-to-back); \u00d7 0.053 3-pointers made/min (67% this season's 0.043 over 6 games, 33% prior 0.061); context: home +1%, rest \u22122%, shared production on PHX +3%; calibration -0.0."
  },
  "Devin Booker|pa|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 29.37,
+  "blend_mean": 29.38,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.501,
+  "chance": 0.5008,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 29.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 29.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": true,
@@ -1445,7 +2009,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "ORL",
   "out_ctx": [
@@ -1461,7 +2025,7 @@
   "player": "Devin Booker",
   "player_id": 3136193,
   "proj_min": 32.9,
-  "projected": 28.9,
+  "projected": 29.0,
   "role_gap": false,
   "skip": "pa|prizepicks",
   "snaps": {
@@ -1486,8 +2050,9 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 79.042,
-  "why": "32.9 min (recent 34.3, \u22121.4 back-to-back); \u00d7 0.900 pts+ast/min (67% this season's 0.850 over 6 games, 33% prior 0.885); context: home +1%, rest \u22122%, shared production on PHX \u22121%; calibration -0.1."
+  "updates": 1,
+  "var": 79.124,
+  "why": "32.9 min (recent 34.3, \u22121.4 back-to-back); \u00d7 0.900 pts+ast/min (67% this season's 0.850 over 6 games, 33% prior 0.885); context: home +1%, rest \u22122%, shared production on PHX \u22121%; calibration -0.0."
  },
  "Devin Booker|pra|401909936": {
   "actual": null,
@@ -1816,6 +2381,102 @@
   "units_raw": 0.0,
   "var": 12.034,
   "why": "32.9 min (recent 34.3, \u22121.4 back-to-back); \u00d7 0.269 reb+ast/min (43% this season's 0.227 over 6 games, 57% prior 0.293); context: home +1%, rest \u22122%, shared production on PHX +2%; calibration +0.0."
+ },
+ "Dillon Brooks|fg3m|401909936": {
+  "actual": null,
+  "adj": [],
+  "anchor": null,
+  "be_over": 0.6069,
+  "be_under": 0.4371,
+  "best5": [],
+  "blend_mean": 2.02,
+  "blend_w": 0.225,
+  "break_even": 0.6069,
+  "call": "OVER",
+  "chance": 0.5823,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 1.5,
+  "close_mkt": 0.585,
+  "date": "2026-11-05",
+  "flip": null,
+  "frozen_at": "2026-11-05 07:00 UTC",
+  "game_id": 401909936,
+  "hit": null,
+  "home": true,
+  "kladder": [
+   [
+    2,
+    0.58,
+    0.59
+   ],
+   [
+    4,
+    0.14,
+    0.18
+   ],
+   [
+    5,
+    0.05,
+    0.08
+   ]
+  ],
+  "label": "lean",
+  "line": 1.5,
+  "line_source": "kalshi",
+  "lines": {
+   "kalshi": 1.5
+  },
+  "market_side": 0.585,
+  "mkt": {
+   "kalshi": [
+    1.5,
+    0.6069,
+    0.4371
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "ORL",
+  "out_ctx": [
+   "Izaiyah Nelson",
+   "Jalen Suggs",
+   "Jonathan Isaac",
+   "Jordan Goodwin",
+   "Mark Williams",
+   "Noah Penda",
+   "Paolo Banchero",
+   "Rasheer Fleming"
+  ],
+  "player": "Dillon Brooks",
+  "player_id": 3155526,
+  "proj_min": 29.9,
+  "projected": 2.0,
+  "role_gap": false,
+  "skip": "fg3m|kalshi|OVER",
+  "snaps": {
+   "open": {
+    "at": "2026-11-05 07:00 UTC",
+    "best5": [],
+    "break_even": 0.6069,
+    "call": "OVER",
+    "chance": 0.5823,
+    "line": 1.5,
+    "line_source": "kalshi",
+    "market_side": 0.585,
+    "projected": 2.0,
+    "units": 0.0
+   }
+  },
+  "src_key": "kalshi",
+  "stat": "fg3m",
+  "status": "pending",
+  "team": "PHX",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-06T02:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 2.012,
+  "why": "29.9 min (recent 31.2, \u22121.2 back-to-back); \u00d7 0.067 3-pointers made/min (67% this season's 0.060 over 6 games, 33% prior 0.073); context: home +1%, rest \u22122%, opponent defense \u22122%, shared production on PHX +3%; calibration -0.0."
  },
  "Dillon Brooks|pa|401909936": {
   "actual": null,
@@ -2227,10 +2888,166 @@
   "var": 8.882,
   "why": "29.9 min (recent 31.2, \u22121.2 back-to-back); \u00d7 0.203 reb+ast/min (43% this season's 0.239 over 6 games, 57% prior 0.189); context: home +1%, rest \u22122%, opponent defense \u22121%, shared production on PHX +4%; calibration +0.0."
  },
+ "Draymond Green|pr|401909937": {
+  "actual": null,
+  "adj": [
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
+  ],
+  "anchor": null,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "blend_mean": 10.37,
+  "blend_w": 0.225,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5017,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 10.5,
+  "close_mkt": null,
+  "date": "2026-11-05",
+  "flip": null,
+  "frozen_at": "2026-11-05 07:00 UTC",
+  "game_id": 401909937,
+  "hit": null,
+  "home": true,
+  "kladder": null,
+  "label": "lean",
+  "line": 10.5,
+  "line_source": "prizepicks",
+  "lines": {
+   "prizepicks": 10.5
+  },
+  "market_side": null,
+  "mkt": {
+   "prizepicks": [
+    10.5,
+    0.542,
+    0.542
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "MIA",
+  "out_ctx": [
+   "Gui Santos",
+   "Jimmy Butler III",
+   "Kristaps Porzingis",
+   "Moses Moody"
+  ],
+  "player": "Draymond Green",
+  "player_id": 6589,
+  "proj_min": 23.8,
+  "projected": 9.9,
+  "role_gap": false,
+  "skip": "pr|prizepicks",
+  "snaps": {
+   "open": {
+    "at": "2026-11-05 07:00 UTC",
+    "best5": [],
+    "break_even": 0.542,
+    "call": "UNDER",
+    "chance": 0.5017,
+    "line": 10.5,
+    "line_source": "prizepicks",
+    "market_side": null,
+    "projected": 9.9,
+    "units": 0.0
+   }
+  },
+  "src_key": "prizepicks",
+  "stat": "pr",
+  "status": "pending",
+  "team": "GSW",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-06T03:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 26.953,
+  "why": "23.8 min (recent 24.7, \u22120.9 team-minutes adjustment with Gui Santos out); \u00d7 0.415 pts+reb/min (67% this season's 0.306 over 6 games, 33% prior 0.531); context: pace vs MIA +1%, home +1%, rest +1%, shared production on GSW \u22122%; calibration -0.1."
+ },
+ "Draymond Green|pts|401909937": {
+  "actual": null,
+  "adj": [
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
+  ],
+  "anchor": null,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "blend_mean": 5.5,
+  "blend_w": 0.225,
+  "break_even": 0.542,
+  "call": "OVER",
+  "chance": 0.5001,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 5.5,
+  "close_mkt": null,
+  "date": "2026-11-05",
+  "flip": null,
+  "frozen_at": "2026-11-05 07:00 UTC",
+  "game_id": 401909937,
+  "hit": null,
+  "home": true,
+  "kladder": null,
+  "label": "lean",
+  "line": 5.5,
+  "line_source": "prizepicks",
+  "lines": {
+   "prizepicks": 5.5
+  },
+  "market_side": null,
+  "mkt": {
+   "prizepicks": [
+    5.5,
+    0.542,
+    0.542
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "MIA",
+  "out_ctx": [
+   "Gui Santos",
+   "Jimmy Butler III",
+   "Kristaps Porzingis",
+   "Moses Moody"
+  ],
+  "player": "Draymond Green",
+  "player_id": 6589,
+  "proj_min": 23.8,
+  "projected": 5.5,
+  "role_gap": false,
+  "skip": null,
+  "snaps": {
+   "open": {
+    "at": "2026-11-05 07:00 UTC",
+    "best5": [],
+    "break_even": 0.542,
+    "call": "OVER",
+    "chance": 0.5001,
+    "line": 5.5,
+    "line_source": "prizepicks",
+    "market_side": null,
+    "projected": 5.5,
+    "units": 0.0
+   }
+  },
+  "src_key": "prizepicks",
+  "stat": "pts",
+  "status": "pending",
+  "team": "GSW",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-06T03:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 16.119,
+  "why": "23.8 min (recent 24.7, \u22120.9 team-minutes adjustment with Gui Santos out); \u00d7 0.238 points/min (55% this season's 0.119 over 6 games, 45% prior 0.328); context: pace vs MIA +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on GSW \u22123%; calibration -0.1."
+ },
  "Franz Wagner|ast|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
@@ -2247,13 +3064,16 @@
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5087,
+  "chance": 0.5073,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 6.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 6.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": false,
@@ -2272,7 +3092,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "PHX",
   "out_ctx": [
@@ -2316,13 +3136,110 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 6.952,
+  "updates": 1,
+  "var": 6.964,
   "why": "34.0 min (recent 33.2, +0.8 team-minutes adjustment); \u00d7 0.159 assists/min (58% this season's 0.212 over 7 games, 42% prior 0.119); context: road \u22121%, rest +1%, shared production on ORL +6%; calibration -0.0."
+ },
+ "Franz Wagner|fg3m|401909936": {
+  "actual": null,
+  "adj": [],
+  "anchor": null,
+  "be_over": 0.4673,
+  "be_under": 0.5971,
+  "best5": [],
+  "blend_mean": 1.46,
+  "blend_w": 0.225,
+  "break_even": 0.5971,
+  "call": "UNDER",
+  "chance": 0.5888,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 1.5,
+  "close_mkt": 0.565,
+  "date": "2026-11-05",
+  "flip": null,
+  "frozen_at": "2026-11-05 07:00 UTC",
+  "game_id": 401909936,
+  "hit": null,
+  "home": false,
+  "kladder": [
+   [
+    2,
+    0.42,
+    0.45
+   ],
+   [
+    4,
+    0.06,
+    0.1
+   ],
+   [
+    5,
+    0.02,
+    0.05
+   ]
+  ],
+  "label": "lean",
+  "line": 1.5,
+  "line_source": "kalshi",
+  "lines": {
+   "kalshi": 1.5
+  },
+  "market_side": 0.565,
+  "mkt": {
+   "kalshi": [
+    1.5,
+    0.4673,
+    0.5971
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "PHX",
+  "out_ctx": [
+   "Izaiyah Nelson",
+   "Jalen Suggs",
+   "Jonathan Isaac",
+   "Jordan Goodwin",
+   "Mark Williams",
+   "Noah Penda",
+   "Paolo Banchero",
+   "Rasheer Fleming"
+  ],
+  "player": "Franz Wagner",
+  "player_id": 4566434,
+  "proj_min": 34.0,
+  "projected": 1.2,
+  "role_gap": false,
+  "skip": "fg3m|kalshi",
+  "snaps": {
+   "open": {
+    "at": "2026-11-05 07:00 UTC",
+    "best5": [],
+    "break_even": 0.5971,
+    "call": "UNDER",
+    "chance": 0.5888,
+    "line": 1.5,
+    "line_source": "kalshi",
+    "market_side": 0.565,
+    "projected": 1.2,
+    "units": 0.0
+   }
+  },
+  "src_key": "kalshi",
+  "stat": "fg3m",
+  "status": "pending",
+  "team": "ORL",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-06T02:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 1.341,
+  "why": "34.0 min (recent 33.2, +0.8 team-minutes adjustment); \u00d7 0.036 3-pointers made/min (70% this season's 0.028 over 7 games, 30% prior 0.050); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on ORL \u22121%; calibration -0.0."
  },
  "Franz Wagner|pa|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
@@ -2332,13 +3249,16 @@
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5052,
+  "chance": 0.5044,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 29.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 29.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": false,
@@ -2357,7 +3277,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "PHX",
   "out_ctx": [
@@ -2398,29 +3318,33 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 64.765,
-  "why": "34.0 min (recent 33.2, +0.8 team-minutes adjustment); \u00d7 0.782 pts+ast/min (70% this season's 0.780 over 7 games, 30% prior 0.777); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on ORL +3%; calibration -0.1."
+  "updates": 1,
+  "var": 64.837,
+  "why": "34.0 min (recent 33.2, +0.8 team-minutes adjustment); \u00d7 0.782 pts+ast/min (70% this season's 0.780 over 7 games, 30% prior 0.777); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on ORL +3%; calibration -0.0."
  },
  "Franz Wagner|pra|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 34.89,
+  "blend_mean": 34.9,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5061,
+  "chance": 0.5051,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 35.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 35.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": false,
@@ -2439,7 +3363,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "PHX",
   "out_ctx": [
@@ -2480,29 +3404,33 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 83.554,
+  "updates": 1,
+  "var": 83.63,
   "why": "34.0 min (recent 33.2, +0.8 team-minutes adjustment); \u00d7 0.956 pts+reb+ast/min (70% this season's 0.952 over 7 games, 30% prior 0.954); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on ORL +2%; calibration -0.1."
  },
  "Franz Wagner|pr|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 28.13,
+  "blend_mean": 28.14,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5036,
+  "chance": 0.5031,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 28.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 28.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": false,
@@ -2521,7 +3449,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "PHX",
   "out_ctx": [
@@ -2562,13 +3490,14 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 64.778,
+  "updates": 1,
+  "var": 64.85,
   "why": "34.0 min (recent 33.2, +0.8 team-minutes adjustment); \u00d7 0.789 pts+reb/min (70% this season's 0.740 over 7 games, 30% prior 0.835); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on ORL +2%; calibration -0.1."
  },
  "Franz Wagner|pts|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
@@ -2581,17 +3510,20 @@
    "pts:best5": "2026-11-05 06:40:55 UTC",
    "pts:value": "2026-11-05 06:40:55 UTC"
   },
-  "blend_mean": 22.19,
+  "blend_mean": 22.2,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5037,
+  "chance": 0.5032,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 22.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 22.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": false,
@@ -2610,7 +3542,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "PHX",
   "out_ctx": [
@@ -2626,7 +3558,7 @@
   "player": "Franz Wagner",
   "player_id": 4566434,
   "proj_min": 34.0,
-  "projected": 21.1,
+  "projected": 21.2,
   "role_gap": false,
   "skip": null,
   "snaps": {
@@ -2654,29 +3586,33 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 48.18,
+  "updates": 1,
+  "var": 48.225,
   "why": "34.0 min (recent 33.2, +0.8 team-minutes adjustment); \u00d7 0.622 points/min (58% this season's 0.568 over 7 games, 42% prior 0.659); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on ORL +2%; calibration -0.1."
  },
  "Franz Wagner|ra|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 12.25,
+  "blend_mean": 12.26,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5039,
+  "chance": 0.5032,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 12.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 12.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": false,
@@ -2695,7 +3631,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "PHX",
   "out_ctx": [
@@ -2736,29 +3672,189 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 14.929,
+  "updates": 1,
+  "var": 14.942,
   "why": "34.0 min (recent 33.2, +0.8 team-minutes adjustment); \u00d7 0.327 reb+ast/min (47% this season's 0.384 over 7 games, 53% prior 0.295); context: road \u22121%, rest +1%, shared production on ORL +3%; calibration +0.0."
  },
- "Giannis Antetokounmpo|pa|401909937": {
+ "Georges Niang|pr|401909937": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 34.72,
+  "blend_mean": 10.57,
+  "blend_w": 0.225,
+  "break_even": 0.542,
+  "call": "OVER",
+  "chance": 0.5009,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 10.5,
+  "close_mkt": null,
+  "date": "2026-11-05",
+  "flip": null,
+  "frozen_at": "2026-11-05 07:00 UTC",
+  "game_id": 401909937,
+  "hit": null,
+  "home": true,
+  "kladder": null,
+  "label": "lean",
+  "line": 10.5,
+  "line_source": "prizepicks",
+  "lines": {
+   "prizepicks": 10.5
+  },
+  "market_side": null,
+  "mkt": {
+   "prizepicks": [
+    10.5,
+    0.542,
+    0.542
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "MIA",
+  "out_ctx": [
+   "Gui Santos",
+   "Jimmy Butler III",
+   "Kristaps Porzingis",
+   "Moses Moody"
+  ],
+  "player": "Georges Niang",
+  "player_id": 2990969,
+  "proj_min": 20.0,
+  "projected": 10.8,
+  "role_gap": false,
+  "skip": "pr|prizepicks|OVER",
+  "snaps": {
+   "open": {
+    "at": "2026-11-05 07:00 UTC",
+    "best5": [],
+    "break_even": 0.542,
+    "call": "OVER",
+    "chance": 0.5009,
+    "line": 10.5,
+    "line_source": "prizepicks",
+    "market_side": null,
+    "projected": 10.8,
+    "units": 0.0
+   }
+  },
+  "src_key": "prizepicks",
+  "stat": "pr",
+  "status": "pending",
+  "team": "GSW",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-06T03:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 36.107,
+  "why": "20.0 min (recent 20.7, \u22120.7 team-minutes adjustment with Gui Santos out); \u00d7 0.543 pts+reb/min (73% this season's 0.516 over 8 games, 27% prior 0.637); context: pace vs MIA +1%, home +1%, rest +1%, shared production on GSW \u22123%; calibration -0.1."
+ },
+ "Georges Niang|pts|401909937": {
+  "actual": null,
+  "adj": [
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
+  ],
+  "anchor": null,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "blend_mean": 7.57,
+  "blend_w": 0.225,
+  "break_even": 0.542,
+  "call": "OVER",
+  "chance": 0.501,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 7.5,
+  "close_mkt": null,
+  "date": "2026-11-05",
+  "flip": null,
+  "frozen_at": "2026-11-05 07:00 UTC",
+  "game_id": 401909937,
+  "hit": null,
+  "home": true,
+  "kladder": null,
+  "label": "lean",
+  "line": 7.5,
+  "line_source": "prizepicks",
+  "lines": {
+   "prizepicks": 7.5
+  },
+  "market_side": null,
+  "mkt": {
+   "prizepicks": [
+    7.5,
+    0.542,
+    0.542
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "MIA",
+  "out_ctx": [
+   "Gui Santos",
+   "Jimmy Butler III",
+   "Kristaps Porzingis",
+   "Moses Moody"
+  ],
+  "player": "Georges Niang",
+  "player_id": 2990969,
+  "proj_min": 20.0,
+  "projected": 7.8,
+  "role_gap": false,
+  "skip": null,
+  "snaps": {
+   "open": {
+    "at": "2026-11-05 07:00 UTC",
+    "best5": [],
+    "break_even": 0.542,
+    "call": "OVER",
+    "chance": 0.501,
+    "line": 7.5,
+    "line_source": "prizepicks",
+    "market_side": null,
+    "projected": 7.8,
+    "units": 0.0
+   }
+  },
+  "src_key": "prizepicks",
+  "stat": "pts",
+  "status": "pending",
+  "team": "GSW",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-06T03:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 23.993,
+  "why": "20.0 min (recent 20.7, \u22120.7 team-minutes adjustment with Gui Santos out); \u00d7 0.399 points/min (62% this season's 0.365 over 8 games, 38% prior 0.467); context: pace vs MIA +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on GSW \u22123%; calibration -0.1."
+ },
+ "Giannis Antetokounmpo|pa|401909937": {
+  "actual": null,
+  "adj": [
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
+  ],
+  "anchor": null,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "blend_mean": 34.73,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.506,
+  "chance": 0.5051,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 35.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 35.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909937,
   "hit": null,
   "home": false,
@@ -2777,7 +3873,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
   "out_ctx": [
@@ -2789,7 +3885,7 @@
   "player": "Giannis Antetokounmpo",
   "player_id": 3032977,
   "proj_min": 31.4,
-  "projected": 32.0,
+  "projected": 32.1,
   "role_gap": false,
   "skip": "pa|prizepicks",
   "snaps": {
@@ -2814,29 +3910,33 @@
   "tip_utc": "2026-11-06T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 86.02,
-  "why": "31.4 min (recent 33.9, \u22121.2 team-minutes adjustment, \u22121.4 back-to-back); \u00d7 1.058 pts+ast/min (84% this season's 1.030 over 8 games, 16% prior 1.013); context: road \u22121%, rest \u22122%; calibration -0.1."
+  "updates": 1,
+  "var": 86.1,
+  "why": "31.4 min (recent 33.9, \u22121.2 team-minutes adjustment, \u22121.4 back-to-back); \u00d7 1.058 pts+ast/min (84% this season's 1.030 over 8 games, 16% prior 1.013); context: road \u22121%, rest \u22122%; calibration -0.0."
  },
  "Giannis Antetokounmpo|pra|401909937": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 46.57,
+  "blend_mean": 46.58,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5072,
+  "chance": 0.5061,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 47.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 47.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909937,
   "hit": null,
   "home": false,
@@ -2855,7 +3955,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
   "out_ctx": [
@@ -2892,29 +3992,33 @@
   "tip_utc": "2026-11-06T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 141.708,
+  "updates": 1,
+  "var": 141.806,
   "why": "31.4 min (recent 33.9, \u22121.2 team-minutes adjustment, \u22121.4 back-to-back); \u00d7 1.424 pts+reb+ast/min (84% this season's 1.409 over 8 games, 16% prior 1.332); context: road \u22121%, rest \u22122%; calibration -0.1."
  },
  "Giannis Antetokounmpo|pr|401909937": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 40.74,
+  "blend_mean": 40.75,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5056,
+  "chance": 0.5048,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 41.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 41.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909937,
   "hit": null,
   "home": false,
@@ -2933,7 +4037,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
   "out_ctx": [
@@ -2945,7 +4049,7 @@
   "player": "Giannis Antetokounmpo",
   "player_id": 3032977,
   "proj_min": 31.4,
-  "projected": 38.1,
+  "projected": 38.2,
   "role_gap": false,
   "skip": "pr|prizepicks",
   "snaps": {
@@ -2970,13 +4074,14 @@
   "tip_utc": "2026-11-06T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 117.099,
+  "updates": 1,
+  "var": 117.191,
   "why": "31.4 min (recent 33.9, \u22121.2 team-minutes adjustment, \u22121.4 back-to-back); \u00d7 1.249 pts+reb/min (84% this season's 1.235 over 8 games, 16% prior 1.160); context: road \u22121%, rest \u22122%, shared production on MIA +1%; calibration -0.1."
  },
  "Giannis Antetokounmpo|pts|401909937": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
@@ -2993,13 +4098,16 @@
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5064,
+  "chance": 0.5055,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 29.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 29.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909937,
   "hit": null,
   "home": false,
@@ -3018,7 +4126,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
   "out_ctx": [
@@ -3058,7 +4166,8 @@
   "tip_utc": "2026-11-06T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 68.719,
+  "updates": 1,
+  "var": 68.77,
   "why": "31.4 min (recent 33.9, \u22121.2 team-minutes adjustment, \u22121.4 back-to-back); \u00d7 0.883 points/min (76% this season's 0.856 over 8 games, 24% prior 0.841); context: road \u22121%, rest \u22122%; calibration -0.1."
  },
  "Giannis Antetokounmpo|ra|401909937": {
@@ -3142,7 +4251,7 @@
  "Giannis Antetokounmpo|reb|401909937": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
@@ -3159,13 +4268,16 @@
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5049,
+  "chance": 0.5041,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 11.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 11.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909937,
   "hit": null,
   "home": false,
@@ -3184,7 +4296,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "GSW",
   "out_ctx": [
@@ -3224,45 +4336,55 @@
   "tip_utc": "2026-11-06T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 18.365,
-  "why": "31.4 min (recent 33.9, \u22121.2 team-minutes adjustment, \u22121.4 back-to-back); \u00d7 0.354 rebounds/min (57% this season's 0.379 over 8 games, 43% prior 0.319); context: road \u22121%, rest \u22122%, shared production on MIA +2%."
+  "updates": 1,
+  "var": 18.384,
+  "why": "31.4 min (recent 33.9, \u22121.2 team-minutes adjustment, \u22121.4 back-to-back); \u00d7 0.354 rebounds/min (57% this season's 0.379 over 8 games, 43% prior 0.319); context: road \u22121%, rest \u22122%, shared production on MIA +2%; calibration +0.0."
  },
- "Jalen Green|pa|401909936": {
+ "Jalen Green|fg3m|401909936": {
   "actual": null,
-  "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
-  ],
+  "adj": [],
   "anchor": null,
-  "be_over": 0.542,
-  "be_under": 0.542,
+  "be_over": 0.6069,
+  "be_under": 0.4371,
   "best5": [],
-  "blend_mean": 18.26,
+  "blend_mean": 2.23,
   "blend_w": 0.225,
-  "break_even": 0.542,
-  "call": "UNDER",
-  "chance": 0.5018,
-  "close_at": "2026-11-05 06:40 UTC",
-  "close_line": 18.5,
-  "close_mkt": null,
+  "break_even": 0.6069,
+  "call": "OVER",
+  "chance": 0.5491,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 1.5,
+  "close_mkt": 0.585,
   "date": "2026-11-05",
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": true,
-  "kladder": null,
+  "kladder": [
+   [
+    2,
+    0.58,
+    0.59
+   ],
+   [
+    5,
+    0.05,
+    0.08
+   ]
+  ],
   "label": "lean",
-  "line": 18.5,
-  "line_source": "prizepicks",
+  "line": 1.5,
+  "line_source": "kalshi",
   "lines": {
-   "prizepicks": 18.5
+   "kalshi": 1.5
   },
-  "market_side": null,
+  "market_side": 0.585,
   "mkt": {
-   "prizepicks": [
-    18.5,
-    0.542,
-    0.542
+   "kalshi": [
+    1.5,
+    0.6069,
+    0.4371
    ]
   },
   "move": null,
@@ -3281,7 +4403,92 @@
   "player": "Jalen Green",
   "player_id": 4437244,
   "proj_min": 27.8,
-  "projected": 17.4,
+  "projected": 1.6,
+  "role_gap": false,
+  "skip": "fg3m|kalshi|OVER",
+  "snaps": {
+   "open": {
+    "at": "2026-11-05 07:00 UTC",
+    "best5": [],
+    "break_even": 0.6069,
+    "call": "OVER",
+    "chance": 0.5491,
+    "line": 1.5,
+    "line_source": "kalshi",
+    "market_side": 0.585,
+    "projected": 1.6,
+    "units": 0.0
+   }
+  },
+  "src_key": "kalshi",
+  "stat": "fg3m",
+  "status": "pending",
+  "team": "PHX",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-06T02:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 2.899,
+  "why": "27.8 min (recent 29.0, \u22121.2 back-to-back); \u00d7 0.058 3-pointers made/min (67% this season's 0.034 over 6 games, 33% prior 0.083); context: home +1%, rest \u22122%, shared production on PHX +3%; calibration -0.0."
+ },
+ "Jalen Green|pa|401909936": {
+  "actual": null,
+  "adj": [
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
+  ],
+  "anchor": null,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "blend_mean": 18.27,
+  "blend_w": 0.225,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5015,
+  "close_at": "2026-11-05 06:40 UTC",
+  "close_line": 18.5,
+  "close_mkt": null,
+  "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 18.5,
+  "flip": null,
+  "frozen_at": "2026-11-05 07:00 UTC",
+  "game_id": 401909936,
+  "hit": null,
+  "home": true,
+  "kladder": null,
+  "label": "lean",
+  "line": 18.5,
+  "line_source": "prizepicks",
+  "lines": {
+   "prizepicks": 18.5
+  },
+  "market_side": null,
+  "mkt": {
+   "prizepicks": [
+    18.5,
+    0.542,
+    0.542
+   ]
+  },
+  "move": 0.0,
+  "move_dir": null,
+  "opp": "ORL",
+  "out_ctx": [
+   "Izaiyah Nelson",
+   "Jalen Suggs",
+   "Jonathan Isaac",
+   "Jordan Goodwin",
+   "Mark Williams",
+   "Noah Penda",
+   "Paolo Banchero",
+   "Rasheer Fleming"
+  ],
+  "player": "Jalen Green",
+  "player_id": 4437244,
+  "proj_min": 27.8,
+  "projected": 17.5,
   "role_gap": false,
   "skip": "pa|prizepicks",
   "snaps": {
@@ -3306,29 +4513,33 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 87.439,
-  "why": "27.8 min (recent 29.0, \u22121.2 back-to-back); \u00d7 0.643 pts+ast/min (67% this season's 0.554 over 6 games, 33% prior 0.738); context: home +1%, rest \u22122%, shared production on PHX \u22121%; calibration -0.1."
+  "updates": 1,
+  "var": 87.589,
+  "why": "27.8 min (recent 29.0, \u22121.2 back-to-back); \u00d7 0.643 pts+ast/min (67% this season's 0.554 over 6 games, 33% prior 0.738); context: home +1%, rest \u22122%, shared production on PHX \u22121%; calibration -0.0."
  },
  "Jalen Green|pra|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 22.15,
+  "blend_mean": 22.16,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.503,
+  "chance": 0.5025,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 22.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 22.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": true,
@@ -3347,7 +4558,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "ORL",
   "out_ctx": [
@@ -3363,7 +4574,7 @@
   "player": "Jalen Green",
   "player_id": 4437244,
   "proj_min": 27.8,
-  "projected": 20.9,
+  "projected": 21.0,
   "role_gap": false,
   "skip": "pra|prizepicks",
   "snaps": {
@@ -3388,7 +4599,8 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 108.357,
+  "updates": 1,
+  "var": 108.512,
   "why": "27.8 min (recent 29.0, \u22121.2 back-to-back); \u00d7 0.765 pts+reb+ast/min (67% this season's 0.669 over 6 games, 33% prior 0.877); context: home +1%, rest \u22122%; calibration -0.1."
  },
  "Jalen Green|pr|401909936": {
@@ -3476,43 +4688,46 @@
  "Jalen Green|pts|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 15.36,
+  "blend_mean": 16.14,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5014,
-  "close_at": "2026-11-05 06:40 UTC",
-  "close_line": 15.5,
+  "chance": 0.503,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 16.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 15.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": true,
   "kladder": null,
   "label": "lean",
-  "line": 15.5,
+  "line": 16.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 15.5
+   "prizepicks": 16.5
   },
   "market_side": null,
   "mkt": {
    "prizepicks": [
-    15.5,
+    16.5,
     0.542,
     0.542
    ]
   },
-  "move": null,
-  "move_dir": null,
+  "move": 1.0,
+  "move_dir": "against",
   "opp": "ORL",
   "out_ctx": [
    "Izaiyah Nelson",
@@ -3552,7 +4767,8 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 73.691,
+  "updates": 1,
+  "var": 73.79,
   "why": "27.8 min (recent 29.0, \u22121.2 back-to-back); \u00d7 0.551 points/min (55% this season's 0.440 over 6 games, 45% prior 0.627); context: home +1%, rest \u22122%, shared production on PHX \u22121%; calibration -0.1."
  },
  "Jalen Green|ra|401909936": {
@@ -3732,7 +4948,7 @@
  "Jase Richardson|ast|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
@@ -3749,13 +4965,16 @@
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5079,
+  "chance": 0.5066,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 2.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 2.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": false,
@@ -3774,7 +4993,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "PHX",
   "out_ctx": [
@@ -3818,29 +5037,33 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 2.647,
+  "updates": 1,
+  "var": 2.66,
   "why": "20.0 min (recent 19.5, +0.5 team-minutes adjustment); \u00d7 0.105 assists/min (58% this season's 0.116 over 7 games, 42% prior 0.106); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on ORL +6%; calibration -0.0."
  },
  "Jase Richardson|pa|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 10.95,
+  "blend_mean": 10.96,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5065,
+  "chance": 0.5054,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 11.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 11.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": false,
@@ -3859,7 +5082,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "PHX",
   "out_ctx": [
@@ -3900,8 +5123,9 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 32.516,
-  "why": "20.0 min (recent 19.5, +0.5 team-minutes adjustment); \u00d7 0.445 pts+ast/min (70% this season's 0.395 over 7 games, 30% prior 0.528); context: road \u22121%, rest +1%, shared production on ORL +3%; calibration -0.1."
+  "updates": 1,
+  "var": 32.624,
+  "why": "20.0 min (recent 19.5, +0.5 team-minutes adjustment); \u00d7 0.445 pts+ast/min (70% this season's 0.395 over 7 games, 30% prior 0.528); context: road \u22121%, rest +1%, shared production on ORL +3%; calibration -0.0."
  },
  "Jase Richardson|pra|401909936": {
   "actual": null,
@@ -3988,23 +5212,26 @@
  "Jase Richardson|pr|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 10.93,
+  "blend_mean": 10.94,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5072,
+  "chance": 0.5061,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 11.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 11.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": false,
@@ -4023,7 +5250,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "PHX",
   "out_ctx": [
@@ -4064,13 +5291,14 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 34.011,
+  "updates": 1,
+  "var": 34.124,
   "why": "20.0 min (recent 19.5, +0.5 team-minutes adjustment); \u00d7 0.446 pts+reb/min (70% this season's 0.367 over 7 games, 30% prior 0.536); context: road \u22121%, rest +1%, shared production on ORL +2%; calibration -0.1."
  },
  "Jase Richardson|pts|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
@@ -4083,17 +5311,20 @@
    "pts:best5": "2026-11-05 06:40:55 UTC",
    "pts:value": "2026-11-05 06:40:55 UTC"
   },
-  "blend_mean": 8.17,
+  "blend_mean": 8.18,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5053,
+  "chance": 0.5046,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 8.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 8.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": false,
@@ -4112,7 +5343,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "PHX",
   "out_ctx": [
@@ -4128,7 +5359,7 @@
   "player": "Jase Richardson",
   "player_id": 5239561,
   "proj_min": 20.0,
-  "projected": 7.0,
+  "projected": 7.1,
   "role_gap": false,
   "skip": null,
   "snaps": {
@@ -4156,13 +5387,14 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 24.314,
+  "updates": 1,
+  "var": 24.383,
   "why": "20.0 min (recent 19.5, +0.5 team-minutes adjustment); \u00d7 0.351 points/min (58% this season's 0.279 over 7 games, 42% prior 0.422); context: road \u22121%, rest +1%, shared production on ORL +2%; calibration -0.1."
  },
  "Jase Richardson|reb|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
@@ -4179,13 +5411,16 @@
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5069,
+  "chance": 0.5058,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 2.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 2.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": false,
@@ -4204,7 +5439,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "PHX",
   "out_ctx": [
@@ -4248,29 +5483,298 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 3.228,
-  "why": "20.0 min (recent 19.5, +0.5 team-minutes adjustment); \u00d7 0.113 rebounds/min (37% this season's 0.088 over 7 games, 63% prior 0.113); context: road \u22121%, rest +1%, shared production on ORL +1%."
+  "updates": 1,
+  "var": 3.243,
+  "why": "20.0 min (recent 19.5, +0.5 team-minutes adjustment); \u00d7 0.113 rebounds/min (37% this season's 0.088 over 7 games, 63% prior 0.113); context: road \u22121%, rest +1%, shared production on ORL +1%; calibration +0.0."
  },
- "Miles Bridges|pa|401909936": {
+ "Khaman Maluach|pr|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 19.16,
+  "blend_mean": 10.49,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5034,
+  "chance": 0.5001,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 10.5,
+  "close_mkt": null,
+  "date": "2026-11-05",
+  "flip": null,
+  "frozen_at": "2026-11-05 07:00 UTC",
+  "game_id": 401909936,
+  "hit": null,
+  "home": true,
+  "kladder": null,
+  "label": "lean",
+  "line": 10.5,
+  "line_source": "prizepicks",
+  "lines": {
+   "prizepicks": 10.5
+  },
+  "market_side": null,
+  "mkt": {
+   "prizepicks": [
+    10.5,
+    0.542,
+    0.542
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "ORL",
+  "out_ctx": [
+   "Izaiyah Nelson",
+   "Jalen Suggs",
+   "Jonathan Isaac",
+   "Jordan Goodwin",
+   "Mark Williams",
+   "Noah Penda",
+   "Paolo Banchero",
+   "Rasheer Fleming"
+  ],
+  "player": "Khaman Maluach",
+  "player_id": 5203685,
+  "proj_min": 15.6,
+  "projected": 10.5,
+  "role_gap": false,
+  "skip": "pr|prizepicks",
+  "snaps": {
+   "open": {
+    "at": "2026-11-05 07:00 UTC",
+    "best5": [],
+    "break_even": 0.542,
+    "call": "UNDER",
+    "chance": 0.5001,
+    "line": 10.5,
+    "line_source": "prizepicks",
+    "market_side": null,
+    "projected": 10.5,
+    "units": 0.0
+   }
+  },
+  "src_key": "prizepicks",
+  "stat": "pr",
+  "status": "pending",
+  "team": "PHX",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-06T02:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 54.545,
+  "why": "15.6 min (recent 15.7); \u00d7 0.675 pts+reb/min (67% this season's 0.675 over 6 games, 33% prior 0.690); context: home +1%, rest \u22122%, opponent defense \u22121%, shared production on PHX +2%; calibration -0.1."
+ },
+ "Khaman Maluach|pts|401909936": {
+  "actual": null,
+  "adj": [
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
+  ],
+  "anchor": null,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "blend_mean": 5.47,
+  "blend_w": 0.225,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5005,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 5.5,
+  "close_mkt": null,
+  "date": "2026-11-05",
+  "flip": null,
+  "frozen_at": "2026-11-05 07:00 UTC",
+  "game_id": 401909936,
+  "hit": null,
+  "home": true,
+  "kladder": null,
+  "label": "lean",
+  "line": 5.5,
+  "line_source": "prizepicks",
+  "lines": {
+   "prizepicks": 5.5
+  },
+  "market_side": null,
+  "mkt": {
+   "prizepicks": [
+    5.5,
+    0.542,
+    0.542
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "ORL",
+  "out_ctx": [
+   "Izaiyah Nelson",
+   "Jalen Suggs",
+   "Jonathan Isaac",
+   "Jordan Goodwin",
+   "Mark Williams",
+   "Noah Penda",
+   "Paolo Banchero",
+   "Rasheer Fleming"
+  ],
+  "player": "Khaman Maluach",
+  "player_id": 5203685,
+  "proj_min": 15.6,
+  "projected": 5.3,
+  "role_gap": false,
+  "skip": null,
+  "snaps": {
+   "open": {
+    "at": "2026-11-05 07:00 UTC",
+    "best5": [],
+    "break_even": 0.542,
+    "call": "UNDER",
+    "chance": 0.5005,
+    "line": 5.5,
+    "line_source": "prizepicks",
+    "market_side": null,
+    "projected": 5.3,
+    "units": 0.0
+   }
+  },
+  "src_key": "prizepicks",
+  "stat": "pts",
+  "status": "pending",
+  "team": "PHX",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-06T02:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 21.225,
+  "why": "15.6 min (recent 15.7); \u00d7 0.362 points/min (55% this season's 0.368 over 6 games, 45% prior 0.371); context: home +1%, rest \u22122%, opponent defense \u22122%, shared production on PHX \u22121%; calibration -0.1."
+ },
+ "Miles Bridges|fg3m|401909936": {
+  "actual": null,
+  "adj": [],
+  "anchor": null,
+  "be_over": 0.6267,
+  "be_under": 0.4168,
+  "best5": [],
+  "blend_mean": 2.19,
+  "blend_w": 0.225,
+  "break_even": 0.6267,
+  "call": "OVER",
+  "chance": 0.5819,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 1.5,
+  "close_mkt": 0.605,
+  "date": "2026-11-05",
+  "flip": null,
+  "frozen_at": "2026-11-05 07:00 UTC",
+  "game_id": 401909936,
+  "hit": null,
+  "home": true,
+  "kladder": [
+   [
+    1,
+    0.78,
+    0.88
+   ],
+   [
+    2,
+    0.6,
+    0.61
+   ],
+   [
+    3,
+    0.26,
+    0.35
+   ],
+   [
+    5,
+    0.06,
+    0.08
+   ]
+  ],
+  "label": "lean",
+  "line": 1.5,
+  "line_source": "kalshi",
+  "lines": {
+   "kalshi": 1.5
+  },
+  "market_side": 0.605,
+  "mkt": {
+   "kalshi": [
+    1.5,
+    0.6267,
+    0.4168
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "ORL",
+  "out_ctx": [
+   "Izaiyah Nelson",
+   "Jalen Suggs",
+   "Jonathan Isaac",
+   "Jordan Goodwin",
+   "Mark Williams",
+   "Noah Penda",
+   "Paolo Banchero",
+   "Rasheer Fleming"
+  ],
+  "player": "Miles Bridges",
+  "player_id": 4066383,
+  "proj_min": 29.6,
+  "projected": 1.8,
+  "role_gap": false,
+  "skip": "fg3m|kalshi|OVER",
+  "snaps": {
+   "open": {
+    "at": "2026-11-05 07:00 UTC",
+    "best5": [],
+    "break_even": 0.6267,
+    "call": "OVER",
+    "chance": 0.5819,
+    "line": 1.5,
+    "line_source": "kalshi",
+    "market_side": 0.605,
+    "projected": 1.8,
+    "units": 0.0
+   }
+  },
+  "src_key": "kalshi",
+  "stat": "fg3m",
+  "status": "pending",
+  "team": "PHX",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-06T02:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 2.452,
+  "why": "29.6 min (recent 30.8, \u22121.2 back-to-back); \u00d7 0.062 3-pointers made/min (80% this season's 0.066 over 6 games, 20% prior 0.063); context: home +1%, rest \u22122%, opponent defense \u22122%, shared production on PHX +3%; calibration -0.0."
+ },
+ "Miles Bridges|pa|401909936": {
+  "actual": null,
+  "adj": [
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
+  ],
+  "anchor": null,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "blend_mean": 19.17,
+  "blend_w": 0.225,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5028,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 19.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 19.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": true,
@@ -4289,7 +5793,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "ORL",
   "out_ctx": [
@@ -4330,13 +5834,14 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 49.809,
-  "why": "29.6 min (recent 30.8, \u22121.2 back-to-back); \u00d7 0.625 pts+ast/min (80% this season's 0.614 over 6 games, 20% prior 0.672); context: home +1%, rest \u22122%, shared production on PHX \u22121%; calibration -0.1."
+  "updates": 1,
+  "var": 49.892,
+  "why": "29.6 min (recent 30.8, \u22121.2 back-to-back); \u00d7 0.625 pts+ast/min (80% this season's 0.614 over 6 games, 20% prior 0.672); context: home +1%, rest \u22122%, shared production on PHX \u22121%; calibration -0.0."
  },
  "Miles Bridges|pra|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
@@ -4346,13 +5851,16 @@
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5037,
+  "chance": 0.5031,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 25.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 25.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": true,
@@ -4371,7 +5879,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "ORL",
   "out_ctx": [
@@ -4412,7 +5920,8 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 69.144,
+  "updates": 1,
+  "var": 69.231,
   "why": "29.6 min (recent 30.8, \u22121.2 back-to-back); \u00d7 0.821 pts+reb+ast/min (80% this season's 0.827 over 6 games, 20% prior 0.874); context: home +1%, rest \u22122%, shared production on PHX +1%; calibration -0.1."
  },
  "Miles Bridges|pr|401909936": {
@@ -4664,23 +6173,26 @@
  "Stephen Curry|pa|401909937": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 30.71,
+  "blend_mean": 30.72,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5014,
+  "chance": 0.5013,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 30.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "OVER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 30.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909937,
   "hit": null,
   "home": true,
@@ -4699,7 +6211,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "MIA",
   "out_ctx": [
@@ -4711,7 +6223,7 @@
   "player": "Stephen Curry",
   "player_id": 3975,
   "proj_min": 29.3,
-  "projected": 31.4,
+  "projected": 31.5,
   "role_gap": false,
   "skip": "pa|prizepicks|OVER",
   "snaps": {
@@ -4736,8 +6248,9 @@
   "tip_utc": "2026-11-06T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 118.255,
-  "why": "29.3 min (recent 30.3, \u22121.1 team-minutes adjustment with Gui Santos out); \u00d7 1.068 pts+ast/min (67% this season's 1.190 over 6 games, 33% prior 0.924); context: pace vs MIA +1%, home +1%, rest +1%, opponent defense +1%, shared production on GSW \u22123%; calibration -0.1."
+  "updates": 1,
+  "var": 118.368,
+  "why": "29.3 min (recent 30.3, \u22121.1 team-minutes adjustment with Gui Santos out); \u00d7 1.068 pts+ast/min (67% this season's 1.190 over 6 games, 33% prior 0.924); context: pace vs MIA +1%, home +1%, rest +1%, opponent defense +1%, shared production on GSW \u22123%; calibration -0.0."
  },
  "Stephen Curry|pra|401909937": {
   "actual": null,
@@ -4898,7 +6411,7 @@
  "Stephen Curry|pts|401909937": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
@@ -4908,13 +6421,16 @@
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5008,
+  "chance": 0.5007,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 26.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 26.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909937,
   "hit": null,
   "home": true,
@@ -4933,7 +6449,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "MIA",
   "out_ctx": [
@@ -4945,7 +6461,7 @@
   "player": "Stephen Curry",
   "player_id": 3975,
   "proj_min": 29.3,
-  "projected": 26.0,
+  "projected": 26.1,
   "role_gap": false,
   "skip": null,
   "snaps": {
@@ -4970,7 +6486,8 @@
   "tip_utc": "2026-11-06T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 109.352,
+  "updates": 1,
+  "var": 109.436,
   "why": "29.3 min (recent 30.3, \u22121.1 team-minutes adjustment with Gui Santos out); \u00d7 0.887 points/min (55% this season's 1.034 over 6 games, 45% prior 0.761); context: pace vs MIA +1%, home +1%, rest +1%, opponent defense +1%, shared production on GSW \u22123%; calibration -0.1."
  },
  "Stephen Curry|ra|401909937": {
@@ -5139,26 +6656,125 @@
   "var": 4.771,
   "why": "29.3 min (recent 30.3, \u22121.1 team-minutes adjustment with Gui Santos out); \u00d7 0.127 rebounds/min (33% this season's 0.144 over 6 games, 67% prior 0.127); context: pace vs MIA +1%, home +1%, rest +1%, opponent defense +1%."
  },
+ "Tristan da Silva|fg3m|401909936": {
+  "actual": null,
+  "adj": [],
+  "anchor": null,
+  "be_over": 0.4975,
+  "be_under": 0.5574,
+  "best5": [],
+  "blend_mean": 2.62,
+  "blend_w": 0.225,
+  "break_even": 0.5574,
+  "call": "UNDER",
+  "chance": 0.5353,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 2.5,
+  "close_mkt": 0.53,
+  "date": "2026-11-05",
+  "flip": null,
+  "frozen_at": "2026-11-05 07:00 UTC",
+  "game_id": 401909936,
+  "hit": null,
+  "home": false,
+  "kladder": [
+   [
+    3,
+    0.46,
+    0.48
+   ],
+   [
+    4,
+    0.17,
+    0.27
+   ],
+   [
+    5,
+    0.06,
+    0.15
+   ]
+  ],
+  "label": "lean",
+  "line": 2.5,
+  "line_source": "kalshi",
+  "lines": {
+   "kalshi": 2.5
+  },
+  "market_side": 0.53,
+  "mkt": {
+   "kalshi": [
+    2.5,
+    0.4975,
+    0.5574
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "PHX",
+  "out_ctx": [
+   "Izaiyah Nelson",
+   "Jalen Suggs",
+   "Jonathan Isaac",
+   "Jordan Goodwin",
+   "Mark Williams",
+   "Noah Penda",
+   "Paolo Banchero",
+   "Rasheer Fleming"
+  ],
+  "player": "Tristan da Silva",
+  "player_id": 4702382,
+  "proj_min": 29.5,
+  "projected": 2.5,
+  "role_gap": false,
+  "skip": "fg3m|kalshi",
+  "snaps": {
+   "open": {
+    "at": "2026-11-05 07:00 UTC",
+    "best5": [],
+    "break_even": 0.5574,
+    "call": "UNDER",
+    "chance": 0.5353,
+    "line": 2.5,
+    "line_source": "kalshi",
+    "market_side": 0.53,
+    "projected": 2.5,
+    "units": 0.0
+   }
+  },
+  "src_key": "kalshi",
+  "stat": "fg3m",
+  "status": "pending",
+  "team": "ORL",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-06T02:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 3.115,
+  "why": "29.5 min (recent 28.8, +0.7 team-minutes adjustment); \u00d7 0.089 3-pointers made/min (70% this season's 0.112 over 7 games, 30% prior 0.058); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on ORL \u22121%; calibration -0.0."
+ },
  "Tristan da Silva|pa|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 13.87,
+  "blend_mean": 13.88,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5038,
+  "chance": 0.5033,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 13.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "OVER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 13.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": false,
@@ -5177,7 +6793,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "PHX",
   "out_ctx": [
@@ -5218,8 +6834,9 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 57.174,
-  "why": "29.5 min (recent 28.8, +0.7 team-minutes adjustment); \u00d7 0.510 pts+ast/min (70% this season's 0.541 over 7 games, 30% prior 0.459); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on ORL +2%; calibration -0.1."
+  "updates": 1,
+  "var": 57.287,
+  "why": "29.5 min (recent 28.8, +0.7 team-minutes adjustment); \u00d7 0.510 pts+ast/min (70% this season's 0.541 over 7 games, 30% prior 0.459); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on ORL +2%; calibration -0.0."
  },
  "Tristan da Silva|pra|401909936": {
   "actual": null,
@@ -5388,7 +7005,7 @@
  "Tristan da Silva|pts|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
@@ -5405,13 +7022,16 @@
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5041,
+  "chance": 0.5036,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 11.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "OVER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 11.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": false,
@@ -5430,7 +7050,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "PHX",
   "out_ctx": [
@@ -5446,7 +7066,7 @@
   "player": "Tristan da Silva",
   "player_id": 4702382,
   "proj_min": 29.5,
-  "projected": 12.9,
+  "projected": 13.0,
   "role_gap": false,
   "skip": null,
   "snaps": {
@@ -5474,7 +7094,8 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 51.644,
+  "updates": 1,
+  "var": 51.724,
   "why": "29.5 min (recent 28.8, +0.7 team-minutes adjustment); \u00d7 0.440 points/min (58% this season's 0.483 over 7 games, 42% prior 0.390); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on ORL +2%; calibration -0.1."
  },
  "Wendell Carter Jr.|ast|401909936": {
@@ -5654,23 +7275,26 @@
  "Wendell Carter Jr.|pra|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 21.91,
+  "blend_mean": 21.92,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5052,
+  "chance": 0.5045,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 21.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "OVER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 21.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": false,
@@ -5689,7 +7313,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "PHX",
   "out_ctx": [
@@ -5730,7 +7354,8 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 57.822,
+  "updates": 1,
+  "var": 57.896,
   "why": "32.3 min (recent 31.5, +0.8 team-minutes adjustment); \u00d7 0.709 pts+reb+ast/min (70% this season's 0.687 over 7 games, 30% prior 0.734); context: road \u22121%, rest +1%, opponent defense +1%, shared production on ORL +2%; calibration -0.1."
  },
  "Wendell Carter Jr.|pr|401909936": {
@@ -5818,7 +7443,7 @@
  "Wendell Carter Jr.|pts|401909936": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
@@ -5831,17 +7456,20 @@
    "pts:best5": "2026-11-05 06:40:55 UTC",
    "pts:value": "2026-11-05 06:40:55 UTC"
   },
-  "blend_mean": 11.8,
+  "blend_mean": 11.81,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5044,
+  "chance": 0.5039,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 11.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "OVER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 11.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909936,
   "hit": null,
   "home": false,
@@ -5860,7 +7488,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "PHX",
   "out_ctx": [
@@ -5876,7 +7504,7 @@
   "player": "Wendell Carter Jr.",
   "player_id": 4277847,
   "proj_min": 32.3,
-  "projected": 12.8,
+  "projected": 12.9,
   "role_gap": false,
   "skip": null,
   "snaps": {
@@ -5904,7 +7532,8 @@
   "tip_utc": "2026-11-06T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 38.001,
+  "updates": 1,
+  "var": 38.06,
   "why": "32.3 min (recent 31.5, +0.8 team-minutes adjustment); \u00d7 0.394 points/min (58% this season's 0.383 over 7 games, 42% prior 0.398); context: road \u22121%, rest +1%, shared production on ORL +2%; calibration -0.1."
  },
  "Wendell Carter Jr.|ra|401909936": {
@@ -5997,14 +7626,8 @@
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
-  "best5": [
-   "reb:best5",
-   "reb:value"
-  ],
-  "best5_at": {
-   "reb:best5": "2026-11-05 06:40:55 UTC",
-   "reb:value": "2026-11-05 06:40:55 UTC"
-  },
+  "best5": [],
+  "best5_at": {},
   "blend_mean": 8.71,
   "blend_w": 0.225,
   "break_even": 0.542,
@@ -6080,6 +7703,162 @@
   "units_raw": 0.0,
   "var": 8.772,
   "why": "32.3 min (recent 31.5, +0.8 team-minutes adjustment); \u00d7 0.264 rebounds/min (37% this season's 0.273 over 7 games, 63% prior 0.265); context: road \u22121%, rest +1%, opponent defense +1%, shared production on ORL +1%."
+ },
+ "Will Richard|pr|401909937": {
+  "actual": null,
+  "adj": [
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
+  ],
+  "anchor": null,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "blend_mean": 9.3,
+  "blend_w": 0.225,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.502,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 9.5,
+  "close_mkt": null,
+  "date": "2026-11-05",
+  "flip": null,
+  "frozen_at": "2026-11-05 07:00 UTC",
+  "game_id": 401909937,
+  "hit": null,
+  "home": true,
+  "kladder": null,
+  "label": "lean",
+  "line": 9.5,
+  "line_source": "prizepicks",
+  "lines": {
+   "prizepicks": 9.5
+  },
+  "market_side": null,
+  "mkt": {
+   "prizepicks": [
+    9.5,
+    0.542,
+    0.542
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "MIA",
+  "out_ctx": [
+   "Gui Santos",
+   "Jimmy Butler III",
+   "Kristaps Porzingis",
+   "Moses Moody"
+  ],
+  "player": "Will Richard",
+  "player_id": 4897262,
+  "proj_min": 20.5,
+  "projected": 8.6,
+  "role_gap": false,
+  "skip": "pr|prizepicks",
+  "snaps": {
+   "open": {
+    "at": "2026-11-05 07:00 UTC",
+    "best5": [],
+    "break_even": 0.542,
+    "call": "UNDER",
+    "chance": 0.502,
+    "line": 9.5,
+    "line_source": "prizepicks",
+    "market_side": null,
+    "projected": 8.6,
+    "units": 0.0
+   }
+  },
+  "src_key": "prizepicks",
+  "stat": "pr",
+  "status": "pending",
+  "team": "GSW",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-06T03:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 44.311,
+  "why": "20.5 min (recent 21.2, \u22120.7 team-minutes adjustment with Gui Santos out); \u00d7 0.417 pts+reb/min (73% this season's 0.371 over 8 games, 27% prior 0.476); context: pace vs MIA +1%, home +1%, rest +1%, opponent defense +1%, shared production on GSW \u22123%; calibration -0.1."
+ },
+ "Will Richard|pts|401909937": {
+  "actual": null,
+  "adj": [
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
+  ],
+  "anchor": null,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "blend_mean": 6.43,
+  "blend_w": 0.225,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5009,
+  "close_at": "2026-11-05 07:00 UTC",
+  "close_line": 6.5,
+  "close_mkt": null,
+  "date": "2026-11-05",
+  "flip": null,
+  "frozen_at": "2026-11-05 07:00 UTC",
+  "game_id": 401909937,
+  "hit": null,
+  "home": true,
+  "kladder": null,
+  "label": "lean",
+  "line": 6.5,
+  "line_source": "prizepicks",
+  "lines": {
+   "prizepicks": 6.5
+  },
+  "market_side": null,
+  "mkt": {
+   "prizepicks": [
+    6.5,
+    0.542,
+    0.542
+   ]
+  },
+  "move": null,
+  "move_dir": null,
+  "opp": "MIA",
+  "out_ctx": [
+   "Gui Santos",
+   "Jimmy Butler III",
+   "Kristaps Porzingis",
+   "Moses Moody"
+  ],
+  "player": "Will Richard",
+  "player_id": 4897262,
+  "proj_min": 20.5,
+  "projected": 6.2,
+  "role_gap": false,
+  "skip": null,
+  "snaps": {
+   "open": {
+    "at": "2026-11-05 07:00 UTC",
+    "best5": [],
+    "break_even": 0.542,
+    "call": "UNDER",
+    "chance": 0.5009,
+    "line": 6.5,
+    "line_source": "prizepicks",
+    "market_side": null,
+    "projected": 6.2,
+    "units": 0.0
+   }
+  },
+  "src_key": "prizepicks",
+  "stat": "pts",
+  "status": "pending",
+  "team": "GSW",
+  "tier": "5-14 games this season",
+  "tip_utc": "2026-11-06T03:00:00+00:00",
+  "units": 0.0,
+  "units_raw": 0.0,
+  "var": 28.223,
+  "why": "20.5 min (recent 21.2, \u22120.7 team-minutes adjustment with Gui Santos out); \u00d7 0.305 points/min (62% this season's 0.259 over 8 games, 38% prior 0.349); context: pace vs MIA +1%, home +1%, rest +1%, opponent defense +1%, shared production on GSW \u22123%; calibration -0.1."
  },
  "Yaxel Lendeborg|pa|401909937": {
   "actual": null,
@@ -6162,23 +7941,26 @@
  "Yaxel Lendeborg|pra|401909937": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 30.1,
+  "blend_mean": 30.11,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.503,
+  "chance": 0.5025,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 30.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 30.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909937,
   "hit": null,
   "home": true,
@@ -6197,7 +7979,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "MIA",
   "out_ctx": [
@@ -6209,7 +7991,7 @@
   "player": "Yaxel Lendeborg",
   "player_id": 5175737,
   "proj_min": 29.8,
-  "projected": 28.7,
+  "projected": 28.8,
   "role_gap": false,
   "skip": "pra|prizepicks",
   "snaps": {
@@ -6234,7 +8016,8 @@
   "tip_utc": "2026-11-06T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 152.693,
+  "updates": 1,
+  "var": 152.853,
   "why": "29.8 min (recent 30.8, \u22121.1 team-minutes adjustment with Gui Santos out); \u00d7 0.967 pts+reb+ast/min (73% this season's 1.016 over 8 games, 27% prior 0.765); context: pace vs MIA +1%, home +1%, rest +1%, shared production on GSW \u22123%; calibration -0.1."
  },
  "Yaxel Lendeborg|pr|401909937": {
@@ -6318,7 +8101,7 @@
  "Yaxel Lendeborg|pts|401909937": {
   "actual": null,
   "adj": [
-   "chance pulled toward 50% (keeps 27% of our lean on PrizePicks lines, pattern)"
+   "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
   "anchor": null,
   "be_over": 0.542,
@@ -6328,13 +8111,16 @@
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5008,
+  "chance": 0.5006,
   "close_at": "2026-11-05 06:40 UTC",
   "close_line": 18.5,
   "close_mkt": null,
   "date": "2026-11-05",
+  "first_call": "UNDER",
+  "first_frozen_at": "2026-11-05 06:40 UTC",
+  "first_line": 18.5,
   "flip": null,
-  "frozen_at": "2026-11-05 06:40 UTC",
+  "frozen_at": "2026-11-05 07:00 UTC",
   "game_id": 401909937,
   "hit": null,
   "home": true,
@@ -6353,7 +8139,7 @@
     0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "MIA",
   "out_ctx": [
@@ -6365,7 +8151,7 @@
   "player": "Yaxel Lendeborg",
   "player_id": 5175737,
   "proj_min": 29.8,
-  "projected": 18.1,
+  "projected": 18.2,
   "role_gap": false,
   "skip": null,
   "snaps": {
@@ -6390,7 +8176,8 @@
   "tip_utc": "2026-11-06T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "var": 81.857,
+  "updates": 1,
+  "var": 81.948,
   "why": "29.8 min (recent 30.8, \u22121.1 team-minutes adjustment with Gui Santos out); \u00d7 0.619 points/min (62% this season's 0.675 over 8 games, 38% prior 0.478); context: pace vs MIA +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on GSW \u22123%; calibration -0.1."
  }
 }
