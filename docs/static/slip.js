@@ -113,6 +113,7 @@
     el.innerHTML = head + body;
     save(KEY, state);
   }
+  window.peSlipRender = function () { render(); };  // boards loaded later (Picks -> ALL PROJECTIONS) mark their slip buttons
   document.addEventListener('click', function (e) {
     var b = e.target.closest('button'); if (!b) return;
     if (b.classList.contains('slip-add')) { var leg = JSON.parse(b.dataset.leg); if (has(leg.id)) remove(leg.id); else add(leg); render(); return; }

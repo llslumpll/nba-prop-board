@@ -1398,3 +1398,6 @@ html:not([data-theme="court"]) .pz-lost .pz-legs::after { content: "GAME OVER" !
 @keyframes lvblink { 50% { opacity: 0.25; } }
 .pz-leg .lv { grid-column: 2 / -1; }
 @media (prefers-reduced-motion: reduce) { .lv-in .lv-dot { animation: none; } }
+/* Picks -> ALL PROJECTIONS loads its board on first open (update 65) */
+.board-slot { min-height: 120px; }
+.board-wait { padding: 30px 0; text-align: center; }

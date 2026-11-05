@@ -288,8 +288,8 @@ def live_feed(store: dict, box: pl.DataFrame, date_iso: str | None, path: Path, 
         for gid in gids:
             g = st.get(gid) or {}
             state = "post" if gid in finals else g.get("state", "pre")
-            if gid not in finals and gid not in (store.get("live") or {}) and state != "post":
-                continue
+            if gid not in finals and gid not in (store.get("live") or {}):
+                continue  # not started, or an earlier night's game (no stats for this date)
             out["games"][gid] = {"s": state, "d": g.get("detail", "Final" if state == "post" else ""), "h": g.get("home"),
                                  "a": g.get("away"), "hs": g.get("home_score"), "as": g.get("away_score")}
             for pid, v in (finals.get(gid) or (store.get("live") or {}).get(gid) or {}).items():

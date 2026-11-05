@@ -94,7 +94,7 @@ def _season_label(s):
 def _css_hash() -> str:
     import hashlib
     try:
-        return hashlib.md5(b"".join((DOCS / "static" / f).read_bytes() for f in ("style.css",)
+        return hashlib.md5(b"".join((DOCS / "static" / f).read_bytes() for f in ("style.css", "slip.js", "live.js")
                                      if (DOCS / "static" / f).exists())).hexdigest()[:10]
     except Exception:  # noqa: BLE001
         return "0"
@@ -663,6 +663,10 @@ def render_all(ctx: dict) -> None:
                        "best5": b5, "value": bv, "warn5": _corr_warning(b5), "warnv": _corr_warning(bv)})
     write("picks.html", "picks.html", "picks", slate=sl, edge=edge, groups=groups, notices=_notices(ctx, ["pts"]),
           empty_best=_empty_best_text(ctx), games=pgames, no_history=res["no_history"])
+    # the full board per stat group: its own file, loaded when ALL PROJECTIONS opens (Picks went 2.2 MB -> ~0.15 MB)
+    for gr in groups:
+        write(f"board-{gr['key']}.html", "board.html", "picks", only_if_changed=True, gr=gr, edge=edge, games=pgames,
+              no_history=res["no_history"])
 
     # ---- games (moneyline + matchups + tracked game picks)
     tstore = predictions.load_date(sl["date"], team=True) if sl.get("date") else {}
