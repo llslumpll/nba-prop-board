@@ -35,6 +35,7 @@ import injuries_client  # noqa: E402
 import lineups_client  # noqa: E402
 import kalshi_client  # noqa: E402
 import live  # noqa: E402
+import proven  # noqa: E402
 import logs  # noqa: E402
 import markets  # noqa: E402
 import model  # noqa: E402
@@ -278,7 +279,6 @@ def build(args) -> None:
     # tonight's own results never feed tonight's projections
     sl_ids = [g["game_id"] for g in sl["games"]]
     try:  # "picks like this hit H/N": every graded pick's group record, for proven units and the cards
-        import proven
         live.PROVEN = proven.compute(predictions.load_all(), predictions.load_all(team=True))
         npv = sum(1 for k, r in live.PROVEN.items() if r["n"] >= proven.MIN_N and r["h"] / r["n"] >= 0.8)
         print(f"Proven groups: {len(live.PROVEN)} tracked, {npv} hitting 80%+ over {proven.MIN_N}+ picks")
@@ -458,7 +458,12 @@ def build(args) -> None:
             cands = [p for s in stats for p in res["picks"][s] if not p["started"] and not p.get("inj_status") and not p.get("role_gap")
                      and not p.get("skip")]  # pattern-skipped groups stay off the lists
             conf = sorted(cands, key=lambda p: -p["chance"])
-            val = sorted([p for p in cands if p.get("value") is not None], key=lambda p: -p["value"])
+            # Best Value (update 70): ranked by the real record of picks like this minus the price, not by how much
+            # our chance disagrees with the price (that lost 23U in testing; see proven.real_gap)
+            _rg = {id(p): proven.real_gap(p, live.PROVEN.get(proven.key(p))) for p in cands}
+            # only picks whose kind has really hit above the price (same units on 170 picks instead of 243, better
+            # than the old list on 9 of 10 test days); an empty list means none do tonight
+            val = sorted([p for p in cands if _rg[id(p)] is not None and _rg[id(p)] > 0], key=lambda p: -_rg[id(p)])
             for name, ranked in (("best5", conf), ("value", val)):
                 predictions.sync_best5(sl["date"], grp, name, ranked)
         predictions.save()
@@ -469,7 +474,8 @@ def build(args) -> None:
                 tagged = [dict(p) for p in store.values() if f"{grp}:{name}" in p.get("best5", [])]
                 for p in tagged:
                     p["value"] = round(p["chance"] - p["break_even"], 4) if p.get("break_even") is not None else None
-                tagged.sort(key=lambda p: -(p.get(sk) or 0))
+                    p["rgap"] = proven.real_gap(p, live.PROVEN.get(proven.key(p)))
+                tagged.sort(key=lambda p: -(p.get("rgap" if name == "value" else sk) or 0))
                 best[grp][name] = tagged
         n_snap = predictions.snapshot(sl["date"])  # 10 AM / 1 PM / 5 PM CT copies, Best 5 tags included
         if n_snap:

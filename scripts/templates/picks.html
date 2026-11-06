@@ -27,9 +27,9 @@
     {{ m.tgrid(gr.best5, 'best5', edge, gr.key ~ '-b', empty_best) }}
   </div>
   <div class="hidden" data-tab-panel="list-{{ gr.key }}:value">
-    <p class="small dim">Where our chance beats the line's break-even by the most (FanDuel juice, Kalshi ask, or PrizePicks' 54.2% flex).</p>
+    <p class="small dim">Where picks like this have <b>really</b> hit most above what the price needs (FanDuel juice, Kalshi ask, or PrizePicks' 54.2% flex): their source and chance band's graded record, 30+ picks, not just our stated chance. Only picks above their price are listed. Ranking by our chance alone lost 23U in testing; this way was about even.</p>
     {% if gr.warnv %}<div class="corr-warning">{{ gr.warnv }}</div>{% endif %}
-    {{ m.tgrid(gr.value, 'value', edge, gr.key ~ '-v', empty_best) }}
+    {{ m.tgrid(gr.value, 'value', edge, gr.key ~ '-v', "No pick in this group has a real record above what its price needs right now, so nothing is listed. That's the honest answer, not a missing list." if not gr.value else empty_best) }}
   </div>
   <div class="hidden" data-tab-panel="list-{{ gr.key }}:proj">
     {# The full board is its own file (board-KEY.html, ~0.4 MB each), loaded the first time this tab opens, so Picks

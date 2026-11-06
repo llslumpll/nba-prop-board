@@ -87,7 +87,7 @@
     <dt>Recommended units</dt><dd>{% for st in hv.steps|reverse %}<span class="u-step">{{ m.utag(st.u) }} {{ st.name|lower }} ({{ st.edge }}+ pts over break-even)</span>{% endfor %} <span class="u-step">{{ m.utag(0) }} chance doesn't beat the price</span></dd>
     <dt>Value / edge</dt><dd>Our chance minus the break-even, in percentage points. 60% on a pick that needs 52.4% = 7.6 points of value.</dd>
     <dt>Closing line value (CLV)</dt><dd>Did the line move our way after we froze the pick? Beating the closing line most of the time is the earliest sign of a real edge.</dd>
-    <dt>Best 5 / Best Value</dt><dd>Best 5 = highest chance on each list. Best Value = biggest edge over the price. Both lock at tip.</dd>
+    <dt>Best 5 / Best Value</dt><dd>Best 5 = highest chance on each list. Best Value = picks whose kind has really hit furthest above the price (ranked this way since Nov 7; before that by our chance minus the price). Both lock at tip.</dd>
     <dt>Lean / edge</dt><dd>Every stat is a "lean" until its graded record beats the line; then it's labelled "edge".</dd>
   </dl>
 </details>

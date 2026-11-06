@@ -71,6 +71,21 @@ def earned(rec: dict | None) -> bool:
     return rec["h"] / rec["n"] >= need + EARN_MARGIN
 
 
+# Best Value ranking (update 70): how often picks like this have REALLY hit (group record, lightly smoothed toward the
+# stated chance) minus what this pick's price needs. Walk-forward test Oct 26 - Nov 5 (each day judged only on
+# earlier days), 243 picks: the old ranking (our chance minus the price) -23.2U, 49.8%; this one +1.2U, better on
+# 7 of 10 days, and every setting tried beat the old one by 19-24U. Listing only gaps above 0: same units on 170 picks,
+# better on 9 of 10 days. Groups need EARN_N graded picks to rank.
+VALUE_SHRINK = 5
+
+
+def real_gap(p: dict, rec: dict | None) -> float | None:
+    be = p.get("break_even")
+    if not rec or rec["n"] < EARN_N or be is None or p.get("chance") is None:
+        return None
+    return (rec["h"] + VALUE_SHRINK * p["chance"]) / (rec["n"] + VALUE_SHRINK) - be
+
+
 def earn_note(rec: dict | None) -> str:
     if not rec or not rec["n"]:
         return "no stake yet: no graded picks like this"
