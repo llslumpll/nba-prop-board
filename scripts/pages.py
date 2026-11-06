@@ -92,6 +92,7 @@ def _season_label(s):
 
 
 EARN_SINCE = "2026-10-31"  # first slate where a stake had to be earned (proven.py); the Home "bets" record starts here
+VALUE_RULE_SINCE = "2026-11-06"  # first slate with Best Value ranked by real record minus price (update 70)
 
 
 def _css_hash() -> str:
@@ -960,7 +961,12 @@ def render_all(ctx: dict) -> None:
         tag = "best5" if row["label"] == "Best 5" else "value"
         wk = [p for p in preds if p["date"] >= wk0 and p["status"] == "graded" and any(t.endswith(":" + tag) for t in p.get("best5", []))]
         wh = sum(1 for p in wk if p["hit"])
-        record["lists"].append({**row, "wk_n": len(wk), "wk_h": wh, "wk_u": round(sum(grade.units(p) or 0 for p in wk), 1)})
+        extra = {}
+        if tag == "value":   # update 70 changed how Best Value ranks: show its record since then on its own
+            nw = [p for p in preds if p["date"] >= VALUE_RULE_SINCE and p["status"] == "graded" and any(t.endswith(":value") for t in p.get("best5", []))]
+            extra = {"nw_since": VALUE_RULE_SINCE, "nw_n": len(nw), "nw_h": sum(1 for p in nw if p["hit"]),
+                     "nw_u": round(sum(grade.units(p) or 0 for p in nw), 1)}
+        record["lists"].append({**row, "wk_n": len(wk), "wk_h": wh, "wk_u": round(sum(grade.units(p) or 0 for p in wk), 1), **extra})
     bets = [p for p in preds + ctx["tpreds"] if p["date"] >= EARN_SINCE and p.get("status") == "graded" and grade.stake(p) > 0]
     record["bets"] = {"n": len(bets), "hits": sum(1 for p in bets if p.get("hit")), "since": EARN_SINCE,
                       "pl": round(sum(grade.staked_pl(p) or 0 for p in bets), 2),

@@ -62,7 +62,7 @@
 {% if pz.rows %}
   <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
     <thead><tr><th>Type</th><th class="num">Cashed</th><th class="num">Hit %</th><th class="num hide-sm">Expected</th><th class="num">Last 10</th><th class="hide-sm">Streak</th><th class="num">Units</th><th class="num hide-sm">ROI</th><th class="num hide-sm">Legs hit</th></tr></thead>
-    <tbody>{% for r in pz.rows %}<tr><td>{{ 'Single' if r.size == 1 else r.size ~ '-leg' }} {{ r.label }}{% if r.paper %} <span class="dim small">(tracking only, not in the totals)</span>{% endif %}</td>
+    <tbody>{% for r in pz.rows %}<tr><td>{{ 'Single' if r.size == 1 else r.size ~ '-leg' }} {{ r.label }}{% if r.paper %} <span class="dim small">(tracking only, not in the totals)</span>{% endif %}{% if r.since %}<div class="small dim">{{ 'tracking only' if r.family == 'gap' else 'new rule' }} since {{ r.since.date[5:7]|int }}/{{ r.since.date[8:]|int }}: {% if r.since.n %}{{ r.since.hits }}/{{ r.since.n }} &middot; <span class="{{ 'stat-good' if r.since.staked > 0 else 'stat-bad' if r.since.staked < 0 }}">{{ '%+.2f'|format(r.since.staked) }}U</span>{% else %}no results yet{% endif %}</div>{% endif %}</td>
       <td class="num"><b>{{ r.hits }}/{{ r.n }}</b>{% if r.pending %} <span class="dim small">+{{ r.pending }}</span>{% endif %}</td>
       <td class="num">{{ (r.rate ~ '%') if r.rate is not none else '—' }}</td><td class="num dim hide-sm">{{ (r.expected ~ '%') if r.expected is not none else '—' }}</td>
       <td class="num">{{ r.last10 or '—' }}</td><td class="small hide-sm">{{ streak(r.streak) }}</td>

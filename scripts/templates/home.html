@@ -33,6 +33,7 @@
       <b>{{ l.hits }}&ndash;{{ l.graded - l.hits }}</b>
       <span>{{ l.rate }}% &middot; <span class="{{ 'rec-up' if l.units > 0 else 'rec-down' if l.units < 0 }}">{{ '%+.1f'|format(l.units) }}U</span></span>
       {% if l.wk_n %}<small>last 7 days: {{ l.wk_h }}&ndash;{{ l.wk_n - l.wk_h }} ({{ (100 * l.wk_h / l.wk_n)|round|int }}%) &middot; {{ '%+.1f'|format(l.wk_u) }}U</small>{% endif %}
+      {% if l.nw_since %}<small class="trk-new">new rule since 11/6: {% if l.nw_n %}{{ l.nw_h }}&ndash;{{ l.nw_n - l.nw_h }} ({{ (100 * l.nw_h / l.nw_n)|round|int }}%) &middot; <span class="{{ 'rec-up' if l.nw_u > 0 else 'rec-down' if l.nw_u < 0 }}">{{ '%+.1f'|format(l.nw_u) }}U</span>{% else %}no results yet{% endif %}</small>{% endif %}
     </a>
     {% endfor %}
     {% if record.money.clv_rate is not none %}

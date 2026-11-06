@@ -54,6 +54,8 @@ FAMILIES = [
     ("news", "Injury news", (1, 2, 3, 4), "Today's injury-news plays while their lines still haven't moved (teammates who have done more, or less, without the player just ruled out): the strongest one as a single, and 2-, 3- and 4-leg parlays when news hits that many games. Tracked with no stake until news plays earn one; kept out of the main record."),
 ]
 PAPER = {"news", "gap"}   # families tracked without a stake (until earned) and kept out of the main record
+# families whose leg rule changed (update 71/72): the record table also shows results since that slate
+RULE_SINCE = {"single": "2026-11-06", "value": "2026-11-06", "gap": "2026-11-06"}
 WAVED = {"news"}          # families rebuilt in waves through the day (news lands at different times)
 WAVES = 6          # news parlays of one size per day: a new one can start after the last one locked
 FAMILY = {f[0]: f for f in FAMILIES}
@@ -453,7 +455,12 @@ def summary() -> dict:
             if not mine:
                 continue
             g = [r for r in mine if r["status"] == "graded"]
-            rows.append({"family": fam, "label": label, "size": n, "paper": fam in PAPER, **_stats(g, mine)})
+            row = {"family": fam, "label": label, "size": n, "paper": fam in PAPER, **_stats(g, mine)}
+            if fam in RULE_SINCE:   # how the family has done since its rule changed, so the change can be judged
+                gn = [r for r in g if r["date"] >= RULE_SINCE[fam]]
+                row["since"] = {"date": RULE_SINCE[fam], "n": len(gn), "hits": sum(1 for r in gn if r["hit"]),
+                                "staked": round(sum(r.get("staked_units", r.get("units")) or 0 for r in gn), 2)}
+            rows.append(row)
     order = [f[0] for f in FAMILIES]
     days = []
     for d in reversed(all_dates()):
