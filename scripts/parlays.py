@@ -47,13 +47,14 @@ import predictions
 DIR = Path(__file__).parent.parent / "data" / "parlays"
 FAMILIES = [
     ("single", "Best single", (1,), "The one play whose kind of pick has really hit furthest above what its price needs (its group's graded record, 30+ picks), the same test Best Value uses. No single on nights when none clear it."),
-    ("gap", "Books got it wrong", (1, 2, 3), "Where the site disagrees most with the book's own odds (its chance minus the book's fair chance, 3+ points), from every projection with a line."),
+    ("gap", "Books got it wrong", (1, 2, 3), "Where the site disagrees most with the book's own odds (its chance minus the book's fair chance, 3+ points). Tracking only: picks like this hit 47.7% when the book said 51.6% (375 picks, -12.8% per unit), so the book has been right more often. It earns a stake back if gap picks turn profitable over 100+ picks."),
     ("safe", "Safest props", (2, 3, 4), "The highest-chance player props on the board, one per game."),
     ("value", "Good price", (2, 3), "Only legs whose kind of pick has really hit above what its price needs (the Best Value test), furthest above first."),
     ("ml", "Moneyline", (2, 3, 4), "The site's moneyline picks with the highest chance to win, one per game."),
     ("news", "Injury news", (1, 2, 3, 4), "Today's injury-news plays while their lines still haven't moved (teammates who have done more, or less, without the player just ruled out): the strongest one as a single, and 2-, 3- and 4-leg parlays when news hits that many games. Tracked with no stake until news plays earn one; kept out of the main record."),
 ]
-PAPER = {"news"}   # families tracked without a stake (until earned) and kept out of the main record
+PAPER = {"news", "gap"}   # families tracked without a stake (until earned) and kept out of the main record
+WAVED = {"news"}          # families rebuilt in waves through the day (news lands at different times)
 WAVES = 6          # news parlays of one size per day: a new one can start after the last one locked
 FAMILY = {f[0]: f for f in FAMILIES}
 MIN_CHANCE = 0.5
@@ -219,11 +220,32 @@ def _form() -> dict:
     return out
 
 
+_GAP_EARNED = None
+
+
+def gap_earned() -> bool:
+    """Books got it wrong (update 72) went tracking-only: graded Oct 20 - Nov 5, picks 3+ points above the book's fair
+    chance hit 47.7% vs the book's 51.6% (375 picks, -12.8% per unit). It earns stakes back once the last 30 days of
+    such picks number 100+ and show a profit at their own prices."""
+    global _GAP_EARNED
+    if _GAP_EARNED is None:
+        from datetime import date, timedelta
+        cut = (date.today() - timedelta(days=30)).isoformat()
+        g = [p for p in predictions.load_all() if p.get("status") == "graded" and p.get("hit") is not None
+             and p.get("date", "") >= cut and p.get("market_side") is not None and p.get("break_even")
+             and (p.get("chance") or 0) >= MIN_CHANCE and p["chance"] - p["market_side"] >= GAP_MIN]
+        u = sum((1 / p["break_even"] - 1) if p["hit"] else -1.0 for p in g)
+        _GAP_EARNED = len(g) >= 100 and u > 0
+    return _GAP_EARNED
+
+
 def stake_for(fam: str, n: int, legs: list[dict], form: dict) -> float:
     """Recommended units for a parlay. Singles: the pick's own units. Parlays: 1U (2 legs), 0.5U (3),
     0.25U (4); after 10+ graded of that type, doubled if the type is in profit, halved if it's
     down 25%+ per parlay. Capped at 3U."""
-    if fam in PAPER:
+    if fam == "gap" and not gap_earned():
+        return 0.0
+    if fam == "news":
         import news
         if not news.summary(None).get("earned"):
             return 0.0
@@ -268,7 +290,7 @@ def sync(date: str, now: datetime | None = None) -> dict:
     #    day from news on games that haven't started ("news-2", then "news-2-w2", ...).
     used, open_ids = set(), []
     for fam, n in order:
-        waves = WAVES if fam in PAPER else 1
+        waves = WAVES if fam in WAVED else 1
         for w in range(1, waves + 1):
             pid = f"{fam}-{n}" if w == 1 else f"{fam}-{n}-w{w}"
             cur = store.get(pid)
