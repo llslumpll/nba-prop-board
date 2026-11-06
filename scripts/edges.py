@@ -226,7 +226,10 @@ def _middle(out, g, tag, market, fd_num, k_num, fav, r, fd, mu, sd):
         return
     dec = 1 + (fd_price / 100 if fd_price > 0 else 100 / -fd_price)
     cost = kalshi_client.with_fee(k_cost)
-    ev = p_above_lo * dec - 1 + p_below_hi / cost - 1   # $1 on each leg
+    # FanDuel's leg wins above the low number when FanDuel has the lower number, otherwise below the high one;
+    # Kalshi's leg is the other side. (Pairing them the other way round inflated every middle.)
+    p_fd, p_k = (p_above_lo, p_below_hi) if fd_num < k_num else (p_below_hi, p_above_lo)
+    ev = p_fd * dec - 1 + p_k / cost - 1   # 1U on each leg
     out.append({"kind": f"middle-{market}", "game_id": g["game_id"], "date": g["date"], "tip_utc": g["tip_utc"].isoformat(),
                 "label": f"{tag}: {fd_leg} + {k_leg}", "both": round(p_both, 3), "ev": round(ev / 2, 4),
                 "window": f"{lo:g} to {hi:g}", "fd_leg": fd_leg, "k_leg": k_leg, "k_cost": cost})
