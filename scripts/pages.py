@@ -227,6 +227,42 @@ def _status(v, line):
     return "over" if v > line else "under" if v < line else "push"
 
 
+def _odds(be: float | None) -> str | None:
+    """A break-even chance as American odds (the site never shows cent prices)."""
+    if not be or not 0 < be < 1:
+        return None
+    return f"-{round(100 * be / (1 - be))}" if be >= 0.5 else f"+{round(100 * (1 - be) / be)}"
+
+
+def other_books(p: dict, prow: dict | None) -> list[dict]:
+    """What Kalshi and FanDuel charge for this pick (update 75), for PrizePicks cards, which have no odds of their own:
+    the same number when the book has it (Kalshi's ladder often does), otherwise the book's own number on our side."""
+    if p.get("line_source") != "prizepicks" or not prow or p.get("line") is None or p.get("call") not in ("OVER", "UNDER"):
+        return []
+    import kalshi_client
+    lines = ((prow.get("stats") or {}).get(p["stat"]) or {}).get("lines") or {}
+    over, out = p["call"] == "OVER", []
+    for src, name in (("kalshi", "KALSHI"), ("fanduel", "FANDUEL")):
+        ln = lines.get(src)
+        if not ln or ln.get("line") is None:
+            continue
+        be, line = None, ln["line"]
+        if abs(line - p["line"]) < 1e-9:
+            be = ln.get("be_over") if over else ln.get("be_under")
+        elif src == "kalshi":   # Kalshi's "N+" rung at PrizePicks' number: OVER x.5 = YES on x+1, UNDER = NO
+            n = int(p["line"] + 0.5)
+            rung = next((x for x in ln.get("ladder") or [] if x.get("n") == n), None) if p["line"] % 1 == 0.5 else None
+            if rung:
+                raw = rung.get("ask") if over else (1 - rung["bid"] if rung.get("bid") else None)
+                be, line = kalshi_client.with_fee(raw) if raw else None, p["line"]
+        if be is None:
+            be = ln.get("be_over") if over else ln.get("be_under")
+        o = _odds(be)
+        if o:
+            out.append({"book": name, "line": line, "same": abs(line - p["line"]) < 1e-9, "odds": o})
+    return out
+
+
 def card_details(p: dict, gidx: dict, graded: dict, prow: dict | None, n_recent: int = 10) -> dict:
     s, line = p["stat"], p.get("line")
     games = gidx.get(p.get("player_id"), [])
@@ -296,6 +332,7 @@ def card_details(p: dict, gidx: dict, graded: dict, prow: dict | None, n_recent:
         "chart": svgchart.bar_chart_with_threshold(bars, line=line, baseline=base,
                                                    label=f"{p['player']} {model.STAT_LABEL[s]}, last {len(recent)} games vs the line"),
         "recent_n": len(rec_vals), "recent_over": over_n, "role_hit": role_hit, "min_trend": min_trend,
+        "books": other_books(p, prow),
         "baseline": round(base, 1) if base is not None else None, "baseline_label": base_label,
         "tiles": tiles,
         "vs_opp": {"n": len(vs), "avg": round(sum(vs) / len(vs), 1), "best": max(vs),
@@ -477,11 +514,11 @@ def history_charts(preds: list, health: list) -> dict:
             hits += sum(bool(p["hit"]) for p in day)
             be += [p["break_even"] for p in day if p.get("break_even") is not None]
         be_avg = round(100 * sum(be) / len(be), 1) if be else None
-        refs = [{"y": 50, "color": "#ab9cc8", "label": "50%", "below": True, "left": True}]
+        refs = [{"y": 50, "color": "#b9adb0", "label": "50%", "below": True, "left": True}]
         if be_avg:
-            refs.append({"y": be_avg, "color": "#ff6a13", "label": f"break-even {be_avg}%"})
+            refs.append({"y": be_avg, "color": "#ce1141", "label": f"break-even {be_avg}%"})
         acc.append({"name": name, "n": total, "rate": round(100 * hits / total, 1) if total else None, "be": be_avg,
-                    "chart": svgchart.line_chart([{"points": pts, "color": "#ffc531"}], height=170, references=refs,
+                    "chart": svgchart.line_chart([{"points": pts, "color": "#ffffff"}], height=170, references=refs,
                                                  x_labels=xl, y_suffix="%", label=f"{name} daily hit rate")
                     if sum(1 for x in pts if x is not None) >= 2 else None})
     out["accuracy"] = acc
@@ -493,8 +530,8 @@ def history_charts(preds: list, health: list) -> dict:
         said.append(round(100 * sum(p["chance"] for p in day) / len(day), 1) if day else None)
         got.append(round(100 * sum(bool(p["hit"]) for p in day) / len(day), 1) if day else None)
     out["calibration_chart"] = svgchart.line_chart(
-        [{"points": got, "color": "#ffc531"}, {"points": said, "color": "#4f86ff"}],
-        height=200, references=[{"y": 50, "color": "#ab9cc8"}], x_labels=xl, y_suffix="%",
+        [{"points": got, "color": "#ffffff"}, {"points": said, "color": "#9a9a9a"}],
+        height=200, references=[{"y": 50, "color": "#b9adb0"}], x_labels=xl, y_suffix="%",
         label="stated chance vs actual hit rate by day") if len(dates) >= 2 else None
 
     # does value (chance minus break-even) mean anything?
@@ -530,7 +567,7 @@ def history_charts(preds: list, health: list) -> dict:
             tracks.append({"name": f"{name}: {lst_name}", "n": tot_n, "hits": tot_h,
                            "rate": round(100 * tot_h / tot_n, 1) if tot_n else None, "rows": rows,
                            "chart": svgchart.line_chart([{"points": series, "color": "#3dff8f"}], height=150,
-                                                        references=[{"y": 50, "color": "#ff6a13", "label": "50%"}],
+                                                        references=[{"y": 50, "color": "#ce1141", "label": "50%"}],
                                                         x_labels=(_date_label(days[-1]), _date_label(days[0])),
                                                         y_suffix="%", label=f"{name} {lst_name} daily hit rate")
                            if sum(1 for x in series if x is not None) >= 2 else None})
@@ -539,7 +576,7 @@ def history_charts(preds: list, health: list) -> dict:
     # pipeline health: lines matched per source, per build
     h = health[-80:]
     if len(h) >= 2:
-        srcs = [("prizepicks", "#ff6a13"), ("kalshi", "#4f86ff"), ("fanduel", "#3dff8f")]
+        srcs = [("prizepicks", "#ce1141"), ("kalshi", "#9a9a9a"), ("fanduel", "#3dff8f")]
         ymax = max([max((x.get("lines") or {}).values(), default=0) for x in h] + [10])
         out["health_chart"] = svgchart.line_chart(
             [{"points": [(x.get("lines") or {}).get(sname, 0) for x in h], "color": c} for sname, c in srcs],
@@ -750,8 +787,8 @@ def render_all(ctx: dict) -> None:
         '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Moved | Prop Edge NBA</title>'
         '<meta http-equiv="refresh" content="0; url={{ to }}"><link rel="canonical" href="{{ to }}">'
         '<script>location.replace("{{ to }}");</script></head>'
-        '<body style="background:#130b22;color:#fff3e3;font-family:monospace;padding:24px">'
-        'This page moved: <a style="color:#ffc531" href="{{ to }}">{{ to }}</a></body></html>')
+        '<body style="background:#0b0a0a;color:#ffffff;font-family:monospace;padding:24px">'
+        'This page moved: <a style="color:#ffffff" href="{{ to }}">{{ to }}</a></body></html>')
     for old, to in REDIRECTS.items():
         (DOCS / old).write_text(redirect_t.render(to=to))
 
@@ -791,7 +828,7 @@ def render_all(ctx: dict) -> None:
         pad = max(1.0, (hi - lo) * 0.15)
         money["chart"] = svgchart.line_chart([{"points": money["series"], "color": "#3dff8f" if money["series"][-1] >= 0 else "#ff3d57"}],
                                              height=200, y_min=lo - pad, y_max=hi + pad,
-                                             references=[{"y": 0, "color": "#ab9cc8", "label": "break even", "left": True, "below": True}],
+                                             references=[{"y": 0, "color": "#b9adb0", "label": "break even", "left": True, "below": True}],
                                              x_labels=(_date_label(money["dates"][0]), _date_label(money["dates"][-1])),
                                              label="Running units, 1 unit per graded pick")
     else:
@@ -1049,8 +1086,8 @@ def render_all(ctx: dict) -> None:
                 need.append(round(100 * sum(b) / len(b), 1) if b else None)
             nb = [x for x in need if x is not None]
             avg_need = round(sum(nb) / len(nb), 1) if nb else None
-            home_chart = svgchart.line_chart([{"points": rate, "color": "#ffc531"}], height=210, y_min=45, y_max=65, big=True,
-                                             references=[{"y": avg_need, "color": "#ff6a13"}] if avg_need else None,
+            home_chart = svgchart.line_chart([{"points": rate, "color": "#ffffff"}], height=210, y_min=45, y_max=65, big=True,
+                                             references=[{"y": avg_need, "color": "#ce1141"}] if avg_need else None,
                                              point_labels=[d[5:].replace("-", "/") for d in gd], y_suffix="%", show_values=True,
                                              label="daily hit rate, last 10 days")
     except Exception as e:  # noqa: BLE001

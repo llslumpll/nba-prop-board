@@ -20,10 +20,10 @@
 {% if c.days %}
 <div class="chart-grid">
   <div class="chart-panel hv-chart"><h3>Hit rate by day</h3>
-    <p class="sub">Yellow dots = that day's hit rate. Above the orange dashed line = a winning day at these prices.</p>{{ c.hit|safe }}</div>
+    <p class="sub">White dots = that day's hit rate. Above the red dashed line = a winning day at these prices.</p>{{ c.hit|safe }}</div>
   <div class="chart-panel hv-chart"><h3>Running units</h3>
     <p class="sub">Profit added up day by day. Green area = ahead, red = behind.</p>{{ c.units|safe }}
-    <div class="legend"><span><i style="background:#ffc531"></i>1 unit on every pick</span><span><i style="background:#4f86ff"></i>at our recommended units</span></div></div>
+    <div class="legend"><span><i style="background:#ffffff"></i>1 unit on every pick</span><span><i style="background:#9a9a9a"></i>at our recommended units</span></div></div>
 </div>
 {% else %}<div class="chart-empty">Charts appear once picks here are graded.</div>{% endif %}
 {% endmacro %}
@@ -459,7 +459,7 @@ Tested on {{ tl.rows.A }} + {{ tl.rows.B }} player-games.</div>
   <h3>Player lines matched per build</h3>
   <p class="sub">A source dropping to 0 means it failed or hasn't posted yet.</p>
   {% if hc.health_chart %}{{ hc.health_chart|safe }}
-  <div class="legend"><span><i style="background:#ff6a13"></i>PrizePicks</span><span><i style="background:#4f86ff"></i>Kalshi</span><span><i style="background:#3dff8f"></i>FanDuel</span></div>
+  <div class="legend"><span><i style="background:#ce1141"></i>PrizePicks</span><span><i style="background:#9a9a9a"></i>Kalshi</span><span><i style="background:#3dff8f"></i>FanDuel</span></div>
   {% else %}<div class="chart-empty">Chart appears after 2 builds.</div>{% endif %}
 </div>
 <div class="table-wrap"><div class="table-scroll hv-log-scroll"><table class="stat-table">

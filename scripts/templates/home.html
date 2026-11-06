@@ -57,7 +57,7 @@
 {# Tonight so far: filled in the browser once a game tips (static/tonight.json picks vs static/live.json stats) #}
 <section id="tonight" class="tonight" hidden aria-live="polite"></section>
 
-{% if home_chart %}<div class="chart-panel hv-chart home-chart"><h3>Last 10 days</h3><p class="sub">How often the site's player picks hit each day (yellow) vs what their prices needed on average (orange dashed line). Above the line = a winning day.</p>{{ home_chart|safe }}</div>{% endif %}
+{% if home_chart %}<div class="chart-panel hv-chart home-chart"><h3>Last 10 days</h3><p class="sub">How often the site's player picks hit each day (white) vs what their prices needed on average (red dashed line). Above the line = a winning day.</p>{{ home_chart|safe }}</div>{% endif %}
 
 <section class="news-sec">
   <h2 class="hv-h3">&#128680; Injury news</h2>

@@ -14,8 +14,8 @@ from __future__ import annotations
 import math
 from html import escape
 
-GREEN, RED, YELLOW, CYAN, PINK = "#3dff8f", "#ff3d57", "#ffc531", "#4f86ff", "#ff6a13"
-GRID, AXIS, TEXT = "rgba(255,255,255,0.07)", "#ab9cc8", "#fff3e3"
+GREEN, RED, YELLOW, CYAN, PINK = "#3dff8f", "#ff3d57", "#ffffff", "#9a9a9a", "#ce1141"
+GRID, AXIS, TEXT = "rgba(255,255,255,0.07)", "#b9adb0", "#ffffff"
 FONT = 'font-family="VT323, ui-monospace, monospace"'
 FONTB = 'font-family="Oxanium, ui-sans-serif, sans-serif" font-weight="700"'
 

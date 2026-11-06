@@ -18,7 +18,7 @@ import live
 import model
 import svgchart
 
-GREEN, RED, YELLOW, CYAN, DIM = "#3dff8f", "#ff3d57", "#ffc531", "#4f86ff", "#ab9cc8"
+GREEN, RED, YELLOW, CYAN, DIM = "#3dff8f", "#ff3d57", "#ffffff", "#9a9a9a", "#b9adb0"
 MIN_VERDICT = 20  # graded picks before a section gets a verdict
 GROUPS = [("pts", "Points", ("pts",)), ("reb", "Rebounds", ("reb",)), ("ast", "Assists", ("ast",)),
           ("fg3m", "3-Pointers", ("fg3m",)), ("combos", "PRA & combos", ("pra", "pr", "pa", "ra"))]
@@ -139,7 +139,7 @@ def charts(ps: list[dict], name: str, h: int = 260) -> dict:
     lo_r = max(0, min(rates + [be, 50]) - 12)
     hi_r = min(100, max(rates + [be, 50]) + 12)
     hit = svgchart.line_chart([{"points": rates, "color": YELLOW}], height=h, y_min=lo_r, y_max=hi_r, y_suffix="%",
-                              references=[{"y": be, "color": "#ff6a13", "label": f"needed {be}%", "below": True},
+                              references=[{"y": be, "color": "#ce1141", "label": f"needed {be}%", "below": True},
                                           {"y": 50, "color": DIM, "label": "50%", "below": True, "left": True}],
                               point_labels=labels, show_values="last" if many else True, value_fmt="{:.0f}%", big=True,
                               x_labels=(labels[0], labels[-1]), label=f"{name}: hit rate by day")
