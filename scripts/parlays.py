@@ -5,7 +5,7 @@ combinations actually hit.
 
 Families (each in 2-, 3- and 4-leg sizes unless noted):
   safe      "Safest props"   player props, any source, highest chance
-  value     "Good price"     only legs whose chance beats their price (GOOD PRICE); 2 and 3 legs
+  value     "Good price"     only legs whose kind of pick has really hit above its price (Best Value test); 2 and 3 legs
   ml        "Moneyline"      game moneyline picks, highest chance
   news      "Injury news"    1-4 legs from today's injury-news plays (update 46): one per game, line still the
                              same as at the news, biggest with/without bump first (a size appears only when
@@ -46,10 +46,10 @@ import predictions
 
 DIR = Path(__file__).parent.parent / "data" / "parlays"
 FAMILIES = [
-    ("single", "Best single", (1,), "The one play the site trusts most tonight: worth betting at its price (GOOD PRICE), ranked by how often picks like it have actually cashed, blended with its chance."),
+    ("single", "Best single", (1,), "The one play whose kind of pick has really hit furthest above what its price needs (its group's graded record, 30+ picks), the same test Best Value uses. No single on nights when none clear it."),
     ("gap", "Books got it wrong", (1, 2, 3), "Where the site disagrees most with the book's own odds (its chance minus the book's fair chance, 3+ points), from every projection with a line."),
     ("safe", "Safest props", (2, 3, 4), "The highest-chance player props on the board, one per game."),
-    ("value", "Good price", (2, 3), "Only legs marked GOOD PRICE (their chance beats their price), highest chance first."),
+    ("value", "Good price", (2, 3), "Only legs whose kind of pick has really hit above what its price needs (the Best Value test), furthest above first."),
     ("ml", "Moneyline", (2, 3, 4), "The site's moneyline picks with the highest chance to win, one per game."),
     ("news", "Injury news", (1, 2, 3, 4), "Today's injury-news plays while their lines still haven't moved (teammates who have done more, or less, without the player just ruled out): the strongest one as a single, and 2-, 3- and 4-leg parlays when news hits that many games. Tracked with no stake until news plays earn one; kept out of the main record."),
 ]
@@ -139,20 +139,27 @@ def candidates(date: str, now: datetime) -> dict:
         ms = p.get("market_side")
         leg.update(units=p.get("units") or 0.0, market_side=ms, gap=round(p["chance"] - ms, 4) if ms is not None else None,
                    rec=proven.label(rec), proven=proven.units(rec, p.get("break_even")),
-                   trust=round(((rec["h"] if rec else 0) + 10 * p["chance"]) / ((rec["n"] if rec else 0) + 10), 4))
+                   trust=round(((rec["h"] if rec else 0) + 10 * p["chance"]) / ((rec["n"] if rec else 0) + 10), 4),
+                   rgap=proven.real_gap(p, rec))
         return leg
 
-    pl = [extra(_player_leg(k, p), p) for k, p in ps.items() if open_(p) and p.get("call") and p.get("line") is not None]
+    # same rule as Best 5: nobody on today's injury report (OUT or questionable) goes into a parlay (update 71;
+    # before this a player ruled out after his pick froze could still be picked as a leg)
+    import injuries_client
+    hurt = injuries_client.by_player()
+    pl = [extra(_player_leg(k, p), p) for k, p in ps.items() if open_(p) and p.get("call") and p.get("line") is not None
+          and p["player"] not in hurt]
     gl = [extra(_game_leg(k, t), t) for k, t in ts.items() if open_(t)]
     ml = [g for g in gl if g["market"] == "moneyline"]
-    # GOOD PRICE = the chance beats what the price needs (stakes are now earned per group, so units can be 0)
-    beats = lambda r: (r.get("chance") or 0) >= max(0.52, r.get("break_even") or 0.5238)  # noqa: E731
-    good = [x for x in pl if beats(ps[x["key"]])] + [g for g in gl if beats(ts[g["key"]])]
+    # update 71: "good price" = the pick's kind has REALLY hit above its price (proven.real_gap), the Best Value test;
+    # walk-forward (Oct 26 - Nov 5) singles 6/10 +0.82U vs 4/10 -4.13U the old way, 2+3-leg +4.8U vs -7.9U (small samples;
+    # the pick-level test behind it: 170 picks, better than the old ranking on 9 of 10 days)
+    real_good = sorted([x for x in pl + gl if x["rgap"] is not None and x["rgap"] > 0], key=lambda x: -x["rgap"])
+    good = real_good
     by = lambda xs: sorted(xs, key=lambda x: -x["chance"])  # noqa: E731
     gap = sorted([x for x in pl + gl if x["gap"] is not None and x["gap"] >= GAP_MIN and x["chance"] >= 0.55], key=lambda x: -x["gap"])
-    good_all = [x for x in pl + gl if x["units"] > 0] or [x for x in pl + gl if x["chance"] >= max(0.52, x["be"])]
-    single = sorted(good_all or pl + gl, key=lambda x: (-x["trust"], -x["chance"]))
-    return {"single": single, "gap": gap, "safe": by(pl), "value": by(good), "ml": by(ml), "news": news_legs(date, now, ps)}
+    single = real_good
+    return {"single": single, "gap": gap, "safe": by(pl), "value": good, "ml": by(ml), "news": news_legs(date, now, ps)}
 
 
 def news_legs(date: str, now: datetime, ps: dict) -> list[dict]:
@@ -232,8 +239,12 @@ def stake_for(fam: str, n: int, legs: list[dict], form: dict) -> float:
     return min(3.0, base)
 
 
-def _summary(legs):
-    ch = math.prod(l["chance"] for l in legs)
+def _summary(legs, fam=None):
+    # Best single / Good price legs are chosen by their kind's REAL record, so their chance is that record too
+    # (picks like this really hit, smoothed toward the stated chance), which keeps GOOD PRICE consistent with why
+    # they were picked
+    real = fam in ("single", "value")
+    ch = math.prod((l["rgap"] + l["be"]) if real and l.get("rgap") is not None else l["chance"] for l in legs)
     pay = math.prod(1 / l["be"] for l in legs)
     return {"chance": round(ch, 4), "pays": round(pay, 2), "ev": round(ch * pay - 1, 4),
             "all_kalshi": all(_kalshi_ok(l) for l in legs), "first_tip": min(l["tip_utc"] for l in legs)}
@@ -280,7 +291,7 @@ def sync(date: str, now: datetime | None = None) -> dict:
             store.pop(pid, None)
             continue
         used |= {_used_key(l) for l in legs}
-        rec = {"id": pid, "date": date, "family": fam, "size": n, "legs": legs, **_summary(legs), "priced_at": now.isoformat(timespec="minutes"),
+        rec = {"id": pid, "date": date, "family": fam, "size": n, "legs": legs, **_summary(legs, fam), "priced_at": now.isoformat(timespec="minutes"),
                "stake": stake_for(fam, n, legs, form), "status": "pending", "hit": None}
         if not cur:
             rec.update(created_at=stamp, updated_at=stamp, changes=0)
