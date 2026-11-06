@@ -1434,3 +1434,34 @@ html:not([data-theme="court"]) .pz-lost .pz-legs::after { content: "GAME OVER" !
 .trk-all { margin: 8px 2px 0; color: var(--text-dim); text-align: right; }
 @media (max-width: 900px) { .trk-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 420px) { .trk-tile b { font-size: 1.7rem; } .trk-all { text-align: left; } }
+
+/* ==== Pick cards as long boxes, like the NFL Games page (update 74, Nov 2026) ==== */
+.tgrid { grid-template-columns: 1fr !important; gap: 12px !important; }
+.tcard { display: grid !important; grid-template-columns: minmax(190px, 1.25fr) minmax(250px, 1.7fr) 112px 132px; grid-template-areas:
+  "who pick chance price" "rec rec role role" "blend blend blend blend" "foot foot foot foot"; column-gap: 18px; row-gap: 8px; padding: 14px 18px 10px 26px !important; align-items: center; }
+.tcard::before { inset: 0 auto 0 0 !important; width: 8px !important; height: auto !important; box-shadow: 3px 0 0 var(--pink) !important; }
+.tc-top { display: contents !important; }
+.tc-who { grid-area: who; }
+.tc-name { font-size: 1.6rem !important; }
+.tc-chance { grid-area: chance; text-align: center !important; }
+.tc-chance b { font-size: 2.3rem !important; }
+.tc-chance .meter { margin: 4px auto 0; }
+.tc-pick { grid-area: pick; gap: 10px !important; }
+.tc-nums { gap: 12px !important; }
+.tc-nums span { font-size: 1.35rem !important; }
+.tc-nums em { font-size: 0.72rem !important; }
+.tc-price { grid-area: price; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.tc-price b { font-family: var(--pixel); font-weight: 400; font-size: 2.1rem; line-height: .95; color: #fff; }
+.tc-price span { font-family: var(--sans, inherit); font-weight: 800; font-size: 0.68rem; letter-spacing: 1px; color: var(--text-dim); margin-top: 4px; }
+.tc-blend, .tc-recent, .tc-role, .tc-foot { margin: 0 !important; }
+.tc-recent { grid-area: rec; } .tc-role { grid-area: role; justify-content: flex-end; } .tc-blend { grid-area: blend; } .tc-foot { grid-area: foot; }
+.tcard .rs { padding: 0 2px !important; font-size: 0.85rem; line-height: 1.5; }
+.tc-recent .recent-strip { gap: 2px !important; }
+.tc-recent { display: flex; align-items: center; gap: 12px; }
+.tc-recent .tc-lab { margin: 0 !important; white-space: nowrap; font-size: 0.9rem; }
+.tc-recent .recent-strip { flex: 1; max-width: 520px; }
+.tc-foot { padding-top: 8px !important; }
+@media (max-width: 900px) {
+  .tcard { grid-template-columns: 1fr 1fr; grid-template-areas: "who who" "pick pick" "chance price" "rec rec" "role role" "blend blend" "foot foot"; }
+  .tc-role { justify-content: flex-start; } .tc-recent { flex-direction: column; align-items: stretch; gap: 4px; }
+}

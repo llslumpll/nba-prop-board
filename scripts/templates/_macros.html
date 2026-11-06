@@ -153,6 +153,8 @@
       {% if kind == 'value' and p.value is not none %}<b>{{ '%+.1f'|format(p.value * 100) }}</b><span class="tc-chance-l">pts over break-even</span>
       {% else %}<b>{{ (p.chance * 100)|round(0)|int }}%</b>{{ meter(p.chance) }}{% endif %}
     </div>
+    {# long-box layout (update 74): the price next to the chance, as odds (never cents); PrizePicks has no odds, so FLEX #}
+    <div class="tc-price">{% set be = p.break_even %}{% if be %}<b>{% if p.line_source == 'prizepicks' %}FLEX{% elif be >= 0.5 %}-{{ (100 * be / (1 - be))|round|int }}{% else %}+{{ (100 * (1 - be) / be)|round|int }}{% endif %}</b><span>NEEDS {{ '%.1f'|format(be * 100) }}%</span>{% else %}<b>&ndash;</b><span>NO PRICE</span>{% endif %}</div>
   </div>
   <div class="tc-pick">
     <span class="pill pill-{{ side }}">{{ p.call }} {{ p.line|fmtline }}</span>{{ utag(stake(p), p.skip, none if p.locked else p.chance, p.break_even) }}{{ rectag(p) }}{{ fliptag(p.flip) }}
