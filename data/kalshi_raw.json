@@ -1,12 +1,12 @@
 {
  "diagnostics": {
   "per_series": {
-   "KXNBA3PT": "7 event(s), 349 market(s), kept 349, 316 priced (bid/ask within 10c)",
-   "KXNBAAST": "7 event(s), 294 market(s), kept 294, 263 priced (bid/ask within 10c)",
-   "KXNBAGAME": "35 event(s), 70 market(s), kept 70, 65 priced (bid/ask within 10c)",
-   "KXNBAPRA": "7 event(s), 245 market(s), kept 245, 142 priced (bid/ask within 10c)",
-   "KXNBAPTS": "7 event(s), 297 market(s), kept 297, 274 priced (bid/ask within 10c)",
-   "KXNBAREB": "7 event(s), 346 market(s), kept 346, 280 priced (bid/ask within 10c)",
+   "KXNBA3PT": "7 event(s), 353 market(s), kept 353, 306 priced (bid/ask within 10c)",
+   "KXNBAAST": "7 event(s), 294 market(s), kept 294, 260 priced (bid/ask within 10c)",
+   "KXNBAGAME": "35 event(s), 70 market(s), kept 70, 64 priced (bid/ask within 10c)",
+   "KXNBAPRA": "7 event(s), 245 market(s), kept 245, 130 priced (bid/ask within 10c)",
+   "KXNBAPTS": "7 event(s), 297 market(s), kept 297, 272 priced (bid/ask within 10c)",
+   "KXNBAREB": "7 event(s), 346 market(s), kept 346, 269 priced (bid/ask within 10c)",
    "KXNBASPREAD": "7 event(s), 231 market(s), kept 231, 219 priced (bid/ask within 10c)",
    "KXNBATEAMTOTAL": "7 event(s), 266 market(s), kept 266, 266 priced (bid/ask within 10c)",
    "KXNBATOTAL": "7 event(s), 203 market(s), kept 203, 203 priced (bid/ask within 10c)"
@@ -45,7 +45,7 @@
     "ticker": "KXNBAPRA-26NOV08PHICHI-CHITJONES30-25",
     "title": "Tre Jones: 25+ combined points, rebounds, and assists",
     "yes_ask_dollars": "0.1900",
-    "yes_bid_dollars": "0.1300",
+    "yes_bid_dollars": "0.1400",
     "yes_sub_title": "Tre Jones: 25+"
    },
    "KXNBAPTS": {
@@ -54,7 +54,7 @@
     "ticker": "KXNBAPTS-26NOV08PHICHI-PHITMAXEY0-15",
     "title": "Tyrese Maxey: 15+ points",
     "yes_ask_dollars": "0.9400",
-    "yes_bid_dollars": "0.8600",
+    "yes_bid_dollars": "0.8200",
     "yes_sub_title": "Tyrese Maxey: 15+"
    },
    "KXNBAREB": {
@@ -1042,7 +1042,7 @@
    "floor_strike": null,
    "home": "MIL",
    "kind": "moneyline",
-   "mid": 0.21000000000000002,
+   "mid": 0.215,
    "series": "KXNBAGAME",
    "sub_title": "Milwaukee",
    "team_suffix": "MIL",
@@ -1050,7 +1050,7 @@
    "title": "Milwaukee wins",
    "volume": 0,
    "yes_ask": 0.25,
-   "yes_bid": 0.17
+   "yes_bid": 0.18
   },
   {
    "away": "LAL",
@@ -1060,14 +1060,14 @@
    "floor_strike": null,
    "home": "MIL",
    "kind": "moneyline",
-   "mid": 0.7849999999999999,
+   "mid": 0.78,
    "series": "KXNBAGAME",
    "sub_title": "Los Angeles L",
    "team_suffix": "LAL",
    "ticker": "KXNBAGAME-26NOV11LALMIL-LAL",
    "title": "Los Angeles L wins",
    "volume": 0,
-   "yes_ask": 0.82,
+   "yes_ask": 0.81,
    "yes_bid": 0.75
   },
   {
@@ -1215,24 +1215,6 @@
    "yes_bid": 0.49
   },
   {
-   "away": "DAL",
-   "close_time": "2026-11-15T01:00:00Z",
-   "event_date": "2026-11-12",
-   "event_ticker": "KXNBAGAME-26NOV12DALMIN",
-   "floor_strike": null,
-   "home": "MIN",
-   "kind": "moneyline",
-   "mid": 0.6699999999999999,
-   "series": "KXNBAGAME",
-   "sub_title": "Minnesota",
-   "team_suffix": "MIN",
-   "ticker": "KXNBAGAME-26NOV12DALMIN-MIN",
-   "title": "Minnesota wins",
-   "volume": 0,
-   "yes_ask": 0.72,
-   "yes_bid": 0.62
-  },
-  {
    "away": "CHA",
    "close_time": "2026-11-15T02:00:00Z",
    "event_date": "2026-11-12",
@@ -1314,13 +1296,31 @@
    "kind": "moneyline",
    "mid": null,
    "series": "KXNBAGAME",
+   "sub_title": "Minnesota",
+   "team_suffix": "MIN",
+   "ticker": "KXNBAGAME-26NOV12DALMIN-MIN",
+   "title": "Minnesota wins",
+   "volume": 0,
+   "yes_ask": 0.72,
+   "yes_bid": 0.56
+  },
+  {
+   "away": "DAL",
+   "close_time": "2026-11-15T01:00:00Z",
+   "event_date": "2026-11-12",
+   "event_ticker": "KXNBAGAME-26NOV12DALMIN",
+   "floor_strike": null,
+   "home": "MIN",
+   "kind": "moneyline",
+   "mid": null,
+   "series": "KXNBAGAME",
    "sub_title": "Dallas",
    "team_suffix": "DAL",
    "ticker": "KXNBAGAME-26NOV12DALMIN-DAL",
    "title": "Dallas wins",
    "volume": 0,
    "yes_ask": 0.42,
-   "yes_bid": 0.26
+   "yes_bid": 0.25
   },
   {
    "away": "ATL",
@@ -2194,7 +2194,7 @@
    "floor_strike": 5.5,
    "home": "DET",
    "kind": "spread",
-   "mid": 0.5700000000000001,
+   "mid": 0.575,
    "series": "KXNBASPREAD",
    "sub_title": "Detroit wins by over 5.5 points",
    "team_suffix": "DET6",
@@ -2202,7 +2202,7 @@
    "title": "Detroit wins by over 5.5 points",
    "volume": 0,
    "yes_ask": 0.58,
-   "yes_bid": 0.56
+   "yes_bid": 0.57
   },
   {
    "away": "LAL",
@@ -2266,7 +2266,7 @@
    "floor_strike": 27.5,
    "home": "DET",
    "kind": "spread",
-   "mid": 0.06,
+   "mid": 0.065,
    "series": "KXNBASPREAD",
    "sub_title": "Detroit wins by over 27.5 points",
    "team_suffix": "DET28",
@@ -2274,7 +2274,7 @@
    "title": "Detroit wins by over 27.5 points",
    "volume": 0,
    "yes_ask": 0.08,
-   "yes_bid": 0.04
+   "yes_bid": 0.05
   },
   {
    "away": "LAL",
@@ -2752,14 +2752,14 @@
    "floor_strike": 30.5,
    "home": "MIN",
    "kind": "spread",
-   "mid": 0.085,
+   "mid": 0.08,
    "series": "KXNBASPREAD",
    "sub_title": "Minnesota wins by over 30.5 points",
    "team_suffix": "MIN31",
    "ticker": "KXNBASPREAD-26NOV08UTAMIN-MIN31",
    "title": "Minnesota wins by over 30.5 points",
    "volume": 0,
-   "yes_ask": 0.1,
+   "yes_ask": 0.09,
    "yes_bid": 0.07
   },
   {
@@ -5110,14 +5110,14 @@
    "floor_strike": 4.5,
    "home": "LAC",
    "kind": "spread",
-   "mid": 0.35,
+   "mid": 0.355,
    "series": "KXNBASPREAD",
    "sub_title": "Los Angeles C wins by over 4.5 points",
    "team_suffix": "LAC5",
    "ticker": "KXNBASPREAD-26NOV08NOPLAC-LAC5",
    "title": "Los Angeles C wins by over 4.5 points",
    "volume": 0,
-   "yes_ask": 0.36,
+   "yes_ask": 0.37,
    "yes_bid": 0.34
   },
   {
@@ -6046,7 +6046,7 @@
    "floor_strike": 250.5,
    "home": "DET",
    "kind": "total",
-   "mid": 0.05,
+   "mid": 0.05500000000000001,
    "series": "KXNBATOTAL",
    "sub_title": "Over 250.5 points",
    "team_suffix": "251",
@@ -6054,7 +6054,7 @@
    "title": "Full Game: Over 250.5 points scored",
    "volume": 0,
    "yes_ask": 0.07,
-   "yes_bid": 0.03
+   "yes_bid": 0.04
   },
   {
    "away": "LAL",
@@ -6064,7 +6064,7 @@
    "floor_strike": 248.5,
    "home": "DET",
    "kind": "total",
-   "mid": 0.06,
+   "mid": 0.065,
    "series": "KXNBATOTAL",
    "sub_title": "Over 248.5 points",
    "team_suffix": "249",
@@ -6072,7 +6072,7 @@
    "title": "Full Game: Over 248.5 points scored",
    "volume": 0,
    "yes_ask": 0.08,
-   "yes_bid": 0.04
+   "yes_bid": 0.05
   },
   {
    "away": "LAL",
@@ -6082,7 +6082,7 @@
    "floor_strike": 246.5,
    "home": "DET",
    "kind": "total",
-   "mid": 0.06,
+   "mid": 0.065,
    "series": "KXNBATOTAL",
    "sub_title": "Over 246.5 points",
    "team_suffix": "247",
@@ -6090,7 +6090,7 @@
    "title": "Full Game: Over 246.5 points scored",
    "volume": 0,
    "yes_ask": 0.08,
-   "yes_bid": 0.04
+   "yes_bid": 0.05
   },
   {
    "away": "LAL",
@@ -6100,7 +6100,7 @@
    "floor_strike": 244.5,
    "home": "DET",
    "kind": "total",
-   "mid": 0.07,
+   "mid": 0.075,
    "series": "KXNBATOTAL",
    "sub_title": "Over 244.5 points",
    "team_suffix": "245",
@@ -6108,7 +6108,7 @@
    "title": "Full Game: Over 244.5 points scored",
    "volume": 0,
    "yes_ask": 0.09,
-   "yes_bid": 0.05
+   "yes_bid": 0.06
   },
   {
    "away": "LAL",
@@ -6118,7 +6118,7 @@
    "floor_strike": 242.5,
    "home": "DET",
    "kind": "total",
-   "mid": 0.09,
+   "mid": 0.095,
    "series": "KXNBATOTAL",
    "sub_title": "Over 242.5 points",
    "team_suffix": "243",
@@ -6126,7 +6126,7 @@
    "title": "Full Game: Over 242.5 points scored",
    "volume": 0,
    "yes_ask": 0.11,
-   "yes_bid": 0.07
+   "yes_bid": 0.08
   },
   {
    "away": "LAL",
@@ -6154,7 +6154,7 @@
    "floor_strike": 238.5,
    "home": "DET",
    "kind": "total",
-   "mid": 0.13,
+   "mid": 0.135,
    "series": "KXNBATOTAL",
    "sub_title": "Over 238.5 points",
    "team_suffix": "239",
@@ -6162,7 +6162,7 @@
    "title": "Full Game: Over 238.5 points scored",
    "volume": 0,
    "yes_ask": 0.15,
-   "yes_bid": 0.11
+   "yes_bid": 0.12
   },
   {
    "away": "LAL",
@@ -6172,7 +6172,7 @@
    "floor_strike": 236.5,
    "home": "DET",
    "kind": "total",
-   "mid": 0.16,
+   "mid": 0.16499999999999998,
    "series": "KXNBATOTAL",
    "sub_title": "Over 236.5 points",
    "team_suffix": "237",
@@ -6180,7 +6180,7 @@
    "title": "Full Game: Over 236.5 points scored",
    "volume": 0,
    "yes_ask": 0.18,
-   "yes_bid": 0.14
+   "yes_bid": 0.15
   },
   {
    "away": "LAL",
@@ -6190,7 +6190,7 @@
    "floor_strike": 234.5,
    "home": "DET",
    "kind": "total",
-   "mid": 0.18,
+   "mid": 0.185,
    "series": "KXNBATOTAL",
    "sub_title": "Over 234.5 points",
    "team_suffix": "235",
@@ -6198,7 +6198,7 @@
    "title": "Full Game: Over 234.5 points scored",
    "volume": 0,
    "yes_ask": 0.2,
-   "yes_bid": 0.16
+   "yes_bid": 0.17
   },
   {
    "away": "LAL",
@@ -6208,7 +6208,7 @@
    "floor_strike": 232.5,
    "home": "DET",
    "kind": "total",
-   "mid": 0.22,
+   "mid": 0.22499999999999998,
    "series": "KXNBATOTAL",
    "sub_title": "Over 232.5 points",
    "team_suffix": "233",
@@ -6216,7 +6216,7 @@
    "title": "Full Game: Over 232.5 points scored",
    "volume": 0,
    "yes_ask": 0.24,
-   "yes_bid": 0.2
+   "yes_bid": 0.21
   },
   {
    "away": "LAL",
@@ -6280,15 +6280,15 @@
    "floor_strike": 224.5,
    "home": "DET",
    "kind": "total",
-   "mid": 0.37,
+   "mid": 0.36,
    "series": "KXNBATOTAL",
    "sub_title": "Over 224.5 points",
    "team_suffix": "225",
    "ticker": "KXNBATOTAL-26NOV08LALDET-225",
    "title": "Full Game: Over 224.5 points scored",
    "volume": 0,
-   "yes_ask": 0.38,
-   "yes_bid": 0.36
+   "yes_ask": 0.37,
+   "yes_bid": 0.35
   },
   {
    "away": "LAL",
@@ -6460,7 +6460,7 @@
    "floor_strike": 204.5,
    "home": "DET",
    "kind": "total",
-   "mid": 0.8,
+   "mid": 0.805,
    "series": "KXNBATOTAL",
    "sub_title": "Over 204.5 points",
    "team_suffix": "205",
@@ -6468,7 +6468,7 @@
    "title": "Full Game: Over 204.5 points scored",
    "volume": 0,
    "yes_ask": 0.81,
-   "yes_bid": 0.79
+   "yes_bid": 0.8
   },
   {
    "away": "LAL",
@@ -6514,7 +6514,7 @@
    "floor_strike": 198.5,
    "home": "DET",
    "kind": "total",
-   "mid": 0.895,
+   "mid": 0.9,
    "series": "KXNBATOTAL",
    "sub_title": "Over 198.5 points",
    "team_suffix": "199",
@@ -6522,7 +6522,7 @@
    "title": "Full Game: Over 198.5 points scored",
    "volume": 0,
    "yes_ask": 0.91,
-   "yes_bid": 0.88
+   "yes_bid": 0.89
   },
   {
    "away": "LAL",
@@ -6568,14 +6568,14 @@
    "floor_strike": 252.5,
    "home": "MIN",
    "kind": "total",
-   "mid": 0.045,
+   "mid": 0.05,
    "series": "KXNBATOTAL",
    "sub_title": "Over 252.5 points",
    "team_suffix": "253",
    "ticker": "KXNBATOTAL-26NOV08UTAMIN-253",
    "title": "Full Game: Over 252.5 points scored",
    "volume": 0,
-   "yes_ask": 0.06,
+   "yes_ask": 0.07,
    "yes_bid": 0.03
   },
   {
@@ -7126,14 +7126,14 @@
    "floor_strike": 242.5,
    "home": "DAL",
    "kind": "total",
-   "mid": 0.14500000000000002,
+   "mid": 0.14,
    "series": "KXNBATOTAL",
    "sub_title": "Over 242.5 points",
    "team_suffix": "243",
    "ticker": "KXNBATOTAL-26NOV08BKNDAL-243",
    "title": "Full Game: Over 242.5 points scored",
    "volume": 0,
-   "yes_ask": 0.16,
+   "yes_ask": 0.15,
    "yes_bid": 0.13
   },
   {
