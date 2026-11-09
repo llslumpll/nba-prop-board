@@ -1,5 +1,5 @@
 {
- "at": "2026-11-02T17:20+00:00",
+ "at": "2026-11-09T09:00+00:00",
  "base_sig": "{\"a_def\": 0.25, \"a_pace\": 0.5, \"absent_window_days\": 10, \"b2b_min\": -0.04, \"b2b_min_threshold\": 28.0, \"b2b_rate\": -0.02, \"blowout_c\": 0.15, \"blowout_cap\": 3.0, \"blowout_threshold\": 8.0, \"cap\": 0.06, \"cap_mode\": \"waterfall\", \"def_k\": 20.0, \"fringe_share\": 0.35, \"home\": 0.01, \"k\": {\"ast\": 5, \"fg3m\": 3, \"pa\": 3, \"pr\": 3, \"pra\": 3, \"pts\": 5, \"ra\": 8, \"reb\": 12}, \"k_pos\": 15.0, \"min_cap\": 44.0, \"min_half_life\": 5.0, \"min_mode\": \"normalize\", \"min_prior_k\": 4.0, \"redistribute\": 0.5, \"rest3_rate\": 0.01, \"rotation_cap\": 250.0, \"rotation_min\": 12.0, \"season_w\": [1.0, 0.5], \"team_min_cap\": 241.0, \"team_share_alpha\": 0.5, \"team_share_cap\": 0.12, \"usage_b\": 0.0, \"usage_cap\": 0.1, \"use_blowout\": true, \"use_def\": false, \"use_home_rest\": true, \"use_out\": true, \"use_pace\": true, \"var_k\": 20.0}",
  "params": {},
  "settings": {
@@ -13,6 +13,9 @@
   "usage_b": 0.0,
   "role_rate_w": 1.0,
   "role_early": 5.0,
+  "zone_w": 0.75,
+  "moved_k": 0.5,
+  "team_k": 15.0,
   "wowy_w": 0.0,
   "opp_out_w": 0.0
  },
@@ -27,6 +30,9 @@
   "usage_b": "how much teammates' absences boost usage",
   "role_rate_w": "weight on his scoring rate in past games with similar minutes",
   "role_early": "how long the similar-minutes rate matters into the season (games)",
+  "zone_w": "weight on shot-zone matchups (where he scores vs where the defense gives up points)",
+  "moved_k": "how much last season counts for players on a new team",
+  "team_k": "games of last season's team pace / strength behind this season's",
   "wowy_w": "weight on with/without history when a star teammate is out",
   "opp_out_w": "weight on what the opponent allows without its missing players"
  },
@@ -256,6 +262,124 @@
     "wowy_w": 0.0,
     "opp_out_w": 0.0
    }
+  },
+  {
+   "at": "2026-11-09T09:00+00:00",
+   "windows": {
+    "B": [
+     [
+      2027,
+      "2026-11-02",
+      "2026-11-08"
+     ]
+    ],
+    "C": [
+     [
+      2026,
+      "2026-01-04",
+      "2026-01-24"
+     ]
+    ],
+    "A": [
+     [
+      2027,
+      "2026-10-20",
+      "2026-11-01"
+     ],
+     [
+      2026,
+      "2025-10-21",
+      "2025-11-10"
+     ]
+    ]
+   },
+   "rows": {
+    "A": 3379,
+    "B": 726,
+    "C": 2129
+   },
+   "changes": [],
+   "tried": 26,
+   "gain": {
+    "A": 0.0,
+    "B": 0.0,
+    "C": 0.0
+   },
+   "miss_before": {
+    "A": {
+     "n": 3379,
+     "min": 4.402,
+     "pts": 5.161,
+     "reb": 1.997,
+     "ast": 1.529,
+     "fg3m": 1.045,
+     "pra": 6.485
+    },
+    "B": {
+     "n": 726,
+     "min": 4.39,
+     "pts": 5.045,
+     "reb": 1.947,
+     "ast": 1.566,
+     "fg3m": 1.003,
+     "pra": 6.237
+    },
+    "C": {
+     "n": 2129,
+     "min": 4.147,
+     "pts": 4.874,
+     "reb": 1.964,
+     "ast": 1.507,
+     "fg3m": 1.041,
+     "pra": 6.152
+    }
+   },
+   "miss_after": {
+    "A": {
+     "n": 3379,
+     "min": 4.402,
+     "pts": 5.161,
+     "reb": 1.997,
+     "ast": 1.529,
+     "fg3m": 1.045,
+     "pra": 6.485
+    },
+    "B": {
+     "n": 726,
+     "min": 4.39,
+     "pts": 5.045,
+     "reb": 1.947,
+     "ast": 1.566,
+     "fg3m": 1.003,
+     "pra": 6.237
+    },
+    "C": {
+     "n": 2129,
+     "min": 4.147,
+     "pts": 4.874,
+     "reb": 1.964,
+     "ast": 1.507,
+     "fg3m": 1.041,
+     "pra": 6.152
+    }
+   },
+   "settings": {
+    "last_game_w": 0.25,
+    "min_prior_k": 1.0,
+    "min_half_life": 5.0,
+    "k_scale": 1.0,
+    "a_def": 0.25,
+    "def_k": 40.0,
+    "a_pace": 0.5,
+    "usage_b": 0.0,
+    "role_rate_w": 1.0,
+    "role_early": 5.0,
+    "zone_w": 0.75,
+    "moved_k": 0.5,
+    "team_k": 15.0,
+    "wowy_w": 0.0,
+    "opp_out_w": 0.0
+   }
   }
  ],
  "last_tried": [
@@ -264,9 +388,9 @@
    "from": 0.25,
    "to": 0.2,
    "score": {
-    "A": 1.00245,
-    "B": 1.00319,
-    "C": 0.99917
+    "A": 1.00251,
+    "B": 0.99898,
+    "C": 0.99912
    },
    "ok": false
   },
@@ -275,9 +399,9 @@
    "from": 0.25,
    "to": 0.3,
    "score": {
-    "A": 0.99941,
-    "B": 1.00014,
-    "C": 1.00322
+    "A": 0.99958,
+    "B": 1.00061,
+    "C": 1.0032
    },
    "ok": false
   },
@@ -286,8 +410,8 @@
    "from": 1.0,
    "to": 0.6667,
    "score": {
-    "A": 1.00008,
-    "B": 0.99677,
+    "A": 0.99938,
+    "B": 0.99946,
     "C": 1.00046
    },
    "ok": false
@@ -297,9 +421,9 @@
    "from": 1.0,
    "to": 1.5,
    "score": {
-    "A": 1.00083,
-    "B": 1.00379,
-    "C": 1.00024
+    "A": 1.00136,
+    "B": 0.99966,
+    "C": 1.00023
    },
    "ok": false
   },
@@ -308,9 +432,9 @@
    "from": 5.0,
    "to": 7.0,
    "score": {
-    "A": 1.0018,
-    "B": 1.00626,
-    "C": 1.00124
+    "A": 1.00267,
+    "B": 1.00347,
+    "C": 1.00114
    },
    "ok": false
   },
@@ -319,9 +443,9 @@
    "from": 1.0,
    "to": 0.8,
    "score": {
-    "A": 0.9999,
-    "B": 0.99978,
-    "C": 1.00005
+    "A": 1.0,
+    "B": 0.99903,
+    "C": 1.00008
    },
    "ok": false
   },
@@ -330,9 +454,9 @@
    "from": 1.0,
    "to": 1.25,
    "score": {
-    "A": 1.00023,
-    "B": 1.00045,
-    "C": 1.00003
+    "A": 1.00016,
+    "B": 1.00116,
+    "C": 0.99998
    },
    "ok": false
   },
@@ -341,9 +465,9 @@
    "from": 0.25,
    "to": 0.2,
    "score": {
-    "A": 1.0001,
-    "B": 1.00001,
-    "C": 1.00003
+    "A": 1.00008,
+    "B": 1.00006,
+    "C": 1.00001
    },
    "ok": false
   },
@@ -352,9 +476,9 @@
    "from": 0.25,
    "to": 0.3,
    "score": {
-    "A": 0.99991,
-    "B": 0.99998,
-    "C": 0.99998
+    "A": 0.99992,
+    "B": 0.99994,
+    "C": 0.99999
    },
    "ok": false
   },
@@ -363,9 +487,9 @@
    "from": 40.0,
    "to": 26.6667,
    "score": {
-    "A": 0.99998,
-    "B": 1.00002,
-    "C": 0.99997
+    "A": 0.99999,
+    "B": 0.99993,
+    "C": 0.99998
    },
    "ok": false
   },
@@ -374,9 +498,9 @@
    "from": 40.0,
    "to": 60.0,
    "score": {
-    "A": 1.00002,
-    "B": 0.99999,
-    "C": 1.00005
+    "A": 1.00001,
+    "B": 1.00005,
+    "C": 1.00004
    },
    "ok": false
   },
@@ -386,8 +510,8 @@
    "to": 0.4,
    "score": {
     "A": 0.9999,
-    "B": 0.9999,
-    "C": 0.9999
+    "B": 1.00008,
+    "C": 0.99988
    },
    "ok": false
   },
@@ -396,9 +520,9 @@
    "from": 0.5,
    "to": 0.6,
    "score": {
-    "A": 1.0001,
-    "B": 1.00011,
-    "C": 1.00011
+    "A": 1.00011,
+    "B": 0.99993,
+    "C": 1.00014
    },
    "ok": false
   },
@@ -407,9 +531,9 @@
    "from": 0.0,
    "to": 0.1,
    "score": {
-    "A": 1.00094,
-    "B": 1.00175,
-    "C": 1.00085
+    "A": 1.0011,
+    "B": 1.00122,
+    "C": 1.0009
    },
    "ok": false
   },
@@ -418,9 +542,9 @@
    "from": 1.0,
    "to": 0.75,
    "score": {
-    "A": 0.99985,
-    "B": 0.99935,
-    "C": 1.0001
+    "A": 0.9999,
+    "B": 0.99949,
+    "C": 1.00011
    },
    "ok": false
   },
@@ -429,9 +553,9 @@
    "from": 1.0,
    "to": 1.25,
    "score": {
-    "A": 1.0008,
-    "B": 1.00119,
-    "C": 0.99993
+    "A": 1.00085,
+    "B": 1.00071,
+    "C": 0.99992
    },
    "ok": false
   },
@@ -440,8 +564,8 @@
    "from": 5.0,
    "to": 3.3333,
    "score": {
-    "A": 0.99996,
-    "B": 0.99948,
+    "A": 0.99995,
+    "B": 0.99949,
     "C": 1.00008
    },
    "ok": false
@@ -451,9 +575,75 @@
    "from": 5.0,
    "to": 7.5,
    "score": {
-    "A": 1.00021,
-    "B": 1.00073,
-    "C": 0.99996
+    "A": 1.00027,
+    "B": 1.00074,
+    "C": 0.99997
+   },
+   "ok": false
+  },
+  {
+   "knob": "zone_w",
+   "from": 0.75,
+   "to": 0.5,
+   "score": {
+    "A": 1.0,
+    "B": 1.0,
+    "C": 1.00022
+   },
+   "ok": false
+  },
+  {
+   "knob": "zone_w",
+   "from": 0.75,
+   "to": 1.0,
+   "score": {
+    "A": 1.0,
+    "B": 1.0,
+    "C": 0.99991
+   },
+   "ok": false
+  },
+  {
+   "knob": "moved_k",
+   "from": 0.5,
+   "to": 0.25,
+   "score": {
+    "A": 0.99999,
+    "B": 0.99939,
+    "C": 1.00005
+   },
+   "ok": false
+  },
+  {
+   "knob": "moved_k",
+   "from": 0.5,
+   "to": 0.75,
+   "score": {
+    "A": 1.00018,
+    "B": 1.00055,
+    "C": 0.99999
+   },
+   "ok": false
+  },
+  {
+   "knob": "team_k",
+   "from": 15.0,
+   "to": 10.0,
+   "score": {
+    "A": 1.00016,
+    "B": 0.99983,
+    "C": 1.00014
+   },
+   "ok": false
+  },
+  {
+   "knob": "team_k",
+   "from": 15.0,
+   "to": 22.5,
+   "score": {
+    "A": 0.9999,
+    "B": 1.00042,
+    "C": 0.99988
    },
    "ok": false
   },
@@ -462,9 +652,9 @@
    "from": 0.0,
    "to": 0.25,
    "score": {
-    "A": 1.00007,
-    "B": 1.00024,
-    "C": 1.00057
+    "A": 1.0001,
+    "B": 1.00011,
+    "C": 1.00058
    },
    "ok": false
   },
@@ -473,9 +663,9 @@
    "from": 0.0,
    "to": 0.25,
    "score": {
-    "A": 0.99997,
-    "B": 0.99987,
-    "C": 0.99997
+    "A": 0.99994,
+    "B": 1.00026,
+    "C": 0.99994
    },
    "ok": false
   }
