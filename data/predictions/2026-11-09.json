@@ -2169,7 +2169,7 @@
   "why": "26.2 min (recent 28.1); \u00d7 0.195 rebounds/min (40% this season's 0.180 over 8 games, 60% prior 0.193); context: pace vs HOU \u22121%, road \u22121%; calibration -0.0; listed Day-To-Day."
  },
  "Aaron Nesmith|ast|401909956": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4774,
@@ -2190,7 +2190,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -2206,6 +2207,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -2221,6 +2225,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 0.1,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -2289,7 +2294,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -2300,7 +2305,7 @@
   "why": "26.5 min (recent 27.1, \u22120.6 team-minutes adjustment with Kobe Brown out); \u00d7 0.069 assists/min (62% this season's 0.072 over 8 games, 38% prior 0.073); context: road \u22121%, shared production on IND +2%; injury news: +0.3 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Aaron Nesmith|fg3m|401909956": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6365,
@@ -2321,7 +2326,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -2352,6 +2358,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -2367,6 +2376,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 1.7,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -2435,7 +2445,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -2446,7 +2456,7 @@
   "why": "26.5 min (recent 27.1, \u22120.6 team-minutes adjustment with Kobe Brown out); \u00d7 0.073 3-pointers made/min (73% this season's 0.072 over 8 games, 27% prior 0.075); context: road \u22121%, opponent defense \u22122%, shared production on IND +6%; calibration -0.0; injury news: +0.3 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Aaron Nesmith|pra|401909956": {
-  "actual": null,
+  "actual": 22.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -2470,7 +2480,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -2491,6 +2502,10 @@
   ],
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 19.5,
@@ -2512,6 +2527,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "DAL",
+  "our_err": 3.8,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -2580,7 +2596,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -2591,7 +2607,7 @@
   "why": "26.5 min (recent 27.1, \u22120.6 team-minutes adjustment with Kobe Brown out); \u00d7 0.661 pts+reb+ast/min (73% this season's 0.667 over 8 games, 27% prior 0.689); context: road \u22121%; calibration -0.1; injury news: +1.0 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Aaron Nesmith|pr|401909956": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -2614,11 +2630,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -2634,6 +2654,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 3.9,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -2702,7 +2723,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -2713,7 +2734,7 @@
   "why": "26.5 min (recent 27.1, \u22120.6 team-minutes adjustment with Kobe Brown out); \u00d7 0.592 pts+reb/min (73% this season's 0.595 over 8 games, 27% prior 0.616); context: road \u22121%; calibration -0.1; injury news: +0.8 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Aaron Nesmith|pts|401909956": {
-  "actual": null,
+  "actual": 18.0,
   "adj": [
    "OVER chance -2.5 pts (pattern)"
   ],
@@ -2736,7 +2757,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -2757,6 +2779,11 @@
   ],
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "fanduel": 6.5,
+   "kalshi": 8.5,
+   "prizepicks": 6.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 11.5,
@@ -2784,6 +2811,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 5.3,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -2852,7 +2880,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -2863,7 +2891,7 @@
   "why": "26.5 min (recent 27.1, \u22120.6 team-minutes adjustment with Kobe Brown out); \u00d7 0.482 points/min (62% this season's 0.497 over 8 games, 38% prior 0.473); context: road \u22121%, opponent defense \u22121%; calibration -0.1; injury news: +0.2 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Aaron Nesmith|ra|401909956": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -2886,11 +2914,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 5.0,
+  "line_errs": {
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 5.0
@@ -2906,6 +2938,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 1.6,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -2974,7 +3007,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -2985,7 +3018,7 @@
   "why": "26.5 min (recent 27.1, \u22120.6 team-minutes adjustment with Kobe Brown out); \u00d7 0.185 reb+ast/min (50% this season's 0.169 over 8 games, 50% prior 0.217); context: road \u22121%; calibration -0.0; injury news: +0.8 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Aaron Nesmith|reb|401909956": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -3007,7 +3040,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -3033,6 +3067,10 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -3054,6 +3092,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 1.6,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -3122,7 +3161,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -7405,7 +7444,7 @@
   "why": "35.1 min (recent 35.8, \u22120.7 team-minutes adjustment with Clint Capela, Oscar Tshiebwe out); \u00d7 0.205 rebounds/min (45% this season's 0.193 over 10 games, 55% prior 0.210); context: home +1%, shared production on HOU +3%; calibration -0.0; injury news: +0.9 with Oscar Tshiebwe ruled out today (half of how he's actually played without him)."
  },
  "Andrew Nembhard|ast|401909956": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4269,
@@ -7426,7 +7465,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:56 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -7452,6 +7492,9 @@
   ],
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "kalshi": 4.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 7.5
@@ -7467,6 +7510,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "DAL",
+  "our_err": 4.8,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -7535,7 +7579,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -7546,7 +7590,7 @@
   "why": "31.4 min (recent 32.0, \u22120.7 team-minutes adjustment with Kobe Brown out); \u00d7 0.224 assists/min (62% this season's 0.211 over 8 games, 38% prior 0.207); context: road \u22121%, shared production on IND +2%."
  },
  "Andrew Nembhard|fg3m|401909956": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5574,
@@ -7567,7 +7611,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:56 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -7598,6 +7643,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -7613,6 +7661,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 1.0,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -7681,7 +7730,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -7692,7 +7741,7 @@
   "why": "31.4 min (recent 32.0, \u22120.7 team-minutes adjustment with Kobe Brown out); \u00d7 0.066 3-pointers made/min (73% this season's 0.075 over 8 games, 27% prior 0.051); context: road \u22121%, opponent defense \u22122%, shared production on IND +6%; calibration -0.0; injury news: -0.1 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Andrew Nembhard|pa|401909956": {
-  "actual": null,
+  "actual": 24.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -7716,11 +7765,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 23.0,
+  "line_errs": {
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 23.0
@@ -7736,6 +7789,7 @@
   "move": 1.5,
   "move_dir": "against",
   "opp": "DAL",
+  "our_err": 0.8,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -7804,7 +7858,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -7815,7 +7869,7 @@
   "why": "31.4 min (recent 32.0, \u22120.7 team-minutes adjustment with Kobe Brown out); \u00d7 0.750 pts+ast/min (73% this season's 0.747 over 8 games, 27% prior 0.683); context: road \u22121%, opponent defense \u22121%, shared production on IND +1%; calibration -0.0."
  },
  "Andrew Nembhard|pra|401909956": {
-  "actual": null,
+  "actual": 27.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -7840,7 +7894,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -7861,6 +7916,10 @@
   ],
   "label": "lean",
   "line": 25.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 24.5,
@@ -7882,6 +7941,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "DAL",
+  "our_err": 1.1,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -7950,7 +8010,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -7961,7 +8021,7 @@
   "why": "31.4 min (recent 32.0, \u22120.7 team-minutes adjustment with Kobe Brown out); \u00d7 0.828 pts+reb+ast/min (73% this season's 0.808 over 8 games, 27% prior 0.786); context: road \u22121%; calibration -0.1; injury news: +0.3 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Andrew Nembhard|pr|401909956": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -7985,11 +8045,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 18.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 18.5
@@ -8005,6 +8069,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "DAL",
+  "our_err": 3.7,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -8073,7 +8138,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -8084,7 +8149,7 @@
   "why": "31.4 min (recent 32.0, \u22120.7 team-minutes adjustment with Kobe Brown out); \u00d7 0.604 pts+reb/min (73% this season's 0.596 over 8 games, 27% prior 0.579); context: road \u22121%; calibration -0.1; injury news: +0.2 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Andrew Nembhard|pts|401909956": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [
    "OVER chance -2.5 pts (pattern)"
   ],
@@ -8107,7 +8172,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -8133,6 +8199,11 @@
   ],
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "fanduel": 3.5,
+   "kalshi": 2.5,
+   "prizepicks": 3.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 15.5,
@@ -8160,6 +8231,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 3.9,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -8228,7 +8300,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -8239,7 +8311,7 @@
   "why": "31.4 min (recent 32.0, \u22120.7 team-minutes adjustment with Kobe Brown out); \u00d7 0.521 points/min (62% this season's 0.536 over 8 games, 38% prior 0.475); context: road \u22121%, opponent defense \u22121%; calibration -0.1; injury news: -0.1 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Andrew Nembhard|ra|401909956": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -8263,11 +8335,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -8283,6 +8359,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "DAL",
+  "our_err": 4.9,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -8351,7 +8428,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -8362,7 +8439,7 @@
   "why": "31.4 min (recent 32.0, \u22120.7 team-minutes adjustment with Kobe Brown out); \u00d7 0.308 reb+ast/min (50% this season's 0.272 over 8 games, 50% prior 0.311); context: road \u22121%, shared production on IND +1%; calibration -0.0; injury news: +0.4 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Andrew Nembhard|reb|401909956": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -8386,7 +8463,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -8407,6 +8485,10 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -8428,6 +8510,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 0.0,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -8496,7 +8579,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -12517,7 +12600,7 @@
   "why": "18.0 min (recent 15.6, +2.3 team-minutes adjustment with Trey Murphy III, Trendon Watford, Zion Williamson out); \u00d7 0.148 rebounds/min (62% this season's 0.128 over 10 games, 38% prior 0.173); context: road \u22121%, rest \u22122%, shared production on NOP +5%; calibration -0.0; injury news: +0.2 with Trendon Watford ruled out today (half of how he's actually played without him)."
  },
  "Braden Smith|ast|401909956": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -12537,11 +12620,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:36 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 3.5
@@ -12557,6 +12644,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 2.3,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -12601,7 +12689,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -12611,7 +12699,7 @@
   "why": "14.0 min (recent 15.9, \u22125.7 team-minutes adjustment with Kobe Brown out; the model had him at 10.1, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.165 assists/min (55% this season's 0.198 over 6 games, 45% prior 0.133); context: road \u22121%, shared production on IND +2%."
  },
  "Braden Smith|fg3m|401909956": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -12631,11 +12719,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:36 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 0.5
@@ -12651,6 +12743,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 0.5,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -12695,7 +12788,7 @@
   },
   "src_key": "prizepicks",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -12705,7 +12798,7 @@
   "why": "14.0 min (recent 15.9, \u22125.7 team-minutes adjustment with Kobe Brown out; the model had him at 10.1, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.033 3-pointers made/min (67% this season's 0.021 over 6 games, 33% prior 0.065); context: road \u22121%, opponent defense \u22122%, shared production on IND +6%; calibration -0.0."
  },
  "Braden Smith|pra|401909956": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -12725,11 +12818,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:36 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 11.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -12745,6 +12842,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 8.1,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -12789,7 +12887,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -12799,7 +12897,7 @@
   "why": "14.0 min (recent 15.9, \u22125.7 team-minutes adjustment with Kobe Brown out; the model had him at 10.1, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.590 pts+reb+ast/min (67% this season's 0.562 over 6 games, 33% prior 0.751); context: road \u22121%; calibration -0.1."
  },
  "Braden Smith|pts|401909956": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -12819,11 +12917,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:36 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 5.5
@@ -12839,6 +12941,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 4.9,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -12883,7 +12986,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -17090,7 +17193,7 @@
   "why": "33.1 min (recent 34.1, +0.8 team-minutes adjustment, \u22121.4 back-to-back, \u22120.4 blowout risk (market margin 10)); \u00d7 0.160 rebounds/min (43% this season's 0.160 over 9 games, 57% prior 0.163); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DET +2%; calibration -0.0."
  },
  "Caleb Martin|fg3m|401909956": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -17110,11 +17213,15 @@
   "flip": null,
   "frozen_at": "2026-11-09 15:21 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 0.5
@@ -17130,6 +17237,7 @@
   "move": null,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 0.6,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -17196,7 +17304,7 @@
   },
   "src_key": "prizepicks",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -17206,7 +17314,7 @@
   "why": "17.2 min (recent 17.7, \u22120.5 team-minutes adjustment); \u00d7 0.033 3-pointers made/min (67% this season's 0.045 over 6 games, 33% prior 0.030); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +4%; calibration -0.0."
  },
  "Caleb Martin|pts|401909956": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -17226,11 +17334,15 @@
   "flip": null,
   "frozen_at": "2026-11-09 22:06 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 4.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 4.5
@@ -17246,6 +17358,7 @@
   "move": null,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 3.9,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -17288,7 +17401,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -17298,7 +17411,7 @@
   "why": "15.8 min (recent 17.7, \u22120.5 team-minutes adjustment); \u00d7 0.247 points/min (55% this season's 0.227 over 6 games, 45% prior 0.308); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +2%; calibration -0.1."
  },
  "Caleb Martin|reb|401909956": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -17321,7 +17434,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:06 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -17342,6 +17456,10 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -17363,6 +17481,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 0.3,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -17418,7 +17537,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -27069,7 +27188,7 @@
   "why": "21.2 min (recent 21.2); \u00d7 0.105 rebounds/min (62% this season's 0.110 over 10 games, 38% prior 0.101); context: pace vs ATL +1%, road \u22121%, rest \u22122%, opponent defense \u22122%, shared production on LAL \u22125%; calibration -0.0."
  },
  "Cooper Flagg|ast|401909956": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -27093,7 +27212,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -27119,6 +27239,10 @@
   ],
   "label": "lean",
   "line": 7.0,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 7.5,
@@ -27140,6 +27264,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "IND",
+  "our_err": 1.0,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -27210,7 +27335,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -27221,7 +27346,7 @@
   "why": "29.6 min (recent 31.8, \u22121.3 back-to-back); \u00d7 0.167 assists/min (64% this season's 0.208 over 9 games, 36% prior 0.127); context: home +1%, rest \u22122%, shared production on DAL +2%."
  },
  "Cooper Flagg|fg3m|401909956": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "no stake yet: picks like this are 535/881 (61%); a stake needs 30+ graded at 67%+ (2 points over the 65% their prices need)"
   ],
@@ -27245,7 +27370,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:56 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -27276,6 +27402,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -27291,6 +27420,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 2.0,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -27361,7 +27491,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -27372,7 +27502,7 @@
   "why": "29.6 min (recent 31.8, \u22121.3 back-to-back); \u00d7 0.035 3-pointers made/min (75% this season's 0.036 over 9 games, 25% prior 0.035); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration -0.0."
  },
  "Cooper Flagg|pa|401909956": {
-  "actual": null,
+  "actual": 49.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -27395,11 +27525,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 32.5,
+  "line_errs": {
+   "prizepicks": 16.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 32.5
@@ -27415,6 +27549,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 24.2,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -27483,7 +27618,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -27494,7 +27629,7 @@
   "why": "29.6 min (recent 31.8, \u22121.3 back-to-back); \u00d7 0.831 pts+ast/min (75% this season's 0.921 over 9 games, 25% prior 0.728); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration -0.0."
  },
  "Cooper Flagg|pra|401909956": {
-  "actual": null,
+  "actual": 59.0,
   "adj": [
    "no stake yet: picks like this are 21/44 (48%); a stake needs 30+ graded at 56%+ (2 points over the 54% their prices need)"
   ],
@@ -27522,7 +27657,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -27543,6 +27679,10 @@
   ],
   "label": "lean",
   "line": 39.5,
+  "line_errs": {
+   "kalshi": 19.5,
+   "prizepicks": 19.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 39.5,
@@ -27564,6 +27704,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 28.4,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -27634,7 +27775,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -27645,7 +27786,7 @@
   "why": "29.6 min (recent 31.8, \u22121.3 back-to-back); \u00d7 1.028 pts+reb+ast/min (75% this season's 1.116 over 9 games, 25% prior 0.926); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration -0.1."
  },
  "Cooper Flagg|pr|401909956": {
-  "actual": null,
+  "actual": 53.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -27668,11 +27809,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 32.5,
+  "line_errs": {
+   "prizepicks": 20.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 32.5
@@ -27688,6 +27833,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 27.6,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -27756,7 +27902,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -27767,7 +27913,7 @@
   "why": "29.6 min (recent 31.8, \u22121.3 back-to-back); \u00d7 0.855 pts+reb/min (75% this season's 0.908 over 9 games, 25% prior 0.799); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration -0.1."
  },
  "Cooper Flagg|pts|401909956": {
-  "actual": null,
+  "actual": 43.0,
   "adj": [
    "OVER chance -2.5 pts (pattern)"
   ],
@@ -27790,7 +27936,8 @@
   "flip": null,
   "frozen_at": "2026-11-09 23:23 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -27821,6 +27968,10 @@
   ],
   "label": "lean",
   "line": 25.5,
+  "line_errs": {
+   "fanduel": 17.5,
+   "kalshi": 18.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 25.5,
@@ -27842,6 +27993,7 @@
   "move": null,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 23.7,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -27909,7 +28061,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -27920,7 +28072,7 @@
   "why": "29.6 min (recent 31.8, \u22121.3 back-to-back); \u00d7 0.649 points/min (64% this season's 0.713 over 9 games, 36% prior 0.601); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration -0.1."
  },
  "Cooper Flagg|ra|401909956": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -27943,11 +28095,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:36 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 14.0,
+  "line_errs": {
+   "prizepicks": 2.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.0
@@ -27963,6 +28119,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "IND",
+  "our_err": 5.3,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -28031,7 +28188,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -28042,7 +28199,7 @@
   "why": "29.6 min (recent 31.8, \u22121.3 back-to-back); \u00d7 0.359 reb+ast/min (53% this season's 0.403 over 9 games, 47% prior 0.325); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration -0.0."
  },
  "Cooper Flagg|reb|401909956": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -28066,7 +28223,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -28097,6 +28255,10 @@
   ],
   "label": "lean",
   "line": 7.0,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 3.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 7.5,
@@ -28118,6 +28280,7 @@
   "move": null,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 4.1,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -28186,7 +28349,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -28197,7 +28360,7 @@
   "why": "29.6 min (recent 31.8, \u22121.3 back-to-back); \u00d7 0.199 rebounds/min (43% this season's 0.195 over 9 games, 57% prior 0.198); context: home +1%, rest \u22122%, opponent defense +2%; calibration -0.0."
  },
  "Daniel Gafford|pra|401909956": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -28220,11 +28383,15 @@
   "flip": null,
   "frozen_at": "2026-11-09 23:26 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 16.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 16.5
@@ -28240,6 +28407,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "IND",
+  "our_err": 3.5,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -28307,7 +28475,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -28318,7 +28486,7 @@
   "why": "20.5 min (recent 21.2); \u00d7 0.805 pts+reb+ast/min (77% this season's 0.789 over 10 games, 23% prior 0.841); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration -0.1."
  },
  "Daniel Gafford|pr|401909956": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -28341,11 +28509,15 @@
   "flip": null,
   "frozen_at": "2026-11-09 23:26 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 16.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 16.5
@@ -28361,6 +28533,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 5.0,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -28428,7 +28601,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -28439,7 +28612,7 @@
   "why": "20.5 min (recent 21.2); \u00d7 0.733 pts+reb/min (77% this season's 0.704 over 10 games, 23% prior 0.781); context: home +1%, rest \u22122%, opponent defense +1%; calibration -0.1."
  },
  "Daniel Gafford|pts|401909956": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [
    "OVER chance -2.5 pts (pattern)"
   ],
@@ -28462,7 +28635,8 @@
   "flip": null,
   "frozen_at": "2026-11-09 23:23 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -28483,6 +28657,10 @@
   ],
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "fanduel": 1.5,
+   "kalshi": 1.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 9.5,
@@ -28504,6 +28682,7 @@
   "move": null,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 1.3,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -28571,7 +28750,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -28582,7 +28761,7 @@
   "why": "20.5 min (recent 21.2); \u00d7 0.453 points/min (67% this season's 0.439 over 10 games, 33% prior 0.483); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration -0.1."
  },
  "Daniel Gafford|ra|401909956": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -28606,11 +28785,15 @@
   "flip": null,
   "frozen_at": "2026-11-09 23:26 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.5
@@ -28626,6 +28809,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "IND",
+  "our_err": 2.3,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -28693,7 +28877,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -28704,7 +28888,7 @@
   "why": "20.5 min (recent 21.2); \u00d7 0.356 reb+ast/min (56% this season's 0.350 over 10 games, 44% prior 0.358); context: home +1%, rest \u22122%, opponent defense +1%; calibration -0.0."
  },
  "Daniel Gafford|reb|401909956": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -28727,7 +28911,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -28753,6 +28938,10 @@
   ],
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -28774,6 +28963,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 4.0,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -28842,7 +29032,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -50991,7 +51181,7 @@
   "why": "31.1 min (recent 31.3); \u00d7 0.122 rebounds/min (40% this season's 0.110 over 8 games, 60% prior 0.128); context: pace vs MEM +1%, home +1%, rest +1%, shared production on TOR +1%; calibration -0.0; listed Day-To-Day."
  },
  "Ivica Zubac|ast|401909956": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5971,
@@ -51012,7 +51202,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -51028,6 +51219,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -51043,6 +51237,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 2.3,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -51111,7 +51306,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -51122,7 +51317,7 @@
   "why": "22.5 min (recent 23.0, \u22120.5 team-minutes adjustment with Kobe Brown out); \u00d7 0.097 assists/min (67% this season's 0.107 over 5 games, 33% prior 0.078); context: road \u22121%, opponent defense +3%, shared production on IND +2%."
  },
  "Ivica Zubac|pra|401909956": {
-  "actual": null,
+  "actual": 19.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -51146,7 +51341,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -51172,6 +51368,10 @@
   ],
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "kalshi": 5.5,
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 24.5,
@@ -51193,6 +51393,7 @@
   "move": 4.0,
   "move_dir": "against",
   "opp": "DAL",
+  "our_err": 0.9,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -51261,7 +51462,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -51272,7 +51473,7 @@
   "why": "22.5 min (recent 23.0, \u22120.5 team-minutes adjustment with Kobe Brown out); \u00d7 0.898 pts+reb+ast/min (77% this season's 0.893 over 5 games, 23% prior 0.921); context: road \u22121%; calibration -0.1."
  },
  "Ivica Zubac|pr|401909956": {
-  "actual": null,
+  "actual": 19.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -51295,11 +51496,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 21.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 21.5
@@ -51315,6 +51520,7 @@
   "move": 4.0,
   "move_dir": "against",
   "opp": "DAL",
+  "our_err": 1.4,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -51383,7 +51589,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -51394,7 +51600,7 @@
   "why": "22.5 min (recent 23.0, \u22120.5 team-minutes adjustment with Kobe Brown out); \u00d7 0.799 pts+reb/min (77% this season's 0.786 over 5 games, 23% prior 0.843); context: road \u22121%, opponent defense \u22121%; calibration -0.1."
  },
  "Ivica Zubac|pts|401909956": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [
    "OVER chance -2.5 pts (pattern)",
    "side set to OVER to match Kalshi at the same line (books disagreed); no stake"
@@ -51418,7 +51624,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -51439,6 +51646,11 @@
   ],
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "fanduel": 6.5,
+   "kalshi": 6.5,
+   "prizepicks": 4.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 9.5,
@@ -51466,6 +51678,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 6.8,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -51534,7 +51747,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -51545,7 +51758,7 @@
   "why": "22.5 min (recent 23.0, \u22120.5 team-minutes adjustment with Kobe Brown out); \u00d7 0.419 points/min (67% this season's 0.369 over 5 games, 33% prior 0.485); context: road \u22121%, opponent defense \u22121%; calibration -0.1."
  },
  "Ivica Zubac|ra|401909956": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -51568,11 +51781,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -51588,6 +51805,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "DAL",
+  "our_err": 7.6,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -51656,7 +51874,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -51667,7 +51885,7 @@
   "why": "22.5 min (recent 23.0, \u22120.5 team-minutes adjustment with Kobe Brown out); \u00d7 0.474 reb+ast/min (56% this season's 0.524 over 5 games, 44% prior 0.436); context: road \u22121%, opponent defense +1%; calibration -0.0."
  },
  "Ivica Zubac|reb|401909956": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "no stake yet: picks like this are 21/44 (48%); a stake needs 30+ graded at 56%+ (2 points over the 54% their prices need)"
   ],
@@ -51690,7 +51908,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:51 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -51726,6 +51945,10 @@
   ],
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "kalshi": 6.5,
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -51747,6 +51970,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 5.3,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -51815,7 +52039,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -67988,7 +68212,7 @@
   "why": "25.6 min (recent 24.7, +1.0 team-minutes adjustment with Devin Vassell out); \u00d7 0.232 rebounds/min (45% this season's 0.244 over 10 games, 55% prior 0.219); context: road \u22121%, shared production on SAS \u22122%; calibration -0.0."
  },
  "Kelly Oubre Jr.|fg3m|401909956": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6365,
@@ -68010,7 +68234,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:56 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -68036,6 +68261,9 @@
   ],
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 0.5
@@ -68051,6 +68279,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "DAL",
+  "our_err": 0.0,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -68099,7 +68328,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -68110,7 +68339,7 @@
   "why": "22.1 min (recent 22.6, \u22120.5 team-minutes adjustment with Kobe Brown out); \u00d7 0.043 3-pointers made/min (84% this season's 0.039 over 8 games, 16% prior 0.049); context: road \u22121%, opponent defense \u22122%, shared production on IND +6%; calibration -0.0."
  },
  "Kelly Oubre Jr.|pra|401909956": {
-  "actual": null,
+  "actual": 18.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -68133,11 +68362,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -68153,6 +68386,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 5.5,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -68221,7 +68455,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -68232,7 +68466,7 @@
   "why": "22.1 min (recent 22.6, \u22120.5 team-minutes adjustment with Kobe Brown out); \u00d7 0.577 pts+reb+ast/min (84% this season's 0.547 over 8 games, 16% prior 0.675); context: road \u22121%; calibration -0.1."
  },
  "Kelly Oubre Jr.|pr|401909956": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -68255,11 +68489,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -68275,6 +68513,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 4.8,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -68343,7 +68582,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -68354,7 +68593,7 @@
   "why": "22.1 min (recent 22.6, \u22120.5 team-minutes adjustment with Kobe Brown out); \u00d7 0.518 pts+reb/min (84% this season's 0.486 over 8 games, 16% prior 0.610); context: road \u22121%; calibration -0.1."
  },
  "Kelly Oubre Jr.|pts|401909956": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [
    "OVER chance -2.5 pts (pattern)"
   ],
@@ -68377,7 +68616,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -68393,6 +68633,11 @@
   ],
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "fanduel": 6.5,
+   "kalshi": 4.5,
+   "prizepicks": 6.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 7.5,
@@ -68420,6 +68665,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 5.4,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -68488,7 +68734,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -68499,7 +68745,7 @@
   "why": "22.1 min (recent 22.6, \u22120.5 team-minutes adjustment with Kobe Brown out); \u00d7 0.401 points/min (76% this season's 0.380 over 8 games, 24% prior 0.449); context: road \u22121%, opponent defense \u22121%; calibration -0.1."
  },
  "Kelly Oubre Jr.|reb|401909956": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3761,
@@ -68521,7 +68767,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:51 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -68537,6 +68784,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -68552,6 +68802,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 0.9,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -68627,7 +68878,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -72090,7 +72341,7 @@
   "why": "22.0 min (recent 11.2, +1.7 team-minutes adjustment with Scottie Barnes, Collin Murray-Boyles, Immanuel Quickley out; the model had him at 12.9, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.230 points/min (71% this season's 0.162 over 6 games, 29% prior 0.353); context: pace vs MEM +1%, home +1%, rest +1%, shared production on TOR +10%; calibration -0.1"
  },
  "Kyrie Irving|ast|401909956": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -72119,6 +72370,7 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
+  "graded_at": "2026-11-10 03:43 UTC",
   "hit": null,
   "home": true,
   "kladder": [
@@ -72145,6 +72397,10 @@
   ],
   "label": "lean",
   "line": 4.0,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -72166,6 +72422,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "IND",
+  "our_err": 0.0,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -72238,7 +72495,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "push",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -72249,7 +72506,7 @@
   "why": "28.7 min (recent 30.9, \u22121.2 back-to-back); \u00d7 0.140 assists/min (62% this season's 0.148 over 8 games, 38% prior 0.130); context: home +1%, rest \u22122%, opponent defense \u22121%, shared production on DAL +2%."
  },
  "Kyrie Irving|fg3m|401909956": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5772,
@@ -72270,7 +72527,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:36 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -72306,6 +72564,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 4.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -72321,6 +72582,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 4.4,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -72389,7 +72651,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -72400,7 +72662,7 @@
   "why": "28.7 min (recent 30.9, \u22121.2 back-to-back); \u00d7 0.090 3-pointers made/min (73% this season's 0.097 over 8 games, 27% prior 0.074); context: home +1%, rest \u22122%, opponent defense \u22121%, shared production on DAL +1%; calibration -0.0."
  },
  "Kyrie Irving|pa|401909956": {
-  "actual": null,
+  "actual": 39.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -72423,11 +72685,15 @@
   "flip": null,
   "frozen_at": "2026-11-09 23:26 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 25.5,
+  "line_errs": {
+   "prizepicks": 13.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 25.5
@@ -72443,6 +72709,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 15.3,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -72510,7 +72777,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -72521,7 +72788,7 @@
   "why": "28.7 min (recent 30.9, \u22121.2 back-to-back); \u00d7 0.827 pts+ast/min (73% this season's 0.869 over 8 games, 27% prior 0.739); context: home +1%, rest \u22122%, shared production on DAL +1%; calibration -0.0."
  },
  "Kyrie Irving|pra|401909956": {
-  "actual": null,
+  "actual": 39.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -72543,7 +72810,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:56 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -72564,6 +72832,10 @@
   ],
   "label": "lean",
   "line": 29.5,
+  "line_errs": {
+   "kalshi": 9.5,
+   "prizepicks": 9.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 29.5,
@@ -72585,6 +72857,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 11.9,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -72657,7 +72930,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -72668,7 +72941,7 @@
   "why": "28.7 min (recent 30.9, \u22121.2 back-to-back); \u00d7 0.949 pts+reb+ast/min (73% this season's 0.992 over 8 games, 27% prior 0.873); context: home +1%, rest \u22122%, shared production on DAL +1%; calibration -0.1."
  },
  "Kyrie Irving|pr|401909956": {
-  "actual": null,
+  "actual": 35.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -72691,11 +72964,15 @@
   "flip": null,
   "frozen_at": "2026-11-09 23:26 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 25.5,
+  "line_errs": {
+   "prizepicks": 9.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 25.5
@@ -72711,6 +72988,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 12.0,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -72778,7 +73056,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -72789,7 +73067,7 @@
   "why": "28.7 min (recent 30.9, \u22121.2 back-to-back); \u00d7 0.807 pts+reb/min (73% this season's 0.844 over 8 games, 27% prior 0.743); context: home +1%, rest \u22122%, shared production on DAL +1%; calibration -0.1."
  },
  "Kyrie Irving|pts|401909956": {
-  "actual": null,
+  "actual": 35.0,
   "adj": [
    "OVER chance -2.5 pts (pattern)"
   ],
@@ -72812,7 +73090,8 @@
   "flip": null,
   "frozen_at": "2026-11-09 23:23 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -72838,6 +73117,10 @@
   ],
   "label": "lean",
   "line": 21.5,
+  "line_errs": {
+   "fanduel": 13.5,
+   "kalshi": 15.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 21.5,
@@ -72859,6 +73142,7 @@
   "move": null,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 15.8,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -72926,7 +73210,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -72937,7 +73221,7 @@
   "why": "28.7 min (recent 30.9, \u22121.2 back-to-back); \u00d7 0.674 points/min (62% this season's 0.722 over 8 games, 38% prior 0.609); context: home +1%, rest \u22122%, shared production on DAL +1%; calibration -0.1."
  },
  "Kyrie Irving|ra|401909956": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -72957,11 +73241,15 @@
   "flip": null,
   "frozen_at": "2026-11-09 06:41 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.5
@@ -72977,6 +73265,7 @@
   "move": null,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 3.5,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -73043,7 +73332,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -73053,7 +73342,7 @@
   "why": "28.8 min (recent 30.9, \u22120.8 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.262 reb+ast/min (50% this season's 0.270 over 8 games, 50% prior 0.264); context: home +1%, rest \u22122%, shared production on DAL +1%; calibration -0.0."
  },
  "Kyrie Irving|reb|401909956": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -73076,7 +73365,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -73102,6 +73392,10 @@
   ],
   "label": "lean",
   "line": 4.0,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 4.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -73123,6 +73417,7 @@
   "move": null,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 3.6,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -73191,7 +73486,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -80619,6 +80914,7 @@
   "flip": null,
   "frozen_at": "2026-11-09 21:41 UTC",
   "game_id": 401909956,
+  "graded_at": "2026-11-10 03:43 UTC",
   "hit": null,
   "home": true,
   "kladder": null,
@@ -80693,13 +80989,14 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "void",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
   "var": 22.482,
+  "void_reason": "did not play",
   "why": "16.3 min (recent 18.2, \u22120.5 team-minutes adjustment); \u00d7 0.451 points/min (67% this season's 0.444 over 10 games, 33% prior 0.478); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +2%; calibration -0.1; listed Day-To-Day."
  },
  "Moussa Diabate|ast|401909953": {
@@ -81458,7 +81755,7 @@
   "why": "31.0 min (recent 28.2, +3.8 team-minutes adjustment with Kon Knueppel, Brandon Miller, Dennis Schroder out); \u00d7 0.321 rebounds/min (43% this season's 0.317 over 9 games, 57% prior 0.321); context: home +1%, rest +1%, opponent defense \u22121%, shared production on CHA \u22124%; calibration -0.0; listed Day-To-Day."
  },
  "Naji Marshall|ast|401909956": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4371,
@@ -81479,7 +81776,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:56 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -81500,6 +81798,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -81515,6 +81816,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 1.3,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -81559,7 +81861,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -81570,7 +81872,7 @@
   "why": "22.6 min (recent 23.4); \u00d7 0.142 assists/min (58% this season's 0.197 over 7 games, 42% prior 0.107); context: home +1%, rest \u22122%, shared production on DAL +2%."
  },
  "Naji Marshall|fg3m|401909956": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -81590,11 +81892,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:21 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 0.5
@@ -81610,6 +81916,7 @@
   "move": null,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 0.7,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -81654,7 +81961,7 @@
   },
   "src_key": "prizepicks",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -81664,7 +81971,7 @@
   "why": "22.6 min (recent 23.4); \u00d7 0.033 3-pointers made/min (70% this season's 0.040 over 7 games, 30% prior 0.032); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration -0.0."
  },
  "Naji Marshall|pa|401909956": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -81688,11 +81995,15 @@
   "flip": null,
   "frozen_at": "2026-11-09 23:51 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -81708,6 +82019,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "IND",
+  "our_err": 5.9,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -81751,7 +82063,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -81762,7 +82074,7 @@
   "why": "22.6 min (recent 23.4); \u00d7 0.612 pts+ast/min (70% this season's 0.676 over 7 games, 30% prior 0.609); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration -0.0."
  },
  "Naji Marshall|pra|401909956": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -81786,7 +82098,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -81797,6 +82110,10 @@
   ],
   "label": "lean",
   "line": 16.5,
+  "line_errs": {
+   "kalshi": 6.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 19.5,
@@ -81818,6 +82135,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 3.9,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -81862,7 +82180,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -81873,7 +82191,7 @@
   "why": "22.6 min (recent 23.4); \u00d7 0.746 pts+reb+ast/min (70% this season's 0.786 over 7 games, 30% prior 0.776); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration -0.1."
  },
  "Naji Marshall|pr|401909956": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -81893,11 +82211,15 @@
   "flip": null,
   "frozen_at": "2026-11-09 23:41 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -81913,6 +82235,7 @@
   "move": null,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 2.5,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -81956,7 +82279,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -81966,7 +82289,7 @@
   "why": "22.6 min (recent 23.4); \u00d7 0.597 pts+reb/min (70% this season's 0.590 over 7 games, 30% prior 0.668); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration -0.1."
  },
  "Naji Marshall|pts|401909956": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -81992,7 +82315,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -82013,6 +82337,10 @@
   ],
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -82034,6 +82362,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 4.5,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -82078,7 +82407,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -82089,7 +82418,7 @@
   "why": "22.6 min (recent 23.4); \u00d7 0.464 points/min (58% this season's 0.480 over 7 games, 42% prior 0.501); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration -0.1."
  },
  "Naji Marshall|ra|401909956": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -82109,11 +82438,15 @@
   "flip": null,
   "frozen_at": "2026-11-09 23:41 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 6.5
@@ -82129,6 +82462,7 @@
   "move": null,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 0.6,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -82172,7 +82506,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -82182,7 +82516,7 @@
   "why": "22.6 min (recent 23.4); \u00d7 0.279 reb+ast/min (47% this season's 0.306 over 7 games, 53% prior 0.275); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration -0.0."
  },
  "Naji Marshall|reb|401909956": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4774,
@@ -82208,7 +82542,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:36 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -82229,6 +82564,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -82244,6 +82582,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 1.7,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -82288,7 +82627,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -85594,7 +85933,7 @@
   "why": "32.9 min (recent 35.3); \u00d7 0.339 rebounds/min (40% this season's 0.282 over 8 games, 60% prior 0.354); context: pace vs HOU \u22121%, road \u22121%, opponent defense \u22122%; calibration -0.0; listed Day-To-Day."
  },
  "Obi Toppin|ast|401909956": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5075,
@@ -85616,7 +85955,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:51 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -85632,6 +85972,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -85647,6 +85990,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 2.4,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -85715,7 +86059,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -85726,7 +86070,7 @@
   "why": "20.3 min (recent 20.7, \u22120.4 team-minutes adjustment with Kobe Brown out); \u00d7 0.083 assists/min (58% this season's 0.058 over 7 games, 42% prior 0.098); context: road \u22121%, shared production on IND +2%."
  },
  "Obi Toppin|fg3m|401909956": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4874,
@@ -85747,7 +86091,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:56 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -85778,6 +86123,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -85793,6 +86141,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 2.0,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -85861,7 +86210,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -85872,7 +86221,7 @@
   "why": "20.3 min (recent 20.7, \u22120.4 team-minutes adjustment with Kobe Brown out); \u00d7 0.091 3-pointers made/min (70% this season's 0.090 over 7 games, 30% prior 0.072); context: road \u22121%, shared production on IND +6%; calibration -0.0."
  },
  "Obi Toppin|pra|401909956": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -85897,7 +86246,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -85913,6 +86263,10 @@
   ],
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 19.5,
@@ -85934,6 +86288,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "DAL",
+  "our_err": 4.8,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -86002,7 +86357,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -86013,7 +86368,7 @@
   "why": "20.3 min (recent 20.7, \u22120.4 team-minutes adjustment with Kobe Brown out); \u00d7 0.948 pts+reb+ast/min (70% this season's 0.923 over 7 games, 30% prior 0.875); context: road \u22121%, opponent defense +1%; calibration -0.1; injury news: +1.8 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Obi Toppin|pr|401909956": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -86037,11 +86392,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 16.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 16.5
@@ -86057,6 +86416,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "DAL",
+  "our_err": 7.3,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -86125,7 +86485,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -86136,7 +86496,7 @@
   "why": "20.3 min (recent 20.7, \u22120.4 team-minutes adjustment with Kobe Brown out); \u00d7 0.869 pts+reb/min (70% this season's 0.865 over 7 games, 30% prior 0.778); context: road \u22121%, opponent defense +1%; calibration -0.1; injury news: +1.9 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Obi Toppin|pts|401909956": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "OVER chance -2.5 pts (pattern)"
   ],
@@ -86159,7 +86519,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -86180,6 +86541,11 @@
   ],
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "fanduel": 1.5,
+   "kalshi": 0.5,
+   "prizepicks": 1.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 11.5,
@@ -86207,6 +86573,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 3.8,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -86275,7 +86642,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -86286,7 +86653,7 @@
   "why": "20.3 min (recent 20.7, \u22120.4 team-minutes adjustment with Kobe Brown out); \u00d7 0.625 points/min (58% this season's 0.622 over 7 games, 42% prior 0.561); context: road \u22121%, opponent defense +1%; calibration -0.1; injury news: +1.3 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Obi Toppin|reb|401909956": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -86309,7 +86676,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -86335,6 +86703,10 @@
   ],
   "label": "lean",
   "line": 4.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -86356,6 +86728,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 3.2,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -86424,7 +86797,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -88516,7 +88889,7 @@
   "why": "22.6 min (recent 22.7); \u00d7 0.230 rebounds/min (33% this season's 0.246 over 6 games, 67% prior 0.223); context: home +1%, shared production on PHX +4%; calibration -0.0."
  },
  "P.J. Washington|fg3m|401909956": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5772,
@@ -88537,7 +88910,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:31 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -88568,6 +88942,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -88583,6 +88960,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 0.3,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -88651,7 +89029,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -88662,7 +89040,7 @@
   "why": "28.5 min (recent 30.7, \u22121.2 back-to-back); \u00d7 0.060 3-pointers made/min (77% this season's 0.071 over 10 games, 23% prior 0.047); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration -0.0."
  },
  "P.J. Washington|pra|401909956": {
-  "actual": null,
+  "actual": 23.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -88686,11 +89064,15 @@
   "flip": null,
   "frozen_at": "2026-11-09 23:36 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 22.5
@@ -88706,6 +89088,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "IND",
+  "our_err": 2.6,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -88773,7 +89156,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -88784,7 +89167,7 @@
   "why": "28.5 min (recent 30.7, \u22121.2 back-to-back); \u00d7 0.712 pts+reb+ast/min (77% this season's 0.697 over 10 games, 23% prior 0.753); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration -0.1."
  },
  "P.J. Washington|pr|401909956": {
-  "actual": null,
+  "actual": 22.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -88808,11 +89191,15 @@
   "flip": null,
   "frozen_at": "2026-11-09 23:26 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 21.0,
+  "line_errs": {
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 21.0
@@ -88828,6 +89215,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "IND",
+  "our_err": 2.9,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -88895,7 +89283,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -88906,7 +89294,7 @@
   "why": "28.5 min (recent 30.7, \u22121.2 back-to-back); \u00d7 0.668 pts+reb/min (77% this season's 0.662 over 10 games, 23% prior 0.687); context: home +1%, rest \u22122%, opponent defense +1%; calibration -0.1."
  },
  "P.J. Washington|pts|401909956": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [
    "OVER chance -2.5 pts (pattern)"
   ],
@@ -88930,7 +89318,8 @@
   "flip": null,
   "frozen_at": "2026-11-09 23:23 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -88951,6 +89340,10 @@
   ],
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "fanduel": 1.5,
+   "kalshi": 1.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 14.5,
@@ -88972,6 +89365,7 @@
   "move": null,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 0.3,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -89039,7 +89433,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -89050,7 +89444,7 @@
   "why": "28.5 min (recent 30.7, \u22121.2 back-to-back); \u00d7 0.445 points/min (67% this season's 0.439 over 10 games, 33% prior 0.460); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration -0.1."
  },
  "P.J. Washington|ra|401909956": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -89073,11 +89467,15 @@
   "flip": null,
   "frozen_at": "2026-11-09 23:26 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.5
@@ -89093,6 +89491,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 2.2,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -89160,7 +89559,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -89171,7 +89570,7 @@
   "why": "28.5 min (recent 30.7, \u22121.2 back-to-back); \u00d7 0.274 reb+ast/min (56% this season's 0.258 over 10 games, 44% prior 0.293); context: home +1%, rest \u22122%, opponent defense +1%; calibration -0.0."
  },
  "P.J. Washington|reb|401909956": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -89195,7 +89594,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -89221,6 +89621,10 @@
   ],
   "label": "lean",
   "line": 7.0,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 2.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 7.5,
@@ -89242,6 +89646,7 @@
   "move": null,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 2.6,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -89312,7 +89717,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -89323,7 +89728,7 @@
   "why": "28.5 min (recent 30.7, \u22121.2 back-to-back); \u00d7 0.225 rebounds/min (45% this season's 0.223 over 10 games, 55% prior 0.227); context: home +1%, rest \u22122%, opponent defense +2%; calibration -0.0."
  },
  "Pascal Siakam|ast|401909956": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4168,
@@ -89345,7 +89750,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -89366,6 +89772,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 4.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -89381,6 +89790,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 4.2,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -89449,7 +89859,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -89460,7 +89870,7 @@
   "why": "31.2 min (recent 31.9, \u22120.7 team-minutes adjustment with Kobe Brown out); \u00d7 0.113 assists/min (64% this season's 0.122 over 9 games, 36% prior 0.108); context: road \u22121%, shared production on IND +2%; injury news: +0.2 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Pascal Siakam|fg3m|401909956": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4168,
@@ -89481,7 +89891,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -89512,6 +89923,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 3.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -89527,6 +89941,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 3.3,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -89595,7 +90010,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -89606,7 +90021,7 @@
   "why": "31.2 min (recent 31.9, \u22120.7 team-minutes adjustment with Kobe Brown out); \u00d7 0.045 3-pointers made/min (75% this season's 0.042 over 9 games, 25% prior 0.051); context: road \u22121%, shared production on IND +6%; calibration -0.0; injury news: +0.3 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Pascal Siakam|pa|401909956": {
-  "actual": null,
+  "actual": 37.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -89630,11 +90045,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 24.0,
+  "line_errs": {
+   "prizepicks": 13.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 24.0
@@ -89650,6 +90069,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "DAL",
+  "our_err": 11.4,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -89718,7 +90138,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -89729,7 +90149,7 @@
   "why": "31.2 min (recent 31.9, \u22120.7 team-minutes adjustment with Kobe Brown out); \u00d7 0.795 pts+ast/min (75% this season's 0.792 over 9 games, 25% prior 0.763); context: road \u22121%, opponent defense +1%; calibration -0.0; injury news: +0.8 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Pascal Siakam|pra|401909956": {
-  "actual": null,
+  "actual": 46.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -89754,7 +90174,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -89770,6 +90191,10 @@
   ],
   "label": "lean",
   "line": 30.5,
+  "line_errs": {
+   "kalshi": 16.5,
+   "prizepicks": 15.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 29.5,
@@ -89791,6 +90216,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "DAL",
+  "our_err": 13.8,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -89859,7 +90285,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -89870,7 +90296,7 @@
   "why": "31.2 min (recent 31.9, \u22120.7 team-minutes adjustment with Kobe Brown out); \u00d7 0.996 pts+reb+ast/min (75% this season's 0.997 over 9 games, 25% prior 0.967); context: road \u22121%, opponent defense +1%; calibration -0.1; injury news: +1.3 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Pascal Siakam|pr|401909956": {
-  "actual": null,
+  "actual": 38.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -89894,11 +90320,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 27.5,
+  "line_errs": {
+   "prizepicks": 10.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 27.5
@@ -89914,6 +90344,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "DAL",
+  "our_err": 9.6,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -89982,7 +90413,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -89993,7 +90424,7 @@
   "why": "31.2 min (recent 31.9, \u22120.7 team-minutes adjustment with Kobe Brown out); \u00d7 0.881 pts+reb/min (75% this season's 0.875 over 9 games, 25% prior 0.859); context: road \u22121%, opponent defense +1%; calibration -0.1; injury news: +1.1 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Pascal Siakam|pts|401909956": {
-  "actual": null,
+  "actual": 29.0,
   "adj": [
    "OVER chance -2.5 pts (pattern)"
   ],
@@ -90017,7 +90448,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -90048,6 +90480,11 @@
   ],
   "label": "lean",
   "line": 19.5,
+  "line_errs": {
+   "fanduel": 9.5,
+   "kalshi": 9.5,
+   "prizepicks": 8.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 19.5,
@@ -90075,6 +90512,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 7.3,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -90143,7 +90581,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -90154,7 +90592,7 @@
   "why": "31.2 min (recent 31.9, \u22120.7 team-minutes adjustment with Kobe Brown out); \u00d7 0.680 points/min (64% this season's 0.670 over 9 games, 36% prior 0.656); context: road \u22121%, opponent defense +1%; calibration -0.1; injury news: +0.6 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Pascal Siakam|ra|401909956": {
-  "actual": null,
+  "actual": 17.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -90177,11 +90615,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:39 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -90197,6 +90639,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 6.6,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -90265,7 +90708,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -90276,7 +90719,7 @@
   "why": "31.2 min (recent 31.9, \u22120.7 team-minutes adjustment with Kobe Brown out); \u00d7 0.313 reb+ast/min (53% this season's 0.326 over 9 games, 47% prior 0.311); context: road \u22121%; calibration -0.0; injury news: +0.7 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Pascal Siakam|reb|401909956": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -90300,7 +90743,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -90326,6 +90770,10 @@
   ],
   "label": "lean",
   "line": 6.0,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 3.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -90347,6 +90795,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DAL",
+  "our_err": 2.3,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -90415,7 +90864,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "IND",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -97457,7 +97906,7 @@
   "why": "21.0 min (recent 21.0); \u00d7 0.207 rebounds/min (65% this season's 0.188 over 11 games, 35% prior 0.229); context: pace vs ATL +1%, road \u22121%, rest \u22122%, opponent defense +2%, shared production on LAL \u22125%; calibration -0.0."
  },
  "Santi Aldama|fg3m|401909956": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6463,
@@ -97479,7 +97928,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:51 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -97505,6 +97955,9 @@
   ],
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 0.5
@@ -97520,6 +97973,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "IND",
+  "our_err": 0.1,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -97568,7 +98022,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -97579,7 +98033,7 @@
   "why": "13.9 min (recent 23.1, \u221215.0 team-minutes adjustment with Morez Johnson Jr. out; the model had him at 8.1, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.063 3-pointers made/min (57% this season's 0.071 over 2 games, 43% prior 0.062); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration +0.0."
  },
  "Santi Aldama|pra|401909956": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -97599,11 +98053,15 @@
   "flip": null,
   "frozen_at": "2026-11-09 23:43 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.5
@@ -97619,6 +98077,7 @@
   "move": null,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 0.2,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -97662,7 +98121,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -97672,7 +98131,7 @@
   "why": "13.9 min (recent 23.1, \u221215.0 team-minutes adjustment with Morez Johnson Jr. out; the model had him at 8.1, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 1.036 pts+reb+ast/min (57% this season's 1.143 over 2 games, 43% prior 0.836); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration +0.3."
  },
  "Santi Aldama|pr|401909956": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -97692,11 +98151,15 @@
   "flip": null,
   "frozen_at": "2026-11-09 21:41 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -97712,6 +98175,7 @@
   "move": null,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 5.0,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -97766,7 +98230,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -97776,7 +98240,7 @@
   "why": "19.8 min (recent 23.1, \u221223.1 team-minutes adjustment; the team-minutes cap had him at 0.0, but a book posted a line on him, so he's floored at 80% of his recent minutes); \u00d7 0.946 pts+reb/min (57% this season's 1.107 over 2 games, 43% prior 0.730); context: home +1%, rest \u22122%, opponent defense +1%; calibration +0.2."
  },
  "Santi Aldama|pts|401909956": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "chance pulled toward 50% (keeps 7% of our lean on PrizePicks lines, pattern)"
   ],
@@ -97800,7 +98264,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -97816,6 +98281,10 @@
   ],
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -97837,6 +98306,7 @@
   "move": null,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 1.5,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -97885,7 +98355,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
@@ -97896,7 +98366,7 @@
   "why": "13.9 min (recent 23.1, \u221215.0 team-minutes adjustment with Morez Johnson Jr. out; the model had him at 8.1, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.593 points/min (44% this season's 0.714 over 2 games, 56% prior 0.494); context: home +1%, rest \u22122%, opponent defense +1%, shared production on DAL +1%; calibration +0.1."
  },
  "Santi Aldama|reb|401909956": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [
    "no stake yet: picks like this are 21/44 (48%); a stake needs 30+ graded at 56%+ (2 points over the 54% their prices need)"
   ],
@@ -97920,7 +98390,8 @@
   "flip": null,
   "frozen_at": "2026-11-10 00:46 UTC",
   "game_id": 401909956,
-  "hit": null,
+  "graded_at": "2026-11-10 03:43 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -97941,6 +98412,10 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -97962,6 +98437,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "IND",
+  "our_err": 0.3,
   "out_ctx": [
    "Ben Sheppard",
    "Dereck Lively II",
@@ -98006,7 +98482,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "DAL",
   "tier": "1-4 games this season",
   "tip_utc": "2026-11-10T01:00:00+00:00",
