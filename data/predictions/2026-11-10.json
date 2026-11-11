@@ -2035,7 +2035,7 @@
   "why": "33.0 min (recent 31.1, +2.7 team-minutes adjustment with Keyonte George, Lauri Markkanen out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.172 rebounds/min (45% this season's 0.212 over 10 games, 55% prior 0.149); context: pace vs MIA +1%, home +1%, opponent defense +1%, shared production on UTA +2%; calibration -0.0."
  },
  "Aday Mara|ast|401909965": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4371,
@@ -2056,7 +2056,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:56 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -2077,6 +2078,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -2092,6 +2096,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.4,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -2139,7 +2144,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -2150,7 +2155,7 @@
   "why": "22.6 min (recent 22.7); \u00d7 0.071 assists/min (67% this season's 0.066 over 10 games, 33% prior 0.085); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +2%; calibration -0.0."
  },
  "Aday Mara|pa|401909965": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [
    "chance pulled toward 50% (keeps 14% of our lean on PrizePicks lines, pattern)"
   ],
@@ -2173,11 +2178,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:01 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -2193,6 +2202,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.4,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -2237,7 +2247,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -2248,7 +2258,7 @@
   "why": "22.6 min (recent 22.7); \u00d7 0.499 pts+ast/min (77% this season's 0.475 over 10 games, 23% prior 0.553); context: road \u22121%, rest +1%, opponent defense +1%, shared production on OKC +3%; calibration -0.1."
  },
  "Aday Mara|pra|401909965": {
-  "actual": null,
+  "actual": 22.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.5 pts (pattern)",
@@ -2273,7 +2283,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:56 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -2289,6 +2300,10 @@
   ],
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "kalshi": 7.5,
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 14.5,
@@ -2310,6 +2325,7 @@
   "move": -3.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 3.6,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -2381,7 +2397,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -2392,7 +2408,7 @@
   "why": "22.6 min (recent 22.7); \u00d7 0.801 pts+reb+ast/min (77% this season's 0.773 over 10 games, 23% prior 0.859); context: road \u22121%, rest +1%, shared production on OKC +2%; calibration -0.1."
  },
  "Aday Mara|pr|401909965": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -2415,11 +2431,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.5
@@ -2435,6 +2455,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 3.2,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -2506,7 +2527,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -2517,7 +2538,7 @@
   "why": "22.6 min (recent 22.7); \u00d7 0.732 pts+reb/min (77% this season's 0.707 over 10 games, 23% prior 0.774); context: road \u22121%, rest +1%, shared production on OKC +2%; calibration -0.1."
  },
  "Aday Mara|pts|401909965": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5145631067961165,
@@ -2538,7 +2559,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -2559,6 +2581,10 @@
   ],
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "fanduel": 1.5,
+   "kalshi": 0.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 8.5,
@@ -2580,6 +2606,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.1,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -2651,7 +2678,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -2662,7 +2689,7 @@
   "why": "22.6 min (recent 22.7); \u00d7 0.435 points/min (67% this season's 0.409 over 10 games, 33% prior 0.468); context: road \u22121%, rest +1%, opponent defense +1%, shared production on OKC +3%; calibration -0.1."
  },
  "Aday Mara|ra|401909965": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -2685,11 +2712,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:36 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.5
@@ -2705,6 +2736,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 3.5,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -2776,7 +2808,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -2787,7 +2819,7 @@
   "why": "22.6 min (recent 22.7); \u00d7 0.376 reb+ast/min (56% this season's 0.364 over 10 games, 44% prior 0.391); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +1%; calibration -0.0."
  },
  "Aday Mara|reb|401909965": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -2811,7 +2843,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -2842,6 +2875,10 @@
   ],
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "kalshi": 4.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -2863,6 +2900,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 3.1,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -2936,7 +2974,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -2947,7 +2985,7 @@
   "why": "22.6 min (recent 22.7); \u00d7 0.305 rebounds/min (45% this season's 0.298 over 10 games, 55% prior 0.306); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +1%; calibration -0.0."
  },
  "Ajay Mitchell|ast|401909965": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5673,
@@ -2968,7 +3006,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -2994,6 +3033,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -3009,6 +3051,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.0,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -3080,7 +3123,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -3091,7 +3134,7 @@
   "why": "25.3 min (recent 25.5); \u00d7 0.129 assists/min (67% this season's 0.121 over 10 games, 33% prior 0.134); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on OKC +2%; calibration -0.0; injury news: -0.3 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Ajay Mitchell|fg3m|401909965": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6952,
@@ -3112,7 +3155,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:56 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -3138,6 +3182,9 @@
   ],
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 0.5
@@ -3153,6 +3200,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 0.8,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -3224,7 +3272,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -3235,7 +3283,7 @@
   "why": "25.3 min (recent 25.5); \u00d7 0.036 3-pointers made/min (77% this season's 0.033 over 10 games, 23% prior 0.045); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on OKC +12%; injury news: -0.2 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Ajay Mitchell|pa|401909965": {
-  "actual": null,
+  "actual": 17.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -3258,11 +3306,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 23.5
@@ -3278,6 +3330,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 2.4,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -3349,7 +3402,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -3360,7 +3413,7 @@
   "why": "25.3 min (recent 25.5); \u00d7 0.749 pts+ast/min (77% this season's 0.816 over 10 games, 23% prior 0.633); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +3%; calibration -0.1; injury news: +0.1 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Ajay Mitchell|pra|401909965": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.5 pts (pattern)",
@@ -3386,7 +3439,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -3407,6 +3461,10 @@
   ],
   "label": "lean",
   "line": 26.5,
+  "line_errs": {
+   "kalshi": 9.5,
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 29.5,
@@ -3428,6 +3486,7 @@
   "move": -1.0,
   "move_dir": "agree",
   "opp": "POR",
+  "our_err": 2.5,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -3499,7 +3558,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -3510,7 +3569,7 @@
   "why": "25.3 min (recent 25.5); \u00d7 0.883 pts+reb+ast/min (77% this season's 0.952 over 10 games, 23% prior 0.761); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +2%; calibration -0.1."
  },
  "Ajay Mitchell|pr|401909965": {
-  "actual": null,
+  "actual": 17.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -3533,11 +3592,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 23.5
@@ -3553,6 +3616,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 2.6,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -3624,7 +3688,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -3635,7 +3699,7 @@
   "why": "25.3 min (recent 25.5); \u00d7 0.755 pts+reb/min (77% this season's 0.831 over 10 games, 23% prior 0.627); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +2%; calibration -0.1; injury news: +0.2 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Ajay Mitchell|pts|401909965": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5192307692307693,
@@ -3657,7 +3721,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -3688,6 +3753,11 @@
   ],
   "label": "lean",
   "line": 19.5,
+  "line_errs": {
+   "fanduel": 5.5,
+   "kalshi": 5.5,
+   "prizepicks": 5.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 19.5,
@@ -3715,6 +3785,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 2.0,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -3788,7 +3859,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -3799,7 +3870,7 @@
   "why": "25.3 min (recent 25.5); \u00d7 0.607 points/min (67% this season's 0.695 over 10 games, 33% prior 0.499); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +3%; calibration -0.1; injury news: +0.4 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Ajay Mitchell|ra|401909965": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "chance pulled toward 50% (keeps 14% of our lean on PrizePicks lines, pattern)"
   ],
@@ -3822,11 +3893,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:03 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.5
@@ -3842,6 +3917,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.2,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -3913,7 +3989,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -3924,7 +4000,7 @@
   "why": "25.3 min (recent 25.5); \u00d7 0.263 reb+ast/min (56% this season's 0.257 over 10 games, 44% prior 0.262); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on OKC +2%; calibration -0.0; injury news: -0.5 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Ajay Mitchell|reb|401909965": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -3948,7 +4024,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -3974,6 +4051,10 @@
   ],
   "label": "lean",
   "line": 4.0,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -3995,6 +4076,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.1,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -4066,7 +4148,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -4077,7 +4159,7 @@
   "why": "25.3 min (recent 25.5); \u00d7 0.132 rebounds/min (45% this season's 0.136 over 10 games, 55% prior 0.128); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on OKC +1%; calibration -0.0; injury news: -0.2 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Alex Caruso|ast|401909965": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6463,
@@ -4098,7 +4180,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -4119,6 +4202,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -4134,6 +4220,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 1.4,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -4205,7 +4292,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -4216,7 +4303,7 @@
   "why": "16.3 min (recent 16.3); \u00d7 0.144 assists/min (58% this season's 0.178 over 7 games, 42% prior 0.118); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on OKC +2%; calibration -0.0."
  },
  "Alex Caruso|fg3m|401909965": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3965,
@@ -4237,7 +4324,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -4263,6 +4351,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -4278,6 +4369,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.1,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -4349,7 +4441,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -4360,7 +4452,7 @@
   "why": "16.3 min (recent 16.3); \u00d7 0.066 3-pointers made/min (70% this season's 0.078 over 7 games, 30% prior 0.055); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on OKC +12%; injury news: -0.3 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Alex Caruso|pa|401909965": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -4383,11 +4475,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:31 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -4403,6 +4499,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 1.7,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -4474,7 +4571,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -4485,7 +4582,7 @@
   "why": "16.3 min (recent 16.3); \u00d7 0.514 pts+ast/min (70% this season's 0.558 over 7 games, 30% prior 0.486); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +3%; calibration -0.1; injury news: -0.7 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Alex Caruso|pra|401909965": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.5 pts (pattern)"
@@ -4510,11 +4607,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.5
@@ -4530,6 +4631,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 3.0,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -4601,7 +4703,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -4612,7 +4714,7 @@
   "why": "16.3 min (recent 16.3); \u00d7 0.715 pts+reb+ast/min (70% this season's 0.806 over 7 games, 30% prior 0.635); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +2%; calibration -0.1; injury news: -0.6 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Alex Caruso|pr|401909965": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "chance pulled toward 50% (keeps 14% of our lean on PrizePicks lines, pattern)"
   ],
@@ -4635,11 +4737,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:03 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 10.0,
+  "line_errs": {
+   "prizepicks": 3.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.0
@@ -4655,6 +4761,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 1.6,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -4726,7 +4833,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -4737,7 +4844,7 @@
   "why": "16.3 min (recent 16.3); \u00d7 0.566 pts+reb/min (70% this season's 0.628 over 7 games, 30% prior 0.517); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +2%; calibration -0.1; injury news: -0.7 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Alex Caruso|pts|401909965": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5689655172413793,
@@ -4758,11 +4865,16 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "fanduel": 0.5,
+   "prizepicks": 1.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 5.5,
@@ -4784,6 +4896,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.2,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -4855,7 +4968,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -4866,7 +4979,7 @@
   "why": "16.3 min (recent 16.3); \u00d7 0.364 points/min (58% this season's 0.380 over 7 games, 42% prior 0.368); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +3%; calibration -0.1; injury news: -0.8 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Alex Caruso|ra|401909965": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "chance pulled toward 50% (keeps 14% of our lean on PrizePicks lines, pattern)"
   ],
@@ -4889,11 +5002,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:03 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 5.5
@@ -4909,6 +5026,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 2.4,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -4980,7 +5098,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -4991,7 +5109,7 @@
   "why": "16.3 min (recent 16.3); \u00d7 0.324 reb+ast/min (47% this season's 0.426 over 7 games, 53% prior 0.267); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on OKC +2%; calibration -0.0; injury news: +0.1 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Alex Caruso|reb|401909965": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [
    "no stake yet: picks like this are 27/53 (51%); a stake needs 30+ graded at 56%+ (2 points over the 54% their prices need)"
   ],
@@ -5015,7 +5133,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -5041,6 +5160,10 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -5062,6 +5185,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 1.0,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -5139,7 +5263,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -10120,7 +10244,7 @@
   "why": "32.6 min (recent 33.7, \u22120.9 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.286 rebounds/min (45% this season's 0.256 over 10 games, 55% prior 0.300); context: pace vs UTA +1%, road \u22121%, opponent defense \u22121%, shared production on MIA +1%; calibration -0.0."
  },
  "Bennett Stirtz|fg3m|401909965": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4673,
@@ -10142,7 +10266,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:56 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -10173,6 +10298,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -10188,6 +10316,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.1,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -10261,7 +10390,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -10272,7 +10401,7 @@
   "why": "22.6 min (recent 22.7); \u00d7 0.085 3-pointers made/min (77% this season's 0.089 over 10 games, 23% prior 0.065); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on OKC +12%."
  },
  "Bennett Stirtz|pra|401909965": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.5 pts (pattern)"
@@ -10296,11 +10425,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:31 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -10316,6 +10449,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 1.4,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -10387,7 +10521,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -10398,7 +10532,7 @@
   "why": "22.6 min (recent 22.7); \u00d7 0.599 pts+reb+ast/min (77% this season's 0.556 over 10 games, 23% prior 0.751); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +2%; calibration -0.1."
  },
  "Bennett Stirtz|pts|401909965": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5,
@@ -10420,7 +10554,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -10436,6 +10571,11 @@
   ],
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "fanduel": 5.5,
+   "kalshi": 3.5,
+   "prizepicks": 6.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 7.5,
@@ -10463,6 +10603,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 2.8,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -10536,7 +10677,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -10547,7 +10688,7 @@
   "why": "22.6 min (recent 22.7); \u00d7 0.445 points/min (67% this season's 0.422 over 10 games, 33% prior 0.483); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +3%; calibration -0.1."
  },
  "Bennett Stirtz|reb|401909965": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -10567,11 +10708,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 1.5
@@ -10587,6 +10732,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 1.2,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -10622,7 +10768,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -16039,7 +16185,7 @@
   "why": "23.9 min (recent 24.8, \u22120.5 team-minutes adjustment with Pat Spencer out); \u00d7 0.126 rebounds/min (43% this season's 0.091 over 9 games, 57% prior 0.144); context: home +1%, rest \u22122%, opponent defense \u22121%, shared production on PHX +5%; calibration -0.0."
  },
  "Damian Lillard|ast|401909965": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -16062,7 +16208,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -16088,6 +16235,10 @@
   ],
   "label": "lean",
   "line": 4.0,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -16109,6 +16260,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 1.3,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -16180,7 +16332,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -16191,7 +16343,7 @@
   "why": "27.8 min (recent 28.2); \u00d7 0.156 assists/min (64% this season's 0.151 over 9 games, 36% prior 0.174); context: home +1%, rest +1%, opponent defense \u22122%, shared production on POR \u22121%; calibration -0.0."
  },
  "Damian Lillard|fg3m|401909965": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6267,
@@ -16212,7 +16364,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:56 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -16248,6 +16401,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -16263,6 +16419,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 1.5,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -16334,7 +16491,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -16345,7 +16502,7 @@
   "why": "27.8 min (recent 28.2); \u00d7 0.092 3-pointers made/min (75% this season's 0.094 over 9 games, 25% prior 0.085); context: home +1%, rest +1%, opponent defense +1%, shared production on POR \u22126%."
  },
  "Damian Lillard|pa|401909965": {
-  "actual": null,
+  "actual": 28.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -16368,11 +16525,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 23.5
@@ -16388,6 +16549,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 5.8,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -16459,7 +16621,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -16470,7 +16632,7 @@
   "why": "27.8 min (recent 28.2); \u00d7 0.809 pts+ast/min (75% this season's 0.811 over 9 games, 25% prior 0.794); context: home +1%, rest +1%, opponent defense \u22122%, shared production on POR \u22121%; calibration -0.1."
  },
  "Damian Lillard|pra|401909965": {
-  "actual": null,
+  "actual": 31.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.5 pts (pattern)"
@@ -16494,7 +16656,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -16520,6 +16683,10 @@
   ],
   "label": "lean",
   "line": 27.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 29.5,
@@ -16541,6 +16708,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 5.6,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -16612,7 +16780,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -16623,7 +16791,7 @@
   "why": "27.8 min (recent 28.2); \u00d7 0.927 pts+reb+ast/min (75% this season's 0.921 over 9 games, 25% prior 0.926); context: home +1%, rest +1%, opponent defense \u22121%, shared production on POR \u22122%; calibration -0.1."
  },
  "Damian Lillard|pr|401909965": {
-  "actual": null,
+  "actual": 28.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -16646,11 +16814,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 22.5
@@ -16666,6 +16838,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 6.9,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -16737,7 +16910,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -16748,7 +16921,7 @@
   "why": "27.8 min (recent 28.2); \u00d7 0.773 pts+reb/min (75% this season's 0.770 over 9 games, 25% prior 0.752); context: home +1%, rest +1%, opponent defense \u22121%, shared production on POR \u22122%; calibration -0.1."
  },
  "Damian Lillard|pts|401909965": {
-  "actual": null,
+  "actual": 25.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.504950495049505,
@@ -16770,7 +16943,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -16801,6 +16975,11 @@
   ],
   "label": "lean",
   "line": 19.5,
+  "line_errs": {
+   "fanduel": 5.5,
+   "kalshi": 5.5,
+   "prizepicks": 6.0
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 19.5,
@@ -16828,6 +17007,7 @@
   "move": null,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 7.2,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -16899,7 +17079,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -16910,7 +17090,7 @@
   "why": "27.8 min (recent 28.2); \u00d7 0.651 points/min (64% this season's 0.660 over 9 games, 36% prior 0.620); context: home +1%, rest +1%, opponent defense \u22122%, shared production on POR \u22121%; calibration -0.1."
  },
  "Damian Lillard|ra|401909965": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -16933,11 +17113,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 8.0,
+  "line_errs": {
+   "prizepicks": 2.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.0
@@ -16953,6 +17137,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 1.7,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -17024,7 +17209,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -17035,7 +17220,7 @@
   "why": "27.8 min (recent 28.2); \u00d7 0.281 reb+ast/min (53% this season's 0.260 over 9 games, 47% prior 0.305); context: home +1%, rest +1%, opponent defense \u22121%, shared production on POR \u22123%; calibration -0.0."
  },
  "Damian Lillard|reb|401909965": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -17056,7 +17241,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -17082,6 +17268,10 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -17103,6 +17293,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 0.3,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -17174,7 +17365,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -23155,7 +23346,7 @@
   "why": "20.7 min (recent 21.6, \u22120.9 team-minutes adjustment with Adem Bona out); \u00d7 0.160 rebounds/min (60% this season's 0.126 over 9 games, 40% prior 0.192); context: pace vs BOS \u22121%, home +1%, shared production on PHI +2%; calibration -0.0."
  },
  "Deni Avdija|ast|401909965": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -23179,7 +23370,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -23205,6 +23397,10 @@
   ],
   "label": "lean",
   "line": 6.0,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 2.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -23226,6 +23422,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 2.1,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -23299,7 +23496,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -23310,7 +23507,7 @@
   "why": "30.0 min (recent 30.5); \u00d7 0.189 assists/min (64% this season's 0.197 over 9 games, 36% prior 0.166); context: home +1%, rest +1%, shared production on POR \u22121%; calibration -0.0; injury news: +0.2 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Deni Avdija|fg3m|401909965": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5872,
@@ -23331,7 +23528,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -23362,6 +23560,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -23377,6 +23578,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 0.4,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -23448,7 +23650,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -23459,7 +23661,7 @@
   "why": "30.0 min (recent 30.5); \u00d7 0.056 3-pointers made/min (75% this season's 0.052 over 9 games, 25% prior 0.057); context: home +1%, rest +1%, opponent defense +2%, shared production on POR \u22126%."
  },
  "Deni Avdija|pa|401909965": {
-  "actual": null,
+  "actual": 32.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -23482,11 +23684,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 27.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 27.5
@@ -23502,6 +23708,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 4.3,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -23573,7 +23780,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -23584,7 +23791,7 @@
   "why": "30.0 min (recent 30.5); \u00d7 0.883 pts+ast/min (75% this season's 0.893 over 9 games, 25% prior 0.814); context: home +1%, rest +1%, shared production on POR \u22121%; calibration -0.1; injury news: +1.2 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Deni Avdija|pra|401909965": {
-  "actual": null,
+  "actual": 38.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.5 pts (pattern)"
@@ -23609,7 +23816,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -23635,6 +23843,10 @@
   ],
   "label": "lean",
   "line": 35.5,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 34.5,
@@ -23656,6 +23868,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 3.9,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -23727,7 +23940,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -23738,7 +23951,7 @@
   "why": "30.0 min (recent 30.5); \u00d7 1.087 pts+reb+ast/min (75% this season's 1.093 over 9 games, 25% prior 1.029); context: home +1%, rest +1%, shared production on POR \u22122%; calibration -0.1; injury news: +1.5 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Deni Avdija|pr|401909965": {
-  "actual": null,
+  "actual": 30.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -23761,11 +23974,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 28.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 28.5
@@ -23781,6 +23998,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 1.9,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -23852,7 +24070,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -23863,7 +24081,7 @@
   "why": "30.0 min (recent 30.5); \u00d7 0.896 pts+reb/min (75% this season's 0.896 over 9 games, 25% prior 0.863); context: home +1%, rest +1%, shared production on POR \u22122%; calibration -0.1; injury news: +1.4 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Deni Avdija|pts|401909965": {
-  "actual": null,
+  "actual": 24.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5192307692307693,
@@ -23884,7 +24102,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -23910,6 +24129,11 @@
   ],
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "fanduel": 1.5,
+   "kalshi": 4.5,
+   "prizepicks": 3.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 22.5,
@@ -23937,6 +24161,7 @@
   "move": null,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 2.4,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -24008,7 +24233,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -24019,7 +24244,7 @@
   "why": "30.0 min (recent 30.5); \u00d7 0.688 points/min (64% this season's 0.696 over 9 games, 36% prior 0.648); context: home +1%, rest +1%, shared production on POR \u22121%; calibration -0.1; injury news: +1.1 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Deni Avdija|ra|401909965": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -24042,11 +24267,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -24062,6 +24291,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 1.7,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -24133,7 +24363,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -24144,7 +24374,7 @@
   "why": "30.0 min (recent 30.5); \u00d7 0.392 reb+ast/min (53% this season's 0.398 over 9 games, 47% prior 0.381); context: home +1%, rest +1%, opponent defense +2%, shared production on POR \u22123%; calibration -0.0; injury news: +0.5 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Deni Avdija|reb|401909965": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -24168,7 +24398,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -24199,6 +24430,10 @@
   ],
   "label": "lean",
   "line": 7.0,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 7.5,
@@ -24220,6 +24455,7 @@
   "move": null,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 0.4,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -24293,7 +24529,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -30807,7 +31043,7 @@
   "why": "28.8 min (recent 32.3, \u22120.4 team-minutes adjustment); \u00d7 0.383 rebounds/min (43% this season's 0.409 over 9 games, 57% prior 0.352); context: home +1%, opponent defense \u22121%; calibration -0.0; injury news: -0.3 with Jonathan Mogbo ruled out today (half of how he's actually played without him)."
  },
  "Donovan Clingan|ast|401909965": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5574,
@@ -30828,7 +31064,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -30849,6 +31086,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -30864,6 +31104,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 1.1,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -30935,7 +31176,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -30946,7 +31187,7 @@
   "why": "23.5 min (recent 24.8); \u00d7 0.065 assists/min (64% this season's 0.054 over 9 games, 36% prior 0.074); context: home +1%, rest +1%, opponent defense \u22122%, shared production on POR \u22121%; calibration -0.0; injury news: +0.4 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Donovan Clingan|fg3m|401909965": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6561,
@@ -30967,7 +31208,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -30993,6 +31235,9 @@
   ],
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 0.5
@@ -31008,6 +31253,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 0.2,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -31079,7 +31325,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -31090,7 +31336,7 @@
   "why": "24.4 min (recent 24.8); \u00d7 0.041 3-pointers made/min (75% this season's 0.045 over 9 games, 25% prior 0.032); context: home +1%, rest +1%, opponent defense \u22121%, shared production on POR \u22126%; injury news: -0.2 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Donovan Clingan|pa|401909965": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -31113,11 +31359,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.5
@@ -31133,6 +31383,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 2.5,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -31204,7 +31455,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -31215,7 +31466,7 @@
   "why": "24.4 min (recent 24.8); \u00d7 0.520 pts+ast/min (75% this season's 0.534 over 9 games, 25% prior 0.498); context: home +1%, rest +1%, opponent defense \u22122%, shared production on POR \u22121%; calibration -0.1; injury news: +0.1 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Donovan Clingan|pra|401909965": {
-  "actual": null,
+  "actual": 23.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.5 pts (pattern)",
@@ -31241,7 +31492,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -31262,6 +31514,10 @@
   ],
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 24.5,
@@ -31283,6 +31539,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 0.1,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -31358,7 +31615,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -31369,7 +31626,7 @@
   "why": "24.4 min (recent 24.8); \u00d7 0.928 pts+reb+ast/min (75% this season's 0.937 over 9 games, 25% prior 0.904); context: home +1%, rest +1%, opponent defense \u22122%, shared production on POR \u22123%; calibration -0.1; injury news: +1.2 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Donovan Clingan|pr|401909965": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -31393,11 +31650,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 21.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 21.5
@@ -31413,6 +31674,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 1.0,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -31484,7 +31746,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -31495,7 +31757,7 @@
   "why": "24.4 min (recent 24.8); \u00d7 0.864 pts+reb/min (75% this season's 0.883 over 9 games, 25% prior 0.830); context: home +1%, rest +1%, opponent defense \u22123%, shared production on POR \u22123%; calibration -0.1; injury news: +0.8 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Donovan Clingan|pts|401909965": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5689655172413793,
@@ -31517,7 +31779,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -31538,6 +31801,11 @@
   ],
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "fanduel": 3.5,
+   "kalshi": 2.5,
+   "prizepicks": 4.0
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 10.5,
@@ -31565,6 +31833,7 @@
   "move": null,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 3.4,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -31636,7 +31905,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -31647,7 +31916,7 @@
   "why": "24.4 min (recent 24.8); \u00d7 0.453 points/min (64% this season's 0.480 over 9 games, 36% prior 0.424); context: home +1%, rest +1%, opponent defense \u22123%, shared production on POR \u22121%; calibration -0.1; injury news: -0.3 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Donovan Clingan|ra|401909965": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -31671,11 +31940,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.5
@@ -31691,6 +31964,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 3.6,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -31762,7 +32036,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -31773,7 +32047,7 @@
   "why": "24.4 min (recent 24.8); \u00d7 0.474 reb+ast/min (53% this season's 0.457 over 9 games, 47% prior 0.480); context: home +1%, rest +1%, opponent defense \u22122%, shared production on POR \u22125%; calibration -0.0; injury news: +1.4 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Donovan Clingan|reb|401909965": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -31798,7 +32072,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -31834,6 +32109,10 @@
   ],
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -31855,6 +32134,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 2.6,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -31926,7 +32206,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -35370,7 +35650,7 @@
   "why": "19.3 min (recent 18.0, +1.6 team-minutes adjustment with Keyonte George, Lauri Markkanen out); \u00d7 0.151 rebounds/min (45% this season's 0.218 over 10 games, 55% prior 0.113); context: pace vs MIA +1%, home +1%, opponent defense +1%, shared production on UTA +2%; calibration -0.0."
  },
  "Isaiah Hartenstein|ast|401909965": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -35394,7 +35674,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -35420,6 +35701,10 @@
   ],
   "label": "lean",
   "line": 4.0,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -35441,6 +35726,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 1.4,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -35512,7 +35798,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -35523,7 +35809,7 @@
   "why": "21.9 min (recent 22.0); \u00d7 0.142 assists/min (67% this season's 0.136 over 10 games, 33% prior 0.132); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +2%; calibration -0.0; injury news: +0.5 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Isaiah Hartenstein|pa|401909965": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -35546,11 +35832,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:31 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -35566,6 +35856,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 1.4,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -35637,7 +35928,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -35648,7 +35939,7 @@
   "why": "21.9 min (recent 22.0); \u00d7 0.469 pts+ast/min (77% this season's 0.421 over 10 games, 23% prior 0.534); context: road \u22121%, rest +1%, opponent defense +1%, shared production on OKC +3%; calibration -0.1."
  },
  "Isaiah Hartenstein|pra|401909965": {
-  "actual": null,
+  "actual": 21.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.5 pts (pattern)"
@@ -35673,7 +35964,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -35699,6 +35991,10 @@
   ],
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 24.5,
@@ -35720,6 +36016,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 0.8,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -35791,7 +36088,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -35802,7 +36099,7 @@
   "why": "21.9 min (recent 22.0); \u00d7 0.872 pts+reb+ast/min (77% this season's 0.839 over 10 games, 23% prior 0.907); context: road \u22121%, rest +1%, shared production on OKC +2%; calibration -0.1; injury news: +0.8 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Isaiah Hartenstein|pr|401909965": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -35825,11 +36122,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:31 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 19.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 19.5
@@ -35845,6 +36146,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 0.6,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -35916,7 +36218,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -35927,7 +36229,7 @@
   "why": "21.9 min (recent 22.0); \u00d7 0.729 pts+reb/min (77% this season's 0.702 over 10 games, 23% prior 0.775); context: road \u22121%, rest +1%, shared production on OKC +2%; calibration -0.1; injury news: +0.4 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Isaiah Hartenstein|pts|401909965": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5,
@@ -35949,7 +36251,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -35970,6 +36273,11 @@
   ],
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "fanduel": 2.5,
+   "kalshi": 2.5,
+   "prizepicks": 1.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 9.5,
@@ -35997,6 +36305,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.1,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -36070,7 +36379,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -36081,7 +36390,7 @@
   "why": "21.9 min (recent 22.0); \u00d7 0.335 points/min (67% this season's 0.285 over 10 games, 33% prior 0.402); context: road \u22121%, rest +1%, opponent defense +1%, shared production on OKC +3%; calibration -0.1; injury news: -0.4 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Isaiah Hartenstein|ra|401909965": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [
    "chance pulled toward 50% (keeps 14% of our lean on PrizePicks lines, pattern)"
   ],
@@ -36104,11 +36413,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:03 UTC",
   "game_id": 401909965,
+  "graded_at": "2026-11-11 06:40 UTC",
   "hit": null,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 14.0,
+  "line_errs": {
+   "prizepicks": 0.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.0
@@ -36124,6 +36437,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 1.0,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -36195,7 +36509,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "push",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -36206,7 +36520,7 @@
   "why": "21.9 min (recent 22.0); \u00d7 0.539 reb+ast/min (56% this season's 0.554 over 10 games, 44% prior 0.505); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +2%; calibration -0.0; injury news: +1.2 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Isaiah Hartenstein|reb|401909965": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -36230,7 +36544,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -36261,6 +36576,10 @@
   ],
   "label": "lean",
   "line": 10.0,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -36282,6 +36601,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.4,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -36355,7 +36675,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -40504,7 +40824,7 @@
   "why": "24.9 min (recent 24.1, +0.8 team-minutes adjustment with Tristan da Silva out); \u00d7 0.170 rebounds/min (43% this season's 0.160 over 9 games, 57% prior 0.171); context: road \u22121%, rest +1%, opponent defense +1%, shared production on ORL +2%; calibration -0.0."
  },
  "Jared McCain|ast|401909965": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -40526,7 +40846,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:56 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -40547,6 +40868,10 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 1.5,
@@ -40568,6 +40893,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 1.4,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -40639,7 +40965,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -40650,7 +40976,7 @@
   "why": "22.9 min (recent 23.0); \u00d7 0.076 assists/min (80% this season's 0.067 over 10 games, 20% prior 0.090); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on OKC +2%; calibration -0.0; injury news: -0.2 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Jared McCain|fg3m|401909965": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6267,
@@ -40671,7 +40997,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:56 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -40702,6 +41029,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -40717,6 +41047,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 2.0,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -40788,7 +41119,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -40799,7 +41130,7 @@
   "why": "22.9 min (recent 23.0); \u00d7 0.075 3-pointers made/min (87% this season's 0.067 over 10 games, 13% prior 0.082); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on OKC +12%; injury news: +0.1 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Jared McCain|pa|401909965": {
-  "actual": null,
+  "actual": 24.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -40822,11 +41153,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:31 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "prizepicks": 9.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.5
@@ -40842,6 +41177,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 11.5,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -40913,7 +41249,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -40924,7 +41260,7 @@
   "why": "22.9 min (recent 23.0); \u00d7 0.565 pts+ast/min (87% this season's 0.548 over 10 games, 13% prior 0.590); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +3%; calibration -0.1; injury news: -0.7 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Jared McCain|pra|401909965": {
-  "actual": null,
+  "actual": 27.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.5 pts (pattern)"
@@ -40949,7 +41285,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -40970,6 +41307,10 @@
   ],
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "kalshi": 7.5,
+   "prizepicks": 9.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 19.5,
@@ -40991,6 +41332,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 11.8,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -41062,7 +41404,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -41073,7 +41415,7 @@
   "why": "22.9 min (recent 23.0); \u00d7 0.692 pts+reb+ast/min (87% this season's 0.683 over 10 games, 13% prior 0.706); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +2%; calibration -0.1; injury news: -0.8 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Jared McCain|pr|401909965": {
-  "actual": null,
+  "actual": 24.0,
   "adj": [
    "chance pulled toward 50% (keeps 14% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -41097,11 +41439,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:03 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -41117,6 +41463,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 10.3,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -41188,7 +41535,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -41199,7 +41546,7 @@
   "why": "22.9 min (recent 23.0); \u00d7 0.618 pts+reb/min (87% this season's 0.615 over 10 games, 13% prior 0.616); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +2%; calibration -0.1; injury news: -0.6 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Jared McCain|pts|401909965": {
-  "actual": null,
+  "actual": 21.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5412844036697247,
@@ -41220,7 +41567,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -41241,6 +41589,11 @@
   ],
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "fanduel": 8.5,
+   "kalshi": 6.5,
+   "prizepicks": 8.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 12.5,
@@ -41268,6 +41621,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 10.1,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -41339,7 +41693,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -41350,7 +41704,7 @@
   "why": "22.9 min (recent 23.0); \u00d7 0.491 points/min (80% this season's 0.480 over 10 games, 20% prior 0.500); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +3%; calibration -0.1; injury news: -0.5 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Jared McCain|ra|401909965": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "chance pulled toward 50% (keeps 14% of our lean on PrizePicks lines, pattern)"
   ],
@@ -41373,11 +41727,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:03 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 4.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 4.5
@@ -41393,6 +41751,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 1.7,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -41464,7 +41823,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -41475,7 +41834,7 @@
   "why": "22.9 min (recent 23.0); \u00d7 0.202 reb+ast/min (71% this season's 0.202 over 10 games, 29% prior 0.207); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on OKC +2%; calibration -0.0; injury news: -0.3 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Jared McCain|reb|401909965": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4168,
@@ -41497,7 +41856,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -41523,6 +41883,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -41538,6 +41901,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.3,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -41611,7 +41975,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -50265,7 +50629,7 @@
   "why": "30.1 min (recent 17.8, +1.6 team-minutes adjustment with Keyonte George, Lauri Markkanen out; the model had him at 19.4, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.163 rebounds/min (60% this season's 0.174 over 9 games, 40% prior 0.151); context: pace vs MIA +1%, home +1%, opponent defense +1%, shared production on UTA +2%; calibration -0.0."
  },
  "Jrue Holiday|ast|401909965": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -50288,7 +50652,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -50314,6 +50679,10 @@
   ],
   "label": "lean",
   "line": 4.0,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 2.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -50335,6 +50704,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 3.8,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -50406,7 +50776,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -50417,7 +50787,7 @@
   "why": "25.4 min (recent 25.8); \u00d7 0.164 assists/min (64% this season's 0.155 over 9 games, 36% prior 0.169); context: home +1%, rest +1%, opponent defense \u22122%, shared production on POR \u22121%; calibration -0.0; injury news: +1.7 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Jrue Holiday|fg3m|401909965": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4269,
@@ -50438,7 +50808,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -50464,6 +50835,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -50479,6 +50853,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 0.8,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -50550,7 +50925,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -50561,7 +50936,7 @@
   "why": "25.4 min (recent 25.8); \u00d7 0.087 3-pointers made/min (75% this season's 0.090 over 9 games, 25% prior 0.074); context: home +1%, rest +1%, opponent defense +1%, shared production on POR \u22126%; injury news: +0.6 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Jrue Holiday|pa|401909965": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -50584,11 +50959,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 17.5
@@ -50604,6 +50983,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 7.7,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -50675,7 +51055,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -50686,7 +51066,7 @@
   "why": "25.4 min (recent 25.8); \u00d7 0.671 pts+ast/min (75% this season's 0.657 over 9 games, 25% prior 0.651); context: home +1%, rest +1%, opponent defense \u22122%, shared production on POR \u22121%; calibration -0.1; injury news: +3.8 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Jrue Holiday|pra|401909965": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.5 pts (pattern)"
@@ -50710,7 +51090,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -50731,6 +51112,10 @@
   ],
   "label": "lean",
   "line": 21.5,
+  "line_errs": {
+   "kalshi": 5.5,
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 19.5,
@@ -50752,6 +51137,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 10.6,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -50823,7 +51209,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -50834,7 +51220,7 @@
   "why": "25.4 min (recent 25.8); \u00d7 0.819 pts+reb+ast/min (75% this season's 0.794 over 9 games, 25% prior 0.799); context: home +1%, rest +1%, opponent defense \u22121%, shared production on POR \u22122%; calibration -0.1; injury news: +4.2 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Jrue Holiday|pr|401909965": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -50857,11 +51243,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 16.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 16.5
@@ -50877,6 +51267,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 6.8,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -50948,7 +51339,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -50959,7 +51350,7 @@
   "why": "25.4 min (recent 25.8); \u00d7 0.656 pts+reb/min (75% this season's 0.639 over 9 games, 25% prior 0.630); context: home +1%, rest +1%, opponent defense \u22121%, shared production on POR \u22122%; calibration -0.1; injury news: +2.5 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Jrue Holiday|pts|401909965": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5327102803738317,
@@ -50980,7 +51371,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -51001,6 +51393,11 @@
   ],
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "fanduel": 1.5,
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 12.5,
@@ -51028,6 +51425,7 @@
   "move": null,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 3.8,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -51099,7 +51497,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -51110,7 +51508,7 @@
   "why": "25.4 min (recent 25.8); \u00d7 0.506 points/min (64% this season's 0.502 over 9 games, 36% prior 0.482); context: home +1%, rest +1%, opponent defense \u22122%, shared production on POR \u22121%; calibration -0.1; injury news: +2.1 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Jrue Holiday|ra|401909965": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -51133,11 +51531,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.5
@@ -51153,6 +51555,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 6.8,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -51224,7 +51627,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -51235,7 +51638,7 @@
   "why": "25.4 min (recent 25.8); \u00d7 0.315 reb+ast/min (53% this season's 0.292 over 9 games, 47% prior 0.318); context: home +1%, rest +1%, opponent defense \u22121%, shared production on POR \u22123%; calibration -0.0; injury news: +2.0 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Jrue Holiday|reb|401909965": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -51259,7 +51662,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -51285,6 +51689,10 @@
   ],
   "label": "lean",
   "line": 4.0,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 3.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -51306,6 +51714,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 3.0,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -51377,7 +51786,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -55661,7 +56070,7 @@
   "why": "15.7 min (recent 15.6); \u00d7 0.400 rebounds/min (62% this season's 0.399 over 10 games, 38% prior 0.375); context: pace vs NYK \u22121%, road \u22121%, opponent defense \u22122%, shared production on MIL \u22123%; calibration -0.0."
  },
  "Kenrich Williams|ast|401909965": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -55683,7 +56092,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:56 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -55704,6 +56114,10 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 1.5,
@@ -55725,6 +56139,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 1.7,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -55798,7 +56213,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -55809,7 +56224,7 @@
   "why": "19.9 min (recent 20.0); \u00d7 0.081 assists/min (67% this season's 0.065 over 10 games, 33% prior 0.096); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on OKC +2%; calibration -0.0."
  },
  "Kenrich Williams|fg3m|401909965": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3965,
@@ -55830,7 +56245,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -55856,6 +56272,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -55871,6 +56290,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.4,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -55942,7 +56362,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -55953,7 +56373,7 @@
   "why": "19.9 min (recent 20.0); \u00d7 0.070 3-pointers made/min (77% this season's 0.076 over 10 games, 23% prior 0.059); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on OKC +12%; injury news: -0.1 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Kenrich Williams|pa|401909965": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -55976,11 +56396,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:31 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -55996,6 +56420,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 6.3,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -56067,7 +56492,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -56078,7 +56503,7 @@
   "why": "19.9 min (recent 20.0); \u00d7 0.461 pts+ast/min (77% this season's 0.435 over 10 games, 23% prior 0.515); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +3%; calibration -0.1."
  },
  "Kenrich Williams|pra|401909965": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -56100,7 +56525,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:56 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -56116,6 +56542,10 @@
   ],
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "kalshi": 9.5,
+   "prizepicks": 9.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 14.5,
@@ -56137,6 +56567,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 8.2,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -56208,7 +56639,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -56219,7 +56650,7 @@
   "why": "19.9 min (recent 20.0); \u00d7 0.670 pts+reb+ast/min (77% this season's 0.641 over 10 games, 23% prior 0.719); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +2%; calibration -0.1; injury news: -0.2 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Kenrich Williams|pr|401909965": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "chance pulled toward 50% (keeps 14% of our lean on PrizePicks lines, pattern)"
   ],
@@ -56242,11 +56673,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:03 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.5
@@ -56262,6 +56697,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 6.6,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -56333,7 +56769,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -56344,7 +56780,7 @@
   "why": "19.9 min (recent 20.0); \u00d7 0.591 pts+reb/min (77% this season's 0.576 over 10 games, 23% prior 0.623); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +2%; calibration -0.1; injury news: -0.2 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Kenrich Williams|pts|401909965": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5495495495495496,
@@ -56365,7 +56801,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -56381,6 +56818,11 @@
   ],
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "fanduel": 4.5,
+   "kalshi": 6.5,
+   "prizepicks": 4.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 7.5,
@@ -56408,6 +56850,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 4.7,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -56479,7 +56922,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -56490,7 +56933,7 @@
   "why": "19.9 min (recent 20.0); \u00d7 0.387 points/min (67% this season's 0.370 over 10 games, 33% prior 0.419); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +3%; calibration -0.1."
  },
  "Kenrich Williams|ra|401909965": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [
    "chance pulled toward 50% (keeps 14% of our lean on PrizePicks lines, pattern)"
   ],
@@ -56513,11 +56956,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:03 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 6.5
@@ -56533,6 +56980,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 3.6,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -56604,7 +57052,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -56615,7 +57063,7 @@
   "why": "19.9 min (recent 20.0); \u00d7 0.291 reb+ast/min (56% this season's 0.272 over 10 games, 44% prior 0.300); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on OKC +2%; calibration -0.0; injury news: -0.1 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Kenrich Williams|reb|401909965": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -56639,7 +57087,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -56665,6 +57114,10 @@
   ],
   "label": "lean",
   "line": 4.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -56686,6 +57139,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 1.9,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -56759,7 +57213,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -79253,7 +79707,7 @@
   "why": "26.5 min (recent 29.7, \u22120.4 team-minutes adjustment); \u00d7 0.265 rebounds/min (45% this season's 0.243 over 10 games, 55% prior 0.268); context: home +1%, opponent defense \u22121%; calibration -0.0; injury news: -0.1 with Jonathan Mogbo ruled out today (half of how he's actually played without him)."
  },
  "Robert Williams III|ast|401909965": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3863,
@@ -79274,7 +79728,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:56 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -79295,6 +79750,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -79310,6 +79768,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 1.2,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -79345,7 +79804,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -79356,7 +79815,7 @@
   "why": "16.6 min (recent 16.8); \u00d7 0.066 assists/min (58% this season's 0.070 over 7 games, 42% prior 0.064); context: home +1%, rest +1%, opponent defense \u22122%, shared production on POR \u22121%; calibration -0.0; injury news: +0.2 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Robert Williams III|pra|401909965": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.5 pts (pattern)",
@@ -79381,11 +79840,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -79401,6 +79864,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 3.2,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -79472,7 +79936,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -79483,7 +79947,7 @@
   "why": "16.6 min (recent 16.8); \u00d7 0.900 pts+reb+ast/min (70% this season's 0.939 over 7 games, 30% prior 0.846); context: home +1%, rest +1%, opponent defense \u22122%, shared production on POR \u22123%; calibration -0.1; injury news: -1.0 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Robert Williams III|pr|401909965": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -79506,11 +79970,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:41 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -79526,6 +79994,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 2.0,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -79597,7 +80066,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -79608,7 +80077,7 @@
   "why": "16.6 min (recent 16.8); \u00d7 0.833 pts+reb/min (70% this season's 0.870 over 7 games, 30% prior 0.782); context: home +1%, rest +1%, opponent defense \u22123%, shared production on POR \u22123%; calibration -0.1; injury news: -1.2 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Robert Williams III|pts|401909965": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5798319327731093,
@@ -79629,11 +80098,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "fanduel": 0.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 5.5
@@ -79649,6 +80122,7 @@
   "move": null,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 0.1,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -79720,7 +80194,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -79731,7 +80205,7 @@
   "why": "16.6 min (recent 16.8); \u00d7 0.422 points/min (58% this season's 0.452 over 7 games, 42% prior 0.399); context: home +1%, rest +1%, opponent defense \u22123%, shared production on POR \u22121%; calibration -0.1; injury news: -0.6 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Robert Williams III|ra|401909965": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -79755,11 +80229,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.5
@@ -79775,6 +80253,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 3.0,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -79846,7 +80325,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -79857,7 +80336,7 @@
   "why": "16.6 min (recent 16.8); \u00d7 0.468 reb+ast/min (47% this season's 0.487 over 7 games, 53% prior 0.447); context: home +1%, rest +1%, opponent defense \u22122%, shared production on POR \u22124%; calibration -0.0; injury news: -0.4 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Robert Williams III|reb|401909965": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5772,
@@ -79879,7 +80358,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -79910,6 +80390,9 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 5.5
@@ -79925,6 +80408,7 @@
   "move": null,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 1.7,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -79996,7 +80480,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -83332,7 +83816,7 @@
   "why": "22.2 min (recent 22.7, \u22120.6 team-minutes adjustment); \u00d7 0.151 rebounds/min (45% this season's 0.138 over 10 games, 55% prior 0.158); context: road \u22121%, opponent defense +1%, shared production on BOS \u22125%; calibration -0.0; injury news: -0.3 with Amari Williams ruled out today (half of how he's actually played without him)."
  },
  "Scoot Henderson|ast|401909965": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6267,
@@ -83353,7 +83837,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:56 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -83374,6 +83859,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -83389,6 +83877,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 1.6,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -83460,7 +83949,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -83471,7 +83960,7 @@
   "why": "23.9 min (recent 24.3); \u00d7 0.108 assists/min (64% this season's 0.054 over 9 games, 36% prior 0.164); context: home +1%, rest +1%, opponent defense \u22122%, shared production on POR \u22121%; calibration -0.0; injury news: -0.1 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Scoot Henderson|fg3m|401909965": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4371,
@@ -83493,7 +83982,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -83524,6 +84014,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -83539,6 +84032,7 @@
   "move": null,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 1.7,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -83616,7 +84110,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -83627,7 +84121,7 @@
   "why": "23.9 min (recent 24.3); \u00d7 0.044 3-pointers made/min (75% this season's 0.030 over 9 games, 25% prior 0.067); context: home +1%, rest +1%, opponent defense +1%, shared production on POR \u22126%; injury news: +0.3 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Scoot Henderson|pa|401909965": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -83650,11 +84144,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -83670,6 +84168,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 3.2,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -83741,7 +84240,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -83752,7 +84251,7 @@
   "why": "23.9 min (recent 24.3); \u00d7 0.539 pts+ast/min (75% this season's 0.431 over 9 games, 25% prior 0.677); context: home +1%, rest +1%, opponent defense \u22122%, shared production on POR \u22121%; calibration -0.1; injury news: -0.9 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Scoot Henderson|pra|401909965": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.5 pts (pattern)",
@@ -83777,7 +84276,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -83793,6 +84293,10 @@
   ],
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 14.5,
@@ -83814,6 +84318,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 1.6,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -83885,7 +84390,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -83896,7 +84401,7 @@
   "why": "23.9 min (recent 24.3); \u00d7 0.642 pts+reb+ast/min (75% this season's 0.530 over 9 games, 25% prior 0.792); context: home +1%, rest +1%, opponent defense \u22121%, shared production on POR \u22122%; calibration -0.1; injury news: -0.7 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Scoot Henderson|pr|401909965": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -83919,11 +84424,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -83939,6 +84448,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 0.2,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -84010,7 +84520,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -84021,7 +84531,7 @@
   "why": "23.9 min (recent 24.3); \u00d7 0.543 pts+reb/min (75% this season's 0.475 over 9 games, 25% prior 0.627); context: home +1%, rest +1%, opponent defense \u22121%, shared production on POR \u22122%; calibration -0.1; injury news: -0.5 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Scoot Henderson|pts|401909965": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5495495495495496,
@@ -84042,7 +84552,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -84063,6 +84574,11 @@
   ],
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "fanduel": 0.5,
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 10.5,
@@ -84090,6 +84606,7 @@
   "move": null,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 1.2,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -84161,7 +84678,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -84172,7 +84689,7 @@
   "why": "23.9 min (recent 24.3); \u00d7 0.451 points/min (64% this season's 0.376 over 9 games, 36% prior 0.513); context: home +1%, rest +1%, opponent defense \u22122%, shared production on POR \u22121%; calibration -0.1; injury news: -0.8 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Scoot Henderson|ra|401909965": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "chance pulled toward 50% (keeps 14% of our lean on PrizePicks lines, pattern)"
   ],
@@ -84195,11 +84712,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:03 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 4.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 4.5
@@ -84215,6 +84736,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 0.4,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -84286,7 +84808,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -84297,7 +84819,7 @@
   "why": "24.5 min (recent 24.3); \u00d7 0.223 reb+ast/min (53% this season's 0.153 over 9 games, 47% prior 0.279); context: home +1%, rest +1%, opponent defense \u22121%, shared production on POR \u22123%; calibration -0.0; injury news: +0.1 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Scoot Henderson|reb|401909965": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [
    "no stake yet: picks like this are 568/942 (60%); a stake needs 30+ graded at 67%+ (2 points over the 65% their prices need)"
   ],
@@ -84325,7 +84847,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:56 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -84346,6 +84869,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -84361,6 +84887,7 @@
   "move": null,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 1.7,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -84434,7 +84961,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -84445,7 +84972,7 @@
   "why": "23.9 min (recent 24.3); \u00d7 0.107 rebounds/min (43% this season's 0.099 over 9 games, 57% prior 0.115); context: home +1%, rest +1%, shared production on POR \u22125%; calibration -0.0; injury news: +0.2 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Shai Gilgeous-Alexander|ast|401909965": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -84474,7 +85001,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -84500,6 +85028,10 @@
   ],
   "label": "lean",
   "line": 5.0,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 2.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -84521,6 +85053,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 2.1,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -84594,7 +85127,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -84605,7 +85138,7 @@
   "why": "31.3 min (recent 31.5); \u00d7 0.172 assists/min (67% this season's 0.149 over 10 games, 33% prior 0.186); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on OKC +2%; calibration -0.0; injury news: -0.3 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Shai Gilgeous-Alexander|fg3m|401909965": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4067,
@@ -84626,7 +85159,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -84657,6 +85191,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -84672,6 +85209,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 2.6,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -84743,7 +85281,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -84754,7 +85292,7 @@
   "why": "31.3 min (recent 31.5); \u00d7 0.070 3-pointers made/min (77% this season's 0.082 over 10 games, 23% prior 0.056); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on OKC +12%; injury news: +0.1 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Shai Gilgeous-Alexander|pa|401909965": {
-  "actual": null,
+  "actual": 29.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -84777,11 +85315,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:31 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 38.5,
+  "line_errs": {
+   "prizepicks": 9.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 38.5
@@ -84797,6 +85339,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 7.8,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -84868,7 +85411,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -84879,7 +85422,7 @@
   "why": "31.3 min (recent 31.5); \u00d7 1.079 pts+ast/min (77% this season's 1.058 over 10 games, 23% prior 1.071); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +3%; calibration -0.1; injury news: +2.3 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Shai Gilgeous-Alexander|pra|401909965": {
-  "actual": null,
+  "actual": 37.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.5 pts (pattern)"
@@ -84904,7 +85447,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -84925,6 +85469,10 @@
   ],
   "label": "lean",
   "line": 42.5,
+  "line_errs": {
+   "kalshi": 7.5,
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 44.5,
@@ -84946,6 +85494,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 4.0,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -85017,7 +85566,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -85028,7 +85577,7 @@
   "why": "31.3 min (recent 31.5); \u00d7 1.202 pts+reb+ast/min (77% this season's 1.176 over 10 games, 23% prior 1.206); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +2%; calibration -0.1; injury news: +2.9 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Shai Gilgeous-Alexander|pr|401909965": {
-  "actual": null,
+  "actual": 34.0,
   "adj": [
    "chance pulled toward 50% (keeps 14% of our lean on PrizePicks lines, pattern)"
   ],
@@ -85051,11 +85600,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:03 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 37.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 37.5
@@ -85071,6 +85624,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 2.0,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -85142,7 +85696,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -85153,7 +85707,7 @@
   "why": "31.3 min (recent 31.5); \u00d7 1.033 pts+reb/min (77% this season's 1.027 over 10 games, 23% prior 1.020); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +2%; calibration -0.1; injury news: +3.1 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Shai Gilgeous-Alexander|pts|401909965": {
-  "actual": null,
+  "actual": 26.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5327102803738317,
@@ -85174,7 +85728,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -85200,6 +85755,11 @@
   ],
   "label": "lean",
   "line": 32.5,
+  "line_errs": {
+   "fanduel": 6.5,
+   "kalshi": 8.5,
+   "prizepicks": 6.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 32.5,
@@ -85227,6 +85787,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 5.6,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -85298,7 +85859,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -85309,7 +85870,7 @@
   "why": "31.3 min (recent 31.5); \u00d7 0.908 points/min (67% this season's 0.909 over 10 games, 33% prior 0.885); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on OKC +3%; calibration -0.1; injury news: +2.6 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Shai Gilgeous-Alexander|ra|401909965": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [
    "chance pulled toward 50% (keeps 14% of our lean on PrizePicks lines, pattern)"
   ],
@@ -85332,11 +85893,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:03 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -85352,6 +85917,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 1.3,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -85423,7 +85989,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -85434,7 +86000,7 @@
   "why": "31.3 min (recent 31.5); \u00d7 0.300 reb+ast/min (56% this season's 0.267 over 10 games, 44% prior 0.321); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on OKC +2%; calibration -0.0; injury news: +0.2 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Shai Gilgeous-Alexander|reb|401909965": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -85458,7 +86024,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:46 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -85484,6 +86051,10 @@
   ],
   "label": "lean",
   "line": 4.0,
+  "line_errs": {
+   "kalshi": 4.5,
+   "prizepicks": 4.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -85505,6 +86076,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 3.5,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -85578,7 +86150,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "OKC",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -85589,7 +86161,7 @@
   "why": "31.3 min (recent 31.5); \u00d7 0.127 rebounds/min (45% this season's 0.119 over 10 games, 55% prior 0.135); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on OKC +1%; calibration -0.0; injury news: +0.5 with Nikola Topic ruled out today (half of how he's actually played without him)."
  },
  "Sidy Cissoko|ast|401909965": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5971,
@@ -85610,7 +86182,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:56 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -85631,6 +86204,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -85646,6 +86222,7 @@
   "move": null,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 1.1,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -85681,7 +86258,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -85692,7 +86269,7 @@
   "why": "22.1 min (recent 17.3; the model had him at 17.4, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.093 assists/min (64% this season's 0.100 over 9 games, 36% prior 0.087); context: home +1%, rest +1%, opponent defense \u22122%, shared production on POR \u22121%; calibration -0.0; injury news: -0.1 with Jayson Kent ruled out today (half of how he's actually played wit"
  },
  "Sidy Cissoko|fg3m|401909965": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6463,
@@ -85713,7 +86290,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:56 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -85739,6 +86317,9 @@
   ],
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 0.5
@@ -85754,6 +86335,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 1.9,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -85789,7 +86371,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -85800,7 +86382,7 @@
   "why": "22.1 min (recent 17.3; the model had him at 17.4, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.041 3-pointers made/min (75% this season's 0.042 over 9 games, 25% prior 0.044); context: home +1%, rest +1%, opponent defense +1%, shared production on POR \u22126%; injury news: +0.2 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Sidy Cissoko|pa|401909965": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -85824,11 +86406,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "prizepicks": 11.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.5
@@ -85844,6 +86430,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 10.7,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -85879,7 +86466,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -85890,7 +86477,7 @@
   "why": "22.1 min (recent 17.3; the model had him at 17.4, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.370 pts+ast/min (75% this season's 0.389 over 9 games, 25% prior 0.387); context: home +1%, rest +1%, opponent defense \u22122%, shared production on POR \u22121%; calibration -0.1; injury news: +1.2 with Jayson Kent ruled out today (half of how he's actually played wit"
  },
  "Sidy Cissoko|pra|401909965": {
-  "actual": null,
+  "actual": 23.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.5 pts (pattern)"
@@ -85914,7 +86501,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -85925,6 +86513,10 @@
   ],
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "kalshi": 13.5,
+   "prizepicks": 10.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -85946,6 +86538,7 @@
   "move": 3.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 10.4,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -86017,7 +86610,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -86028,7 +86621,7 @@
   "why": "22.1 min (recent 17.3; the model had him at 17.4, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.526 pts+reb+ast/min (75% this season's 0.568 over 9 games, 25% prior 0.507); context: home +1%, rest +1%, opponent defense \u22121%, shared production on POR \u22122%; calibration -0.1; injury news: +1.2 with Jayson Kent ruled out today (half of how he's actually played"
  },
  "Sidy Cissoko|pr|401909965": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -86052,11 +86645,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 9.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -86072,6 +86669,7 @@
   "move": 3.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 9.4,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -86107,7 +86705,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -86118,7 +86716,7 @@
   "why": "22.1 min (recent 17.3; the model had him at 17.4, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.432 pts+reb/min (75% this season's 0.468 over 9 games, 25% prior 0.420); context: home +1%, rest +1%, opponent defense \u22121%, shared production on POR \u22123%; calibration -0.1; injury news: +1.4 with Jayson Kent ruled out today (half of how he's actually played wit"
  },
  "Sidy Cissoko|pts|401909965": {
-  "actual": null,
+  "actual": 17.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -86147,11 +86745,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "prizepicks": 10.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 6.5
@@ -86167,6 +86769,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 9.7,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -86242,7 +86845,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -86253,7 +86856,7 @@
   "why": "22.1 min (recent 17.3; the model had him at 17.4, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.277 points/min (64% this season's 0.289 over 9 games, 36% prior 0.300); context: home +1%, rest +1%, opponent defense \u22122%, shared production on POR \u22121%; calibration -0.1; injury news: +1.4 with Jayson Kent ruled out today (half of how he's actually played with"
  },
  "Sidy Cissoko|reb|401909965": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4269,
@@ -86274,7 +86877,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -86295,6 +86899,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -86310,6 +86917,7 @@
   "move": null,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 0.0,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -86381,7 +86989,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -86392,7 +87000,7 @@
   "why": "22.1 min (recent 17.3; the model had him at 17.4, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.142 rebounds/min (43% this season's 0.179 over 9 games, 57% prior 0.121); context: home +1%, rest +1%, shared production on POR \u22125%; calibration -0.0."
  },
  "Toumani Camara|ast|401909965": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -86418,7 +87026,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -86439,6 +87048,10 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 1.5,
@@ -86460,6 +87073,7 @@
   "move": null,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 1.2,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -86531,7 +87145,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -86542,7 +87156,7 @@
   "why": "27.0 min (recent 27.5); \u00d7 0.059 assists/min (64% this season's 0.041 over 9 games, 36% prior 0.074); context: home +1%, rest +1%, shared production on POR \u22121%; calibration -0.0; injury news: +0.2 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Toumani Camara|fg3m|401909965": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5772,
@@ -86564,7 +87178,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -86595,6 +87210,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -86610,6 +87228,7 @@
   "move": null,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 0.7,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -86681,7 +87300,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -86692,7 +87311,7 @@
   "why": "27.0 min (recent 27.5); \u00d7 0.100 3-pointers made/min (75% this season's 0.114 over 9 games, 25% prior 0.069); context: home +1%, rest +1%, opponent defense +2%, shared production on POR \u22126%."
  },
  "Toumani Camara|pa|401909965": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -86715,11 +87334,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.5
@@ -86735,6 +87358,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 1.7,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -86806,7 +87430,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -86817,7 +87441,7 @@
   "why": "27.0 min (recent 27.5); \u00d7 0.508 pts+ast/min (75% this season's 0.522 over 9 games, 25% prior 0.469); context: home +1%, rest +1%, shared production on POR \u22121%; calibration -0.1; injury news: -0.4 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Toumani Camara|pra|401909965": {
-  "actual": null,
+  "actual": 18.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.5 pts (pattern)"
@@ -86842,7 +87466,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -86858,6 +87483,10 @@
   ],
   "label": "lean",
   "line": 18.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 19.5,
@@ -86879,6 +87508,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 0.6,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -86950,7 +87580,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -86961,7 +87591,7 @@
   "why": "27.0 min (recent 27.5); \u00d7 0.644 pts+reb+ast/min (75% this season's 0.645 over 9 games, 25% prior 0.634); context: home +1%, rest +1%, shared production on POR \u22122%; calibration -0.1; injury news: +0.1 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Toumani Camara|pr|401909965": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -86984,11 +87614,15 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 17.5
@@ -87004,6 +87638,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "OKC",
+  "our_err": 0.7,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -87075,7 +87710,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -87086,7 +87721,7 @@
   "why": "27.0 min (recent 27.5); \u00d7 0.587 pts+reb/min (75% this season's 0.604 over 9 games, 25% prior 0.560); context: home +1%, rest +1%, shared production on POR \u22122%; calibration -0.1."
  },
  "Toumani Camara|pts|401909965": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5327102803738317,
@@ -87107,7 +87742,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -87128,6 +87764,11 @@
   ],
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "fanduel": 0.5,
+   "kalshi": 2.5,
+   "prizepicks": 0.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 12.5,
@@ -87155,6 +87796,7 @@
   "move": null,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 0.6,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -87226,7 +87868,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -87237,7 +87879,7 @@
   "why": "27.0 min (recent 27.5); \u00d7 0.445 points/min (64% this season's 0.482 over 9 games, 36% prior 0.395); context: home +1%, rest +1%, shared production on POR \u22121%; calibration -0.1; injury news: -0.6 with Jayson Kent ruled out today (half of how he's actually played without him)."
  },
  "Toumani Camara|ra|401909965": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "chance pulled toward 50% (keeps 10% of our lean on PrizePicks lines, pattern)"
   ],
@@ -87257,11 +87899,15 @@
   "flip": null,
   "frozen_at": "2026-11-10 05:40 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 5.5
@@ -87277,6 +87923,7 @@
   "move": null,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 0.4,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -87345,7 +87992,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
@@ -87355,7 +88002,7 @@
   "why": "27.6 min (recent 27.5); \u00d7 0.203 reb+ast/min (53% this season's 0.163 over 9 games, 47% prior 0.239); context: home +1%, rest +1%, opponent defense +2%, shared production on POR \u22124%; calibration -0.0."
  },
  "Toumani Camara|reb|401909965": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "chance pulled toward 50% (keeps 16% of our lean on PrizePicks lines, pattern)"
   ],
@@ -87379,7 +88026,8 @@
   "flip": null,
   "frozen_at": "2026-11-11 03:51 UTC",
   "game_id": 401909965,
-  "hit": null,
+  "graded_at": "2026-11-11 06:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -87400,6 +88048,10 @@
   ],
   "label": "lean",
   "line": 4.0,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -87421,6 +88073,7 @@
   "move": null,
   "move_dir": null,
   "opp": "OKC",
+  "our_err": 1.3,
   "out_ctx": [
    "Cason Wallace",
    "Chet Holmgren",
@@ -87492,7 +88145,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-11T04:00:00+00:00",
