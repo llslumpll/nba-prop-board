@@ -3577,7 +3577,7 @@
   "why": "26.5 min (recent 29.5, \u22120.9 team-minutes adjustment with Kobe Brown out); \u00d7 0.126 rebounds/min (43% this season's 0.092 over 9 games, 57% prior 0.144); context: home +1%, opponent defense +1%, shared production on IND \u22123%; calibration -0.0; injury news: +0.5 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Ace Bailey|ast|401909973": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5971,
@@ -3598,7 +3598,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:53 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -3619,6 +3620,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -3634,6 +3638,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 0.1,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -3693,7 +3698,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -3704,7 +3709,7 @@
   "why": "30.2 min (recent 32.2, \u22120.8 team-minutes adjustment with Lauri Markkanen out, \u22121.3 back-to-back); \u00d7 0.067 assists/min (69% this season's 0.062 over 11 games, 31% prior 0.078); context: home +1%, rest \u22122%, opponent defense \u22121%, shared production on UTA +7%; calibration -0.0."
  },
  "Ace Bailey|fg3m|401909973": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6069,
@@ -3725,7 +3730,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:51 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -3756,6 +3762,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -3771,6 +3780,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 1.2,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -3842,7 +3852,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -3853,7 +3863,7 @@
   "why": "30.2 min (recent 32.2, \u22120.8 team-minutes adjustment with Lauri Markkanen out, \u22121.3 back-to-back); \u00d7 0.055 3-pointers made/min (79% this season's 0.044 over 11 games, 21% prior 0.068); context: home +1%, rest \u22122%, shared production on UTA +12%."
  },
  "Ace Bailey|pa|401909973": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -3876,11 +3886,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:11 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 16.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 16.5
@@ -3896,6 +3910,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 3.3,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -3953,7 +3968,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -3964,7 +3979,7 @@
   "why": "30.2 min (recent 32.2, \u22120.8 team-minutes adjustment with Lauri Markkanen out, \u22121.3 back-to-back); \u00d7 0.523 pts+ast/min (79% this season's 0.478 over 11 games, 21% prior 0.575); context: home +1%, rest \u22122%, shared production on UTA +7%; calibration -0.1."
  },
  "Ace Bailey|pra|401909973": {
-  "actual": null,
+  "actual": 27.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.7 pts (pattern)"
@@ -3988,7 +4003,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:46 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -4009,6 +4025,10 @@
   ],
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 24.5,
@@ -4030,6 +4050,7 @@
   "move": 3.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 4.6,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -4101,7 +4122,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -4112,7 +4133,7 @@
   "why": "30.2 min (recent 32.2, \u22120.8 team-minutes adjustment with Lauri Markkanen out, \u22121.3 back-to-back); \u00d7 0.712 pts+reb+ast/min (79% this season's 0.689 over 11 games, 21% prior 0.724); context: home +1%, rest \u22122%, shared production on UTA +6%; calibration -0.1."
  },
  "Ace Bailey|pr|401909973": {
-  "actual": null,
+  "actual": 25.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -4136,11 +4157,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:56 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 20.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 20.5
@@ -4156,6 +4181,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 4.6,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -4215,7 +4241,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -4226,7 +4252,7 @@
   "why": "30.2 min (recent 32.2, \u22120.8 team-minutes adjustment with Lauri Markkanen out, \u22121.3 back-to-back); \u00d7 0.646 pts+reb/min (79% this season's 0.628 over 11 games, 21% prior 0.647); context: home +1%, rest \u22122%, shared production on UTA +6%; calibration -0.1."
  },
  "Ace Bailey|pts|401909973": {
-  "actual": null,
+  "actual": 18.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -4249,7 +4275,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:51 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -4275,6 +4302,10 @@
   ],
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 14.5,
@@ -4296,6 +4327,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 3.2,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -4367,7 +4399,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -4378,7 +4410,7 @@
   "why": "30.2 min (recent 32.2, \u22120.8 team-minutes adjustment with Lauri Markkanen out, \u22121.3 back-to-back); \u00d7 0.464 points/min (69% this season's 0.416 over 11 games, 31% prior 0.497); context: home +1%, rest \u22122%, shared production on UTA +7%; calibration -0.1."
  },
  "Ace Bailey|ra|401909973": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -4401,11 +4433,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:56 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 8.0,
+  "line_errs": {
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.0
@@ -4421,6 +4457,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 1.5,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -4468,7 +4505,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -4479,7 +4516,7 @@
   "why": "30.2 min (recent 32.2, \u22120.8 team-minutes adjustment with Lauri Markkanen out, \u22121.3 back-to-back); \u00d7 0.247 reb+ast/min (58% this season's 0.273 over 11 games, 42% prior 0.227); context: home +1%, rest \u22122%, shared production on UTA +3%; calibration -0.0."
  },
  "Ace Bailey|reb|401909973": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -4500,7 +4537,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:56 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -4521,6 +4559,10 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -4542,6 +4584,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 1.7,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -4613,7 +4656,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -8091,7 +8134,7 @@
   "why": "23.3 min (recent 18.0, +0.8 team-minutes adjustment with Ajay Mitchell, Jaylin Williams out; the model had him at 18.7, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.175 rebounds/min (40% this season's 0.230 over 8 games, 60% prior 0.149); context: road \u22121%, rest \u22122%, opponent defense \u22122%, shared production on OKC +3%; calibration -0.0; injury news: -0.3"
  },
  "Alex Morales|fg3m|401909973": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -8114,11 +8157,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 0.5
@@ -8134,6 +8181,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 0.5,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -8181,7 +8229,7 @@
   },
   "src_key": "prizepicks",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -8192,7 +8240,7 @@
   "why": "21.9 min (recent 15.8, +1.4 team-minutes adjustment with Jamal Cain, Tristan da Silva out; the model had him at 17.2, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.022 3-pointers made/min (70% this season's 0.012 over 7 games, 30% prior 0.051); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +12%."
  },
  "Alex Morales|pra|401909973": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.7 pts (pattern)"
@@ -8216,11 +8264,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.5
@@ -8236,6 +8288,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 1.9,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -8283,7 +8336,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -8294,7 +8347,7 @@
   "why": "21.9 min (recent 15.8, +1.4 team-minutes adjustment with Jamal Cain, Tristan da Silva out; the model had him at 17.2, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.446 pts+reb+ast/min (70% this season's 0.345 over 7 games, 30% prior 0.724); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +7%; calibration -0.1."
  },
  "Alex Morales|pts|401909973": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -8317,11 +8370,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 6.5
@@ -8337,6 +8394,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 1.0,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -8384,7 +8442,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -13727,7 +13785,7 @@
   "why": "29.6 min (recent 32.9, \u22121.0 team-minutes adjustment with Kobe Brown out); \u00d7 0.087 rebounds/min (43% this season's 0.064 over 9 games, 57% prior 0.104); context: home +1%, opponent defense +1%, shared production on IND \u22123%; calibration -0.0; injury news: +0.3 with Kobe Brown ruled out today (half of how he's actually played without him)."
  },
  "Anthony Black|ast|401909973": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4168,
@@ -13748,7 +13806,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -13774,6 +13833,9 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 5.5
@@ -13789,6 +13851,7 @@
   "move": null,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 3.3,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -13860,7 +13923,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -13871,7 +13934,7 @@
   "why": "31.2 min (recent 29.7, +2.7 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.2 back-to-back); \u00d7 0.145 assists/min (58% this season's 0.168 over 7 games, 42% prior 0.126); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +6%; calibration -0.0."
  },
  "Anthony Black|fg3m|401909973": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -13892,7 +13955,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:51 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -13923,6 +13987,10 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 1.5,
@@ -13944,6 +14012,7 @@
   "move": null,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 1.2,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -14015,7 +14084,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -14026,7 +14095,7 @@
   "why": "31.2 min (recent 29.7, +2.7 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.2 back-to-back); \u00d7 0.059 3-pointers made/min (70% this season's 0.065 over 7 games, 30% prior 0.048); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +12%; injury news: -0.2 with Jamal Cain ruled out today (half of how he's actually played without him)."
  },
  "Anthony Black|pa|401909973": {
-  "actual": null,
+  "actual": 30.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -14050,11 +14119,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 22.5
@@ -14070,6 +14143,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "UTA",
+  "our_err": 7.8,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -14141,7 +14215,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -14152,7 +14226,7 @@
   "why": "31.2 min (recent 29.7, +2.7 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.2 back-to-back); \u00d7 0.688 pts+ast/min (70% this season's 0.729 over 7 games, 30% prior 0.593); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +8%; calibration -0.1; injury news: -0.5 with Jamal Cain ruled out today (half of how he's actually played without him)."
  },
  "Anthony Black|pra|401909973": {
-  "actual": null,
+  "actual": 37.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.7 pts (pattern)"
@@ -14176,7 +14250,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:46 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -14197,6 +14272,10 @@
   ],
   "label": "lean",
   "line": 27.5,
+  "line_errs": {
+   "kalshi": 7.5,
+   "prizepicks": 9.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 29.5,
@@ -14218,6 +14297,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 9.7,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -14289,7 +14369,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -14300,7 +14380,7 @@
   "why": "31.2 min (recent 29.7, +2.7 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.2 back-to-back); \u00d7 0.849 pts+reb+ast/min (70% this season's 0.921 over 7 games, 30% prior 0.720); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +8%; calibration -0.1; injury news: -0.5 with Jamal Cain ruled out today (half of how he's actually played without him)."
  },
  "Anthony Black|pr|401909973": {
-  "actual": null,
+  "actual": 29.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -14323,11 +14403,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:51 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 22.5
@@ -14343,6 +14427,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 6.5,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -14414,7 +14499,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -14425,7 +14510,7 @@
   "why": "31.2 min (recent 29.7, +2.7 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.2 back-to-back); \u00d7 0.701 pts+reb/min (70% this season's 0.752 over 7 games, 30% prior 0.594); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +8%; calibration -0.1; injury news: -0.5 with Jamal Cain ruled out today (half of how he's actually played without him)."
  },
  "Anthony Black|pts|401909973": {
-  "actual": null,
+  "actual": 22.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -14449,7 +14534,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:46 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -14475,6 +14561,10 @@
   ],
   "label": "lean",
   "line": 16.5,
+  "line_errs": {
+   "kalshi": 7.5,
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 14.5,
@@ -14496,6 +14586,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "UTA",
+  "our_err": 5.0,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -14571,7 +14662,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -14582,7 +14673,7 @@
   "why": "31.2 min (recent 29.7, +2.7 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.2 back-to-back); \u00d7 0.532 points/min (58% this season's 0.561 over 7 games, 42% prior 0.467); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +9%; calibration -0.1; injury news: -0.6 with Jamal Cain ruled out today (half of how he's actually played without him)."
  },
  "Anthony Black|ra|401909973": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -14605,11 +14696,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -14625,6 +14720,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "UTA",
+  "our_err": 5.5,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -14696,7 +14792,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -14707,7 +14803,7 @@
   "why": "31.2 min (recent 29.7, +2.7 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.2 back-to-back); \u00d7 0.293 reb+ast/min (47% this season's 0.360 over 7 games, 53% prior 0.253); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +6%; calibration -0.0; injury news: +0.1 with Jamal Cain ruled out today (half of how he's actually played without him)."
  },
  "Anthony Black|reb|401909973": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4269,
@@ -14729,7 +14825,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -14755,6 +14852,9 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 5.5
@@ -14770,6 +14870,7 @@
   "move": null,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 2.3,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -14841,7 +14942,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -32638,7 +32739,7 @@
   "why": "25.6 min (recent 26.1, +1.2 team-minutes adjustment with Mikel Brown Jr., Nolan Traore out); \u00d7 0.233 rebounds/min (29% this season's 0.230 over 5 games, 71% prior 0.228); context: pace vs NOP +1%, road \u22121%, rest +1%, opponent defense +2%, shared production on BKN \u22127%; calibration -0.0; injury news: -0.2 with Nolan Traore, Grant Nelson, Ben Saraf ruled out today (half of how he's actually played wi"
  },
  "Darryn Peterson|ast|401909973": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -32661,7 +32762,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:46 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -32687,6 +32789,10 @@
   ],
   "label": "lean",
   "line": 4.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -32708,6 +32814,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 1.0,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -32779,7 +32886,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -32790,7 +32897,7 @@
   "why": "29.1 min (recent 31.1, \u22120.7 team-minutes adjustment with Lauri Markkanen out, \u22121.2 back-to-back); \u00d7 0.129 assists/min (69% this season's 0.127 over 11 games, 31% prior 0.133); context: home +1%, rest \u22122%, opponent defense \u22121%, shared production on UTA +7%; calibration -0.0."
  },
  "Darryn Peterson|fg3m|401909973": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4067,
@@ -32811,7 +32918,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:56 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -32842,6 +32950,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -32857,6 +32968,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 0.1,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -32928,7 +33040,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -32939,7 +33051,7 @@
   "why": "29.1 min (recent 31.1, \u22120.7 team-minutes adjustment with Lauri Markkanen out, \u22121.2 back-to-back); \u00d7 0.066 3-pointers made/min (79% this season's 0.068 over 11 games, 21% prior 0.065); context: home +1%, rest \u22122%, shared production on UTA +12%."
  },
  "Darryn Peterson|pa|401909973": {
-  "actual": null,
+  "actual": 25.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -32962,11 +33074,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:21 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 23.5
@@ -32982,6 +33098,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 5.5,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -33051,7 +33168,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -33062,7 +33179,7 @@
   "why": "29.1 min (recent 31.1, \u22120.7 team-minutes adjustment with Lauri Markkanen out, \u22121.2 back-to-back); \u00d7 0.632 pts+ast/min (79% this season's 0.639 over 11 games, 21% prior 0.616); context: home +1%, rest \u22122%, shared production on UTA +7%; calibration -0.1."
  },
  "Darryn Peterson|pra|401909973": {
-  "actual": null,
+  "actual": 29.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.7 pts (pattern)"
@@ -33087,7 +33204,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:46 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -33108,6 +33226,10 @@
   ],
   "label": "lean",
   "line": 27.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 29.5,
@@ -33129,6 +33251,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 5.7,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -33200,7 +33323,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -33211,7 +33334,7 @@
   "why": "29.1 min (recent 31.1, \u22120.7 team-minutes adjustment with Lauri Markkanen out, \u22121.2 back-to-back); \u00d7 0.763 pts+reb+ast/min (79% this season's 0.769 over 11 games, 21% prior 0.751); context: home +1%, rest \u22122%, shared production on UTA +7%; calibration -0.1."
  },
  "Darryn Peterson|pr|401909973": {
-  "actual": null,
+  "actual": 24.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -33234,11 +33357,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:11 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 22.5
@@ -33254,6 +33381,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 4.6,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -33323,7 +33451,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -33334,7 +33462,7 @@
   "why": "29.1 min (recent 31.1, \u22120.7 team-minutes adjustment with Lauri Markkanen out, \u22121.2 back-to-back); \u00d7 0.634 pts+reb/min (79% this season's 0.642 over 11 games, 21% prior 0.618); context: home +1%, rest \u22122%, shared production on UTA +6%; calibration -0.1."
  },
  "Darryn Peterson|pts|401909973": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -33358,7 +33486,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:46 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -33389,6 +33518,10 @@
   ],
   "label": "lean",
   "line": 18.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 19.5,
@@ -33410,6 +33543,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 4.5,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -33485,7 +33619,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -33496,7 +33630,7 @@
   "why": "29.1 min (recent 31.1, \u22120.7 team-minutes adjustment with Lauri Markkanen out, \u22121.2 back-to-back); \u00d7 0.501 points/min (69% this season's 0.512 over 11 games, 31% prior 0.483); context: home +1%, rest \u22122%, shared production on UTA +7%; calibration -0.1."
  },
  "Darryn Peterson|ra|401909973": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -33519,11 +33653,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:11 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.5
@@ -33539,6 +33677,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 1.2,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -33608,7 +33747,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -33619,7 +33758,7 @@
   "why": "29.1 min (recent 31.1, \u22120.7 team-minutes adjustment with Lauri Markkanen out, \u22121.2 back-to-back); \u00d7 0.261 reb+ast/min (58% this season's 0.257 over 11 games, 42% prior 0.268); context: home +1%, rest \u22122%, shared production on UTA +5%; calibration -0.0."
  },
  "Darryn Peterson|reb|401909973": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6069,
@@ -33641,7 +33780,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:51 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -33667,6 +33807,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -33682,6 +33825,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 0.2,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -33753,7 +33897,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -42957,7 +43101,7 @@
   "why": "26.7 min (recent 27.7); \u00d7 0.124 rebounds/min (48% this season's 0.106 over 11 games, 52% prior 0.131); context: road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on BOS \u22122%; calibration -0.0."
  },
  "Desmond Bane|ast|401909973": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4067,
@@ -42978,7 +43122,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -42999,6 +43144,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -43014,6 +43162,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 2.0,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -43085,7 +43234,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -43096,7 +43245,7 @@
   "why": "35.7 min (recent 34.1, +3.0 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.4 back-to-back); \u00d7 0.100 assists/min (64% this season's 0.071 over 9 games, 36% prior 0.135); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +6%; calibration -0.0; injury news: +0.3 with Jamal Cain ruled out today (half of how he's actually played without him)."
  },
  "Desmond Bane|fg3m|401909973": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6168,
@@ -43118,7 +43267,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:51 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -43149,6 +43299,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 4.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -43164,6 +43317,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 3.7,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -43235,7 +43389,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -43246,7 +43400,7 @@
   "why": "35.7 min (recent 34.1, +3.0 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.4 back-to-back); \u00d7 0.085 3-pointers made/min (75% this season's 0.103 over 9 games, 25% prior 0.065); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +12%."
  },
  "Desmond Bane|pa|401909973": {
-  "actual": null,
+  "actual": 27.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -43270,11 +43424,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 23.5
@@ -43290,6 +43448,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "UTA",
+  "our_err": 1.3,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -43361,7 +43520,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -43372,7 +43531,7 @@
   "why": "35.7 min (recent 34.1, +3.0 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.4 back-to-back); \u00d7 0.640 pts+ast/min (75% this season's 0.567 over 9 games, 25% prior 0.721); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +8%; calibration -0.1; injury news: +1.4 with Jamal Cain ruled out today (half of how he's actually played without him)."
  },
  "Desmond Bane|pra|401909973": {
-  "actual": null,
+  "actual": 30.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.7 pts (pattern)"
@@ -43396,7 +43555,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:46 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -43422,6 +43582,10 @@
   ],
   "label": "lean",
   "line": 27.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 29.5,
@@ -43443,6 +43607,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "UTA",
+  "our_err": 0.1,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -43514,7 +43679,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -43525,7 +43690,7 @@
   "why": "35.7 min (recent 34.1, +3.0 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.4 back-to-back); \u00d7 0.765 pts+reb+ast/min (75% this season's 0.686 over 9 games, 25% prior 0.862); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +8%; calibration -0.1; injury news: +1.3 with Jamal Cain ruled out today (half of how he's actually played without him)."
  },
  "Desmond Bane|pr|401909973": {
-  "actual": null,
+  "actual": 28.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -43549,11 +43714,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 24.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 24.5
@@ -43569,6 +43738,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "UTA",
+  "our_err": 1.8,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -43640,7 +43810,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -43651,7 +43821,7 @@
   "why": "35.7 min (recent 34.1, +3.0 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.4 back-to-back); \u00d7 0.670 pts+reb/min (75% this season's 0.615 over 9 games, 25% prior 0.727); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +8%; calibration -0.1; injury news: +1.0 with Jamal Cain ruled out today (half of how he's actually played without him)."
  },
  "Desmond Bane|pts|401909973": {
-  "actual": null,
+  "actual": 25.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5145631067961165,
@@ -43672,7 +43842,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -43703,6 +43874,11 @@
   ],
   "label": "lean",
   "line": 19.5,
+  "line_errs": {
+   "fanduel": 5.5,
+   "kalshi": 5.5,
+   "prizepicks": 5.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 19.5,
@@ -43730,6 +43906,7 @@
   "move": null,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 3.0,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -43801,7 +43978,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -43812,7 +43989,7 @@
   "why": "35.7 min (recent 34.1, +3.0 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.4 back-to-back); \u00d7 0.552 points/min (64% this season's 0.497 over 9 games, 36% prior 0.586); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +9%; calibration -0.1; injury news: +1.1 with Jamal Cain ruled out today (half of how he's actually played without him)."
  },
  "Desmond Bane|ra|401909973": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -43835,11 +44012,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 7.0,
+  "line_errs": {
+   "prizepicks": 2.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.0
@@ -43855,6 +44036,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "UTA",
+  "our_err": 3.8,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -43926,7 +44108,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -43937,7 +44119,7 @@
   "why": "35.7 min (recent 34.1, +3.0 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.4 back-to-back); \u00d7 0.233 reb+ast/min (53% this season's 0.189 over 9 games, 47% prior 0.276); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +6%; calibration -0.0; injury news: +0.2 with Jamal Cain ruled out today (half of how he's actually played without him)."
  },
  "Desmond Bane|reb|401909973": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -43961,7 +44143,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:46 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -43982,6 +44165,10 @@
   ],
   "label": "lean",
   "line": 4.0,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -44003,6 +44190,7 @@
   "move": null,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 1.6,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -44076,7 +44264,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -51883,7 +52071,7 @@
   "why": "28.5 min (recent 29.1, \u22120.6 team-minutes adjustment with Sam Merrill out); \u00d7 0.266 rebounds/min (48% this season's 0.236 over 11 games, 52% prior 0.291); context: pace vs NYK \u22121%, road \u22121%, opponent defense \u22122%, shared production on CLE \u22121%; calibration -0.0; injury news: +0.2 with Nae'Qwan Tomlin ruled out today (half of how he's actually played without him)."
  },
  "Franz Wagner|ast|401909973": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4874,
@@ -51905,7 +52093,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:51 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -51936,6 +52125,9 @@
   ],
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "kalshi": 6.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 7.5
@@ -51951,6 +52143,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 5.4,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -52028,7 +52221,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -52039,7 +52232,7 @@
   "why": "36.5 min (recent 34.8, +3.1 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.4 back-to-back); \u00d7 0.185 assists/min (67% this season's 0.235 over 10 games, 33% prior 0.119); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense +1%, shared production on ORL +6%; calibration -0.0; injury news: -0.6 with Jamal Cain ruled out today (half of how he's actually played without him"
  },
  "Franz Wagner|fg3m|401909973": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4371,
@@ -52060,7 +52253,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -52091,6 +52285,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -52106,6 +52303,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 1.2,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -52177,7 +52375,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -52188,7 +52386,7 @@
   "why": "36.5 min (recent 34.8, +3.1 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.4 back-to-back); \u00d7 0.036 3-pointers made/min (77% this season's 0.030 over 10 games, 23% prior 0.050); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense +2%, shared production on ORL +12%; injury news: +0.4 with Jamal Cain ruled out today (half of how he's actually played without him)."
  },
  "Franz Wagner|pa|401909973": {
-  "actual": null,
+  "actual": 39.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -52212,11 +52410,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 32.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 32.5
@@ -52232,6 +52434,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "UTA",
+  "our_err": 6.5,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -52303,7 +52506,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -52314,7 +52517,7 @@
   "why": "36.5 min (recent 34.8, +3.1 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.4 back-to-back); \u00d7 0.816 pts+ast/min (77% this season's 0.836 over 10 games, 23% prior 0.777); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense +1%, shared production on ORL +8%; calibration -0.1; injury news: +0.6 with Jamal Cain ruled out today (half of how he's actually played without him"
  },
  "Franz Wagner|pra|401909973": {
-  "actual": null,
+  "actual": 47.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.7 pts (pattern)"
@@ -52338,7 +52541,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:46 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -52359,6 +52563,10 @@
   ],
   "label": "lean",
   "line": 38.5,
+  "line_errs": {
+   "kalshi": 7.5,
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 39.5,
@@ -52380,6 +52588,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 7.6,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -52451,7 +52660,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -52462,7 +52671,7 @@
   "why": "36.5 min (recent 34.8, +3.1 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.4 back-to-back); \u00d7 0.992 pts+reb+ast/min (77% this season's 1.011 over 10 games, 23% prior 0.954); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense +1%, shared production on ORL +8%; calibration -0.1; injury news: +0.8 with Jamal Cain ruled out today (half of how he's actually played without"
  },
  "Franz Wagner|pr|401909973": {
-  "actual": null,
+  "actual": 46.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -52486,11 +52695,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 31.5,
+  "line_errs": {
+   "prizepicks": 14.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 31.5
@@ -52506,6 +52719,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "UTA",
+  "our_err": 13.4,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -52577,7 +52791,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -52588,7 +52802,7 @@
   "why": "36.5 min (recent 34.8, +3.1 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.4 back-to-back); \u00d7 0.797 pts+reb/min (77% this season's 0.776 over 10 games, 23% prior 0.835); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense +2%, shared production on ORL +8%; calibration -0.1; injury news: +1.4 with Jamal Cain ruled out today (half of how he's actually played without him"
  },
  "Franz Wagner|pts|401909973": {
-  "actual": null,
+  "actual": 38.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5454545454545454,
@@ -52609,7 +52823,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -52640,6 +52855,11 @@
   ],
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "fanduel": 14.5,
+   "kalshi": 13.5,
+   "prizepicks": 14.0
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 23.5,
@@ -52667,6 +52887,7 @@
   "move": null,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 12.2,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -52738,7 +52959,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -52749,7 +52970,7 @@
   "why": "36.5 min (recent 34.8, +3.1 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.4 back-to-back); \u00d7 0.626 points/min (67% this season's 0.601 over 10 games, 33% prior 0.659); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense +1%, shared production on ORL +9%; calibration -0.1; injury news: +1.2 with Jamal Cain ruled out today (half of how he's actually played without him)"
  },
  "Franz Wagner|ra|401909973": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -52773,11 +52994,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -52793,6 +53018,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "UTA",
+  "our_err": 4.0,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -52864,7 +53090,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -52875,7 +53101,7 @@
   "why": "36.5 min (recent 34.8, +3.1 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.4 back-to-back); \u00d7 0.351 reb+ast/min (56% this season's 0.410 over 10 games, 44% prior 0.295); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense +1%, shared production on ORL +6%; calibration -0.0; injury news: -0.4 with Jamal Cain ruled out today (half of how he's actually played without him"
  },
  "Franz Wagner|reb|401909973": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -52898,7 +53124,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:46 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -52929,6 +53156,10 @@
   ],
   "label": "lean",
   "line": 6.0,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 2.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -52950,6 +53181,7 @@
   "move": null,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 1.1,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -53021,7 +53253,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -59118,7 +59350,7 @@
   "why": "26.3 min (recent 22.8; the model had him at 21.1, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.099 rebounds/min (43% this season's 0.071 over 9 games, 57% prior 0.120); context: home +1%, rest +1%, shared production on CHI \u22123%; calibration -0.0."
  },
  "Isaiah Collier|ast|401909973": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6267,
@@ -59139,7 +59371,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:53 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -59155,6 +59388,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -59170,6 +59406,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 3.3,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -59217,7 +59454,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -59228,7 +59465,7 @@
   "why": "20.0 min (recent 20.5, \u22120.5 team-minutes adjustment with Lauri Markkanen out); \u00d7 0.254 assists/min (69% this season's 0.256 over 11 games, 31% prior 0.247); context: home +1%, rest \u22122%, opponent defense \u22121%, shared production on UTA +7%; calibration -0.0."
  },
  "Isaiah Collier|pa|401909973": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -59248,11 +59485,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:36 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -59268,6 +59509,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 5.5,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -59313,7 +59555,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -59323,7 +59565,7 @@
   "why": "20.0 min (recent 20.5, \u22120.5 team-minutes adjustment with Lauri Markkanen out); \u00d7 0.684 pts+ast/min (79% this season's 0.694 over 11 games, 21% prior 0.666); context: home +1%, rest \u22122%, shared production on UTA +7%; calibration -0.1."
  },
  "Isaiah Collier|pts|401909973": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -59343,11 +59585,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:36 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 6.5
@@ -59363,6 +59609,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 2.0,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -59408,7 +59655,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -69591,6 +69838,7 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:36 UTC",
   "game_id": 401909973,
+  "graded_at": "2026-11-12 04:40 UTC",
   "hit": null,
   "home": false,
   "kladder": [
@@ -69686,7 +69934,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "void",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -69694,6 +69942,7 @@
   "units_raw": 0.0,
   "updates": 15,
   "var": 1.135,
+  "void_reason": "did not play",
   "why": "18.5 min (recent 20.1, \u22120.6 team-minutes adjustment); \u00d7 0.059 3-pointers made/min (77% this season's 0.056 over 10 games, 23% prior 0.055); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense +2%; listed Day-To-Day."
  },
  "Jamal Cain|pra|401909973": {
@@ -69722,6 +69971,7 @@
   "flip": null,
   "frozen_at": "2026-11-12 00:56 UTC",
   "game_id": 401909973,
+  "graded_at": "2026-11-12 04:40 UTC",
   "hit": null,
   "home": false,
   "kladder": null,
@@ -69810,7 +70060,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "void",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -69818,6 +70068,7 @@
   "units_raw": 0.0,
   "updates": 4,
   "var": 54.067,
+  "void_reason": "did not play",
   "why": "19.5 min (recent 20.1, \u22120.6 team-minutes adjustment); \u00d7 0.587 pts+reb+ast/min (77% this season's 0.538 over 10 games, 23% prior 0.671); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense +1%, shared production on ORL +4%; calibration -0.1; listed Day-To-Day."
  },
  "Jamal Cain|pr|401909973": {
@@ -69841,6 +70092,7 @@
   "flip": null,
   "frozen_at": "2026-11-11 22:55 UTC",
   "game_id": 401909973,
+  "graded_at": "2026-11-12 04:40 UTC",
   "hit": null,
   "home": false,
   "kladder": null,
@@ -69905,13 +70157,14 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "void",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
   "var": 49.233,
+  "void_reason": "did not play",
   "why": "19.5 min (recent 20.1, \u22120.6 team-minutes adjustment); \u00d7 0.554 pts+reb/min (77% this season's 0.518 over 10 games, 23% prior 0.609); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense +2%, shared production on ORL +4%; calibration -0.1; listed Day-To-Day."
  },
  "Jamal Cain|pts|401909973": {
@@ -69936,6 +70189,7 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:36 UTC",
   "game_id": 401909973,
+  "graded_at": "2026-11-12 04:40 UTC",
   "hit": null,
   "home": false,
   "kladder": [
@@ -70036,7 +70290,7 @@
   },
   "src_key": "kalshi",
   "stat": "pts",
-  "status": "pending",
+  "status": "void",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -70044,6 +70298,7 @@
   "units_raw": 0.0,
   "updates": 5,
   "var": 28.517,
+  "void_reason": "did not play",
   "why": "18.5 min (recent 20.1, \u22120.6 team-minutes adjustment); \u00d7 0.397 points/min (67% this season's 0.359 over 10 games, 33% prior 0.438); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense +1%, shared production on ORL +5%; calibration -0.1; listed Day-To-Day."
  },
  "Jamal Cain|reb|401909973": {
@@ -70070,6 +70325,7 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:36 UTC",
   "game_id": 401909973,
+  "graded_at": "2026-11-12 04:40 UTC",
   "hit": null,
   "home": false,
   "kladder": [
@@ -70158,7 +70414,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "void",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -70166,6 +70422,7 @@
   "units_raw": 0.0,
   "updates": 3,
   "var": 5.915,
+  "void_reason": "did not play",
   "why": "18.5 min (recent 20.1, \u22120.6 team-minutes adjustment); \u00d7 0.167 rebounds/min (45% this season's 0.159 over 10 games, 55% prior 0.171); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense +2%, shared production on ORL +2%; calibration -0.0; listed Day-To-Day."
  },
  "Jamal Murray|ast|401909970": {
@@ -76047,7 +76304,7 @@
   "why": "22.6 min (recent 22.8); \u00d7 0.322 rebounds/min (43% this season's 0.314 over 9 games, 57% prior 0.325); context: pace vs NYK \u22121%, road \u22121%, opponent defense \u22122%, shared production on CLE \u22122%; calibration -0.0; injury news: -0.6 with Nae'Qwan Tomlin ruled out today (half of how he's actually played without him)."
  },
  "Jase Richardson|ast|401909973": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -76070,11 +76327,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 2.5
@@ -76090,6 +76351,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 0.1,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -76137,7 +76399,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -76148,7 +76410,7 @@
   "why": "19.1 min (recent 17.6, +1.6 team-minutes adjustment with Jamal Cain, Tristan da Silva out); \u00d7 0.106 assists/min (67% this season's 0.115 over 10 games, 33% prior 0.106); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +6%; calibration -0.0; injury news: -0.2 with Jamal Cain ruled out today (half of how he's actually played without him)."
  },
  "Jase Richardson|pa|401909973": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -76168,11 +76430,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -76188,6 +76454,7 @@
   "move": null,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 0.5,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -76235,7 +76502,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -76245,7 +76512,7 @@
   "why": "19.1 min (recent 17.6, +1.6 team-minutes adjustment with Jamal Cain, Tristan da Silva out); \u00d7 0.430 pts+ast/min (77% this season's 0.385 over 10 games, 23% prior 0.528); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +8%; calibration -0.1; injury news: -1.1 with Jamal Cain ruled out today (half of how he's actually played without him)."
  },
  "Jase Richardson|pra|401909973": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.7 pts (pattern)"
@@ -76269,11 +76536,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -76289,6 +76560,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "UTA",
+  "our_err": 0.1,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -76336,7 +76608,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -76347,7 +76619,7 @@
   "why": "19.1 min (recent 17.6, +1.6 team-minutes adjustment with Jamal Cain, Tristan da Silva out); \u00d7 0.535 pts+reb+ast/min (77% this season's 0.477 over 10 games, 23% prior 0.641); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +7%; calibration -0.1; injury news: -1.5 with Jamal Cain ruled out today (half of how he's actually played without him)."
  },
  "Jase Richardson|pr|401909973": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -76370,11 +76642,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -76390,6 +76666,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "UTA",
+  "our_err": 0.2,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -76437,7 +76714,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -76448,7 +76725,7 @@
   "why": "19.1 min (recent 17.6, +1.6 team-minutes adjustment with Jamal Cain, Tristan da Silva out); \u00d7 0.428 pts+reb/min (77% this season's 0.362 over 10 games, 23% prior 0.536); context: pace vs UTA +1%, road \u22121%, rest \u22122%, shared production on ORL +8%; calibration -0.1; injury news: -1.4 with Jamal Cain ruled out today (half of how he's actually played without him)."
  },
  "Jase Richardson|pts|401909973": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -76471,11 +76748,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.5
@@ -76491,6 +76772,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 0.2,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -76538,7 +76820,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -76930,7 +77212,7 @@
   "why": "19.0 min (recent 23.2, \u221223.2 team-minutes adjustment with Quinten Post out; the team-minutes cap had him at 0.0, but a book posted a line on him, so he's floored at 80% of his recent minutes); \u00d7 0.141 rebounds/min (20% this season's 0.108 over 3 games, 80% prior 0.149); context: home +1%, shared production on MEM \u22125%; calibration +0.1."
  },
  "Jaxson Hayes|ast|401909973": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [
    "no stake: 50% is a coin flip, even at a cheap price"
   ],
@@ -76954,7 +77236,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:53 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -76970,6 +77253,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -76985,6 +77271,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 1.4,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -77044,7 +77331,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -77055,7 +77342,7 @@
   "why": "21.0 min (recent 21.5, \u22120.5 team-minutes adjustment with Lauri Markkanen out); \u00d7 0.064 assists/min (80% this season's 0.073 over 10 games, 20% prior 0.055); context: home +1%, rest \u22122%, opponent defense \u22121%, shared production on UTA +7%; calibration -0.0."
  },
  "Jaxson Hayes|pa|401909973": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -77078,11 +77365,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 00:11 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -77098,6 +77389,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 1.8,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -77154,7 +77446,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -77165,7 +77457,7 @@
   "why": "20.9 min (recent 21.5, \u22120.6 team-minutes adjustment with Lauri Markkanen out); \u00d7 0.426 pts+ast/min (87% this season's 0.412 over 10 games, 13% prior 0.457); context: home +1%, rest \u22122%, opponent defense \u22122%, shared production on UTA +7%; calibration -0.1."
  },
  "Jaxson Hayes|pra|401909973": {
-  "actual": null,
+  "actual": 19.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.7 pts (pattern)"
@@ -77189,7 +77481,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:46 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -77210,6 +77503,10 @@
   ],
   "label": "lean",
   "line": 16.5,
+  "line_errs": {
+   "kalshi": 4.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 14.5,
@@ -77231,6 +77528,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 4.8,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -77302,7 +77600,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -77313,7 +77611,7 @@
   "why": "21.0 min (recent 21.5, \u22120.5 team-minutes adjustment with Lauri Markkanen out); \u00d7 0.665 pts+reb+ast/min (87% this season's 0.653 over 10 games, 13% prior 0.698); context: home +1%, rest \u22122%, opponent defense \u22122%, shared production on UTA +5%; calibration -0.1."
  },
  "Jaxson Hayes|pr|401909973": {
-  "actual": null,
+  "actual": 19.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -77336,11 +77634,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:11 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.5
@@ -77356,6 +77658,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 6.3,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -77413,7 +77716,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -77424,7 +77727,7 @@
   "why": "21.0 min (recent 21.5, \u22120.5 team-minutes adjustment with Lauri Markkanen out); \u00d7 0.600 pts+reb/min (87% this season's 0.580 over 10 games, 13% prior 0.644); context: home +1%, rest \u22122%, opponent defense \u22122%, shared production on UTA +5%; calibration -0.1."
  },
  "Jaxson Hayes|pts|401909973": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -77448,7 +77751,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:46 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -77464,6 +77768,10 @@
   ],
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -77485,6 +77793,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 3.2,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -77556,7 +77865,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -77567,7 +77876,7 @@
   "why": "21.0 min (recent 21.5, \u22120.5 team-minutes adjustment with Lauri Markkanen out); \u00d7 0.365 points/min (80% this season's 0.339 over 10 games, 20% prior 0.402); context: home +1%, rest \u22122%, opponent defense \u22123%, shared production on UTA +7%; calibration -0.1."
  },
  "Jaxson Hayes|ra|401909973": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -77591,11 +77900,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:11 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.5
@@ -77611,6 +77924,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 1.7,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -77680,7 +77994,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -77691,7 +78005,7 @@
   "why": "21.0 min (recent 21.5, \u22120.5 team-minutes adjustment with Lauri Markkanen out); \u00d7 0.301 reb+ast/min (71% this season's 0.314 over 10 games, 29% prior 0.296); context: home +1%, rest \u22122%, opponent defense \u22121%, shared production on UTA +3%; calibration -0.0."
  },
  "Jaxson Hayes|reb|401909973": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -77715,7 +78029,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:56 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -77736,6 +78051,10 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -77757,6 +78076,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 3.0,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -77830,7 +78150,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -84842,7 +85162,7 @@
   "why": "24.9 min (recent 31.1, \u22121.1 blowout risk (market margin 16)); \u00d7 0.224 rebounds/min (43% this season's 0.175 over 9 games, 57% prior 0.244); context: home +1%, rest +1%, opponent defense +1%, shared production on CHI \u22123%; calibration -0.0; injury news: +0.4 with Tobe Awaka ruled out today (half of how he's actually played without him)."
  },
  "Josh Green|fg3m|401909973": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.705,
@@ -84864,7 +85184,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:51 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -84890,6 +85211,9 @@
   ],
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 0.5
@@ -84905,6 +85229,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 0.0,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -84964,7 +85289,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -84975,7 +85300,7 @@
   "why": "20.9 min (recent 21.4, \u22120.5 team-minutes adjustment with Lauri Markkanen out); \u00d7 0.042 3-pointers made/min (86% this season's 0.029 over 9 games, 14% prior 0.059); context: home +1%, rest \u22122%, shared production on UTA +12%."
  },
  "Josh Green|pra|401909973": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.7 pts (pattern)",
@@ -85000,11 +85325,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:56 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -85020,6 +85349,7 @@
   "move": -1.0,
   "move_dir": "agree",
   "opp": "ORL",
+  "our_err": 2.4,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -85067,7 +85397,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -85078,7 +85408,7 @@
   "why": "20.9 min (recent 21.4, \u22120.5 team-minutes adjustment with Lauri Markkanen out); \u00d7 0.387 pts+reb+ast/min (86% this season's 0.339 over 9 games, 14% prior 0.472); context: home +1%, rest \u22122%, shared production on UTA +6%; calibration -0.1."
  },
  "Josh Green|pr|401909973": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -85102,11 +85432,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:26 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.5
@@ -85122,6 +85456,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 2.1,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -85179,7 +85514,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -85190,7 +85525,7 @@
   "why": "20.9 min (recent 21.4, \u22120.5 team-minutes adjustment with Lauri Markkanen out); \u00d7 0.329 pts+reb/min (86% this season's 0.282 over 9 games, 14% prior 0.407); context: home +1%, rest \u22122%, shared production on UTA +6%; calibration -0.1."
  },
  "Josh Green|pts|401909973": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -85219,11 +85554,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:11 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 5.5
@@ -85239,6 +85578,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 2.2,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -85296,7 +85636,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -85307,7 +85647,7 @@
   "why": "20.9 min (recent 21.4, \u22120.5 team-minutes adjustment with Lauri Markkanen out); \u00d7 0.237 points/min (78% this season's 0.190 over 9 games, 22% prior 0.301); context: home +1%, rest \u22122%, shared production on UTA +7%; calibration -0.1."
  },
  "Josh Green|reb|401909973": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.705,
@@ -85329,7 +85669,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:56 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -85350,6 +85691,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -85365,6 +85709,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 0.1,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -85432,7 +85777,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -86303,7 +86648,7 @@
   "why": "27.6 min (recent 30.0, \u22121.2 team-minutes adjustment, \u22121.2 back-to-back); \u00d7 0.232 rebounds/min (37% this season's 0.230 over 7 games, 63% prior 0.234); context: home +1%, rest \u22122%, shared production on NYK \u22121%; calibration -0.0."
  },
  "Josh Okogie|fg3m|401909973": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -86326,11 +86671,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:11 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 0.5
@@ -86346,6 +86695,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 0.3,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -86391,7 +86741,7 @@
   },
   "src_key": "prizepicks",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -86402,7 +86752,7 @@
   "why": "18.6 min (recent 19.1, \u22120.5 team-minutes adjustment with Lauri Markkanen out); \u00d7 0.034 3-pointers made/min (87% this season's 0.027 over 10 games, 13% prior 0.049); context: home +1%, rest \u22122%, shared production on UTA +12%."
  },
  "Josh Okogie|pra|401909973": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.7 pts (pattern)"
@@ -86426,11 +86776,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 00:11 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -86446,6 +86800,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 1.2,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -86490,7 +86845,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -86501,7 +86856,7 @@
   "why": "18.6 min (recent 19.1, \u22120.5 team-minutes adjustment with Lauri Markkanen out); \u00d7 0.460 pts+reb+ast/min (87% this season's 0.436 over 10 games, 13% prior 0.533); context: home +1%, rest \u22122%, shared production on UTA +6%; calibration -0.1."
  },
  "Josh Okogie|pr|401909973": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -86525,11 +86880,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:11 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.5
@@ -86545,6 +86904,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 2.4,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -86602,7 +86962,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -86613,7 +86973,7 @@
   "why": "18.6 min (recent 19.1, \u22120.5 team-minutes adjustment with Lauri Markkanen out); \u00d7 0.398 pts+reb/min (87% this season's 0.372 over 10 games, 13% prior 0.471); context: home +1%, rest \u22122%, shared production on UTA +5%; calibration -0.1."
  },
  "Josh Okogie|pts|401909973": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -86638,11 +86998,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 00:11 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 5.5
@@ -86658,6 +87022,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 2.4,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -86714,7 +87079,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -86725,7 +87090,7 @@
   "why": "18.6 min (recent 19.1, \u22120.5 team-minutes adjustment with Lauri Markkanen out); \u00d7 0.237 points/min (80% this season's 0.197 over 10 games, 20% prior 0.320); context: home +1%, rest \u22122%, shared production on UTA +7%; calibration -0.1."
  },
  "Josh Okogie|reb|401909973": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4269,
@@ -86747,7 +87112,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:56 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -86773,6 +87139,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -86788,6 +87157,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 0.0,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -86847,7 +87217,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -97174,7 +97544,7 @@
   "why": "33.9 min (recent 35.2, \u22121.3 team-minutes adjustment); \u00d7 0.165 rebounds/min (48% this season's 0.183 over 11 games, 52% prior 0.159); context: home +1%, opponent defense +1%, shared production on HOU +3%; calibration -0.0."
  },
  "Keyonte George|ast|401909973": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -97200,7 +97570,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:53 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -97221,6 +97592,10 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -97242,6 +97617,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 1.0,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -97313,7 +97689,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -97324,7 +97700,7 @@
   "why": "29.0 min (recent 31.0, \u22120.7 team-minutes adjustment with Lauri Markkanen out, \u22121.2 back-to-back); \u00d7 0.195 assists/min (67% this season's 0.199 over 10 games, 33% prior 0.176); context: home +1%, rest \u22122%, opponent defense \u22121%, shared production on UTA +7%; calibration -0.0."
  },
  "Keyonte George|fg3m|401909973": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6267,
@@ -97345,7 +97721,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:53 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -97366,6 +97743,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -97381,6 +97761,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 0.0,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -97428,7 +97809,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -97439,7 +97820,7 @@
   "why": "29.0 min (recent 31.0, \u22120.7 team-minutes adjustment with Lauri Markkanen out, \u22121.2 back-to-back); \u00d7 0.061 3-pointers made/min (77% this season's 0.056 over 10 games, 23% prior 0.076); context: home +1%, rest \u22122%, shared production on UTA +12%."
  },
  "Keyonte George|pa|401909973": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -97462,11 +97843,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:11 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 27.5,
+  "line_errs": {
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 27.5
@@ -97482,6 +97867,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 6.5,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -97551,7 +97937,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -97562,7 +97948,7 @@
   "why": "29.0 min (recent 31.0, \u22120.7 team-minutes adjustment with Lauri Markkanen out, \u22121.2 back-to-back); \u00d7 0.858 pts+ast/min (77% this season's 0.857 over 10 games, 23% prior 0.799); context: home +1%, rest \u22122%, shared production on UTA +7%; calibration -0.1; listed Day-To-Day."
  },
  "Keyonte George|pra|401909973": {
-  "actual": null,
+  "actual": 27.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.7 pts (pattern)"
@@ -97586,7 +97972,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:46 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -97597,6 +97984,10 @@
   ],
   "label": "lean",
   "line": 31.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 29.5,
@@ -97618,6 +98009,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 3.2,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -97689,7 +98081,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -97700,7 +98092,7 @@
   "why": "29.0 min (recent 31.0, \u22120.7 team-minutes adjustment with Lauri Markkanen out, \u22121.2 back-to-back); \u00d7 0.987 pts+reb+ast/min (77% this season's 0.991 over 10 games, 23% prior 0.917); context: home +1%, rest \u22122%, shared production on UTA +7%; calibration -0.1."
  },
  "Keyonte George|pr|401909973": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -97723,11 +98115,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:56 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 25.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 25.5
@@ -97743,6 +98139,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 4.2,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -97814,7 +98211,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -97825,7 +98222,7 @@
   "why": "29.0 min (recent 31.0, \u22120.7 team-minutes adjustment with Lauri Markkanen out, \u22121.2 back-to-back); \u00d7 0.790 pts+reb/min (77% this season's 0.791 over 10 games, 23% prior 0.741); context: home +1%, rest \u22122%, shared production on UTA +7%; calibration -0.1."
  },
  "Keyonte George|pts|401909973": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -97848,7 +98245,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:46 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -97874,6 +98272,10 @@
   ],
   "label": "lean",
   "line": 21.5,
+  "line_errs": {
+   "kalshi": 6.5,
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 19.5,
@@ -97895,6 +98297,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 7.3,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -97966,7 +98369,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -97977,7 +98380,7 @@
   "why": "29.0 min (recent 31.0, \u22120.7 team-minutes adjustment with Lauri Markkanen out, \u22121.2 back-to-back); \u00d7 0.659 points/min (67% this season's 0.657 over 10 games, 33% prior 0.623); context: home +1%, rest \u22122%, shared production on UTA +7%; calibration -0.1."
  },
  "Keyonte George|ra|401909973": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -98000,11 +98403,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:11 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -98020,6 +98427,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ORL",
+  "our_err": 4.4,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -98089,7 +98497,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -98100,7 +98508,7 @@
   "why": "29.0 min (recent 31.0, \u22120.7 team-minutes adjustment with Lauri Markkanen out, \u22121.2 back-to-back); \u00d7 0.319 reb+ast/min (56% this season's 0.333 over 10 games, 44% prior 0.294); context: home +1%, rest \u22122%, shared production on UTA +5%; calibration -0.0; listed Day-To-Day."
  },
  "Keyonte George|reb|401909973": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -98121,7 +98529,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:46 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -98142,6 +98551,10 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -98163,6 +98576,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ORL",
+  "our_err": 3.4,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -98210,7 +98624,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -101303,6 +101717,7 @@
   "flip": null,
   "frozen_at": "2026-11-11 15:11 UTC",
   "game_id": 401909973,
+  "graded_at": "2026-11-12 04:40 UTC",
   "hit": null,
   "home": true,
   "kladder": null,
@@ -101391,7 +101806,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "void",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -101399,6 +101814,7 @@
   "units_raw": 0.0,
   "updates": 1,
   "var": 68.801,
+  "void_reason": "did not play",
   "why": "29.6 min (recent 32.0, \u22121.1 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.701 pts+ast/min (73% this season's 0.648 over 8 games, 27% prior 0.737); context: home +1%, rest \u22122%, shared production on UTA +4%; calibration -0.1; listed Day-To-Day."
  },
  "Lauri Markkanen|pra|401909973": {
@@ -101426,6 +101842,7 @@
   "flip": null,
   "frozen_at": "2026-11-11 15:11 UTC",
   "game_id": 401909973,
+  "graded_at": "2026-11-12 04:40 UTC",
   "hit": null,
   "home": true,
   "kladder": null,
@@ -101514,7 +101931,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "void",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -101522,6 +101939,7 @@
   "units_raw": 0.0,
   "updates": 1,
   "var": 100.693,
+  "void_reason": "did not play",
   "why": "29.6 min (recent 32.0, \u22121.1 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.909 pts+reb+ast/min (73% this season's 0.866 over 8 games, 27% prior 0.934); context: home +1%, rest \u22122%, shared production on UTA +5%; calibration -0.1; listed Day-To-Day."
  },
  "Lauri Markkanen|pr|401909973": {
@@ -101548,6 +101966,7 @@
   "flip": null,
   "frozen_at": "2026-11-11 15:11 UTC",
   "game_id": 401909973,
+  "graded_at": "2026-11-12 04:40 UTC",
   "hit": null,
   "home": true,
   "kladder": null,
@@ -101636,7 +102055,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "void",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -101644,6 +102063,7 @@
   "units_raw": 0.0,
   "updates": 1,
   "var": 93.944,
+  "void_reason": "did not play",
   "why": "29.6 min (recent 32.0, \u22121.1 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.842 pts+reb/min (73% this season's 0.802 over 8 games, 27% prior 0.871); context: home +1%, rest \u22122%, shared production on UTA +4%; calibration -0.1; listed Day-To-Day."
  },
  "Lauri Markkanen|pts|401909973": {
@@ -101668,6 +102088,7 @@
   "flip": null,
   "frozen_at": "2026-11-11 15:11 UTC",
   "game_id": 401909973,
+  "graded_at": "2026-11-12 04:40 UTC",
   "hit": null,
   "home": true,
   "kladder": null,
@@ -101762,7 +102183,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "void",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -101770,6 +102191,7 @@
   "units_raw": 0.0,
   "updates": 1,
   "var": 65.725,
+  "void_reason": "did not play",
   "why": "29.6 min (recent 32.0, \u22121.1 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.642 points/min (62% this season's 0.583 over 8 games, 38% prior 0.674); context: home +1%, rest \u22122%, shared production on UTA +4%; calibration -0.1; listed Day-To-Day."
  },
  "Lauri Markkanen|ra|401909973": {
@@ -101796,6 +102218,7 @@
   "flip": null,
   "frozen_at": "2026-11-11 16:05 UTC",
   "game_id": 401909973,
+  "graded_at": "2026-11-12 04:40 UTC",
   "hit": null,
   "home": true,
   "kladder": null,
@@ -101883,7 +102306,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "void",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -101891,6 +102314,7 @@
   "units_raw": 0.0,
   "updates": 2,
   "var": 13.053,
+  "void_reason": "did not play",
   "why": "29.6 min (recent 32.0, \u22121.1 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.271 reb+ast/min (50% this season's 0.283 over 8 games, 50% prior 0.259); context: home +1%, rest \u22122%, shared production on UTA +6%; calibration -0.0; listed Day-To-Day."
  },
  "Lauri Markkanen|reb|401909973": {
@@ -101917,6 +102341,7 @@
   "flip": null,
   "frozen_at": "2026-11-11 15:11 UTC",
   "game_id": 401909973,
+  "graded_at": "2026-11-12 04:40 UTC",
   "hit": null,
   "home": true,
   "kladder": null,
@@ -102005,7 +102430,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "void",
   "team": "UTA",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -102013,6 +102438,7 @@
   "units_raw": 0.0,
   "updates": 1,
   "var": 8.957,
+  "void_reason": "did not play",
   "why": "29.6 min (recent 32.0, \u22121.1 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.202 rebounds/min (40% this season's 0.219 over 8 games, 60% prior 0.196); context: home +1%, rest \u22122%, opponent defense \u22121%, shared production on UTA +6%; calibration -0.0; listed Day-To-Day."
  },
  "Luka Doncic|ast|401909971": {
@@ -145193,6 +145619,7 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:36 UTC",
   "game_id": 401909973,
+  "graded_at": "2026-11-12 04:40 UTC",
   "hit": null,
   "home": false,
   "kladder": [
@@ -145279,7 +145706,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "void",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -145287,6 +145714,7 @@
   "units_raw": 0.0,
   "updates": 8,
   "var": 3.256,
+  "void_reason": "did not play",
   "why": "28.0 min (recent 31.7, \u22120.9 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.095 3-pointers made/min (75% this season's 0.117 over 9 games, 25% prior 0.058); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense +2%; listed Day-To-Day."
  },
  "Tristan da Silva|pr|401909973": {
@@ -145313,6 +145741,7 @@
   "flip": null,
   "frozen_at": "2026-11-12 00:06 UTC",
   "game_id": 401909973,
+  "graded_at": "2026-11-12 04:40 UTC",
   "hit": null,
   "home": false,
   "kladder": null,
@@ -145377,7 +145806,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "void",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -145385,6 +145814,7 @@
   "units_raw": 0.0,
   "updates": 1,
   "var": 67.672,
+  "void_reason": "did not play",
   "why": "29.5 min (recent 31.7, \u22120.9 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.595 pts+reb/min (75% this season's 0.617 over 9 games, 25% prior 0.545); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense +2%, shared production on ORL +4%; calibration -0.1; listed Day-To-Day."
  },
  "Tristan da Silva|pts|401909973": {
@@ -145409,6 +145839,7 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:36 UTC",
   "game_id": 401909973,
+  "graded_at": "2026-11-12 04:40 UTC",
   "hit": null,
   "home": false,
   "kladder": [
@@ -145490,7 +145921,7 @@
   },
   "src_key": "kalshi",
   "stat": "pts",
-  "status": "pending",
+  "status": "void",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -145498,6 +145929,7 @@
   "units_raw": 0.0,
   "updates": 3,
   "var": 51.74,
+  "void_reason": "did not play",
   "why": "28.0 min (recent 31.7, \u22120.9 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.452 points/min (64% this season's 0.496 over 9 games, 36% prior 0.390); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense +1%, shared production on ORL +5%; calibration -0.1; listed Day-To-Day."
  },
  "Tristan da Silva|reb|401909973": {
@@ -145522,6 +145954,7 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:26 UTC",
   "game_id": 401909973,
+  "graded_at": "2026-11-12 04:40 UTC",
   "hit": null,
   "home": false,
   "kladder": [
@@ -145603,7 +146036,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "void",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -145611,6 +146044,7 @@
   "units_raw": 0.0,
   "updates": 4,
   "var": 5.557,
+  "void_reason": "did not play",
   "why": "29.5 min (recent 31.7, \u22120.9 team-minutes adjustment, \u22121.3 back-to-back); \u00d7 0.142 rebounds/min (43% this season's 0.120 over 9 games, 57% prior 0.155); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense +2%, shared production on ORL +2%; calibration -0.0; listed Day-To-Day."
  },
  "Ty Jerome|ast|401909970": {
@@ -149868,7 +150302,7 @@
   "why": "29.0 min (recent 30.6, \u22120.6 team-minutes adjustment with Quentin Grimes out, \u22121.0 blowout risk (market margin 14)); \u00d7 0.358 rebounds/min (67% this season's 0.350 over 12 games, 33% prior 0.369); context: road \u22121%, opponent defense +1%, shared production on LAL \u22123%; calibration -0.0."
  },
  "Wendell Carter Jr.|ast|401909973": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -149890,7 +150324,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:56 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -149906,6 +150341,10 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 1.5,
@@ -149927,6 +150366,7 @@
   "move": null,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 1.2,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -150000,7 +150440,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -150011,7 +150451,7 @@
   "why": "34.0 min (recent 32.4, +2.9 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.3 back-to-back); \u00d7 0.050 assists/min (67% this season's 0.030 over 10 games, 33% prior 0.072); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on ORL +6%; calibration -0.0."
  },
  "Wendell Carter Jr.|fg3m|401909973": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6365,
@@ -150032,7 +150472,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:56 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -150053,6 +150494,9 @@
   ],
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 0.5
@@ -150068,6 +150512,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 1.2,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -150139,7 +150584,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -150150,7 +150595,7 @@
   "why": "34.0 min (recent 32.4, +2.9 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.3 back-to-back); \u00d7 0.031 3-pointers made/min (77% this season's 0.033 over 10 games, 23% prior 0.028); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense \u22122%, shared production on ORL +12%; injury news: +0.1 with Jamal Cain ruled out today (half of how he's actually played without him)."
  },
  "Wendell Carter Jr.|pa|401909973": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -150173,11 +150618,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.5
@@ -150193,6 +150642,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 4.5,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -150264,7 +150714,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -150275,7 +150725,7 @@
   "why": "34.0 min (recent 32.4, +2.9 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.3 back-to-back); \u00d7 0.458 pts+ast/min (77% this season's 0.452 over 10 games, 23% prior 0.469); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on ORL +8%; calibration -0.1; injury news: +0.3 with Jamal Cain ruled out today (half of how he's actually played without him"
  },
  "Wendell Carter Jr.|pra|401909973": {
-  "actual": null,
+  "actual": 19.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "OVER chance -2.7 pts (pattern)"
@@ -150299,7 +150749,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:46 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -150320,6 +150771,10 @@
   ],
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "kalshi": 5.5,
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 24.5,
@@ -150341,6 +150796,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 7.3,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -150412,7 +150868,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -150423,7 +150879,7 @@
   "why": "34.0 min (recent 32.4, +2.9 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.3 back-to-back); \u00d7 0.734 pts+reb+ast/min (77% this season's 0.743 over 10 games, 23% prior 0.734); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on ORL +7%; calibration -0.1; injury news: +0.5 with Jamal Cain ruled out today (half of how he's actually played without"
  },
  "Wendell Carter Jr.|pr|401909973": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -150447,11 +150903,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 22.5
@@ -150467,6 +150927,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "UTA",
+  "our_err": 8.6,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -150538,7 +150999,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -150549,7 +151010,7 @@
   "why": "34.0 min (recent 32.4, +2.9 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.3 back-to-back); \u00d7 0.688 pts+reb/min (77% this season's 0.713 over 10 games, 23% prior 0.663); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on ORL +7%; calibration -0.1; injury news: +0.4 with Jamal Cain ruled out today (half of how he's actually played without him"
  },
  "Wendell Carter Jr.|pts|401909973": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5327102803738317,
@@ -150570,7 +151031,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -150591,6 +151053,11 @@
   ],
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "fanduel": 3.5,
+   "kalshi": 5.5,
+   "prizepicks": 4.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 12.5,
@@ -150618,6 +151085,7 @@
   "move": null,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 5.7,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -150689,7 +151157,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -150700,7 +151168,7 @@
   "why": "34.0 min (recent 32.4, +2.9 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.3 back-to-back); \u00d7 0.410 points/min (67% this season's 0.422 over 10 games, 33% prior 0.398); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on ORL +9%; calibration -0.1; injury news: +0.2 with Jamal Cain ruled out today (half of how he's actually played without him)"
  },
  "Wendell Carter Jr.|ra|401909973": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -150723,11 +151191,15 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:41 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -150743,6 +151215,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 1.5,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -150814,7 +151287,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
@@ -150825,7 +151298,7 @@
   "why": "34.0 min (recent 32.4, +2.9 team-minutes adjustment with Jamal Cain, Tristan da Silva out, \u22121.3 back-to-back); \u00d7 0.325 reb+ast/min (56% this season's 0.320 over 10 games, 44% prior 0.337); context: pace vs UTA +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on ORL +5%; calibration -0.0; injury news: +0.3 with Jamal Cain ruled out today (half of how he's actually played without him"
  },
  "Wendell Carter Jr.|reb|401909973": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "chance pulled toward 50% (keeps 23% of our lean on PrizePicks lines, pattern)"
   ],
@@ -150849,7 +151322,8 @@
   "flip": null,
   "frozen_at": "2026-11-12 01:46 UTC",
   "game_id": 401909973,
-  "hit": null,
+  "graded_at": "2026-11-12 04:40 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -150885,6 +151359,10 @@
   ],
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -150906,6 +151384,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "UTA",
+  "our_err": 2.6,
   "out_ctx": [
    "Izaiyah Nelson",
    "Jalen Suggs",
@@ -150977,7 +151456,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "ORL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-12T02:00:00+00:00",
