@@ -238,11 +238,22 @@ def _odds(be: float | None) -> str | None:
 def other_books(p: dict, prow: dict | None) -> list[dict]:
     """What Kalshi and FanDuel charge for this pick (update 75), for PrizePicks cards, which have no odds of their own:
     the same number when the book has it (Kalshi's ladder often does), otherwise the book's own number on our side."""
-    if p.get("line_source") != "prizepicks" or not prow or p.get("line") is None or p.get("call") not in ("OVER", "UNDER"):
+    if p.get("line") is None or p.get("call") not in ("OVER", "UNDER"):
         return []
     import kalshi_client
-    lines = ((prow.get("stats") or {}).get(p["stat"]) or {}).get("lines") or {}
+    import polymarket_client
     over, out = p["call"] == "OVER", []
+    # Polymarket US (update 79): every card, when it has the same number (its "N+" rung)
+    pmc = polymarket_client.prop_cost(p.get("player", ""), p["stat"], p["line"], over, p.get("game_id"), p.get("date"))
+    pmo = _odds(pmc)
+    own = p.get("break_even") if p.get("line_source") != "prizepicks" else None
+    pm_row = {"book": "POLYMARKET", "line": p["line"], "same": True, "odds": pmo,
+              "better": bool(pmc and own and pmc < own - 0.005)} if pmo else None
+    if p.get("line_source") != "prizepicks" or not prow:
+        return [pm_row] if pm_row else []
+    lines = ((prow.get("stats") or {}).get(p["stat"]) or {}).get("lines") or {}
+    if pm_row:
+        out.append(pm_row)
     for src, name in (("kalshi", "KALSHI"), ("fanduel", "FANDUEL")):
         ln = lines.get(src)
         if not ln or ln.get("line") is None:

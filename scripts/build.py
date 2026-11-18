@@ -42,6 +42,7 @@ import model  # noqa: E402
 import oddsapi_client  # noqa: E402
 import espn_finals  # noqa: E402
 import tipsters  # noqa: E402
+import polymarket_client  # noqa: E402
 import patterns  # noqa: E402
 import rankings  # noqa: E402
 import tune  # noqa: E402
@@ -261,6 +262,10 @@ def build(args) -> None:
         g["kalshi_ml"] = kalshi_client.moneyline(kal, g["away"], g["home"], g["date"])
         if go.get("spread"):
             spreads[g["game_id"]] = go["spread"]["home_point"]
+    if not args.no_fetch and sl.get("games"):  # Polymarket US prices (update 79): shown next to each pick, used by the tail test
+        pm = polymarket_client.fetch(sl, now)
+        print(f"Polymarket US: {len(pm['games'])}/{len(sl['games'])} games, "
+              f"{sum(len(g['props']) for g in pm['games'].values())} player ladders, missing={pm['missing']}, error={pm['error']}")
     # unit sizing trust, from how sized picks have actually done (see live.unit_rec)
     trust = grade.unit_trust(predictions.load_all(), predictions.load_all(team=True))
     live.UNIT_TRUST = trust["trust"]

@@ -187,6 +187,13 @@ def your_price(leg: dict, prow: dict | None) -> dict | None:
         c = fd[1] if over else fd[2]
         if c and (best is None or c < best["p"]):
             best = {"src": "FanDuel", "p": round(c, 4)}
+    try:  # Polymarket US, same number (update 79)
+        import polymarket_client
+        c = polymarket_client.prop_cost(leg["player"], leg["stat"], ln, over, prow.get("game_id"), prow.get("date"))
+        if c and (best is None or c < best["p"]):
+            best = {"src": "Polymarket", "p": round(c, 4)}
+    except Exception:  # noqa: BLE001
+        pass
     return best
 
 
@@ -233,7 +240,15 @@ def sync(sl: dict, now: datetime | None = None) -> None:
         if p["kind"] == "spread":
             tip = by_team.get(p["team"])
             if tip and now < tip:
-                st["price"][p["id"]] = {"src": "book", "p": round(am_to_p(-110), 4), "at": now.strftime("%Y-%m-%d %H:%M UTC")}
+                yp = {"src": "book", "p": round(am_to_p(-110), 4)}
+                try:  # Polymarket US at the same spread, if cheaper (update 79)
+                    import polymarket_client
+                    c = polymarket_client.spread_cost(p["team"], float(p["line"]), date)
+                    if c and c < yp["p"]:
+                        yp = {"src": "Polymarket", "p": c}
+                except Exception:  # noqa: BLE001
+                    pass
+                st["price"][p["id"]] = {**yp, "at": now.strftime("%Y-%m-%d %H:%M UTC")}
             continue
         if len(p["legs"]) != 1:
             continue
