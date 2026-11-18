@@ -9562,7 +9562,7 @@
   "why": "36.3 min (recent 12.5, +0.7 team-minutes adjustment with Jaylen Clark, Jonathan Kuminga out; the model had him at 13.2, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.119 points/min (76% this season's 0.000 over 8 games, 24% prior 0.347); context: home +1%, rest \u22122%, shared production on MIN +6%; calibration -0.0."
  },
  "Collin Murray-Boyles|ast|401910002": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6365,
@@ -9583,7 +9583,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -9604,6 +9605,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -9619,6 +9623,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 0.7,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -9686,7 +9691,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -9697,7 +9702,7 @@
   "why": "28.6 min (recent 29.2, \u22120.6 team-minutes adjustment with Malachi Smith out); \u00d7 0.080 assists/min (71% this season's 0.072 over 12 games, 29% prior 0.086); context: pace vs NYK \u22121%, home +1%, shared production on TOR \u22122%; calibration +0.0."
  },
  "Collin Murray-Boyles|fg3m|401910002": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -9720,11 +9725,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 23:36 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 0.5
@@ -9740,6 +9749,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 0.7,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -9807,7 +9817,7 @@
   },
   "src_key": "prizepicks",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -9818,7 +9828,7 @@
   "why": "28.6 min (recent 29.2, \u22120.6 team-minutes adjustment with Malachi Smith out); \u00d7 0.022 3-pointers made/min (80% this season's 0.024 over 12 games, 20% prior 0.022); context: pace vs NYK \u22121%, home +1%, opponent defense +1%, shared production on TOR +2%; calibration +0.0."
  },
  "Collin Murray-Boyles|pa|401910002": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -9838,11 +9848,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 15:01 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.5
@@ -9858,6 +9872,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 2.9,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -9920,7 +9935,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -9930,7 +9945,7 @@
   "why": "28.4 min (recent 29.2, \u22120.8 team-minutes adjustment); \u00d7 0.486 pts+ast/min (80% this season's 0.486 over 12 games, 20% prior 0.494); context: pace vs NYK \u22121%, home +1%, opponent defense \u22121%, shared production on TOR +1%; calibration +0.1."
  },
  "Collin Murray-Boyles|pra|401910002": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -9952,7 +9967,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -9973,6 +9989,10 @@
   ],
   "label": "lean",
   "line": 19.5,
+  "line_errs": {
+   "kalshi": 7.5,
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 19.5,
@@ -9994,6 +10014,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 8.1,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -10061,7 +10082,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -10072,7 +10093,7 @@
   "why": "28.6 min (recent 29.2, \u22120.6 team-minutes adjustment with Malachi Smith out); \u00d7 0.705 pts+reb+ast/min (80% this season's 0.699 over 12 games, 20% prior 0.716); context: pace vs NYK \u22121%, home +1%."
  },
  "Collin Murray-Boyles|pr|401910002": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -10095,11 +10116,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 22:51 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 16.5,
+  "line_errs": {
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 16.5
@@ -10115,6 +10140,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 8.9,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -10177,7 +10203,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -10188,7 +10214,7 @@
   "why": "28.4 min (recent 29.2, \u22120.8 team-minutes adjustment); \u00d7 0.626 pts+reb/min (80% this season's 0.627 over 12 games, 20% prior 0.630); context: pace vs NYK \u22121%, home +1%, opponent defense \u22121%, shared production on TOR +2%; calibration +0.0."
  },
  "Collin Murray-Boyles|pts|401910002": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5192307692307693,
@@ -10210,7 +10236,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 23:36 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -10236,6 +10263,11 @@
   ],
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "fanduel": 2.5,
+   "kalshi": 1.5,
+   "prizepicks": 2.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 10.5,
@@ -10263,6 +10295,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 3.6,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -10332,7 +10365,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -10343,7 +10376,7 @@
   "why": "28.6 min (recent 29.2, \u22120.6 team-minutes adjustment with Malachi Smith out); \u00d7 0.406 points/min (71% this season's 0.414 over 12 games, 29% prior 0.407); context: pace vs NYK \u22121%, home +1%, opponent defense \u22121%, shared production on TOR +1%; calibration -0.0."
  },
  "Collin Murray-Boyles|ra|401910002": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)",
    "-2.6 pts: pick follows the line's move (pattern)"
@@ -10367,11 +10400,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 11:20 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.5
@@ -10387,6 +10424,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 4.6,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -10449,7 +10487,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -10460,7 +10498,7 @@
   "why": "28.4 min (recent 29.2, \u22120.8 team-minutes adjustment); \u00d7 0.302 reb+ast/min (60% this season's 0.284 over 12 games, 40% prior 0.308); context: pace vs NYK \u22121%, home +1%; calibration +0.0."
  },
  "Collin Murray-Boyles|reb|401910002": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -10483,7 +10521,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -10509,6 +10548,10 @@
   ],
   "label": "lean",
   "line": 6.0,
+  "line_errs": {
+   "kalshi": 4.5,
+   "prizepicks": 5.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -10530,6 +10573,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 5.3,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -10597,7 +10641,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -15536,12 +15580,8 @@
   "anchor": "kalshi",
   "be_over": 0.542,
   "be_under": 0.542,
-  "best5": [
-   "combos:best5"
-  ],
-  "best5_at": {
-   "combos:best5": "2026-11-18 02:56:14 UTC"
-  },
+  "best5": [],
+  "best5_at": {},
   "blend_mean": 29.45,
   "blend_w": 0.225,
   "break_even": 0.542,
@@ -24422,7 +24462,7 @@
   "why": "25.6 min (recent 26.5, \u22120.9 team-minutes adjustment); \u00d7 0.113 rebounds/min (68% this season's 0.113 over 13 games, 32% prior 0.116); context: road \u22121%, shared production on CHA \u22121%; calibration -0.0."
  },
  "Immanuel Quickley|ast|401910002": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -24446,7 +24486,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -24472,6 +24513,10 @@
   ],
   "label": "lean",
   "line": 5.0,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 2.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -24493,6 +24538,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 1.3,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -24560,7 +24606,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -24571,7 +24617,7 @@
   "why": "32.3 min (recent 33.0, \u22120.6 team-minutes adjustment with Malachi Smith out); \u00d7 0.182 assists/min (69% this season's 0.178 over 11 games, 31% prior 0.181); context: pace vs NYK \u22121%, home +1%, opponent defense \u22121%, shared production on TOR \u22122%; calibration +0.0."
  },
  "Immanuel Quickley|fg3m|401910002": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -24593,7 +24639,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -24624,6 +24671,10 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 2.5,
@@ -24645,6 +24696,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 0.7,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -24712,7 +24764,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -24723,7 +24775,7 @@
   "why": "32.3 min (recent 33.0, \u22120.6 team-minutes adjustment with Malachi Smith out); \u00d7 0.081 3-pointers made/min (79% this season's 0.080 over 11 games, 21% prior 0.079); context: pace vs NYK \u22121%, home +1%, opponent defense +1%, shared production on TOR +2%; calibration +0.0."
  },
  "Immanuel Quickley|pa|401910002": {
-  "actual": null,
+  "actual": 21.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -24746,11 +24798,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 23:36 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 20.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 20.5
@@ -24766,6 +24822,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 2.4,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -24833,7 +24890,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -24844,7 +24901,7 @@
   "why": "32.3 min (recent 33.0, \u22120.6 team-minutes adjustment with Malachi Smith out); \u00d7 0.725 pts+ast/min (79% this season's 0.733 over 11 games, 21% prior 0.705); context: pace vs NYK \u22121%, home +1%; calibration +0.1."
  },
  "Immanuel Quickley|pra|401910002": {
-  "actual": null,
+  "actual": 22.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -24866,7 +24923,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -24887,6 +24945,10 @@
   ],
   "label": "lean",
   "line": 24.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 24.5,
@@ -24908,6 +24970,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 5.3,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -24981,7 +25044,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -24992,7 +25055,7 @@
   "why": "32.3 min (recent 33.0, \u22120.6 team-minutes adjustment with Malachi Smith out); \u00d7 0.848 pts+reb+ast/min (79% this season's 0.853 over 11 games, 21% prior 0.833); context: pace vs NYK \u22121%, home +1%."
  },
  "Immanuel Quickley|pr|401910002": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -25015,11 +25078,15 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:21 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 18.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 18.5
@@ -25035,6 +25102,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 6.6,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -25102,7 +25170,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -25113,7 +25181,7 @@
   "why": "32.3 min (recent 33.0, \u22120.6 team-minutes adjustment with Malachi Smith out); \u00d7 0.667 pts+reb/min (79% this season's 0.675 over 11 games, 21% prior 0.652); context: pace vs NYK \u22121%, home +1%, shared production on TOR +1%; calibration +0.0."
  },
  "Immanuel Quickley|pts|401910002": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5283018867924528,
@@ -25135,7 +25203,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 23:36 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -25161,6 +25230,11 @@
   ],
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "fanduel": 1.5,
+   "kalshi": 0.5,
+   "prizepicks": 1.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 15.5,
@@ -25188,6 +25262,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 3.6,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -25255,7 +25330,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -25266,7 +25341,7 @@
   "why": "32.3 min (recent 33.0, \u22120.6 team-minutes adjustment with Malachi Smith out); \u00d7 0.542 points/min (69% this season's 0.555 over 11 games, 31% prior 0.524); context: pace vs NYK \u22121%, home +1%, shared production on TOR +1%; calibration -0.0."
  },
  "Immanuel Quickley|ra|401910002": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -25289,11 +25364,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 23:36 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.5
@@ -25309,6 +25388,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 1.7,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -25376,7 +25456,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -25387,7 +25467,7 @@
   "why": "32.3 min (recent 33.0, \u22120.6 team-minutes adjustment with Malachi Smith out); \u00d7 0.306 reb+ast/min (58% this season's 0.299 over 11 games, 42% prior 0.309); context: pace vs NYK \u22121%, home +1%, opponent defense \u22121%, shared production on TOR \u22121%; calibration +0.0."
  },
  "Immanuel Quickley|reb|401910002": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -25409,7 +25489,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -25435,6 +25516,10 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -25456,6 +25541,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 3.0,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -25523,7 +25609,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -26175,7 +26261,7 @@
   "why": "20.5 min (recent 17.4, \u22120.5 team-minutes adjustment; the model had him at 16.9, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.279 rebounds/min (65% this season's 0.267 over 11 games, 35% prior 0.294); context: pace vs UTA +1%, home +1%, opponent defense +2%, shared production on LAC +5%; calibration -0.0."
  },
  "Ja'Kobe Walter|fg3m|401910002": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4269,
@@ -26196,7 +26282,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -26227,6 +26314,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 4.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -26242,6 +26332,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 4.7,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -26309,7 +26400,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -26320,7 +26411,7 @@
   "why": "31.1 min (recent 31.7, \u22120.6 team-minutes adjustment with Malachi Smith out); \u00d7 0.073 3-pointers made/min (81% this season's 0.070 over 13 games, 19% prior 0.070); context: pace vs NYK \u22121%, home +1%, opponent defense +1%, shared production on TOR +2%; calibration +0.0."
  },
  "Ja'Kobe Walter|pra|401910002": {
-  "actual": null,
+  "actual": 28.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -26343,11 +26434,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 23:36 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 12.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -26363,6 +26458,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 10.7,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -26430,7 +26526,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -26441,7 +26537,7 @@
   "why": "31.1 min (recent 31.7, \u22120.6 team-minutes adjustment with Malachi Smith out); \u00d7 0.557 pts+reb+ast/min (81% this season's 0.541 over 13 games, 19% prior 0.595); context: pace vs NYK \u22121%, home +1%."
  },
  "Ja'Kobe Walter|pr|401910002": {
-  "actual": null,
+  "actual": 26.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -26464,11 +26560,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 23:36 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 12.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -26484,6 +26584,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 10.6,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -26551,7 +26652,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -26562,7 +26663,7 @@
   "why": "31.1 min (recent 31.7, \u22120.6 team-minutes adjustment with Malachi Smith out); \u00d7 0.495 pts+reb/min (81% this season's 0.481 over 13 games, 19% prior 0.524); context: pace vs NYK \u22121%, home +1%, shared production on TOR +1%; calibration +0.0."
  },
  "Ja'Kobe Walter|pts|401910002": {
-  "actual": null,
+  "actual": 25.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5652173913043478,
@@ -26584,7 +26685,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 23:36 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -26605,6 +26707,11 @@
   ],
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "fanduel": 14.5,
+   "kalshi": 15.5,
+   "prizepicks": 14.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 10.5,
@@ -26632,6 +26739,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 13.6,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -26699,7 +26807,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -26710,7 +26818,7 @@
   "why": "31.1 min (recent 31.7, \u22120.6 team-minutes adjustment with Malachi Smith out); \u00d7 0.365 points/min (72% this season's 0.351 over 13 games, 28% prior 0.392); context: pace vs NYK \u22121%, home +1%, shared production on TOR +1%; calibration -0.0."
  },
  "Ja'Kobe Walter|reb|401910002": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -26731,7 +26839,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -26757,6 +26866,10 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -26778,6 +26891,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 3.1,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -26845,7 +26959,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -29018,7 +29132,7 @@
   "why": "26.9 min (recent 27.7); \u00d7 0.157 rebounds/min (52% this season's 0.156 over 13 games, 48% prior 0.170); context: pace vs CHA \u22121%, home +1%, opponent defense \u22121%, shared production on LAL +4%; calibration -0.0."
  },
  "Jakob Poeltl|pra|401910002": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -29041,11 +29155,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 15:01 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -29061,6 +29179,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 5.7,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -29123,7 +29242,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -29134,7 +29253,7 @@
   "why": "21.4 min (recent 22.0, \u22120.6 team-minutes adjustment); \u00d7 0.741 pts+reb+ast/min (79% this season's 0.703 over 11 games, 21% prior 0.843); context: pace vs NYK \u22121%, home +1%, opponent defense \u22122%, shared production on TOR +1%."
  },
  "Jakob Poeltl|pr|401910002": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -29157,11 +29276,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 23:36 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -29177,6 +29300,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 5.3,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -29244,7 +29368,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -29255,7 +29379,7 @@
   "why": "21.6 min (recent 22.0, \u22120.4 team-minutes adjustment with Malachi Smith out); \u00d7 0.674 pts+reb/min (79% this season's 0.645 over 11 games, 21% prior 0.757); context: pace vs NYK \u22121%, home +1%, opponent defense \u22122%; calibration +0.0."
  },
  "Jakob Poeltl|pts|401910002": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5614035087719298,
@@ -29277,7 +29401,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 23:36 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -29298,6 +29423,11 @@
   ],
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "fanduel": 3.5,
+   "kalshi": 1.5,
+   "prizepicks": 3.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 6.5,
@@ -29325,6 +29455,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 5.5,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -29392,7 +29523,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -29403,7 +29534,7 @@
   "why": "21.6 min (recent 22.0, \u22120.4 team-minutes adjustment with Malachi Smith out); \u00d7 0.400 points/min (69% this season's 0.367 over 11 games, 31% prior 0.456); context: pace vs NYK \u22121%, home +1%, opponent defense \u22122%, shared production on TOR +1%; calibration -0.0."
  },
  "Jakob Poeltl|ra|401910002": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -29423,11 +29554,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 04:41 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.5
@@ -29443,6 +29578,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 0.5,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -29505,7 +29641,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -29515,7 +29651,7 @@
   "why": "21.4 min (recent 22.0, \u22120.6 team-minutes adjustment); \u00d7 0.355 reb+ast/min (58% this season's 0.336 over 11 games, 42% prior 0.386); context: pace vs NYK \u22121%, home +1%, opponent defense \u22121%; calibration +0.0."
  },
  "Jakob Poeltl|reb|401910002": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4774,
@@ -29536,7 +29672,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 23:36 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -29562,6 +29699,9 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 5.5
@@ -29577,6 +29717,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 0.1,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -29644,7 +29785,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -29655,7 +29796,7 @@
   "why": "21.6 min (recent 22.0, \u22120.4 team-minutes adjustment with Malachi Smith out); \u00d7 0.286 rebounds/min (48% this season's 0.277 over 11 games, 52% prior 0.300); context: pace vs NYK \u22121%, home +1%, opponent defense \u22121%; calibration -0.0."
  },
  "Jalen Brunson|ast|401910002": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6069,
@@ -29677,7 +29818,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 23:36 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -29703,6 +29845,9 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 5.5
@@ -29718,6 +29863,7 @@
   "move": null,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 1.2,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -29787,7 +29933,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -29798,7 +29944,7 @@
   "why": "35.1 min (recent 36.4, \u22121.3 team-minutes adjustment); \u00d7 0.181 assists/min (72% this season's 0.173 over 13 games, 28% prior 0.190); context: road \u22121%, shared production on NYK \u22121%; calibration +0.0."
  },
  "Jalen Brunson|fg3m|401910002": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4472,
@@ -29819,7 +29965,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:01 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -29850,6 +29997,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -29865,6 +30015,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 1.3,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -29932,7 +30083,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -29943,7 +30094,7 @@
   "why": "35.1 min (recent 36.4, \u22121.3 team-minutes adjustment); \u00d7 0.078 3-pointers made/min (81% this season's 0.081 over 13 games, 19% prior 0.071); context: road \u22121%, shared production on NYK \u22123%; calibration +0.0."
  },
  "Jalen Brunson|pa|401910002": {
-  "actual": null,
+  "actual": 36.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -29966,11 +30117,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 15:01 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 32.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 32.5
@@ -29986,6 +30141,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 2.7,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -30048,7 +30204,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -30059,7 +30215,7 @@
   "why": "35.1 min (recent 36.4, \u22121.3 team-minutes adjustment); \u00d7 0.944 pts+ast/min (81% this season's 0.953 over 13 games, 19% prior 0.897); context: road \u22121%, shared production on NYK +1%; calibration +0.1."
  },
  "Jalen Brunson|pra|401910002": {
-  "actual": null,
+  "actual": 41.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -30083,7 +30239,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -30104,6 +30261,10 @@
   ],
   "label": "lean",
   "line": 35.5,
+  "line_errs": {
+   "kalshi": 6.5,
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 34.5,
@@ -30125,6 +30286,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 4.8,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -30192,7 +30354,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -30203,7 +30365,7 @@
   "why": "35.1 min (recent 36.4, \u22121.3 team-minutes adjustment); \u00d7 1.030 pts+reb+ast/min (81% this season's 1.034 over 13 games, 19% prior 0.993); context: road \u22121%, shared production on NYK +1%."
  },
  "Jalen Brunson|pr|401910002": {
-  "actual": null,
+  "actual": 36.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -30226,11 +30388,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 15:01 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 28.5,
+  "line_errs": {
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 28.5
@@ -30246,6 +30412,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 6.0,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -30308,7 +30475,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -30319,7 +30486,7 @@
   "why": "35.1 min (recent 36.4, \u22121.3 team-minutes adjustment); \u00d7 0.850 pts+reb/min (81% this season's 0.861 over 13 games, 19% prior 0.804); context: road \u22121%, shared production on NYK +1%; calibration +0.0."
  },
  "Jalen Brunson|pts|401910002": {
-  "actual": null,
+  "actual": 31.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5555555555555556,
@@ -30341,7 +30508,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 15:10 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -30367,6 +30535,11 @@
   ],
   "label": "lean",
   "line": 25.5,
+  "line_errs": {
+   "fanduel": 5.5,
+   "kalshi": 6.5,
+   "prizepicks": 4.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 25.5,
@@ -30394,6 +30567,7 @@
   "move": null,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 4.1,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -30456,7 +30630,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -30467,7 +30641,7 @@
   "why": "35.1 min (recent 36.4, \u22121.3 team-minutes adjustment); \u00d7 0.759 points/min (72% this season's 0.780 over 13 games, 28% prior 0.707); context: road \u22121%, shared production on NYK +2%; calibration -0.0."
  },
  "Jalen Brunson|ra|401910002": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -30490,11 +30664,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 15:01 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -30510,6 +30688,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 0.7,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -30572,7 +30751,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -30583,7 +30762,7 @@
   "why": "35.1 min (recent 36.4, \u22121.3 team-minutes adjustment); \u00d7 0.271 reb+ast/min (62% this season's 0.254 over 13 games, 38% prior 0.286); context: road \u22121%, shared production on NYK \u22121%; calibration +0.0."
  },
  "Jalen Brunson|reb|401910002": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3557,
@@ -30604,7 +30783,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 20:21 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -30625,6 +30805,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -30640,6 +30823,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 1.9,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -30702,7 +30886,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -30713,7 +30897,7 @@
   "why": "35.1 min (recent 36.4, \u22121.3 team-minutes adjustment); \u00d7 0.090 rebounds/min (52% this season's 0.081 over 13 games, 48% prior 0.096); context: road \u22121%; calibration -0.0."
  },
  "Jamal Shead|ast|401910002": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -30737,7 +30921,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -30763,6 +30948,10 @@
   ],
   "label": "lean",
   "line": 4.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -30784,6 +30973,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 0.0,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -30853,7 +31043,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -30864,7 +31054,7 @@
   "why": "24.6 min (recent 25.1, \u22120.5 team-minutes adjustment with Malachi Smith out); \u00d7 0.253 assists/min (72% this season's 0.272 over 13 games, 28% prior 0.222); context: pace vs NYK \u22121%, home +1%, opponent defense \u22121%, shared production on TOR \u22122%; calibration +0.0."
  },
  "Jamal Shead|fg3m|401910002": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6365,
@@ -30885,7 +31075,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -30911,6 +31102,9 @@
   ],
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 0.5
@@ -30926,6 +31120,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 0.1,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -30993,7 +31188,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -31004,7 +31199,7 @@
   "why": "24.6 min (recent 25.1, \u22120.5 team-minutes adjustment with Malachi Smith out); \u00d7 0.041 3-pointers made/min (81% this season's 0.042 over 13 games, 19% prior 0.049); context: pace vs NYK \u22121%, home +1%, opponent defense +1%, shared production on TOR +2%; calibration +0.0."
  },
  "Jamal Shead|pa|401910002": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -31027,11 +31222,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 23:01 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -31047,6 +31246,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 0.8,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -31109,7 +31309,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -31120,7 +31320,7 @@
   "why": "24.3 min (recent 25.1, \u22120.7 team-minutes adjustment); \u00d7 0.569 pts+ast/min (81% this season's 0.594 over 13 games, 19% prior 0.556); context: pace vs NYK \u22121%, home +1%; calibration +0.1."
  },
  "Jamal Shead|pra|401910002": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -31143,11 +31343,15 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -31163,6 +31367,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 3.0,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -31230,7 +31435,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -31241,7 +31446,7 @@
   "why": "24.6 min (recent 25.1, \u22120.5 team-minutes adjustment with Malachi Smith out); \u00d7 0.657 pts+reb+ast/min (81% this season's 0.684 over 13 games, 19% prior 0.640); context: pace vs NYK \u22121%, home +1%, shared production on TOR \u22121%."
  },
  "Jamal Shead|pts|401910002": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5238095238095238,
@@ -31263,7 +31468,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 23:36 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -31284,6 +31490,10 @@
   ],
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "fanduel": 0.5,
+   "kalshi": 2.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 6.5,
@@ -31305,6 +31515,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 0.7,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -31372,7 +31583,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -31383,7 +31594,7 @@
   "why": "24.6 min (recent 25.1, \u22120.5 team-minutes adjustment with Malachi Smith out); \u00d7 0.314 points/min (72% this season's 0.323 over 13 games, 28% prior 0.333); context: pace vs NYK \u22121%, home +1%, shared production on TOR +1%; calibration -0.0."
  },
  "Jamal Shead|ra|401910002": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -31403,11 +31614,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 17:40 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.5
@@ -31423,6 +31638,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 2.0,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -31485,7 +31701,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -34459,7 +34675,7 @@
   "why": "17.6 min (recent 17.5); \u00d7 0.094 rebounds/min (67% this season's 0.083 over 12 games, 33% prior 0.106); context: road \u22121%, opponent defense \u22121%, shared production on UTA +4%; calibration -0.0."
  },
  "Josh Hart|ast|401910002": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4774,
@@ -34480,7 +34696,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -34506,6 +34723,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -34521,6 +34741,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 1.7,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -34588,7 +34809,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -34599,7 +34820,7 @@
   "why": "27.4 min (recent 28.3, \u22121.0 team-minutes adjustment); \u00d7 0.138 assists/min (67% this season's 0.121 over 10 games, 33% prior 0.154); context: road \u22121%, shared production on NYK \u22121%; calibration +0.0."
  },
  "Josh Hart|fg3m|401910002": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3863,
@@ -34620,7 +34841,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 23:56 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -34651,6 +34873,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -34666,6 +34891,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 0.2,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -34733,7 +34959,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -34744,7 +34970,7 @@
   "why": "27.4 min (recent 28.3, \u22121.0 team-minutes adjustment); \u00d7 0.044 3-pointers made/min (77% this season's 0.044 over 10 games, 23% prior 0.044); context: road \u22121%, shared production on NYK \u22123%; calibration +0.0."
  },
  "Josh Hart|pa|401910002": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -34767,11 +34993,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 22:35 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -34787,6 +35017,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "TOR",
+  "our_err": 4.7,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -34849,7 +35080,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -34860,7 +35091,7 @@
   "why": "27.4 min (recent 28.3, \u22121.0 team-minutes adjustment); \u00d7 0.426 pts+ast/min (77% this season's 0.343 over 10 games, 23% prior 0.549); context: road \u22121%, shared production on NYK +1%; calibration +0.1."
  },
  "Josh Hart|pra|401910002": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -34884,7 +35115,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -34905,6 +35137,10 @@
   ],
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 14.5,
@@ -34926,6 +35162,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "TOR",
+  "our_err": 6.7,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -34993,7 +35230,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -35004,7 +35241,7 @@
   "why": "27.4 min (recent 28.3, \u22121.0 team-minutes adjustment); \u00d7 0.650 pts+reb+ast/min (77% this season's 0.562 over 10 games, 23% prior 0.784); context: road \u22121%."
  },
  "Josh Hart|pr|401910002": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -35027,11 +35264,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 15:01 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -35047,6 +35288,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "TOR",
+  "our_err": 5.1,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -35109,7 +35351,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -35120,7 +35362,7 @@
   "why": "27.4 min (recent 28.3, \u22121.0 team-minutes adjustment); \u00d7 0.514 pts+reb/min (77% this season's 0.441 over 10 games, 23% prior 0.629); context: road \u22121%, shared production on NYK +1%; calibration +0.0."
  },
  "Josh Hart|pts|401910002": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5689655172413793,
@@ -35142,7 +35384,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 15:10 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -35163,6 +35406,11 @@
   ],
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "fanduel": 2.5,
+   "kalshi": 4.5,
+   "prizepicks": 2.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 7.5,
@@ -35190,6 +35438,7 @@
   "move": null,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 3.4,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -35252,7 +35501,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -35263,7 +35512,7 @@
   "why": "27.4 min (recent 28.3, \u22121.0 team-minutes adjustment); \u00d7 0.303 points/min (67% this season's 0.222 over 10 games, 33% prior 0.395); context: road \u22121%, shared production on NYK +2%; calibration -0.0."
  },
  "Josh Hart|ra|401910002": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -35286,11 +35535,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 15:01 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -35306,6 +35559,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 3.9,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -35368,7 +35622,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -35379,7 +35633,7 @@
   "why": "27.4 min (recent 28.3, \u22121.0 team-minutes adjustment); \u00d7 0.367 reb+ast/min (56% this season's 0.340 over 10 games, 44% prior 0.389); context: road \u22121%; calibration +0.0."
  },
  "Josh Hart|reb|401910002": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -35402,7 +35656,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -35433,6 +35688,10 @@
   ],
   "label": "lean",
   "line": 6.0,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 2.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -35454,6 +35713,7 @@
   "move": null,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 2.1,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -35521,7 +35781,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -38335,7 +38595,7 @@
   "why": "24.9 min (recent 25.4, \u22120.6 team-minutes adjustment); \u00d7 0.181 rebounds/min (54% this season's 0.157 over 14 games, 46% prior 0.195); context: home +1%, opponent defense +1%, shared production on SAS \u22122%; calibration -0.0; injury news: +0.3 with David Jones Garcia ruled out today (half of how he's actually played without him)."
  },
  "Karl-Anthony Towns|ast|401910002": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4673,
@@ -38356,7 +38616,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 20:41 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -38382,6 +38643,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 4.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -38397,6 +38661,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 4.6,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -38459,7 +38724,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -38470,7 +38735,7 @@
   "why": "34.1 min (recent 35.3, \u22121.2 team-minutes adjustment); \u00d7 0.104 assists/min (72% this season's 0.111 over 13 games, 28% prior 0.093); context: road \u22121%, opponent defense \u22122%, shared production on NYK \u22121%; calibration +0.0."
  },
  "Karl-Anthony Towns|fg3m|401910002": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -38492,7 +38757,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -38523,6 +38789,10 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 1.5,
@@ -38544,6 +38814,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 0.9,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -38615,7 +38886,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -38626,7 +38897,7 @@
   "why": "34.1 min (recent 35.3, \u22121.2 team-minutes adjustment); \u00d7 0.059 3-pointers made/min (81% this season's 0.064 over 13 games, 19% prior 0.049); context: road \u22121%, opponent defense \u22123%, shared production on NYK \u22123%; calibration +0.0."
  },
  "Karl-Anthony Towns|pa|401910002": {
-  "actual": null,
+  "actual": 24.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -38649,11 +38920,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 22:51 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 23.5
@@ -38669,6 +38944,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "TOR",
+  "our_err": 1.9,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -38731,7 +39007,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -38742,7 +39018,7 @@
   "why": "34.1 min (recent 35.3, \u22121.2 team-minutes adjustment); \u00d7 0.764 pts+ast/min (81% this season's 0.777 over 13 games, 19% prior 0.734); context: road \u22121%, opponent defense \u22121%, shared production on NYK +1%; calibration +0.1."
  },
  "Karl-Anthony Towns|pra|401910002": {
-  "actual": null,
+  "actual": 40.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -38766,7 +39042,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -38792,6 +39069,10 @@
   ],
   "label": "lean",
   "line": 36.5,
+  "line_errs": {
+   "kalshi": 5.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 34.5,
@@ -38813,6 +39094,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "TOR",
+  "our_err": 0.3,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -38880,7 +39162,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -38891,7 +39173,7 @@
   "why": "34.1 min (recent 35.3, \u22121.2 team-minutes adjustment); \u00d7 1.172 pts+reb+ast/min (81% this season's 1.206 over 13 games, 19% prior 1.102); context: road \u22121%, shared production on NYK +1%."
  },
  "Karl-Anthony Towns|pr|401910002": {
-  "actual": null,
+  "actual": 32.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -38914,11 +39196,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 15:01 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 33.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 33.5
@@ -38934,6 +39220,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 4.2,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -38996,7 +39283,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -39007,7 +39294,7 @@
   "why": "34.1 min (recent 35.3, \u22121.2 team-minutes adjustment); \u00d7 1.066 pts+reb/min (81% this season's 1.095 over 13 games, 19% prior 1.010); context: road \u22121%, shared production on NYK +1%; calibration +0.0."
  },
  "Karl-Anthony Towns|pts|401910002": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5192307692307693,
@@ -39029,7 +39316,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 15:10 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -39055,6 +39343,11 @@
   ],
   "label": "lean",
   "line": 21.5,
+  "line_errs": {
+   "fanduel": 5.5,
+   "kalshi": 3.5,
+   "prizepicks": 4.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 21.5,
@@ -39082,6 +39375,7 @@
   "move": null,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 6.3,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -39144,7 +39438,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -39155,7 +39449,7 @@
   "why": "34.1 min (recent 35.3, \u22121.2 team-minutes adjustment); \u00d7 0.657 points/min (72% this season's 0.666 over 13 games, 28% prior 0.641); context: road \u22121%, opponent defense \u22121%, shared production on NYK +2%; calibration -0.0."
  },
  "Karl-Anthony Towns|ra|401910002": {
-  "actual": null,
+  "actual": 24.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -39178,11 +39472,15 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:11 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -39198,6 +39496,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 7.1,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -39265,7 +39564,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -39276,7 +39575,7 @@
   "why": "34.1 min (recent 35.3, \u22121.2 team-minutes adjustment); \u00d7 0.501 reb+ast/min (62% this season's 0.540 over 13 games, 38% prior 0.461); context: road \u22121%; calibration +0.0."
  },
  "Karl-Anthony Towns|reb|401910002": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -39299,7 +39598,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -39330,6 +39630,10 @@
   ],
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "kalshi": 4.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 11.5,
@@ -39351,6 +39655,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 2.6,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -39418,7 +39723,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -42512,34 +42817,34 @@
   "adj": [],
   "anchor": null,
   "be_over": 0.6365,
-  "be_under": 0.4168,
+  "be_under": 0.4269,
   "best5": [],
-  "blend_mean": 2.2,
+  "blend_mean": 2.19,
   "blend_w": 0.225,
   "break_even": 0.6365,
   "call": "OVER",
-  "chance": 0.6088,
-  "close_at": "2026-11-18 01:56 UTC",
+  "chance": 0.605,
+  "close_at": "2026-11-18 03:03 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.61,
+  "close_mkt": 0.605,
   "date": "2026-11-17",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-17 09:01 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-18 02:36 UTC",
+  "frozen_at": "2026-11-18 03:03 UTC",
   "game_id": 401910006,
   "hit": null,
   "home": false,
   "kladder": [
    [
     1,
-    0.85,
+    0.84,
     0.87
    ],
    [
     2,
-    0.6,
+    0.59,
     0.62
    ],
    [
@@ -42554,8 +42859,8 @@
    ],
    [
     5,
-    0.08,
-    0.1
+    0.07,
+    0.09
    ]
   ],
   "label": "lean",
@@ -42564,12 +42869,12 @@
   "lines": {
    "kalshi": 1.5
   },
-  "market_side": 0.61,
+  "market_side": 0.605,
   "mkt": {
    "kalshi": [
     1.5,
     0.6365,
-    0.4168
+    0.4269
    ]
   },
   "move": 0.0,
@@ -42652,8 +42957,8 @@
   "tip_utc": "2026-11-18T03:30:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 34,
-  "var": 2.824,
+  "updates": 35,
+  "var": 2.823,
   "why": "33.1 min (recent 32.9); \u00d7 0.065 3-pointers made/min (81% this season's 0.059 over 13 games, 19% prior 0.076); context: road \u22121%, opponent defense +2%, shared production on UTA +2%; calibration +0.0."
  },
  "Keyonte George|pa|401910006": {
@@ -44297,36 +44602,38 @@
  },
  "Kris Dunn|pra|401910006": {
   "actual": null,
-  "adj": [
-   "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
-  ],
+  "adj": [],
   "anchor": null,
-  "be_over": 0.542,
-  "be_under": 0.542,
-  "best5": [],
-  "best5_at": {},
-  "blend_mean": 12.65,
+  "be_over": 0.3761,
+  "be_under": 0.6659,
+  "best5": [
+   "combos:best5"
+  ],
+  "best5_at": {
+   "combos:best5": "2026-11-18 03:03:59 UTC"
+  },
+  "blend_mean": 12.63,
   "blend_w": 0.225,
-  "break_even": 0.542,
-  "call": "OVER",
-  "chance": 0.504,
-  "close_at": "2026-11-18 02:56 UTC",
-  "close_line": 12.5,
-  "close_mkt": null,
+  "break_even": 0.6659,
+  "call": "UNDER",
+  "chance": 0.6205,
+  "close_at": "2026-11-18 03:03 UTC",
+  "close_line": 14.5,
+  "close_mkt": 0.645,
   "date": "2026-11-17",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-17 05:40 UTC",
   "first_line": 12.5,
   "flip": null,
-  "frozen_at": "2026-11-18 02:56 UTC",
+  "frozen_at": "2026-11-18 03:03 UTC",
   "game_id": 401910006,
   "hit": null,
   "home": true,
   "kladder": [
    [
     10,
-    0.69,
-    0.71
+    0.66,
+    0.7
    ],
    [
     15,
@@ -44340,26 +44647,20 @@
    ]
   ],
   "label": "lean",
-  "line": 12.5,
-  "line_source": "prizepicks",
+  "line": 14.5,
+  "line_source": "kalshi",
   "lines": {
-   "kalshi": 14.5,
-   "prizepicks": 12.5
+   "kalshi": 14.5
   },
-  "market_side": null,
+  "market_side": 0.645,
   "mkt": {
    "kalshi": [
     14.5,
     0.3761,
     0.6659
-   ],
-   "prizepicks": [
-    12.5,
-    0.542,
-    0.542
    ]
   },
-  "move": 0.0,
+  "move": null,
   "move_dir": null,
   "opp": "UTA",
   "out_ctx": [
@@ -44380,7 +44681,7 @@
   "proj_min": 22.4,
   "projected": 13.2,
   "role_gap": false,
-  "skip": "pra|prizepicks|OVER",
+  "skip": null,
   "snaps": {
    "10am": {
     "at": "2026-11-17 16:01 UTC",
@@ -44433,7 +44734,7 @@
     "units": 0.0
    }
   },
-  "src_key": "prizepicks",
+  "src_key": "kalshi",
   "stat": "pra",
   "status": "pending",
   "team": "LAC",
@@ -44441,7 +44742,7 @@
   "tip_utc": "2026-11-18T03:30:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 33,
+  "updates": 34,
   "var": 31.592,
   "why": "22.4 min (recent 23.5, \u22120.7 team-minutes adjustment); \u00d7 0.568 pts+reb+ast/min (80% this season's 0.585 over 12 games, 20% prior 0.547); context: pace vs UTA +1%, home +1%, shared production on LAC +2%."
  },
@@ -46138,7 +46439,7 @@
   "why": "28.6 min (recent 27.1, +1.5 team-minutes adjustment with Jaylen Clark, Jonathan Kuminga out); \u00d7 0.148 rebounds/min (70% this season's 0.135 over 14 games, 30% prior 0.163); context: home +1%, rest \u22122%, opponent defense \u22122%; calibration -0.0."
  },
  "Landry Shamet|fg3m|401910002": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5772,
@@ -46159,7 +46460,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:16 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -46190,6 +46492,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -46205,6 +46510,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 0.2,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -46272,7 +46578,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -46283,7 +46589,7 @@
   "why": "25.9 min (recent 26.8, \u22120.9 team-minutes adjustment); \u00d7 0.087 3-pointers made/min (81% this season's 0.086 over 13 games, 19% prior 0.083); context: road \u22121%, shared production on NYK \u22123%; calibration +0.0."
  },
  "Landry Shamet|pra|401910002": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)",
    "-2.6 pts: pick follows the line's move (pattern)"
@@ -46308,7 +46614,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -46324,6 +46631,10 @@
   ],
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "kalshi": 4.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -46345,6 +46656,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "TOR",
+  "our_err": 0.2,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -46412,7 +46724,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -46423,7 +46735,7 @@
   "why": "25.9 min (recent 26.8, \u22120.9 team-minutes adjustment); \u00d7 0.547 pts+reb+ast/min (81% this season's 0.539 over 13 games, 19% prior 0.568); context: road \u22121%, shared production on NYK +1%."
  },
  "Landry Shamet|pr|401910002": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -46446,11 +46758,15 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -46466,6 +46782,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "TOR",
+  "our_err": 0.6,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -46533,7 +46850,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -46544,7 +46861,7 @@
   "why": "25.9 min (recent 26.8, \u22120.9 team-minutes adjustment); \u00d7 0.478 pts+reb/min (81% this season's 0.467 over 13 games, 19% prior 0.500); context: road \u22121%, shared production on NYK +1%; calibration +0.0."
  },
  "Landry Shamet|pts|401910002": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4854368932038835,
@@ -46565,7 +46882,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 15:10 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -46591,6 +46909,11 @@
   ],
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "fanduel": 2.5,
+   "kalshi": 2.5,
+   "prizepicks": 3.0
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 9.5,
@@ -46618,6 +46941,7 @@
   "move": null,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 1.4,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -46680,7 +47004,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -46691,7 +47015,7 @@
   "why": "25.9 min (recent 26.8, \u22120.9 team-minutes adjustment); \u00d7 0.406 points/min (72% this season's 0.399 over 13 games, 28% prior 0.412); context: road \u22121%, shared production on NYK +2%; calibration -0.0."
  },
  "Landry Shamet|reb|401910002": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5971,
@@ -46712,7 +47036,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 17:40 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -46733,6 +47058,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -46748,6 +47076,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 1.0,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -46810,7 +47139,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -49563,40 +49892,40 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 14.47,
+  "blend_mean": 13.69,
   "blend_w": 0.225,
   "break_even": 0.542,
-  "call": "UNDER",
-  "chance": 0.5005,
-  "close_at": "2026-11-18 02:46 UTC",
-  "close_line": 14.5,
+  "call": "OVER",
+  "chance": 0.5028,
+  "close_at": "2026-11-18 03:03 UTC",
+  "close_line": 13.5,
   "close_mkt": null,
   "date": "2026-11-17",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-17 08:01 UTC",
   "first_line": 13.5,
   "flip": null,
-  "frozen_at": "2026-11-18 02:46 UTC",
+  "frozen_at": "2026-11-18 03:03 UTC",
   "game_id": 401910006,
   "hit": null,
   "home": true,
   "kladder": null,
   "label": "lean",
-  "line": 14.5,
+  "line": 13.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 14.5
+   "prizepicks": 13.5
   },
   "market_side": null,
   "mkt": {
    "prizepicks": [
-    14.5,
+    13.5,
     0.542,
     0.542
    ]
   },
-  "move": 1.0,
-  "move_dir": "against",
+  "move": 0.0,
+  "move_dir": null,
   "opp": "UTA",
   "out_ctx": [
    "Bradley Beal",
@@ -49616,7 +49945,7 @@
   "proj_min": 22.8,
   "projected": 14.3,
   "role_gap": false,
-  "skip": "pr|prizepicks",
+  "skip": "pr|prizepicks|OVER",
   "snaps": {
    "10am": {
     "at": "2026-11-17 16:01 UTC",
@@ -49675,7 +50004,7 @@
   "tip_utc": "2026-11-18T03:30:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 6,
+  "updates": 7,
   "var": 70.934,
   "why": "22.8 min (recent 23.9, \u22120.7 team-minutes adjustment); \u00d7 0.602 pts+reb/min (80% this season's 0.570 over 6 games, 20% prior 0.596); context: pace vs UTA +1%, home +1%, shared production on LAC +3%; calibration +0.0."
  },
@@ -50117,7 +50446,7 @@
   "why": "22.8 min (recent 23.9, \u22120.7 team-minutes adjustment); \u00d7 0.173 rebounds/min (50% this season's 0.156 over 6 games, 50% prior 0.172); context: pace vs UTA +1%, home +1%, shared production on LAC +5%; calibration -0.0."
  },
  "Mikal Bridges|ast|401910002": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6952,
@@ -50138,7 +50467,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -50159,6 +50489,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -50174,6 +50507,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 1.6,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -50241,7 +50575,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -50252,7 +50586,7 @@
   "why": "27.0 min (recent 28.0, \u22121.0 team-minutes adjustment); \u00d7 0.099 assists/min (72% this season's 0.088 over 13 games, 28% prior 0.111); context: road \u22121%, shared production on NYK \u22121%; calibration +0.0."
  },
  "Mikal Bridges|fg3m|401910002": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6463,
@@ -50273,7 +50607,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -50294,6 +50629,9 @@
   ],
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 0.5
@@ -50309,6 +50647,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 1.0,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -50376,7 +50715,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -50387,7 +50726,7 @@
   "why": "27.0 min (recent 28.0, \u22121.0 team-minutes adjustment); \u00d7 0.040 3-pointers made/min (81% this season's 0.033 over 13 games, 19% prior 0.057); context: road \u22121%, shared production on NYK \u22123%; calibration +0.0."
  },
  "Mikal Bridges|pa|401910002": {
-  "actual": null,
+  "actual": 18.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -50410,11 +50749,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 15:41 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -50430,6 +50773,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "TOR",
+  "our_err": 6.5,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -50492,7 +50836,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -50503,7 +50847,7 @@
   "why": "27.0 min (recent 28.0, \u22121.0 team-minutes adjustment); \u00d7 0.421 pts+ast/min (81% this season's 0.356 over 13 games, 19% prior 0.565); context: road \u22121%, shared production on NYK +1%; calibration +0.1."
  },
  "Mikal Bridges|pra|401910002": {
-  "actual": null,
+  "actual": 23.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -50525,7 +50869,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -50546,6 +50891,10 @@
   ],
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "kalshi": 8.5,
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 14.5,
@@ -50567,6 +50916,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "TOR",
+  "our_err": 8.2,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -50636,7 +50986,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -50647,7 +50997,7 @@
   "why": "27.0 min (recent 28.0, \u22121.0 team-minutes adjustment); \u00d7 0.548 pts+reb+ast/min (81% this season's 0.492 over 13 games, 19% prior 0.674); context: road \u22121%, shared production on NYK +1%."
  },
  "Mikal Bridges|pr|401910002": {
-  "actual": null,
+  "actual": 22.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -50670,11 +51020,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 15:01 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 10.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -50690,6 +51044,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 9.8,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -50752,7 +51107,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -50763,7 +51118,7 @@
   "why": "27.0 min (recent 28.0, \u22121.0 team-minutes adjustment); \u00d7 0.451 pts+reb/min (81% this season's 0.404 over 13 games, 19% prior 0.562); context: road \u22121%, shared production on NYK +1%; calibration +0.0."
  },
  "Mikal Bridges|pts|401910002": {
-  "actual": null,
+  "actual": 17.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5412844036697247,
@@ -50785,7 +51140,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 15:10 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -50806,6 +51162,11 @@
   ],
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "fanduel": 8.5,
+   "kalshi": 7.5,
+   "prizepicks": 8.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 8.5,
@@ -50833,6 +51194,7 @@
   "move": null,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 7.8,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -50895,7 +51257,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -50906,7 +51268,7 @@
   "why": "27.0 min (recent 28.0, \u22121.0 team-minutes adjustment); \u00d7 0.337 points/min (72% this season's 0.267 over 13 games, 28% prior 0.454); context: road \u22121%, shared production on NYK +2%; calibration -0.0."
  },
  "Mikal Bridges|ra|401910002": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -50929,11 +51291,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 15:01 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 5.5
@@ -50949,6 +51315,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 0.1,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -51011,7 +51378,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -51022,7 +51389,7 @@
   "why": "27.0 min (recent 28.0, \u22121.0 team-minutes adjustment); \u00d7 0.223 reb+ast/min (62% this season's 0.225 over 13 games, 38% prior 0.220); context: road \u22121%, shared production on NYK \u22121%; calibration +0.0."
  },
  "Mikal Bridges|reb|401910002": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3863,
@@ -51043,7 +51410,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 20:01 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -51064,6 +51432,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -51079,6 +51450,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 1.8,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -51141,7 +51513,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -51152,7 +51524,7 @@
   "why": "27.0 min (recent 28.0, \u22121.0 team-minutes adjustment); \u00d7 0.120 rebounds/min (52% this season's 0.137 over 13 games, 48% prior 0.108); context: road \u22121%; calibration -0.0."
  },
  "Miles McBride|fg3m|401910002": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -51174,7 +51546,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -51205,6 +51578,10 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 1.5,
@@ -51226,6 +51603,7 @@
   "move": null,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 0.8,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -51295,7 +51673,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -51306,7 +51684,7 @@
   "why": "18.0 min (recent 18.6, \u22120.6 team-minutes adjustment); \u00d7 0.105 3-pointers made/min (81% this season's 0.111 over 13 games, 19% prior 0.086); context: road \u22121%, shared production on NYK \u22123%; calibration +0.0."
  },
  "Miles McBride|pra|401910002": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -51328,7 +51706,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -51344,6 +51723,10 @@
   ],
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "kalshi": 5.5,
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -51365,6 +51748,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "TOR",
+  "our_err": 6.2,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -51420,7 +51804,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -51431,7 +51815,7 @@
   "why": "18.0 min (recent 18.6, \u22120.6 team-minutes adjustment); \u00d7 0.569 pts+reb+ast/min (81% this season's 0.541 over 13 games, 19% prior 0.647); context: road \u22121%, shared production on NYK +1%."
  },
  "Miles McBride|pts|401910002": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5652173913043478,
@@ -51453,7 +51837,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 15:10 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -51474,6 +51859,11 @@
   ],
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "fanduel": 3.5,
+   "kalshi": 1.5,
+   "prizepicks": 4.0
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 6.5,
@@ -51501,6 +51891,7 @@
   "move": null,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 4.5,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -51563,7 +51954,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -51585,27 +51976,27 @@
   "best5_at": {
    "ast:best5": "2026-11-18 02:46:11 UTC"
   },
-  "blend_mean": 1.65,
+  "blend_mean": 1.67,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5392,
-  "close_at": "2026-11-18 03:01 UTC",
+  "chance": 0.5358,
+  "close_at": "2026-11-18 03:03 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.51,
+  "close_mkt": 0.505,
   "date": "2026-11-17",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-17 21:40 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-18 03:01 UTC",
+  "frozen_at": "2026-11-18 03:03 UTC",
   "game_id": 401910006,
   "hit": null,
   "home": false,
   "kladder": [
    [
     2,
-    0.48,
+    0.49,
     0.5
    ],
    [
@@ -51621,12 +52012,12 @@
    "kalshi": 1.5,
    "prizepicks": 1.5
   },
-  "market_side": 0.51,
+  "market_side": 0.505,
   "mkt": {
    "kalshi": [
     1.5,
     0.5175,
-    0.5375
+    0.5275
    ],
    "prizepicks": [
     1.5,
@@ -51708,8 +52099,8 @@
   "tip_utc": "2026-11-18T03:30:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 59,
-  "var": 1.702,
+  "updates": 60,
+  "var": 1.759,
   "why": "22.7 min (recent 22.6); \u00d7 0.051 assists/min (80% this season's 0.051 over 10 games, 20% prior 0.059); context: road \u22121%, shared production on UTA +7%; calibration +0.0."
  },
  "Mo Bamba|fg3m|401910006": {
@@ -51724,20 +52115,20 @@
   "best5_at": {
    "fg3m:best5": "2026-11-18 02:56:14 UTC"
   },
-  "blend_mean": 1.03,
+  "blend_mean": 1.02,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.53,
-  "close_at": "2026-11-18 02:56 UTC",
+  "chance": 0.5341,
+  "close_at": "2026-11-18 03:03 UTC",
   "close_line": 0.5,
-  "close_mkt": 0.495,
+  "close_mkt": 0.5,
   "date": "2026-11-17",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-17 08:01 UTC",
   "first_line": 0.5,
   "flip": null,
-  "frozen_at": "2026-11-18 02:56 UTC",
+  "frozen_at": "2026-11-18 03:03 UTC",
   "game_id": 401910006,
   "hit": null,
   "home": false,
@@ -51745,7 +52136,7 @@
    [
     1,
     0.49,
-    0.52
+    0.51
    ],
    [
     2,
@@ -51755,7 +52146,7 @@
    [
     3,
     0.05,
-    0.08
+    0.09
    ]
   ],
   "label": "lean",
@@ -51765,11 +52156,11 @@
    "kalshi": 0.5,
    "prizepicks": 0.5
   },
-  "market_side": 0.495,
+  "market_side": 0.5,
   "mkt": {
    "kalshi": [
     0.5,
-    0.5375,
+    0.5275,
     0.5275
    ],
    "prizepicks": [
@@ -51860,7 +52251,7 @@
   "tip_utc": "2026-11-18T03:30:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 41,
+  "updates": 42,
   "var": 1.587,
   "why": "22.7 min (recent 22.6); \u00d7 0.027 3-pointers made/min (87% this season's 0.030 over 10 games, 13% prior 0.028); context: road \u22121%, opponent defense +1%, shared production on UTA +2%; calibration +0.0."
  },
@@ -54744,7 +55135,7 @@
   "why": "28.0 min (recent 28.5, \u22120.5 team-minutes adjustment with Grayson Allen out); \u00d7 0.258 rebounds/min (68% this season's 0.275 over 13 games, 32% prior 0.239); context: road \u22121%, opponent defense \u22122%, shared production on CHA \u22125%; calibration -0.0."
  },
  "OG Anunoby|ast|401910002": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5872,
@@ -54765,7 +55156,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:21 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -54781,6 +55173,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -54796,6 +55191,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 2.2,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -54863,7 +55259,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -54874,7 +55270,7 @@
   "why": "35.2 min (recent 36.5, \u22121.3 team-minutes adjustment); \u00d7 0.065 assists/min (72% this season's 0.064 over 13 games, 28% prior 0.067); context: road \u22121%, opponent defense \u22122%, shared production on NYK \u22121%; calibration +0.0."
  },
  "OG Anunoby|fg3m|401910002": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6659,
@@ -54895,7 +55291,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -54926,6 +55323,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -54941,6 +55341,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 1.2,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -55008,7 +55409,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -55019,7 +55420,7 @@
   "why": "35.2 min (recent 36.5, \u22121.3 team-minutes adjustment); \u00d7 0.065 3-pointers made/min (81% this season's 0.064 over 13 games, 19% prior 0.066); context: road \u22121%, opponent defense \u22122%, shared production on NYK \u22123%; calibration +0.0."
  },
  "OG Anunoby|pa|401910002": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -55042,11 +55443,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 16:21 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 17.5
@@ -55062,6 +55467,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "TOR",
+  "our_err": 3.3,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -55124,7 +55530,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -55135,7 +55541,7 @@
   "why": "35.2 min (recent 36.5, \u22121.3 team-minutes adjustment); \u00d7 0.555 pts+ast/min (81% this season's 0.550 over 13 games, 19% prior 0.565); context: road \u22121%, opponent defense \u22122%, shared production on NYK +1%; calibration +0.1."
  },
  "OG Anunoby|pra|401910002": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -55159,7 +55565,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -55180,6 +55587,10 @@
   ],
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "kalshi": 4.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 24.5,
@@ -55201,6 +55612,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "TOR",
+  "our_err": 4.7,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -55270,7 +55682,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -55281,7 +55693,7 @@
   "why": "35.2 min (recent 36.5, \u22121.3 team-minutes adjustment); \u00d7 0.714 pts+reb+ast/min (81% this season's 0.710 over 13 games, 19% prior 0.720); context: road \u22121%, opponent defense \u22121%, shared production on NYK +1%."
  },
  "OG Anunoby|pr|401910002": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -55304,11 +55716,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 15:01 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 21.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 21.5
@@ -55324,6 +55740,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "TOR",
+  "our_err": 2.6,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -55386,7 +55803,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -55397,7 +55814,7 @@
   "why": "35.2 min (recent 36.5, \u22121.3 team-minutes adjustment); \u00d7 0.649 pts+reb/min (81% this season's 0.646 over 13 games, 19% prior 0.653); context: road \u22121%, opponent defense \u22121%, shared production on NYK +1%; calibration +0.0."
  },
  "OG Anunoby|pts|401910002": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5192307692307693,
@@ -55419,7 +55836,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 15:10 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -55445,6 +55863,11 @@
   ],
   "label": "lean",
   "line": 16.5,
+  "line_errs": {
+   "fanduel": 0.5,
+   "kalshi": 1.5,
+   "prizepicks": 0.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 16.5,
@@ -55472,6 +55895,7 @@
   "move": null,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 1.1,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -55534,7 +55958,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -55545,7 +55969,7 @@
   "why": "35.2 min (recent 36.5, \u22121.3 team-minutes adjustment); \u00d7 0.492 points/min (72% this season's 0.486 over 13 games, 28% prior 0.498); context: road \u22121%, opponent defense \u22121%, shared production on NYK +2%; calibration -0.0."
  },
  "OG Anunoby|reb|401910002": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -55568,7 +55992,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -55594,6 +56019,10 @@
   ],
   "label": "lean",
   "line": 5.0,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -55615,6 +56044,7 @@
   "move": null,
   "move_dir": null,
   "opp": "TOR",
+  "our_err": 1.4,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -55682,7 +56112,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -57598,20 +58028,20 @@
   "be_under": 0.542,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 3.84,
+  "blend_mean": 3.82,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5186,
-  "close_at": "2026-11-18 03:01 UTC",
+  "chance": 0.5147,
+  "close_at": "2026-11-18 03:03 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.54,
+  "close_mkt": 0.535,
   "date": "2026-11-17",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-17 04:41 UTC",
   "first_line": 3.5,
   "flip": null,
-  "frozen_at": "2026-11-18 03:01 UTC",
+  "frozen_at": "2026-11-18 03:03 UTC",
   "game_id": 401910005,
   "hit": null,
   "home": true,
@@ -57624,7 +58054,7 @@
    [
     4,
     0.53,
-    0.55
+    0.54
    ],
    [
     6,
@@ -57644,11 +58074,11 @@
    "kalshi": 3.5,
    "prizepicks": 3.5
   },
-  "market_side": 0.54,
+  "market_side": 0.535,
   "mkt": {
    "kalshi": [
     3.5,
-    0.5673,
+    0.5574,
     0.4874
    ],
    "prizepicks": [
@@ -57731,12 +58161,12 @@
   "tip_utc": "2026-11-18T04:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 86,
+  "updates": 87,
   "var": 4.134,
   "why": "29.1 min (recent 30.0); \u00d7 0.115 rebounds/min (67% this season's 0.105 over 12 games, 33% prior 0.135); context: pace vs CHA \u22121%, home +1%, shared production on LAL +4%; calibration -0.0."
  },
  "RJ Barrett|ast|401910002": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -57762,7 +58192,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -57788,6 +58219,10 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -57809,6 +58244,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 0.9,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -57880,7 +58316,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -57891,7 +58327,7 @@
   "why": "33.9 min (recent 34.6, \u22120.7 team-minutes adjustment with Malachi Smith out); \u00d7 0.122 assists/min (72% this season's 0.126 over 13 games, 28% prior 0.124); context: pace vs NYK \u22121%, home +1%, shared production on TOR \u22122%; calibration +0.0."
  },
  "RJ Barrett|fg3m|401910002": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -57913,7 +58349,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -57944,6 +58381,10 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 1.5,
@@ -57965,6 +58406,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 0.3,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -58034,7 +58476,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -58045,7 +58487,7 @@
   "why": "33.9 min (recent 34.6, \u22120.7 team-minutes adjustment with Malachi Smith out); \u00d7 0.047 3-pointers made/min (81% this season's 0.043 over 13 games, 19% prior 0.056); context: pace vs NYK \u22121%, home +1%, opponent defense +1%, shared production on TOR +2%; calibration +0.0."
  },
  "RJ Barrett|pa|401910002": {
-  "actual": null,
+  "actual": 27.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -58068,11 +58510,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 23:01 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 23.5
@@ -58088,6 +58534,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 2.0,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -58150,7 +58597,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -58161,7 +58608,7 @@
   "why": "33.6 min (recent 34.6, \u22121.0 team-minutes adjustment); \u00d7 0.742 pts+ast/min (81% this season's 0.742 over 13 games, 19% prior 0.743); context: pace vs NYK \u22121%, home +1%, opponent defense \u22121%, shared production on TOR +1%; calibration +0.1."
  },
  "RJ Barrett|pra|401910002": {
-  "actual": null,
+  "actual": 32.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -58185,7 +58632,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -58206,6 +58654,10 @@
   ],
   "label": "lean",
   "line": 28.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 29.5,
@@ -58227,6 +58679,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 0.7,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -58294,7 +58747,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -58305,7 +58758,7 @@
   "why": "33.9 min (recent 34.6, \u22120.7 team-minutes adjustment with Malachi Smith out); \u00d7 0.928 pts+reb+ast/min (81% this season's 0.936 over 13 games, 19% prior 0.927); context: pace vs NYK \u22121%, home +1%."
  },
  "RJ Barrett|pr|401910002": {
-  "actual": null,
+  "actual": 27.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)",
    "-2.6 pts: pick follows the line's move (pattern)"
@@ -58329,11 +58782,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 22:52 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 25.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 25.5
@@ -58349,6 +58806,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 0.3,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -58411,7 +58869,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -58422,7 +58880,7 @@
   "why": "33.6 min (recent 34.6, \u22121.0 team-minutes adjustment); \u00d7 0.807 pts+reb/min (81% this season's 0.811 over 13 games, 19% prior 0.803); context: pace vs NYK \u22121%, home +1%, opponent defense \u22121%, shared production on TOR +2%; calibration +0.0."
  },
  "RJ Barrett|pts|401910002": {
-  "actual": null,
+  "actual": 22.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5145631067961165,
@@ -58444,7 +58902,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:06 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -58475,6 +58934,11 @@
   ],
   "label": "lean",
   "line": 19.5,
+  "line_errs": {
+   "fanduel": 2.5,
+   "kalshi": 2.5,
+   "prizepicks": 2.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 19.5,
@@ -58502,6 +58966,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 1.1,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -58571,7 +59036,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -58582,7 +59047,7 @@
   "why": "33.9 min (recent 34.6, \u22120.7 team-minutes adjustment with Malachi Smith out); \u00d7 0.620 points/min (72% this season's 0.616 over 13 games, 28% prior 0.619); context: pace vs NYK \u22121%, home +1%, opponent defense \u22121%, shared production on TOR +1%; calibration -0.0."
  },
  "RJ Barrett|ra|401910002": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -58605,11 +59070,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 23:36 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -58625,6 +59094,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 0.3,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -58692,7 +59162,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -58703,7 +59173,7 @@
   "why": "33.9 min (recent 34.6, \u22120.7 team-minutes adjustment with Malachi Smith out); \u00d7 0.307 reb+ast/min (62% this season's 0.320 over 13 games, 38% prior 0.308); context: pace vs NYK \u22121%, home +1%, shared production on TOR \u22121%; calibration +0.0."
  },
  "RJ Barrett|reb|401910002": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -58725,7 +59195,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -58751,6 +59222,10 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -58772,6 +59247,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 1.2,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -58841,7 +59317,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -63934,7 +64410,7 @@
   "why": "24.5 min (recent 23.4, +1.1 team-minutes adjustment with Deni Avdija out); \u00d7 0.098 rebounds/min (52% this season's 0.083 over 13 games, 48% prior 0.115); context: road \u22121%, rest \u22122%; calibration -0.0; injury news: +0.2 with Deni Avdija ruled out today (half of how he's actually played without him)."
  },
  "Scottie Barnes|ast|401910002": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -63957,7 +64433,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -63983,6 +64460,10 @@
   ],
   "label": "lean",
   "line": 5.0,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 3.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -64004,6 +64485,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 3.2,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -64071,7 +64553,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -64082,7 +64564,7 @@
   "why": "33.3 min (recent 34.0, \u22120.7 team-minutes adjustment with Malachi Smith out); \u00d7 0.158 assists/min (64% this season's 0.149 over 9 games, 36% prior 0.167); context: pace vs NYK \u22121%, home +1%, shared production on TOR \u22122%; calibration +0.0."
  },
  "Scottie Barnes|fg3m|401910002": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6561,
@@ -64103,7 +64585,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 23:36 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -64129,6 +64612,9 @@
   ],
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 0.5
@@ -64144,6 +64630,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 0.1,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -64211,7 +64698,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -64222,7 +64709,7 @@
   "why": "33.3 min (recent 34.0, \u22120.7 team-minutes adjustment with Malachi Smith out); \u00d7 0.027 3-pointers made/min (75% this season's 0.026 over 9 games, 25% prior 0.031); context: pace vs NYK \u22121%, home +1%, opponent defense +1%, shared production on TOR +2%; calibration +0.0."
  },
  "Scottie Barnes|pa|401910002": {
-  "actual": null,
+  "actual": 22.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -64245,11 +64732,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 21:21 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 26.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 26.5
@@ -64265,6 +64756,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 4.1,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -64327,7 +64819,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -64338,7 +64830,7 @@
   "why": "33.0 min (recent 34.0, \u22121.0 team-minutes adjustment); \u00d7 0.789 pts+ast/min (75% this season's 0.868 over 9 games, 25% prior 0.711); context: pace vs NYK \u22121%, home +1%, opponent defense \u22121%, shared production on TOR +1%; calibration +0.1; listed Day-To-Day."
  },
  "Scottie Barnes|pra|401910002": {
-  "actual": null,
+  "actual": 26.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -64362,7 +64854,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -64383,6 +64876,10 @@
   ],
   "label": "lean",
   "line": 33.5,
+  "line_errs": {
+   "kalshi": 8.5,
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 34.5,
@@ -64404,6 +64901,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 7.7,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -64473,7 +64971,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -64484,7 +64982,7 @@
   "why": "33.3 min (recent 34.0, \u22120.7 team-minutes adjustment with Malachi Smith out); \u00d7 1.018 pts+reb+ast/min (75% this season's 1.099 over 9 games, 25% prior 0.934); context: pace vs NYK \u22121%, home +1%."
  },
  "Scottie Barnes|pr|401910002": {
-  "actual": null,
+  "actual": 24.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -64507,11 +65005,15 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:11 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 28.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 28.5
@@ -64527,6 +65029,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 4.6,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -64594,7 +65097,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -64605,7 +65108,7 @@
   "why": "33.3 min (recent 34.0, \u22120.7 team-minutes adjustment with Malachi Smith out); \u00d7 0.861 pts+reb/min (75% this season's 0.950 over 9 games, 25% prior 0.768); context: pace vs NYK \u22121%, home +1%, opponent defense \u22121%, shared production on TOR +1%; calibration +0.0."
  },
  "Scottie Barnes|pts|401910002": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5327102803738317,
@@ -64627,7 +65130,8 @@
   "flip": null,
   "frozen_at": "2026-11-17 23:36 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -64653,6 +65157,11 @@
   ],
   "label": "lean",
   "line": 21.5,
+  "line_errs": {
+   "fanduel": 1.5,
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 21.5,
@@ -64680,6 +65189,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 0.6,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -64749,7 +65259,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -64760,7 +65270,7 @@
   "why": "33.3 min (recent 34.0, \u22120.7 team-minutes adjustment with Malachi Smith out); \u00d7 0.620 points/min (64% this season's 0.719 over 9 games, 36% prior 0.544); context: pace vs NYK \u22121%, home +1%, opponent defense \u22121%, shared production on TOR +1%; calibration -0.0."
  },
  "Scottie Barnes|ra|401910002": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -64780,11 +65290,15 @@
   "flip": null,
   "frozen_at": "2026-11-17 04:41 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.5
@@ -64800,6 +65314,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 6.7,
   "out_ctx": [
    "Kawhi Leonard",
    "Nate Bittle"
@@ -64862,7 +65377,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
@@ -64872,7 +65387,7 @@
   "why": "33.0 min (recent 34.0, \u22121.0 team-minutes adjustment); \u00d7 0.387 reb+ast/min (53% this season's 0.380 over 9 games, 47% prior 0.390); context: pace vs NYK \u22121%, home +1%, shared production on TOR \u22121%; calibration +0.0."
  },
  "Scottie Barnes|reb|401910002": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [
    "chance pulled toward 50% (keeps 40% of our lean on PrizePicks lines, pattern)"
   ],
@@ -64896,7 +65411,8 @@
   "flip": null,
   "frozen_at": "2026-11-18 00:26 UTC",
   "game_id": 401910002,
-  "hit": null,
+  "graded_at": "2026-11-18 03:03 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -64927,6 +65443,10 @@
   ],
   "label": "lean",
   "line": 7.0,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 3.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 7.5,
@@ -64948,6 +65468,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 3.6,
   "out_ctx": [
    "Dalton Knecht",
    "Jaden Akins",
@@ -65017,7 +65538,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "TOR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-18T00:30:00+00:00",
