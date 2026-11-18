@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Tipsters — Prop Edge NBA{% endblock %}
+{% macro u(x) -%}<span class="{{ 'stat-good' if x >= 0 else 'stat-bad' }}">{{ '%+.1f'|format(x) }}U</span>{%- endmacro %}
+{% macro am(o) -%}{{ ('+' ~ o) if o > 0 else o }}{%- endmacro %}
+{% macro trust(ok) -%}<span class="pr-tag {{ 'pr-good' if ok else 'pr-toohigh' }}" style="margin-left:0">{{ 'POSTS LOSSES' if ok else 'HIDES LOSSES' }}</span>{%- endmacro %}
+{% macro legtxt(l) -%}{{ l.player }} <span class="pp-pick {{ 'pp-over' if l.side == 'over' else 'pp-under' }}">{{ 'OVER' if l.side == 'over' else 'UNDER' }} {{ l.line|fmtline }} {{ tp.lab[l.stat] }}</span>{%- endmacro %}
+{% macro spreadtxt(r) -%}<span class="pp-pick pp-over">{{ r.team_name|upper }} {{ '%+g'|format(r.line) }}</span>{%- endmacro %}
+{% macro res_icon(res) -%}{{ {'hit': '&#10004;', 'miss': '&#10008;', 'push': '&ndash;', 'void': '&ndash;'}.get(res, '&#9675;')|safe }}{%- endmacro %}
+{% block content %}
+<h1>Tipsters</h1>
+<p class="lede">The accounts you follow, checked against final scores. Only the ones with a <b>real, honestly posted winning record</b> are tracked, and every pick they post from now on is logged before tip and graded here.</p>
+{% set ts = tp.tipsters or [] %}
+<div class="hv-rec pz-board">
+  {% for t in ts %}<div class="hv-tile"><b>{{ t.w }}-{{ t.l }}</b><span>{{ t.name }}{% if t.key == 'gob' %} spreads{% endif %} &middot; {{ u(t.u) }}</span></div>{% endfor %}
+  <div class="hv-tile"><b>{% if tp.tail and tp.tail.n %}{{ tp.tail.w }}-{{ tp.tail.l }}{% else %}NEW{% endif %}</b><span>{% if tp.tail and tp.tail.n %}tail test at your price &middot; {{ u(tp.tail.u) }}{% else %}tail test starts Nov 18{% endif %}</span></div>
+</div>
+<p class="small dim">Since {{ tp.season_from or 'opening night' }}: 1U per pick at the odds each account posted. Everything on this page is tracking only.</p>
+
+<div class="seg" data-tabs="tp" data-hash="1">
+  <button data-tab="tonight" class="active">TONIGHT</button><button data-tab="record">TRACK RECORD</button><button data-tab="days">DAY BY DAY</button><button data-tab="how">HOW IT WORKS</button>
+</div>
+
+<section data-tab-panel="tp:tonight">
+  <p class="small dim">{{ tp.today }} &middot; Each pick is priced at the best line you could get when the site first saw it (Kalshi at the same number, or FanDuel at the same line) and graded the same night. Picks are added when you ask Claude to log them.</p>
+  {% for t in ts %}
+  {% set rows = (tp.tonight or [])|selectattr('tipster', 'equalto', t.key)|list %}
+  <h2 class="hv-h3">{{ t.name }}{% if rows %} &middot; {{ rows|length }} pick{{ 's' if rows|length != 1 }}{% endif %}{% if t.key == 'gob' %} &middot; spreads only{% endif %}</h2>
+  {% if not rows %}<p class="small dim">No picks logged for today yet.</p>{% else %}
+  <div class="pz-grid">
+  {% for r in rows %}
+  <article class="pz-card {{ 'pz-pending' if r.status != 'graded' else ('pz-won' if r.res == 'hit' else ('pz-lost' if r.res == 'miss' else '')) }}">
+    <div class="pz-head"><div><div class="pz-title">{{ t.name|upper }}{% if r.book %} &middot; {{ r.book|upper }}{% endif %}</div>
+      <div class="pz-sub">{% if r.posted_et %}POSTED {{ r.posted_et }}{% endif %}{% if r.game %} &middot; {{ r.game }}{% endif %}{% if r.tip %} &middot; {{ r.tip }}{% endif %}</div></div></div>
+    <div class="pz-tags"><span class="u-tag u-0" title="Logged and graded, no stake">TRACKING ONLY</span> {{ trust(t.honest) }}</div>
+    <ul class="pz-legs">
+    {% if r.kind == 'spread' %}
+      <li class="pz-leg {{ 'pz-hit' if r.res == 'hit' else ('pz-miss' if r.res == 'miss' else '') }}"><span class="pz-res">{{ res_icon(r.res) }}</span>{{ m.badge(badge(r.team)) }}<span class="pz-what">{{ spreadtxt(r) }}{% if r.detail %} <span class="dim small">{{ r.detail }}</span>{% endif %}</span><span class="pz-meta"><b>{{ am(r.odds) }}</b> <span class="dim small">posted</span></span></li>
+    {% else %}{% for l in r.legs %}
+      <li class="pz-leg {{ 'pz-hit' if l.res == 'hit' else ('pz-miss' if l.res == 'miss' else '') }}"><span class="pz-res">{{ res_icon(l.res) }}</span>{% if r.team %}{{ m.badge(badge(r.team)) }}{% endif %}<span class="pz-what">{{ legtxt(l) }}{% if l.actual is not none %} <span class="dim small">had {{ l.actual }}</span>{% endif %}</span>
+        <span class="pz-meta"><b>{{ am(r.odds) }}</b> <span class="dim small">posted{% if r.book %} ({{ r.book }}){% endif %}</span>{% if r.your %} &middot; <span class="small">your price <b>{{ r.your.odds }}</b> {{ r.your.src }}</span>{% else %} &middot; <span class="dim small">no matching Kalshi/FanDuel price</span>{% endif %}</span></li>
+    {% endfor %}{% endif %}
+    </ul>
+  </article>
+  {% endfor %}
+  </div>{% endif %}
+  {% endfor %}
+  <h2 class="hv-h3">Cushion combo</h2>
+  <p class="small dim">Your style, built from their legs: each prop over moved one Kalshi rung safer (for example 3.5 AST &rarr; 3+), kept only if the leg costs {{ 65 }}&ndash;{{ 82 }}% with the fee, 2&ndash;4 legs. It locks when its first game tips.</p>
+  {% set cb = (tp.combos or [])|selectattr('date', 'equalto', tp.today)|list %}
+  {% if cb %}{% set c = cb[0] %}
+  <div class="pz-grid"><article class="pz-card {{ 'pz-pending' if c.status != 'graded' else ('pz-won' if c.hit else 'pz-lost') }}">
+    <div class="pz-head"><div><div class="pz-title">CUSHION COMBO &middot; {{ c.legs|length }} LEGS</div><div class="pz-sub">{{ 'LOCKED' if c.locked else 'UPDATES TILL FIRST TIP' }}</div></div>
+      <div class="pz-nums"><b>{{ '%.1f'|format(c.pays) }}x</b><span>pays about</span></div></div>
+    <div class="pz-tags"><span class="u-tag u-0">TRACKING ONLY</span> <span class="anchor-tag">ALL LEGS ON KALSHI</span></div>
+    <ul class="pz-legs">{% for l in c.legs %}<li class="pz-leg {{ 'pz-hit' if l.res == 'hit' else ('pz-miss' if l.res == 'miss' else '') }}"><span class="pz-res">{{ res_icon(l.res) }}</span><span class="pz-what">{{ l.player }} <span class="pp-pick pp-over">{{ l.rung }}+ {{ tp.lab[l.stat] }}</span>{% if l.actual is not none %} <span class="dim small">had {{ l.actual }}</span>{% endif %}</span><span class="pz-meta"><b>{{ tp.p_to_am(l.p) }}</b> <span class="dim small">Kalshi &middot; from {{ {'doc': 'Dr. Profit', 'wiz': 'WizBetz'}.get(l.tipster, l.tipster) }}</span></span></li>{% endfor %}</ul>
+  </article></div>
+  {% else %}<p class="small dim">No combo today: it needs 2+ of their prop overs with a Kalshi rung one step safer that costs {{ 65 }}&ndash;{{ 82 }}%.</p>{% endif %}
+</section>
+
+<section class="hidden" data-tab-panel="tp:record">
+  <p class="small dim">Graded against final box scores. 1U per pick at the odds each account posted; the tail test grades the same picks at the price you could get when the site first saw them (from Nov 18 on).</p>
+  <div class="table-wrap table-scroll"><table class="stat-table">
+    <thead><tr><th>Account</th><th>Record</th><th>Hit</th><th>Units</th><th>Per pick</th><th>Last 10</th><th>Tail test</th><th>Honesty</th><th>Notes</th></tr></thead><tbody>
+    {% for t in ts %}<tr><td><b>{{ t.name }}</b><br><span class="dim small">{{ t.handle }} &middot; {{ t.what }}</span></td><td>{{ t.w }}-{{ t.l }}</td><td>{{ t.rate if t.rate is not none else '-' }}%</td><td>{{ u(t.u) }}</td><td>{{ '%+d'|format(t.per) if t.per is not none else '-' }}%</td><td>{{ t.last10 or '-' }}</td>
+      <td>{% if t.tail.n %}{{ t.tail.w }}-{{ t.tail.l }} {{ u(t.tail.u) }}{% else %}<span class="dim">starts tonight</span>{% endif %}</td><td>{{ trust(t.honest) }}</td><td class="small dim">{{ t.note }}</td></tr>{% endfor %}
+    </tbody></table></div>
+  <h2 class="hv-h3">Not tracked</h2>
+  <p class="small dim">Checked from the start of the season and dropped, with no edge on what they post publicly: {{ tp.dropped }}.</p>
+  <h2 class="hv-h3">Tail test &amp; cushion combo</h2>
+  <div class="hv-rec pz-board">
+    <div class="hv-tile"><b>{{ tp.tail.w if tp.tail else 0 }}-{{ tp.tail.l if tp.tail else 0 }}</b><span>tail test &middot; at your price{% if tp.tail and tp.tail.n %} &middot; {{ u(tp.tail.u) }}{% endif %}</span></div>
+    <div class="hv-tile"><b>{{ tp.combo_rec.hits }}/{{ tp.combo_rec.n }}</b><span>cushion combos cashed{% if tp.combo_rec.n %} &middot; {{ u(tp.combo_rec.u) }}{% endif %}</span></div>
+  </div>
+  <p class="small dim">Nothing here carries a stake. A tipster would earn one only after {{ tp.earn_n }}+ tail-test picks with a profit at the price you could actually get.</p>
+</section>
+
+<section class="hidden" data-tab-panel="tp:days">
+  <div class="pz-grid">
+  {% for d in tp.days or [] %}
+  <article class="pz-card {{ 'pz-won' if d.u >= 0 else 'pz-lost' }}">
+    <div class="pz-head"><div><div class="pz-title">{{ d.date }}</div><div class="pz-sub">{{ d.w }}-{{ d.l }} &middot; {{ '%+.2f'|format(d.u) }}U</div></div></div>
+    <ul class="pz-legs">{% for r in d.rows %}
+      <li class="pz-leg {{ 'pz-hit' if r.res == 'hit' else ('pz-miss' if r.res == 'miss' else 'pz-void') }}"><span class="pz-res">{{ res_icon(r.res) }}</span>
+        <span class="pz-what"><b class="small">{{ r.who|upper }}</b> &middot; {% if r.kind == 'spread' %}{{ spreadtxt(r) }} <span class="dim small">{{ r.detail }}</span>{% else %}{% for l in r.legs %}{{ legtxt(l) }}{% if l.actual is not none %} <span class="dim small">had {{ l.actual }}</span>{% endif %}{{ ' + ' if not loop.last }}{% endfor %}{% endif %}</span>
+        <span class="pz-meta"><b>{{ am(r.odds) }}</b>{% if r.odds_est %} <span class="dim small">est.</span>{% endif %}</span></li>{% endfor %}
+    </ul>
+  </article>
+  {% endfor %}
+  </div>
+</section>
+
+<section class="hidden" data-tab-panel="tp:how">
+  <h2 class="hv-h3">How it works</h2>
+  <ul class="small">
+    <li><b>Who is tracked:</b> only accounts whose full public record beat the market since opening night and who post their losses (Dr. Profit, WizBetz), plus Goblin's spread legs. Checked on Nov 18; anyone can be added or dropped later.</li>
+    <li><b>Logging:</b> their picks are added when you ask Claude to log them, with the time each was posted and the odds they posted. Picks posted after tip are not counted.</li>
+    <li><b>Tail test:</b> the first build that sees a pick before its game tips records the best price you could get right then (Kalshi at the same number, or FanDuel at the same line), and the pick is also graded at that price. It answers "does tailing pay for <i>me</i>".</li>
+    <li><b>Cushion combo:</b> 2&ndash;4 of their prop overs moved one Kalshi rung safer, legs costing 65&ndash;82%, locked at the first tip. It tests your alt-line idea on picks from people with a real record.</li>
+    <li><b>Grading:</b> final box scores, the same night. A push or a player who doesn't play is voided. Nothing is ever removed.</li>
+    <li><b>Stakes:</b> none. Everything here is tracking only until a tipster has {{ tp.earn_n }}+ tail-test picks with a profit at your price.</li>
+  </ul>
+</section>
+{% endblock %}
