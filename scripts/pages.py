@@ -41,9 +41,10 @@ NAV = [
     ("games", "Games", "games.html"),
     ("rankings", "Teams", "rankings.html"),
     ("parlays", "Parlays", "parlays.html"),
+    ("tipsters", "Tipsters", "tipsters.html"),
     ("history", "History", "history.html"),
 ]
-NAV_ICON = {"home": "\u2302", "picks": "\u2605", "games": "\u25ce", "players": "\u25a6", "rankings": "\u2630", "parlays": "\u2726", "history": "\u21ba"}
+NAV_ICON = {"home": "\u2302", "picks": "\u2605", "games": "\u25ce", "players": "\u25a6", "rankings": "\u2630", "parlays": "\u2726", "tipsters": "\u2691", "history": "\u21ba"}
 # Old URLs from the 9-page layout forward to their new home, so bookmarks keep working.
 REDIRECTS = {"points.html": "picks.html#pts", "rebounds.html": "picks.html#reb", "assists.html": "picks.html#ast",
              "threes.html": "picks.html#fg3m", "pra.html": "picks.html#combos",
@@ -922,6 +923,7 @@ def render_all(ctx: dict) -> None:
     except Exception as e:  # noqa: BLE001
         print(f"My Bets charts failed: {e}")
     write("mybets.html", "mybets.html", "mybets", mb=mb, mbc=mbc)
+    write("tipsters.html", "tipsters.html", "tipsters", tp=ctx.get("tipsters") or {}, badge=teams.badge)
     write("parlays.html", "parlays.html", "parlays", pz=pz, today=today, pz_charts=pz_charts,
           fam_label={f["key"]: f["label"] for f in pz.get("families") or []})
     keep = set()

@@ -56,6 +56,7 @@ FAMILIES = [
 PAPER = {"news", "gap"}   # families tracked without a stake (until earned) and kept out of the main record
 # families whose leg rule changed (update 71/72): the record table also shows results since that slate
 RULE_SINCE = {"single": "2026-11-06", "value": "2026-11-06", "gap": "2026-11-06"}
+STAKES_OFF_SINCE = "2026-11-18"   # update 77: main parlay types tracking-only until each earns a stake (type_earned)
 WAVED = {"news"}          # families rebuilt in waves through the day (news lands at different times)
 WAVES = 6          # news parlays of one size per day: a new one can start after the last one locked
 FAMILY = {f[0]: f for f in FAMILIES}
@@ -241,6 +242,28 @@ def gap_earned() -> bool:
     return _GAP_EARNED
 
 
+EARN_TYPE_N = 15        # update 77: a parlay type needs this many graded tickets in the last 30 days...
+EARN_TYPE_DAYS = 30     # ...showing a profit at flat 1U before it carries a stake again
+_TYPE_EARNED = None
+
+
+def type_earned(fam: str, n: int) -> bool:
+    """Update 77 (Nov 18): every main parlay type went tracking-only. Nov 6-17 at the recommended stakes they went
+    27/88, -15.67U on 60.25U staked (Safest 5/36, -10.97U); no type was profitable over its last 30 days. A type
+    (family + size) earns its stake back once its own last 30 days have 15+ graded tickets and a profit at 1U."""
+    global _TYPE_EARNED
+    if _TYPE_EARNED is None:
+        from datetime import date, timedelta
+        cut = (date.today() - timedelta(days=EARN_TYPE_DAYS)).isoformat()
+        rec = {}
+        for r in load_all():
+            if r.get("status") == "graded" and r.get("hit") is not None and r.get("date", "") >= cut:
+                g, u = rec.get((r["family"], r["size"]), (0, 0.0))
+                rec[(r["family"], r["size"])] = (g + 1, u + (((r.get("pays") or 1) - 1) if r["hit"] else -1.0))
+        _TYPE_EARNED = {k for k, (g, u) in rec.items() if g >= EARN_TYPE_N and u > 0}
+    return (fam, n) in _TYPE_EARNED
+
+
 def stake_for(fam: str, n: int, legs: list[dict], form: dict) -> float:
     """Recommended units for a parlay. Singles: the pick's own units. Parlays: 1U (2 legs), 0.5U (3),
     0.25U (4); after 10+ graded of that type, doubled if the type is in profit, halved if it's
@@ -253,6 +276,8 @@ def stake_for(fam: str, n: int, legs: list[dict], form: dict) -> float:
             return 0.0
         if n == 1:
             return news.EARN_UNITS
+    if fam not in PAPER and not type_earned(fam, n):
+        return 0.0
     if n == 1:
         return max(legs[0].get("units") or 0.0, 0.25)
     base = BASE_STAKE.get(n, 0.25)
