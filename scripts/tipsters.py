@@ -34,8 +34,11 @@ TIPSTERS = {
             "note": "Points/rebounds/assists combos on role players, repeat \"wagon\" bets. Some season odds estimated at -115."},
     "gob": {"name": "Goblin", "handle": "@PotdPrizepicks", "what": "spread legs", "honest": False,
             "note": "Only the spread legs out of his parlays, graded as -110 straights. His full parlays went 1 of 10."},
+    "sam": {"name": "Sam", "handle": "@TheModelManSam", "what": "safest lotto slip", "honest": None,
+            "note": "The lowest tier of his daily 3-tier lotto ladder (3 role players at low lines). Priced +210 or shorter it went 7 of 11 through Nov 17."},
 }
-DROPPED = ("NextLevelBets (31-32, -5.0U, posts only winning days), TheModelManSam (5-6, -1.7U), "
+SHORT_MAX = 210  # Sam's safest slip: the ones priced +210 or shorter are the ones that cashed
+DROPPED = ("NextLevelBets (31-32, -5.0U, posts only winning days), TheModelManSam's straights (5-6, -1.7U; his safest lotto slip is tracked instead), "
            "Bearprops (13-14 legs, never posts a loss)")
 LAB = {"pts": "PTS", "reb": "REB", "ast": "AST", "fg3m": "3PM", "pra": "PRA", "pr": "P+R", "pa": "P+A", "ra": "R+A", "dd": "DOUBLE-DOUBLE"}
 PARTS = {"pts": ("pts",), "reb": ("reb",), "ast": ("ast",), "fg3m": ("fg3m",), "pra": ("pts", "reb", "ast"),
@@ -143,7 +146,7 @@ def grade_pick(p: dict, ply: dict, team: dict) -> dict:
         res, x, r = grade_leg(leg, d, ply)
         legs.append({**leg, "res": res, "actual": x, "team": r["team"] if r else None})
         res_all.append(res)
-    if any(r is None for r in res_all):
+    if "miss" not in res_all and any(r is None for r in res_all):
         return {"status": "open", "legs": legs}
     if "miss" in res_all:
         res = "miss"
@@ -284,6 +287,8 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
     for p in allp:
         g = grade_pick(p, ply, team)
         r = {**p, **g, "who": TIPSTERS[p["tipster"]]["name"]}
+        if p["tipster"] == "sam":
+            r["short"] = p["odds"] <= SHORT_MAX
         if p["kind"] == "prop" and "legs" not in g:
             r["legs"] = p["legs"]
         r["units"] = profit(p["odds"], True) if g.get("res") == "hit" else (-1.0 if g.get("res") == "miss" else 0.0)
@@ -309,6 +314,10 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
         tail = [r for r in rs if "your_units" in r]
         per.append({"key": k, **t, **rec(rs), "tail": rec(tail, "your_units")})
     tail_all = [r for r in graded if "your_units" in r]
+    for t in per:
+        if t["key"] == "sam":
+            rs = sorted([r for r in graded if r["tipster"] == "sam" and r.get("short")], key=lambda r: r["date"])
+            t["short"] = rec(rs)
     # combos
     combos = []
     for d, c in sorted(st.get("combos", {}).items(), reverse=True):
@@ -339,7 +348,7 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
                 pass
         if r["kind"] == "prop":
             rows = _pred_rows(today)
-            prow = rows.get((_norm(r["legs"][0]["player"]), r["legs"][0]["stat"]))
+            prow = rows.get((_norm(r["legs"][0]["player"]), r["legs"][0]["stat"])) if len(r["legs"]) == 1 else None
             tip = by_gid.get(prow.get("game_id")) if prow else None
             r["game"] = f"{prow['team']} {'vs' if prow.get('home') else '@'} {prow['opp']}" if prow else None
             r["team"] = prow["team"] if prow else None
