@@ -29,6 +29,7 @@
   </div>
   {% endfor %}
 </div>
+{% include "_playerlab.html" %}
 <h2 class="h2x anchor" id="breakdown">Why &amp; stats</h2>
 <div class="seg" data-tabs="pchart" data-hash="1" data-hash-scroll="breakdown">
   {% for s in box_stats %}<button data-tab="{{ s }}" class="{{ 'active' if loop.first }}">{{ stat_short[s] }}</button>{% endfor %}

@@ -695,13 +695,24 @@ def render_all(ctx: dict) -> None:
     for p in ctx["preds"]:
         by_player_preds[p.get("player_id")].append(p)
     keep_p = set()
+    try:  # Player Lab (update 81)
+        import playerlab
+        from dataio import CURRENT_SEASON
+        labctx = playerlab.Ctx(CURRENT_SEASON)
+    except Exception as e:  # noqa: BLE001
+        labctx = None
+        print(f"Player lab unavailable: {e}")
     for gm in pgames:
         for tm in gm["teams"]:
             for r in tm["rows"]:
                 pc = player_page(r, gm["g"], gidx, by_player_preds.get(r["player_id"], []))
+                team = r.get("team")
+                opp = gm["g"]["home"] if team == gm["g"]["away"] else gm["g"]["away"]
+                lab = labctx.for_player(r["player_id"], opp, [p for p in by_player_preds.get(r["player_id"], [])
+                                                               if p.get("date") == gm["g"].get("date")]) if labctx else None
                 name = f"p-{r['player_id']}.html"
                 keep_p.add(name)
-                write(name, "player.html", "players", only_if_changed=True, r=r, g=gm["g"], pc=pc, edge=edge,
+                write(name, "player.html", "players", only_if_changed=True, r=r, g=gm["g"], pc=pc, edge=edge, lab=lab,
                       box_stats=BOX_STATS, combo_stats=["pr", "pa", "ra"], build_time=None)
     for f in DOCS.glob("p-*.html"):
         if f.name not in keep_p:
