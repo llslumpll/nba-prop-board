@@ -27,7 +27,7 @@
   function line() { var t = D.tonight[S.stat]; return t && t.line != null ? t.line : null; }
 
   function chart(r) {
-    var ln = line(), W = 760, H = 190, pad = 26, bw = Math.max(8, Math.min(34, (W - pad * 2) / Math.max(1, r.length) - 6));
+    var ln = line(), W = 760, H = 240, pad = 30, bw = Math.max(8, Math.min(34, (W - pad * 2) / Math.max(1, r.length) - 6));
     var mx = Math.max.apply(null, [ln || 0].concat(r.map(function (g) { return g.v[S.stat]; }))) * 1.15 || 1;
     var y = function (v) { return H - 34 - (H - 60) * v / mx; };
     var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" class="lab-svg" role="img" aria-label="Game by game ' + LAB[S.stat] + '">';
