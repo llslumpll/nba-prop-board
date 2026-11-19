@@ -3,7 +3,7 @@
 {% block title %}My Bets — Prop Edge NBA{% endblock %}
 {% block content %}
 <h1>My Bets</h1>
-<p class="lede">Your real bets, read from your Google Sheet every build and graded automatically from the box scores and final scores. Tap <b>&#128203; COPY BET</b> on any pick, news play or parlay, then paste it as a new row in the sheet.</p>
+<p class="lede">Your real bets, read from your Google Sheet every build and graded automatically from the box scores and final scores. Tap <b>&#128203; COPY BET</b> on any pick, news play or parlay, then paste it as a new row in the sheet, or just send your slip screenshots to Claude and they get logged for you.</p>
 {% if not mb.setup %}
 <div class="empty-state"><h3>Not connected yet</h3><p>Make a Google Sheet with the columns <b>date, bet, stat, side, line, book, price, units</b>, publish it as CSV (File &rarr; Share &rarr; Publish to web), and save that link as the GitHub secret <b>MYBETS_CSV</b>.</p></div>
 {% else %}

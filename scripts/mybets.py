@@ -310,16 +310,41 @@ def summary(graded: list[dict]) -> dict:
             "rows": sorted([g for g in graded if g["result"] != "unmatched"], key=lambda g: (g["date_iso"], g["row"]), reverse=True)}
 
 
+LOGGED = ROOT / "mybets_logged.json"
+
+
+def logged() -> list[dict]:
+    """Bets the user sends Claude (slip screenshots / messages), same columns as the sheet. Row ids 1001+."""
+    try:
+        rows = json.loads(LOGGED.read_text())
+    except Exception:  # noqa: BLE001
+        return []
+    cols = ("date", "bet", "stat", "side", "line", "book", "price", "units")
+    return [{**{c: str(r.get(c, "") or "") for c in cols}, "row": 1000 + i, "src": "logged"} for i, r in enumerate(rows, 1)]
+
+
 def run(box=None) -> dict:
     rows, err = fetch()
+    extra = logged()
     if err == "not set up":
-        return {"setup": False}
+        if not extra:
+            return {"setup": False}
+        rows, err = [], None
     if err:
+        if extra:   # sheet unreadable this build: grade the logged bets plus the sheet rows from the last good copy
+            try:
+                last = json.loads(OUT.read_text())
+                rows = [{c: r.get(c, "") for c in ("date", "bet", "stat", "side", "line", "book", "price", "units", "row")}
+                        for r in last.get("rows", []) + last.get("unmatched", []) if r.get("src") != "logged"]
+            except Exception:  # noqa: BLE001
+                rows = []
+            s = {"setup": True, **summary(grade_rows(rows + extra, box)), "error": err}
+            return s
         try:   # keep showing the last good copy if the sheet can't be read this build
             last = json.loads(OUT.read_text())
             return {**last, "error": err}
         except Exception:  # noqa: BLE001
             return {"setup": True, "error": err}
-    s = {"setup": True, **summary(grade_rows(rows, box))}
+    s = {"setup": True, **summary(grade_rows(rows + extra, box))}
     OUT.write_text(json.dumps({k: v for k, v in s.items() if k != "error"}, indent=1, default=str))
     return s
