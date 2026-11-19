@@ -3,7 +3,7 @@
 Secrets (GitHub repository secrets, never in the repo):
   KALSHI_KEY_ID       the key's ID
   KALSHI_PRIVATE_KEY  the private key file's text (-----BEGIN RSA PRIVATE KEY----- ...)
-The key only needs the "read" scope: it can't place orders or move money.
+Kalshi keys can be RSA or Ed25519 (both handled). The key only needs the "read" scope: it can't place orders or move money.
 
 Every build pulls fills (GET /portfolio/fills) and settlements (GET /portfolio/settlements) since START and turns
 each market into one bet:
@@ -56,8 +56,14 @@ class Client:
         from cryptography.hazmat.primitives.asymmetric import padding
         ts = str(int(time.time() * 1000))
         msg = (ts + method + "/trade-api/v2" + path.split("?")[0]).encode()
-        sig = self.key.sign(msg, padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.DIGEST_LENGTH),
-                            hashes.SHA256())
+        from cryptography.hazmat.primitives.asymmetric import ed25519, rsa
+        if isinstance(self.key, ed25519.Ed25519PrivateKey):     # newer Kalshi keys
+            sig = self.key.sign(msg)
+        elif isinstance(self.key, rsa.RSAPrivateKey):
+            sig = self.key.sign(msg, padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.DIGEST_LENGTH),
+                                hashes.SHA256())
+        else:
+            raise RuntimeError(f"unsupported key type {type(self.key).__name__}")
         return {"KALSHI-ACCESS-KEY": self.key_id, "KALSHI-ACCESS-TIMESTAMP": ts,
                 "KALSHI-ACCESS-SIGNATURE": base64.b64encode(sig).decode()}
 
