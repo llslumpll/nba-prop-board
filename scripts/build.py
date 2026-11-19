@@ -43,6 +43,7 @@ import oddsapi_client  # noqa: E402
 import espn_finals  # noqa: E402
 import tipsters  # noqa: E402
 import polymarket_client  # noqa: E402
+import favorites  # noqa: E402
 import patterns  # noqa: E402
 import rankings  # noqa: E402
 import tune  # noqa: E402
@@ -555,10 +556,16 @@ def build(args) -> None:
     except Exception as e:  # noqa: BLE001
         tp = None
         print(f"Tipsters failed: {e}")
+    try:  # Favorites tab (update 80): the user's 75%+ moneyline rule, tracked
+        fv = favorites.summary(box, sl)
+        print(f"Favorites: {fv['rec']['all']['w']}-{fv['rec']['all']['l']} season, {len(fv['tonight'])} tonight")
+    except Exception as e:  # noqa: BLE001
+        fv = None
+        print(f"Favorites failed: {e}")
     pages.render_all({
         "now": now, "slate": sl, "res": res, "best": best, "edge": est, "cal": cal, "preds": preds_all,
         "tpreds": predictions.load_all(team=True), "sources": sources, "health": health, "lm": lm,
-        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj, "trust": trust, "espn": espn, "patterns": pat_out, "rankings": rankings.build(box), "edges": edge_found, "edges_sum": edges.summary(), "tuning": tune.load(), "parlays": parlays.summary(), "news": news.summary(sl.get("date")), "lag": market.lag_summary(sl.get("date")), "lineups": lineups, "mybets": mb, "tipsters": tp,
+        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj, "trust": trust, "espn": espn, "patterns": pat_out, "rankings": rankings.build(box), "edges": edge_found, "edges_sum": edges.summary(), "tuning": tune.load(), "parlays": parlays.summary(), "news": news.summary(sl.get("date")), "lag": market.lag_summary(sl.get("date")), "lineups": lineups, "mybets": mb, "tipsters": tp, "favorites": fv,
     })
     # consistency audit on what was just built; its result shows on History -> Pipeline next build
     import subprocess
