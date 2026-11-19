@@ -156,9 +156,54 @@ def similar(raw_box: pl.DataFrame, lines: dict, pos: str, opp_raw: str, exclude:
     return out
 
 
+# ------------------------------------------------------------------ cache + build context
+CACHE = ROOT / "data" / "cache"
+
+
+def shots_path(season: int) -> Path:
+    return CACHE / f"shots_{season}.parquet"
+
+
+def save_shots(pbp: pl.DataFrame, season: int) -> int:
+    sh = classify(pbp)
+    tmp = shots_path(season).with_suffix(".tmp")
+    sh.write_parquet(tmp)
+    tmp.replace(shots_path(season))
+    return sh.height
+
+
+class Ctx:
+    """Everything shared by all player pages in one build (loaded once)."""
+
+    def __init__(self, season: int):
+        import teams
+        self.raw = pl.read_parquet(CACHE / f"player_box_{season}.parquet").filter(pl.col("season_type") == 2) \
+            if "season_type" in pl.read_parquet_schema(CACHE / f"player_box_{season}.parquet") else pl.read_parquet(CACHE / f"player_box_{season}.parquet")
+        self.team_code = {r[0]: r[1] for r in self.raw.select("team_id", "team_abbreviation").unique().iter_rows()}
+        self.to_raw = {v: k for k, v in teams.ALIASES["espn"].items()}
+        self.shots = pl.read_parquet(shots_path(season)) if shots_path(season).exists() else None
+        self.ranks = defense_ranks(self.shots, self.team_code) if self.shots is not None else {}
+        self.lines = _lines_index(sorted({d.isoformat() for d in self.raw["game_date"].unique().to_list()}))
+
+    def for_player(self, player_id: int, opp: str, preds: list) -> dict | None:
+        try:
+            tonight = {p["stat"]: {"line": p.get("line"), "be_over": p.get("be_over"), "call": p.get("call"),
+                                   "proj": p.get("projected")} for p in preds if p.get("line") is not None}
+            raw_opp = self.to_raw.get(opp, opp)
+            d = payload(self.raw, self.shots, self.ranks, self.team_code, int(player_id), raw_opp, raw_opp, tonight, self.lines)
+            d["opp"], d["opp_raw"] = opp, raw_opp
+            d["def"] = self.ranks.get(raw_opp)
+            d["first"] = next((s for s in ("pts", "fg3m", "reb", "ast") if s in tonight), "pts")
+            return d if d["log"] else None
+        except Exception as e:  # noqa: BLE001
+            print(f"  player lab {player_id}: {e}")
+            return None
+
+
 # ------------------------------------------------------------------ one player's payload
-def payload(raw_box, shots, ranks, team_code, player_id: int, opp: str, opp_raw: str, tonight: dict) -> dict:
-    lines = _lines_index(sorted({d.isoformat() for d in raw_box["game_date"].unique().to_list()}))
+def payload(raw_box, shots, ranks, team_code, player_id: int, opp: str, opp_raw: str, tonight: dict, lines=None) -> dict:
+    if lines is None:
+        lines = _lines_index(sorted({d.isoformat() for d in raw_box["game_date"].unique().to_list()}))
     log = gamelog(raw_box, player_id, lines)
     me = raw_box.filter(pl.col("athlete_id") == player_id).sort("game_date").tail(1)
     pos = me["athlete_position_abbreviation"][0] if me.height else None

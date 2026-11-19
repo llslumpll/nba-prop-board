@@ -67,7 +67,8 @@ def refresh(seasons=None) -> dict:
             continue
         try:
             lm = requests.head(url, timeout=30, allow_redirects=True).headers.get("Last-Modified")
-            if path(s).exists() and lm and st.get(str(s)) == lm:
+            import playerlab
+            if path(s).exists() and lm and st.get(str(s)) == lm and (s != cur or playerlab.shots_path(s).exists()):
                 out[s] = "unchanged"
                 continue
             r = requests.get(url, timeout=180, allow_redirects=True)
@@ -78,7 +79,15 @@ def refresh(seasons=None) -> dict:
             with tempfile.TemporaryDirectory() as td:
                 f = Path(td) / "pbp.parquet"
                 f.write_bytes(r.content)
-                z = summarize(pl.read_parquet(f))
+                pbp = pl.read_parquet(f)
+                z = summarize(pbp)
+                if s == cur:  # Player Lab (update 81): every shot with zone + type, kept small
+                    try:
+                        import playerlab
+                        out[f"shots_{s}"] = playerlab.save_shots(pbp, s)
+                    except Exception as e:  # noqa: BLE001
+                        out[f"shots_{s}"] = f"error: {str(e)[:100]}"
+                del pbp
             if z.height:
                 tmp = path(s).with_suffix(".tmp")
                 z.write_parquet(tmp)

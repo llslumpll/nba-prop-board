@@ -48,12 +48,12 @@
   function head(r) {
     var ln = line(), t = D.tonight[S.stat] || {}, n = r.length, o = 0;
     r.forEach(function (g) { if (ln != null && g.v[S.stat] > ln) o++; });
-    var rate = n ? Math.round(100 * o / n) : null;
+    var rate = n && ln != null ? Math.round(100 * o / n) : null;
     var imp = t.be_over != null ? Math.round(t.be_over * 100) : null;
     var cls = rate == null || imp == null ? '' : (rate > imp ? 'stat-good' : 'stat-bad');
     return '<div class="hv-rec pz-board lab-head">' +
       '<div class="hv-tile"><b>' + (ln != null ? ln : '-') + '</b><span>tonight\'s ' + LAB[S.stat] + ' line' + (t.call ? ' &middot; our call ' + t.call : '') + '</span></div>' +
-      '<div class="hv-tile"><b class="' + cls + '">' + (rate == null ? '-' : rate + '%') + '</b><span>over in ' + o + ' of ' + n + ' shown games</span></div>' +
+      '<div class="hv-tile"><b class="' + cls + '">' + (rate == null ? '-' : rate + '%') + '</b><span>' + (ln == null ? 'no ' + LAB[S.stat] + ' line tonight' : 'over in ' + o + ' of ' + n + ' shown games') + '</span></div>' +
       '<div class="hv-tile"><b>' + (imp == null ? '-' : imp + '%') + '</b><span>price implies over</span></div>' +
       '<div class="hv-tile"><b>' + f1(S.mode === 'avg' ? avg(r.map(function (g) { return g.v[S.stat]; })) : med(r.map(function (g) { return g.v[S.stat]; }))) + '</b><span>' + (S.mode === 'avg' ? 'average' : 'median') + ' in shown games</span></div></div>';
   }
