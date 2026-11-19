@@ -1,0 +1,19 @@
+{# Player Lab (update 81). Needs `lab` = playerlab.payload(...) #}
+{% if lab and lab.log %}
+<h2 class="h2x anchor" id="player-lab">Player lab</h2>
+<section id="lab" class="lab">
+  <p class="small dim">Filter his games, see where his points come from, how {{ lab.opp }} defends it, and how similar players did against them. Everything here is from free ESPN box scores and play-by-play.</p>
+  <div class="seg" id="lab-stat"></div>
+  <div class="lab-filt" id="lab-filt"></div>
+  <div id="lab-head"></div>
+  <div class="lab-card"><div id="lab-chart"></div><p class="small dim">Green = over tonight's line, red = under. White tick = the line we graded that game against.</p></div>
+  <div id="lab-stats"></div>
+  <div class="lab-grid">
+    <div class="lab-card"><h3 class="hv-h3">Shooting zones</h3><div class="seg seg2" id="lab-court-tg"></div><div id="lab-court"></div></div>
+    <div class="lab-card"><h3 class="hv-h3">Shot types vs {{ lab.opp }}</h3><div id="lab-types"></div></div>
+  </div>
+  <div class="lab-card"><h3 class="hv-h3" id="lab-sim-h"></h3><div id="lab-sim"></div></div>
+</section>
+<script type="application/json" id="lab-data">{{ lab|tojson }}</script>
+<script src="static/playerlab.js?v={{ cache_bust }}" defer></script>
+{% endif %}

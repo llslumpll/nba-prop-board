@@ -1475,3 +1475,26 @@ html:not([data-theme="court"]) .pz-lost .pz-legs::after { content: "GAME OVER" !
 html:not([data-theme="court"]) .brand, .brand { outline: none !important; animation: none !important; padding: 0 !important; }
 .brand { color: #ffffff; text-shadow: 3px 3px 0 #ce1141, 6px 6px 0 #4a0012; }
 .brand-sub { background: #ce1141 !important; color: #ffffff !important; box-shadow: 3px 3px 0 #4a0012 !important; }
+
+/* Player Lab (update 81) */
+.lab .lab-filt { display: flex; flex-wrap: wrap; gap: 6px 10px; margin: 10px 0; }
+.lab .lab-filt .seg { margin: 0; }
+.lab .lab-card { border: 1px solid rgba(255,255,255,.12); background: rgba(10,10,14,.75); padding: 12px; margin: 10px 0; }
+.lab .lab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 760px) { .lab .lab-grid { grid-template-columns: 1fr; } }
+.lab .lab-svg { width: 100%; height: auto; display: block; }
+.lab .lab-val { fill: #fff; font-size: 11px; text-anchor: middle; font-weight: 700; }
+.lab .lab-ax { fill: #c9ccd3; font-size: 10px; text-anchor: middle; }
+.lab .lab-ax2 { fill: #8a8f98; font-size: 9px; text-anchor: middle; }
+.lab .lab-line { stroke: #fff; stroke-dasharray: 5 4; stroke-width: 1.5; }
+.lab .lab-lnlab { fill: #ffd84d; font-size: 11px; font-weight: 700; }
+.lab .lab-tick { stroke: #fff; stroke-width: 2; }
+.lab .lab-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.lab .lab-stats div { border: 1px solid rgba(255,255,255,.12); padding: 8px; text-align: center; }
+.lab .lab-stats b { display: block; font-size: 1.2rem; }
+.lab .lab-stats span { font-size: .75rem; color: #9aa0a8; }
+.lab .lab-court { width: 100%; max-width: 420px; display: block; margin: 8px auto; }
+.lab .lab-lines * { fill: none; stroke: rgba(255,255,255,.55); stroke-width: 2; }
+.lab .lab-zt { fill: #fff; font-size: 17px; font-weight: 700; text-anchor: middle; paint-order: stroke; stroke: rgba(0,0,0,.65); stroke-width: 3px; }
+.lab .lab-zv { font-size: 12px; writing-mode: vertical-rl; }
+.lab .lab-tt td, .lab .lab-tt th { padding: 6px 8px; }
