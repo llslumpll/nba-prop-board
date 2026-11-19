@@ -1,21 +1,11 @@
-{# Player Lab (update 81). Needs `lab` = playerlab.payload(...) #}
+{# Player Lab (update 81, verdict-first). Needs `lab` = playerlab.payload(...) #}
 {% if lab and lab.log %}
 <h2 class="h2x anchor" id="player-lab">Player lab</h2>
-<section id="lab" class="lab">
-  <div class="lab-top"><div class="seg lab-seg" id="lab-stat"></div><div class="lab-filt" id="lab-filt"></div></div>
-  <div class="lab-dash">
-    <div class="lab-main">
-      <div id="lab-head"></div>
-      <div class="lab-card lab-chartbox"><div id="lab-chart"></div></div>
-      <div id="lab-stats"></div>
-      <div class="lab-card"><div class="lab-ch"><b id="lab-sim-h"></b></div><div id="lab-sim"></div></div>
-    </div>
-    <div class="lab-side">
-      <div class="lab-card"><div class="lab-ch"><b>Shooting zones</b><div class="seg seg2 lab-seg" id="lab-court-tg"></div></div><div id="lab-court"></div></div>
-      <div class="lab-card"><div class="lab-ch"><b>Shot types vs {{ lab.opp }}</b></div><div id="lab-types"></div></div>
-    </div>
-  </div>
-  <p class="small dim lab-foot">Green bar = over tonight's line, red = under, white tick = the line we graded that game against. USG = shots + free throws + turnovers per 36 min. Shot types are our estimates from ESPN's shot labels; true play types (pick-and-roll, spot-up) are licensed tracking data. All from free ESPN box scores and play-by-play.</p>
+<section id="lab2" class="v2">
+<div id="v2-verdict"></div>
+<div class="v2-ctrl" id="v2-ctrl"></div>
+<div class="v2-grid"><div><div class="v2-card" id="v2-chart"></div><div class="v2-card" id="v2-sim" style="margin-top:14px"></div></div><div class="v2-card" id="v2-match"></div></div>
+<p class="small dim" style="margin-top:8px">Signals: Form = his hit rate in the shown games vs what the price implies; Matchup = how the opponent ranks where he scores (shot types weighted by his points); Similar = same-position players vs this team; Minutes = last 5 vs season. Signals are simple rules, not yet tested as predictors. Shot types are estimates from ESPN shot labels; true play types are licensed tracking data. All from free ESPN box scores and play-by-play.</p>
 </section>
 <script type="application/json" id="lab-data">{{ lab|tojson }}</script>
 <script src="static/playerlab.js?v={{ cache_bust }}" defer></script>

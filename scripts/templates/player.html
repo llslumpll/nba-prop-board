@@ -30,7 +30,7 @@
   {% endfor %}
 </div>
 {% include "_playerlab.html" %}
-<h2 class="h2x anchor" id="breakdown">Why &amp; stats</h2>
+<details class="fold" id="breakdown"><summary><span class="fold-t">Why &amp; stats</span><span class="fold-s">our projection, the reasons, and every factor</span></summary><div class="fold-in">
 <div class="seg" data-tabs="pchart" data-hash="1" data-hash-scroll="breakdown">
   {% for s in box_stats %}<button data-tab="{{ s }}" class="{{ 'active' if loop.first }}">{{ stat_short[s] }}</button>{% endfor %}
 </div>
@@ -57,8 +57,9 @@
   </div>
 </section>
 {% endfor %}
+</div></details>
 
-<h2 class="h2x">Splits</h2>
+<details class="fold" id="splits"><summary><span class="fold-t">Splits table</span><span class="fold-s">all stats side by side, incl. last season</span></summary><div class="fold-in">
 <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
   <thead><tr><th>Stat</th><th class="num">Proj</th><th class="num">Line</th><th class="num">This season</th><th class="num">Last season</th><th class="num">Last 5</th><th class="num">Last 15</th><th class="num hide-sm">Home</th><th class="num hide-sm">Away</th><th class="num">vs {{ r.opp }}</th></tr></thead>
   <tbody>
@@ -74,16 +75,20 @@
   </tbody>
 </table></div></div>
 <p class="small dim">Green = above tonight's line, red = below. Home/away and vs {{ r.opp }} use the last 3 seasons; (n) = games.</p>
+</div></details>
 
-<h2 class="h2x">Game log</h2>
+<details class="fold" id="gamelog"><summary><span class="fold-t">Game log</span><span class="fold-s">full box score each game + our graded picks</span></summary><div class="fold-in">
 <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
   <thead><tr><th>Date</th><th>Opp</th><th class="num">Min</th>{% for s in box_stats %}<th class="num">{{ stat_short[s] }}</th>{% endfor %}</tr></thead>
   <tbody>
   {% for gl in pc.log %}
-  <tr><td>{{ gl.date }} <span class="dim small">{{ gl.season|season_label }}</span></td><td>{{ 'vs' if gl.home else '@' }} {{ gl.opp }}</td><td class="num">{{ gl.min }}</td>
+  <tr{% if loop.index > 10 %} class="gl-more" hidden{% endif %}><td>{{ gl.date }} <span class="dim small">{{ gl.season|season_label }}</span></td><td>{{ 'vs' if gl.home else '@' }} {{ gl.opp }}</td><td class="num">{{ gl.min }}</td>
     {% for s in box_stats %}{% set c = gl.cells[s] %}<td class="num"><span class="{{ c.css }}">{{ c.v|fmtnum }}</span>{% if c.pick %}<span class="gl-pick">{{ c.pick }}</span>{% endif %}</td>{% endfor %}</tr>
   {% else %}<tr><td colspan="8" class="dim">No regular-season games in the data yet.</td></tr>{% endfor %}
   </tbody>
 </table></div></div>
+{% if pc.log|length > 10 %}<button class="fold-more" onclick="this.closest('details').querySelectorAll('.gl-more').forEach(function(r){r.hidden=false});this.remove();">Show all {{ pc.log|length }} games</button>{% endif %}
 <p class="small dim">Last 20 regular-season games. When we had a graded pick that game, its line is shown (o = over, u = under) and the number is green if the pick hit, red if it missed.</p>
+</div></details>
+<script>(function(){var h=(location.hash||'').slice(1);if(!h)return;var id=/^pchart/.test(h)?'breakdown':h.split('=')[0];var d=document.getElementById(id);if(d&&d.tagName==='DETAILS'){d.open=true;}})();</script>
 {% endblock %}
