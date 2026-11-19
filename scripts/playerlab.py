@@ -184,6 +184,11 @@ class Ctx:
         self.shots = pl.read_parquet(shots_path(season)) if shots_path(season).exists() else None
         self.ranks = defense_ranks(self.shots, self.team_code) if self.shots is not None else {}
         self.lines = _lines_index(sorted({d.isoformat() for d in self.raw["game_date"].unique().to_list()}))
+        try:
+            self.track = track_record(self.raw, self.shots, self.team_code, self.to_raw, self.lines)
+        except Exception as e:  # noqa: BLE001
+            print(f"  player lab track record: {e}")
+            self.track = None
 
     def for_player(self, player_id: int, opp: str, preds: list) -> dict | None:
         try:
@@ -194,6 +199,7 @@ class Ctx:
             d["opp"], d["opp_raw"] = opp, raw_opp
             d["def"] = self.ranks.get(raw_opp)
             d["first"] = next((s for s in ("pts", "fg3m", "reb", "ast") if s in tonight), "pts")
+            d["track"] = self.track
             return d if d["log"] else None
         except Exception as e:  # noqa: BLE001
             print(f"  player lab {player_id}: {e}")
@@ -213,3 +219,137 @@ def payload(raw_box, shots, ranks, team_code, player_id: int, opp: str, opp_raw:
             "def": ranks.get(opp) if ranks else None, "nteams": len(ranks or {}),
             "similar": similar(raw_box, lines, pos, opp_raw, player_id, start) if pos else [],
             "zone_label": ZONE_LABEL, "type_label": TYPE_LABEL}
+
+
+# ------------------------------------------------------------------ the 4 signals (same rules as playerlab.js)
+SCORING = ("pts", "fg3m", "pra", "pa", "pr")
+
+
+def signals(log: list, stat: str, line, be_over, call, shots, def_, nteams: int, sim: list, n: int = 15) -> dict:
+    """What the verdict box shows by default (last 15 games, no filters). Returns
+    {"side", "sig": {name: "g"|"r"|"n"}, "green", "red", "tone"}; tone good = 3+ green and no red, bad = 2+ red."""
+    side = "UNDER" if call == "UNDER" else "OVER"
+    sgn = 1 if side == "OVER" else -1
+    r = log[-n:] if n else log
+    sig = {}
+    if line is not None and be_over is not None and r:
+        rate = sum(1 for g in r if g["v"][stat] > line) / len(r)
+        d = (rate - be_over) * sgn
+        sig["form"] = "g" if d > .05 else ("r" if d < -.05 else "n")
+    else:
+        sig["form"] = "n"
+    if stat in SCORING and shots and def_:
+        N = nteams or 30
+        sc = w = 0.0
+        for k in TYPE_LABEL:
+            sh = shots["kinds"][k]["share"] / 100
+            rk = (def_.get("kind", {}).get(k) or (0, 15))[1]
+            sc += sh * (N + 1 - rk) / N
+            w += sh
+        sc = sc / w if w else .5
+        if sgn > 0:
+            sig["matchup"] = "g" if sc > .55 else ("r" if sc < .45 else "n")
+        else:
+            sig["matchup"] = "g" if sc < .45 else ("r" if sc > .55 else "n")
+    else:
+        sig["matchup"] = "n"
+    sr = [g for g in sim if g["ln"].get(stat) is not None]
+    sr = sr[:n] if n else sr
+    if len(sr) >= 4:
+        so = (sum(1 for g in sr if g["v"][stat] > g["ln"][stat]) / len(sr) - .5) * sgn
+        sig["similar"] = "g" if so > .08 else ("r" if so < -.08 else "n")
+    else:
+        sig["similar"] = "n"
+    mins = [g["min"] for g in log]
+    if mins:
+        l5, sz = sum(mins[-5:]) / len(mins[-5:]), sum(mins) / len(mins)
+        sig["minutes"] = "g" if l5 - sz > 2 else ("r" if l5 - sz < -2 else "n")
+    g = sum(v == "g" for v in sig.values())
+    rd = sum(v == "r" for v in sig.values())
+    return {"side": side, "sig": sig, "green": g, "red": rd,
+            "tone": "good" if g >= 3 and rd == 0 else ("bad" if rd >= 2 else "mixed")}
+
+
+# ------------------------------------------------------------------ track record of the signals (Nov 19)
+TRACK_DIR = ROOT / "data" / "labsignals"
+SIG_KEYS = ("form", "matchup", "similar", "minutes")
+# saved row: [stat, side O/U, closing price, hit 0/1, tone g/m/b, lights "gnrn" in SIG_KEYS order]
+
+
+def _rec(rs: list) -> dict:
+    n = len(rs)
+    if not n:
+        return {"n": 0}
+    w = sum(r["hit"] for r in rs)
+    u = sum((1 / r["price"] - 1) if r["hit"] else -1 for r in rs)
+    return {"n": n, "w": w, "l": n - w, "rate": round(100 * w / n, 1),
+            "price": round(100 * sum(r["price"] for r in rs) / n, 1), "u": round(u, 1), "roi": round(100 * u / n, 1)}
+
+
+def day_signals(raw, shots_all, team_code, to_raw, lines, ds: str) -> list:
+    """Every graded line on date ds with the signals the page would have shown that day: only games before ds
+    are used (game log, shot profile, defense ranks, similar players). The price is the closing break-even."""
+    d0 = _date.fromisoformat(ds)
+    try:
+        preds = json.loads((PRED_DIR / f"{ds}.json").read_text())
+    except Exception:  # noqa: BLE001
+        return []
+    graded = [p for p in preds.values() if p.get("hit") is not None and p.get("line") is not None and p.get("player_id")]
+    rb = raw.filter(pl.col("game_date") < d0)
+    sh = shots_all.filter(pl.col("date") < d0) if shots_all is not None else None
+    if not graded or not rb.height or sh is None or not sh.height:
+        return []
+    ranks = defense_ranks(sh, team_code)
+    have = set(sh["player_id"].unique().to_list())
+    cache, out = {}, []
+    for p in graded:
+        pid, opp = int(p["player_id"]), to_raw.get(p.get("opp"), p.get("opp"))
+        if (pid, opp) not in cache:
+            log = gamelog(rb, pid, lines)
+            me = rb.filter(pl.col("athlete_id") == pid).sort("game_date").tail(1)
+            pos = me["athlete_position_abbreviation"][0] if me.height else None
+            cache[(pid, opp)] = (log, player_shots(sh, pid) if pid in have else None,
+                                 similar(rb, lines, pos, opp, pid, _date(2026, 10, 1)) if pos else [])
+        log, ps, sim = cache[(pid, opp)]
+        if not log:
+            continue
+        s = signals(log, p["stat"], p["line"], p.get("be_over"), p.get("call"), ps, ranks.get(opp), len(ranks), sim)
+        price = p.get("be_over") if s["side"] == "OVER" else p.get("be_under")
+        if not price or not 0 < price < 1:
+            continue
+        sg = s["sig"]
+        out.append([p["stat"], s["side"][0], round(price, 4), int(bool(p["hit"])), s["tone"][0],
+                    "".join(sg.get(k, "n") for k in SIG_KEYS)])
+    return out
+
+
+def track_record(raw, shots_all, team_code, to_raw, lines) -> dict:
+    """Season record of each verdict and each signal light. Days 2+ days old are saved to data/labsignals/ and
+    reused; newer days are recomputed every build (late grades)."""
+    TRACK_DIR.mkdir(parents=True, exist_ok=True)
+    cutoff = (_date.today() - timedelta(days=2)).isoformat()
+    rows, days = [], 0
+    for f in sorted(PRED_DIR.glob("*.json")):
+        ds = f.stem
+        cf = TRACK_DIR / f"{ds}.json"
+        day = None
+        if cf.exists():
+            try:
+                day = json.loads(cf.read_text())
+            except Exception:  # noqa: BLE001
+                day = None
+        if day is None:
+            day = day_signals(raw, shots_all, team_code, to_raw, lines, ds)
+            if day and ds <= cutoff:
+                cf.write_text(json.dumps(day, separators=(",", ":")))
+        if day:
+            days += 1
+            rows += [{"price": r[2], "hit": r[3], "tone": {"g": "good", "m": "mixed", "b": "bad"}[r[4]],
+                      "sig": dict(zip(SIG_KEYS, r[5]))} for r in day]
+    if not rows:
+        return None
+    return {"days": days, "from": min(f.stem for f in TRACK_DIR.glob("*.json")) if any(TRACK_DIR.glob("*.json")) else None,
+            "tone": {t: _rec([r for r in rows if r["tone"] == t]) for t in ("good", "mixed", "bad")},
+            "sig": {k: {v: _rec([r for r in rows if r["sig"].get(k) == v]) for v in "gr"}
+                    for k in SIG_KEYS},
+            "all": _rec(rows)}

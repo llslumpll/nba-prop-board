@@ -5,7 +5,7 @@
 <div id="v2-verdict"></div>
 <div class="v2-ctrl" id="v2-ctrl"></div>
 <div class="v2-grid"><div><div class="v2-card" id="v2-chart"></div><div class="v2-card" id="v2-sim" style="margin-top:14px"></div></div><div class="v2-card" id="v2-match"></div></div>
-<p class="small dim" style="margin-top:8px">Signals: Form = his hit rate in the shown games vs what the price implies; Matchup = how the opponent ranks where he scores (shot types weighted by his points); Similar = same-position players vs this team; Minutes = last 5 vs season. Signals are simple rules, not yet tested as predictors. Shot types are estimates from ESPN shot labels; true play types are licensed tracking data. All from free ESPN box scores and play-by-play.</p>
+<p class="small dim" style="margin-top:8px">Signals: Form = his hit rate in the shown games vs what the price implies; Matchup = how the opponent ranks where he scores (shot types weighted by his points); Similar = same-position players vs this team; Minutes = last 5 vs season. Season records under the signals: every graded line this season, with the signals rebuilt from only the games before that night (default view: last 15 games, no filters), against the closing price. Shot types are estimates from ESPN shot labels; true play types are licensed tracking data. All from free ESPN box scores and play-by-play.</p>
 </section>
 <script type="application/json" id="lab-data">{{ lab|tojson }}</script>
 <script src="static/playerlab.js?v={{ cache_bust }}" defer></script>

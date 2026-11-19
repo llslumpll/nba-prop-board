@@ -41,6 +41,24 @@
     return {list: out, rate: rate, over: over, side: side};
   }
 
+  /* Season record of each verdict and light (data/labsignals, graded every night; price = closing break-even) */
+  var KEY = {'Form vs price': 'form', 'Matchup': 'matchup', 'Similar players': 'similar', 'Minutes': 'minutes'};
+  function pct(x) { return Math.round(x) + '%'; }
+  function lightRec(name, c) {
+    var tr = D.track, k = KEY[name], rec = tr && k && (c === 'g' || c === 'r') ? tr.sig[k][c] : null;
+    if (!rec || rec.n < 50) return '';
+    var d = rec.rate - rec.price;
+    return '<em class="v2-rec ' + (d >= 0 ? 'up' : 'dn') + '">When ' + (c === 'g' ? 'green' : 'red') + ' this season: hit ' + pct(rec.rate) + ' vs ' + pct(rec.price) + ' priced</em>';
+  }
+  function toneRec(tone) {
+    var rec = D.track && D.track.tone[tone];
+    if (!rec || !rec.n) return '';
+    var d = rec.rate - rec.price;
+    return '<div class="v2-trk ' + (d >= 0 ? 'up' : 'dn') + '"><b>' + (tone === 'good' ? 'Signals line up' : (tone === 'bad' ? 'Signals point the other way' : 'Mixed signals')) +
+      ' has gone ' + rec.w.toLocaleString('en-US') + '-' + rec.l.toLocaleString('en-US') + ' this season</b> (hit ' + rec.rate.toFixed(1) + '% vs ' + rec.price.toFixed(1) + '% priced, ' + (rec.roi > 0 ? '+' : '\u2212') + Math.abs(rec.roi).toFixed(1) + '% per bet). ' +
+      (d >= 0 ? 'So far it beats the price.' : 'Not an edge yet: use it as information, not a reason to bet.') + '</div>';
+  }
+
   function verdict(r) {
     var t = T(), sg = signals(r), g = sg.list.filter(function (x) { return x[1] === 'g'; }).length, rd = sg.list.filter(function (x) { return x[1] === 'r'; }).length;
     var tone = g >= 3 && rd === 0 ? 'good' : (rd >= 2 ? 'bad' : 'mixed');
@@ -48,8 +66,8 @@
     return '<div class="v2-verdict v2-' + tone + '"><div class="v2-vl">' + head +
       '<div class="v2-nums"><div><b>' + (t.proj != null ? f1(t.proj) : '-') + '</b><span>our projection</span></div><div><b>' + (t.be_over != null ? odds(sg.side === 'OVER' ? t.be_over : 1 - t.be_over) : '-') + '</b><span>price</span></div>' +
       '<div><b>' + (sg.rate == null ? '-' : Math.round(sg.rate * 100) + '%') + '</b><span>hit over, shown games</span></div></div></div>' +
-      '<div class="v2-sig">' + sg.list.map(function (x) { return '<div class="v2-s v2-' + x[1] + '"><i></i><b>' + x[0] + '</b><span>' + x[2] + '</span></div>'; }).join('') + '</div>' +
-      '<div class="v2-tone">' + (tone === 'good' ? 'Signals line up' : (tone === 'bad' ? 'Signals point the other way' : 'Mixed signals')) + ' &middot; ' + g + ' green, ' + rd + ' red</div></div>';
+      '<div class="v2-sig">' + sg.list.map(function (x) { return '<div class="v2-s v2-' + x[1] + '"><i></i><b>' + x[0] + '</b><span>' + x[2] + '</span>' + lightRec(x[0], x[1]) + '</div>'; }).join('') + '</div>' +
+      '<div class="v2-tone">' + (tone === 'good' ? 'Signals line up' : (tone === 'bad' ? 'Signals point the other way' : 'Mixed signals')) + ' &middot; ' + g + ' green, ' + rd + ' red</div>' + toneRec(tone) + '</div>';
   }
 
   function chart(r) {
