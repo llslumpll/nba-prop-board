@@ -301,6 +301,57 @@ def sync(sl: dict, now: datetime | None = None) -> None:
     STATE.write_text(json.dumps(st, indent=1, sort_keys=True))
 
 
+# ---------------------------------------------------------------- best spots (Nov 19)
+KIND_OF = {"pts": "points", "reb": "rebounds", "ast": "assists", "fg3m": "threes", "pr": "combos", "pa": "combos",
+           "ra": "combos", "pra": "combos"}
+KIND_LABEL = {"points": "points", "rebounds": "rebounds", "assists": "assists", "threes": "threes", "combos": "combos (P+R, P+A, R+A, PRA)"}
+SPOT_MIN = 5          # picks of that kind before a tag is given
+JUICE = -126          # odds at or below this count as heavy juice
+JUICE_MIN = 4
+
+
+def _kind(r):
+    if r.get("kind") != "prop" or len(r.get("legs") or []) != 1:
+        return None
+    return KIND_OF.get(r["legs"][0]["stat"])
+
+
+def _spot_stats(rs):
+    """{kind: (n, w, units)} and juice (n, w, units) from graded single-leg props."""
+    by, ju = {}, [0, 0, 0.0]
+    for r in rs:
+        k = _kind(r)
+        if not k:
+            continue
+        b = by.setdefault(k, [0, 0, 0.0])
+        b[0] += 1
+        b[1] += r["res"] == "hit"
+        b[2] += r["units"]
+        if r["odds"] <= JUICE:
+            ju[0] += 1
+            ju[1] += r["res"] == "hit"
+            ju[2] += r["units"]
+    return by, ju
+
+
+def spot_tag(r, by, ju):
+    """'in' | 'out' | None, with a short reason, from the tipster's record BEFORE this pick's date."""
+    k = _kind(r)
+    if not k:
+        return None, None
+    if r["odds"] <= JUICE and ju[0] >= JUICE_MIN and ju[2] < 0:
+        return "out", f"he's {ju[1]}-{ju[0] - ju[1]} at {JUICE} or more juice"
+    b = by.get(k)
+    if not b or b[0] < SPOT_MIN:
+        return None, None
+    roi = b[2] / b[0]
+    if roi >= 0.10:
+        return "in", f"his {k} {b[1]}-{b[0] - b[1]}, {b[2]:+.1f}U"
+    if roi < 0:
+        return "out", f"his {k} {b[1]}-{b[0] - b[1]}, {b[2]:+.1f}U"
+    return None, None
+
+
 def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
     now = now or datetime.now(timezone.utc)
     allp = _load(PICKS, {}).get("picks", [])
@@ -323,6 +374,14 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
             r["your_units"] = (1 / yp["p"] - 1) if g.get("res") == "hit" else (-1.0 if g.get("res") == "miss" else 0.0)
         out_rows.append(r)
     graded = [r for r in out_rows if r["status"] == "graded" and r["res"] in ("hit", "miss")]
+    # best-spot tags, point in time: each pick is judged on the tipster's record from earlier dates only
+    spot_rec = {"in": [], "out": [], "none": []}
+    for r in out_rows:
+        prior = [x for x in graded if x["tipster"] == r["tipster"] and x["date"] < r["date"]]
+        by, ju = _spot_stats(prior)
+        r["spot"], r["spot_why"] = spot_tag(r, by, ju)
+        if r in graded and _kind(r):
+            spot_rec[r["spot"] or "none"].append(r)
 
     def rec(rs, key="units"):
         n = len(rs)
@@ -337,7 +396,14 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
     for k, t in TIPSTERS.items():
         rs = sorted([r for r in graded if r["tipster"] == k], key=lambda r: (r["date"], r["id"]))
         tail = [r for r in rs if "your_units" in r]
-        per.append({"key": k, **t, **rec(rs), "tail": rec(tail, "your_units")})
+        by, ju = _spot_stats(rs)
+        best = sorted([(kk, v) for kk, v in by.items() if v[0] >= SPOT_MIN and v[2] / v[0] >= 0.10], key=lambda x: -x[1][2])
+        skip = sorted([(kk, v) for kk, v in by.items() if v[0] >= SPOT_MIN and v[2] < 0], key=lambda x: x[1][2])
+        spots = {"best": [{"kind": kk, "w": v[1], "l": v[0] - v[1], "u": round(v[2], 1)} for kk, v in best],
+                 "skip": [{"kind": kk, "w": v[1], "l": v[0] - v[1], "u": round(v[2], 1)} for kk, v in skip]}
+        if ju[0] >= JUICE_MIN and ju[2] < 0:
+            spots["skip"].append({"kind": f"{JUICE} or more juice", "w": ju[1], "l": ju[0] - ju[1], "u": round(ju[2], 1)})
+        per.append({"key": k, **t, **rec(rs), "tail": rec(tail, "your_units"), "spots": spots})
     tail_all = [r for r in graded if "your_units" in r]
     for t in per:
         if t["key"] == "sam":
@@ -389,4 +455,6 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
             "tail": rec(sorted(tail_all, key=lambda r: r["date"]), "your_units"), "earn_n": EARN_N,
             "combos": combos, "combo_rec": {"n": len(cg), "hits": sum(c["hit"] for c in cg),
                                             "u": round(sum((c["pays"] - 1) if c["hit"] else -1 for c in cg), 2)},
-            "season_from": min((r["date"] for r in allp), default=None), "lab": LAB, "p_to_am": p_to_am}
+            "season_from": min((r["date"] for r in allp), default=None), "lab": LAB, "p_to_am": p_to_am,
+            "spot_rec": {k: rec(sorted(v, key=lambda r: r["date"])) for k, v in spot_rec.items()}, "spot_min": SPOT_MIN,
+            "juice": JUICE}

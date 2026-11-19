@@ -66,6 +66,20 @@
     {% for t in ts %}<tr><td><b>{{ t.name }}</b><br><span class="dim small">{{ t.handle }} &middot; {{ t.what }}</span></td><td>{{ t.w }}-{{ t.l }}</td><td>{{ t.rate if t.rate is not none else '-' }}%</td><td>{{ u(t.u) }}</td><td>{{ '%+d'|format(t.per) if t.per is not none else '-' }}%</td><td>{{ t.last10 or '-' }}</td>
       <td>{% if t.key == 'sam' %}<span class="dim">&ndash;</span>{% elif t.tail.n %}{{ t.tail.w }}-{{ t.tail.l }} {{ u(t.tail.u) }}{% else %}<span class="dim">starts tonight</span>{% endif %}</td><td>{{ trust(t.honest) }}</td><td class="small dim">{{ t.note }}{% if t.short and t.short.n %}<br><b>Priced +210 or shorter:</b> {{ t.short.w }}-{{ t.short.l }} {{ u(t.short.u) }}{% endif %}</td></tr>{% endfor %}
     </tbody></table></div>
+  <h2 class="hv-h3">Where each one is best</h2>
+  <p class="small dim">Kinds of props with {{ tp.spot_min }}+ graded picks. <b>Best</b> = at least +10% per pick; <b>skip</b> = losing. Every pick is also scored in the background against its tipster's record from <i>before</i> that day. So far picks inside a best spot have not beaten the rest, so tonight's picks are not tagged; this turns on only if in-spot picks pull clearly ahead:</p>
+  <div class="hv-rec pz-board">
+    {% set sr = tp.spot_rec %}
+    <div class="hv-tile"><b>{{ sr['in'].w }}-{{ sr['in'].l }}</b><span>in their best spot &middot; {{ u(sr['in'].u) }}{% if sr['in'].per is not none %} &middot; {{ '%+d'|format(sr['in'].per) }}%/pick{% endif %}</span></div>
+    <div class="hv-tile"><b>{{ sr['out'].w }}-{{ sr['out'].l }}</b><span>outside their spot &middot; {{ u(sr['out'].u) }}{% if sr['out'].per is not none %} &middot; {{ '%+d'|format(sr['out'].per) }}%/pick{% endif %}</span></div>
+    <div class="hv-tile"><b>{{ sr['none'].w }}-{{ sr['none'].l }}</b><span>not enough history yet &middot; {{ u(sr['none'].u) }}</span></div>
+  </div>
+  <div class="table-wrap"><table class="stat-table">
+    <thead><tr><th>Account</th><th>Best at</th><th>Skip</th></tr></thead><tbody>
+    {% for t in ts if t.key not in ('gob', 'sam') %}<tr><td><b>{{ t.name }}</b></td>
+      <td class="small">{% for b in t.spots.best %}<span class="stat-good">{{ b.kind }}</span> {{ b.w }}-{{ b.l }} ({{ '%+.1f'|format(b.u) }}U){{ '<br>'|safe if not loop.last }}{% else %}<span class="dim">nothing clear yet</span>{% endfor %}</td>
+      <td class="small">{% for b in t.spots.skip %}<span class="stat-bad">{{ b.kind }}</span> {{ b.w }}-{{ b.l }} ({{ '%+.1f'|format(b.u) }}U){{ '<br>'|safe if not loop.last }}{% else %}<span class="dim">&ndash;</span>{% endfor %}</td></tr>{% endfor %}
+    </tbody></table></div>
   <h2 class="hv-h3">Not tracked</h2>
   <p class="small dim">Checked from the start of the season and dropped, with no edge on what they post publicly: {{ tp.dropped }}.</p>
   <h2 class="hv-h3">Tail test &amp; cushion combo</h2>
