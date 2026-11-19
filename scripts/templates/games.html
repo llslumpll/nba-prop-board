@@ -11,7 +11,7 @@
 </details>
 
 <div class="seg" data-tabs="gview" data-hash="1">
-  <button data-tab="top" class="active">TOP PICKS</button>{% for mk in g_mkt %}<button data-tab="{{ mk.key }}">{{ mk.label|upper }}</button>{% endfor %}<button data-tab="edges">EDGES{% if ed.edges %} ({{ ed.edges|length }}){% endif %}</button><button data-tab="all">ALL GAMES</button><button data-tab="live" class="live-tab"><i class="live-dot"></i>LIVE</button>
+  <button data-tab="top" class="active">TOP PICKS</button>{% for mk in g_mkt %}<button data-tab="{{ mk.key }}">{{ mk.label|upper }}</button>{% endfor %}<button data-tab="edges">EDGES{% if ed.edges %} ({{ ed.edges|length }}){% endif %}</button><button data-tab="favs">FAVORITES{% if fv and fv.tonight %} ({{ fv.tonight|length }}){% endif %}</button><button data-tab="all">ALL GAMES</button><button data-tab="live" class="live-tab"><i class="live-dot"></i>LIVE</button>
 </div>
 
 <section data-tab-panel="gview:top">
@@ -95,6 +95,53 @@
       <td class="num">{% if e.units is defined %}{{ '%+.2f'|format(e.units) }}U{% else %}—{% endif %}</td></tr>{% endfor %}</tbody>
   </table></div></div></details>
   {% endif %}
+</section>
+
+<section class="hidden" data-tab-panel="gview:favs">
+{% set R = fv.rec if fv else {} %}
+<p class="small dim">Your moneyline rule: favorites priced {{ (fv.min_p * 100)|int if fv else 75 }}% or more, with their last 5 and last 10 games. <b>FORM BEATS PRICE</b> marks a favorite whose last 10 (5+ games played) is better than its price. Tracking only, no stakes.</p>
+{% if R and R.all.n %}
+<div class="hv-rec pz-board">
+  <div class="hv-tile"><b>{{ R.all.w }}-{{ R.all.l }}</b><span>all 75%+ &middot; won {{ R.all.rate }}% vs {{ R.all.imp }}% priced &middot; <span class="{{ 'stat-good' if R.all.u >= 0 else 'stat-bad' }}">{{ '%+.1f'|format(R.all.u) }}U</span></span></div>
+  <div class="hv-tile"><b>{{ R.p80.w }}-{{ R.p80.l }}</b><span>80%+ &middot; <span class="{{ 'stat-good' if R.p80.u >= 0 else 'stat-bad' }}">{{ '%+.1f'|format(R.p80.u) }}U</span></span></div>
+  <div class="hv-tile"><b>{{ R.p75.w }}-{{ R.p75.l }}</b><span>75&ndash;80% &middot; <span class="{{ 'stat-good' if R.p75.u >= 0 else 'stat-bad' }}">{{ '%+.1f'|format(R.p75.u) }}U</span></span></div>
+  <div class="hv-tile"><b>{{ R.beats.w }}-{{ R.beats.l }}</b><span>form beats price &middot; <span class="{{ 'stat-good' if R.beats.u >= 0 else 'stat-bad' }}">{{ '%+.1f'|format(R.beats.u) }}U</span> (others {{ R.nobeat.w }}-{{ R.nobeat.l }})</span></div>
+</div>
+<p class="small dim">Season so far, 1U each at the closing price plus about 2 points of vig/fee (the cheapest real price wasn't saved for past games). From tonight the list shows what FanDuel, Kalshi and Polymarket US actually charge.</p>
+{% endif %}
+<h2 class="hv-h3">Tonight</h2>
+{% if fv and fv.tonight %}
+<div class="pz-grid">
+{% for f in fv.tonight %}
+<article class="pz-card pz-pending">
+  <div class="pz-head"><div><div class="pz-title">{{ f.away }} @ {{ f.home }}</div><div class="pz-sub">{{ f.tip or '' }}</div></div>
+    <div class="pz-nums"><b>{{ (f.p * 100)|round(0)|int }}%</b><span>fair chance</span></div></div>
+  <div class="pz-tags">{% if f.beats %}<span class="pr-tag pr-good" style="margin-left:0">FORM BEATS PRICE</span>{% else %}<span class="pr-tag pr-wait" style="margin-left:0">FORM DOESN'T BEAT PRICE</span>{% endif %}{% if f.tier80 %} <span class="anchor-tag">80%+</span>{% endif %} <span class="u-tag u-0">TRACKING ONLY</span></div>
+  <ul class="pz-legs">
+    <li class="pz-leg"><span class="pz-res">&#9675;</span>{{ m.badge(badge(f.fav)) }}<span class="pz-what"><span class="pp-pick pp-over">{{ f.fav }} ML</span> <span class="dim small">last 5 {{ f.l5 }} &middot; last 10 {{ f.l10 }}{% if f.l10_pct is not none %} ({{ f.l10_pct }}%){% endif %}</span></span>
+      <span class="pz-meta">{% if f.best %}<b>{{ f.best.odds }}</b> <span class="dim small">best &middot; {{ f.best.book }}</span>{% else %}<span class="dim small">no price yet</span>{% endif %}</span></li>
+  </ul>
+  {% if f.prices %}<div class="small dim" style="padding:0 12px 10px">{% for x in f.prices %}{{ x.book }} <b>{{ x.odds }}</b>{{ ' &middot; '|safe if not loop.last }}{% endfor %}</div>{% endif %}
+</article>
+{% endfor %}
+</div>
+{% else %}<p class="small dim">No favorite priced {{ (fv.min_p * 100)|int if fv else 75 }}% or more on tonight's slate (or every game has started).</p>{% endif %}
+{% if fv and fv.upsets %}
+<h2 class="hv-h3">Upsets</h2>
+<p class="small dim">Every 75%+ favorite that lost this season, the risk you mentioned.</p>
+<div class="table-wrap table-scroll"><table class="stat-table"><thead><tr><th>Date</th><th>Favorite</th><th>Chance</th><th>Last 10</th><th>Final</th></tr></thead><tbody>
+{% for r in fv.upsets|reverse %}<tr><td>{{ r.date }}</td><td>{{ r.fav }} vs {{ r.dog }}</td><td>{{ (r.p * 100)|round(0)|int }}%</td><td>{{ r.l10 }}</td><td>{{ r.final }}</td></tr>{% endfor %}
+</tbody></table></div>
+{% endif %}
+{% if fv and fv.days %}
+<h2 class="hv-h3">Day by day</h2>
+<div class="pz-grid">
+{% for d in fv.days[:14] %}
+<article class="pz-card {{ 'pz-won' if d.u >= 0 else 'pz-lost' }}"><div class="pz-head"><div><div class="pz-title">{{ d.date }}</div><div class="pz-sub">{{ d.w }}-{{ d.l }} &middot; {{ '%+.2f'|format(d.u) }}U</div></div></div>
+<ul class="pz-legs">{% for r in d.rows %}<li class="pz-leg {{ 'pz-hit' if r.won else 'pz-miss' }}"><span class="pz-res">{{ '&#10004;'|safe if r.won else '&#10008;'|safe }}</span>{{ m.badge(badge(r.fav)) }}<span class="pz-what"><span class="pp-pick pp-over">{{ r.fav }} ML</span> <span class="dim small">{{ (r.p * 100)|round(0)|int }}% &middot; last 10 {{ r.l10 }}{% if r.beats %} &middot; form beat price{% endif %}</span></span><span class="pz-meta"><span class="dim small">{{ r.final }}</span></span></li>{% endfor %}</ul></article>
+{% endfor %}
+</div>
+{% endif %}
 </section>
 
 <section class="hidden" data-tab-panel="gview:all">
