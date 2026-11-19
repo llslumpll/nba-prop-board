@@ -42,6 +42,10 @@ TIPSTERS = {
               "note": "'Sneaky Picks' / 'Fade Zone' props at posted odds, often collabs with WizBetz. Posts misses too. Added Nov 19."},
     "izzo": {"name": "IzzoBets", "handle": "@IzzoBets", "what": "straights", "honest": False,
              "note": "Daily 'NBA Prop #1-6' cards with odds. Every posted pick graded here, but he never posts a miss himself. Added Nov 19."},
+    "gobpm": {"name": "Goblin Polymarket", "handle": "@PotdPrizepicks", "what": "Polymarket daily combo", "honest": False,
+              "note": "His 'Daily $1,000' Polymarket combos: 6-7 legs priced about 70% each (overs and 'No' unders), paying about 6-7x. Graded 1U per combo; the legs record shows which props he gets right. Added Nov 19."},
+    "wizv": {"name": "WizBetz video leans", "handle": "@WizBetz on YouTube", "what": "video leans", "honest": True,
+             "note": "Leans from his daily YouTube breakdown (his official play is logged under WizBetz). Graded at -110 (est.). Added Nov 19."},
     "gob": {"name": "Goblin", "handle": "@PotdPrizepicks", "what": "spread legs", "honest": False,
             "note": "Only the spread legs out of his parlays, graded as -110 straights. His full parlays went 1 of 10."},
     "sam": {"name": "Sam", "handle": "@TheModelManSam", "what": "safest lotto slip", "honest": None,
@@ -126,8 +130,24 @@ def _val(r, stat):
     return sum(int(r.get(c) or 0) for c in PARTS[stat])
 
 
-def grade_leg(leg: dict, d: str, ply: dict):
+def grade_leg(leg: dict, d: str, ply: dict, team: dict | None = None):
     """-> (result 'hit'|'miss'|'push'|'void'|None, actual, player row)"""
+    if leg.get("res"):                      # graded by hand (e.g. an NFL leg inside a Polymarket combo)
+        return leg["res"], leg.get("actual"), None
+    if leg.get("kind") == "total":
+        t = (team or {}).get((d, leg["team"]))
+        if not t:
+            return None, None, None
+        tot = t[0] + t[1]
+        if tot == float(leg["line"]):
+            return "push", tot, None
+        return ("hit" if (tot > float(leg["line"])) == (leg.get("side", "over") == "over") else "miss"), tot, None
+    if leg.get("kind") == "spread":
+        t = (team or {}).get((d, leg["team"]))
+        if not t:
+            return None, None, None
+        m = t[0] - t[1] + float(leg["line"])
+        return ("push" if m == 0 else ("hit" if m > 0 else "miss")), t[0] - t[1], None
     r = _find(ply, d, leg["player"])
     if r is None:
         return None, None, None
@@ -153,8 +173,8 @@ def grade_pick(p: dict, ply: dict, team: dict) -> dict:
         return {"status": "graded", "res": res, "detail": f"{'won' if margin > 0 else 'lost'} by {abs(margin)} vs {t[2]}"}
     legs, res_all = [], []
     for leg in p["legs"]:
-        res, x, r = grade_leg(leg, d, ply)
-        legs.append({**leg, "res": res, "actual": x, "team": r["team"] if r else None})
+        res, x, r = grade_leg(leg, d, ply, team)
+        legs.append({**leg, "res": res, "actual": x, "team": (r["team"] if r is not None else leg.get("team"))})
         res_all.append(res)
     if "miss" not in res_all and any(r is None for r in res_all):
         return {"status": "open", "legs": legs}
@@ -403,7 +423,16 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
                  "skip": [{"kind": kk, "w": v[1], "l": v[0] - v[1], "u": round(v[2], 1)} for kk, v in skip]}
         if ju[0] >= JUICE_MIN and ju[2] < 0:
             spots["skip"].append({"kind": f"{JUICE} or more juice", "w": ju[1], "l": ju[0] - ju[1], "u": round(ju[2], 1)})
-        per.append({"key": k, **t, **rec(rs), "tail": rec(tail, "your_units"), "spots": spots})
+        legrec = None
+        if k == "gobpm":
+            lg = [l for r in rs for l in (r.get("legs") or []) if l.get("res") in ("hit", "miss") and l.get("stat")]
+            def _lr(ls):
+                return {"n": len(ls), "w": sum(l["res"] == "hit" for l in ls),
+                        "p": round(100 * sum(l.get("p") or 0 for l in ls) / len(ls)) if ls else None}
+            legrec = {"all": _lr(lg), "over": _lr([l for l in lg if l.get("side") == "over"]),
+                      "under": _lr([l for l in lg if l.get("side") == "under"]),
+                      "by": {LAB.get(st, st): _lr([l for l in lg if l["stat"] == st]) for st in sorted({l["stat"] for l in lg})}}
+        per.append({"key": k, **t, **rec(rs), "tail": rec(tail, "your_units"), "spots": spots, "legrec": legrec})
     tail_all = [r for r in graded if "your_units" in r]
     for t in per:
         if t["key"] == "sam":

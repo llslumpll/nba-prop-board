@@ -4,7 +4,7 @@
 {% macro u(x) -%}<span class="{{ 'stat-good' if x >= 0 else 'stat-bad' }}">{{ '%+.1f'|format(x) }}U</span>{%- endmacro %}
 {% macro am(o) -%}{{ ('+' ~ o) if o > 0 else o }}{%- endmacro %}
 {% macro trust(ok) -%}{% if ok is none %}<span class="pr-tag pr-wait" style="margin-left:0">POSTS SOME LOSSES</span>{% else %}<span class="pr-tag {{ 'pr-good' if ok else 'pr-toohigh' }}" style="margin-left:0">{{ 'POSTS LOSSES' if ok else 'HIDES LOSSES' }}</span>{% endif %}{%- endmacro %}
-{% macro legtxt(l) -%}{{ l.player }} <span class="pp-pick {{ 'pp-over' if l.side == 'over' else 'pp-under' }}">{{ 'OVER' if l.side == 'over' else 'UNDER' }} {{ l.line|fmtline }} {{ tp.lab[l.stat] }}</span>{%- endmacro %}
+{% macro legtxt(l) -%}{% if l.kind == 'spread' %}<span class="pp-pick pp-over">{{ l.team }} {{ '%+g'|format(l.line) }}</span>{% elif l.kind == 'total' %}{{ l.game or l.team }} <span class="pp-pick {{ 'pp-over' if l.side == 'over' else 'pp-under' }}">{{ 'OVER' if l.side == 'over' else 'UNDER' }} {{ l.line|fmtline }} TOTAL</span>{% else %}{{ l.player }} <span class="pp-pick {{ 'pp-over' if l.side == 'over' else 'pp-under' }}">{{ 'OVER' if l.side == 'over' else 'UNDER' }} {{ l.line|fmtline }} {{ tp.lab.get(l.stat, l.stat_label or l.stat) }}</span>{% endif %}{% if l.p %} <span class="dim small">{{ (l.p * 100)|round|int }}%</span>{% endif %}{%- endmacro %}
 {% macro spreadtxt(r) -%}<span class="pp-pick pp-over">{{ r.team_name|upper }} {{ '%+g'|format(r.line) }}</span>{%- endmacro %}
 {% macro res_icon(res) -%}{{ {'hit': '&#10004;', 'miss': '&#10008;', 'push': '&ndash;', 'void': '&ndash;'}.get(res, '&#9675;')|safe }}{%- endmacro %}
 {% block content %}
@@ -12,7 +12,7 @@
 <p class="lede">The accounts you follow, checked against final scores. Only the ones with a <b>real, honestly posted winning record</b> are tracked, and every pick they post from now on is logged before tip and graded here.</p>
 {% set ts = tp.tipsters or [] %}
 <div class="hv-rec pz-board">
-  {% for t in ts %}<div class="hv-tile"><b>{{ t.w }}-{{ t.l }}</b><span>{{ t.name }}{% if t.key == 'gob' %} spreads{% elif t.key == 'sam' %} safest slip{% endif %} &middot; {{ u(t.u) }}</span></div>{% endfor %}
+  {% for t in ts %}<div class="hv-tile"><b>{{ t.w }}-{{ t.l }}</b><span>{{ t.name }}{% if t.key == 'gob' %} spreads{% elif t.key == 'sam' %} safest slip{% elif t.key == 'gobpm' %} combos{% endif %} &middot; {{ u(t.u) }}</span></div>{% endfor %}
   <div class="hv-tile"><b>{% if tp.tail and tp.tail.n %}{{ tp.tail.w }}-{{ tp.tail.l }}{% else %}NEW{% endif %}</b><span>{% if tp.tail and tp.tail.n %}tail test at your price &middot; {{ u(tp.tail.u) }}{% else %}tail test starts Nov 18{% endif %}</span></div>
 </div>
 <p class="small dim">Since {{ tp.season_from or 'opening night' }}: 1U per pick at the odds each account posted. Everything on this page is tracking only.</p>
@@ -64,7 +64,7 @@
   <div class="table-wrap table-scroll"><table class="stat-table">
     <thead><tr><th>Account</th><th>Record</th><th>Hit</th><th>Units</th><th>Per pick</th><th>Last 10</th><th>Tail test</th><th>Honesty</th><th>Notes</th></tr></thead><tbody>
     {% for t in ts %}<tr><td><b>{{ t.name }}</b><br><span class="dim small">{{ t.handle }} &middot; {{ t.what }}</span></td><td>{{ t.w }}-{{ t.l }}</td><td>{{ t.rate if t.rate is not none else '-' }}%</td><td>{{ u(t.u) }}</td><td>{{ '%+d'|format(t.per) if t.per is not none else '-' }}%</td><td>{{ t.last10 or '-' }}</td>
-      <td>{% if t.key == 'sam' %}<span class="dim">&ndash;</span>{% elif t.tail.n %}{{ t.tail.w }}-{{ t.tail.l }} {{ u(t.tail.u) }}{% else %}<span class="dim">starts tonight</span>{% endif %}</td><td>{{ trust(t.honest) }}</td><td class="small dim">{{ t.note }}{% if t.short and t.short.n %}<br><b>Priced +210 or shorter:</b> {{ t.short.w }}-{{ t.short.l }} {{ u(t.short.u) }}{% endif %}</td></tr>{% endfor %}
+      <td>{% if t.key in ('sam', 'gobpm') %}<span class="dim">&ndash;</span>{% elif t.tail.n %}{{ t.tail.w }}-{{ t.tail.l }} {{ u(t.tail.u) }}{% else %}<span class="dim">starts tonight</span>{% endif %}</td><td>{{ trust(t.honest) }}</td><td class="small dim">{{ t.note }}{% if t.short and t.short.n %}<br><b>Priced +210 or shorter:</b> {{ t.short.w }}-{{ t.short.l }} {{ u(t.short.u) }}{% endif %}{% if t.legrec and t.legrec.all.n %}<br><b>Legs:</b> {{ t.legrec.all.w }}/{{ t.legrec.all.n }} hit vs about {{ t.legrec.all.p }}% priced &middot; overs {{ t.legrec.over.w }}/{{ t.legrec.over.n }}, "No" unders {{ t.legrec.under.w }}/{{ t.legrec.under.n }}<br>{% for k, v in t.legrec.by.items() %}{{ k }} {{ v.w }}/{{ v.n }}{{ ' &middot; '|safe if not loop.last }}{% endfor %}{% endif %}</td></tr>{% endfor %}
     </tbody></table></div>
   <h2 class="hv-h3">Where each one is best</h2>
   <p class="small dim">Kinds of props with {{ tp.spot_min }}+ graded picks. <b>Best</b> = at least +10% per pick; <b>skip</b> = losing. Every pick is also scored in the background against its tipster's record from <i>before</i> that day. So far picks inside a best spot have not beaten the rest, so tonight's picks are not tagged; this turns on only if in-spot picks pull clearly ahead:</p>
@@ -76,7 +76,7 @@
   </div>
   <div class="table-wrap"><table class="stat-table">
     <thead><tr><th>Account</th><th>Best at</th><th>Skip</th></tr></thead><tbody>
-    {% for t in ts if t.key not in ('gob', 'sam') %}<tr><td><b>{{ t.name }}</b></td>
+    {% for t in ts if t.key not in ('gob', 'sam', 'gobpm') %}<tr><td><b>{{ t.name }}</b></td>
       <td class="small">{% for b in t.spots.best %}<span class="stat-good">{{ b.kind }}</span> {{ b.w }}-{{ b.l }} ({{ '%+.1f'|format(b.u) }}U){{ '<br>'|safe if not loop.last }}{% else %}<span class="dim">nothing clear yet</span>{% endfor %}</td>
       <td class="small">{% for b in t.spots.skip %}<span class="stat-bad">{{ b.kind }}</span> {{ b.w }}-{{ b.l }} ({{ '%+.1f'|format(b.u) }}U){{ '<br>'|safe if not loop.last }}{% else %}<span class="dim">&ndash;</span>{% endfor %}</td></tr>{% endfor %}
     </tbody></table></div>
