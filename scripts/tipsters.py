@@ -1,7 +1,8 @@
 """Tipster tracker (update 78).
 
 The accounts the user follows on X were checked against final box scores from opening night (Nov 18 2026 review).
-Only the ones with a real, honestly posted winning record are tracked: Dr. Profit and WizBetz (player props), plus
+Only the ones with a real, honestly posted winning record are tracked: Dr. Profit, WizBetz, byrnetts and PeakyProps
+(player props; the last two added Nov 19 after a free-account search), plus
 Goblin's spread legs. Their picks are logged by hand (Claude reads their posts when asked) into
 data/tipsters/picks.json; this module prices, grades and summarizes them on every build.
 
@@ -32,13 +33,17 @@ TIPSTERS = {
             "note": "Role-player props after a minutes or role change. Posts the price he got; tailers often get worse."},
     "wiz": {"name": "WizBetz", "handle": "@WizBetz", "what": "straights", "honest": True,
             "note": "Points/rebounds/assists combos on role players, repeat \"wagon\" bets. Some season odds estimated at -115."},
+    "byrn": {"name": "byrnetts", "handle": "@byrnetts", "what": "straights", "honest": True,
+             "note": "Big nightly lists of 1U props (4-18 a night), running November record posted daily and it matches the box scores. Rarely posts odds: graded at -110 (est.). Added Nov 19."},
+    "peaky": {"name": "PeakyProps", "handle": "@PeakyProps", "what": "straights", "honest": True,
+              "note": "Daily 3-5 prop card at posted odds with a full recap. Best on assists, rebounds and reb+ast; points about break-even. Added Nov 19."},
     "gob": {"name": "Goblin", "handle": "@PotdPrizepicks", "what": "spread legs", "honest": False,
             "note": "Only the spread legs out of his parlays, graded as -110 straights. His full parlays went 1 of 10."},
     "sam": {"name": "Sam", "handle": "@TheModelManSam", "what": "safest lotto slip", "honest": None,
             "note": "The lowest tier of his daily 3-tier lotto ladder (3 role players at low lines). Priced +210 or shorter it went 7 of 11 through Nov 17."},
 }
 SHORT_MAX = 210  # Sam's safest slip: the ones priced +210 or shorter are the ones that cashed
-DROPPED = ("NextLevelBets (31-32, -5.0U, posts only winning days), TheModelManSam's straights (5-6, -1.7U; his safest lotto slip is tracked instead), "
+DROPPED = ("swan_wbg (36-57, -25.4U), ZiggyBetsFR (ladders, 14-14 flat), NextLevelBets (31-31, -4.0U, posts only winning days), TheModelManSam's straights (5-6, -1.7U; his safest lotto slip is tracked instead), "
            "Bearprops (13-14 legs, never posts a loss)")
 LAB = {"pts": "PTS", "reb": "REB", "ast": "AST", "fg3m": "3PM", "pra": "PRA", "pr": "P+R", "pa": "P+A", "ra": "R+A", "dd": "DOUBLE-DOUBLE"}
 PARTS = {"pts": ("pts",), "reb": ("reb",), "ast": ("ast",), "fg3m": ("fg3m",), "pra": ("pts", "reb", "ast"),
