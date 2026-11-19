@@ -27,7 +27,7 @@
   function line() { var t = D.tonight[S.stat]; return t && t.line != null ? t.line : null; }
 
   function chart(r) {
-    var ln = line(), W = 760, H = 230, pad = 28, bw = Math.max(8, Math.min(34, (W - pad * 2) / Math.max(1, r.length) - 6));
+    var ln = line(), W = 760, H = 190, pad = 26, bw = Math.max(8, Math.min(34, (W - pad * 2) / Math.max(1, r.length) - 6));
     var mx = Math.max.apply(null, [ln || 0].concat(r.map(function (g) { return g.v[S.stat]; }))) * 1.15 || 1;
     var y = function (v) { return H - 34 - (H - 60) * v / mx; };
     var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" class="lab-svg" role="img" aria-label="Game by game ' + LAB[S.stat] + '">';
@@ -59,9 +59,8 @@
   }
 
   function stats(r) {
-    var f = S.mode === 'avg' ? avg : med, cells = [['MIN', 'min'], ['FGA', 'fga'], ['3PA', 'fg3a'], ['FTA', 'fta'], ['USG*', 'usg']];
-    return '<div class="lab-stats">' + cells.map(function (c) { return '<div><b>' + f1(f(r.map(function (g) { return g[c[1]]; }))) + '</b><span>' + c[0] + '</span></div>'; }).join('') + '</div>' +
-      '<p class="small dim">*USG = shots + free throws + turnovers per 36 minutes, a simple usage measure.</p>';
+    var f = S.mode === 'avg' ? avg : med, cells = [['MIN', 'min'], ['FGA', 'fga'], ['3PA', 'fg3a'], ['FTA', 'fta'], ['USG', 'usg']];
+    return '<div class="lab-stats">' + cells.map(function (c) { return '<div><b>' + f1(f(r.map(function (g) { return g[c[1]]; }))) + '</b><span>' + c[0] + '</span></div>'; }).join('') + '</div>';
   }
 
   function rankTxt(rk) { if (!rk) return '<span class="dim">-</span>'; var n = D.nteams || 30, c = rk[1] <= 10 ? 'stat-good' : (rk[1] > n - 10 ? 'stat-bad' : ''); return '<span class="' + c + '">' + ordinal(rk[1]) + ' most</span> <span class="dim small">(' + rk[0] + '/g)</span>'; }
@@ -90,29 +89,29 @@
       '<text x="95" y="230" class="lab-zt">' + lab('mid') + '</text><text x="405" y="230" class="lab-zt">' + lab('mid') + '</text>' +
       '<text x="15" y="80" class="lab-zt lab-zv">' + lab('corner3') + '</text><text x="485" y="80" class="lab-zt lab-zv">' + lab('corner3') + '</text>' +
       '<text x="250" y="420" class="lab-zt">' + lab('above3') + '</text></svg>';
-    var leg = S.court === 'player' ? 'Share of his points from each zone, and his field-goal % there (this season).'
-      : 'Where ' + esc(D.opp) + ' ranks in points allowed per game from each zone (#1 = allows the most). Green = soft spot, red = tough.';
-    return s + '<p class="small dim">' + leg + '</p>';
+    var leg = S.court === 'player' ? 'His share of points &middot; FG% by zone'
+      : esc(D.opp) + ' rank in points allowed (#1 = most) &middot; green soft, red tough';
+    return s + '<p class="lab-cleg">' + leg + '</p>';
   }
 
   function types() {
     var sh = D.shots, df = D.def || {kind: {}};
     if (!sh) return '';
     var k = Object.keys(D.type_label);
-    return '<table class="stat-table lab-tt"><thead><tr><th>Shot type</th><th>His points</th><th>' + esc(D.opp) + ' allows</th></tr></thead><tbody>' +
+    return '<table class="stat-table lab-tt"><thead><tr><th>Type</th><th>His pts/g</th><th>' + esc(D.opp) + ' allows</th></tr></thead><tbody>' +
       k.map(function (x) { var s = sh.kinds[x]; return '<tr><td>' + D.type_label[x] + '</td><td>' + s.ppg + ' <span class="dim small">(' + s.share + '%)</span></td><td>' + rankTxt(df.kind[x]) + '</td></tr>'; }).join('') +
-      '</tbody></table><p class="small dim">Shot types are our estimates from ESPN\'s shot labels. True play types (pick-and-roll, spot-up, transition) come from licensed tracking data that isn\'t public.</p>';
+      '</tbody></table>';
   }
 
   function similar() {
-    var r = D.similar.filter(function (g) { return g.ln[S.stat] != null; }).slice(0, 15), n = r.length;
+    var r = D.similar.filter(function (g) { return g.ln[S.stat] != null; }); if (S.n) r = r.slice(0, S.n); var n = r.length;
     if (!n) return '<p class="small dim">No ' + esc(D.pos || '') + ' with a ' + LAB[S.stat] + ' line has faced ' + esc(D.opp) + ' yet this season.</p>';
     var over = 0, d = 0, dp = 0;
     r.forEach(function (g) { var l = g.ln[S.stat], v = g.v[S.stat]; if (v > l) over++; d += v - l; dp += l ? (v - l) / l : 0; });
-    return '<div class="hv-rec pz-board"><div class="hv-tile"><b class="' + (d >= 0 ? 'stat-good' : 'stat-bad') + '">' + (d / n >= 0 ? '+' : '') + f1(d / n) + '</b><span>avg vs line</span></div>' +
-      '<div class="hv-tile"><b class="' + (dp >= 0 ? 'stat-good' : 'stat-bad') + '">' + (dp >= 0 ? '+' : '') + Math.round(100 * dp / n) + '%</b><span>avg vs line %</span></div>' +
-      '<div class="hv-tile"><b>' + Math.round(100 * over / n) + '%</b><span>went over (' + over + '/' + n + ')</span></div></div>' +
-      '<div class="table-wrap table-scroll"><table class="stat-table"><thead><tr><th>Date</th><th>Team</th><th>Player</th><th>Line</th><th>Result</th><th>Diff</th></tr></thead><tbody>' +
+    return '<div class="lab-simtop"><span><b class="' + (d >= 0 ? 'stat-good' : 'stat-bad') + '">' + (d / n >= 0 ? '+' : '') + f1(d / n) + '</b>avg vs line</span>' +
+      '<span><b class="' + (dp >= 0 ? 'stat-good' : 'stat-bad') + '">' + (dp >= 0 ? '+' : '') + Math.round(100 * dp / n) + '%</b>avg vs line %</span>' +
+      '<span><b>' + Math.round(100 * over / n) + '%</b>went over (' + over + '/' + n + ')</span></div>' +
+      '<div class="lab-simwrap"><table class="stat-table"><thead><tr><th>Date</th><th>Team</th><th>Player</th><th>Line</th><th>Result</th><th>Diff</th></tr></thead><tbody>' +
       r.map(function (g) { var l = g.ln[S.stat], v = g.v[S.stat], p = l ? Math.round(100 * (v - l) / l) : 0;
         return '<tr><td>' + g.d.slice(5).replace('-', '/') + '</td><td>' + esc(g.team) + '</td><td>' + esc(g.name) + '</td><td>' + l + '</td><td>' + v + '</td><td><span class="pr-tag ' + (v > l ? 'pr-good' : 'pr-toohigh') + '" style="margin-left:0">' + (p > 0 ? '+' : '') + p + '%</span></td></tr>'; }).join('') +
       '</tbody></table></div>';
