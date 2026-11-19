@@ -30,6 +30,10 @@ permissions:
 jobs:
   pull-fanduel:
     runs-on: ubuntu-latest
+    env:   # My Bets: sheet + read-only Kalshi key (mybets.py, kalshi_account.py); empty = not set up
+      MYBETS_CSV: ${{ secrets.MYBETS_CSV }}
+      KALSHI_KEY_ID: ${{ secrets.KALSHI_KEY_ID }}
+      KALSHI_PRIVATE_KEY: ${{ secrets.KALSHI_PRIVATE_KEY }}
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4

@@ -323,28 +323,44 @@ def logged() -> list[dict]:
     return [{**{c: str(r.get(c, "") or "") for c in cols}, "row": 1000 + i, "src": "logged"} for i, r in enumerate(rows, 1)]
 
 
+def _last() -> dict | None:
+    try:
+        return json.loads(OUT.read_text())
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def run(box=None) -> dict:
+    """Sheet rows + bets Claude logged + Kalshi trades (kalshi_account.py), all from START on.
+    A workflow that doesn't pass the secrets keeps showing the last good copy instead of 'not connected'."""
+    import kalshi_account
+    start = kalshi_account.START
     rows, err = fetch()
+    kal, kerr = kalshi_account.run()
     extra = logged()
-    if err == "not set up":
+    have_sheet, have_kal = err != "not set up", kerr != "not set up"
+    if not have_sheet and not have_kal:
+        last = _last()
+        if last and last.get("setup"):
+            return last
         if not extra:
             return {"setup": False}
-        rows, err = [], None
-    if err:
-        if extra:   # sheet unreadable this build: grade the logged bets plus the sheet rows from the last good copy
-            try:
-                last = json.loads(OUT.read_text())
-                rows = [{c: r.get(c, "") for c in ("date", "bet", "stat", "side", "line", "book", "price", "units", "row")}
-                        for r in last.get("rows", []) + last.get("unmatched", []) if r.get("src") != "logged"]
-            except Exception:  # noqa: BLE001
-                rows = []
-            s = {"setup": True, **summary(grade_rows(rows + extra, box)), "error": err}
-            return s
-        try:   # keep showing the last good copy if the sheet can't be read this build
-            last = json.loads(OUT.read_text())
-            return {**last, "error": err}
-        except Exception:  # noqa: BLE001
-            return {"setup": True, "error": err}
-    s = {"setup": True, **summary(grade_rows(rows + extra, box))}
+    errors = []
+    if have_sheet and err:
+        errors.append(f"sheet: {err}")
+        last = _last() or {}
+        rows = [{c: r.get(c, "") for c in ("date", "bet", "stat", "side", "line", "book", "price", "units", "row")}
+                for r in last.get("rows", []) + last.get("unmatched", []) if r.get("src") not in ("logged", "kalshi")]
+    elif not have_sheet:
+        rows = []
+    if have_kal and kerr:
+        errors.append(f"Kalshi: {kerr}")
+    if not have_kal:   # this workflow has no Kalshi secrets: reuse the Kalshi rows from the last good copy
+        kal = [r for r in (_last() or {}).get("rows", []) if r.get("src") == "kalshi"]
+    hand = [r for r in rows + extra if (_date(r.get("date", "")) or "9999") >= start or _date(r.get("date", "")) is None]
+    graded = grade_rows(hand, box) + kal
+    s = {"setup": True, "start": start, "kalshi": have_kal or bool(kal), **summary(graded)}
+    if errors:
+        s["error"] = "; ".join(errors)
     OUT.write_text(json.dumps({k: v for k, v in s.items() if k != "error"}, indent=1, default=str))
     return s
