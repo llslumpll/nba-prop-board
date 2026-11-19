@@ -18754,7 +18754,7 @@
   "why": "33.5 min (recent 34.2, \u22120.8 team-minutes adjustment); \u00d7 0.300 rebounds/min (68% this season's 0.287 over 13 games, 32% prior 0.311); context: road \u22121%, opponent defense \u22121%, shared production on WAS +1%; calibration -0.0."
  },
  "Ausar Thompson|ast|401910013": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6069,
@@ -18775,7 +18775,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -18796,6 +18797,9 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 5.5
@@ -18811,6 +18815,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 2.5,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -18883,7 +18888,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -18894,7 +18899,7 @@
   "why": "30.3 min (recent 28.0, +2.3 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out); \u00d7 0.170 assists/min (71% this season's 0.204 over 12 games, 29% prior 0.117); context: pace vs NOP +1%, road \u22121%, rest \u22122%, shared production on DET +12%; calibration +0.0; injury news: +0.9 with Ebuka Okorie, Cade Cunningham ruled out today (half of how he's actually played without th"
  },
  "Ausar Thompson|pa|401910013": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -18917,11 +18922,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 20.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 20.5
@@ -18937,6 +18946,7 @@
   "move": 6.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 5.6,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -19009,7 +19019,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -19020,7 +19030,7 @@
   "why": "30.3 min (recent 28.0, +2.3 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out); \u00d7 0.553 pts+ast/min (80% this season's 0.578 over 12 games, 20% prior 0.525); context: pace vs NOP +1%, road \u22121%, rest \u22122%, shared production on DET +12%; shot-zone matchup +5% (where he scores vs where NOP gives up points); calibration +0.1; injury news: +0.5 with Ebuka Okorie, Cade C"
  },
  "Ausar Thompson|pra|401910013": {
-  "actual": null,
+  "actual": 21.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)",
    "-2.6 pts: pick follows the line's move (pattern)"
@@ -19045,7 +19055,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -19071,6 +19082,10 @@
   ],
   "label": "lean",
   "line": 28.5,
+  "line_errs": {
+   "kalshi": 8.5,
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 29.5,
@@ -19092,6 +19107,7 @@
   "move": 4.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 8.1,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -19166,7 +19182,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -19177,7 +19193,7 @@
   "why": "30.3 min (recent 28.0, +2.3 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out); \u00d7 0.830 pts+reb+ast/min (80% this season's 0.889 over 12 games, 20% prior 0.736); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on DET +11%; shot-zone matchup +5% (where he scores vs where NOP gives up points); calibration +0.0; injury news: +1.3"
  },
  "Ausar Thompson|pr|401910013": {
-  "actual": null,
+  "actual": 17.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -19200,11 +19216,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 22.5
@@ -19220,6 +19240,7 @@
   "move": 3.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 5.4,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -19292,7 +19313,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -19303,7 +19324,7 @@
   "why": "30.3 min (recent 28.0, +2.3 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out); \u00d7 0.654 pts+reb/min (80% this season's 0.686 over 12 games, 20% prior 0.619); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on DET +10%; shot-zone matchup +5% (where he scores vs where NOP gives up points); calibration +0.0; injury news: +0.4 wit"
  },
  "Ausar Thompson|pts|401910013": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.504950495049505,
@@ -19324,7 +19345,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -19350,6 +19372,11 @@
   ],
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "fanduel": 0.5,
+   "kalshi": 4.5,
+   "prizepicks": 3.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 10.5,
@@ -19377,6 +19404,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 2.8,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -19449,7 +19477,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -19460,7 +19488,7 @@
   "why": "30.3 min (recent 28.0, +2.3 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out); \u00d7 0.379 points/min (71% this season's 0.374 over 12 games, 29% prior 0.408); context: pace vs NOP +1%, road \u22121%, rest \u22122%, shared production on DET +12%; shot-zone matchup +5% (where he scores vs where NOP gives up points); injury news: -0.4 with Ebuka Okorie, Cade Cunningham ruled out"
  },
  "Ausar Thompson|ra|401910013": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)",
    "-2.6 pts: pick follows the line's move (pattern)"
@@ -19484,11 +19512,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.5
@@ -19504,6 +19536,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 4.3,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -19576,7 +19609,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -19587,7 +19620,7 @@
   "why": "30.3 min (recent 28.0, +2.3 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out); \u00d7 0.425 reb+ast/min (60% this season's 0.515 over 12 games, 40% prior 0.328); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on DET +9%; calibration +0.0; injury news: +1.7 with Ebuka Okorie, Cade Cunningham ruled out today (half of how he's actua"
  },
  "Ausar Thompson|reb|401910013": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)",
    "-2.6 pts: pick follows the line's move (pattern)"
@@ -19612,7 +19645,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -19643,6 +19677,10 @@
   ],
   "label": "lean",
   "line": 8.0,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 7.5,
@@ -19664,6 +19702,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 1.7,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -19736,7 +19775,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -28378,6 +28417,7 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:31 UTC",
   "game_id": 401910013,
+  "graded_at": "2026-11-19 03:36 UTC",
   "hit": null,
   "home": false,
   "kladder": [
@@ -28496,7 +28536,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "void",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -28504,6 +28544,7 @@
   "units_raw": 0.0,
   "updates": 36,
   "var": 9.844,
+  "void_reason": "did not play",
   "why": "35.0 min (recent 35.5, +1.0 team-minutes adjustment with Ronald Holland II, Taurean Prince, Duncan Robinson out, \u22121.4 back-to-back); \u00d7 0.240 assists/min (72% this season's 0.222 over 13 games, 28% prior 0.261); context: pace vs NOP +1%, road \u22121%, rest \u22122%, shared production on DET \u22121%; calibration +0.0; listed Day-To-Day; injury news: +0.5 with Ebuka Okorie ruled out today (half of how he's actual"
  },
  "Cade Cunningham|fg3m|401910013": {
@@ -28528,6 +28569,7 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:36 UTC",
   "game_id": 401910013,
+  "graded_at": "2026-11-19 03:36 UTC",
   "hit": null,
   "home": false,
   "kladder": [
@@ -28646,7 +28688,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "void",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -28654,6 +28696,7 @@
   "units_raw": 0.0,
   "updates": 50,
   "var": 2.558,
+  "void_reason": "did not play",
   "why": "35.0 min (recent 35.5, +1.0 team-minutes adjustment with Ronald Holland II, Taurean Prince, Duncan Robinson out, \u22121.4 back-to-back); \u00d7 0.057 3-pointers made/min (81% this season's 0.057 over 13 games, 19% prior 0.060); context: pace vs NOP +1%, road \u22121%, rest \u22122%, shared production on DET +11%; calibration +0.0; listed Day-To-Day."
  },
  "Cade Cunningham|pa|401910013": {
@@ -28680,6 +28723,7 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:11 UTC",
   "game_id": 401910013,
+  "graded_at": "2026-11-19 03:36 UTC",
   "hit": null,
   "home": false,
   "kladder": null,
@@ -28772,7 +28816,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "void",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -28780,6 +28824,7 @@
   "units_raw": 0.0,
   "updates": 7,
   "var": 103.826,
+  "void_reason": "did not play",
   "why": "35.0 min (recent 35.5, +1.0 team-minutes adjustment with Ronald Holland II, Taurean Prince, Duncan Robinson out, \u22121.4 back-to-back); \u00d7 0.961 pts+ast/min (81% this season's 0.958 over 13 games, 19% prior 0.950); context: pace vs NOP +1%, road \u22121%, rest \u22122%, shared production on DET +4%; shot-zone matchup +1% (where he scores vs where NOP gives up points); calibration +0.1; listed Day-To-Day; injury"
  },
  "Cade Cunningham|pra|401910013": {
@@ -28805,6 +28850,7 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:36 UTC",
   "game_id": 401910013,
+  "graded_at": "2026-11-19 03:36 UTC",
   "hit": null,
   "home": false,
   "kladder": [
@@ -28905,7 +28951,7 @@
   },
   "src_key": "kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "void",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -28913,6 +28959,7 @@
   "units_raw": 0.0,
   "updates": 39,
   "var": 122.641,
+  "void_reason": "did not play",
   "why": "35.0 min (recent 35.5, +1.0 team-minutes adjustment with Ronald Holland II, Taurean Prince, Duncan Robinson out, \u22121.4 back-to-back); \u00d7 1.112 pts+reb+ast/min (81% this season's 1.105 over 13 games, 19% prior 1.112); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on DET +4%; shot-zone matchup +1% (where he scores vs where NOP gives up points); calibration +0.0;"
  },
  "Cade Cunningham|pr|401910013": {
@@ -28939,6 +28986,7 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:16 UTC",
   "game_id": 401910013,
+  "graded_at": "2026-11-19 03:36 UTC",
   "hit": null,
   "home": false,
   "kladder": null,
@@ -29031,7 +29079,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "void",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -29039,6 +29087,7 @@
   "units_raw": 0.0,
   "updates": 11,
   "var": 103.772,
+  "void_reason": "did not play",
   "why": "35.0 min (recent 35.5, +1.0 team-minutes adjustment with Ronald Holland II, Taurean Prince, Duncan Robinson out, \u22121.4 back-to-back); \u00d7 0.874 pts+reb/min (81% this season's 0.884 over 13 games, 19% prior 0.851); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on DET +6%; shot-zone matchup +1% (where he scores vs where NOP gives up points); calibration +0.0; lis"
  },
  "Cade Cunningham|pts|401910013": {
@@ -29064,6 +29113,7 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:11 UTC",
   "game_id": 401910013,
+  "graded_at": "2026-11-19 03:36 UTC",
   "hit": null,
   "home": false,
   "kladder": [
@@ -29194,7 +29244,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "void",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -29202,6 +29252,7 @@
   "units_raw": 0.0,
   "updates": 9,
   "var": 87.578,
+  "void_reason": "did not play",
   "why": "35.0 min (recent 35.5, +1.0 team-minutes adjustment with Ronald Holland II, Taurean Prince, Duncan Robinson out, \u22121.4 back-to-back); \u00d7 0.720 points/min (72% this season's 0.736 over 13 games, 28% prior 0.689); context: pace vs NOP +1%, road \u22121%, rest \u22122%, shared production on DET +6%; shot-zone matchup +1% (where he scores vs where NOP gives up points); listed Day-To-Day; injury news: +1.3 with Eb"
  },
  "Cade Cunningham|ra|401910013": {
@@ -29228,6 +29279,7 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:11 UTC",
   "game_id": 401910013,
+  "graded_at": "2026-11-19 03:36 UTC",
   "hit": null,
   "home": false,
   "kladder": null,
@@ -29320,7 +29372,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "void",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -29328,6 +29380,7 @@
   "units_raw": 0.0,
   "updates": 7,
   "var": 18.476,
+  "void_reason": "did not play",
   "why": "35.0 min (recent 35.5, +1.0 team-minutes adjustment with Ronald Holland II, Taurean Prince, Duncan Robinson out, \u22121.4 back-to-back); \u00d7 0.397 reb+ast/min (62% this season's 0.369 over 13 games, 38% prior 0.424); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on DET +2%; calibration +0.0; listed Day-To-Day."
  },
  "Cade Cunningham|reb|401910013": {
@@ -29352,6 +29405,7 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:36 UTC",
   "game_id": 401910013,
+  "graded_at": "2026-11-19 03:36 UTC",
   "hit": null,
   "home": false,
   "kladder": [
@@ -29455,7 +29509,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "void",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -29463,6 +29517,7 @@
   "units_raw": 0.0,
   "updates": 29,
   "var": 6.143,
+  "void_reason": "did not play",
   "why": "35.0 min (recent 35.5, +1.0 team-minutes adjustment with Ronald Holland II, Taurean Prince, Duncan Robinson out, \u22121.4 back-to-back); \u00d7 0.155 rebounds/min (52% this season's 0.147 over 13 games, 48% prior 0.163); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense \u22123%, shared production on DET +6%; calibration -0.0; listed Day-To-Day; injury news: -0.4 with Ebuka Okorie ruled out today ("
  },
  "Caleb Martin|ast|401910016": {
@@ -42088,7 +42143,7 @@
   "why": "19.2 min (recent 20.0, \u22120.8 team-minutes adjustment); \u00d7 0.270 rebounds/min (54% this season's 0.241 over 14 games, 46% prior 0.298); context: home +1%, rest +1%, opponent defense +1%, shared production on DAL \u22123%; calibration -0.0; injury news: -0.5 with Tobi Lawal, Jett Howard ruled out today (half of how he's actually played without them)."
  },
  "Daniss Jenkins|ast|401910013": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -42114,7 +42169,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -42145,6 +42201,10 @@
   ],
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 7.5,
@@ -42166,6 +42226,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 1.6,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -42238,7 +42299,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -42249,7 +42310,7 @@
   "why": "33.5 min (recent 32.1, +2.7 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out, \u22121.3 back-to-back); \u00d7 0.167 assists/min (72% this season's 0.152 over 13 games, 28% prior 0.181); context: pace vs NOP +1%, road \u22121%, rest \u22122%, shared production on DET +12%; calibration +0.0; injury news: +1.3 with Ebuka Okorie, Cade Cunningham ruled out today (half of how he's actuall"
  },
  "Daniss Jenkins|fg3m|401910013": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4168,
@@ -42270,7 +42331,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -42291,6 +42353,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -42306,6 +42371,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 0.1,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -42378,7 +42444,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -42389,7 +42455,7 @@
   "why": "33.5 min (recent 32.1, +2.7 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out, \u22121.3 back-to-back); \u00d7 0.071 3-pointers made/min (81% this season's 0.075 over 13 games, 19% prior 0.053); context: pace vs NOP +1%, road \u22121%, rest \u22122%, shared production on DET +10%; calibration +0.0; injury news: +0.5 with Ebuka Okorie, Cade Cunningham ruled out today (half of how he's"
  },
  "Daniss Jenkins|pa|401910013": {
-  "actual": null,
+  "actual": 26.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)",
    "-2.6 pts: pick follows the line's move (pattern)"
@@ -42413,11 +42479,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 26.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 26.5
@@ -42433,6 +42503,7 @@
   "move": 3.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 4.3,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -42505,7 +42576,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -42516,7 +42587,7 @@
   "why": "33.5 min (recent 32.1, +2.7 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out, \u22121.3 back-to-back); \u00d7 0.662 pts+ast/min (81% this season's 0.642 over 13 games, 19% prior 0.645); context: pace vs NOP +1%, road \u22121%, rest \u22122%, shared production on DET +12%; shot-zone matchup +1% (where he scores vs where NOP gives up points); calibration +0.1; injury news: +5.7 with E"
  },
  "Daniss Jenkins|pra|401910013": {
-  "actual": null,
+  "actual": 30.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)",
    "-2.6 pts: pick follows the line's move (pattern)"
@@ -42541,7 +42612,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -42567,6 +42639,10 @@
   ],
   "label": "lean",
   "line": 31.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 29.5,
@@ -42588,6 +42664,7 @@
   "move": 5.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 4.8,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -42660,7 +42737,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -42671,7 +42748,7 @@
   "why": "33.5 min (recent 32.1, +2.7 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out, \u22121.3 back-to-back); \u00d7 0.786 pts+reb+ast/min (81% this season's 0.770 over 13 games, 19% prior 0.763); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on DET +11%; shot-zone matchup +1% (where he scores vs where NOP gives up points); calibration +0.0"
  },
  "Daniss Jenkins|pr|401910013": {
-  "actual": null,
+  "actual": 21.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)",
    "-2.6 pts: pick follows the line's move (pattern)"
@@ -42695,11 +42772,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 23.5
@@ -42715,6 +42796,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 6.5,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -42787,7 +42869,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -42798,7 +42880,7 @@
   "why": "33.5 min (recent 32.1, +2.7 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out, \u22121.3 back-to-back); \u00d7 0.621 pts+reb/min (81% this season's 0.618 over 13 games, 19% prior 0.582); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on DET +11%; shot-zone matchup +1% (where he scores vs where NOP gives up points); calibration +0.0; in"
  },
  "Daniss Jenkins|pts|401910013": {
-  "actual": null,
+  "actual": 17.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5283018867924528,
@@ -42819,7 +42901,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -42850,6 +42933,11 @@
   ],
   "label": "lean",
   "line": 16.5,
+  "line_errs": {
+   "fanduel": 0.5,
+   "kalshi": 2.5,
+   "prizepicks": 2.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 16.5,
@@ -42877,6 +42965,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 5.8,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -42949,7 +43038,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -42960,7 +43049,7 @@
   "why": "33.5 min (recent 32.1, +2.7 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out, \u22121.3 back-to-back); \u00d7 0.495 points/min (72% this season's 0.489 over 13 games, 28% prior 0.464); context: pace vs NOP +1%, road \u22121%, rest \u22122%, shared production on DET +12%; shot-zone matchup +1% (where he scores vs where NOP gives up points); injury news: +4.4 with Ebuka Okorie, Cade C"
  },
  "Daniss Jenkins|ra|401910013": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)",
    "-2.6 pts: pick follows the line's move (pattern)"
@@ -42984,11 +43073,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 12.0,
+  "line_errs": {
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.0
@@ -43004,6 +43097,7 @@
   "move": 3.5,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 1.0,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -43076,7 +43170,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -43087,7 +43181,7 @@
   "why": "33.5 min (recent 32.1, +2.7 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out, \u22121.3 back-to-back); \u00d7 0.293 reb+ast/min (62% this season's 0.281 over 13 games, 38% prior 0.299); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on DET +10%; calibration +0.0; injury news: +1.6 with Ebuka Okorie, Cade Cunningham ruled out today (ha"
  },
  "Daniss Jenkins|reb|401910013": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)",
    "-2.6 pts: pick follows the line's move (pattern)"
@@ -43111,6 +43205,7 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
+  "graded_at": "2026-11-19 03:36 UTC",
   "hit": null,
   "home": false,
   "kladder": [
@@ -43132,6 +43227,10 @@
   ],
   "label": "lean",
   "line": 4.0,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -43153,6 +43252,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 0.5,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -43225,7 +43325,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "push",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -51711,7 +51811,7 @@
   "why": "26.5 min (recent 27.7, \u22120.6 team-minutes adjustment with Jaylen Brown out); \u00d7 0.181 rebounds/min (68% this season's 0.173 over 13 games, 32% prior 0.192); context: road \u22121%, opponent defense \u22121%, shared production on PHI +4%; calibration -0.0; listed Day-To-Day."
  },
  "Derik Queen|ast|401910013": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6855,
@@ -51732,7 +51832,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:11 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -51753,6 +51854,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -51768,6 +51872,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 2.6,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -51816,7 +51921,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -51827,7 +51932,7 @@
   "why": "21.3 min (recent 22.0, \u22120.7 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.117 assists/min (75% this season's 0.104 over 15 games, 25% prior 0.137); context: home +1%, opponent defense \u22122%, shared production on NOP +7%."
  },
  "Derik Queen|pa|401910013": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -51847,11 +51952,15 @@
   "flip": null,
   "frozen_at": "2026-11-18 22:01 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -51867,6 +51976,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 4.7,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -51913,7 +52023,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -51923,7 +52033,7 @@
   "why": "21.3 min (recent 22.0, \u22120.7 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.637 pts+ast/min (83% this season's 0.662 over 15 games, 17% prior 0.605); context: home +1%, opponent defense \u22122%, shared production on NOP +2%."
  },
  "Derik Queen|pra|401910013": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -51947,7 +52057,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -51963,6 +52074,10 @@
   ],
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "kalshi": 5.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 19.5,
@@ -51984,6 +52099,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "DET",
+  "our_err": 5.7,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -52057,7 +52173,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -52068,7 +52184,7 @@
   "why": "21.3 min (recent 22.0, \u22120.7 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.930 pts+reb+ast/min (83% this season's 0.957 over 15 games, 17% prior 0.891); context: home +1%, opponent defense \u22121%."
  },
  "Derik Queen|pr|401910013": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -52088,11 +52204,15 @@
   "flip": null,
   "frozen_at": "2026-11-18 22:01 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -52108,6 +52228,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 3.1,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -52154,7 +52275,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -52164,7 +52285,7 @@
   "why": "21.3 min (recent 22.0, \u22120.7 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.815 pts+reb/min (83% this season's 0.854 over 15 games, 17% prior 0.753); context: home +1%, opponent defense \u22121%, shared production on NOP \u22121%."
  },
  "Derik Queen|pts|401910013": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -52186,7 +52307,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -52207,6 +52329,10 @@
   ],
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -52228,6 +52354,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 2.0,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -52300,7 +52427,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -52311,7 +52438,7 @@
   "why": "21.3 min (recent 22.0, \u22120.7 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.517 points/min (75% this season's 0.558 over 15 games, 25% prior 0.468); context: home +1%, opponent defense \u22122%, shared production on NOP +1%."
  },
  "Derik Queen|ra|401910013": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -52334,11 +52461,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:31 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.5
@@ -52354,6 +52485,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 3.6,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -52426,7 +52558,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -52437,7 +52569,7 @@
   "why": "21.3 min (recent 22.0, \u22120.7 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.411 reb+ast/min (65% this season's 0.399 over 15 games, 35% prior 0.423); context: home +1%, shared production on NOP \u22122%."
  },
  "Derik Queen|reb|401910013": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5772,
@@ -52458,7 +52590,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -52469,6 +52602,9 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 5.5
@@ -52484,6 +52620,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 0.9,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -52556,7 +52693,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -67657,7 +67794,7 @@
   "why": "20.6 min (recent 20.1, +0.5 team-minutes adjustment with Stephen Curry, Al Horford, Brandon Williams out); \u00d7 0.212 rebounds/min (48% this season's 0.223 over 11 games, 52% prior 0.198); context: road \u22121%, opponent defense +1%, shared production on GSW \u22121%; calibration -0.0."
  },
  "Herbert Jones|ast|401910013": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5673,
@@ -67678,7 +67815,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -67694,6 +67832,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -67709,6 +67850,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 1.1,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -67782,7 +67924,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -67793,7 +67935,7 @@
   "why": "24.1 min (recent 24.9, \u22120.8 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.073 assists/min (75% this season's 0.056 over 15 games, 25% prior 0.097); context: home +1%, opponent defense \u22121%, shared production on NOP +7%."
  },
  "Herbert Jones|fg3m|401910013": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3863,
@@ -67814,7 +67956,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:51 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -67840,6 +67983,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -67855,6 +68001,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 2.0,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -67928,7 +68075,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -67939,7 +68086,7 @@
   "why": "24.1 min (recent 24.9, \u22120.8 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.038 3-pointers made/min (83% this season's 0.034 over 15 games, 17% prior 0.049); context: home +1%, shared production on NOP +12%."
  },
  "Herbert Jones|pa|401910013": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -67959,11 +68106,15 @@
   "flip": null,
   "frozen_at": "2026-11-18 09:01 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -67979,6 +68130,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 3.3,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -68049,7 +68201,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -68059,7 +68211,7 @@
   "why": "24.1 min (recent 24.9, \u22120.8 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.351 pts+ast/min (83% this season's 0.318 over 15 games, 17% prior 0.440); context: home +1%, shared production on NOP +2%."
  },
  "Herbert Jones|pra|401910013": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -68082,7 +68234,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -68103,6 +68256,10 @@
   ],
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 14.5,
@@ -68124,6 +68281,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "DET",
+  "our_err": 1.6,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -68197,7 +68355,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -68208,7 +68366,7 @@
   "why": "24.1 min (recent 24.9, \u22120.8 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.468 pts+reb+ast/min (83% this season's 0.436 over 15 games, 17% prior 0.574); context: home +1%."
  },
  "Herbert Jones|pr|401910013": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -68231,11 +68389,15 @@
   "flip": null,
   "frozen_at": "2026-11-18 15:11 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -68251,6 +68413,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 0.4,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -68321,7 +68484,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -68332,7 +68495,7 @@
   "why": "24.1 min (recent 24.9, \u22120.8 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.397 pts+reb/min (83% this season's 0.380 over 15 games, 17% prior 0.477); context: home +1%, shared production on NOP \u22121%."
  },
  "Herbert Jones|pts|401910013": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -68356,7 +68519,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -68377,6 +68541,10 @@
   ],
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -68398,6 +68566,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 2.0,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -68475,7 +68644,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -68486,7 +68655,7 @@
   "why": "24.1 min (recent 24.9, \u22120.8 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.286 points/min (75% this season's 0.263 over 15 games, 25% prior 0.343); context: home +1%, shared production on NOP +1%."
  },
  "Herbert Jones|reb|401910013": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4168,
@@ -68507,7 +68676,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -68518,6 +68688,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -68533,6 +68706,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 1.8,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -68605,7 +68779,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -90636,7 +90810,7 @@
   "why": "24.1 min (recent 24.6, \u22120.6 team-minutes adjustment with GG Jackson, Ty Jerome, Isaiah Stewart out); \u00d7 0.141 rebounds/min (37% this season's 0.110 over 7 games, 63% prior 0.149); context: road \u22121%, shared production on MEM \u22123%; calibration -0.0."
  },
  "Javonte Green|fg3m|401910013": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -90656,11 +90830,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:41 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 1.5
@@ -90676,6 +90854,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 1.4,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -90725,7 +90904,7 @@
   },
   "src_key": "prizepicks",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -90735,7 +90914,7 @@
   "why": "20.8 min (recent 18.5, +2.4 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out); \u00d7 0.057 3-pointers made/min (81% this season's 0.053 over 13 games, 19% prior 0.057); context: pace vs NOP +1%, road \u22121%, rest \u22122%, shared production on DET +12%; calibration +0.0; injury news: +0.3 with Ebuka Okorie, Cade Cunningham ruled out today (half of how he's actually played wi"
  },
  "Javonte Green|pra|401910013": {
-  "actual": null,
+  "actual": 25.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -90758,11 +90937,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 11.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -90778,6 +90961,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 10.6,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -90826,7 +91010,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -90837,7 +91021,7 @@
   "why": "20.0 min (recent 18.5, +1.5 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out); \u00d7 0.538 pts+reb+ast/min (81% this season's 0.513 over 13 games, 19% prior 0.584); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on DET +11%; shot-zone matchup +3% (where he scores vs where NOP gives up points); calibration +0.0; injury news: +2.6"
  },
  "Javonte Green|pr|401910013": {
-  "actual": null,
+  "actual": 25.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)",
    "-2.6 pts: pick follows the line's move (pattern)"
@@ -90861,11 +91045,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 14.0,
+  "line_errs": {
+   "prizepicks": 11.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.0
@@ -90881,6 +91069,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 11.5,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -90929,7 +91118,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -90940,7 +91129,7 @@
   "why": "20.0 min (recent 18.5, +1.5 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out); \u00d7 0.505 pts+reb/min (81% this season's 0.487 over 13 games, 19% prior 0.533); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on DET +11%; shot-zone matchup +3% (where he scores vs where NOP gives up points); calibration +0.0; injury news: +2.4 wit"
  },
  "Javonte Green|pts|401910013": {
-  "actual": null,
+  "actual": 18.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)",
    "-2.6 pts: pick follows the line's move (pattern)"
@@ -90969,11 +91158,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -90989,6 +91182,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 8.1,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -91037,7 +91231,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -91048,7 +91242,7 @@
   "why": "20.0 min (recent 18.5, +1.5 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out); \u00d7 0.358 points/min (72% this season's 0.345 over 13 games, 28% prior 0.372); context: pace vs NOP +1%, road \u22121%, rest \u22122%, shared production on DET +12%; shot-zone matchup +3% (where he scores vs where NOP gives up points); injury news: +1.8 with Ebuka Okorie, Cade Cunningham ruled out"
  },
  "Javonte Green|reb|401910013": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -91068,11 +91262,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 3.5
@@ -91088,6 +91286,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 3.1,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -91137,7 +91336,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -95720,7 +95919,7 @@
   "why": "23.8 min (recent 24.4, \u22120.6 team-minutes adjustment with GG Jackson, Ty Jerome, Isaiah Stewart out); \u00d7 0.097 rebounds/min (68% this season's 0.085 over 13 games, 32% prior 0.127); context: road \u22121%, shared production on MEM \u22123%; calibration -0.0."
  },
  "Jeremiah Fears|ast|401910013": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -95744,7 +95943,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -95770,6 +95970,10 @@
   ],
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -95791,6 +95995,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 1.2,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -95866,7 +96071,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -95877,7 +96082,7 @@
   "why": "29.1 min (recent 30.1, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.169 assists/min (75% this season's 0.188 over 15 games, 25% prior 0.132); context: home +1%, opponent defense \u22122%, shared production on NOP +7%."
  },
  "Jeremiah Fears|fg3m|401910013": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4572,
@@ -95899,7 +96104,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -95920,6 +96126,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -95935,6 +96144,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 0.7,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -96007,7 +96217,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -96018,7 +96228,7 @@
   "why": "29.1 min (recent 30.1, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.040 3-pointers made/min (83% this season's 0.036 over 15 games, 17% prior 0.050); context: home +1%, opponent defense \u22122%, shared production on NOP +12%."
  },
  "Jeremiah Fears|pa|401910013": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -96041,11 +96251,15 @@
   "flip": null,
   "frozen_at": "2026-11-18 18:41 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 25.0,
+  "line_errs": {
+   "prizepicks": 5.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 25.0
@@ -96061,6 +96275,7 @@
   "move": 1.5,
   "move_dir": "against",
   "opp": "DET",
+  "our_err": 1.0,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -96129,7 +96344,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -96140,7 +96355,7 @@
   "why": "29.1 min (recent 30.1, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.707 pts+ast/min (83% this season's 0.715 over 15 games, 17% prior 0.675); context: home +1%, opponent defense \u22121%, shared production on NOP +2%."
  },
  "Jeremiah Fears|pra|401910013": {
-  "actual": null,
+  "actual": 25.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -96164,7 +96379,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:51 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -96185,6 +96401,10 @@
   ],
   "label": "lean",
   "line": 28.5,
+  "line_errs": {
+   "kalshi": 4.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 29.5,
@@ -96206,6 +96426,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 0.3,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -96281,7 +96502,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -96292,7 +96513,7 @@
   "why": "29.1 min (recent 30.1, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.867 pts+reb+ast/min (83% this season's 0.880 over 15 games, 17% prior 0.816); context: home +1%, opponent defense \u22122%, shared production on NOP +1%."
  },
  "Jeremiah Fears|pr|401910013": {
-  "actual": null,
+  "actual": 21.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -96315,11 +96536,15 @@
   "flip": null,
   "frozen_at": "2026-11-18 15:11 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 22.5
@@ -96335,6 +96560,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "DET",
+  "our_err": 1.0,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -96405,7 +96631,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -96416,7 +96642,7 @@
   "why": "29.1 min (recent 30.1, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.695 pts+reb/min (83% this season's 0.692 over 15 games, 17% prior 0.684); context: home +1%, opponent defense \u22121%."
  },
  "Jeremiah Fears|pts|401910013": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5,
@@ -96437,7 +96663,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -96463,6 +96690,11 @@
   ],
   "label": "lean",
   "line": 18.5,
+  "line_errs": {
+   "fanduel": 2.5,
+   "kalshi": 3.5,
+   "prizepicks": 1.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 18.5,
@@ -96490,6 +96722,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 0.3,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -96563,7 +96796,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -96574,7 +96807,7 @@
   "why": "29.1 min (recent 30.1, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.536 points/min (75% this season's 0.527 over 15 games, 25% prior 0.543); context: home +1%, opponent defense \u22121%, shared production on NOP +1%."
  },
  "Jeremiah Fears|ra|401910013": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)",
    "-2.6 pts: pick follows the line's move (pattern)"
@@ -96598,11 +96831,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:51 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 11.0,
+  "line_errs": {
+   "prizepicks": 2.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.0
@@ -96618,6 +96855,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "DET",
+  "our_err": 0.3,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -96691,7 +96929,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -96702,7 +96940,7 @@
   "why": "29.1 min (recent 30.1, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.321 reb+ast/min (65% this season's 0.353 over 15 games, 35% prior 0.273); context: home +1%, opponent defense \u22123%, shared production on NOP +1%."
  },
  "Jeremiah Fears|reb|401910013": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -96725,7 +96963,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -96751,6 +96990,10 @@
   ],
   "label": "lean",
   "line": 4.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -96772,6 +97015,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 0.8,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -96845,7 +97089,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -98032,7 +98276,7 @@
   "why": "34.5 min (recent 31.5, +3.0 team-minutes adjustment with Jaylen Brown, Tyrese Maxey, Dean Wade out); \u00d7 0.263 rebounds/min (50% this season's 0.270 over 12 games, 50% prior 0.263); context: road \u22121%, opponent defense \u22121%, shared production on PHI +4%; calibration -0.0."
  },
  "John Collins|fg3m|401910013": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3965,
@@ -98053,7 +98297,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -98069,6 +98314,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -98084,6 +98332,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 2.5,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -98156,7 +98405,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -98167,7 +98416,7 @@
   "why": "27.0 min (recent 25.0, +2.1 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out); \u00d7 0.046 3-pointers made/min (90% this season's 0.044 over 13 games, 10% prior 0.049); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense +1%, shared production on DET +10%; calibration +0.0; injury news: +0.2 with Ebuka Okorie ruled out today (half of how he's actually play"
  },
  "John Collins|pra|401910013": {
-  "actual": null,
+  "actual": 29.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -98190,11 +98439,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:11 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 21.5,
+  "line_errs": {
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 21.5
@@ -98210,6 +98463,7 @@
   "move": 3.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 11.8,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -98282,7 +98536,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -98293,7 +98547,7 @@
   "why": "25.6 min (recent 25.0, +0.7 team-minutes adjustment with Ronald Holland II, Taurean Prince, Duncan Robinson out); \u00d7 0.673 pts+reb+ast/min (90% this season's 0.642 over 13 games, 10% prior 0.785); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense +2%, shared production on DET +5%; shot-zone matchup +3% (where he scores vs where NOP gives up points); calibration +0.0; injury news: -1.3 "
  },
  "John Collins|pr|401910013": {
-  "actual": null,
+  "actual": 27.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -98316,11 +98570,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 20.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 20.5
@@ -98336,6 +98594,7 @@
   "move": 3.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 8.5,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -98408,7 +98667,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -98419,7 +98678,7 @@
   "why": "27.0 min (recent 25.0, +2.1 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out); \u00d7 0.645 pts+reb/min (90% this season's 0.618 over 13 games, 10% prior 0.734); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense +2%, shared production on DET +11%; shot-zone matchup +3% (where he scores vs where NOP gives up points); calibration +0.0; injury news: -1.1 wit"
  },
  "John Collins|pts|401910013": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5652173913043478,
@@ -98440,7 +98699,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -98466,6 +98726,11 @@
   ],
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "fanduel": 8.5,
+   "kalshi": 5.5,
+   "prizepicks": 6.0
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 11.5,
@@ -98493,6 +98758,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 6.3,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -98565,7 +98831,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -98576,7 +98842,7 @@
   "why": "27.0 min (recent 25.0, +2.1 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out); \u00d7 0.438 points/min (84% this season's 0.402 over 13 games, 16% prior 0.523); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense +1%, shared production on DET +12%; shot-zone matchup +3% (where he scores vs where NOP gives up points); injury news: +0.2 with Ebuka Okorie rule"
  },
  "John Collins|ra|401910013": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -98599,11 +98865,15 @@
   "flip": null,
   "frozen_at": "2026-11-18 19:21 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.5
@@ -98619,6 +98889,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 2.5,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -98677,7 +98948,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -98688,7 +98959,7 @@
   "why": "25.4 min (recent 25.0, +0.4 team-minutes adjustment with Ronald Holland II, Taurean Prince, Duncan Robinson out); \u00d7 0.241 reb+ast/min (76% this season's 0.240 over 13 games, 24% prior 0.262); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense +3%, shared production on DET +5%; calibration +0.0."
  },
  "John Collins|reb|401910013": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -98711,7 +98982,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -98732,6 +99004,10 @@
   ],
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -98753,6 +99029,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 2.1,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -98825,7 +99102,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -99882,7 +100159,7 @@
   "why": "20.6 min (recent 21.1, \u22120.5 team-minutes adjustment with Pat Spencer out); \u00d7 0.214 rebounds/min (43% this season's 0.208 over 9 games, 57% prior 0.203); context: road \u22121%, opponent defense \u22122%, shared production on PHX +4%; calibration -0.0."
  },
  "Jordan Poole|fg3m|401910013": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -99903,7 +100180,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -99929,6 +100207,10 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 1.5,
@@ -99950,6 +100232,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 1.2,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -100023,7 +100306,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -100034,7 +100317,7 @@
   "why": "23.9 min (recent 24.7, \u22120.8 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.069 3-pointers made/min (75% this season's 0.046 over 9 games, 25% prior 0.102); context: home +1%, opponent defense \u22122%, shared production on NOP +12%; calibration +0.0."
  },
  "Jordan Poole|pra|401910013": {
-  "actual": null,
+  "actual": 28.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -100057,11 +100340,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "prizepicks": 13.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.5
@@ -100077,6 +100364,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "DET",
+  "our_err": 10.2,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -100150,7 +100438,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -100161,7 +100449,7 @@
   "why": "23.9 min (recent 24.7, \u22120.8 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.738 pts+reb+ast/min (75% this season's 0.667 over 9 games, 25% prior 0.842); context: home +1%, opponent defense \u22122%, shared production on NOP +1%; calibration +0.0."
  },
  "Jordan Poole|pts|401910013": {
-  "actual": null,
+  "actual": 22.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -100185,7 +100473,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -100206,6 +100495,10 @@
   ],
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "kalshi": 12.5,
+   "prizepicks": 11.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -100227,6 +100520,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 9.6,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -100302,7 +100596,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -110961,7 +111255,7 @@
   "why": "30.9 min (recent 32.4, \u22121.5 team-minutes adjustment); \u00d7 0.158 rebounds/min (56% this season's 0.163 over 15 games, 44% prior 0.159); context: road \u22121%, opponent defense +2%, shared production on HOU \u22121%."
  },
  "Kevin Huerter|ast|401910013": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -110984,7 +111278,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -111005,6 +111300,10 @@
   ],
   "label": "lean",
   "line": 4.0,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 3.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -111026,6 +111325,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 3.3,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -111098,7 +111398,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -111109,7 +111409,7 @@
   "why": "30.5 min (recent 29.3, +2.4 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out, \u22121.2 back-to-back); \u00d7 0.099 assists/min (84% this season's 0.094 over 13 games, 16% prior 0.110); context: pace vs NOP +1%, road \u22121%, rest \u22122%, shared production on DET +12%; calibration +0.0; injury news: +0.4 with Ebuka Okorie, Cade Cunningham ruled out today (half of how he's actuall"
  },
  "Kevin Huerter|fg3m|401910013": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4572,
@@ -111130,7 +111430,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -111156,6 +111457,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -111171,6 +111475,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 1.2,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -111243,7 +111548,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -111254,7 +111559,7 @@
   "why": "30.5 min (recent 29.3, +2.4 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out, \u22121.2 back-to-back); \u00d7 0.060 3-pointers made/min (90% this season's 0.058 over 13 games, 10% prior 0.069); context: pace vs NOP +1%, road \u22121%, rest \u22122%, shared production on DET +10%; calibration +0.0; injury news: +0.2 with Ebuka Okorie, Cade Cunningham ruled out today (half of how he's"
  },
  "Kevin Huerter|pa|401910013": {
-  "actual": null,
+  "actual": 18.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -111277,11 +111582,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 20.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 20.5
@@ -111297,6 +111606,7 @@
   "move": 5.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 1.5,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -111369,7 +111679,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -111380,7 +111690,7 @@
   "why": "30.5 min (recent 29.3, +2.4 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out, \u22121.2 back-to-back); \u00d7 0.505 pts+ast/min (90% this season's 0.483 over 13 games, 10% prior 0.549); context: pace vs NOP +1%, road \u22121%, rest \u22122%, shared production on DET +12%; shot-zone matchup +2% (where he scores vs where NOP gives up points); calibration +0.1; injury news: +2.4 with E"
  },
  "Kevin Huerter|pra|401910013": {
-  "actual": null,
+  "actual": 19.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -111404,7 +111714,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -111425,6 +111736,10 @@
   ],
   "label": "lean",
   "line": 25.0,
+  "line_errs": {
+   "kalshi": 5.5,
+   "prizepicks": 6.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 24.5,
@@ -111446,6 +111761,7 @@
   "move": 4.5,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 5.0,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -111520,7 +111836,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -111531,7 +111847,7 @@
   "why": "30.5 min (recent 29.3, +2.4 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out, \u22121.2 back-to-back); \u00d7 0.629 pts+reb+ast/min (90% this season's 0.596 over 13 games, 10% prior 0.691); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on DET +11%; shot-zone matchup +2% (where he scores vs where NOP gives up points); calibration +0.0"
  },
  "Kevin Huerter|pr|401910013": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -111554,11 +111870,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 20.5,
+  "line_errs": {
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 20.5
@@ -111574,6 +111894,7 @@
   "move": 4.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 8.4,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -111646,7 +111967,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -111657,7 +111978,7 @@
   "why": "30.5 min (recent 29.3, +2.4 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out, \u22121.2 back-to-back); \u00d7 0.531 pts+reb/min (90% this season's 0.502 over 13 games, 10% prior 0.581); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on DET +11%; shot-zone matchup +2% (where he scores vs where NOP gives up points); calibration +0.0; in"
  },
  "Kevin Huerter|pts|401910013": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5412844036697247,
@@ -111678,7 +111999,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -111704,6 +112026,11 @@
   ],
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "fanduel": 1.5,
+   "kalshi": 3.5,
+   "prizepicks": 4.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 12.5,
@@ -111731,6 +112058,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 4.9,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -111803,7 +112131,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -111814,7 +112142,7 @@
   "why": "30.5 min (recent 29.3, +2.4 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out, \u22121.2 back-to-back); \u00d7 0.409 points/min (84% this season's 0.389 over 13 games, 16% prior 0.439); context: pace vs NOP +1%, road \u22121%, rest \u22122%, shared production on DET +12%; shot-zone matchup +2% (where he scores vs where NOP gives up points); injury news: +2.0 with Ebuka Okorie, Cade C"
  },
  "Kevin Huerter|ra|401910013": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -111837,11 +112165,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.5
@@ -111857,6 +112189,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 0.4,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -111929,7 +112262,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -111940,7 +112273,7 @@
   "why": "30.5 min (recent 29.3, +2.4 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out, \u22121.2 back-to-back); \u00d7 0.228 reb+ast/min (76% this season's 0.207 over 13 games, 24% prior 0.252); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense \u22121%, shared production on DET +10%; calibration +0.0; injury news: +1.0 with Ebuka Okorie, Cade Cunningham ruled out today (ha"
  },
  "Kevin Huerter|reb|401910013": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -111963,7 +112296,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -111984,6 +112318,10 @@
   ],
   "label": "lean",
   "line": 4.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -112005,6 +112343,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 3.7,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -112077,7 +112416,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -146314,7 +146653,7 @@
   "why": "31.0 min (recent 31.6, \u22120.6 team-minutes adjustment with Devin Carter out); \u00d7 0.180 rebounds/min (67% this season's 0.185 over 12 games, 33% prior 0.175); context: pace vs DEN \u22121%, road \u22121%, shared production on BOS \u22122%; calibration -0.0."
  },
  "Paul Reed|ast|401910013": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -146337,11 +146676,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 2.5
@@ -146357,6 +146700,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NOP",
+  "our_err": 2.4,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -146417,7 +146761,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -146428,7 +146772,7 @@
   "why": "26.4 min (recent 24.4, +2.0 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out); \u00d7 0.094 assists/min (72% this season's 0.087 over 13 games, 28% prior 0.091); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense +2%, shared production on DET +12%; calibration +0.0; injury news: +0.6 with Ebuka Okorie, Cade Cunningham ruled out today (half of how he's actu"
  },
  "Paul Reed|pr|401910013": {
-  "actual": null,
+  "actual": 24.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -146451,11 +146795,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 19.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 19.5
@@ -146471,6 +146819,7 @@
   "move": -3.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 0.0,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -146531,7 +146880,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -146542,7 +146891,7 @@
   "why": "26.4 min (recent 24.4, +2.0 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out); \u00d7 0.743 pts+reb/min (81% this season's 0.711 over 13 games, 19% prior 0.825); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense +2%, shared production on DET +10%; shot-zone matchup +4% (where he scores vs where NOP gives up points); calibration +0.0; injury news: +1.8 wit"
  },
  "Paul Reed|pts|401910013": {
-  "actual": null,
+  "actual": 17.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -146566,7 +146915,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -146587,6 +146937,10 @@
   ],
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "kalshi": 7.5,
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -146608,6 +146962,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 1.6,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -146672,7 +147027,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -146683,7 +147038,7 @@
   "why": "26.4 min (recent 24.4, +2.0 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out); \u00d7 0.461 points/min (72% this season's 0.422 over 13 games, 28% prior 0.525); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense +1%, shared production on DET +12%; shot-zone matchup +4% (where he scores vs where NOP gives up points); injury news: +1.3 with Ebuka Okorie, Cad"
  },
  "Paul Reed|ra|401910013": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -146706,11 +147061,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -146726,6 +147085,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 4.3,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -146786,7 +147146,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -146797,7 +147157,7 @@
   "why": "26.4 min (recent 24.4, +2.0 team-minutes adjustment with Cade Cunningham, Ronald Holland II, Taurean Prince out); \u00d7 0.386 reb+ast/min (62% this season's 0.376 over 13 games, 38% prior 0.391); context: pace vs NOP +1%, road \u22121%, rest \u22122%, opponent defense +3%, shared production on DET +9%; calibration +0.0; injury news: +1.1 with Ebuka Okorie, Cade Cunningham ruled out today (half of how he's actua"
  },
  "Paul Reed|reb|401910013": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -146820,11 +147180,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 8.0,
+  "line_errs": {
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.0
@@ -146840,6 +147204,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "NOP",
+  "our_err": 1.9,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -146900,7 +147265,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "DET",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -156063,7 +156428,7 @@
   "why": "23.7 min (recent 26.3, \u22121.1 team-minutes adjustment with Ousmane Dieng out); \u00d7 0.170 rebounds/min (52% this season's 0.210 over 13 games, 48% prior 0.140); context: pace vs MIA +1%, road \u22121%, rest +1%, opponent defense +1%; calibration -0.0."
  },
  "Saddiq Bey|ast|401910013": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.7438,
@@ -156084,7 +156449,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -156105,6 +156471,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 4.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -156120,6 +156489,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 3.4,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -156192,7 +156562,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -156203,7 +156573,7 @@
   "why": "30.5 min (recent 31.6, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.081 assists/min (75% this season's 0.081 over 15 games, 25% prior 0.083); context: home +1%, opponent defense \u22121%, shared production on NOP +7%."
  },
  "Saddiq Bey|fg3m|401910013": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4673,
@@ -156224,7 +156594,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:56 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -156245,6 +156616,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -156260,6 +156634,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 0.6,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -156332,7 +156707,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -156343,7 +156718,7 @@
   "why": "30.5 min (recent 31.6, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.077 3-pointers made/min (83% this season's 0.081 over 15 games, 17% prior 0.065); context: home +1%, shared production on NOP +12%."
  },
  "Saddiq Bey|pa|401910013": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -156366,11 +156741,15 @@
   "flip": null,
   "frozen_at": "2026-11-18 17:01 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 21.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 21.5
@@ -156386,6 +156765,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 4.9,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -156454,7 +156834,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -156465,7 +156845,7 @@
   "why": "30.5 min (recent 31.6, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.668 pts+ast/min (83% this season's 0.671 over 15 games, 17% prior 0.633); context: home +1%, shared production on NOP +2%."
  },
  "Saddiq Bey|pra|401910013": {
-  "actual": null,
+  "actual": 24.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -156489,7 +156869,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -156515,6 +156896,10 @@
   ],
   "label": "lean",
   "line": 27.5,
+  "line_errs": {
+   "kalshi": 5.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 29.5,
@@ -156536,6 +156921,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "DET",
+  "our_err": 1.5,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -156609,7 +156995,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -156620,7 +157006,7 @@
   "why": "30.5 min (recent 31.6, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.825 pts+reb+ast/min (83% this season's 0.817 over 15 games, 17% prior 0.815); context: home +1%."
  },
  "Saddiq Bey|pr|401910013": {
-  "actual": null,
+  "actual": 18.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -156643,11 +157029,15 @@
   "flip": null,
   "frozen_at": "2026-11-18 17:01 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 24.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 24.5
@@ -156663,6 +157053,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "DET",
+  "our_err": 4.9,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -156731,7 +157122,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -156742,7 +157133,7 @@
   "why": "30.5 min (recent 31.6, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.745 pts+reb/min (83% this season's 0.735 over 15 games, 17% prior 0.732); context: home +1%."
  },
  "Saddiq Bey|pts|401910013": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5283018867924528,
@@ -156763,7 +157154,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -156794,6 +157186,11 @@
   ],
   "label": "lean",
   "line": 18.5,
+  "line_errs": {
+   "fanduel": 8.5,
+   "kalshi": 9.5,
+   "prizepicks": 9.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 18.5,
@@ -156821,6 +157218,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 8.2,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -156894,7 +157292,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -156905,7 +157303,7 @@
   "why": "30.5 min (recent 31.6, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.585 points/min (75% this season's 0.589 over 15 games, 25% prior 0.551); context: home +1%, shared production on NOP +1%."
  },
  "Saddiq Bey|ra|401910013": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)",
    "-2.6 pts: pick follows the line's move (pattern)"
@@ -156929,11 +157327,15 @@
   "flip": null,
   "frozen_at": "2026-11-18 23:47 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 8.0,
+  "line_errs": {
+   "prizepicks": 6.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.0
@@ -156949,6 +157351,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "DET",
+  "our_err": 6.6,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -157019,7 +157422,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -157030,7 +157433,7 @@
   "why": "30.5 min (recent 31.6, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.243 reb+ast/min (65% this season's 0.227 over 15 games, 35% prior 0.264); context: home +1%, shared production on NOP \u22121%."
  },
  "Saddiq Bey|reb|401910013": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)",
    "-2.6 pts: pick follows the line's move (pattern)"
@@ -157054,7 +157457,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -157080,6 +157484,10 @@
   ],
   "label": "lean",
   "line": 5.0,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 3.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -157101,6 +157509,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "DET",
+  "our_err": 3.1,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -157174,7 +157583,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -178458,7 +178867,7 @@
   "why": "32.4 min (recent 31.6, +0.7 team-minutes adjustment with Stephen Curry, Al Horford, Brandon Williams out); \u00d7 0.221 rebounds/min (54% this season's 0.235 over 14 games, 46% prior 0.197); context: road \u22121%, opponent defense +1%, shared production on GSW \u22121%; calibration -0.0."
  },
  "Yves Missi|ast|401910013": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4673,
@@ -178480,7 +178889,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:51 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -178496,6 +178906,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -178511,6 +178924,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 0.5,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -178584,7 +178998,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -178595,7 +179009,7 @@
   "why": "21.4 min (recent 22.1, \u22120.7 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.063 assists/min (44% this season's 0.083 over 4 games, 56% prior 0.062); context: home +1%, opponent defense \u22122%, shared production on NOP +7%; calibration +0.1."
  },
  "Yves Missi|pra|401910013": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -178618,7 +179032,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -178644,6 +179059,10 @@
   ],
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "kalshi": 8.5,
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 19.5,
@@ -178665,6 +179084,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "DET",
+  "our_err": 4.4,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -178738,7 +179158,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -178749,7 +179169,7 @@
   "why": "21.4 min (recent 22.1, \u22120.7 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.717 pts+reb+ast/min (57% this season's 0.857 over 4 games, 43% prior 0.696); context: home +1%, opponent defense \u22121%, shared production on NOP \u22121%; calibration +0.3."
  },
  "Yves Missi|pr|401910013": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -178772,11 +179192,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:00 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -178792,6 +179216,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "DET",
+  "our_err": 4.9,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -178862,7 +179287,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -178873,7 +179298,7 @@
   "why": "21.4 min (recent 22.1, \u22120.7 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.652 pts+reb/min (57% this season's 0.774 over 4 games, 43% prior 0.634); context: home +1%, opponent defense \u22121%, shared production on NOP \u22122%; calibration +0.2."
  },
  "Yves Missi|pts|401910013": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5327102803738317,
@@ -178894,7 +179319,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -178915,6 +179341,11 @@
   ],
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "fanduel": 3.5,
+   "kalshi": 0.5,
+   "prizepicks": 3.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 7.5,
@@ -178942,6 +179373,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 2.8,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -179015,7 +179447,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -179026,7 +179458,7 @@
   "why": "21.4 min (recent 22.1, \u22120.7 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.309 points/min (44% this season's 0.333 over 4 games, 56% prior 0.332); context: home +1%, opponent defense \u22122%, shared production on NOP +1%; calibration +0.1."
  },
  "Yves Missi|ra|401910013": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -179049,11 +179481,15 @@
   "flip": null,
   "frozen_at": "2026-11-18 16:01 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 10.0,
+  "line_errs": {
+   "prizepicks": 3.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.0
@@ -179069,6 +179505,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "DET",
+  "our_err": 1.2,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -179137,7 +179574,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -179148,7 +179585,7 @@
   "why": "21.4 min (recent 22.1, \u22120.7 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.386 reb+ast/min (33% this season's 0.524 over 4 games, 67% prior 0.364); context: home +1%, shared production on NOP \u22123%; calibration +0.2."
  },
  "Yves Missi|reb|401910013": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -179172,7 +179609,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -179203,6 +179641,10 @@
   ],
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 7.5,
@@ -179224,6 +179666,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "DET",
+  "our_err": 1.6,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -179297,7 +179740,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "1-4 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -182042,7 +182485,7 @@
   "why": "22.3 min (recent 23.2, \u22120.9 team-minutes adjustment with Austin Reaves out); \u00d7 0.114 rebounds/min (67% this season's 0.102 over 12 games, 33% prior 0.144); context: home +1%, rest \u22122%, opponent defense +1%, shared production on LAL \u22125%; calibration -0.0."
  },
  "Zion Williamson|ast|401910013": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3761,
@@ -182063,7 +182506,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -182084,6 +182528,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -182099,6 +182546,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 1.9,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -182172,7 +182620,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -182183,7 +182631,7 @@
   "why": "28.6 min (recent 29.5, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.094 assists/min (74% this season's 0.082 over 14 games, 26% prior 0.117); context: home +1%, opponent defense \u22121%, shared production on NOP +7%; calibration +0.0."
  },
  "Zion Williamson|pa|401910013": {
-  "actual": null,
+  "actual": 25.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -182206,11 +182654,15 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 24.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 24.5
@@ -182226,6 +182678,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 2.3,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -182299,7 +182752,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -182310,7 +182763,7 @@
   "why": "28.6 min (recent 29.5, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.774 pts+ast/min (82% this season's 0.751 over 14 games, 18% prior 0.812); context: home +1%, shared production on NOP +2%; calibration +0.1."
  },
  "Zion Williamson|pra|401910013": {
-  "actual": null,
+  "actual": 32.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -182333,7 +182786,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -182354,6 +182808,10 @@
   ],
   "label": "lean",
   "line": 30.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 29.5,
@@ -182375,6 +182833,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 4.6,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -182448,7 +182907,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -182459,7 +182918,7 @@
   "why": "28.6 min (recent 29.5, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.947 pts+reb+ast/min (82% this season's 0.916 over 14 games, 18% prior 1.014); context: home +1%; calibration +0.0."
  },
  "Zion Williamson|pr|401910013": {
-  "actual": null,
+  "actual": 31.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -182482,11 +182941,15 @@
   "flip": null,
   "frozen_at": "2026-11-18 15:11 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 27.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 27.5
@@ -182502,6 +182965,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 6.4,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -182572,7 +183036,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -182583,7 +183047,7 @@
   "why": "28.6 min (recent 29.5, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.855 pts+reb/min (82% this season's 0.833 over 14 games, 18% prior 0.897); context: home +1%; calibration +0.0."
  },
  "Zion Williamson|pts|401910013": {
-  "actual": null,
+  "actual": 24.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5555555555555556,
@@ -182604,7 +183068,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -182630,6 +183095,11 @@
   ],
   "label": "lean",
   "line": 21.5,
+  "line_errs": {
+   "fanduel": 2.5,
+   "kalshi": 4.5,
+   "prizepicks": 2.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 21.5,
@@ -182657,6 +183127,7 @@
   "move": null,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 4.1,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -182730,7 +183201,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -182741,7 +183212,7 @@
   "why": "28.6 min (recent 29.5, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.684 points/min (74% this season's 0.669 over 14 games, 26% prior 0.694); context: home +1%, shared production on NOP +1%."
  },
  "Zion Williamson|ra|401910013": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [
    "chance pulled toward 50% (keeps 32% of our lean on PrizePicks lines, pattern)"
   ],
@@ -182764,11 +183235,15 @@
   "flip": null,
   "frozen_at": "2026-11-18 15:11 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 9.0,
+  "line_errs": {
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.0
@@ -182784,6 +183259,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "DET",
+  "our_err": 0.1,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -182854,7 +183330,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
@@ -182865,7 +183341,7 @@
   "why": "28.6 min (recent 29.5, \u22121.0 team-minutes adjustment with Bennedict Mathurin, Bryce McGowens, Trey Murphy III out); \u00d7 0.276 reb+ast/min (64% this season's 0.247 over 14 games, 36% prior 0.320); context: home +1%, shared production on NOP \u22121%; calibration +0.0."
  },
  "Zion Williamson|reb|401910013": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -182886,7 +183362,8 @@
   "flip": null,
   "frozen_at": "2026-11-19 00:46 UTC",
   "game_id": 401910013,
-  "hit": null,
+  "graded_at": "2026-11-19 03:36 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -182907,6 +183384,10 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -182928,6 +183409,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "DET",
+  "our_err": 2.0,
   "out_ctx": [
    "Bennedict Mathurin",
    "Bryce McGowens",
@@ -183001,7 +183483,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NOP",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-19T01:00:00+00:00",
