@@ -18,7 +18,7 @@
 <p class="small dim">Since {{ tp.season_from or 'opening night' }}: 1U per pick at the odds each account posted. Everything on this page is tracking only.</p>
 
 <div class="seg" data-tabs="tp" data-hash="1">
-  <button data-tab="tonight" class="active">TONIGHT</button><button data-tab="record">TRACK RECORD</button><button data-tab="days">DAY BY DAY</button><button data-tab="how">HOW IT WORKS</button>
+  <button data-tab="tonight" class="active">TONIGHT</button><button data-tab="record">TRACK RECORD</button><button data-tab="days">DAY BY DAY</button><button data-tab="safe">SAFE LINES</button><button data-tab="how">HOW IT WORKS</button>
 </div>
 
 <section data-tab-panel="tp:tonight">
@@ -91,6 +91,49 @@
   </div>
 </section>
 
+<section class="hidden" data-tab-panel="tp:safe">
+{% if not sf %}<p class="small dim">Safe lines aren't available this build.</p>{% else %}
+  <p class="small dim"><b>{{ sf.source }}</b> posts a daily list of PrizePicks goblin lines the books price around &minus;700. You use it to find safe lines. Here is how often each kind of line from his list has <b>really</b> hit, and what each one costs you tonight.</p>
+  <div class="hv-rec pz-board">
+    <div class="hv-tile"><b>{{ sf.overall.w }}-{{ sf.overall.l }}</b><span>his list this season &middot; hit {{ sf.overall.rate }}%</span></div>
+    <div class="hv-tile"><b>{{ sf.overall.imp }}%</b><span>what his posted odds promised</span></div>
+    <div class="hv-tile"><b>{% if sf.your_rec.n %}{{ sf.your_rec.w }}-{{ sf.your_rec.l }}{% else %}NEW{% endif %}</b><span>{% if sf.your_rec.n %}at your price &middot; {{ u(sf.your_rec.u) }}{% else %}at your price &middot; starts with tonight's list{% endif %}</span></div>
+  </div>
+
+  <h2 class="hv-h3">Tonight</h2>
+  {% if not sf.listed_today %}<p class="small dim">His list for {{ sf.today }} isn't logged yet. It usually goes up late morning; it's added when Claude logs the tipster picks.</p>
+  {% else %}
+  <p class="small dim">Best price right now for the same number (Kalshi or Polymarket US, or FanDuel at the same line), next to how often that kind of line from his list really hits. <b>GOOD PRICE</b> = costs at least {{ sf.margin }} point{{ 's' if sf.margin != 1 }} less than it really hits; <b>SKIP</b> = a kind of line that hits under {{ sf.skip_below }}%.</p>
+  <div class="pz-grid">
+  {% for r in sf.tonight %}
+  <article class="pz-card {{ 'pz-won' if r.res == 'hit' else ('pz-lost' if r.res == 'miss' else 'pz-pending') }}">
+    <div class="pz-head"><div><div class="pz-title">{% if r.team %}{{ m.badge(badge(r.team)) }} {% endif %}{{ r.player|upper }}</div>
+      <div class="pz-sub"><span class="pp-pick pp-over">OVER {{ r.line|fmtline }} {{ sf.lab[r.stat] }}</span> &middot; his odds {{ am(r.odds) }}</div></div>
+      <div class="pz-nums"><b>{{ (r.fair * 100)|round|int }}%</b><span>{{ r.kind|lower }} really hit</span></div></div>
+    <div class="pz-tags">{% if r.tag == 'good' %}<span class="pr-tag pr-good" style="margin-left:0">GOOD PRICE</span>{% elif r.tag == 'fair' %}<span class="pr-tag pr-wait" style="margin-left:0">FAIR</span>{% elif r.tag == 'pricey' %}<span class="pr-tag pr-toohigh" style="margin-left:0">TOO PRICEY</span>{% elif r.tag == 'skip' %}<span class="pr-tag pr-toohigh" style="margin-left:0">SKIP &middot; {{ r.kind|upper }}</span>{% else %}<span class="pr-tag pr-wait" style="margin-left:0">NO MATCHING NUMBER</span>{% endif %}
+      {% if r.your %}<span class="small">your price <b>{{ r.your_odds }}</b> {{ r.your.src }}</span>{% endif %}
+      {% if r.res %} <span class="res {{ 'res-hit' if r.res == 'hit' else ('res-miss' if r.res == 'miss' else 'res-void') }}">{{ r.res|upper }}</span>{% if r.actual is not none %} <span class="dim small">had {{ r.actual }}</span>{% elif r.res == 'void' %} <span class="dim small">didn't play</span>{% endif %}{% endif %}</div>
+  </article>
+  {% endfor %}
+  </div>
+  {% endif %}
+
+  <h2 class="hv-h3">Which of his lines really hit</h2>
+  <div class="table-wrap table-scroll"><table class="stat-table">
+    <thead><tr><th>Kind of line</th><th>Record</th><th>Really hit</th><th>His odds said</th><th></th></tr></thead><tbody>
+    {% for k in sf.kind_order %}{% set r = sf.kinds[k] %}{% if r.n %}<tr><td><b>{{ r.name }}</b></td><td>{{ r.w }}-{{ r.l }}</td><td class="{{ 'stat-bad' if r.skip else '' }}">{{ r.rate }}%</td><td>{{ r.imp }}%</td><td>{% if r.skip %}<span class="pr-tag pr-toohigh" style="margin-left:0">SKIP</span>{% elif r.rate >= 85 %}<span class="pr-tag pr-good" style="margin-left:0">SAFEST</span>{% endif %}</td></tr>{% endif %}{% endfor %}
+    {% for b in sf.by_odds %}<tr><td>Posted odds {{ b.name }}</td><td>{{ b.w }}-{{ b.l }}</td><td>{{ b.rate }}%</td><td>{{ b.imp }}%</td><td></td></tr>{% endfor %}
+    </tbody></table></div>
+  <p class="small dim">Every kind hit less often than his posted odds said: books add a big margin to lines this safe, so &minus;850 behaves more like &minus;500. The "really hits" number tonight is each kind's record, pulled a little toward his overall rate when the sample is small.</p>
+
+  <h2 class="hv-h3">Day by day</h2>
+  <div class="table-wrap table-scroll"><table class="stat-table">
+    <thead><tr><th>Day</th><th>Record</th><th>Misses</th></tr></thead><tbody>
+    {% for d in sf.days[:30] %}<tr><td class="nowrap">{{ d.date[5:]|replace('-', '/') }}</td><td>{{ d.w }}-{{ d.l }}</td><td class="small">{% for r in d.rows if r.res == 'miss' %}{{ r.player }} {{ r.line|fmtline }} {{ sf.lab[r.stat] }} <span class="dim">({{ r.actual }})</span>{{ ', ' if not loop.last }}{% else %}<span class="dim">none</span>{% endfor %}</td></tr>{% endfor %}
+    </tbody></table></div>
+{% endif %}
+</section>
+
 <section class="hidden" data-tab-panel="tp:how">
   <h2 class="hv-h3">How it works</h2>
   <ul class="small">
@@ -99,6 +142,7 @@
     <li><b>Tail test:</b> the first build that sees a pick before its game tips records the best price you could get right then (Kalshi or Polymarket US at the same number, or FanDuel at the same line), and the pick is also graded at that price. It answers "does tailing pay for <i>me</i>".</li>
     <li><b>Cushion combo:</b> 2&ndash;4 of their prop overs moved one Kalshi rung safer, legs costing 65&ndash;82%, locked at the first tip. It tests your alt-line idea on picks from people with a real record.</li>
     <li><b>Grading:</b> final box scores, the same night. A push or a player who doesn't play is voided. Nothing is ever removed.</li>
+    <li><b>Safe lines:</b> @PrizePicksTacos' daily list of very safe lines, logged with his posted odds and graded the same night. Tonight's lines are priced at the same number on Kalshi / Polymarket US (or FanDuel at the same line); the first price seen before tip is kept so the list is also graded at your price.</li>
     <li><b>Stakes:</b> none. Everything here is tracking only until a tipster has {{ tp.earn_n }}+ tail-test picks with a profit at your price.</li>
   </ul>
 </section>

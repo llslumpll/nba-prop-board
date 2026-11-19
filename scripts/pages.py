@@ -945,7 +945,7 @@ def render_all(ctx: dict) -> None:
     except Exception as e:  # noqa: BLE001
         print(f"My Bets charts failed: {e}")
     write("mybets.html", "mybets.html", "mybets", mb=mb, mbc=mbc)
-    write("tipsters.html", "tipsters.html", "tipsters", tp=ctx.get("tipsters") or {}, badge=teams.badge)
+    write("tipsters.html", "tipsters.html", "tipsters", tp=ctx.get("tipsters") or {}, sf=ctx.get("safelines"), badge=teams.badge)
     write("parlays.html", "parlays.html", "parlays", pz=pz, today=today, pz_charts=pz_charts,
           fam_label={f["key"]: f["label"] for f in pz.get("families") or []})
     keep = set()

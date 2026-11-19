@@ -556,6 +556,13 @@ def build(args) -> None:
     except Exception as e:  # noqa: BLE001
         tp = None
         print(f"Tipsters failed: {e}")
+    try:  # Safe lines (update 83): @PrizePicksTacos' daily safe-line list, graded and priced for you
+        import safelines
+        sf = safelines.summary(box, sl, now)
+        print(f"Safe lines: {sf['overall']['w']}-{sf['overall']['l']} season, {len(sf['tonight'])} today")
+    except Exception as e:  # noqa: BLE001
+        sf = None
+        print(f"Safe lines failed: {e}")
     try:  # Favorites tab (update 80): the user's 75%+ moneyline rule, tracked
         fv = favorites.summary(box, sl)
         print(f"Favorites: {fv['rec']['all']['w']}-{fv['rec']['all']['l']} season, {len(fv['tonight'])} tonight")
@@ -565,7 +572,7 @@ def build(args) -> None:
     pages.render_all({
         "now": now, "slate": sl, "res": res, "best": best, "edge": est, "cal": cal, "preds": preds_all,
         "tpreds": predictions.load_all(team=True), "sources": sources, "health": health, "lm": lm,
-        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj, "trust": trust, "espn": espn, "patterns": pat_out, "rankings": rankings.build(box), "edges": edge_found, "edges_sum": edges.summary(), "tuning": tune.load(), "parlays": parlays.summary(), "news": news.summary(sl.get("date")), "lag": market.lag_summary(sl.get("date")), "lineups": lineups, "mybets": mb, "tipsters": tp, "favorites": fv,
+        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj, "trust": trust, "espn": espn, "patterns": pat_out, "rankings": rankings.build(box), "edges": edge_found, "edges_sum": edges.summary(), "tuning": tune.load(), "parlays": parlays.summary(), "news": news.summary(sl.get("date")), "lag": market.lag_summary(sl.get("date")), "lineups": lineups, "mybets": mb, "tipsters": tp, "safelines": sf, "favorites": fv,
     })
     # consistency audit on what was just built; its result shows on History -> Pipeline next build
     import subprocess
