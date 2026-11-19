@@ -1,0 +1,66 @@
+{# Your board tonight (update 84): see scripts/myboard.py #}
+{% import "_macros.html" as m %}
+{% macro mu(x) -%}<span class="{{ 'stat-good' if x >= 0 else 'stat-bad' }}">{{ '%+.1f'|format(x) }}U</span>{%- endmacro %}
+{% macro mam(o) -%}{{ ('+' ~ o) if o > 0 else o }}{%- endmacro %}
+{% macro mres(res) -%}{{ {'hit': '&#10004;', 'miss': '&#10008;', 'push': '&ndash;', 'void': '&ndash;'}.get(res, '&#9675;')|safe }}{%- endmacro %}
+{% macro mleg(l) -%}{{ l.player }} <span class="pp-pick {{ 'pp-over' if l.side == 'over' else 'pp-under' }}">{{ 'OVER' if l.side == 'over' else 'UNDER' }} {{ l.line|fmtline }} {{ (stat_short.get(l.stat, l.stat))|upper }}</span>{%- endmacro %}
+{% macro pick_card(r, label) -%}
+<article class="pz-card {{ 'pz-pending' if r.status != 'graded' else ('pz-won' if r.res == 'hit' else ('pz-lost' if r.res == 'miss' else '')) }}">
+  <div class="pz-head"><div><div class="pz-title">{{ label }}</div>
+    <div class="pz-sub">{% if r.posted_et %}POSTED {{ r.posted_et }}{% endif %}{% if r.game %} &middot; {{ r.game }}{% endif %}{% if r.tip %} &middot; {{ r.tip }}{% endif %}</div></div></div>
+  <div class="pz-tags"><span class="u-tag u-0">TRACKING ONLY</span>{% if r.out %} <span class="pr-tag pr-toohigh" style="margin-left:0">PLAYER OUT</span>{% endif %}</div>
+  <ul class="pz-legs">{% set l = r.legs[0] %}
+    <li class="pz-leg {{ 'pz-hit' if l.res == 'hit' else ('pz-miss' if l.res == 'miss' else '') }}"><span class="pz-res">{{ mres(l.res) }}</span>{% if r.team %}{{ m.badge(badge(r.team)) }}{% endif %}<span class="pz-what">{{ mleg(l) }}{% if l.actual is not none %} <span class="dim small">had {{ l.actual }}</span>{% endif %}</span>
+      <span class="pz-meta">{% if r.out %}<span class="stat-bad">Ruled out</span> <span class="dim small">&middot; skip, it will void</span>{% elif r.your %}<b>{{ r.your.odds }}</b> <span class="dim small">your price &middot; {{ r.your.src }} (posted {{ mam(r.odds) }})</span>{% else %}<b>{{ mam(r.odds) }}</b> <span class="dim small">posted{% if r.book %} ({{ r.book }}){% endif %} &middot; no matching Kalshi/Polymarket number yet</span>{% endif %}</span></li>
+  </ul>
+</article>
+{%- endmacro %}
+<section class="myboard">
+  <h2 class="h2x">Your board tonight</h2>
+  <p class="small dim">Everything that fits how you bet, in one place: <b>75%+ favorites</b>, picks from the tipsters with a <b>proven record</b>, and <b>safe lines</b> you can get cheaper than they really hit. Tracking only &middot; prices update with every build until tip.</p>
+
+  <h3 class="hv-h3">1 &middot; Favorites 75%+</h3>
+  {% set fr = board.fav_rec %}
+  {% if fr and fr.all.n %}<div class="hv-rec pz-board"><div class="hv-tile"><b>{{ fr.all.w }}-{{ fr.all.l }}</b><span>season &middot; {{ mu(fr.all.u) }}</span></div><div class="hv-tile"><b>{{ fr.p75.w }}-{{ fr.p75.l }}</b><span>75&ndash;80% &middot; {{ mu(fr.p75.u) }}</span></div><div class="hv-tile"><b>{{ fr.p80.w }}-{{ fr.p80.l }}</b><span>80%+ &middot; {{ mu(fr.p80.u) }}</span></div></div>{% endif %}
+  {% if board.favs %}<div class="pz-grid">{% for f in board.favs %}
+    <article class="pz-card pz-pending">
+      <div class="pz-head"><div><div class="pz-title">{{ f.fav }} MONEYLINE</div><div class="pz-sub">{{ f.away }} @ {{ f.home }}{% if f.tip %} &middot; {{ f.tip }}{% endif %}</div></div></div>
+      <div class="pz-tags"><span class="u-tag u-0">TRACKING ONLY</span> {% if f.best and f.best.p > f.p %}<span class="pr-tag pr-toohigh" style="margin-left:0">PRICE ABOVE FAIR</span>{% endif %}{% if f.beats %} <span class="pr-tag pr-good" style="margin-left:0">FORM BEATS PRICE</span>{% endif %}</div>
+      <ul class="pz-legs"><li class="pz-leg"><span class="pz-res">&#9675;</span>{{ m.badge(badge(f.fav)) }}<span class="pz-what">{{ f.fav }} <span class="pp-pick pp-over">WIN</span></span>
+        <span class="pz-meta">{% if f.best %}<b>{{ f.best.odds }}</b> <span class="dim small">{{ f.best.book }} &middot; costs {{ '%.1f'|format(f.best.p * 100) }}% &middot; fair {{ (f.p * 100)|round|int }}%</span>{% else %}<span class="dim small">no price yet &middot; fair {{ (f.p * 100)|round|int }}%</span>{% endif %} <span class="dim small">&middot; last 10: {{ f.l10 }}</span></span></li></ul>
+    </article>{% endfor %}</div>
+  {% else %}<p class="small dim">No favorite priced 75%+ in tonight's games that haven't started.</p>{% endif %}
+  <p class="small"><a href="games.html#favs">All favorites &amp; upsets &rarr;</a></p>
+
+  <h3 class="hv-h3">2 &middot; Proven tipsters</h3>
+  <p class="small dim">{% for t in board.proven_names %}{{ t.name }} ({{ t.w }}-{{ t.l }}, {{ mu(t.u) }}){{ ' and ' if not loop.last }}{% endfor %}: full season, honest recaps.</p>
+  {% if board.proven %}<div class="pz-grid">{% for r in board.proven %}{{ pick_card(r, (r.who.name or r.tipster)|upper ~ ((' · ' ~ r.book|upper) if r.book else '')) }}{% endfor %}</div>
+  {% else %}<p class="small dim">No picks from them yet today. Checked every hour until 5:47 PM CT.</p>{% endif %}
+
+  <h3 class="hv-h3">3 &middot; Newer tipsters you can bet on Kalshi / Polymarket</h3>
+  <p class="small dim">Only their picks with a matching number, at the price you can get. Smaller samples: still being proven.</p>
+  {% if board.newer %}<div class="pz-grid">{% for r in board.newer %}{{ pick_card(r, (r.who.name or r.tipster)|upper ~ ' · ' ~ r.who.w ~ '-' ~ r.who.l ~ ' ' ~ ('%+.1f'|format(r.who.u)) ~ 'U') }}{% endfor %}</div>
+  {% else %}<p class="small dim">None with a matching Kalshi/Polymarket/FanDuel number yet.</p>{% endif %}
+  <p class="small"><a href="tipsters.html">Every tipster pick tonight &rarr;</a></p>
+
+  <h3 class="hv-h3">4 &middot; Safe lines at a good price</h3>
+  <p class="small dim">From @PrizePicksTacos' list, only lines that cost at least 1 point less than that kind of line really hits.</p>
+  {% if board.safe %}<div class="pz-grid">{% for r in board.safe %}
+    <article class="pz-card {{ 'pz-pending' if not r.res else ('pz-won' if r.res == 'hit' else ('pz-lost' if r.res == 'miss' else '')) }}">
+      <div class="pz-head"><div><div class="pz-title">SAFE LINE &middot; {{ r.kind|upper }}</div><div class="pz-sub">his odds {{ r.odds }}</div></div></div>
+      <div class="pz-tags"><span class="pr-tag pr-good" style="margin-left:0">GOOD PRICE</span>{% if r.out %} <span class="pr-tag pr-toohigh" style="margin-left:0">PLAYER OUT</span>{% endif %}</div>
+      <ul class="pz-legs"><li class="pz-leg {{ 'pz-hit' if r.res == 'hit' else ('pz-miss' if r.res == 'miss' else '') }}"><span class="pz-res">{{ mres(r.res) }}</span>{% if r.team %}{{ m.badge(badge(r.team)) }}{% endif %}<span class="pz-what">{{ r.player }} <span class="pp-pick pp-over">OVER {{ r.line|fmtline }} {{ (stat_short.get(r.stat, r.stat))|upper }}</span>{% if r.actual is not none %} <span class="dim small">had {{ r.actual }}</span>{% endif %}</span>
+        <span class="pz-meta"><b>{{ r.your_odds }}</b> <span class="dim small">{{ r.your.src }} &middot; costs {{ '%.1f'|format(r.cost * 100) }}% &middot; {{ r.kind|lower }} really hit {{ (r.fair * 100)|round|int }}%</span></span></li></ul>
+    </article>{% endfor %}</div>
+  {% elif board.listed_safe %}<p class="small dim">None of tonight's {{ board.safe_n }} safe lines is priced below how often it really hits.</p>
+  {% else %}<p class="small dim">Tonight's safe-line list isn't logged yet.</p>{% endif %}
+  {% if board.safe_n %}<p class="small"><a href="tipsters.html#safe">All {{ board.safe_n }} safe lines tonight &rarr;</a></p>{% endif %}
+
+  <h3 class="hv-h3">5 &middot; Cushion combo</h3>
+  {% set c = board.combo %}
+  {% if c %}<div class="pz-grid"><article class="pz-card {{ 'pz-pending' if c.status != 'graded' else ('pz-won' if c.hit else 'pz-lost') }}">
+    <div class="pz-head"><div><div class="pz-title">CUSHION COMBO &middot; {{ c.legs|length }} LEGS</div><div class="pz-sub">{{ 'LOCKED' if c.locked else 'UPDATES TILL FIRST TIP' }}</div></div><div class="pz-nums"><b>{{ '%.1f'|format(c.pays) }}x</b><span>pays about</span></div></div>
+    <ul class="pz-legs">{% for l in c.legs %}<li class="pz-leg {{ 'pz-hit' if l.res == 'hit' else ('pz-miss' if l.res == 'miss' else '') }}"><span class="pz-res">{{ mres(l.res) }}</span><span class="pz-what">{{ l.player }} <span class="pp-pick pp-over">{{ l.rung }}+ {{ (stat_short.get(l.stat, l.stat))|upper }}</span></span></li>{% endfor %}</ul>
+  </article></div>
+  {% else %}<p class="small dim">None tonight: it needs 2+ tipster prop overs with a Kalshi rung one step safer costing 65&ndash;82%.</p>{% endif %}
+</section>

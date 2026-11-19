@@ -1116,7 +1116,13 @@ def render_all(ctx: dict) -> None:
                                              label="daily hit rate, last 10 days")
     except Exception as e:  # noqa: BLE001
         print(f"Home chart failed: {e}")
-    write("index.html", "home.html", "home", news=nws, home_chart=home_chart, season=season, slate=sl, n_players=len(res["players"]), n_lines=n_lines,
+    try:  # Your board tonight (update 84): favorites 75%+, proven tipsters, safe lines at a good price, cushion combo
+        import myboard
+        board = myboard.build(ctx.get("tipsters"), ctx.get("safelines"), ctx.get("favorites"), ctx.get("injuries"))
+    except Exception as e:  # noqa: BLE001
+        board = None
+        print(f"Your board failed: {e}")
+    write("index.html", "home.html", "home", news=nws, board=board, badge=teams.badge, home_chart=home_chart, season=season, slate=sl, n_players=len(res["players"]), n_lines=n_lines,
           n_graded=sum(1 for p in preds if p["status"] == "graded"), tops=tops, edge=edge, source_rows=source_rows,
           top_all=top_all, top_groups=top_groups, record=record, tiles=tiles, boards=boards,
           maturity=grade.maturity(ctx["cal"]), bt=bt,
