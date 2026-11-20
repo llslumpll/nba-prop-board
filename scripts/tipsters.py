@@ -237,6 +237,39 @@ CUSH_300_HI = 0.85
 CUSH_MAX_LEGS = 12
 
 
+def split_leg(leg: dict, rows: dict) -> dict | None:
+    """For a two/three-stat pick (P+A, P+R, R+A, PRA) Kalshi doesn't list (update 88): check the rebounds and
+    assists parts the player has a Kalshi ladder for (points parts lost in the replay) and keep the most upside: the rung
+    costing 75-92% where the model's chance beats the price by the most (ties: the likelier rung)."""
+    import model as _model
+    over = leg.get("side", "over") == "over"
+    if not over or leg.get("stat") not in ("pa", "pr", "ra", "pra"):
+        return None
+    best = None
+    for comp in PARTS[leg["stat"]]:
+        if comp == "pts":   # replay Oct 31-Nov 19: points parts hit 37/48 (77%) vs about 85% price; rebounds 94/108, assists 55/62
+            continue
+        r = rows.get((_norm(leg["player"]), comp))
+        if not r or not r.get("kladder"):
+            continue
+        mu, var = r.get("blend_mean") or r.get("projected"), r.get("var")
+        for rung, _bid, ask in r["kladder"]:
+            if not ask:
+                continue
+            cost = _kcost(ask)
+            if not CUSH_LO <= cost <= CUSH_HI:
+                continue
+            p = _model.prob_over(comp, mu, var, rung - 0.5) if mu is not None and var else None
+            if p is None:
+                continue
+            key = (round(p - cost, 3), p)
+            if best is None or key > best[0]:
+                best = (key, {"player": leg["player"], "stat": comp, "rung": rung, "line": rung - 0.5, "side": "over",
+                              "p": round(cost, 4), "model_p": round(p, 3), "game_id": r.get("game_id"),
+                              "their_line": float(leg["line"]), "split_from": leg["stat"]})
+    return best[1] if best else None
+
+
 def cushion_leg(leg: dict, prow: dict | None) -> dict | None:
     """The user's cushion (update 87): soften their line by the stat's cushion (points 5, rebounds 3, assists 2.5,
     threes 1, PRA 6, two-stat combos 5 / R+A 3), then take the Kalshi rung nearest to that which costs 75-85% with
@@ -368,10 +401,14 @@ def sync(sl: dict, now: datetime | None = None) -> None:
         pool, seen = [], set()
         for l, src, pid in cand:
             prow = rows.get((_norm(l["player"]), l["stat"]))
-            tip = by_gid.get(prow.get("game_id")) if prow else None
+            anyrow = prow or next((rows.get((_norm(l["player"]), c_)) for c_ in PARTS.get(l["stat"], ())
+                                   if rows.get((_norm(l["player"]), c_))), None)
+            tip = by_gid.get(anyrow.get("game_id")) if anyrow else None
             if not tip or now >= tip or _norm(l["player"]) in seen:
                 continue
-            c = cushion_leg(l, prow)
+            c = cushion_leg(l, prow) if prow else None
+            if not c:   # a combo stat Kalshi doesn't list (or no rung in range): use its best single-stat part
+                c = split_leg(l, rows)
             if c:
                 seen.add(_norm(c["player"]))
                 pool.append({**c, "from": pid, "tipster": src})
