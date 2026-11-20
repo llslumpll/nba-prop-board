@@ -7,6 +7,7 @@
 {% macro legtxt(l) -%}{% if l.kind == 'spread' %}<span class="pp-pick pp-over">{{ l.team }} {{ '%+g'|format(l.line) }}</span>{% elif l.kind == 'total' %}{{ l.game or l.team }} <span class="pp-pick {{ 'pp-over' if l.side == 'over' else 'pp-under' }}">{{ 'OVER' if l.side == 'over' else 'UNDER' }} {{ l.line|fmtline }} TOTAL</span>{% else %}{{ l.player }} <span class="pp-pick {{ 'pp-over' if l.side == 'over' else 'pp-under' }}">{{ 'OVER' if l.side == 'over' else 'UNDER' }} {{ l.line|fmtline }} {{ tp.lab.get(l.stat, l.stat_label or l.stat) }}</span>{% endif %}{% if l.p %} <span class="dim small">{{ (l.p * 100)|round|int }}%</span>{% endif %}{%- endmacro %}
 {% macro spreadtxt(r) -%}<span class="pp-pick pp-over">{{ r.team_name|upper }} {{ '%+g'|format(r.line) }}</span>{%- endmacro %}
 {% macro res_icon(res) -%}{{ {'hit': '&#10004;', 'miss': '&#10008;', 'push': '&ndash;', 'void': '&ndash;'}.get(res, '&#9675;')|safe }}{%- endmacro %}
+{% import "_cushion.html" as cz %}
 {% block content %}
 <h1>Tipsters</h1>
 <p class="lede">The accounts you follow, checked against final scores. Only the ones with a <b>real, honestly posted winning record</b> are tracked, and every pick they post from now on is logged before tip and graded here.</p>
@@ -46,17 +47,14 @@
   {% endfor %}
   </div>{% endif %}
   {% endfor %}
-  <h2 class="hv-h3">Cushion combo</h2>
-  <p class="small dim">Your style, built from their legs: each prop over moved one Kalshi rung safer (for example 3.5 AST &rarr; 3+), kept only if the leg costs {{ 65 }}&ndash;{{ 82 }}% with the fee, 2&ndash;4 legs. It locks when its first game tips.</p>
+  <h2 class="hv-h3">Cushion combos</h2>
+  <p class="small dim">Your alt-line idea: every prop from the tracked cappers (plus the legs inside Goblin's combo and Sam's safest slip, and Safe Lines) softened by a cushion &mdash; points {{ tp.cush_soft.pts }}, rebounds {{ tp.cush_soft.reb }}, assists {{ tp.cush_soft.ast }}, threes {{ tp.cush_soft.fg3m }}, PRA {{ tp.cush_soft.pra }} &mdash; then the nearest Kalshi rung that costs 75&ndash;85% with the fee (e.g. 6.5 REB &rarr; 4+). Safest legs first, as many as it takes to pay about +300, +400 and +500. "Confident" shows the one-rung-safer number (6+) for players you trust more. Locks when its first game tips.</p>
   {% set cb = (tp.combos or [])|selectattr('date', 'equalto', tp.today)|list %}
-  {% if cb %}{% set c = cb[0] %}
-  <div class="pz-grid"><article class="pz-card {{ 'pz-pending' if c.status != 'graded' else ('pz-won' if c.hit else 'pz-lost') }}">
-    <div class="pz-head"><div><div class="pz-title">CUSHION COMBO &middot; {{ c.legs|length }} LEGS</div><div class="pz-sub">{{ 'LOCKED' if c.locked else 'UPDATES TILL FIRST TIP' }}</div></div>
-      <div class="pz-nums"><b>{{ '%.1f'|format(c.pays) }}x</b><span>pays about</span></div></div>
-    <div class="pz-tags"><span class="u-tag u-0">TRACKING ONLY</span> <span class="anchor-tag">ALL LEGS ON KALSHI</span></div>
-    <ul class="pz-legs">{% for l in c.legs %}<li class="pz-leg {{ 'pz-hit' if l.res == 'hit' else ('pz-miss' if l.res == 'miss' else '') }}"><span class="pz-res">{{ res_icon(l.res) }}</span><span class="pz-what">{{ l.player }} <span class="pp-pick pp-over">{{ l.rung }}+ {{ tp.lab[l.stat] }}</span>{% if l.actual is not none %} <span class="dim small">had {{ l.actual }}</span>{% endif %}</span><span class="pz-meta"><b>{{ tp.p_to_am(l.p) }}</b> <span class="dim small">Kalshi &middot; from {{ {'doc': 'Dr. Profit', 'wiz': 'WizBetz', 'byrn': 'byrnetts', 'peaky': 'PeakyProps', 'diogo': 'tipsterdiogo', 'izzo': 'IzzoBets'}.get(l.tipster, l.tipster) }}</span></span></li>{% endfor %}</ul>
-  </article></div>
-  {% else %}<p class="small dim">No combo today: it needs 2+ of their prop overs with a Kalshi rung one step safer that costs {{ 65 }}&ndash;{{ 82 }}%.</p>{% endif %}
+  {% if cb and cb[0].v == 2 %}{% set c = cb[0] %}
+  {% if c.tiers %}<div class="pz-grid">{% for t in c.tiers %}{{ cz.cushion_card(t, c, tp.lab, tp.p_to_am) }}{% endfor %}</div>{% endif %}
+  {% set used = c.tiers[-1].legs|length if c.tiers else 0 %}
+  {% if c.pool|length > used %}<p class="small dim">{% if not c.tiers %}Not enough legs for +300 yet ({{ '%.1f'|format(c.pays) }}x with all of them). {% endif %}Cushion legs available{% if c.tiers %} beyond the +500{% endif %}: {% for l in c.pool[used:] %}{{ l.player }} {{ '' if l.side == 'over' else 'NO ' }}{{ l.rung }}+ {{ tp.lab.get(l.stat, l.stat) }} ({{ tp.p_to_am(l.p) }}){{ ', ' if not loop.last }}{% endfor %}.</p>{% endif %}
+  {% else %}<p class="small dim">No cushion combo yet today: it needs enough cushion legs priced 75&ndash;85% on Kalshi to reach about +300. It rebuilds every build as picks come in.</p>{% endif %}
 </section>
 
 <section class="hidden" data-tab-panel="tp:record">
@@ -85,7 +83,9 @@
   <h2 class="hv-h3">Tail test &amp; cushion combo</h2>
   <div class="hv-rec pz-board">
     <div class="hv-tile"><b>{{ tp.tail.w if tp.tail else 0 }}-{{ tp.tail.l if tp.tail else 0 }}</b><span>tail test &middot; at your price{% if tp.tail and tp.tail.n %} &middot; {{ u(tp.tail.u) }}{% endif %}</span></div>
-    <div class="hv-tile"><b>{{ tp.combo_rec.hits }}/{{ tp.combo_rec.n }}</b><span>cushion combos cashed{% if tp.combo_rec.n %} &middot; {{ u(tp.combo_rec.u) }}{% endif %}</span></div>
+    {% for tgt, r in tp.tier_rec.items() %}<div class="hv-tile"><b>{{ r.hits }}/{{ r.n }}</b><span>cushion +{{ ((tgt - 1) * 100)|int }} cashed{% if r.n %} &middot; {{ u(r.u) }}{% endif %}</span></div>{% endfor %}
+    {% if tp.pool_rec.n %}<div class="hv-tile"><b>{{ tp.pool_rec.w }}/{{ tp.pool_rec.n }}</b><span>cushion legs hit &middot; priced {{ tp.pool_rec.p }}%</span></div>{% endif %}
+    {% if tp.combo_rec.n %}<div class="hv-tile"><b>{{ tp.combo_rec.hits }}/{{ tp.combo_rec.n }}</b><span>old one-rung combo &middot; {{ u(tp.combo_rec.u) }}</span></div>{% endif %}
   </div>
   <p class="small dim">Nothing here carries a stake. A tipster would earn one only after {{ tp.earn_n }}+ tail-test picks with a profit at the price you could actually get.</p>
 </section>
@@ -154,7 +154,7 @@
     <li><b>Who is tracked:</b> only accounts whose full public record beat the market since opening night and who post their losses (Dr. Profit, WizBetz, and since Nov 19 byrnetts, PeakyProps, tipsterdiogo and IzzoBets, found in a search of free accounts; IzzoBets never posts his misses, but every pick he posted before tip is graded here), plus Goblin's spread legs and the safest (lowest) tier of Sam's daily lotto ladder, tagged SHORT PRICE when it pays +210 or less. Checked on Nov 18; anyone can be added or dropped later.</li>
     <li><b>Logging:</b> their picks are added when you ask Claude to log them, with the time each was posted and the odds they posted. Picks posted after tip are not counted.</li>
     <li><b>Tail test:</b> the first build that sees a pick before its game tips records the best price you could get right then (Kalshi or Polymarket US at the same number, or FanDuel at the same line), and the pick is also graded at that price. It answers "does tailing pay for <i>me</i>".</li>
-    <li><b>Cushion combo:</b> 2&ndash;4 of their prop overs moved one Kalshi rung safer, legs costing 65&ndash;82%, locked at the first tip. It tests your alt-line idea on picks from people with a real record.</li>
+    <li><b>Cushion combos:</b> their props softened by a per-stat cushion to the Kalshi rung costing 75&ndash;85%, stacked safest first into about +300, +400 and +500 combos, locked at the first tip. Before Nov 20 it was one rung safer at 65&ndash;82%, 2&ndash;4 legs (kept as "old one-rung combo").</li>
     <li><b>Grading:</b> final box scores, the same night. A push or a player who doesn't play is voided. Nothing is ever removed.</li>
     <li><b>Safe lines:</b> @PrizePicksTacos' daily list of very safe lines, logged with his posted odds and graded the same night. Tonight's lines are priced at the same number on Kalshi / Polymarket US (or FanDuel at the same line); the first price seen before tip is kept so the list is also graded at your price.</li>
     <li><b>Stakes:</b> none. Everything here is tracking only until a tipster has {{ tp.earn_n }}+ tail-test picks with a profit at your price.</li>
