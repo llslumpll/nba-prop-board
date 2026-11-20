@@ -59,6 +59,7 @@ class Params:
     a_pace: float = 0.5
     a_def: float = 0.5
     def_k: float = 20.0
+    def_pos: str = "pos"    # update 86: "dpos" = PG/SG/SF/PF/C tested Nov 20: no better than G/F/C (2025-26 MAE +0.003 pts), so the model keeps G/F/C
     home: float = 0.01
     b2b_rate: float = -0.02
     rest3_rate: float = 0.01
@@ -186,29 +187,29 @@ def _team_season(tg: pl.DataFrame) -> pl.DataFrame:
         ((pl.col("pf").sum() - pl.col("pa").sum()) / pl.col("game_poss").sum() * 100).alias("ts_net"))
 
 
-def _def_state(played: pl.DataFrame, tg: pl.DataFrame) -> pl.DataFrame:
+def _def_state(played: pl.DataFrame, tg: pl.DataFrame, col: str = "pos") -> pl.DataFrame:
     """What each defense allowed to each position, per 100 possessions,
     season to date, AFTER each game."""
-    allowed = played.group_by(["game_id", "opp", "pos", "date", "season"]).agg(
+    allowed = played.with_columns(pl.col(col).alias("dp")).group_by(["game_id", "opp", "dp", "date", "season"]).agg(
         [pl.col(s).sum() for s in STATS]).rename({"opp": "def_team"})
     poss = tg.select("game_id", pl.col("team").alias("def_team"), "game_poss")
-    allowed = allowed.join(poss, on=["game_id", "def_team"], how="left").sort(["def_team", "pos", "date"])
+    allowed = allowed.join(poss, on=["game_id", "def_team"], how="left").sort(["def_team", "dp", "date"])
     return allowed.with_columns(
-        [pl.col(s).cum_sum().over(["def_team", "pos", "season"]).alias(f"d_{s}") for s in STATS]
-        + [pl.col("game_poss").cum_sum().over(["def_team", "pos", "season"]).alias("d_poss"),
-           pl.col("game_poss").cum_count().over(["def_team", "pos", "season"]).alias("d_n")]
-    ).select(["def_team", "pos", pl.col("date").alias("d_date"), pl.col("season").alias("d_season"),
+        [pl.col(s).cum_sum().over(["def_team", "dp", "season"]).alias(f"d_{s}") for s in STATS]
+        + [pl.col("game_poss").cum_sum().over(["def_team", "dp", "season"]).alias("d_poss"),
+           pl.col("game_poss").cum_count().over(["def_team", "dp", "season"]).alias("d_n")]
+    ).select(["def_team", "dp", pl.col("date").alias("d_date"), pl.col("season").alias("d_season"),
               "d_poss", "d_n"] + [f"d_{s}" for s in STATS])
 
 
-def _def_season(played: pl.DataFrame, tg: pl.DataFrame) -> pl.DataFrame:
-    allowed = played.group_by(["game_id", "opp", "pos", "season"]).agg(
+def _def_season(played: pl.DataFrame, tg: pl.DataFrame, col: str = "pos") -> pl.DataFrame:
+    allowed = played.with_columns(pl.col(col).alias("dp")).group_by(["game_id", "opp", "dp", "season"]).agg(
         [pl.col(s).sum() for s in STATS]).rename({"opp": "def_team"})
     poss = tg.select("game_id", pl.col("team").alias("def_team"), "game_poss")
     a = allowed.join(poss, on=["game_id", "def_team"], how="left")
-    per = a.group_by(["def_team", "pos", "season"]).agg(
+    per = a.group_by(["def_team", "dp", "season"]).agg(
         [(pl.col(s).sum() / pl.col("game_poss").sum() * 100).alias(f"ds_{s}") for s in STATS])
-    lg = a.group_by(["pos", "season"]).agg(
+    lg = a.group_by(["dp", "season"]).agg(
         [(pl.col(s).sum() / pl.col("game_poss").sum() * 100).alias(f"lg_{s}") for s in STATS])
     return per, lg
 
@@ -247,8 +248,9 @@ def project(box: pl.DataFrame, targets: pl.DataFrame, p: Params | None = None,
     posr = _pos_rates(played)
     tstate = _team_state(tg)
     tseason = _team_season(tg)
-    dstate = _def_state(played, tg)
-    dseason, dleague = _def_season(played, tg)
+    dcol = p.def_pos if p.def_pos in played.columns else "pos"
+    dstate = _def_state(played, tg, dcol)
+    dseason, dleague = _def_season(played, tg, dcol)
 
     t = targets.with_columns(pl.col("date").cast(pl.Date))
     # --- player state as of the last game before this date
@@ -303,11 +305,18 @@ def project(box: pl.DataFrame, targets: pl.DataFrame, p: Params | None = None,
             ((n * cur_net.fill_null(0) + p.team_k * prior_net) / (n + p.team_k)).alias(f"{side}_net"),
         )
 
+    # the player's position for the defense lookup: five positions when available (update 86)
+    if dcol != "pos" and dcol in box.columns:
+        dmap = box.select("player_id", dcol).unique("player_id", keep="last").rename({dcol: "dp"})
+        t = t.join(dmap, on="player_id", how="left").with_columns(
+            pl.coalesce("dp", pl.col("pos").replace({"G": "SG", "F": "SF"})).alias("dp"))
+    else:
+        t = t.with_columns(pl.col("pos").alias("dp"))
     ds = dstate.rename({"def_team": "opp"})
-    t = _asof(t, ds, "date", "d_date", ["opp", "pos"])
+    t = _asof(t, ds, "date", "d_date", ["opp", "dp"])
     dprev = dseason.rename({"def_team": "opp"}).with_columns((pl.col("season") + 1).alias("season"))
     lprev = dleague.with_columns((pl.col("season") + 1).alias("season"))
-    t = t.join(dprev, on=["opp", "pos", "season"], how="left").join(lprev, on=["pos", "season"], how="left")
+    t = t.join(dprev, on=["opp", "dp", "season"], how="left").join(lprev, on=["dp", "season"], how="left")
     d_same = (pl.col("d_season") == pl.col("season")).fill_null(False)
     d_n = pl.when(d_same).then(pl.col("d_n")).otherwise(0)
     for s in STATS:
