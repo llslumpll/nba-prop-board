@@ -319,14 +319,44 @@ def cushion_leg(leg: dict, prow: dict | None) -> dict | None:
     return out
 
 
+SPLIT_TARGET = 5.0     # update 97: each slip pays about +400 or more
+SPLIT_MAX_LEGS = 14
+
+
+def _who(l: dict) -> str:
+    return ("team:" + str(l.get("team"))) if l.get("stat") == "ml" else _norm(l.get("player", ""))
+
+
 def cushion_tiers(legs: list[dict]) -> list[dict]:
-    """+300: only cushion props priced 75-85% (the version that did best in the Nov 20 replay).
-    +400 / +550 / +700: every safe leg (cushion props up to 92% and 75%+ favorites), safest first, as few as it takes."""
+    """Update 97 (Nov 20 2026, the user's call): two separate slips, no player in both.
+    Slip 1 "strongest" = the safest legs, safest first, until it pays about +400.
+    Slip 2 = the next safest legs from OTHER players, until it pays about +400.
+    Before this the +400 / +550 / +700 slips were stacked on the same legs, so one miss lost all three: on tonight's
+    legs at Kalshi prices the stacked set cashed something on 17% of simulated nights for 3U, the split pair 30% for 2U.
+    One leg per player (his safest)."""
+    best: dict = {}
+    for l in sorted(legs, key=lambda l: -l["p"]):
+        best.setdefault(_who(l), l)
+    order = sorted(best.values(), key=lambda l: -l["p"])
     tiers = []
-    t300 = _stack([l for l in legs if l.get("stat") != "ml" and l["p"] <= CUSH_300_HI], (4.0,))
-    for t in t300:
-        t["only"] = "cushion"
-    return t300 + _stack(legs, CUSH_TIERS[1:])
+    for slot in (1, 2):
+        pay, used = 1.0, []
+        for l in order:
+            if len(used) >= SPLIT_MAX_LEGS:
+                break
+            used.append(l)
+            pay /= l["p"]
+            if pay >= SPLIT_TARGET:
+                break
+        if pay < SPLIT_TARGET or not used:
+            break
+        payk = 1.0
+        for l in used:
+            payk /= (l.get("ask") or l["p"])
+        tiers.append({"slot": slot, "target": SPLIT_TARGET, "legs": used, "pays": round(pay, 2), "pays_k": round(payk, 2)})
+        taken = {_who(l) for l in used}
+        order = [l for l in order if _who(l) not in taken]
+    return tiers
 
 
 def _stack(legs: list[dict], targets) -> list[dict]:
@@ -458,7 +488,7 @@ def sync(sl: dict, now: datetime | None = None) -> None:
             pay = 1.0
             for l in pool:
                 pay /= l["p"]
-            st["combos"][date] = {"v": 2, "tiers": tiers, "pool": sorted(pool, key=lambda l: -l["p"]),
+            st["combos"][date] = {"v": 3, "tiers": tiers, "pool": sorted(pool, key=lambda l: -l["p"]),
                                   "legs": tiers[-1]["legs"] if tiers else sorted(pool, key=lambda l: -l["p"]),
                                   "pays": tiers[-1]["pays"] if tiers else round(pay, 2),
                                   "built": now.strftime("%Y-%m-%d %H:%M UTC"), "locked": False}
@@ -636,13 +666,13 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
         return legs, status, status == "graded" and "miss" not in res and any(x == "hit" for x in res)
 
     for d, c in sorted(st.get("combos", {}).items(), reverse=True):
-        if c.get("v") == 2:   # update 87: three tiers (+300 / +400 / +500) from 75-85% cushion legs
+        if c.get("v") in (2, 3):   # update 87 (v2 stacked tiers) / update 97 (v3 two split slips): three tiers (+300 / +400 / +500) from 75-85% cushion legs
             tiers = []
             for t in c["tiers"]:
                 legs, status, hit = _grade_combo(t["legs"], d)
                 tiers.append({**t, "legs": legs, "status": status, "hit": hit})
-                tier_rows.append({"date": d, "target": t["target"], "pays": t["pays"], "status": status, "hit": hit,
-                                  "locked": c.get("locked")})
+                tier_rows.append({"date": d, "target": t["target"], "pays": t.get("pays_k") or t["pays"], "status": status,
+                                  "hit": hit, "locked": c.get("locked"), "slot": t.get("slot")})
             pool, _, _ = _grade_combo(c.get("pool") or [], d)
             combos.append({"date": d, **c, "tiers": tiers, "pool": pool, "legs": tiers[-1]["legs"] if tiers else pool,
                            "status": tiers[-1]["status"] if tiers else "none", "hit": tiers[-1]["hit"] if tiers else False})
@@ -650,9 +680,14 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
         legs, status, hit = _grade_combo(c["legs"], d)
         combos.append({"date": d, **c, "legs": legs, "status": status, "hit": hit})
     cg = [c for c in combos if c["status"] == "graded" and c.get("locked") and c.get("v") != 2]
+    split_rec = {}
+    for slot in (1, 2):
+        rs = [r for r in tier_rows if r.get("slot") == slot and r["status"] == "graded" and r.get("locked")]
+        split_rec[slot] = {"n": len(rs), "hits": sum(r["hit"] for r in rs),
+                           "u": round(sum((r["pays"] - 1) if r["hit"] else -1 for r in rs), 2)}
     tier_rec = {}
     for tgt in CUSH_TIERS:
-        rs = [r for r in tier_rows if r["target"] == tgt and r["status"] == "graded" and r.get("locked")]
+        rs = [r for r in tier_rows if r["target"] == tgt and not r.get("slot") and r["status"] == "graded" and r.get("locked")]
         tier_rec[tgt] = {"n": len(rs), "hits": sum(r["hit"] for r in rs),
                          "u": round(sum((r["pays"] - 1) if r["hit"] else -1 for r in rs), 2)}
     pool_legs = [l for c in combos for l in (c.get("pool") or []) if c.get("locked") and l.get("res") in ("hit", "miss")]
@@ -692,7 +727,7 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
             "tail": rec(sorted(tail_all, key=lambda r: r["date"]), "your_units"), "earn_n": EARN_N,
             "combos": combos, "combo_rec": {"n": len(cg), "hits": sum(c["hit"] for c in cg),
                                             "u": round(sum((c["pays"] - 1) if c["hit"] else -1 for c in cg), 2)},
-            "tier_rec": tier_rec, "pool_rec": pool_rec, "cush_soft": CUSH_SOFT,
+            "tier_rec": tier_rec, "split_rec": split_rec, "pool_rec": pool_rec, "cush_soft": CUSH_SOFT,
             "season_from": min((r["date"] for r in allp), default=None), "lab": LAB, "p_to_am": p_to_am,
             "spot_rec": {k: rec(sorted(v, key=lambda r: r["date"])) for k, v in spot_rec.items()}, "spot_min": SPOT_MIN,
             "juice": JUICE, "agree_rec": agree_rec, "agree_min": int(AGREE_MIN)}
