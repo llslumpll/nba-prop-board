@@ -55,6 +55,8 @@ KNOBS = {
     # update 36: with/without history (wowy.py). Backtested Oct 29 on three stretches of 2025-26: every weight
     # made projections slightly worse, so both start at 0; the weekly run keeps testing a step up.
     "role_rate_w":   ("weight on his scoring rate in past games with similar minutes", "add", 0.25, 0.0, 1.5),
+    "zone_reb_w":    ("weight on rebound zones (where the misses come from vs what the defense allows)", "add", 0.25, 0.0, 1.5),
+    "zone_ast_w":    ("weight on assist zones (the shot his pass sets up vs what the defense allows)", "add", 0.25, 0.0, 1.5),
     "role_early":    ("how long the similar-minutes rate matters into the season (games)", "mul", 1.5, 2.0, 40.0),
     "zone_w":        ("weight on shot-zone matchups (where he scores vs where the defense gives up points)", "add", 0.25, 0.0, 1.5),
     "moved_k":       ("how much last season counts for players on a new team", "add", 0.25, 0.0, 1.0),

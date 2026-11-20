@@ -126,6 +126,14 @@ def load_fit() -> dict:
         # season. Inside the full model, walk-forward on 2025-26: overall miss -0.20% (Dec), -0.14% (Feb), -0.21% (Mar),
         # better on points, threes, PRA, P+R and P+A in every month. No effect in a season's first ~4 weeks.
         prm.update(zone_w=0.75)
+    if "zone_ast_w" not in prm:
+        # Nov 20 (update 91): assist zones (the shot his pass set up) and rebound zones (where the miss came from) vs
+        # what the opponent allows there, from play-by-play; only once the opponent has 15+ games this season.
+        # Walk-forward inside the full model (players 20+ min), change in average miss with rebounds 0.5 / assists 1.0:
+        # Dec 2025 reb -0.04% ast -0.08% PRA -0.02%; Feb 2026 reb -0.19% ast -0.21% R+A -0.23%; Mar 2026 reb -0.18%
+        # ast -0.31% R+A -0.27%; this season (defenses mostly under 15 games) about 0. Only miss: R+A +0.06% in Dec.
+        # Rebounds at 1.0 helped more in Feb/Mar but R+A was +0.12% in Dec, so the safer 0.5. The weekly tuner can move both.
+        prm.update(zone_reb_w=0.5, zone_ast_w=1.0)
     if "moved_k" not in prm:
         # Nov 3 (update 57): players on a NEW team lean on last season's rates half as much (their role and teammates
         # changed). On those players only: PRA miss 6.370 -> 6.359 this season, 6.514 -> 6.476 in 2025-26's first three

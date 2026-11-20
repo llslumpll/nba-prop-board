@@ -101,6 +101,8 @@ class Params:
     role_early: float = 0.0   # >0: role weight fades as this season's games pile up: x role_early / (games + role_early)
     zone_w: float = 0.0       # shot-zone matchups (zones.py): weight on the opponent's points allowed by zone vs the
     zone_min_g: int = 15      # player's scoring mix; only once the opponent has this many games this season (update 59)
+    zone_reb_w: float = 0.0   # update 91 test: rebounds by where the miss came from vs his mix (zones.factors_x)
+    zone_ast_w: float = 0.0   # update 91 test: assists by the shot set up vs his mix
     team_k: float = 15.0      # games of last season's team pace / strength behind this season's (update 57 test)
     moved_k: float = 1.0      # players on a NEW team: k (prior weight on last season's rates) x this (1 = no change)
     share_own_w: float = 0.5  # shared-production norm: weight on the team's own LAST-season output (rest = league)
@@ -530,6 +532,21 @@ def project(box: pl.DataFrame, targets: pl.DataFrame, p: Params | None = None,
                               (pl.col("proj_fg3m") * pl.col("f_zone_3")).alias("proj_fg3m")])
     else:
         t = t.with_columns(f_zone_pts=pl.lit(1.0), f_zone_3=pl.lit(1.0))
+    if p.zone_reb_w > 0 or p.zone_ast_w > 0:
+        try:
+            import zones
+            zx = zones._cast_join_keys(t, zones.factors_x(t.select("game_id", "player_id", "opp", "date", "season"),
+                                                          min_g=p.zone_min_g))
+            t = t.join(zx, on=["game_id", "player_id"], how="left")
+        except Exception as e:  # noqa: BLE001
+            print(f"Rebound/assist zones skipped: {e}")
+            t = t.with_columns(z_reb=pl.lit(None, dtype=pl.Float64), z_ast=pl.lit(None, dtype=pl.Float64))
+        fr = (1 + p.zone_reb_w * pl.col("z_reb").fill_null(0.0)).clip(0.9, 1.1)
+        fa = (1 + p.zone_ast_w * pl.col("z_ast").fill_null(0.0)).clip(0.9, 1.1)
+        d_r, d_a = pl.col("proj_reb") * (fr - 1), pl.col("proj_ast") * (fa - 1)
+        t = t.with_columns([(pl.col("proj_pra") + d_r + d_a).alias("proj_pra"), (pl.col("proj_pr") + d_r).alias("proj_pr"),
+                            (pl.col("proj_pa") + d_a).alias("proj_pa"), (pl.col("proj_ra") + d_r + d_a).alias("proj_ra"),
+                            (pl.col("proj_reb") * fr).alias("proj_reb"), (pl.col("proj_ast") * fa).alias("proj_ast")])
 
     # --- shared-production check. Each player's rate was earned in his own
     # role; put several lead options on one roster and their projections add

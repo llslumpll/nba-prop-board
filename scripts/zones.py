@@ -386,3 +386,49 @@ def zone_lines(player_id, opp: str, stat: str) -> list[dict]:
         if z:
             out.append(z)
     return out
+
+
+def _sig(z: pl.DataFrame, cols: list[str], t: pl.DataFrame, name: str, min_g: int, k: float, min_tot: float) -> pl.DataFrame:
+    """Walk-forward zone signal (same method as factors() for points): for each target row, the opponent's
+    allowed-by-zone vs league (this season, games before the date, shrunk with k games, null below min_g games),
+    weighted by the player's own mix over the same columns (this season + last, games before the date).
+    Returns game_id, player_id, <name> = sum(share_z x (f_z - 1))."""
+    d = z.group_by(["game_id", "date", "season", "def_team"]).agg([pl.col(c).sum() for c in cols]).sort("date")
+    lg = d.group_by(["season", "date"]).agg([pl.col(c).sum().alias(f"s_{c}") for c in cols] + [pl.len().alias("n")]).sort("date")
+    lg = lg.with_columns([(pl.col(f"s_{c}").cum_sum().over("season") - pl.col(f"s_{c}")).alias(f"lp_{c}") for c in cols]
+                         + [(pl.col("n").cum_sum().over("season") - pl.col("n")).alias("lpn")])
+    d = d.with_columns([(pl.col(c).cum_sum().over(["season", "def_team"]) - pl.col(c)).alias(f"p_{c}") for c in cols]
+                       + [(pl.int_range(0, pl.len()).over(["season", "def_team"])).alias("pgp")])
+    d = d.join(lg.select(["season", "date", "lpn"] + [f"lp_{c}" for c in cols]), on=["season", "date"])
+    dd = d.select(pl.col("def_team").alias("opp"), pl.col("date").alias("d_date"), "season", "pgp",
+                  *[pl.col(c).alias(f"g_{c}") for c in cols], *[f"p_{c}" for c in cols], "lpn", *[f"lp_{c}" for c in cols])
+    dd = dd.with_columns([(pl.col(f"p_{c}") + pl.col(f"g_{c}")).alias(f"q_{c}") for c in cols]
+                         + [(pl.col("pgp") + 1).alias("n_after")])
+    tt = t.select(pl.col("game_id").cast(pl.Int64), pl.col("player_id").cast(pl.Int64), pl.col("opp").cast(pl.Utf8),
+                  pl.col("date").cast(pl.Date), pl.col("season").cast(pl.Int64)).sort("date")
+    dd = dd.with_columns(pl.col("d_date").cast(pl.Date), pl.col("season").cast(pl.Int64), pl.col("opp").cast(pl.Utf8)).sort("d_date")
+    j = tt.join_asof(dd, left_on="date", right_on="d_date", by=["opp", "season"], strategy="backward", allow_exact_matches=False)
+    j = j.with_columns([pl.when(pl.col("n_after") >= min_g).then(
+        ((pl.col(f"q_{c}") / pl.col("n_after")) / (pl.col(f"lp_{c}") / pl.col("lpn").clip(1, None)) * pl.col("n_after") + k)
+        / (pl.col("n_after") + k)).otherwise(None).alias(f"f_{c}") for c in cols])
+    pp = z.group_by(["player_id", "date"]).agg([pl.col(c).sum() for c in cols]).sort("date")
+    pp = pp.with_columns([pl.col(c).cum_sum().over("player_id").alias(f"c_{c}") for c in cols]).select(
+        pl.col("player_id").cast(pl.Int64), pl.col("date").cast(pl.Date).alias("p_date"), *[f"c_{c}" for c in cols]).sort("p_date")
+    j = j.sort("date").join_asof(pp, left_on="date", right_on="p_date", by="player_id", strategy="backward",
+                                 allow_exact_matches=False)
+    tot = sum(pl.col(f"c_{c}").fill_null(0) for c in cols)
+    j = j.with_columns(pl.when(tot >= min_tot).then(
+        sum(pl.col(f"c_{c}").fill_null(0) / tot * (pl.col(f"f_{c}") - 1) for c in cols)).otherwise(None).alias(name))
+    return j.select("game_id", "player_id", name)
+
+
+def factors_x(t: pl.DataFrame, min_g: int = 15, k: float = 10.0) -> pl.DataFrame:
+    """Update 91 test: z_reb (rebounds by where the miss came from) and z_ast (assists by the shot set up)."""
+    z = _load_x()
+    sch = {"game_id": pl.Int64, "player_id": pl.Int64, "z_reb": pl.Float64, "z_ast": pl.Float64}
+    if not z.height or not t.height:
+        return pl.DataFrame(schema=sch)
+    z = z.filter(pl.col("season_type") == 2) if "season_type" in z.columns else z
+    r = _sig(z, [f"r_{c}" for c in ZONES], t, "z_reb", min_g, k, 25)
+    a = _sig(z, [f"a_{c}" for c in ZONES], t, "z_ast", min_g, k, 25)
+    return r.join(a, on=["game_id", "player_id"], how="full", coalesce=True)
