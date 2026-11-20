@@ -2,7 +2,7 @@
 (function () {
   var D = JSON.parse(document.getElementById('lab-data').textContent), root = document.getElementById('lab2');
   var LAB = {pts: 'PTS', reb: 'REB', ast: 'AST', fg3m: '3PM', pra: 'PRA', pa: 'P+A', pr: 'P+R', ra: 'R+A'};
-  var S = {stat: D.first || 'pts', n: 15, venue: 'all', vs: false, b2b: false, margin: 'all', min: 0, court: 'player', part: '', more: false};
+  var S = {stat: D.first || 'pts', n: 15, venue: 'all', vs: false, b2b: false, margin: 'all', min: 0, court: 'player', part: '', wo: '', more: false};
   function $(q) { return root.querySelector(q); }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]; }); }
   function avg(a) { return a.length ? a.reduce(function (x, y) { return x + y; }, 0) / a.length : null; }
@@ -14,6 +14,7 @@
       if (S.venue === 'home' && !g.home) return false; if (S.venue === 'away' && g.home) return false;
       if (S.vs && g.opp !== D.opp_raw) return false; if (S.b2b && !g.b2b) return false;
       if (S.margin === 'won' && g.m < 10) return false; if (S.margin === 'lost' && g.m > -10) return false;
+      if (S.wo) { var mt = (D.mates || []).filter(function (x) { return String(x.pid) === String(S.wo); })[0]; if (mt && mt.missed.indexOf(g.d) < 0) return false; }
       return g.min >= S.min; });
     return S.n ? r.slice(-S.n) : r;
   }
@@ -80,6 +81,24 @@
       if (g.ln[S.stat] != null) s += '<line x1="' + (x - 2) + '" x2="' + (x + bw + 2) + '" y1="' + y(g.ln[S.stat]) + '" y2="' + y(g.ln[S.stat]) + '" class="v2-tick"/>'; });
     if (ln != null) s += '<line x1="' + pad + '" x2="' + (W - pad) + '" y1="' + y(ln) + '" y2="' + y(ln) + '" class="v2-line"/><text x="2" y="' + (y(ln) + 5) + '" class="v2-lnl">' + ln + '</text>';
     return s + '</svg>';
+  }
+
+  /* Without teammates (update 95): his numbers in games a key teammate missed vs games they played (game level). */
+  function woTable() {
+    var M = D.mates || []; if (!M.length) return '';
+    var st = S.stat, lab = LAB[st];
+    function agg(gs) { if (!gs.length) return null; var v = avg(gs.map(function (g) { return g.v[st]; })), mn = avg(gs.map(function (g) { return g.min; })),
+      tot = gs.reduce(function (a, g) { return a + g.v[st]; }, 0), tm = gs.reduce(function (a, g) { return a + g.min; }, 0), fga = avg(gs.map(function (g) { return g.fga; }));
+      return {n: gs.length, v: v, mn: mn, p36: tm ? 36 * tot / tm : null, fga: fga}; }
+    var rowsH = M.map(function (x) {
+      var wo = agg(D.log.filter(function (g) { return x.missed.indexOf(g.d) >= 0; })), wi = agg(D.log.filter(function (g) { return x.missed.indexOf(g.d) < 0; }));
+      if (!wo || !wi) return '';
+      var up = wo.v - wi.v;
+      return '<tr class="' + (x.out ? 'v2-outrow' : '') + '"><td>' + esc(x.name) + (x.out ? ' <em class="v2-outt">OUT TONIGHT</em>' : '') + '</td><td><b>' + f1(wo.v) + '</b> <span class="dim">' + wo.n + 'g</span></td><td>' + f1(wi.v) + ' <span class="dim">' + wi.n + 'g</span></td><td class="' + (up > 0.5 ? 'stat-good' : (up < -0.5 ? 'stat-bad' : '')) + '">' + (up >= 0 ? '+' : '') + f1(up) + '</td><td>' + f1(wo.p36) + ' / ' + f1(wi.p36) + '</td><td>' + f1(wo.mn) + ' / ' + f1(wi.mn) + '</td><td>' + f1(wo.fga) + ' / ' + f1(wi.fga) + '</td></tr>';
+    }).join('');
+    if (!rowsH) return '';
+    return '<div class="v2-sub" style="margin-top:12px">Without teammates &middot; ' + lab + ' <span>games he missed vs played, this season</span></div><div class="v2-wot-wrap"><table class="v2-wot"><thead><tr><th>Teammate</th><th>Without</th><th>With</th><th>Diff</th><th>Per 36</th><th>Min</th><th>FGA</th></tr></thead><tbody>' + rowsH + '</tbody></table></div>' +
+      '<p class="v2-cap">Per 36 / Min / FGA: without / with. Small samples: a few games without someone can swing a lot.</p>';
   }
 
   /* Matchup panel (update 91): follows the stat tab. Points = where he scores; Threes = corner vs above-break;
@@ -156,11 +175,13 @@
     $('#v2-verdict').innerHTML = verdict(r);
     $('#v2-ctrl').innerHTML = '<div class="v2-tabs">' + Object.keys(LAB).map(function (s) { return b('stat', s, LAB[s]); }).join('') + '</div>' +
       '<div class="v2-tabs">' + b('n', 5, 'L5') + b('n', 10, 'L10') + b('n', 15, 'L15') + b('n', 0, 'Season') + '</div>' +
+      ((D.mates || []).length ? '<div class="v2-tabs v2-wo"><span class="v2-wol">Without:</span>' + b('wo', '', 'Anyone') + D.mates.map(function (x) { return b('wo', x.pid, esc(x.name.split(' ').slice(-1)[0]) + ' <span class="dim">' + x.missed.length + 'g</span>' + (x.out ? ' <em class="v2-outt">OUT TONIGHT</em>' : '')); }).join('') + '</div>' : '') +
       '<button data-t="more" class="v2-more ' + (S.more ? 'on' : '') + '">More filters' + ((S.venue !== 'all' || S.vs || S.b2b || S.margin !== 'all' || S.min) ? ' &bull;' : '') + '</button>' +
       (S.more ? '<div class="v2-morebox"><div class="v2-tabs">' + b('venue', 'all', 'Home+Away') + b('venue', 'home', 'Home') + b('venue', 'away', 'Away') + '</div><div class="v2-tabs">' + t('vs', 'Only vs ' + esc(D.opp)) + t('b2b', 'Back-to-backs') + '</div><div class="v2-tabs">' + b('margin', 'all', 'Any margin') + b('margin', 'won', 'Won by 10+') + b('margin', 'lost', 'Lost by 10+') + '</div><div class="v2-tabs">' + b('min', 0, 'Any min') + b('min', 25, '25+ min') + b('min', 30, '30+ min') + '</div></div>' : '');
     var ln = T().line, ov = r.filter(function (g) { return ln != null && g.v[S.stat] > ln; }).length;
     $('#v2-chart').innerHTML = '<div class="v2-ch"><b>' + LAB[S.stat] + ', last ' + r.length + ' games' + (ln != null ? ' vs ' + ln : '') + '</b><span class="v2-chs">' + (ln != null ? '<b>' + ov + '/' + r.length + ' over</b> &middot; avg ' + f1(avg(r.map(function (g) { return g.v[S.stat]; }))) : 'avg ' + f1(avg(r.map(function (g) { return g.v[S.stat]; })))) + '</span></div>' + (r.length ? chart(r) : '<p class="v2-cap">No games match these filters.</p>') +
       '<div class="v2-mini">' + [['MIN', 'min'], ['FGA', 'fga'], ['3PA', 'fg3a'], ['FTA', 'fta'], ['USG', 'usg']].map(function (c) { return '<div><b>' + f1(avg(r.map(function (g) { return g[c[1]]; }))) + '</b><span>' + c[0] + '</span></div>'; }).join('') + '</div>';
+    var wt = woTable(); if (wt) $('#v2-chart').innerHTML += wt;
     $('#v2-match').innerHTML = matchup();
     $('#v2-sim').innerHTML = similar();
   }
