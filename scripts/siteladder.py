@@ -223,3 +223,123 @@ def summary(box, today: str | None, sam: dict | None = None) -> dict:
         sam["price"] = round(100 * sam["p"] / sam["np"], 1) if sam.get("np") else None
     return {"tonight": next((n for n in nights if n["date"] == today), None), "nights": nights[:7],
             "rec": {k: rec[k] for k in sorted(rec)}, "legs": legs_rec, "sam": sam}
+
+
+# ---- update 96 (Nov 20 2026): Sam + model ---------------------------------------------------------------------
+# Review of Sam's 62 graded legs: when our projection clears his rung by a cushion (points +2, others +1) his legs went
+# 18-1 against a 73% Kalshi price; the rest 28-15 against 63%. Across the whole slate (4,998 rung legs) the same rule
+# does NOT beat the price, so it is used only as a filter on the legs Sam picks. Step 1 only: his players one rung up hit
+# 38% vs 37% priced, two rungs up 6% vs 17%.
+BEST_PATH = PATH.parent / "sambest.json"
+SAM_CUSH = {"pts": 2.0, "reb": 1.0, "ast": 1.0, "fg3m": 1.0}
+
+
+def sam_check(leg: dict, prow: dict | None) -> dict | None:
+    """Does our projection clear Sam's rung by the cushion? Returns {"ok", "proj", "rung", "ask", "p", "pmin"}."""
+    if not prow or prow.get("projected") is None or leg.get("side", "over") != "over":
+        return None
+    st, rung = leg["stat"], int(float(leg["line"]) + 0.5)
+    proj = float(prow["projected"])
+    lad = {a: c for a, _b, c in prow.get("kladder") or [] if c}
+    ask = lad.get(rung)
+    return {"ok": proj - rung >= SAM_CUSH.get(st, 1.0), "proj": round(proj, 1), "rung": rung,
+            "ask": round(ask, 2) if ask else None, "p": round(T._kcost(ask), 4) if ask else None,
+            "pmin": round(prow["proj_min"]) if prow.get("proj_min") else None, "game_id": prow.get("game_id"),
+            "tip": prow.get("tip_utc")}
+
+
+def _load_best() -> dict:
+    try:
+        return json.loads(BEST_PATH.read_text())
+    except Exception:  # noqa: BLE001
+        return {}
+
+
+def sync_best(sl: dict, now: datetime | None = None) -> None:
+    """Tonight's 'Sam's best legs' slip: every leg Sam posted today that passes sam_check, at Kalshi asks. Rebuilt every
+    build until its first leg tips, then locked."""
+    now = now or datetime.now(timezone.utc)
+    date = (sl or {}).get("date")
+    if not date:
+        return
+    st = _load_best()
+    cur = st.get(date)
+    if cur and cur.get("locked"):
+        return
+    if cur and cur.get("legs"):
+        tips = [datetime.fromisoformat(str(l["tip"]).replace("Z", "+00:00")) for l in cur["legs"] if l.get("tip")]
+        if tips and now >= min(tips):
+            cur["locked"] = True
+            BEST_PATH.write_text(json.dumps(st, indent=1, sort_keys=True))
+            return
+    rows = T._pred_rows(date)
+    legs, seen = [], set()
+    for pk in T._load(T.PICKS, {}).get("picks", []):
+        if pk["tipster"] != "sam" or pk["date"] != date:
+            continue
+        for leg in pk.get("legs") or []:
+            key = (T._norm(leg["player"]), leg["stat"], leg["line"])
+            if key in seen:
+                continue
+            seen.add(key)
+            c = sam_check(leg, rows.get((T._norm(leg["player"]), leg["stat"])))
+            if c and c["ok"] and c["ask"]:
+                try:
+                    started = now >= datetime.fromisoformat(str(c["tip"]).replace("Z", "+00:00"))
+                except ValueError:
+                    started = False
+                if not started:
+                    legs.append({"player": leg["player"], "stat": leg["stat"], "line": leg["line"], "side": "over",
+                                 "rung": c["rung"], "ask": c["ask"], "p": c["p"], "proj": c["proj"], "pmin": c["pmin"],
+                                 "game_id": c["game_id"], "tip": c["tip"]})
+    if len(legs) >= 2:
+        payk = 1.0
+        for l in legs:
+            payk /= l["ask"]
+        st[date] = {"legs": legs, "pays_k": round(payk, 2), "built": now.strftime("%Y-%m-%d %H:%M UTC"), "locked": False}
+    else:
+        st.pop(date, None)
+    BEST_PATH.parent.mkdir(parents=True, exist_ok=True)
+    BEST_PATH.write_text(json.dumps(st, indent=1, sort_keys=True))
+
+
+def best_summary(box, today: str | None) -> dict:
+    """Tonight's slip, its record (locked nights, 1U at Kalshi asks), and the season record of every Sam leg that
+    passes / fails the check (from saved projections; tracked point in time from Nov 20)."""
+    ply, team = T._box_index(box)
+    st = _load_best()
+    nights, n, w, u = [], 0, 0, 0.0
+    for d, s in sorted(st.items(), reverse=True):
+        legs, res = [], []
+        for l in s["legs"]:
+            g, x, _ = T.grade_leg(l, d, ply, team)
+            legs.append({**l, "res": g, "actual": x})
+            res.append(g)
+        status = "open" if any(r is None for r in res) else "graded"
+        hit = status == "graded" and "miss" not in res and "hit" in res
+        nights.append({"date": d, **s, "legs": legs, "status": status, "hit": hit})
+        if status == "graded" and s.get("locked"):
+            n += 1
+            w += hit
+            u += (s["pays_k"] - 1) if hit else -1
+    tag = {"ok": {"n": 0, "w": 0, "p": 0.0, "np": 0}, "no": {"n": 0, "w": 0, "p": 0.0, "np": 0}}
+    for pk in T._load(T.PICKS, {}).get("picks", []):
+        if pk["tipster"] != "sam":
+            continue
+        rows = T._pred_rows(pk["date"])
+        for leg in T.grade_pick(pk, ply, team).get("legs") or []:
+            if leg.get("res") not in ("hit", "miss"):
+                continue
+            c = sam_check(leg, rows.get((T._norm(leg["player"]), leg["stat"])))
+            if not c:
+                continue
+            r = tag["ok" if c["ok"] else "no"]
+            r["n"] += 1
+            r["w"] += leg["res"] == "hit"
+            if c["p"]:
+                r["p"] += c["ask"]
+                r["np"] += 1
+    for r in tag.values():
+        r["price"] = round(100 * r["p"] / r["np"]) if r["np"] else None
+    return {"tonight": next((x for x in nights if x["date"] == today), None), "rec": {"n": n, "w": w, "u": round(u, 2)},
+            "tag": tag, "cush": SAM_CUSH}

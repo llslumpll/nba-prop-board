@@ -556,6 +556,8 @@ def build(args) -> None:
             import siteladder
             siteladder.sync(box, sl, now)
             tp["siteladder"] = siteladder.summary(box, sl.get("date"))
+            siteladder.sync_best(sl, now)
+            tp["siteladder"]["best"] = siteladder.best_summary(box, sl.get("date"))
         except Exception as e:  # noqa: BLE001
             print(f"Site ladders failed: {e}")
         print(f"Tipsters: {sum(t['n'] for t in tp['tipsters'])} graded, {len(tp['tonight'])} today")

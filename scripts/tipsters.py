@@ -556,6 +556,12 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
             if p["date"] not in pr_cache:
                 pr_cache[p["date"]] = _pred_rows(p["date"])
             r["model"] = model_check(p["legs"][0], p.get("odds"), pr_cache[p["date"]])
+        if p["tipster"] == "sam" and p.get("legs"):  # update 96: Sam + model cushion check per leg
+            import siteladder
+            if p["date"] not in pr_cache:
+                pr_cache[p["date"]] = _pred_rows(p["date"])
+            r["sam_checks"] = [siteladder.sam_check(l, pr_cache[p["date"]].get((_norm(l["player"]), l["stat"])))
+                               for l in p["legs"]]
         if p["tipster"] == "sam":
             r["short"] = p["odds"] <= SHORT_MAX
         if p["kind"] == "prop" and "legs" not in g:

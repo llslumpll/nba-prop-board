@@ -40,7 +40,7 @@
       <li class="pz-leg {{ 'pz-hit' if r.res == 'hit' else ('pz-miss' if r.res == 'miss' else '') }}"><span class="pz-res">{{ res_icon(r.res) }}</span>{{ m.badge(badge(r.team)) }}<span class="pz-what">{{ spreadtxt(r) }}{% if r.detail %} <span class="dim small">{{ r.detail }}</span>{% endif %}</span><span class="pz-meta"><b>{{ am(r.odds) }}</b> <span class="dim small">posted</span></span></li>
     {% else %}{% for l in r.legs %}
       <li class="pz-leg {{ 'pz-hit' if l.res == 'hit' else ('pz-miss' if l.res == 'miss' else '') }}"><span class="pz-res">{{ res_icon(l.res) }}</span>{% if r.team %}{{ m.badge(badge(r.team)) }}{% endif %}<span class="pz-what">{{ legtxt(l) }}{% if l.actual is not none %} <span class="dim small">had {{ l.actual }}</span>{% endif %}</span>
-        {% if r.legs|length > 1 %}<span class="pz-meta"><span class="dim small">leg {{ loop.index }}</span></span>{% else %}<span class="pz-meta"><b>{{ am(r.odds) }}</b> <span class="dim small">posted{% if r.book %} ({{ r.book }}){% endif %}</span>{% if r.your %} &middot; <span class="small">your price <b>{{ r.your.odds }}</b> {{ r.your.src }}</span>{% else %} &middot; <span class="dim small">no matching Kalshi/Polymarket/FanDuel price</span>{% endif %}{{ m.model_meta(r.model) }}</span>{% endif %}</li>
+        {% if r.legs|length > 1 %}{% set sc = (r.sam_checks or [])[loop.index0] if r.sam_checks else none %}<span class="pz-meta"><span class="dim small">leg {{ loop.index }}</span>{% if sc %} {% if sc.ok %}<span class="pr-tag pr-good pr-strong" style="margin-left:0" title="Our projection clears his rung by the cushion. His legs like this: 18-1 in the review.">MODEL CUSHION</span>{% else %}<span class="pr-tag pr-disagree" style="margin-left:0">NO CUSHION</span>{% endif %} <span class="dim small">our proj {{ sc.proj }}{% if sc.ask %} &middot; Kalshi {{ (sc.ask * 100)|round|int }}%{% endif %}</span>{% endif %}</span>{% else %}<span class="pz-meta"><b>{{ am(r.odds) }}</b> <span class="dim small">posted{% if r.book %} ({{ r.book }}){% endif %}</span>{% if r.your %} &middot; <span class="small">your price <b>{{ r.your.odds }}</b> {{ r.your.src }}</span>{% else %} &middot; <span class="dim small">no matching Kalshi/Polymarket/FanDuel price</span>{% endif %}{{ m.model_meta(r.model) }}</span>{% endif %}</li>
     {% endfor %}{% endif %}
     </ul>
   </article>
@@ -65,6 +65,17 @@
     {% for t in tp.tipsters if t.key == 'sam' %}<div class="hv-tile"><b>{{ t.w }}-{{ t.l }}</b><span>Sam safest slip &middot; {{ u(t.u) }}</span></div>{% endfor %}
     {% if sx.sam and sx.sam.n %}<div class="hv-tile"><b>{{ sx.sam.w }}/{{ sx.sam.n }}</b><span>Sam legs hit{% if sx.sam.price %} &middot; priced {{ sx.sam.price }}%{% endif %}</span></div>{% endif %}
   </div>
+  {% set sb = sx.best or {} %}
+  <h3 class="hv-h3" id="sambest">Sam + model: his best legs</h3>
+  <p class="small dim">Sam's legs where our projection clears his rung by a cushion (points +{{ (sb.cush or {}).get('pts', 2)|int }}, rebounds / assists / threes +1). In the review his legs like this went 18-1 against a 73% Kalshi price, and the rest 28-15 against 63%. The same rule does not beat the price across the whole slate, so it only filters what Sam picks. Step 1 only: his players one rung higher hit about what they cost. Rebuilt until the first leg tips, graded each morning, 1U at Kalshi asks.</p>
+  {% if sb.tag %}<div class="hv-rec pz-board">
+    <div class="hv-tile"><b>{{ sb.tag.ok.w }}-{{ sb.tag.ok.n - sb.tag.ok.w }}</b><span>Sam legs with the cushion{% if sb.tag.ok.price %} &middot; priced {{ sb.tag.ok.price }}%{% endif %}</span></div>
+    <div class="hv-tile"><b>{{ sb.tag.no.w }}-{{ sb.tag.no.n - sb.tag.no.w }}</b><span>without it{% if sb.tag.no.price %} &middot; priced {{ sb.tag.no.price }}%{% endif %}</span></div>
+    <div class="hv-tile"><b>{{ sb.rec.w }}/{{ sb.rec.n }}</b><span>best-legs slips cashed{% if sb.rec.n %} &middot; {{ u(sb.rec.u) }}{% else %} &middot; starts tonight{% endif %}</span></div>
+  </div>{% endif %}
+  {% if sb.tonight %}<div class="pz-grid">{{ cz.sam_best_card(sb.tonight, tp.lab, tp.p_to_am) }}</div>
+  {% else %}<p class="small dim">No best-legs slip yet today: it needs two or more of Sam's legs with the cushion, before their games tip.</p>{% endif %}
+  <h3 class="hv-h3">Site ladders</h3>
   {% if sx.tonight and sx.tonight.ladders %}
   <div class="pz-grid">{% for lad in sx.tonight.ladders %}{% for t in lad.tiers %}{{ cz.ladder_card(lad, t, sx.tonight.locked, tp.lab, tp.p_to_am) }}{% endfor %}{% endfor %}</div>
   {% else %}<p class="small dim">No site ladder yet today: it needs three players from different games at a standard rung priced 55&ndash;82% on Kalshi.</p>{% endif %}
