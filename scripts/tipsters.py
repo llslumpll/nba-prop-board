@@ -48,11 +48,13 @@ TIPSTERS = {
              "note": "Leans from his daily YouTube breakdown (his official play is logged under WizBetz). Graded at -110 (est.). Added Nov 19."},
     "gob": {"name": "Goblin", "handle": "@PotdPrizepicks", "what": "spread legs", "honest": False,
             "note": "Only the spread legs out of his parlays, graded as -110 straights. His full parlays went 1 of 10."},
+    "samb": {"name": "Sam boring straights", "handle": "@TheModelManSam", "what": "straights", "honest": False,
+             "note": "His free daily 'boring straight' (one NBA prop, spread or moneyline). NBA ones only; his college and NFL straights aren't graded here. Usually posts the wins, rarely the misses. Added Nov 20 (backfilled from Oct 27)."},
     "sam": {"name": "Sam", "handle": "@TheModelManSam", "what": "safest lotto slip", "honest": None,
             "note": "The lowest tier of his daily 3-tier lotto ladder (3 role players at low lines). Priced +210 or shorter it went 7 of 11 through Nov 17."},
 }
 SHORT_MAX = 210  # Sam's safest slip: the ones priced +210 or shorter are the ones that cashed
-DROPPED = ("FieldsFocus (61-60, -6.8U), vanishpicks (9-13, -5.4U), QuentinLocks (12-13, -3.6U), billhpicks (19-17, -0.5U), AngeloProps (7-6, -0.5U), swan_wbg (36-57, -25.4U), ZiggyBetsFR (ladders, 14-14 flat), NextLevelBets (31-31, -4.0U, posts only winning days), TheModelManSam's straights (5-6, -1.7U; his safest lotto slip is tracked instead), "
+DROPPED = ("FieldsFocus (61-60, -6.8U), vanishpicks (9-13, -5.4U), QuentinLocks (12-13, -3.6U), billhpicks (19-17, -0.5U), AngeloProps (7-6, -0.5U), swan_wbg (36-57, -25.4U), ZiggyBetsFR (ladders, 14-14 flat), NextLevelBets (31-31, -4.0U, posts only winning days), "
            "Bearprops (13-14 legs, never posts a loss)")
 LAB = {"pts": "PTS", "reb": "REB", "ast": "AST", "fg3m": "3PM", "pra": "PRA", "pr": "P+R", "pa": "P+A", "ra": "R+A", "dd": "DOUBLE-DOUBLE"}
 PARTS = {"pts": ("pts",), "reb": ("reb",), "ast": ("ast",), "fg3m": ("fg3m",), "pra": ("pts", "reb", "ast"),

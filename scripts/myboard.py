@@ -15,7 +15,7 @@ import re
 import unicodedata
 
 PROVEN = ("doc", "wiz")
-NEWER = ("byrn", "peaky", "diogo", "izzo")
+NEWER = ("byrn", "peaky", "diogo", "izzo", "samb")
 
 
 def _norm(s: str) -> str:
