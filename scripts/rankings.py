@@ -30,6 +30,36 @@ def _season_rows(box: pl.DataFrame, season: int):
     return played, tg
 
 
+SMALL = 0.75  # "too early": the shrink pulls the value more than 3/4 of the way back to the league average
+
+
+def eb_shrink(vals: dict) -> dict:
+    """Update 94 (Nov 20 2026): empirical-Bayes sample-size adjustment for ranks.
+    vals = {team: list of per-game values (0 for games where nothing was allowed)}. Each team's mean is pulled toward
+    the league mean by w = k / (games + k), k = (average game-to-game variance) / (true team-to-team variance), so a
+    noisy, low-volume split (assists to centers, midrange assists) needs many more games to rank high or low than a
+    steady one (points allowed). Returns {team: (raw mean, adjusted mean, w)}."""
+    rows = {t: v for t, v in vals.items() if v}
+    if len(rows) < 3:
+        return {t: (sum(v) / len(v), sum(v) / len(v), 0.0) for t, v in rows.items()}
+    means = {t: sum(v) / len(v) for t, v in rows.items()}
+    lg = sum(means.values()) / len(means)
+    within = []
+    for t, v in rows.items():
+        m = means[t]
+        within.append(sum((x - m) ** 2 for x in v) / max(1, len(v) - 1))
+    s2 = sum(within) / len(within)
+    obs = sum((m - lg) ** 2 for m in means.values()) / (len(means) - 1)
+    noise = sum(s2 / len(v) for v in rows.values()) / len(rows)
+    tau2 = max(obs - noise, 1e-9)
+    k = s2 / tau2
+    out = {}
+    for t, v in rows.items():
+        w = k / (len(v) + k)
+        out[t] = (means[t], means[t] * (1 - w) + lg * w, w)
+    return out
+
+
 def standings(box: pl.DataFrame, season: int) -> list[dict]:
     played, tg = _season_rows(box, season)
     if not tg.height:
@@ -82,11 +112,12 @@ def allowed(box: pl.DataFrame, season: int) -> dict:
     if not played.height:
         return {}
     per_game = played.with_columns(pl.col("dpos" if "dpos" in played.columns else "pos").alias("pos")).group_by(["game_id", "opp", "pos"]).agg([pl.col(s).sum() for s in STATS]).rename({"opp": "def"})
-    poss = tg.select("game_id", pl.col("team").alias("def"), "game_poss")
     games = tg.group_by("team").agg(pl.len().alias("g"), pl.col("game_poss").sum().alias("poss")).rename({"team": "def"})
-    by_pos = per_game.group_by(["def", "pos"]).agg([pl.col(s).sum() for s in STATS]).join(games, on="def", how="left")
     tot = per_game.group_by("def").agg([pl.col(s).sum() for s in STATS]).join(games, on="def", how="left")
-    del poss
+    # every game each defense played, so a game where no center got an assist counts as 0 (update 94)
+    gl = tg.select("game_id", pl.col("team").alias("def")).unique()
+    pg_all = gl.join(per_game.group_by(["game_id", "def"]).agg([pl.col(s).sum() for s in STATS]), on=["game_id", "def"], how="left").fill_null(0)
+    pg_pos = {k: gl.join(per_game.filter(pl.col("pos") == k), on=["game_id", "def"], how="left").fill_null(0) for k in PK}
     out = {}
     for s in STATS:
         rows = {}
@@ -95,16 +126,25 @@ def allowed(box: pl.DataFrame, season: int) -> dict:
                 continue
             rows[r["def"]] = {"team": r["def"], "badge": teams.badge(r["def"]), "g": r["g"],
                               "all": round(r[s] / r["g"], 1), "all100": round(100 * r[s] / r["poss"], 1) if r["poss"] else None}
-        for r in by_pos.iter_rows(named=True):
-            if r["def"] in rows and r["g"]:
-                rows[r["def"]][r["pos"]] = round(r[s] / r["g"], 1)
+        adj = {}
+        for k, frame in (("all", pg_all), *pg_pos.items()):
+            vals = defaultdict(list)
+            for d, v in frame.select("def", s).iter_rows():
+                vals[d].append(float(v))
+            adj[k] = eb_shrink(vals)
+            for d, (raw, a, w) in adj[k].items():
+                if d in rows:
+                    if k != "all":
+                        rows[d][k] = round(raw, 1)
+                    rows[d][f"{k}_adj"] = a
+                    rows[d][f"{k}_small"] = w > SMALL
         lst = list(rows.values())
         league = {k: (round(sum(x.get(k) or 0 for x in lst) / len(lst), 1) if lst else None) for k in ("all", *PK)}
         for k in ("all", *PK):
-            ranked = sorted([x for x in lst if x.get(k) is not None], key=lambda x: -x[k])
+            ranked = sorted([x for x in lst if x.get(f"{k}_adj") is not None], key=lambda x: -x[f"{k}_adj"])
             for i, x in enumerate(ranked, 1):
                 x[f"{k}_rank"] = i
-                x[f"{k}_vs"] = round(100 * (x[k] / league[k] - 1)) if league[k] else 0
+                x[f"{k}_vs"] = round(100 * (x[f"{k}_adj"] / league[k] - 1)) if league[k] else 0
         lst.sort(key=lambda x: x.get("all_rank", 99))
         out[s] = {"rows": lst, "league": league, "n": len(lst)}
     return out
@@ -135,4 +175,5 @@ def matchup(rk: dict, opp: str, pos: str, stat: str, player_id=None) -> dict | N
     if not row or row.get(pos) is None:
         return None
     return {"opp": opp, "pos": pos, "pos_name": dict(POS)[pos], "stat": stat, "val": row[pos],
-            "rank": row.get(f"{pos}_rank"), "n": a["n"], "vs": row.get(f"{pos}_vs"), "g": row["g"]}
+            "rank": row.get(f"{pos}_rank"), "n": a["n"], "vs": row.get(f"{pos}_vs"), "g": row["g"],
+            "small": row.get(f"{pos}_small", False)}
