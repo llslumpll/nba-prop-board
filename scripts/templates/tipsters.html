@@ -53,7 +53,7 @@
   {% if cb and cb[0].v == 2 %}{% set c = cb[0] %}
   {% if c.tiers %}<div class="pz-grid">{% for t in c.tiers %}{{ cz.cushion_card(t, c, tp.lab, tp.p_to_am) }}{% endfor %}</div>{% endif %}
   {% set used = c.tiers[-1].legs|length if c.tiers else 0 %}
-  {% if c.pool|length > used %}<p class="small dim">{% if not c.tiers %}Not enough legs for +400 yet ({{ '%.1f'|format(c.pays) }}x with all of them). {% endif %}Cushion legs available{% if c.tiers %} beyond the +700{% endif %}: {% for l in c.pool[used:] %}{{ l.player }} {{ '' if l.side == 'over' else 'NO ' }}{{ l.rung }}+ {{ tp.lab.get(l.stat, l.stat) }} ({{ tp.p_to_am(l.p) }}){{ ', ' if not loop.last }}{% endfor %}.</p>{% endif %}
+  {% if c.pool|length > used %}<p class="small dim">{% if not c.tiers %}Not enough legs for +400 yet ({{ '%.1f'|format(c.pays) }}x with all of them). {% endif %}Cushion legs available{% if c.tiers %} beyond the +700{% endif %}: {% for l in c.pool[used:] %}{% if l.stat == 'ml' %}{{ l.team }} to win{% else %}{{ l.player }} {{ '' if l.side == 'over' else 'NO ' }}{{ l.rung }}+ {{ tp.lab.get(l.stat, l.stat) }}{% endif %} ({{ tp.p_to_am(l.p) }}){{ ', ' if not loop.last }}{% endfor %}.</p>{% endif %}
   {% else %}<p class="small dim">No cushion combo yet today: it needs enough safe legs (cushion props at 75&ndash;92% and 75%+ favorites) on Kalshi to reach about +400. It rebuilds every build as picks come in.</p>{% endif %}
 </section>
 
