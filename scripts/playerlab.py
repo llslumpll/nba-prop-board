@@ -63,12 +63,100 @@ def classify(pbp: pl.DataFrame) -> pl.DataFrame:
             .otherwise(pl.lit("pullup")))
     out = fg.with_columns(
         zone.alias("zone"), kind.alias("kind"),
+        pl.when(pl.col("scoring_play") & ~is_ft).then(pl.col("athlete_id_2")).otherwise(None).cast(pl.Int64).alias("ast_id"),
         pl.when(pl.col("scoring_play")).then(pl.col("score_value")).otherwise(0).fill_null(0).alias("pts"),
         pl.when(is_ft).then(0).otherwise(1).alias("fga"),
         pl.when(pl.col("team_id") == pl.col("home_team_id")).then(pl.col("away_team_id")).otherwise(pl.col("home_team_id")).alias("def_team_id"),
     )
     return out.select(pl.col("game_id"), pl.col("game_date").alias("date"), pl.col("athlete_id_1").cast(pl.Int64).alias("player_id"),
-                      pl.col("team_id").cast(pl.Int64), pl.col("def_team_id").cast(pl.Int64), "zone", "kind", "pts", "fga")
+                      pl.col("team_id").cast(pl.Int64), pl.col("def_team_id").cast(pl.Int64), "zone", "kind", "pts", "fga", "ast_id")
+
+
+def rebounds(pbp: pl.DataFrame) -> pl.DataFrame:
+    """Update 91: one row per player rebound: game_id, date, player_id, team_id, def_team_id (the team he faced),
+    zone = where the missed shot came from (the same five zones, or ft), off = offensive rebound."""
+    p = pbp.sort(["game_id", "sequence_number"])
+    tt = pl.col("type_text").fill_null("")
+    ax, ay = pl.col("coordinate_x").abs(), pl.col("coordinate_y").abs()
+    dist = ((ax - 41.75) ** 2 + pl.col("coordinate_y") ** 2).sqrt()
+    three = pl.col("points_attempted") == 3
+    z = (pl.when(~pl.col("shooting_play")).then(None)
+         .when(tt.str.contains("Free Throw")).then(pl.lit("ft"))
+         .when(three & (ay >= 21.5) & (ax >= 33)).then(pl.lit("corner3"))
+         .when(three).then(pl.lit("above3"))
+         .when(dist <= 4.5).then(pl.lit("rim"))
+         .when((ax >= 28) & (ay <= 8)).then(pl.lit("paint"))
+         .otherwise(pl.lit("mid")))
+    p = p.with_columns(z.alias("z5")).with_columns(pl.col("z5").shift(1).over("game_id").alias("zone"))
+    rb = p.filter(tt.str.contains("Rebound") & pl.col("athlete_id_1").is_not_null() & pl.col("zone").is_not_null())
+    rb = rb.with_columns(
+        pl.when(pl.col("team_id") == pl.col("home_team_id")).then(pl.col("away_team_id")).otherwise(pl.col("home_team_id")).alias("def_team_id"),
+        (pl.col("type_text") == "Offensive Rebound").alias("off"))
+    return rb.select(pl.col("game_id"), pl.col("game_date").alias("date"), pl.col("athlete_id_1").cast(pl.Int64).alias("player_id"),
+                     pl.col("team_id").cast(pl.Int64), pl.col("def_team_id").cast(pl.Int64), "zone", "off")
+
+
+def _rank(df: pl.DataFrame, games: pl.DataFrame, val: str, team_code: dict, keys) -> dict:
+    """{team_code: {zone: (per game, rank)}}, rank 1 = allows the most."""
+    out: dict = defaultdict(dict)
+    agg = (df.group_by("def_team_id", "zone").agg(pl.col(val).sum().alias("p"))
+           .join(games, on="def_team_id").with_columns((pl.col("p") / pl.col("g")).alias("pg")))
+    for k in keys:
+        rows = agg.filter(pl.col("zone") == k).sort("pg", descending=True).rows(named=True)
+        for i, r in enumerate(rows, 1):
+            code = team_code.get(r["def_team_id"])
+            if code:
+                out[code][k] = (round(r["pg"], 1), i)
+    return dict(out)
+
+
+def stat_ranks(shots: pl.DataFrame, rebs: pl.DataFrame | None, team_code: dict) -> dict:
+    """Update 91: zone ranks for the other stats. {"ast": assists allowed by the zone of the shot set up,
+    "fg3m": threes made allowed (corner / above-break), "fg3a": threes attempted, "reb": rebounds allowed off misses
+    from each zone, "oreb" / "dreb": per team {"all": (pg, rank)}}."""
+    games = shots.group_by("def_team_id").agg(pl.col("game_id").n_unique().alias("g"))
+    out = {}
+    if "ast_id" in shots.columns:
+        a = shots.filter(pl.col("ast_id").is_not_null()).with_columns(pl.lit(1).alias("one"))
+        out["ast"] = _rank(a, games, "one", team_code, ZONES)
+    t = shots.filter(pl.col("zone").is_in(["corner3", "above3"])).with_columns(
+        (pl.col("pts") > 0).cast(pl.Int32).alias("made"), pl.col("fga").alias("att"))
+    out["fg3m"] = _rank(t, games, "made", team_code, ("corner3", "above3"))
+    out["fg3a"] = _rank(t, games, "att", team_code, ("corner3", "above3"))
+    if rebs is not None and rebs.height:
+        r = rebs.with_columns(pl.lit(1).alias("one"))
+        out["reb"] = _rank(r, games, "one", team_code, ZONES + ("ft",))
+        for nm, flt in (("oreb", pl.col("off")), ("dreb", ~pl.col("off"))):
+            out[nm] = _rank(r.filter(flt).with_columns(pl.lit("all").alias("zone")), games, "one", team_code, ("all",))
+    return out
+
+
+def player_other(shots: pl.DataFrame, rebs: pl.DataFrame | None, player_id: int) -> dict:
+    """His assists by the zone of the shot he set up, his rebounds by where the miss came from, his threes by zone."""
+    out = {}
+    if "ast_id" in shots.columns:
+        a = shots.filter(pl.col("ast_id") == player_id)
+        tot = max(1, a.height)
+        g = max(1, shots.filter((pl.col("player_id") == player_id) | (pl.col("ast_id") == player_id))["game_id"].n_unique())
+        out["ast"] = {"n": a.height, "zones": {z: {"share": round(100 * a.filter(pl.col("zone") == z).height / tot),
+                                                    "pg": round(a.filter(pl.col("zone") == z).height / g, 1)} for z in ZONES}}
+    me = shots.filter((pl.col("player_id") == player_id) & pl.col("zone").is_in(["corner3", "above3"]))
+    att = max(1, int(me["fga"].sum()))
+    g = max(1, shots.filter(pl.col("player_id") == player_id)["game_id"].n_unique())
+    out["fg3m"] = {"n": int(me["fga"].sum()), "zones": {}}
+    for z in ("corner3", "above3"):
+        s = me.filter(pl.col("zone") == z)
+        za, zm = int(s["fga"].sum()), int((s["pts"] > 0).sum())
+        out["fg3m"]["zones"][z] = {"share": round(100 * za / att), "fg": round(100 * zm / za) if za else None,
+                                   "pg": round(zm / g, 1), "apg": round(za / g, 1)}
+    if rebs is not None and rebs.height:
+        r = rebs.filter(pl.col("player_id") == player_id)
+        tot = max(1, r.height)
+        g = max(1, r["game_id"].n_unique())
+        out["reb"] = {"n": r.height, "off": round(100 * r["off"].sum() / tot),
+                      "zones": {z: {"share": round(100 * r.filter(pl.col("zone") == z).height / tot),
+                                    "pg": round(r.filter(pl.col("zone") == z).height / g, 1)} for z in ZONES + ("ft",)}}
+    return out
 
 
 def defense_ranks(shots: pl.DataFrame, team_code: dict) -> dict:
@@ -164,11 +252,22 @@ def shots_path(season: int) -> Path:
     return CACHE / f"shots_{season}.parquet"
 
 
+def reb_path(season: int) -> Path:
+    return CACHE / f"rebounds_{season}.parquet"
+
+
 def save_shots(pbp: pl.DataFrame, season: int) -> int:
     sh = classify(pbp)
     tmp = shots_path(season).with_suffix(".tmp")
     sh.write_parquet(tmp)
     tmp.replace(shots_path(season))
+    try:
+        rb = rebounds(pbp)
+        tmp = reb_path(season).with_suffix(".tmp")
+        rb.write_parquet(tmp)
+        tmp.replace(reb_path(season))
+    except Exception as e:  # noqa: BLE001
+        print(f"  player lab rebounds: {e}")
     return sh.height
 
 
@@ -183,6 +282,12 @@ class Ctx:
         self.to_raw = {v: k for k, v in teams.ALIASES["espn"].items()}
         self.shots = pl.read_parquet(shots_path(season)) if shots_path(season).exists() else None
         self.ranks = defense_ranks(self.shots, self.team_code) if self.shots is not None else {}
+        self.rebs = pl.read_parquet(reb_path(season)) if reb_path(season).exists() else None
+        try:
+            self.sranks = stat_ranks(self.shots, self.rebs, self.team_code) if self.shots is not None else {}
+        except Exception as e:  # noqa: BLE001
+            print(f"  player lab stat ranks: {e}")
+            self.sranks = {}
         self.lines = _lines_index(sorted({d.isoformat() for d in self.raw["game_date"].unique().to_list()}))
         try:
             self.track = track_record(self.raw, self.shots, self.team_code, self.to_raw, self.lines)
@@ -198,6 +303,9 @@ class Ctx:
             d = payload(self.raw, self.shots, self.ranks, self.team_code, int(player_id), raw_opp, raw_opp, tonight, self.lines)
             d["opp"], d["opp_raw"] = opp, raw_opp
             d["def"] = self.ranks.get(raw_opp)
+            if self.shots is not None:  # update 91: the matchup panel for assists, rebounds and threes too
+                d["other"] = player_other(self.shots, self.rebs, int(player_id))
+                d["odef"] = {k: v.get(raw_opp) for k, v in self.sranks.items()}
             d["first"] = next((s for s in ("pts", "fg3m", "reb", "ast") if s in tonight), "pts")
             d["track"] = self.track
             return d if d["log"] else None
