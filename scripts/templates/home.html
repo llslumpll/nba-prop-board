@@ -93,6 +93,11 @@
 </div>
 {% endif %}
 
+{# update 85: the site's own model picks are losing, so they sit collapsed under the board; they open again on their own once Best 5 is in profit #}
+{% set b5 = (record.lists|selectattr('label', 'equalto', 'Best 5')|list or record.lists)|first %}
+<details class="info-collapse model-picks"{% if b5 and b5.units > 0 %} open{% endif %}>
+<summary><b>Model picks (Top Plays)</b>{% if b5 %} &middot; Best 5 {{ b5.hits }}&ndash;{{ b5.graded - b5.hits }} &middot; <span class="{{ 'rec-up' if b5.units > 0 else 'rec-down' }}">{{ '%+.1f'|format(b5.units) }}U</span>{% endif %}{% if not b5 or b5.units <= 0 %} &middot; <span class="dim">tracking only, not recommended</span>{% endif %}</summary>
+{% if b5 and b5.units <= 0 %}<p class="small dim">The site's own projections are still losing at the posted prices, so they're kept here for tracking. Bet from <a href="#myboard">Your board tonight</a> instead. This opens again on its own once Best 5 is in profit.</p>{% endif %}
 <div class="sec-head">
   <h2 class="h2x">Top Plays</h2>
   <div class="chips" data-filter-bar="1">
@@ -107,6 +112,7 @@
 {% else %}
 <div class="empty-state"><h3>No picks yet</h3><p>{{ no_picks_reason }}</p></div>
 {% endif %}
+</details>
 
 <details class="info-collapse home-more"><summary>Behind the board: data sources, how projections work, calibration</summary>
 <div class="stat-strip">
