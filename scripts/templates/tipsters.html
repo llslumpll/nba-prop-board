@@ -48,12 +48,12 @@
   </div>{% endif %}
   {% endfor %}
   <h2 class="hv-h3">Cushion combos</h2>
-  <p class="small dim">Your alt-line idea: every prop from the tracked cappers (plus the legs inside Goblin's combo and Sam's safest slip, and Safe Lines) softened by a cushion &mdash; points {{ tp.cush_soft.pts }}, rebounds {{ tp.cush_soft.reb }}, assists {{ tp.cush_soft.ast }}, threes {{ tp.cush_soft.fg3m }}, PRA {{ tp.cush_soft.pra }} &mdash; then the nearest Kalshi rung that costs 75&ndash;92% with the fee (e.g. 6.5 REB &rarr; 4+), plus tonight's favorites priced 75%+ to win. Safest legs first, as many as it takes to pay about +400, +550 and +700; and a +300 built only from cushion props priced 75&ndash;85% (the version that did best in the replay). "Confident" shows the one-rung-safer number (6+) for players you trust more. Locks when its first game tips.</p>
+  <p class="small dim">Your alt-line idea: every prop from the tracked cappers (plus the legs inside Goblin's combo and Sam's safest slip, and Safe Lines) softened by a cushion &mdash; points {{ tp.cush_soft.pts }}, rebounds {{ tp.cush_soft.reb }}, assists {{ tp.cush_soft.ast }}, threes {{ tp.cush_soft.fg3m }}, PRA {{ tp.cush_soft.pra }} &mdash; then the nearest Kalshi rung that costs 75&ndash;92% with the fee (e.g. 6.5 REB &rarr; 4+), plus tonight's favorites priced 75%+ to win. Two separate slips, no player in both: <b>slip 1</b> takes the safest legs (one per player) until it pays about +400; <b>slip 2</b> takes the next safest from <i>other</i> players until it pays about +400. Before Nov 20 the +400 / +550 / +700 slips were stacked on the same legs, so one miss lost all three. "Confident" shows the one-rung-safer number (6+) for players you trust more. Locks when its first game tips.</p>
   {% set cb = (tp.combos or [])|selectattr('date', 'equalto', tp.today)|list %}
-  {% if cb and cb[0].v == 2 %}{% set c = cb[0] %}
+  {% if cb and cb[0].v in (2, 3) %}{% set c = cb[0] %}
   {% if c.tiers %}<div class="pz-grid">{% for t in c.tiers %}{{ cz.cushion_card(t, c, tp.lab, tp.p_to_am) }}{% endfor %}</div>{% endif %}
-  {% set used = c.tiers[-1].legs|length if c.tiers else 0 %}
-  {% if c.pool|length > used %}<p class="small dim">{% if not c.tiers %}Not enough legs for +400 yet ({{ '%.1f'|format(c.pays) }}x with all of them). {% endif %}Cushion legs available{% if c.tiers %} beyond the +700{% endif %}: {% for l in c.pool[used:] %}{% if l.stat == 'ml' %}{{ l.team }} to win{% else %}{{ l.player }} {{ '' if l.side == 'over' else 'NO ' }}{{ l.rung }}+ {{ tp.lab.get(l.stat, l.stat) }}{% endif %} ({{ tp.p_to_am(l.ask or l.p) }}){{ ', ' if not loop.last }}{% endfor %}.</p>{% endif %}
+  {% set used = c.tiers[-1].legs|length if (c.tiers and c.v != 3) else 0 %}
+  {% if c.v != 3 and c.pool|length > used %}<p class="small dim">{% if not c.tiers %}Not enough legs for +400 yet ({{ '%.1f'|format(c.pays) }}x with all of them). {% endif %}Cushion legs available{% if c.tiers %} beyond the +700{% endif %}: {% for l in c.pool[used:] %}{% if l.stat == 'ml' %}{{ l.team }} to win{% else %}{{ l.player }} {{ '' if l.side == 'over' else 'NO ' }}{{ l.rung }}+ {{ tp.lab.get(l.stat, l.stat) }}{% endif %} ({{ tp.p_to_am(l.ask or l.p) }}){{ ', ' if not loop.last }}{% endfor %}.</p>{% endif %}
   {% else %}<p class="small dim">No cushion combo yet today: it needs enough safe legs (cushion props at 75&ndash;92% and 75%+ favorites) on Kalshi to reach about +400. It rebuilds every build as picks come in.</p>{% endif %}
   <h2 class="hv-h3">Site ladders vs Sam</h2>
   {% set sx = tp.siteladder or {} %}
@@ -115,7 +115,8 @@
   <h2 class="hv-h3">Tail test &amp; cushion combo</h2>
   <div class="hv-rec pz-board">
     <div class="hv-tile"><b>{{ tp.tail.w if tp.tail else 0 }}-{{ tp.tail.l if tp.tail else 0 }}</b><span>tail test &middot; at your price{% if tp.tail and tp.tail.n %} &middot; {{ u(tp.tail.u) }}{% endif %}</span></div>
-    {% for tgt, r in tp.tier_rec.items() %}<div class="hv-tile"><b>{{ r.hits }}/{{ r.n }}</b><span>{{ 'cushion-only ' if tgt == 4.0 else '' }}+{{ ((tgt - 1) * 100)|int }} cashed{% if r.n %} &middot; {{ u(r.u) }}{% endif %}</span></div>{% endfor %}
+    {% for slot, r in (tp.split_rec or {}).items() %}<div class="hv-tile"><b>{{ r.hits }}/{{ r.n }}</b><span>slip {{ slot }}{{ ' (strongest)' if slot == 1 else ' (different players)' }} cashed{% if r.n %} &middot; {{ u(r.u) }}{% else %} &middot; starts tonight{% endif %}</span></div>{% endfor %}
+    {% for tgt, r in tp.tier_rec.items() if r.n %}<div class="hv-tile"><b>{{ r.hits }}/{{ r.n }}</b><span>{{ 'cushion-only ' if tgt == 4.0 else '' }}+{{ ((tgt - 1) * 100)|int }} cashed (old stacked){% if r.n %} &middot; {{ u(r.u) }}{% endif %}</span></div>{% endfor %}
     {% if tp.pool_rec.n %}<div class="hv-tile"><b>{{ tp.pool_rec.w }}/{{ tp.pool_rec.n }}</b><span>cushion legs hit &middot; priced {{ tp.pool_rec.p }}%</span></div>{% endif %}
     {% if tp.combo_rec.n %}<div class="hv-tile"><b>{{ tp.combo_rec.hits }}/{{ tp.combo_rec.n }}</b><span>old one-rung combo &middot; {{ u(tp.combo_rec.u) }}</span></div>{% endif %}
   </div>
