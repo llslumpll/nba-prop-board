@@ -239,7 +239,7 @@ def build(args) -> None:
     lineups = {}
     if sl.get("games"):
         try:
-            ros = [{"player": n, "team": t} for _pid, n, t in roster]
+            ros = [{"player": n, "team": t, "player_id": _pid} for _pid, n, t in roster]
             lineups = lineups_client.fetch(sl["date"], ros) if not args.no_fetch else lineups_client.load()
             if lineups.get("date") == sl["date"]:
                 inj, n_out = lineups_client.merge(inj, lineups)
