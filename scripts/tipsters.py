@@ -234,7 +234,7 @@ CUSH_SOFT = {"pts": 5, "reb": 3, "ast": 2.5, "fg3m": 1, "pra": 6, "pr": 5, "pa":
 CUSH_SRC = ("doc", "wiz", "byrn", "peaky", "diogo", "izzo", "samb", "gobpm", "sam", "tacos", "fav")  # leg priority when a player repeats
 CUSH_TIERS = (4.0, 5.0, 6.5, 8.0)   # +300 (cushion legs 75-85% only) and +400 / +550 / +700 (all safe legs)
 CUSH_300_HI = 0.85
-CUSH_MAX_LEGS = 12
+CUSH_MAX_LEGS = 16   # safest-first legs are 86-92%, so +400 takes about 13 of them
 
 
 def split_leg(leg: dict, rows: dict) -> dict | None:
