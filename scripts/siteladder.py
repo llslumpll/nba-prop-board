@@ -115,13 +115,16 @@ def build_night(date: str, box, now: datetime) -> list[dict]:
                 legs.append({**{x: c[x] for x in ("player", "stat", "game_id", "team", "min_down")},
                              "model_p": round(mp, 3) if mp is not None else None,
                              "h10": round(sum(v >= rung for v in c["_last10"]) / len(c["_last10"]), 2),
-                             "rung": rung, "line": rung - 0.5, "side": "over", "p": round(T._kcost(ask), 4)})
+                             "rung": rung, "line": rung - 0.5, "side": "over", "p": round(T._kcost(ask), 4), "ask": round(ask, 2)})
             if len(legs) < 3:
                 break
             pay = 1.0
             for l in legs:
                 pay /= l["p"]
-            tiers.append({"step": k + 1, "legs": legs, "pays": round(pay, 2)})
+            payk = 1.0
+            for l_ in legs:
+                payk /= l_["ask"]
+            tiers.append({"step": k + 1, "legs": legs, "pays": round(pay, 2), "pays_k": round(payk, 2)})
         ladders.append({"stat": st, "name": NAMES[st], "score": round(statistics.mean(c["score"] for c in pick), 4),
                         "tiers": tiers})
     ladders.sort(key=lambda l: -l["score"])

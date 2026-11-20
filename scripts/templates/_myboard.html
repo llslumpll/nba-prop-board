@@ -61,6 +61,6 @@
   {% set c = board.combo %}
   {% if c and c.v == 2 and c.tiers %}<div class="pz-grid">{% for t in c.tiers %}{{ cz.cushion_card(t, c, board.lab, board.p_to_am) }}{% endfor %}</div>
   <p class="small"><a href="tipsters.html">How the cushion works &amp; its record &rarr;</a></p>
-  {% elif c and c.v == 2 %}<p class="small dim">Not enough safe legs for +400 yet ({{ '%.1f'|format(c.pays) }}x with all {{ c.pool|length }}): {% for l in c.pool %}{% if l.stat == 'ml' %}{{ l.team }} to win{% else %}{{ l.player }} {{ '' if l.side == 'over' else 'NO ' }}{{ l.rung }}+ {{ board.lab.get(l.stat, l.stat) }}{% endif %} ({{ board.p_to_am(l.p) }}){{ ', ' if not loop.last }}{% endfor %}. It rebuilds as picks come in.</p>
+  {% elif c and c.v == 2 %}<p class="small dim">Not enough safe legs for +400 yet ({{ '%.1f'|format(c.pays) }}x with all {{ c.pool|length }}): {% for l in c.pool %}{% if l.stat == 'ml' %}{{ l.team }} to win{% else %}{{ l.player }} {{ '' if l.side == 'over' else 'NO ' }}{{ l.rung }}+ {{ board.lab.get(l.stat, l.stat) }}{% endif %} ({{ board.p_to_am(l.ask or l.p) }}){{ ', ' if not loop.last }}{% endfor %}. It rebuilds as picks come in.</p>
   {% else %}<p class="small dim">Not built yet: it needs enough safe legs (cushion props at 75&ndash;92% and 75%+ favorites) to reach about +400. It rebuilds as picks come in until the first tip.</p>{% endif %}
 </section>

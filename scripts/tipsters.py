@@ -278,7 +278,7 @@ def split_leg(leg: dict, rows: dict) -> dict | None:
             key = (round(p - cost, 3), p)
             if best is None or key > best[0]:
                 best = (key, {"player": leg["player"], "stat": comp, "rung": rung, "line": rung - 0.5, "side": "over",
-                              "p": round(cost, 4), "model_p": round(p, 3), "game_id": r.get("game_id"),
+                              "p": round(cost, 4), "ask": round(ask, 2), "model_p": round(p, 3), "game_id": r.get("game_id"),
                               "their_line": float(leg["line"]), "split_from": leg["stat"], "min_down": minutes_flag(r)})
     return best[1] if best else None
 
@@ -297,22 +297,23 @@ def cushion_leg(leg: dict, prow: dict | None) -> dict | None:
     cands, conf = [], None
     for rung, bid, ask in lad:
         if over and rung < math.ceil(L) and ask:
-            cost, tgt = _kcost(ask), math.ceil(L - soft)
+            cost, tgt, raw = _kcost(ask), math.ceil(L - soft), ask
             if rung == math.ceil(L) - 1:
-                conf = {"rung": rung, "p": round(cost, 4)}
+                conf = {"rung": rung, "p": round(cost, 4), "ask": round(raw, 2)}
         elif not over and rung > math.floor(L) + 1 and bid:
-            cost, tgt = _kcost(1 - bid), math.floor(L + soft) + 1
+            cost, tgt, raw = _kcost(1 - bid), math.floor(L + soft) + 1, 1 - bid
             if rung == math.floor(L) + 2:
-                conf = {"rung": rung, "p": round(cost, 4)}
+                conf = {"rung": rung, "p": round(cost, 4), "ask": round(raw, 2)}
         else:
             continue
         if CUSH_LO <= cost <= CUSH_HI:
-            cands.append((abs(rung - tgt), -cost, rung, cost))
+            cands.append((abs(rung - tgt), -cost, rung, cost, raw))
     if not cands:
         return None
-    _, _, rung, cost = min(cands)
+    _, _, rung, cost, raw = min(cands)
     out = {"player": leg["player"], "stat": leg["stat"], "rung": rung, "line": rung - 0.5, "side": "over" if over else "under",
-           "p": round(cost, 4), "game_id": prow.get("game_id"), "their_line": L, "min_down": minutes_flag(prow)}
+           "p": round(cost, 4), "ask": round(raw, 2), "game_id": prow.get("game_id"), "their_line": L,
+           "min_down": minutes_flag(prow)}
     if conf and conf["rung"] != rung:
         out["confident"] = conf
     return out
@@ -339,7 +340,10 @@ def _stack(legs: list[dict], targets) -> list[dict]:
             if pay >= tgt:
                 break
         if pay >= tgt:
-            tiers.append({"target": tgt, "legs": used, "pays": round(pay, 2)})
+            payk = 1.0
+            for l in used:
+                payk /= (l.get("ask") or l["p"])
+            tiers.append({"target": tgt, "legs": used, "pays": round(pay, 2), "pays_k": round(payk, 2)})
     return tiers
 
 
@@ -447,7 +451,7 @@ def sync(sl: dict, now: datetime | None = None) -> None:
             if cost <= ML_MAX_COST:
                 team_ = g[side]
                 pool.append({"kind": "spread", "team": team_, "line": 0.0, "player": f"{team_} to win", "stat": "ml",
-                             "rung": 0, "side": "over", "p": round(cost, 4), "fair": round(fair, 3), "game_id": g["game_id"],
+                             "rung": 0, "side": "over", "p": round(cost, 4), "ask": round(ka, 2), "fair": round(fair, 3), "game_id": g["game_id"],
                              "from": f"{date}|ml|{team_}", "tipster": "fav"})
         tiers = cushion_tiers(pool)
         if pool:   # the leg list is kept even when no tier reaches +300 yet
