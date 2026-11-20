@@ -26,6 +26,7 @@
   <div class="pt-card">
     <a class="pt-stat" href="#{{ s }}" onclick="showTab('pchart', '{{ s }}'); document.getElementById('breakdown').scrollIntoView(); return false;">{{ stat_short[s] }} &#9656;</a>
     {{ m.proj_pick(st, r, s, g) }}
+    {% if st.matchup or st.zones %}<div class="tc-mu-row bd-mu" title="Where {{ r.opp }} ranks for this stat: 1st = allows the most. Green helps the pick.">{{ m.mu_chips(st.matchup, st.zones, (st.pick.side|lower) if st.pick else ((st.frozen.call|lower) if st.frozen else 'over'), s) }}</div>{% endif %}
   </div>
   {% endfor %}
 </div>
