@@ -209,6 +209,29 @@ def _cast_join_keys(t: pl.DataFrame, zf: pl.DataFrame) -> pl.DataFrame:
 _page = None
 
 
+def _team_table(cur: pl.DataFrame, cols: list[str]) -> dict:
+    """Per defense, per column: per-game value, rank on the sample-size-adjusted value (rankings.eb_shrink, update 94),
+    % vs league on the adjusted value, and "small" when it is still mostly noise."""
+    import rankings
+    from collections import defaultdict as _dd
+    d = cur.group_by(["game_id", "def_team"]).agg([pl.col(c).sum() for c in cols])
+    out: dict = {}
+    n = d["def_team"].n_unique()
+    g = dict(d.group_by("def_team").agg(pl.len()).iter_rows())
+    for c in cols:
+        vals = _dd(list)
+        for t, v in d.select("def_team", c).iter_rows():
+            vals[t].append(float(v))
+        e = rankings.eb_shrink(vals)
+        lg = sum(m for m, _, _ in e.values()) / len(e) if e else 0
+        order = sorted(e, key=lambda t: -e[t][1])
+        for i, t in enumerate(order, 1):
+            raw, adj, w = e[t]
+            out.setdefault(t, {"g": g.get(t, 0), "n": n})[c] = {
+                "pg": round(raw, 1), "rank": i, "vs": round(100 * (adj / lg - 1)) if lg else 0, "small": w > rankings.SMALL}
+    return out
+
+
 def page_info() -> dict:
     """For player pages (shown from day one, unlike the model's use): each defense's points allowed per game by zone this
     season with its rank (1 = most), and each player's share of his points by zone (this season + last)."""
@@ -223,14 +246,7 @@ def page_info() -> dict:
     z = z.filter(pl.col("season_type") == 2) if "season_type" in z.columns else z
     cur = z.filter(pl.col("season") == dataio.CURRENT_SEASON)
     if cur.height:
-        d = cur.group_by(["game_id", "def_team"]).agg([pl.col(c).sum() for c in ZONES]).group_by("def_team").agg(
-            [pl.col(c).mean().alias(c) for c in ZONES] + [pl.len().alias("g")])
-        lg = {c: d[c].mean() for c in ZONES}
-        for c in ZONES:
-            d = d.with_columns(pl.col(c).rank("ordinal", descending=True).alias(f"r_{c}"))
-        for r in d.iter_rows(named=True):
-            out["teams"][r["def_team"]] = {c: {"pg": round(r[c], 1), "rank": int(r[f"r_{c}"]), "vs": round(100 * (r[c] / lg[c] - 1))}
-                                           for c in ZONES} | {"g": r["g"], "n": d.height}
+        out["teams"] = _team_table(cur, list(ZONES))
     p = z.group_by("player_id").agg([pl.col(c).sum() for c in ZONES])
     for r in p.iter_rows(named=True):
         tot = sum(r[c] for c in ZONES)
@@ -280,14 +296,7 @@ def page_info_x() -> dict:
     z = z.filter(pl.col("season_type") == 2) if "season_type" in z.columns else z
     cur = z.filter(pl.col("season") == dataio.CURRENT_SEASON)
     if cur.height:
-        d = cur.group_by(["game_id", "def_team"]).agg([pl.col(c).sum() for c in X_COLS]).group_by("def_team").agg(
-            [pl.col(c).mean() for c in X_COLS] + [pl.len().alias("g")])
-        lg = {c: d[c].mean() for c in X_COLS}
-        d = d.with_columns([pl.col(c).rank("ordinal", descending=True).alias(f"rk_{c}") for c in X_COLS])
-        for r in d.iter_rows(named=True):
-            out["teams"][r["def_team"]] = {c: {"pg": round(r[c], 1), "rank": int(r[f"rk_{c}"]),
-                                               "vs": round(100 * (r[c] / lg[c] - 1)) if lg[c] else 0} for c in X_COLS} \
-                | {"g": r["g"], "n": d.height}
+        out["teams"] = _team_table(cur, X_COLS)
     p = z.group_by("player_id").agg([pl.col(c).sum() for c in X_COLS])
     tot = z.select([pl.col(c).sum() for c in X_COLS]).row(0, named=True)
     for k in ("a", "r"):  # league mix: a player's zone is the one he leans on MORE than the league, not just the biggest
@@ -309,7 +318,7 @@ def page_info_x() -> dict:
 
 
 def _row(t: dict, **kw) -> dict:
-    return {"pg": t["pg"], "rank": t["rank"], "vs": t["vs"], **kw}
+    return {"pg": t["pg"], "rank": t["rank"], "vs": t["vs"], "small": t.get("small", False), **kw}
 
 
 def stat_zone(player_id, opp: str, stat: str) -> dict | None:

@@ -36,14 +36,14 @@
 {% for s, lab in rk.stats %}{% set a = al[s] %}
 <div class="{{ 'hidden' if not loop.first }}" data-tab-panel="{{ key }}:{{ s }}">
   {% if a %}
-  <p class="small dim">{{ lab }} allowed per game. League average: {{ a.league.all }} total &middot; PG {{ a.league.PG }} &middot; SG {{ a.league.SG }} &middot; SF {{ a.league.SF }} &middot; PF {{ a.league.PF }} &middot; C {{ a.league.C }}. Rank 1 = allows the most (best matchup for an over).</p>
+  <p class="small dim">{{ lab }} allowed per game. League average: {{ a.league.all }} total &middot; PG {{ a.league.PG }} &middot; SG {{ a.league.SG }} &middot; SF {{ a.league.SF }} &middot; PF {{ a.league.PF }} &middot; C {{ a.league.C }}. Rank 1 = allows the most (best matchup for an over). Ranks and % are adjusted for sample size: a split that is still mostly game-to-game noise is pulled toward average and shown grey (too early to trust).</p>
   <div class="table-wrap"><div class="table-scroll"><table class="stat-table sortable rk-table">
     <thead><tr><th>Team</th><th class="num">All</th><th class="num">Rank</th><th class="num">PG</th><th class="num">Rank</th><th class="num">SG</th><th class="num">Rank</th><th class="num">SF</th><th class="num">Rank</th><th class="num">PF</th><th class="num">Rank</th><th class="num">C</th><th class="num">Rank</th><th class="num hide-sm">GP</th></tr></thead>
     <tbody>{% for r in a.rows %}<tr>
       <td data-v="{{ r.team }}">{{ m.badge(r.badge) }}</td>
       {% for k in ('all', 'PG', 'SG', 'SF', 'PF', 'C') %}{% set rnk = r[k ~ '_rank'] %}
       <td class="num" data-v="{{ r[k] }}">{{ r[k] if r[k] is not none else '—' }} <span class="small dim">{{ '%+d'|format(r[k ~ '_vs']) ~ '%' if r[k ~ '_vs'] is defined else '' }}</span></td>
-      <td class="num rk-rank {{ 'rk-hi' if rnk and rnk <= 10 else 'rk-lo' if rnk and rnk > 20 }}" data-v="{{ rnk or 99 }}">{{ rnk or '—' }}</td>{% endfor %}
+      <td class="num rk-rank {{ 'rk-early' if r[k ~ '_small'] else ('rk-hi' if rnk and rnk <= 10 else 'rk-lo' if rnk and rnk > 20) }}" data-v="{{ rnk or 99 }}"{% if r[k ~ '_small'] %} title="Too early to trust: mostly game-to-game noise so far"{% endif %}>{{ rnk or '—' }}</td>{% endfor %}
       <td class="num hide-sm">{{ r.g }}</td></tr>{% endfor %}</tbody>
   </table></div></div>
   {% else %}<div class="empty-state"><h3>No data</h3><p>Not enough games yet.</p></div>{% endif %}
