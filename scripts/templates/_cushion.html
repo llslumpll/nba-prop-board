@@ -3,7 +3,7 @@
 {% macro cres(r) -%}{{ {'hit': '&#10004;', 'miss': '&#10008;', 'push': '&ndash;', 'void': '&ndash;'}.get(r, '&#9675;')|safe }}{%- endmacro %}
 {% macro cushion_card(t, c, lab, p_to_am) %}
 <article class="pz-card {{ 'pz-pending' if t.status != 'graded' else ('pz-won' if t.hit else 'pz-lost') }}">
-  <div class="pz-head"><div><div class="pz-title">CUSHION &middot; ABOUT +{{ ((t.target - 1) * 100)|int }} &middot; {{ t.legs|length }} LEGS</div><div class="pz-sub">{{ 'LOCKED AT FIRST TIP' if c.locked else 'UPDATES TILL FIRST TIP' }}</div></div>
+  <div class="pz-head"><div><div class="pz-title">{{ 'CUSHION ONLY' if t.only else 'SAFEST LEGS' }} &middot; ABOUT +{{ ((t.target - 1) * 100)|int }} &middot; {{ t.legs|length }} LEGS</div><div class="pz-sub">{{ 'LOCKED AT FIRST TIP' if c.locked else 'UPDATES TILL FIRST TIP' }}</div></div>
     <div class="pz-nums"><b>{{ '%.1f'|format(t.pays) }}x</b><span>pays about</span></div></div>
   <div class="pz-tags"><span class="u-tag u-0">TRACKING ONLY</span> <span class="anchor-tag">ALL LEGS ON KALSHI</span></div>
   <ul class="pz-legs">{% for l in t.legs %}<li class="pz-leg {{ 'pz-hit' if l.res == 'hit' else ('pz-miss' if l.res == 'miss' else '') }}"><span class="pz-res">{{ cres(l.res) }}</span>

@@ -232,7 +232,8 @@ def your_price(leg: dict, prow: dict | None) -> dict | None:
 
 CUSH_SOFT = {"pts": 5, "reb": 3, "ast": 2.5, "fg3m": 1, "pra": 6, "pr": 5, "pa": 5, "ra": 3}   # update 87: per-stat cushion
 CUSH_SRC = ("doc", "wiz", "byrn", "peaky", "diogo", "izzo", "samb", "gobpm", "sam", "tacos", "fav")  # leg priority when a player repeats
-CUSH_TIERS = (5.0, 6.5, 8.0)   # about +400 / +550 / +700
+CUSH_TIERS = (4.0, 5.0, 6.5, 8.0)   # +300 (cushion legs 75-85% only) and +400 / +550 / +700 (all safe legs)
+CUSH_300_HI = 0.85
 CUSH_MAX_LEGS = 12
 
 
@@ -272,10 +273,19 @@ def cushion_leg(leg: dict, prow: dict | None) -> dict | None:
 
 
 def cushion_tiers(legs: list[dict]) -> list[dict]:
-    """Safest legs first, as few as it takes to pay about 4x / 5x / 6x (+300 / +400 / +500)."""
+    """+300: only cushion props priced 75-85% (the version that did best in the Nov 20 replay).
+    +400 / +550 / +700: every safe leg (cushion props up to 92% and 75%+ favorites), safest first, as few as it takes."""
+    tiers = []
+    t300 = _stack([l for l in legs if l.get("stat") != "ml" and l["p"] <= CUSH_300_HI], (4.0,))
+    for t in t300:
+        t["only"] = "cushion"
+    return t300 + _stack(legs, CUSH_TIERS[1:])
+
+
+def _stack(legs: list[dict], targets) -> list[dict]:
     legs = sorted(legs, key=lambda l: -l["p"])[:CUSH_MAX_LEGS]
     tiers = []
-    for tgt in CUSH_TIERS:
+    for tgt in targets:
         pay, used = 1.0, []
         for l in legs:
             used.append(l)
