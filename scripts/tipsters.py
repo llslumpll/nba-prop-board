@@ -519,6 +519,27 @@ def spot_tag(r, by, ju):
     return None, None
 
 
+AGREE_MIN, AGREE_JUICE = 32.0, -125
+AGREE_SRC = ("doc", "wiz", "byrn", "peaky", "diogo", "izzo", "samb")
+
+
+def model_check(leg: dict, odds, rows: dict) -> dict | None:
+    """Update 95 (Nov 20 2026): does our projection agree with the tipster's side, and is it the strong spot?
+    Season review of the six profitable tipsters (408 props): model agrees 131-70 (+23%/bet) vs disagrees 113-91 (+4%);
+    agrees + our projected minutes 32+ + price better than -125: 47-16 (+41%/bet). Tracked point in time from here."""
+    pr = rows.get((_norm(leg.get("player", "")), leg.get("stat")))
+    if not pr or pr.get("projected") is None:
+        return None
+    proj, ln, over = float(pr["projected"]), float(leg["line"]), leg.get("side", "over") == "over"
+    if proj == ln:
+        return None
+    agree = (proj > ln) == over
+    pm = pr.get("proj_min")
+    strong = agree and (pm or 0) >= AGREE_MIN and (odds is None or odds > AGREE_JUICE)
+    return {"tag": "strong" if strong else ("agree" if agree else "disagree"), "proj": round(proj, 1),
+            "pmin": round(pm) if pm else None}
+
+
 def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
     now = now or datetime.now(timezone.utc)
     allp = _load(PICKS, {}).get("picks", [])
@@ -527,9 +548,14 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
     by_team, by_gid = _tips(sl)
     today = (sl or {}).get("date")
     out_rows = []
+    pr_cache: dict = {}
     for p in allp:
         g = grade_pick(p, ply, team)
         r = {**p, **g, "who": TIPSTERS[p["tipster"]]["name"]}
+        if p["kind"] == "prop" and len(p.get("legs") or []) == 1:
+            if p["date"] not in pr_cache:
+                pr_cache[p["date"]] = _pred_rows(p["date"])
+            r["model"] = model_check(p["legs"][0], p.get("odds"), pr_cache[p["date"]])
         if p["tipster"] == "sam":
             r["short"] = p["odds"] <= SHORT_MAX
         if p["kind"] == "prop" and "legs" not in g:
@@ -541,6 +567,12 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
             r["your_units"] = (1 / yp["p"] - 1) if g.get("res") == "hit" else (-1.0 if g.get("res") == "miss" else 0.0)
         out_rows.append(r)
     graded = [r for r in out_rows if r["status"] == "graded" and r["res"] in ("hit", "miss")]
+    agree_rec = {}
+    for tag in ("strong", "agree", "disagree"):
+        rs = [r for r in graded if r["tipster"] in AGREE_SRC and (r.get("model") or {}).get("tag") == tag]
+        n, w = len(rs), sum(r["res"] == "hit" for r in rs)
+        u = sum(r["units"] for r in rs)
+        agree_rec[tag] = {"n": n, "w": w, "l": n - w, "u": round(u, 1), "per": round(100 * u / n) if n else None}
     # best-spot tags, point in time: each pick is judged on the tipster's record from earlier dates only
     spot_rec = {"in": [], "out": [], "none": []}
     for r in out_rows:
@@ -657,4 +689,4 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
             "tier_rec": tier_rec, "pool_rec": pool_rec, "cush_soft": CUSH_SOFT,
             "season_from": min((r["date"] for r in allp), default=None), "lab": LAB, "p_to_am": p_to_am,
             "spot_rec": {k: rec(sorted(v, key=lambda r: r["date"])) for k, v in spot_rec.items()}, "spot_min": SPOT_MIN,
-            "juice": JUICE}
+            "juice": JUICE, "agree_rec": agree_rec, "agree_min": int(AGREE_MIN)}

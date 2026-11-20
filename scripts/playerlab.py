@@ -227,6 +227,39 @@ def gamelog(raw_box: pl.DataFrame, player_id: int, lines: dict) -> list[dict]:
     return rows
 
 
+def mates(raw_box: pl.DataFrame, player_id: int, outs: set | None = None) -> list[dict]:
+    """Update 95: teammates who matter (18+ min a game, 60+ min this season on his current team) and the dates of HIS
+    games they missed, so the Lab can show his numbers without each one. Game level: ESPN play-by-play has no lineups,
+    so "without" means the teammate did not play that game. `outs` = names ruled out tonight."""
+    import unicodedata
+
+    def norm(x):
+        x = unicodedata.normalize("NFKD", x or "").encode("ascii", "ignore").decode().lower().replace(".", "").replace("'", "")
+        return " ".join(w for w in x.split() if w not in ("jr", "sr", "ii", "iii"))
+    played = raw_box.filter(~pl.col("did_not_play").fill_null(False) & (pl.col("minutes").fill_null(0) > 0))
+    me = played.filter(pl.col("athlete_id") == player_id).sort("game_date")
+    if not me.height:
+        return []
+    tid = me["team_id"][-1]
+    my_games = me.filter(pl.col("team_id") == tid).select("game_id", "game_date")
+    team = played.filter((pl.col("team_id") == tid) & (pl.col("athlete_id") != player_id))
+    agg = team.group_by("athlete_id").agg(pl.col("athlete_display_name").last().alias("name"), pl.col("minutes").sum().alias("m"),
+                                          pl.len().alias("g"), pl.col("game_id"))
+    outs_n = {norm(x) for x in (outs or set())}
+    out = []
+    for r in agg.iter_rows(named=True):
+        if r["m"] < 60 or r["m"] / r["g"] < 18:
+            continue
+        gs = set(r["game_id"])
+        missed = [d.isoformat() for g, d in my_games.iter_rows() if g not in gs]
+        if not missed or len(missed) == my_games.height:
+            continue
+        out.append({"pid": r["athlete_id"], "name": r["name"], "mpg": round(r["m"] / r["g"], 1), "missed": missed,
+                    "out": norm(r["name"]) in outs_n})
+    out.sort(key=lambda x: (not x["out"], -x["mpg"]))
+    return out[:8]
+
+
 def similar(raw_box: pl.DataFrame, lines: dict, pos: str, opp_raw: str, exclude: int, season_start: _date) -> list[dict]:
     """Same-position players vs this opponent this season, with the line we graded them on."""
     vs = raw_box.filter((pl.col("opponent_team_abbreviation") == opp_raw) & (pl.col("athlete_position_abbreviation") == pos)
@@ -306,6 +339,12 @@ class Ctx:
             if self.shots is not None:  # update 91: the matchup panel for assists, rebounds and threes too
                 d["other"] = player_other(self.shots, self.rebs, int(player_id))
                 d["odef"] = {k: v.get(raw_opp) for k, v in self.sranks.items()}
+            try:
+                outs = {x for p in preds for x in (p.get("out_ctx") or [])}
+                d["mates"] = mates(self.raw, int(player_id), outs)
+            except Exception as e:  # noqa: BLE001
+                print(f"  player lab mates {player_id}: {e}")
+                d["mates"] = []
             d["first"] = next((s for s in ("pts", "fg3m", "reb", "ast") if s in tonight), "pts")
             d["track"] = self.track
             return d if d["log"] else None

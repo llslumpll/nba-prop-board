@@ -9,10 +9,10 @@
 <article class="pz-card {{ 'pz-pending' if r.status != 'graded' else ('pz-won' if r.res == 'hit' else ('pz-lost' if r.res == 'miss' else '')) }}">
   <div class="pz-head"><div><div class="pz-title">{{ label }}</div>
     <div class="pz-sub">{% if r.posted_et %}POSTED {{ r.posted_et }}{% endif %}{% if r.game %} &middot; {{ r.game }}{% endif %}{% if r.tip %} &middot; {{ r.tip }}{% endif %}</div></div></div>
-  <div class="pz-tags"><span class="u-tag u-0">TRACKING ONLY</span>{% if r.out %} <span class="pr-tag pr-toohigh" style="margin-left:0">PLAYER OUT</span>{% endif %}</div>
+  <div class="pz-tags"><span class="u-tag u-0">TRACKING ONLY</span>{% if r.out %} <span class="pr-tag pr-toohigh" style="margin-left:0">PLAYER OUT</span>{% endif %} {{ m.model_tag(r.model) }}</div>
   <ul class="pz-legs">{% set l = r.legs[0] %}
     <li class="pz-leg {{ 'pz-hit' if l.res == 'hit' else ('pz-miss' if l.res == 'miss' else '') }}"><span class="pz-res">{{ mres(l.res) }}</span>{% if r.team %}{{ m.badge(badge(r.team)) }}{% endif %}<span class="pz-what">{{ mleg(l) }}{% if l.actual is not none %} <span class="dim small">had {{ l.actual }}</span>{% endif %}</span>
-      <span class="pz-meta">{% if r.out %}<span class="stat-bad">Ruled out</span> <span class="dim small">&middot; skip, it will void</span>{% elif r.your %}<b>{{ r.your.odds }}</b> <span class="dim small">your price &middot; {{ r.your.src }} (posted {{ mam(r.odds) }})</span>{% else %}<b>{{ mam(r.odds) }}</b> <span class="dim small">posted{% if r.book %} ({{ r.book }}){% endif %} &middot; no matching Kalshi/Polymarket number yet</span>{% endif %}</span></li>
+      <span class="pz-meta">{% if r.out %}<span class="stat-bad">Ruled out</span> <span class="dim small">&middot; skip, it will void</span>{% elif r.your %}<b>{{ r.your.odds }}</b> <span class="dim small">your price &middot; {{ r.your.src }} (posted {{ mam(r.odds) }})</span>{% else %}<b>{{ mam(r.odds) }}</b> <span class="dim small">posted{% if r.book %} ({{ r.book }}){% endif %} &middot; no matching Kalshi/Polymarket number yet</span>{% endif %}{{ m.model_meta(r.model) }}</span></li>
   </ul>
 </article>
 {%- endmacro %}
@@ -49,7 +49,7 @@
   {% if board.safe %}<div class="pz-grid">{% for r in board.safe %}
     <article class="pz-card {{ 'pz-pending' if not r.res else ('pz-won' if r.res == 'hit' else ('pz-lost' if r.res == 'miss' else '')) }}">
       <div class="pz-head"><div><div class="pz-title">SAFE LINE &middot; {{ r.kind|upper }}</div><div class="pz-sub">his odds {{ r.odds }}</div></div></div>
-      <div class="pz-tags"><span class="pr-tag pr-good" style="margin-left:0">GOOD PRICE</span>{% if r.out %} <span class="pr-tag pr-toohigh" style="margin-left:0">PLAYER OUT</span>{% endif %}</div>
+      <div class="pz-tags"><span class="pr-tag pr-good" style="margin-left:0">GOOD PRICE</span>{% if r.out %} <span class="pr-tag pr-toohigh" style="margin-left:0">PLAYER OUT</span>{% endif %} {{ m.model_tag(r.model) }}</div>
       <ul class="pz-legs"><li class="pz-leg {{ 'pz-hit' if r.res == 'hit' else ('pz-miss' if r.res == 'miss' else '') }}"><span class="pz-res">{{ mres(r.res) }}</span>{% if r.team %}{{ m.badge(badge(r.team)) }}{% endif %}<span class="pz-what">{{ r.player }} <span class="pp-pick pp-over">OVER {{ r.line|fmtline }} {{ (stat_short.get(r.stat, r.stat))|upper }}</span>{% if r.actual is not none %} <span class="dim small">had {{ r.actual }}</span>{% endif %}</span>
         <span class="pz-meta"><b>{{ r.your_odds }}</b> <span class="dim small">{{ r.your.src }} &middot; costs {{ '%.1f'|format(r.cost * 100) }}% &middot; {{ r.kind|lower }} really hit {{ (r.fair * 100)|round|int }}%</span></span></li></ul>
     </article>{% endfor %}</div>
