@@ -1,6 +1,6 @@
 """
 Team rankings: standings, and what every defense allows, overall and to each
-position (guards / forwards / centers), for every stat the site projects.
+position (PG / SG / SF / PF / C since update 86), for every stat the site projects.
 
 Computed from the same ESPN box scores the model uses, every build. Rank 1 =
 allows the MOST (best matchup for an OVER). Small early-season samples are
@@ -20,7 +20,8 @@ import model
 import teams
 
 STATS = ("pts", "reb", "ast", "fg3m", "pra", "pr", "pa", "ra")
-POS = (("G", "guards"), ("F", "forwards"), ("C", "centers"))
+POS = (("PG", "point guards"), ("SG", "shooting guards"), ("SF", "small forwards"), ("PF", "power forwards"), ("C", "centers"))
+PK = tuple(k for k, _ in POS)
 
 
 def _season_rows(box: pl.DataFrame, season: int):
@@ -80,7 +81,7 @@ def allowed(box: pl.DataFrame, season: int) -> dict:
     played, tg = _season_rows(box, season)
     if not played.height:
         return {}
-    per_game = played.group_by(["game_id", "opp", "pos"]).agg([pl.col(s).sum() for s in STATS]).rename({"opp": "def"})
+    per_game = played.with_columns(pl.col("dpos" if "dpos" in played.columns else "pos").alias("pos")).group_by(["game_id", "opp", "pos"]).agg([pl.col(s).sum() for s in STATS]).rename({"opp": "def"})
     poss = tg.select("game_id", pl.col("team").alias("def"), "game_poss")
     games = tg.group_by("team").agg(pl.len().alias("g"), pl.col("game_poss").sum().alias("poss")).rename({"team": "def"})
     by_pos = per_game.group_by(["def", "pos"]).agg([pl.col(s).sum() for s in STATS]).join(games, on="def", how="left")
@@ -98,8 +99,8 @@ def allowed(box: pl.DataFrame, season: int) -> dict:
             if r["def"] in rows and r["g"]:
                 rows[r["def"]][r["pos"]] = round(r[s] / r["g"], 1)
         lst = list(rows.values())
-        league = {k: (round(sum(x.get(k) or 0 for x in lst) / len(lst), 1) if lst else None) for k in ("all", "G", "F", "C")}
-        for k in ("all", "G", "F", "C"):
+        league = {k: (round(sum(x.get(k) or 0 for x in lst) / len(lst), 1) if lst else None) for k in ("all", *PK)}
+        for k in ("all", *PK):
             ranked = sorted([x for x in lst if x.get(k) is not None], key=lambda x: -x[k])
             for i, x in enumerate(ranked, 1):
                 x[f"{k}_rank"] = i
@@ -115,15 +116,20 @@ def build(box: pl.DataFrame) -> dict:
     al = allowed(box, cur)
     prev = allowed(box, cur - 1)
     games = min((r["g"] for r in st), default=0)
-    return {"season": cur, "standings": st, "allowed": al, "allowed_prev": prev, "min_games": games,
+    pos_map = {}
+    if "dpos" in box.columns and box.height:
+        pos_map = dict(box.select("player_id", "dpos").unique("player_id", keep="last").iter_rows())
+    return {"season": cur, "standings": st, "allowed": al, "allowed_prev": prev, "min_games": games, "pos_map": pos_map,
             "max_games": max((r["g"] for r in st), default=0),
             "stats": [(s, model.STAT_LABEL.get(s, s)) for s in STATS], "pos": POS}
 
 
-def matchup(rk: dict, opp: str, pos: str, stat: str) -> dict | None:
-    """What `opp` allows to `pos` for `stat` this season, with rank and % vs league."""
+def matchup(rk: dict, opp: str, pos: str, stat: str, player_id=None) -> dict | None:
+    """What `opp` allows to the player's position (PG/SG/SF/PF/C) for `stat` this season, with rank
+    and % vs league. `pos` may be the old G/F/C group; the player's five-position slot wins."""
+    pos = (rk.get("pos_map") or {}).get(player_id) or {"G": "SG", "F": "SF"}.get(pos, pos)
     a = (rk.get("allowed") or {}).get(stat)
-    if not a or not opp or pos not in ("G", "F", "C"):
+    if not a or not opp or pos not in PK:
         return None
     row = next((r for r in a["rows"] if r["team"] == opp), None)
     if not row or row.get(pos) is None:

@@ -50,6 +50,7 @@ def parse(raw: dict, roster: list[dict]) -> dict:
     for r in roster:
         if r.get("team") and r.get("player"):
             by_team.setdefault(r["team"], {})[normalize_name(r["player"])] = r["player"]
+    listed_pos = []
     teams_out, inactive, unmatched = {}, [], []
     games = raw.get("games") or []
     for g in games:
@@ -73,13 +74,15 @@ def parse(raw: dict, roster: list[dict]) -> dict:
                     statuses.add(ls.title())
                 if str(p.get("position") or "").strip() and str(p.get("rosterStatus") or "Active").lower() != "inactive":
                     starters.append(ours)
+                    listed_pos.append({"player": ours, "pos": str(p.get("position")).strip().upper()})
                 if str(p.get("rosterStatus") or "").lower() == "inactive":
                     inact.append(ours)
             status = "Confirmed" if "Confirmed" in statuses else ("Expected" if statuses or starters else None)
             teams_out[code] = {"status": status, "starters": starters[:5], "inactive": inact, "game_id": g.get("gameId")}
             if status == "Confirmed" and len(inact) <= MAX_INACTIVE_PER_TEAM:
                 inactive += [{"player": n, "team": code} for n in inact if n not in starters]
-    return {"teams": teams_out, "inactive": inactive, "unmatched": unmatched[:40], "games": len(games)}
+    return {"teams": teams_out, "inactive": inactive, "unmatched": unmatched[:40], "games": len(games),
+            "listed_pos": listed_pos}
 
 
 def fetch(date_et: str, roster: list[dict]) -> dict:
@@ -90,6 +93,13 @@ def fetch(date_et: str, roster: list[dict]) -> dict:
         r.raise_for_status()
         raw = r.json()
         out = {"fetched_at": now, "date": date_et, "error": None, **parse(raw, roster)}
+        try:  # update 86: NBA.com's listed starter positions feed the five-position split
+            import positions
+            ids = {str(x.get("player")): x.get("player_id") for x in roster or []}
+            out["pos_added"] = positions.record_official(
+                [{**x, "player_id": ids.get(x["player"]), "date": date_et} for x in out.get("listed_pos") or []])
+        except Exception as e:  # noqa: BLE001
+            out["pos_error"] = errs.short(e)
         g0 = (raw.get("games") or [{}])[0]
         t0 = g0.get("homeTeam") or {}
         out["format"] = {"top": sorted(raw)[:10], "game": sorted(g0)[:15], "team": sorted(t0)[:15],

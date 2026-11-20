@@ -186,6 +186,15 @@ def load_box() -> pl.DataFrame:
                     print(f"WARNING: could not read {p.name}: {e}")
         _box_cache = (pl.concat(frames, how="vertical_relaxed").sort(["date", "game_id"])
                       if frames else pl.DataFrame())
+        if _box_cache.height:  # update 86: five positions (PG/SG/SF/PF/C) for "defense vs position"
+            try:
+                import positions
+                _box_cache = _box_cache.join(positions.assign(_box_cache), on="player_id", how="left")
+            except Exception as e:  # noqa: BLE001
+                print(f"WARNING: five positions failed ({e}); using G/F/C")
+                _box_cache = _box_cache.with_columns(pl.lit(None, dtype=pl.Utf8).alias("dpos"))
+            _box_cache = _box_cache.with_columns(
+                pl.coalesce("dpos", pl.col("pos").replace({"G": "SG", "F": "SF"})).alias("dpos"))
     return _box_cache
 
 
