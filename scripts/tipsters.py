@@ -60,7 +60,8 @@ LAB = {"pts": "PTS", "reb": "REB", "ast": "AST", "fg3m": "3PM", "pra": "PRA", "p
 PARTS = {"pts": ("pts",), "reb": ("reb",), "ast": ("ast",), "fg3m": ("fg3m",), "pra": ("pts", "reb", "ast"),
          "pr": ("pts", "reb"), "pa": ("pts", "ast"), "ra": ("reb", "ast")}
 KFEE = 0.07
-CUSH_LO, CUSH_HI = 0.75, 0.85   # update 87: the user's 75-85% cushion legs
+CUSH_LO, CUSH_HI = 0.75, 0.92   # update 87: cushion legs 75-92% (the user wants the safest, most probable legs)
+ML_MIN_FAIR, ML_MAX_COST = 0.75, 0.95   # favorites' moneylines added as safe legs (Kalshi price)
 EARN_N = 50
 
 
@@ -230,8 +231,8 @@ def your_price(leg: dict, prow: dict | None) -> dict | None:
 
 
 CUSH_SOFT = {"pts": 5, "reb": 3, "ast": 2.5, "fg3m": 1, "pra": 6, "pr": 5, "pa": 5, "ra": 3}   # update 87: per-stat cushion
-CUSH_SRC = ("doc", "wiz", "byrn", "peaky", "diogo", "izzo", "samb", "gobpm", "sam", "tacos")  # leg priority when a player repeats
-CUSH_TIERS = (4.0, 5.0, 6.0)   # about +300 / +400 / +500
+CUSH_SRC = ("doc", "wiz", "byrn", "peaky", "diogo", "izzo", "samb", "gobpm", "sam", "tacos", "fav")  # leg priority when a player repeats
+CUSH_TIERS = (5.0, 6.5, 8.0)   # about +400 / +550 / +700
 CUSH_MAX_LEGS = 12
 
 
@@ -364,6 +365,30 @@ def sync(sl: dict, now: datetime | None = None) -> None:
             if c:
                 seen.add(_norm(c["player"]))
                 pool.append({**c, "from": pid, "tipster": src})
+        for g in (sl or {}).get("games") or []:   # favorites' moneylines (75%+ fair) as safe legs, Kalshi price
+            if g.get("started") or g.get("completed"):
+                continue
+            tip = by_gid.get(g["game_id"])
+            if tip and now >= tip:
+                continue
+            fd = (g.get("fanduel") or {}).get("moneyline") or {}
+            km = g.get("kalshi_ml") or {}
+            hp = fd.get("home_prob") if fd.get("home_prob") is not None else km.get("home_prob")
+            if hp is None:
+                continue
+            hp /= 100
+            side = "home" if hp >= 0.5 else "away"
+            fair = hp if side == "home" else 1 - hp
+            ka = km.get(f"{side}_ask")
+            if fair < ML_MIN_FAIR or not ka:
+                continue
+            ka = ka / 100 if ka > 1 else ka
+            cost = _kcost(ka)
+            if cost <= ML_MAX_COST:
+                team_ = g[side]
+                pool.append({"kind": "spread", "team": team_, "line": 0.0, "player": f"{team_} to win", "stat": "ml",
+                             "rung": 0, "side": "over", "p": round(cost, 4), "fair": round(fair, 3), "game_id": g["game_id"],
+                             "from": f"{date}|ml|{team_}", "tipster": "fav"})
         tiers = cushion_tiers(pool)
         if pool:   # the leg list is kept even when no tier reaches +300 yet
             pay = 1.0
@@ -502,7 +527,7 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
     def _grade_combo(legs_in, d):
         legs, res = [], []
         for l in legs_in:
-            g, x, _ = grade_leg(l, d, ply)
+            g, x, _ = grade_leg(l, d, ply, team)
             legs.append({**l, "res": g, "actual": x})
             res.append(g)
         status = "open" if any(x is None for x in res) else "graded"
