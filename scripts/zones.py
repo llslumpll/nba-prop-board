@@ -50,6 +50,45 @@ def summarize(pbp: pl.DataFrame) -> pl.DataFrame:
         *[pl.col(z).cast(pl.Int32) for z in ZONES]).sort(["date", "game_id"])
 
 
+def path_x(season: int) -> Path:
+    return dataio.CACHE / f"zones_x_{season}.parquet"
+
+
+TEAM_FIX = {"GS": "GSW", "NO": "NOP", "NY": "NYK", "SA": "SAS", "UTAH": "UTA", "WSH": "WAS"}
+
+
+def summarize_x(pbp: pl.DataFrame) -> pl.DataFrame:
+    """Update 90 (Nov 20 2026): zones for the other stats, per player-game vs the defense he faced.
+      a_rim / a_mid / a_three   assists, by the shot the pass set up
+      r_rim / r_mid / r_three   rebounds, by where the missed shot came from (free-throw misses count as rim:
+                                short boards); oreb / dreb = offensive / defensive rebounds
+      fg3a                      threes attempted"""
+    p = pbp.sort(["game_id", "sequence_number"]).with_columns(
+        zone=pl.when(pl.col("type_text").str.contains("Free Throw")).then(pl.lit("rim"))
+        .when(pl.col("points_attempted") == 3).then(pl.lit("three"))
+        .when(pl.col("type_text").str.contains(RIM_RE)).then(pl.lit("rim")).otherwise(pl.lit("mid")),
+        opp=pl.when(pl.col("team_id") == pl.col("home_team_id")).then(pl.col("away_team_abbrev"))
+        .otherwise(pl.col("home_team_abbrev")))
+    p = p.with_columns(prev_zone=pl.col("zone").shift(1).over("game_id"))
+    keys = ["game_id", "game_date", "season", "season_type", "pid", "opp"]
+    ast = p.filter(pl.col("scoring_play") & pl.col("shooting_play") & pl.col("athlete_id_2").is_not_null()
+                   & ~pl.col("type_text").str.contains("Free Throw")).with_columns(pid=pl.col("athlete_id_2"))
+    ast = ast.group_by(keys).agg([(pl.col("zone") == z).sum().alias(f"a_{z}") for z in ZONES])
+    rb = p.filter(pl.col("type_text").str.contains("Rebound") & pl.col("athlete_id_1").is_not_null()).with_columns(
+        pid=pl.col("athlete_id_1"), pz=pl.col("prev_zone").fill_null("rim"))
+    rb = rb.group_by(keys).agg([(pl.col("pz") == z).sum().alias(f"r_{z}") for z in ZONES]
+                               + [(pl.col("type_text") == "Offensive Rebound").sum().alias("oreb"),
+                                  (pl.col("type_text") == "Defensive Rebound").sum().alias("dreb")])
+    t3 = p.filter(pl.col("shooting_play") & (pl.col("points_attempted") == 3) & pl.col("athlete_id_1").is_not_null()
+                  & ~pl.col("type_text").str.contains("Free Throw")).with_columns(pid=pl.col("athlete_id_1"))
+    t3 = t3.group_by(keys).agg(pl.len().alias("fg3a"))
+    cols = [f"a_{z}" for z in ZONES] + [f"r_{z}" for z in ZONES] + ["oreb", "dreb", "fg3a"]
+    out = ast.join(rb, on=keys, how="full", coalesce=True).join(t3, on=keys, how="full", coalesce=True)
+    return out.rename({"game_date": "date", "pid": "player_id", "opp": "def_team"}).with_columns(
+        pl.col("game_id").cast(pl.Int64), pl.col("player_id").cast(pl.Int64), pl.col("def_team").replace(TEAM_FIX),
+        *[pl.col(c).fill_null(0).cast(pl.Int32) for c in cols]).sort(["date", "game_id"])
+
+
 def refresh(seasons=None) -> dict:
     """Build / update the zone summaries. Current season: only when the upstream file changed."""
     cur = dataio.CURRENT_SEASON
@@ -62,13 +101,14 @@ def refresh(seasons=None) -> dict:
     out = {}
     for s in seasons:
         url = PBP_URL.format(season=s)
-        if s != cur and path(s).exists():
+        if s != cur and path(s).exists() and path_x(s).exists():
             out[s] = "kept"
             continue
         try:
             lm = requests.head(url, timeout=30, allow_redirects=True).headers.get("Last-Modified")
             import playerlab
-            if path(s).exists() and lm and st.get(str(s)) == lm and (s != cur or playerlab.shots_path(s).exists()):
+            if (path(s).exists() and path_x(s).exists() and lm and st.get(str(s)) == lm
+                    and (s != cur or playerlab.shots_path(s).exists())):
                 out[s] = "unchanged"
                 continue
             r = requests.get(url, timeout=180, allow_redirects=True)
@@ -81,6 +121,12 @@ def refresh(seasons=None) -> dict:
                 f.write_bytes(r.content)
                 pbp = pl.read_parquet(f)
                 z = summarize(pbp)
+                try:
+                    zx = summarize_x(pbp)
+                    if zx.height:
+                        zx.write_parquet(path_x(s))
+                except Exception as e:  # noqa: BLE001
+                    out[f"x_{s}"] = f"error: {str(e)[:100]}"
                 if s == cur:  # Player Lab (update 81): every shot with zone + type, kept small
                     try:
                         import playerlab
@@ -207,3 +253,136 @@ def matchup_line(player_id, opp: str, stat: str) -> dict | None:
     t = tm[zone]
     return {"zone": ZONE_NAME[zone], "share": mix[zone], "mix": mix, "opp": opp, "pg": t["pg"], "rank": t["rank"],
             "vs": t["vs"], "g": tm["g"], "n": tm["n"], "live": tm["g"] >= 15}
+
+
+# ---- update 90 (Nov 20 2026): a zone line for every prop, not just points --------------------------------
+X_COLS = [f"a_{z}" for z in ZONES] + [f"r_{z}" for z in ZONES] + ["oreb", "dreb", "fg3a"]
+_page_x = None
+
+
+def _load_x() -> pl.DataFrame:
+    fr = [pl.read_parquet(path_x(s)) for s in (dataio.CURRENT_SEASON - 1, dataio.CURRENT_SEASON) if path_x(s).exists()]
+    return pl.concat(fr, how="vertical_relaxed") if fr else pl.DataFrame()
+
+
+def page_info_x() -> dict:
+    """Each defense this season: assists allowed by the shot they set up, rebounds allowed by where the miss came from,
+    offensive / defensive boards allowed, threes attempted against it, per game with rank (1 = most). Each player
+    (this season + last): his assists and rebounds split the same way."""
+    global _page_x
+    if _page_x is not None:
+        return _page_x
+    out = {"teams": {}, "players": {}}
+    z = _load_x()
+    if not z.height:
+        _page_x = out
+        return out
+    z = z.filter(pl.col("season_type") == 2) if "season_type" in z.columns else z
+    cur = z.filter(pl.col("season") == dataio.CURRENT_SEASON)
+    if cur.height:
+        d = cur.group_by(["game_id", "def_team"]).agg([pl.col(c).sum() for c in X_COLS]).group_by("def_team").agg(
+            [pl.col(c).mean() for c in X_COLS] + [pl.len().alias("g")])
+        lg = {c: d[c].mean() for c in X_COLS}
+        d = d.with_columns([pl.col(c).rank("ordinal", descending=True).alias(f"rk_{c}") for c in X_COLS])
+        for r in d.iter_rows(named=True):
+            out["teams"][r["def_team"]] = {c: {"pg": round(r[c], 1), "rank": int(r[f"rk_{c}"]),
+                                               "vs": round(100 * (r[c] / lg[c] - 1)) if lg[c] else 0} for c in X_COLS} \
+                | {"g": r["g"], "n": d.height}
+    p = z.group_by("player_id").agg([pl.col(c).sum() for c in X_COLS])
+    tot = z.select([pl.col(c).sum() for c in X_COLS]).row(0, named=True)
+    for k in ("a", "r"):  # league mix: a player's zone is the one he leans on MORE than the league, not just the biggest
+        t = sum(tot[f"{k}_{c}"] for c in ZONES) or 1
+        out[f"lg_{k}"] = {c: round(100 * tot[f"{k}_{c}"] / t) for c in ZONES}
+    for r in p.iter_rows(named=True):
+        rec = {}
+        ta = sum(r[f"a_{c}"] for c in ZONES)
+        if ta >= 25:
+            rec["ast"] = {c: round(100 * r[f"a_{c}"] / ta) for c in ZONES}
+        tr = sum(r[f"r_{c}"] for c in ZONES)
+        if tr >= 25:
+            rec["reb"] = {c: round(100 * r[f"r_{c}"] / tr) for c in ZONES}
+            rec["oreb"] = round(100 * r["oreb"] / max(1, r["oreb"] + r["dreb"]))
+        if rec:
+            out["players"][r["player_id"]] = rec
+    _page_x = out
+    return out
+
+
+def _row(t: dict, **kw) -> dict:
+    return {"pg": t["pg"], "rank": t["rank"], "vs": t["vs"], **kw}
+
+
+def stat_zone(player_id, opp: str, stat: str) -> dict | None:
+    """One zone line for a single stat (pts, reb, ast, fg3m)."""
+    if stat in ("pts", "fg3m"):
+        info = page_info()
+        mix, tm = info["players"].get(player_id), info["teams"].get(opp)
+        if not tm:
+            return None
+        if stat == "fg3m":
+            tx = page_info_x()["teams"].get(opp) or {}
+            t = tm["three"]
+            out = {"stat": "fg3m", "title": "Threes", "opp": opp, "g": tm["g"], "n": tm["n"], "live": tm["g"] >= 15,
+                   "main": _row({**t, "pg": round(t["pg"] / 3, 1)}, what="threes made a game", short="threes made"),
+                   "mix": None, "share": mix["three"] if mix else None, "share_txt": "of his points come from three"}
+            if tx.get("fg3a"):
+                out["extra"] = _row(tx["fg3a"], what="three-point attempts a game", short="3PA")
+            return out
+        if not mix:
+            return None
+        zone = max(ZONES, key=lambda c: mix[c])
+        return {"stat": "pts", "title": "Shot zones", "opp": opp, "g": tm["g"], "n": tm["n"], "live": tm["g"] >= 15,
+                "mix": mix, "share": mix[zone], "share_txt": f"of his points come {ZONE_NAME[zone]}",
+                "main": _row(tm[zone], what=f"points a game {ZONE_NAME[zone]}",
+                             short={"rim": "pts at rim", "mid": "pts midrange", "three": "pts from 3"}[zone])}
+    if stat not in ("reb", "ast"):
+        return None
+    info = page_info_x()
+    pr, tm = (info["players"].get(player_id) or {}).get(stat), info["teams"].get(opp)
+    if not tm:
+        return None
+    base = {"stat": stat, "opp": opp, "g": tm["g"], "n": tm["n"], "live": tm["g"] >= 15, "mix": pr}
+    lgm = info.get("lg_a" if stat == "ast" else "lg_r") or {c: 33 for c in ZONES}
+    if stat == "ast":
+        if not pr:
+            return None
+        zone = max(ZONES, key=lambda c: pr[c] / max(1, lgm[c]))
+        base["lg"] = lgm[zone]
+        what = {"rim": "assists a game on shots at the rim", "mid": "assists a game on midrange shots",
+                "three": "assists a game on threes"}[zone]
+        return {**base, "title": "Assist zones", "share": pr[zone],
+                "share_txt": {"rim": "of his assists set up shots at the rim", "mid": "of his assists set up midrange shots",
+                              "three": "of his assists set up threes"}[zone],
+                "main": _row(tm[f"a_{zone}"], what=what, short={"rim": "ast to rim", "mid": "ast midrange", "three": "ast to 3s"}[zone])}
+    # rebounds: where the misses come from, plus offensive vs defensive boards
+    oreb = (info["players"].get(player_id) or {}).get("oreb")
+    if not pr:
+        return None
+    zone = max(ZONES, key=lambda c: pr[c] / max(1, lgm[c]))
+    base["lg"] = lgm[zone]
+    what = {"rim": "rebounds a game off misses at the rim (short boards)", "mid": "rebounds a game off midrange misses",
+            "three": "rebounds a game off missed threes (long boards)"}[zone]
+    side = "oreb" if (oreb or 0) >= 30 else "dreb"
+    return {**base, "title": "Rebound zones", "share": pr[zone],
+            "share_txt": {"rim": "of his rebounds come off misses at the rim", "mid": "of his rebounds come off midrange misses",
+                          "three": "of his rebounds come off missed threes"}[zone],
+            "main": _row(tm[f"r_{zone}"], what=what, short={"rim": "short boards", "mid": "mid boards", "three": "long boards"}[zone]),
+            "oreb": oreb,
+            "extra": _row(tm[side], what="offensive rebounds a game" if side == "oreb" else "defensive rebounds a game",
+                          short="off. boards" if side == "oreb" else "def. boards")}
+
+
+COMBO_PARTS = {"pra": ("pts", "reb", "ast"), "pr": ("pts", "reb"), "pa": ("pts", "ast"), "ra": ("reb", "ast")}
+
+
+def zone_lines(player_id, opp: str, stat: str) -> list[dict]:
+    """Every zone line that applies to a prop: one for a single stat, one per part for a combo."""
+    out = []
+    for s in COMBO_PARTS.get(stat, (stat,)):
+        try:
+            z = stat_zone(player_id, opp, s)
+        except Exception:  # noqa: BLE001
+            z = None
+        if z:
+            out.append(z)
+    return out

@@ -643,8 +643,19 @@ def render_all(ctx: dict) -> None:
     gidx = _games_index(ctx.get("box"))
     graded_lines = _graded_lines(ctx["preds"])
     prow_by = {(r["player"], r["game_id"]): r for r in res["players"]}
+    def card_mu(p):  # update 90: every prop card shows where the opponent ranks for that stat, and its zones
+        pr = prow_by.get((p["player"], p["game_id"])) or {}
+        try:
+            import zones
+            zl = zones.zone_lines(p.get("player_id"), p.get("opp"), p["stat"])
+        except Exception:  # noqa: BLE001
+            zl = []
+        return {"pos": rankings.matchup(rk, p.get("opp"), pr.get("pos") or p.get("pos"), p["stat"], p.get("player_id")),
+                "zones": zl}
+
     best = {grp: {k: [{**(d := _decorate(p, now)), **card_details(d, gidx, graded_lines, prow_by.get((p["player"], p["game_id"]))),
-                       "recent": recent_strip(gidx, p.get("player_id"), p["stat"], p.get("line"), p.get("call"))}
+                       "recent": recent_strip(gidx, p.get("player_id"), p["stat"], p.get("line"), p.get("call")),
+                       "mu": card_mu(p)}
                       for p in v] for k, v in lists.items()} for grp, lists in ctx["best"].items()}
 
     # ---- per-player rows for every stat (Players page)
@@ -664,11 +675,11 @@ def render_all(ctx: dict) -> None:
                 st["ladder"] = (r["stats"][s]["lines"].get("kalshi") or {}).get("ladder")
                 st["frozen"] = predictions.get(g["date"], r["player"], s, r["game_id"])
                 st["matchup"] = rankings.matchup(rk, r["opp"], r.get("pos"), s, r.get("player_id"))
-                try:
+                try:  # update 90: a zone line for every prop (assists, rebounds, threes and each part of a combo)
                     import zones
-                    st["zone"] = zones.matchup_line(r["player_id"], r["opp"], s)
+                    st["zones"] = zones.zone_lines(r["player_id"], r["opp"], s)
                 except Exception:  # noqa: BLE001
-                    st["zone"] = None
+                    st["zones"] = []
                 st["recent"] = (recent_strip(gidx, r["player_id"], s, st["pick"]["line"], st["pick"]["side"])
                                 if st.get("pick") else [])
                 any_line = any_line or bool(st["lines"])

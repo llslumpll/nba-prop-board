@@ -21,6 +21,7 @@
           <td>
             {% for s in gr.stat_keys %}{% set st = r.stats[s] %}
             <div class="proj-line">{% if gr.stat_keys|length > 1 %}<span class="src">{{ stat_short[s] }}</span> {% endif %}{{ m.proj_pick(st, r, s, gm.g) }}</div>
+            {% if st.matchup or st.zones %}<div class="tc-mu-row bd-mu" title="Where {{ r.opp }} ranks for this stat: 1st = allows the most. Green helps the pick.">{{ m.mu_chips(st.matchup, st.zones, (st.pick.side|lower) if st.pick else ((st.frozen.call|lower) if st.frozen else 'over'), s, gr.stat_keys|length == 1) }}</div>{% endif %}
             {% endfor %}
           </td>
           <td class="hide-sm"><div class="line-list">

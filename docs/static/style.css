@@ -1535,3 +1535,12 @@ html:not([data-theme="court"]) .brand, .brand { outline: none !important; animat
 .fold-s { font-size: .95rem; color: #a3a9b1; }
 .fold-in { padding: 0 16px 14px; }
 .fold-more { margin-top: 8px; background: rgba(12,12,16,.9); color: #fff; border: 1px solid rgba(255,255,255,.25); padding: 8px 14px; font-weight: 700; cursor: pointer; }
+/* update 90: matchup row on prop cards */
+.tc-mu { margin: 6px 0 2px; }
+.tc-mu-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.tc-mu-i { display: inline-flex; align-items: baseline; gap: 5px; padding: 3px 8px; border: 1px solid var(--line, rgba(127,127,127,.25)); border-radius: 999px; font-size: 0.74rem; white-space: nowrap; }
+.tc-mu-i em { font-style: normal; color: var(--text-dim); font-weight: 700; text-transform: uppercase; letter-spacing: .3px; font-size: 0.68rem; }
+.tc-mu-i b { font-size: 0.82rem; }
+.bd-mu { margin: 2px 0 6px; gap: 4px; }
+.bd-mu .tc-mu-i { padding: 1px 6px; font-size: 0.68rem; }
+.bd-mu .tc-mu-i em { font-size: 0.62rem; }
