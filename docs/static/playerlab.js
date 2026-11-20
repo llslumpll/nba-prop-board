@@ -2,7 +2,7 @@
 (function () {
   var D = JSON.parse(document.getElementById('lab-data').textContent), root = document.getElementById('lab2');
   var LAB = {pts: 'PTS', reb: 'REB', ast: 'AST', fg3m: '3PM', pra: 'PRA', pa: 'P+A', pr: 'P+R', ra: 'R+A'};
-  var S = {stat: D.first || 'pts', n: 15, venue: 'all', vs: false, b2b: false, margin: 'all', min: 0, court: 'player', more: false};
+  var S = {stat: D.first || 'pts', n: 15, venue: 'all', vs: false, b2b: false, margin: 'all', min: 0, court: 'player', part: '', more: false};
   function $(q) { return root.querySelector(q); }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]; }); }
   function avg(a) { return a.length ? a.reduce(function (x, y) { return x + y; }, 0) / a.length : null; }
@@ -32,7 +32,7 @@
       Object.keys(D.type_label).forEach(function (k) { var sh = D.shots.kinds[k].share / 100, rk = (D.def.kind[k] || [0, 15])[1]; sc += sh * (N + 1 - rk) / N; w += sh; });
       sc = w ? sc / w : .5; var good = sc * sgn > .55 * sgn || (sgn < 0 && sc < .45);
       out.push(['Matchup', sgn > 0 ? (sc > .55 ? 'g' : (sc < .45 ? 'r' : 'n')) : (sc < .45 ? 'g' : (sc > .55 ? 'r' : 'n')), esc(D.opp) + (sc > .55 ? ' soft' : (sc < .45 ? ' tough' : ' average')) + ' where he scores']);
-    } else out.push(['Matchup', 'n', 'zones apply to scoring stats']);
+    } else out.push(['Matchup', 'n', 'see the ' + (S.stat === 'reb' ? 'rebound' : (S.stat === 'ast' ? 'assist' : 'zone')) + ' map below (not in the verdict yet)']);
     var sr = simRows(); if (sr.length >= 4) { var so = sr.filter(function (g) { return g.v[S.stat] > g.ln[S.stat]; }).length / sr.length;
       out.push(['Similar players', ((so - .5) * sgn) > .08 ? 'g' : (((so - .5) * sgn) < -.08 ? 'r' : 'n'), Math.round(so * 100) + '% went over vs ' + esc(D.opp)]); }
     else out.push(['Similar players', 'n', 'too few vs ' + esc(D.opp)]);
@@ -82,19 +82,62 @@
     return s + '</svg>';
   }
 
+  /* Matchup panel (update 91): follows the stat tab. Points = where he scores; Threes = corner vs above-break;
+     Assists = the shot his pass set up; Rebounds = where the miss came from. Combos pick a part. */
+  var PARTS = {pra: ['pts', 'reb', 'ast'], pa: ['pts', 'ast'], pr: ['pts', 'reb'], ra: ['reb', 'ast']};
+  var ZN = {rim: 'At the rim', paint: 'Paint (non-rim)', mid: 'Midrange', corner3: 'Corner 3', above3: 'Above-break 3', ft: 'Free throws'};
+  function court(val, lab, only) {
+    function f(z) { return (only && only.indexOf(z) < 0) ? 'rgba(120,120,130,.12)' : val(z); }
+    function l(z) { return (only && only.indexOf(z) < 0) ? '' : lab(z); }
+    return '<svg viewBox="0 0 500 470" class="v2-court"><rect width="500" height="470" fill="' + f('above3') + '"/><path d="M30 0 L30 140 A237.5 237.5 0 0 0 470 140 L470 0 Z" fill="' + f('mid') + '"/><rect width="30" height="140" fill="' + f('corner3') + '"/><rect x="470" width="30" height="140" fill="' + f('corner3') + '"/><rect x="170" width="160" height="190" fill="' + f('paint') + '"/><circle cx="250" cy="52" r="45" fill="' + f('rim') + '"/>' +
+      '<g class="v2-cl"><rect width="500" height="470"/><path d="M30 0 L30 140 A237.5 237.5 0 0 0 470 140 L470 0"/><rect x="170" width="160" height="190"/><circle cx="250" cy="190" r="60"/></g>' +
+      '<text x="250" y="62" class="v2-zt">' + l('rim') + '</text><text x="250" y="150" class="v2-zt">' + l('paint') + '</text><text x="92" y="235" class="v2-zt">' + l('mid') + '</text><text x="408" y="235" class="v2-zt">' + l('mid') + '</text><text x="16" y="95" class="v2-zt v2-zs">' + l('corner3') + '</text><text x="484" y="95" class="v2-zt v2-zs">' + l('corner3') + '</text><text x="250" y="420" class="v2-zt">' + l('above3') + '</text></svg>';
+  }
+  function heat(share, top) { return 'rgba(232,52,78,' + (0.12 + Math.min(1, share / (top || 45)) * .8).toFixed(2) + ')'; }
+  function rkFill(rk, N) { if (!rk) return 'rgba(150,150,160,.25)'; var t = (rk[1] - 1) / (N - 1); return t <= .33 ? 'rgba(47,212,122,.72)' : (t >= .67 ? 'rgba(232,52,78,.72)' : 'rgba(150,150,160,.45)'); }
+  function rkCls(rk, N) { return !rk ? '' : (rk[1] <= 10 ? 'g' : (rk[1] > N - 10 ? 'r' : 'n')); }
+  function bar(name, share, rk, N, note) { return '<div class="v2-tb"><span class="v2-tn">' + name + (note ? ' <span class="dim">' + note + '</span>' : '') + '</span><span class="v2-tbar"><i style="width:' + Math.max(2, share) + '%"></i></span><span class="v2-tv">' + share + '%</span><span class="v2-rk v2-' + rkCls(rk, N) + '">' + (rk ? ord(rk[1]) : '-') + '</span></div>'; }
+  function toggle(defLabel) { return '<div class="v2-tg"><button data-g="court" data-v="player" class="' + (S.court === 'player' ? 'on' : '') + '">' + defLabel[0] + '</button><button data-g="court" data-v="def" class="' + (S.court === 'def' ? 'on' : '') + '">' + esc(D.opp) + ' defense</button></div>'; }
   function matchup() {
+    var N = D.nteams || 30, st = S.stat, parts = PARTS[st], head = '';
+    if (parts) { if (parts.indexOf(S.part) < 0) S.part = parts[0]; st = S.part;
+      head = '<div class="v2-tabs v2-parts">' + parts.map(function (p) { return '<button data-g="part" data-v="' + p + '" class="' + (S.part === p ? 'on' : '') + '">' + LAB[p] + ' part</button>'; }).join('') + '</div>'; }
+    var O = D.other || {}, X = D.odef || {}, title = '<b>Matchup vs ' + esc(D.opp) + ' &middot; ' + LAB[st] + '</b>';
+    if (st === 'pts') return head + matchupPts(title);
+    if (st === 'fg3m') {
+      var t = O.fg3m, dm = X.fg3m || {}, da = X.fg3a || {}, Z3 = ['corner3', 'above3'];
+      if (!t || !t.n) return head + '<div class="v2-ch">' + title + '</div><p class="v2-cap">No three-point attempts this season yet.</p>';
+      return head + '<div class="v2-ch">' + title + toggle(['His threes']) + '</div>' +
+        court(function (z) { return S.court === 'player' ? heat(t.zones[z].share, 70) : rkFill(dm[z], N); },
+              function (z) { return S.court === 'player' ? t.zones[z].share + '%' : (dm[z] ? '#' + dm[z][1] : '-'); }, Z3) +
+        '<p class="v2-cap">' + (S.court === 'player' ? 'Share of his three-point attempts from each spot' : esc(D.opp) + ' rank in threes made allowed there (#1 = most) &middot; green soft, red tough') + '</p>' +
+        '<div class="v2-sub">His threes <span>' + esc(D.opp) + ' rank: made / attempts allowed</span></div>' +
+        Z3.map(function (z) { var q = t.zones[z]; return '<div class="v2-tb v2-tb3"><span class="v2-tn">' + ZN[z] + ' <span class="dim">' + q.apg + ' att, ' + (q.fg == null ? '-' : q.fg + '%') + '</span></span><span class="v2-tbar"><i style="width:' + Math.max(2, q.share) + '%"></i></span><span class="v2-tv">' + q.share + '%</span><span class="v2-rk v2-' + rkCls(dm[z], N) + '">' + (dm[z] ? ord(dm[z][1]) : '-') + '</span><span class="v2-rk v2-' + rkCls(da[z], N) + '">' + (da[z] ? ord(da[z][1]) : '-') + '</span></div>'; }).join('');
+    }
+    var a = O[st], d = X[st] || {};
+    if (!a || !a.n) return head + '<div class="v2-ch">' + title + '</div><p class="v2-cap">Not enough ' + (st === 'ast' ? 'assists' : 'rebounds') + ' this season to map yet.</p>';
+    var zs = (st === 'reb' ? ['rim', 'paint', 'mid', 'corner3', 'above3', 'ft'] : ['rim', 'paint', 'mid', 'corner3', 'above3']).sort(function (x, y) { return a.zones[y].share - a.zones[x].share; });
+    var cap = st === 'ast' ? ['Share of his assists by where the shot he set up was taken', 'rank in assists allowed on shots there']
+                           : ['Share of his rebounds by where the missed shot came from', 'rank in rebounds allowed off misses from there'];
+    var extra = '';
+    if (st === 'reb') { var orb = (X.oreb || {}).all, drb = (X.dreb || {}).all;
+      extra = '<div class="v2-tb"><span class="v2-tn">Offensive boards <span class="dim">' + a.off + '% of his</span></span><span class="v2-tbar"><i style="width:' + Math.max(2, a.off) + '%"></i></span><span class="v2-tv">' + (orb ? orb[0] : '-') + '</span><span class="v2-rk v2-' + rkCls(orb, N) + '">' + (orb ? ord(orb[1]) : '-') + '</span></div>' +
+              '<div class="v2-tb"><span class="v2-tn">Defensive boards <span class="dim">' + (100 - a.off) + '% of his</span></span><span class="v2-tbar"><i style="width:' + Math.max(2, 100 - a.off) + '%"></i></span><span class="v2-tv">' + (drb ? drb[0] : '-') + '</span><span class="v2-rk v2-' + rkCls(drb, N) + '">' + (drb ? ord(drb[1]) : '-') + '</span></div>'; }
+    return head + '<div class="v2-ch">' + title + toggle([st === 'ast' ? 'His assists' : 'His rebounds']) + '</div>' +
+      court(function (z) { return S.court === 'player' ? heat(a.zones[z].share) : rkFill(d[z], N); },
+            function (z) { return S.court === 'player' ? a.zones[z].share + '%' : (d[z] ? '#' + d[z][1] : '-'); }) +
+      '<p class="v2-cap">' + (S.court === 'player' ? cap[0] : esc(D.opp) + ' ' + cap[1] + ' (#1 = most) &middot; green soft, red tough') + '</p>' +
+      '<div class="v2-sub">' + (st === 'ast' ? 'Where his passes lead' : 'Where his boards come from') + ' <span>' + esc(D.opp) + ' rank, #1 = allows most</span></div>' +
+      zs.map(function (z) { return bar(ZN[z], a.zones[z].share, d[z], N, a.zones[z].pg + '/g'); }).join('') + extra;
+  }
+  function matchupPts(title) {
     var sh = D.shots, df = D.def || {zone: {}, kind: {}}, N = D.nteams || 30;
     if (!sh) return '';
-    function fill(z) { if (S.court === 'player') return 'rgba(232,52,78,' + (0.12 + Math.min(1, sh.zones[z].share / 45) * .8).toFixed(2) + ')';
-      var t = ((df.zone[z] || [0, 15])[1] - 1) / (N - 1); return t <= .33 ? 'rgba(47,212,122,.72)' : (t >= .67 ? 'rgba(232,52,78,.72)' : 'rgba(150,150,160,.45)'); }
-    function lab(z) { return S.court === 'player' ? sh.zones[z].share + '%' : (df.zone[z] ? '#' + df.zone[z][1] : '-'); }
-    var court = '<svg viewBox="0 0 500 470" class="v2-court"><rect width="500" height="470" fill="' + fill('above3') + '"/><path d="M30 0 L30 140 A237.5 237.5 0 0 0 470 140 L470 0 Z" fill="' + fill('mid') + '"/><rect width="30" height="140" fill="' + fill('corner3') + '"/><rect x="470" width="30" height="140" fill="' + fill('corner3') + '"/><rect x="170" width="160" height="190" fill="' + fill('paint') + '"/><circle cx="250" cy="52" r="45" fill="' + fill('rim') + '"/>' +
-      '<g class="v2-cl"><rect width="500" height="470"/><path d="M30 0 L30 140 A237.5 237.5 0 0 0 470 140 L470 0"/><rect x="170" width="160" height="190"/><circle cx="250" cy="190" r="60"/></g>' +
-      '<text x="250" y="62" class="v2-zt">' + lab('rim') + '</text><text x="250" y="150" class="v2-zt">' + lab('paint') + '</text><text x="92" y="235" class="v2-zt">' + lab('mid') + '</text><text x="408" y="235" class="v2-zt">' + lab('mid') + '</text><text x="16" y="95" class="v2-zt v2-zs">' + lab('corner3') + '</text><text x="484" y="95" class="v2-zt v2-zs">' + lab('corner3') + '</text><text x="250" y="420" class="v2-zt">' + lab('above3') + '</text></svg>';
     var ks = Object.keys(D.type_label).sort(function (a, b) { return sh.kinds[b].share - sh.kinds[a].share; });
-    var bars = ks.map(function (k) { var s = sh.kinds[k], rk = df.kind[k], c = !rk ? '' : (rk[1] <= 10 ? 'g' : (rk[1] > N - 10 ? 'r' : 'n'));
-      return '<div class="v2-tb"><span class="v2-tn">' + D.type_label[k] + '</span><span class="v2-tbar"><i style="width:' + Math.max(2, s.share) + '%"></i></span><span class="v2-tv">' + s.share + '%</span><span class="v2-rk v2-' + c + '">' + (rk ? ord(rk[1]) : '-') + '</span></div>'; }).join('');
-    return '<div class="v2-ch"><b>Matchup vs ' + esc(D.opp) + '</b><div class="v2-tg"><button data-g="court" data-v="player" class="' + (S.court === 'player' ? 'on' : '') + '">His zones</button><button data-g="court" data-v="def" class="' + (S.court === 'def' ? 'on' : '') + '">' + esc(D.opp) + ' defense</button></div></div>' + court +
+    var bars = ks.map(function (k) { return bar(D.type_label[k], sh.kinds[k].share, df.kind[k], N); }).join('');
+    return '<div class="v2-ch">' + title + toggle(['His zones']) + '</div>' +
+      court(function (z) { return S.court === 'player' ? heat(sh.zones[z].share) : rkFill(df.zone[z], N); },
+            function (z) { return S.court === 'player' ? sh.zones[z].share + '%' : (df.zone[z] ? '#' + df.zone[z][1] : '-'); }) +
       '<p class="v2-cap">' + (S.court === 'player' ? 'Share of his points from each zone' : esc(D.opp) + ' rank in points allowed (#1 = most) &middot; green soft, red tough') + '</p>' +
       '<div class="v2-sub">Where his points come from <span>' + esc(D.opp) + ' rank, #1 = allows most</span></div>' + bars;
   }

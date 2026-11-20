@@ -108,7 +108,7 @@ def refresh(seasons=None) -> dict:
             lm = requests.head(url, timeout=30, allow_redirects=True).headers.get("Last-Modified")
             import playerlab
             if (path(s).exists() and path_x(s).exists() and lm and st.get(str(s)) == lm
-                    and (s != cur or playerlab.shots_path(s).exists())):
+                    and (s != cur or (playerlab.shots_path(s).exists() and playerlab.reb_path(s).exists()))):
                 out[s] = "unchanged"
                 continue
             r = requests.get(url, timeout=180, allow_redirects=True)
