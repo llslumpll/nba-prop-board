@@ -59,4 +59,5 @@ def build(tp: dict | None, sf: dict | None, fv: dict | None, inj: dict | None) -
     return {"favs": favs, "fav_rec": (fv or {}).get("rec"), "proven": proven, "proven_names": [names[k] for k in PROVEN if k in names],
             "newer": newer, "safe": safe, "safe_n": len((sf or {}).get("tonight") or []), "combo": combo,
             "listed_safe": bool((sf or {}).get("listed_today")),
+            "lab": (tp or {}).get("lab") or {}, "p_to_am": (tp or {}).get("p_to_am"),
             "n": len(favs) + len(proven) + len(newer) + len(safe) + (1 if combo else 0)}

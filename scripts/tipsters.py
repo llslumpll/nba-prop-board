@@ -60,7 +60,7 @@ LAB = {"pts": "PTS", "reb": "REB", "ast": "AST", "fg3m": "3PM", "pra": "PRA", "p
 PARTS = {"pts": ("pts",), "reb": ("reb",), "ast": ("ast",), "fg3m": ("fg3m",), "pra": ("pts", "reb", "ast"),
          "pr": ("pts", "reb"), "pa": ("pts", "ast"), "ra": ("reb", "ast")}
 KFEE = 0.07
-CUSH_LO, CUSH_HI = 0.65, 0.82
+CUSH_LO, CUSH_HI = 0.75, 0.85   # update 87: the user's 75-85% cushion legs
 EARN_N = 50
 
 
@@ -229,18 +229,61 @@ def your_price(leg: dict, prow: dict | None) -> dict | None:
     return best
 
 
+CUSH_SOFT = {"pts": 5, "reb": 3, "ast": 2.5, "fg3m": 1, "pra": 6, "pr": 5, "pa": 5, "ra": 3}   # update 87: per-stat cushion
+CUSH_SRC = ("doc", "wiz", "byrn", "peaky", "diogo", "izzo", "samb", "gobpm", "sam", "tacos")  # leg priority when a player repeats
+CUSH_TIERS = (4.0, 5.0, 6.0)   # about +300 / +400 / +500
+CUSH_MAX_LEGS = 12
+
+
 def cushion_leg(leg: dict, prow: dict | None) -> dict | None:
-    """One Kalshi rung safer than their over (e.g. 3.5 AST -> 3+ or the next rung down), if it costs 65-82%."""
-    if not prow or leg.get("side", "over") != "over" or leg["stat"] not in ("pts", "reb", "ast", "fg3m"):
+    """The user's cushion (update 87): soften their line by the stat's cushion (points 5, rebounds 3, assists 2.5,
+    threes 1, PRA 6, two-stat combos 5 / R+A 3), then take the Kalshi rung nearest to that which costs 75-85% with
+    the fee. Overs use the rung's YES; unders ("No N+") use NO on a higher rung. Also returns the one-rung-safer
+    "confident" rung (e.g. 6.5 REB -> 6+) with its price, for players you trust more."""
+    if not prow or leg.get("stat") not in CUSH_SOFT:
         return None
-    top = math.ceil(float(leg["line"]))
-    cands = [(rung, ask) for rung, bid, ask in (prow.get("kladder") or []) if rung < top and ask]
-    for rung, ask in sorted(cands, reverse=True):
-        c = _kcost(ask)
-        if CUSH_LO <= c <= CUSH_HI:
-            return {"player": leg["player"], "stat": leg["stat"], "rung": rung, "line": rung - 0.5, "side": "over",
-                    "p": round(c, 4), "game_id": prow.get("game_id")}
-    return None
+    lad = prow.get("kladder") or []
+    if not lad:
+        return None
+    L, over, soft = float(leg["line"]), leg.get("side", "over") == "over", CUSH_SOFT[leg["stat"]]
+    cands, conf = [], None
+    for rung, bid, ask in lad:
+        if over and rung < math.ceil(L) and ask:
+            cost, tgt = _kcost(ask), math.ceil(L - soft)
+            if rung == math.ceil(L) - 1:
+                conf = {"rung": rung, "p": round(cost, 4)}
+        elif not over and rung > math.floor(L) + 1 and bid:
+            cost, tgt = _kcost(1 - bid), math.floor(L + soft) + 1
+            if rung == math.floor(L) + 2:
+                conf = {"rung": rung, "p": round(cost, 4)}
+        else:
+            continue
+        if CUSH_LO <= cost <= CUSH_HI:
+            cands.append((abs(rung - tgt), -cost, rung, cost))
+    if not cands:
+        return None
+    _, _, rung, cost = min(cands)
+    out = {"player": leg["player"], "stat": leg["stat"], "rung": rung, "line": rung - 0.5, "side": "over" if over else "under",
+           "p": round(cost, 4), "game_id": prow.get("game_id"), "their_line": L}
+    if conf and conf["rung"] != rung:
+        out["confident"] = conf
+    return out
+
+
+def cushion_tiers(legs: list[dict]) -> list[dict]:
+    """Safest legs first, as few as it takes to pay about 4x / 5x / 6x (+300 / +400 / +500)."""
+    legs = sorted(legs, key=lambda l: -l["p"])[:CUSH_MAX_LEGS]
+    tiers = []
+    for tgt in CUSH_TIERS:
+        pay, used = 1.0, []
+        for l in legs:
+            used.append(l)
+            pay /= l["p"]
+            if pay >= tgt:
+                break
+        if pay >= tgt:
+            tiers.append({"target": tgt, "legs": used, "pays": round(pay, 2)})
+    return tiers
 
 
 # ---------------------------------------------------------------- daily sync (prices + combo), then summary
@@ -294,29 +337,42 @@ def sync(sl: dict, now: datetime | None = None) -> None:
     cur = st["combos"].get(date)
     locked = bool(cur and cur.get("locked"))
     if cur and not locked and cur.get("legs"):
-        first = min((by_gid.get(l["game_id"]) for l in cur["legs"] if by_gid.get(l["game_id"])), default=None)
+        first = min((by_gid.get(l["game_id"]) for t in (cur.get("tiers") or [{"legs": cur["legs"]}]) for l in t["legs"]
+                     if by_gid.get(l["game_id"])), default=None)
         if first and now >= first:
             cur["locked"] = True
             locked = True
     if not locked:
-        legs, seen = [], set()
+        cand = []
         for p in picks:
-            if p["kind"] != "prop" or len(p["legs"]) != 1:
+            if p["kind"] != "prop" or p["tipster"] not in CUSH_SRC:
                 continue
-            prow = rows.get((_norm(p["legs"][0]["player"]), p["legs"][0]["stat"]))
+            for l in p["legs"]:
+                if l.get("kind") in ("total", "spread") or str(l.get("stat", "")).startswith("nfl"):
+                    continue
+                cand.append((l, p["tipster"], p["id"]))
+        for i, s_ in enumerate(_load(DIR / "safelines.json", {}).get("days", {}).get(date, [])):
+            cand.append(({"player": s_["player"], "stat": s_["stat"], "line": s_["line"], "side": "over"}, "tacos", f"{date}|{i}"))
+        cand.sort(key=lambda c: CUSH_SRC.index(c[1]))
+        pool, seen = [], set()
+        for l, src, pid in cand:
+            prow = rows.get((_norm(l["player"]), l["stat"]))
             tip = by_gid.get(prow.get("game_id")) if prow else None
-            if not tip or now >= tip:
+            if not tip or now >= tip or _norm(l["player"]) in seen:
                 continue
-            c = cushion_leg(p["legs"][0], prow)
-            if c and _norm(c["player"]) not in seen:
+            c = cushion_leg(l, prow)
+            if c:
                 seen.add(_norm(c["player"]))
-                legs.append({**c, "from": p["id"], "tipster": p["tipster"]})
-        legs = sorted(legs, key=lambda l: -l["p"])[:4]
-        if len(legs) >= 2:
+                pool.append({**c, "from": pid, "tipster": src})
+        tiers = cushion_tiers(pool)
+        if pool:   # the leg list is kept even when no tier reaches +300 yet
             pay = 1.0
-            for l in legs:
+            for l in pool:
                 pay /= l["p"]
-            st["combos"][date] = {"legs": legs, "pays": round(pay, 2), "built": now.strftime("%Y-%m-%d %H:%M UTC"), "locked": False}
+            st["combos"][date] = {"v": 2, "tiers": tiers, "pool": sorted(pool, key=lambda l: -l["p"]),
+                                  "legs": tiers[-1]["legs"] if tiers else sorted(pool, key=lambda l: -l["p"]),
+                                  "pays": tiers[-1]["pays"] if tiers else round(pay, 2),
+                                  "built": now.strftime("%Y-%m-%d %H:%M UTC"), "locked": False}
         else:
             st["combos"].pop(date, None)
     DIR.mkdir(parents=True, exist_ok=True)
@@ -441,17 +497,40 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
             rs = sorted([r for r in graded if r["tipster"] == "sam" and r.get("short")], key=lambda r: r["date"])
             t["short"] = rec(rs)
     # combos
-    combos = []
-    for d, c in sorted(st.get("combos", {}).items(), reverse=True):
+    combos, tier_rows = [], []
+
+    def _grade_combo(legs_in, d):
         legs, res = [], []
-        for l in c["legs"]:
+        for l in legs_in:
             g, x, _ = grade_leg(l, d, ply)
             legs.append({**l, "res": g, "actual": x})
             res.append(g)
         status = "open" if any(x is None for x in res) else "graded"
-        hit = status == "graded" and "miss" not in res and any(x == "hit" for x in res)
+        return legs, status, status == "graded" and "miss" not in res and any(x == "hit" for x in res)
+
+    for d, c in sorted(st.get("combos", {}).items(), reverse=True):
+        if c.get("v") == 2:   # update 87: three tiers (+300 / +400 / +500) from 75-85% cushion legs
+            tiers = []
+            for t in c["tiers"]:
+                legs, status, hit = _grade_combo(t["legs"], d)
+                tiers.append({**t, "legs": legs, "status": status, "hit": hit})
+                tier_rows.append({"date": d, "target": t["target"], "pays": t["pays"], "status": status, "hit": hit,
+                                  "locked": c.get("locked")})
+            pool, _, _ = _grade_combo(c.get("pool") or [], d)
+            combos.append({"date": d, **c, "tiers": tiers, "pool": pool, "legs": tiers[-1]["legs"] if tiers else pool,
+                           "status": tiers[-1]["status"] if tiers else "none", "hit": tiers[-1]["hit"] if tiers else False})
+            continue
+        legs, status, hit = _grade_combo(c["legs"], d)
         combos.append({"date": d, **c, "legs": legs, "status": status, "hit": hit})
-    cg = [c for c in combos if c["status"] == "graded" and c.get("locked")]
+    cg = [c for c in combos if c["status"] == "graded" and c.get("locked") and c.get("v") != 2]
+    tier_rec = {}
+    for tgt in CUSH_TIERS:
+        rs = [r for r in tier_rows if r["target"] == tgt and r["status"] == "graded" and r.get("locked")]
+        tier_rec[tgt] = {"n": len(rs), "hits": sum(r["hit"] for r in rs),
+                         "u": round(sum((r["pays"] - 1) if r["hit"] else -1 for r in rs), 2)}
+    pool_legs = [l for c in combos for l in (c.get("pool") or []) if c.get("locked") and l.get("res") in ("hit", "miss")]
+    pool_rec = {"n": len(pool_legs), "w": sum(l["res"] == "hit" for l in pool_legs),
+                "p": round(100 * sum(l["p"] for l in pool_legs) / len(pool_legs), 1) if pool_legs else None}
     # tonight
     tonight = []
     for r in out_rows:
@@ -486,6 +565,7 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
             "tail": rec(sorted(tail_all, key=lambda r: r["date"]), "your_units"), "earn_n": EARN_N,
             "combos": combos, "combo_rec": {"n": len(cg), "hits": sum(c["hit"] for c in cg),
                                             "u": round(sum((c["pays"] - 1) if c["hit"] else -1 for c in cg), 2)},
+            "tier_rec": tier_rec, "pool_rec": pool_rec, "cush_soft": CUSH_SOFT,
             "season_from": min((r["date"] for r in allp), default=None), "lab": LAB, "p_to_am": p_to_am,
             "spot_rec": {k: rec(sorted(v, key=lambda r: r["date"])) for k, v in spot_rec.items()}, "spot_min": SPOT_MIN,
             "juice": JUICE}
