@@ -552,6 +552,12 @@ def build(args) -> None:
     try:  # Tipsters tab (update 78): tail-test prices + cushion combo for today, then grade everything
         tipsters.sync(sl, now)
         tp = tipsters.summary(box, sl, now)
+        try:  # site ladders vs Sam (update 89)
+            import siteladder
+            siteladder.sync(box, sl, now)
+            tp["siteladder"] = siteladder.summary(box, sl.get("date"))
+        except Exception as e:  # noqa: BLE001
+            print(f"Site ladders failed: {e}")
         print(f"Tipsters: {sum(t['n'] for t in tp['tipsters'])} graded, {len(tp['tonight'])} today")
     except Exception as e:  # noqa: BLE001
         tp = None

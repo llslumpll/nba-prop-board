@@ -237,6 +237,19 @@ CUSH_300_HI = 0.85
 CUSH_MAX_LEGS = 16   # safest-first legs are 86-92%, so +400 takes about 13 of them
 
 
+def minutes_flag(prow: dict | None) -> dict | None:
+    """MINUTES DOWN (update 89): the model projects 1.5+ fewer minutes than his recent games, read from the
+    projection's own note ('27.1 min (recent 31.6, ...)'). Sam's legs with minutes dropping hit 13/22 vs 32/39 holding."""
+    if not prow:
+        return None
+    import re as _re
+    m = _re.search(r"([\d.]+) min \(recent ([\d.]+)", prow.get("why") or "")
+    if not m:
+        return None
+    proj, recent = float(m.group(1)), float(m.group(2))
+    return {"proj": proj, "recent": recent} if proj < recent - 1.5 else None
+
+
 def split_leg(leg: dict, rows: dict) -> dict | None:
     """For a two/three-stat pick (P+A, P+R, R+A, PRA) Kalshi doesn't list (update 88): check the rebounds and
     assists parts the player has a Kalshi ladder for (points parts lost in the replay) and keep the most upside: the rung
@@ -266,7 +279,7 @@ def split_leg(leg: dict, rows: dict) -> dict | None:
             if best is None or key > best[0]:
                 best = (key, {"player": leg["player"], "stat": comp, "rung": rung, "line": rung - 0.5, "side": "over",
                               "p": round(cost, 4), "model_p": round(p, 3), "game_id": r.get("game_id"),
-                              "their_line": float(leg["line"]), "split_from": leg["stat"]})
+                              "their_line": float(leg["line"]), "split_from": leg["stat"], "min_down": minutes_flag(r)})
     return best[1] if best else None
 
 
@@ -299,7 +312,7 @@ def cushion_leg(leg: dict, prow: dict | None) -> dict | None:
         return None
     _, _, rung, cost = min(cands)
     out = {"player": leg["player"], "stat": leg["stat"], "rung": rung, "line": rung - 0.5, "side": "over" if over else "under",
-           "p": round(cost, 4), "game_id": prow.get("game_id"), "their_line": L}
+           "p": round(cost, 4), "game_id": prow.get("game_id"), "their_line": L, "min_down": minutes_flag(prow)}
     if conf and conf["rung"] != rung:
         out["confident"] = conf
     return out
