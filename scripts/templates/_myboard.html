@@ -1,6 +1,7 @@
 {# Your board tonight (update 84): see scripts/myboard.py #}
 {% import "_macros.html" as m %}
 {% import "_cushion.html" as cz %}
+{% import "_proven.html" as pvm %}
 {% macro mu(x) -%}<span class="{{ 'stat-good' if x >= 0 else 'stat-bad' }}">{{ '%+.1f'|format(x) }}U</span>{%- endmacro %}
 {% macro mam(o) -%}{{ ('+' ~ o) if o > 0 else o }}{%- endmacro %}
 {% macro mres(res) -%}{{ {'hit': '&#10004;', 'miss': '&#10008;', 'push': '&ndash;', 'void': '&ndash;'}.get(res, '&#9675;')|safe }}{%- endmacro %}
@@ -19,6 +20,18 @@
 <section class="myboard" id="myboard">
   <h2 class="h2x">Your board tonight</h2>
   <p class="small dim">Everything that fits how you bet, in one place: <b>75%+ favorites</b>, picks from the tipsters with a <b>proven record</b>, and <b>safe lines</b> you can get cheaper than they really hit. Tracking only &middot; prices update with every build until tip.</p>
+
+  {% set pv = board.pv %}
+  {% if pv %}<h3 class="hv-h3" id="proven">Proven picks tonight</h3>
+  <p class="small dim">Only legs from kinds of picks that are beating Kalshi's price over time ({% for k in pv.kinds if k.status in ('PROVEN', 'PROMISING') %}{{ k.name }}{{ ', ' if not loop.last }}{% endfor %}). Straights or a short 2-leg combo: long combos lose on one quiet leg and Kalshi's combo price takes more. <a href="tipsters.html#proven">How each kind is doing &rarr;</a></p>
+  {% if pv.tonight %}<div class="pz-grid"><article class="pz-card pz-pending">
+    <div class="pz-head"><div><div class="pz-title">PROVEN PICKS &middot; {{ pv.tonight|length }} TONIGHT</div><div class="pz-sub">UPDATES TILL EACH GAME TIPS</div></div></div>
+    <div class="pz-tags"><span class="u-tag u-0">TRACKING ONLY</span></div>
+    <ul class="pz-legs">{% for t in pv.tonight %}<li class="pz-leg"><span class="pz-res">&#9675;</span><span class="pz-what">{{ t.what }} {{ pvm.stag(t.status) }}</span>
+      <span class="pz-meta"><b>{{ t.odds if t.odds is string else (('+' ~ t.odds) if t.odds and t.odds > 0 else t.odds) }}</b> <span class="dim small">{{ (t.p * 100)|round|int }}% {{ t.price_src }} &middot; {{ t.kind_name }}{% if t.src and t.src != t.kind_name %} &middot; {{ t.src }}{% endif %}{% if t.note %} &middot; {{ t.note }}{% endif %}</span></span></li>{% endfor %}</ul>
+    {% if pv.combo %}<p class="small" style="margin:6px 12px 10px"><b>Short combo:</b> {% for l in pv.combo.legs %}{{ l.what }}{{ ' + ' if not loop.last }}{% endfor %} &middot; about {{ '%.2f'|format(pv.combo.pays) }}x at these prices (Kalshi's own combo quote runs lower).</p>{% endif %}
+  </article></div>
+  {% else %}<p class="small dim">Nothing from a proven or promising kind yet tonight. It fills in as tipster picks are logged and prices come in, until each game tips.</p>{% endif %}{% endif %}
 
   <h3 class="hv-h3">1 &middot; Favorites 75%+</h3>
   {% set fr = board.fav_rec %}

@@ -1,0 +1,14 @@
+{# Proven picks (update 99): see scripts/provenpicks.py #}
+{% macro stag(s) -%}<span class="pv-st pv-{{ s|lower }}">{{ s }}</span>{%- endmacro %}
+{% macro kinds_table(pv, u) %}
+<div class="v2-wot-wrap"><table class="pv-table">
+  <thead><tr><th>Kind of pick</th><th>Status</th><th>Record</th><th>Hit</th><th>Price</th><th>Edge</th><th>1U at price</th><th>Since rule set</th></tr></thead>
+  <tbody>{% for k in pv.kinds %}<tr title="{{ k.what }}">
+    <td><b>{{ k.name }}</b></td><td>{{ stag(k.status) }}</td><td>{{ k.w }}-{{ k.l }}</td>
+    <td>{{ k.hit if k.hit is not none else '-' }}{{ '%' if k.hit is not none }}</td><td>{{ k.price if k.price is not none else '-' }}{{ '%' if k.price is not none }}</td>
+    <td class="{{ 'stat-good' if (k.edge or 0) >= 2 else ('stat-bad' if (k.edge or 0) <= -2 else '') }}">{% if k.edge is not none %}{{ '%+.1f'|format(k.edge) }}{% else %}-{% endif %}</td>
+    <td>{{ u(k.u) }}</td>
+    <td>{% if k.fwd %}{{ k.fwd.w }}-{{ k.fwd.l }} <span class="dim small">since {{ k.fwd.since[5:]|replace('-', '/') }}</span>{% else %}<span class="dim small">-</span>{% endif %}</td></tr>{% endfor %}</tbody>
+</table></div>
+<p class="small dim"><b>Edge</b> = hit rate minus the price's chance (Kalshi ask, the first price the site saw, or the posted odds). <b>PROVEN</b>: {{ pv.rules.proven_n }}+ picks and beating the price even at the low end of its likely range. <b>PROMISING</b>: {{ pv.rules.promising_n }}+ picks, 2+ points above price. <b>AVOID</b>: {{ pv.rules.avoid_n }}+ picks, 2+ points below. Re-graded every build from wins and losses, so kinds move up and down on their own. Some kinds were defined on Nov 20 from a look back over the season: "since rule set" is the honest forward test.</p>
+{% endmacro %}
