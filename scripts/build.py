@@ -582,10 +582,17 @@ def build(args) -> None:
     except Exception as e:  # noqa: BLE001
         fv = None
         print(f"Favorites failed: {e}")
+    try:  # Proven picks (update 99): which kinds of picks beat the price, re-graded every build
+        import provenpicks
+        pv = provenpicks.build(box, tp, sf, fv)
+        print(f"Proven picks: {sum(k['status'] == 'PROVEN' for k in pv['kinds'])} proven kinds, {len(pv['tonight'])} tonight")
+    except Exception as e:  # noqa: BLE001
+        pv = None
+        print(f"Proven picks failed: {e}")
     pages.render_all({
         "now": now, "slate": sl, "res": res, "best": best, "edge": est, "cal": cal, "preds": preds_all,
         "tpreds": predictions.load_all(team=True), "sources": sources, "health": health, "lm": lm,
-        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj, "trust": trust, "espn": espn, "patterns": pat_out, "rankings": rankings.build(box), "edges": edge_found, "edges_sum": edges.summary(), "tuning": tune.load(), "parlays": parlays.summary(), "news": news.summary(sl.get("date")), "lag": market.lag_summary(sl.get("date")), "lineups": lineups, "mybets": mb, "tipsters": tp, "safelines": sf, "favorites": fv,
+        "season": dataio.season_status(now), "fit": fit, "box": box, "injuries": inj, "trust": trust, "espn": espn, "patterns": pat_out, "rankings": rankings.build(box), "edges": edge_found, "edges_sum": edges.summary(), "tuning": tune.load(), "parlays": parlays.summary(), "news": news.summary(sl.get("date")), "lag": market.lag_summary(sl.get("date")), "lineups": lineups, "mybets": mb, "tipsters": tp, "safelines": sf, "favorites": fv, "proven": pv,
     })
     # consistency audit on what was just built; its result shows on History -> Pipeline next build
     import subprocess
