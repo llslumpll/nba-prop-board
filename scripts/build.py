@@ -199,6 +199,11 @@ def build(args) -> None:
 
     print("Fetching ESPN injury report...")
     inj = injuries_client.fetch()
+    try:  # update 98: keep in-game exit notes ("won't return", "exited") so graded legs can show LEFT INJURED
+        import tipsters as _tp
+        _tp.log_injuries(inj)
+    except Exception as e:  # noqa: BLE001
+        print(f"  injury log failed: {e}")
     print(f"  injuries: {len(inj.get('players', []))} listed, error={inj.get('error')}")
     rosters = rosters_client.load()
 

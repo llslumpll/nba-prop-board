@@ -182,8 +182,8 @@ def summary(box, today: str | None, sam: dict | None = None) -> dict:
             for t in lad["tiers"]:
                 legs, res = [], []
                 for l in t["legs"]:
-                    g, x, _ = T.grade_leg(l, d, ply, team)
-                    legs.append({**l, "res": g, "actual": x})
+                    g, x, rr = T.grade_leg(l, d, ply, team)
+                    legs.append({**l, "res": g, "actual": x, "cut": T.cut_short(d, l, rr) if g in ("hit", "miss") else None})
                     res.append(g)
                 status = "open" if any(r is None for r in res) else "graded"
                 hit = status == "graded" and "miss" not in res and "hit" in res
@@ -312,8 +312,8 @@ def best_summary(box, today: str | None) -> dict:
     for d, s in sorted(st.items(), reverse=True):
         legs, res = [], []
         for l in s["legs"]:
-            g, x, _ = T.grade_leg(l, d, ply, team)
-            legs.append({**l, "res": g, "actual": x})
+            g, x, rr = T.grade_leg(l, d, ply, team)
+            legs.append({**l, "res": g, "actual": x, "cut": T.cut_short(d, l, rr) if g in ("hit", "miss") else None})
             res.append(g)
         status = "open" if any(r is None for r in res) else "graded"
         hit = status == "graded" and "miss" not in res and "hit" in res

@@ -20,8 +20,9 @@ from __future__ import annotations
 
 import json
 import math
+import re
 import unicodedata
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 DIR = Path(__file__).resolve().parent.parent / "data" / "tipsters"
@@ -117,6 +118,77 @@ def _box_index(box):
     return ply, team
 
 
+_PRED_CACHE: dict = {}
+CUT_SHARE, CUT_MIN_PROJ = 0.6, 15.0
+
+
+INJ_LOG = Path(__file__).resolve().parent.parent / "data" / "injury_log.json"
+EXIT_RE = re.compile(r"(won't|will not|didn't|did not) return|exited|left (the|sunday|monday|tuesday|wednesday|thursday|"
+                     r"friday|saturday|tonight|last night)|remainder of", re.I)
+
+
+def log_injuries(inj: dict) -> None:
+    """Keep every injury note that says a player left a game early ("won't return", "exited"), 30 days."""
+    try:
+        lg = json.loads(INJ_LOG.read_text())
+    except Exception:  # noqa: BLE001
+        lg = {}
+    changed = False
+    for p in (inj or {}).get("players") or []:
+        c = p.get("comment") or ""
+        if not EXIT_RE.search(c):
+            continue
+        k = _norm(p.get("player", ""))
+        rows = lg.setdefault(k, [])
+        if not any(x["comment"] == c for x in rows):
+            rows.append({"date": str(p.get("date") or "")[:10], "comment": c[:240], "player": p.get("player")})
+            changed = True
+    cutoff = (datetime.now(timezone.utc).date() - timedelta(days=30)).isoformat()
+    for k in list(lg):
+        lg[k] = [x for x in lg[k] if x["date"] >= cutoff]
+        if not lg[k]:
+            del lg[k]
+            changed = True
+    if changed:
+        INJ_LOG.write_text(json.dumps(lg, indent=1, sort_keys=True))
+
+
+_INJ_CACHE: dict = {}
+
+
+def _left_injured(d: str, name: str) -> str | None:
+    if "log" not in _INJ_CACHE:
+        try:
+            _INJ_CACHE["log"] = json.loads(INJ_LOG.read_text())
+        except Exception:  # noqa: BLE001
+            _INJ_CACHE["log"] = {}
+    from datetime import date as _date
+    day = _date.fromisoformat(d)
+    ok = {day.isoformat(), (day + timedelta(days=1)).isoformat(), (day + timedelta(days=2)).isoformat()}
+    for x in _INJ_CACHE["log"].get(_norm(name), []):
+        if x["date"] in ok:
+            return x["comment"]
+    return None
+
+
+def cut_short(d: str, leg: dict, r) -> dict | None:
+    """Update 98 (Nov 21 2026): did the player play far fewer minutes than projected (left injured, fouled out,
+    ejected, benched in a blowout)? Under 60% of his projected minutes (projection 15+). The leg still counts:
+    Kalshi settles on what he did once he checks in. This only labels the bad-luck losses."""
+    if r is None or not r.get("played") or r.get("min") is None or not leg.get("player"):
+        return None
+    if d not in _PRED_CACHE:
+        _PRED_CACHE[d] = _pred_rows(d)
+    rows = _PRED_CACHE[d]
+    pm = next((v.get("proj_min") for (n, _s), v in rows.items() if n == _norm(leg["player"]) and v.get("proj_min")), None)
+    note = _left_injured(d, leg["player"])
+    if note and pm and r["min"] < 0.95 * pm:
+        return {"min": int(round(r["min"])), "proj": int(round(pm)), "injured": True, "note": note}
+    if not pm or pm < CUT_MIN_PROJ or r["min"] >= CUT_SHARE * pm:
+        return None
+    return {"min": int(round(r["min"])), "proj": int(round(pm))}
+
+
 def _find(ply: dict, d: str, name: str):
     k = _norm(name)
     r = ply.get((d, k))
@@ -177,7 +249,8 @@ def grade_pick(p: dict, ply: dict, team: dict) -> dict:
     legs, res_all = [], []
     for leg in p["legs"]:
         res, x, r = grade_leg(leg, d, ply, team)
-        legs.append({**leg, "res": res, "actual": x, "team": (r["team"] if r is not None else leg.get("team"))})
+        legs.append({**leg, "res": res, "actual": x, "team": (r["team"] if r is not None else leg.get("team")),
+                     "cut": cut_short(d, leg, r) if res in ("hit", "miss") else None})
         res_all.append(res)
     if "miss" not in res_all and any(r is None for r in res_all):
         return {"status": "open", "legs": legs}
@@ -659,8 +732,8 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
     def _grade_combo(legs_in, d):
         legs, res = [], []
         for l in legs_in:
-            g, x, _ = grade_leg(l, d, ply, team)
-            legs.append({**l, "res": g, "actual": x})
+            g, x, rr = grade_leg(l, d, ply, team)
+            legs.append({**l, "res": g, "actual": x, "cut": cut_short(d, l, rr) if g in ("hit", "miss") else None})
             res.append(g)
         status = "open" if any(x is None for x in res) else "graded"
         return legs, status, status == "graded" and "miss" not in res and any(x == "hit" for x in res)
