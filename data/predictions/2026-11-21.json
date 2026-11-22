@@ -1,6 +1,6 @@
 {
  "Andre Drummond|ast|401910024": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5772,
@@ -21,7 +21,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:01 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -42,6 +43,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -57,6 +61,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.9,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -102,7 +107,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -113,7 +118,7 @@
   "why": "26.2 min (recent 14.3, +1.1 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out; the model had him at 15.4, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.072 assists/min (86% this season's 0.077 over 15 games, 14% prior 0.064); context: home +1%, shared production on NYK +4%; calibration +0.1."
  },
  "Andre Drummond|pa|401910024": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -134,11 +139,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:01 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -154,6 +163,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 2.3,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -197,7 +207,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -208,7 +218,7 @@
   "why": "26.2 min (recent 14.3, +1.1 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out; the model had him at 15.3, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.364 pts+ast/min (91% this season's 0.359 over 15 games, 9% prior 0.425); context: home +1%, shared production on NYK +10%; shot-zone matchup \u22125% (where he scores vs where POR gives up points"
  },
  "Andre Drummond|pra|401910024": {
-  "actual": null,
+  "actual": 21.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -231,7 +241,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -252,6 +263,10 @@
   ],
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 24.5,
@@ -273,6 +288,7 @@
   "move": 11.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 4.5,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -342,7 +358,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -353,7 +369,7 @@
   "why": "26.2 min (recent 14.3, +1.1 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out; the model had him at 15.4, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.895 pts+reb+ast/min (91% this season's 0.918 over 15 games, 9% prior 0.833); context: home +1%, shared production on NYK +10%; shot-zone matchup \u22125% (where he scores vs where POR gives up po"
  },
  "Andre Drummond|pr|401910024": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -376,11 +392,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:01 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 21.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 21.5
@@ -396,6 +416,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 3.5,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -439,7 +460,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -450,7 +471,7 @@
   "why": "26.2 min (recent 14.3, +1.1 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out; the model had him at 15.3, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.823 pts+reb/min (91% this season's 0.841 over 15 games, 9% prior 0.769); context: home +1%, shared production on NYK +11%; shot-zone matchup \u22125% (where he scores vs where POR gives up points"
  },
  "Andre Drummond|pts|401910024": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "OVER chance -2.7 pts (pattern)"
   ],
@@ -473,7 +494,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -494,6 +516,10 @@
   ],
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -515,6 +541,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 1.6,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -560,7 +587,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -571,7 +598,7 @@
   "why": "26.2 min (recent 14.3, +1.1 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out; the model had him at 15.4, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.295 points/min (86% this season's 0.282 over 15 games, 14% prior 0.361); context: home +1%, shared production on NYK +12%; shot-zone matchup \u22125% (where he scores vs where POR gives up points"
  },
  "Andre Drummond|ra|401910024": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -594,11 +621,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:01 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.5
@@ -614,6 +645,7 @@
   "move": 7.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 2.5,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -681,7 +713,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -692,7 +724,7 @@
   "why": "26.2 min (recent 14.3, +1.1 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out; the model had him at 15.3, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.587 reb+ast/min (79% this season's 0.636 over 15 games, 21% prior 0.472); context: home +1%, opponent defense \u22121%, shared production on NYK +9%; calibration -0.0."
  },
  "Andre Drummond|reb|401910024": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -715,7 +747,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -746,6 +779,10 @@
   ],
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 11.5,
@@ -767,6 +804,7 @@
   "move": 5.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 1.4,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -836,7 +874,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -3170,39 +3208,39 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 11.55,
+  "blend_mean": 10.78,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5021,
-  "close_at": "2026-11-21 23:31 UTC",
-  "close_line": 11.5,
+  "chance": 0.511,
+  "close_at": "2026-11-22 02:56 UTC",
+  "close_line": 10.5,
   "close_mkt": null,
   "date": "2026-11-21",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-21 20:54 UTC",
   "first_line": 12.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:56 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
   "kladder": null,
   "label": "lean",
-  "line": 11.5,
+  "line": 10.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 11.5
+   "prizepicks": 10.5
   },
   "market_side": null,
   "mkt": {
    "prizepicks": [
-    11.5,
+    10.5,
     0.542,
     0.542
    ]
   },
-  "move": -1.0,
+  "move": -2.0,
   "move_dir": "against",
   "opp": "SAC",
   "out_ctx": [
@@ -3268,7 +3306,7 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 5,
+  "updates": 6,
   "var": 57.846,
   "why": "26.5 min (recent 17.8, +1.3 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out; the model had him at 19.1, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.382 pts+ast/min (83% this season's 0.369 over 15 games, 17% prior 0.412); context: road \u22121%, rest +1%, shared production on BOS +8%; shot-zone matchup +1% (where he scores vs"
  },
@@ -3415,40 +3453,40 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 14.35,
+  "blend_mean": 13.58,
   "blend_w": 0.225,
   "break_even": 0.542,
-  "call": "UNDER",
-  "chance": 0.5059,
-  "close_at": "2026-11-22 02:51 UTC",
-  "close_line": 14.5,
+  "call": "OVER",
+  "chance": 0.503,
+  "close_at": "2026-11-22 02:56 UTC",
+  "close_line": 13.5,
   "close_mkt": null,
   "date": "2026-11-21",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-21 20:54 UTC",
   "first_line": 14.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:51 UTC",
+  "frozen_at": "2026-11-22 02:56 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
   "kladder": null,
   "label": "lean",
-  "line": 14.5,
+  "line": 13.5,
   "line_source": "prizepicks",
   "lines": {
-   "prizepicks": 14.5
+   "prizepicks": 13.5
   },
   "market_side": null,
   "mkt": {
    "prizepicks": [
-    14.5,
+    13.5,
     0.542,
     0.542
    ]
   },
-  "move": 0.0,
-  "move_dir": null,
+  "move": -1.0,
+  "move_dir": "against",
   "opp": "SAC",
   "out_ctx": [
    "Amari Williams",
@@ -3466,7 +3504,7 @@
   "proj_min": 26.5,
   "projected": 13.8,
   "role_gap": false,
-  "skip": "pr|prizepicks",
+  "skip": "pr|prizepicks|OVER",
   "snaps": {
    "1pm": {
     "at": "2026-11-21 20:54 UTC",
@@ -3513,7 +3551,7 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 8,
+  "updates": 9,
   "var": 70.644,
   "why": "26.5 min (recent 17.8, +1.3 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out; the model had him at 19.1, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.488 pts+reb/min (83% this season's 0.483 over 15 games, 17% prior 0.501); context: road \u22121%, rest +1%, shared production on BOS +7%; shot-zone matchup +1% (where he scores vs"
  },
@@ -11151,7 +11189,7 @@
   "why": "33.1 min (recent 33.2); \u00d7 0.199 rebounds/min (54% this season's 0.197 over 14 games, 46% prior 0.198); context: home +1%, rest +1%, opponent defense +1%; calibration -0.0; injury news: +1.0 with Tobi Lawal, P.J. Washington, Jett Howard ruled out today (half of how he's actually played without them)."
  },
  "Damian Lillard|ast|401910024": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -11173,7 +11211,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -11199,6 +11238,10 @@
   ],
   "label": "lean",
   "line": 4.0,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -11220,6 +11263,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 1.3,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -11291,7 +11335,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -11302,7 +11346,7 @@
   "why": "30.8 min (recent 31.7, \u22120.9 team-minutes adjustment); \u00d7 0.143 assists/min (75% this season's 0.137 over 15 games, 25% prior 0.174); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22121%, shared production on POR +3%; calibration +0.1."
  },
  "Damian Lillard|fg3m|401910024": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -11323,7 +11367,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -11359,6 +11404,10 @@
   ],
   "label": "lean",
   "line": 3.0,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 2.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 2.5,
@@ -11380,6 +11429,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 2.1,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -11449,7 +11499,7 @@
   },
   "src_key": "prizepicks",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -11460,7 +11510,7 @@
   "why": "30.8 min (recent 31.7, \u22120.9 team-minutes adjustment); \u00d7 0.105 3-pointers made/min (83% this season's 0.110 over 15 games, 17% prior 0.085); context: pace vs NYK \u22122%, road \u22121%, opponent defense +1%, shared production on POR \u22125%; calibration +0.1."
  },
  "Damian Lillard|pa|401910024": {
-  "actual": null,
+  "actual": 18.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -11481,11 +11531,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:36 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 23.5
@@ -11501,6 +11555,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 7.1,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -11570,7 +11625,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -11581,7 +11636,7 @@
   "why": "30.8 min (recent 31.7, \u22120.9 team-minutes adjustment); \u00d7 0.834 pts+ast/min (83% this season's 0.845 over 15 games, 17% prior 0.794); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +2%; shot-zone matchup \u22122% (where he scores vs where NYK gives up points); calibration +0.2."
  },
  "Damian Lillard|pra|401910024": {
-  "actual": null,
+  "actual": 21.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -11602,7 +11657,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -11628,6 +11684,10 @@
   ],
   "label": "lean",
   "line": 26.5,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 24.5,
@@ -11649,6 +11709,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 7.4,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -11718,7 +11779,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -11729,7 +11790,7 @@
   "why": "30.8 min (recent 31.7, \u22120.9 team-minutes adjustment); \u00d7 0.948 pts+reb+ast/min (83% this season's 0.953 over 15 games, 17% prior 0.926); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +2%; shot-zone matchup \u22122% (where he scores vs where NYK gives up points); calibration +0.2."
  },
  "Damian Lillard|pr|401910024": {
-  "actual": null,
+  "actual": 18.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -11750,11 +11811,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:21 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 22.5
@@ -11770,6 +11835,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 6.1,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -11836,7 +11902,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -11847,7 +11913,7 @@
   "why": "30.8 min (recent 31.7, \u22120.9 team-minutes adjustment); \u00d7 0.808 pts+reb/min (83% this season's 0.815 over 15 games, 17% prior 0.752); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +1%; shot-zone matchup \u22122% (where he scores vs where NYK gives up points); calibration +0.1."
  },
  "Damian Lillard|pts|401910024": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5327102803738317,
@@ -11868,7 +11934,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:21 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -11894,6 +11961,11 @@
   ],
   "label": "lean",
   "line": 20.5,
+  "line_errs": {
+   "fanduel": 5.5,
+   "kalshi": 4.5,
+   "prizepicks": 4.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 20.5,
@@ -11921,6 +11993,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 5.7,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -11987,7 +12060,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -11998,7 +12071,7 @@
   "why": "30.8 min (recent 31.7, \u22120.9 team-minutes adjustment); \u00d7 0.688 points/min (75% this season's 0.707 over 15 games, 25% prior 0.620); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +1%; shot-zone matchup \u22122% (where he scores vs where NYK gives up points); calibration +0.2."
  },
  "Damian Lillard|ra|401910024": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -12016,11 +12089,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 08:40 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.5
@@ -12036,6 +12113,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 1.8,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -12101,7 +12179,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -12111,7 +12189,7 @@
   "why": "30.8 min (recent 31.7, \u22120.9 team-minutes adjustment); \u00d7 0.264 reb+ast/min (65% this season's 0.245 over 15 games, 35% prior 0.305); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22121%, shared production on POR +2%; calibration -0.0."
  },
  "Damian Lillard|reb|401910024": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4472,
@@ -12132,7 +12210,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:43 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -12158,6 +12237,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -12173,6 +12255,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 0.4,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -12242,7 +12325,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -17206,22 +17289,22 @@
   "adj": [],
   "anchor": null,
   "be_over": 0.6365,
-  "be_under": 0.4067,
+  "be_under": 0.4168,
   "best5": [],
-  "blend_mean": 4.36,
+  "blend_mean": 4.33,
   "blend_w": 0.225,
   "break_even": 0.6365,
   "call": "OVER",
-  "chance": 0.612,
-  "close_at": "2026-11-22 01:51 UTC",
+  "chance": 0.6083,
+  "close_at": "2026-11-22 02:56 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.615,
+  "close_mkt": 0.61,
   "date": "2026-11-21",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-21 08:01 UTC",
   "first_line": 3.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:56 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": true,
@@ -17233,18 +17316,18 @@
    ],
    [
     4,
-    0.61,
+    0.6,
     0.62
    ],
    [
     6,
-    0.29,
-    0.3
+    0.27,
+    0.29
    ],
    [
     8,
     0.08,
-    0.11
+    0.1
    ]
   ],
   "label": "lean",
@@ -17253,12 +17336,12 @@
   "lines": {
    "kalshi": 3.5
   },
-  "market_side": 0.615,
+  "market_side": 0.61,
   "mkt": {
    "kalshi": [
     3.5,
     0.6365,
-    0.4067
+    0.4168
    ]
   },
   "move": null,
@@ -17339,12 +17422,12 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 31,
+  "updates": 32,
   "var": 5.019,
   "why": "30.2 min (recent 33.6, \u22121.2 team-minutes adjustment, \u22121.3 back-to-back, \u22120.8 blowout risk (market margin 14)); \u00d7 0.142 rebounds/min (68% this season's 0.133 over 13 games, 32% prior 0.160); context: pace vs BOS \u22121%, home +1%, rest \u22122%, opponent defense +1%, shared production on SAC \u22121%; calibration -0.0; injury news: +0.2 with Jonathan Mogbo ruled out today (half of how he's actually played withou"
  },
  "Deni Avdija|ast|401910024": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -17365,7 +17448,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -17391,6 +17475,10 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -17412,6 +17500,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 0.6,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -17481,7 +17570,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -17492,7 +17581,7 @@
   "why": "31.3 min (recent 32.2, \u22120.9 team-minutes adjustment); \u00d7 0.182 assists/min (72% this season's 0.187 over 13 games, 28% prior 0.166); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +3%; calibration +0.0."
  },
  "Deni Avdija|fg3m|401910024": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5872,
@@ -17513,7 +17602,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:26 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -17544,6 +17634,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -17559,6 +17652,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 0.1,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -17628,7 +17722,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -17639,7 +17733,7 @@
   "why": "31.3 min (recent 32.2, \u22120.9 team-minutes adjustment); \u00d7 0.063 3-pointers made/min (81% this season's 0.064 over 13 games, 19% prior 0.057); context: pace vs NYK \u22122%, road \u22121%, opponent defense +1%, shared production on POR \u22125%; calibration +0.0."
  },
  "Deni Avdija|pa|401910024": {
-  "actual": null,
+  "actual": 25.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -17662,11 +17756,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:10 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 27.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 27.5
@@ -17682,6 +17780,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 2.2,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -17748,7 +17847,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -17759,7 +17858,7 @@
   "why": "31.3 min (recent 32.2, \u22120.9 team-minutes adjustment); \u00d7 0.909 pts+ast/min (81% this season's 0.929 over 13 games, 19% prior 0.814); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +2%; shot-zone matchup \u22124% (where he scores vs where NYK gives up points); calibration +0.1; listed Day-To-Day."
  },
  "Deni Avdija|pra|401910024": {
-  "actual": null,
+  "actual": 34.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -17783,7 +17882,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -17804,6 +17904,10 @@
   ],
   "label": "lean",
   "line": 33.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 34.5,
@@ -17825,6 +17929,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 1.0,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -17894,7 +17999,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -17905,7 +18010,7 @@
   "why": "31.3 min (recent 32.2, \u22120.9 team-minutes adjustment); \u00d7 1.105 pts+reb+ast/min (81% this season's 1.121 over 13 games, 19% prior 1.029); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +2%; shot-zone matchup \u22124% (where he scores vs where NYK gives up points); calibration +0.0."
  },
  "Deni Avdija|pr|401910024": {
-  "actual": null,
+  "actual": 29.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -17928,11 +18033,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 20:43 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 28.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 28.5
@@ -17948,6 +18057,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 1.7,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -18013,7 +18123,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -18024,7 +18134,7 @@
   "why": "31.3 min (recent 32.2, \u22120.9 team-minutes adjustment); \u00d7 0.921 pts+reb/min (81% this season's 0.934 over 13 games, 19% prior 0.863); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +1%; shot-zone matchup \u22124% (where he scores vs where NYK gives up points); calibration +0.0; listed Day-To-Day."
  },
  "Deni Avdija|pts|401910024": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5555555555555556,
@@ -18045,7 +18155,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 15:10 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -18071,6 +18182,11 @@
   ],
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "fanduel": 2.5,
+   "kalshi": 4.5,
+   "prizepicks": 2.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 22.5,
@@ -18098,6 +18214,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 1.3,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -18163,7 +18280,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -18174,7 +18291,7 @@
   "why": "31.3 min (recent 32.2, \u22120.9 team-minutes adjustment); \u00d7 0.718 points/min (72% this season's 0.742 over 13 games, 28% prior 0.648); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +1%; shot-zone matchup \u22124% (where he scores vs where NYK gives up points); listed Day-To-Day."
  },
  "Deni Avdija|ra|401910024": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -18195,11 +18312,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 20:43 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -18215,6 +18336,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 2.5,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -18280,7 +18402,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -18291,7 +18413,7 @@
   "why": "31.3 min (recent 32.2, \u22120.9 team-minutes adjustment); \u00d7 0.380 reb+ast/min (62% this season's 0.378 over 13 games, 38% prior 0.381); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +2%; calibration +0.0; listed Day-To-Day."
  },
  "Deni Avdija|reb|401910024": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -18312,7 +18434,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -18338,6 +18461,10 @@
   ],
   "label": "lean",
   "line": 6.0,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 3.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -18359,6 +18486,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 3.0,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -18428,7 +18556,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -23649,7 +23777,7 @@
   "why": "29.9 min (recent 33.2, \u22121.1 team-minutes adjustment, \u22121.3 back-to-back, \u22120.8 blowout risk (market margin 14)); \u00d7 0.375 rebounds/min (54% this season's 0.398 over 14 games, 46% prior 0.352); context: pace vs BOS \u22121%, home +1%, rest \u22122%, opponent defense +1%, shared production on SAC \u22121%; calibration -0.0; injury news: -0.8 with Jonathan Mogbo ruled out today (half of how he's actually played withou"
  },
  "Donovan Clingan|ast|401910024": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5574,
@@ -23670,7 +23798,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:21 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -23686,6 +23815,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -23701,6 +23833,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 2.2,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -23770,7 +23903,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -23781,7 +23914,7 @@
   "why": "25.7 min (recent 26.4, \u22120.7 team-minutes adjustment); \u00d7 0.070 assists/min (75% this season's 0.070 over 15 games, 25% prior 0.074); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22121%, shared production on POR +3%; calibration +0.1."
  },
  "Donovan Clingan|fg3m|401910024": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5872,
@@ -23802,7 +23935,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:23 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -23823,6 +23957,9 @@
   ],
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 0.5
@@ -23838,6 +23975,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 2.1,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -23907,7 +24045,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -23918,7 +24056,7 @@
   "why": "25.7 min (recent 26.4, \u22120.7 team-minutes adjustment); \u00d7 0.034 3-pointers made/min (83% this season's 0.034 over 15 games, 17% prior 0.032); context: pace vs NYK \u22122%, road \u22121%, shared production on POR \u22125%; calibration +0.1."
  },
  "Donovan Clingan|pa|401910024": {
-  "actual": null,
+  "actual": 26.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -23939,11 +24077,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:36 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 14.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -23959,6 +24101,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 14.2,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -24025,7 +24168,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -24036,7 +24179,7 @@
   "why": "25.7 min (recent 26.4, \u22120.7 team-minutes adjustment); \u00d7 0.490 pts+ast/min (83% this season's 0.487 over 15 games, 17% prior 0.498); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22122%, shared production on POR +2%; shot-zone matchup \u22125% (where he scores vs where NYK gives up points); calibration +0.2."
  },
  "Donovan Clingan|pra|401910024": {
-  "actual": null,
+  "actual": 39.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -24059,7 +24202,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -24085,6 +24229,10 @@
   ],
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "kalshi": 19.5,
+   "prizepicks": 16.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 19.5,
@@ -24106,6 +24254,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 17.2,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -24175,7 +24324,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -24186,7 +24335,7 @@
   "why": "25.7 min (recent 26.4, \u22120.7 team-minutes adjustment); \u00d7 0.906 pts+reb+ast/min (83% this season's 0.904 over 15 games, 17% prior 0.904); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22122%, shared production on POR +1%; shot-zone matchup \u22125% (where he scores vs where NYK gives up points); calibration +0.2."
  },
  "Donovan Clingan|pr|401910024": {
-  "actual": null,
+  "actual": 35.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -24209,11 +24358,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:21 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 20.5,
+  "line_errs": {
+   "prizepicks": 14.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 20.5
@@ -24229,6 +24382,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 15.1,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -24295,7 +24449,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -24306,7 +24460,7 @@
   "why": "25.7 min (recent 26.4, \u22120.7 team-minutes adjustment); \u00d7 0.835 pts+reb/min (83% this season's 0.834 over 15 games, 17% prior 0.830); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22122%, shared production on POR +1%; shot-zone matchup \u22125% (where he scores vs where NYK gives up points); calibration +0.1."
  },
  "Donovan Clingan|pts|401910024": {
-  "actual": null,
+  "actual": 22.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5283018867924528,
@@ -24327,7 +24481,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 20:43 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -24348,6 +24503,11 @@
   ],
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "fanduel": 11.5,
+   "kalshi": 12.5,
+   "prizepicks": 11.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 10.5,
@@ -24375,6 +24535,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 11.9,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -24440,7 +24601,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -24451,7 +24612,7 @@
   "why": "25.7 min (recent 26.4, \u22120.7 team-minutes adjustment); \u00d7 0.420 points/min (75% this season's 0.417 over 15 games, 25% prior 0.424); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22123%, shared production on POR +1%; shot-zone matchup \u22125% (where he scores vs where NYK gives up points); calibration +0.2."
  },
  "Donovan Clingan|ra|401910024": {
-  "actual": null,
+  "actual": 17.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -24475,11 +24636,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:56 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 12.0,
+  "line_errs": {
+   "prizepicks": 5.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.0
@@ -24495,6 +24660,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 5.3,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -24563,7 +24729,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -24574,7 +24740,7 @@
   "why": "25.7 min (recent 26.4, \u22120.7 team-minutes adjustment); \u00d7 0.485 reb+ast/min (65% this season's 0.487 over 15 games, 35% prior 0.480); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22122%, shared production on POR +1%; calibration -0.0."
  },
  "Donovan Clingan|reb|401910024": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -24595,7 +24761,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -24626,6 +24793,10 @@
   ],
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -24647,6 +24818,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 3.1,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -24716,7 +24888,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -29678,7 +29850,7 @@
   "why": "24.8 min (recent 25.5, \u22120.7 team-minutes adjustment with Ousmane Dieng, Pete Nance out); \u00d7 0.188 rebounds/min (73% this season's 0.188 over 16 games, 27% prior 0.186); context: road \u22121%, shared production on MIL \u22123%; calibration -0.1."
  },
  "Jalen Brunson|ast|401910024": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -29701,7 +29873,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -29732,6 +29905,10 @@
   ],
   "label": "lean",
   "line": 6.0,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -29753,6 +29930,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 1.6,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -29822,7 +30000,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -29833,7 +30011,7 @@
   "why": "37.2 min (recent 34.8, +2.8 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.182 assists/min (75% this season's 0.173 over 15 games, 25% prior 0.190); context: home +1%, opponent defense \u22122%, shared production on NYK +4%; calibration +0.1; injury news: +0.1 with OG Anunoby, Karl-Anthony Towns ruled out today (half of how he's actually played without them)."
  },
  "Jalen Brunson|fg3m|401910024": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5872,
@@ -29854,7 +30032,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:23 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -29885,6 +30064,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 3.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -29900,6 +30082,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 3.3,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -29969,7 +30152,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -29980,7 +30163,7 @@
   "why": "37.2 min (recent 34.8, +2.8 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.082 3-pointers made/min (83% this season's 0.086 over 15 games, 17% prior 0.071); context: home +1%, opponent defense \u22122%, shared production on NYK +5%; shot-zone matchup \u22125% (where he scores vs where POR gives up points); calibration +0.1; injury news: -0.4 with OG Anunoby, Karl-Anthony Towns ruled o"
  },
  "Jalen Brunson|pa|401910024": {
-  "actual": null,
+  "actual": 35.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -30003,11 +30186,15 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 35.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 35.5
@@ -30023,6 +30210,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 2.9,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -30092,7 +30280,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -30103,7 +30291,7 @@
   "why": "37.2 min (recent 34.8, +2.8 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.942 pts+ast/min (83% this season's 0.949 over 15 games, 17% prior 0.897); context: home +1%, opponent defense \u22121%, shared production on NYK +11%; shot-zone matchup +1% (where he scores vs where POR gives up points); calibration +0.2; injury news: -1.1 with OG Anunoby, Karl-Anthony Towns ruled out toda"
  },
  "Jalen Brunson|pra|401910024": {
-  "actual": null,
+  "actual": 42.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -30127,7 +30315,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -30153,6 +30342,10 @@
   ],
   "label": "lean",
   "line": 38.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 39.5,
@@ -30174,6 +30367,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 0.5,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -30243,7 +30437,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -30254,7 +30448,7 @@
   "why": "37.2 min (recent 34.8, +2.8 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 1.029 pts+reb+ast/min (83% this season's 1.033 over 15 games, 17% prior 0.993); context: home +1%, opponent defense \u22121%, shared production on NYK +11%; shot-zone matchup +1% (where he scores vs where POR gives up points); calibration +0.2; injury news: -1.0 with OG Anunoby, Karl-Anthony Towns ruled out "
  },
  "Jalen Brunson|pr|401910024": {
-  "actual": null,
+  "actual": 37.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -30277,11 +30471,15 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 32.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 32.5
@@ -30297,6 +30495,7 @@
   "move": 2.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 2.1,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -30366,7 +30565,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -30377,7 +30576,7 @@
   "why": "37.2 min (recent 34.8, +2.8 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.848 pts+reb/min (83% this season's 0.860 over 15 games, 17% prior 0.804); context: home +1%, shared production on NYK +12%; shot-zone matchup +1% (where he scores vs where POR gives up points); calibration +0.1; injury news: -1.1 with OG Anunoby, Karl-Anthony Towns ruled out today (half of how he's ac"
  },
  "Jalen Brunson|pts|401910024": {
-  "actual": null,
+  "actual": 30.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5098039215686274,
@@ -30398,7 +30597,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -30429,6 +30629,11 @@
   ],
   "label": "lean",
   "line": 27.5,
+  "line_errs": {
+   "fanduel": 2.5,
+   "kalshi": 0.5,
+   "prizepicks": 1.0
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 27.5,
@@ -30456,6 +30661,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 1.2,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -30525,7 +30731,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -30536,7 +30742,7 @@
   "why": "37.2 min (recent 34.8, +2.8 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.756 points/min (75% this season's 0.776 over 15 games, 25% prior 0.707); context: home +1%, shared production on NYK +12%; shot-zone matchup +1% (where he scores vs where POR gives up points); calibration +0.2; injury news: -1.2 with OG Anunoby, Karl-Anthony Towns ruled out today (half of how he's act"
  },
  "Jalen Brunson|ra|401910024": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -30559,11 +30765,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:36 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -30579,6 +30789,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 1.6,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -30648,7 +30859,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -30659,7 +30870,7 @@
   "why": "37.6 min (recent 34.8, +2.8 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.273 reb+ast/min (65% this season's 0.257 over 15 games, 35% prior 0.286); context: home +1%, opponent defense \u22122%, shared production on NYK +6%; calibration -0.0; injury news: +0.2 with OG Anunoby, Karl-Anthony Towns ruled out today (half of how he's actually played without them)."
  },
  "Jalen Brunson|reb|401910024": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4472,
@@ -30680,7 +30891,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -30706,6 +30918,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 3.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -30721,6 +30936,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 3.3,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -30790,7 +31006,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -30801,7 +31017,7 @@
   "why": "37.2 min (recent 34.8, +2.8 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.090 rebounds/min (56% this season's 0.084 over 15 games, 44% prior 0.096); context: home +1%, opponent defense \u22121%, shared production on NYK +10%; calibration -0.1; injury news: +0.1 with OG Anunoby, Karl-Anthony Towns ruled out today (half of how he's actually played without them)."
  },
  "James Wiseman|pra|401910024": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -30819,11 +31035,15 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:26 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -30839,6 +31059,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 1.0,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -30884,7 +31105,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -30894,7 +31115,7 @@
   "why": "13.6 min (recent 9.4, +0.7 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out; the model had him at 10.1, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.790 pts+reb+ast/min (80% this season's 0.821 over 6 games, 20% prior 0.764); context: home +1%, shared production on NYK +11%; calibration +0.0."
  },
  "James Wiseman|pts|401910024": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [
    "OVER chance -2.7 pts (pattern)"
   ],
@@ -30914,11 +31135,15 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 5.5
@@ -30934,6 +31159,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.1,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -30979,7 +31205,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -30989,7 +31215,7 @@
   "why": "13.6 min (recent 9.4, +0.7 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out; the model had him at 10.1, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.328 points/min (71% this season's 0.286 over 6 games, 29% prior 0.420); context: home +1%, shared production on NYK +12%."
  },
  "James Wiseman|reb|401910024": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -31007,11 +31233,15 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 4.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 4.5
@@ -31027,6 +31257,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.3,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -31072,7 +31303,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -37416,23 +37647,23 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.6267,
+  "be_over": 0.6069,
   "be_under": 0.4472,
   "best5": [],
-  "blend_mean": 0.97,
+  "blend_mean": 0.95,
   "blend_w": 0.225,
-  "break_even": 0.6267,
+  "break_even": 0.6069,
   "call": "OVER",
-  "chance": 0.5728,
-  "close_at": "2026-11-22 02:51 UTC",
+  "chance": 0.565,
+  "close_at": "2026-11-22 02:56 UTC",
   "close_line": 0.5,
-  "close_mkt": 0.59,
+  "close_mkt": 0.58,
   "date": "2026-11-21",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-21 21:46 UTC",
   "first_line": 0.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:51 UTC",
+  "frozen_at": "2026-11-22 02:56 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -37440,21 +37671,21 @@
    [
     1,
     0.57,
-    0.61
+    0.59
    ],
    [
     2,
-    0.22,
+    0.2,
     0.23
    ],
    [
     3,
-    0.06,
-    0.08
+    0.04,
+    0.07
    ],
    [
     4,
-    0.01,
+    0.02,
     0.04
    ]
   ],
@@ -37464,11 +37695,11 @@
   "lines": {
    "kalshi": 0.5
   },
-  "market_side": 0.59,
+  "market_side": 0.58,
   "mkt": {
    "kalshi": [
     0.5,
-    0.6267,
+    0.6069,
     0.4472
    ]
   },
@@ -37538,7 +37769,7 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 16,
+  "updates": 17,
   "var": 1.064,
   "why": "13.7 min (recent 12.7, +0.9 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.048 3-pointers made/min (83% this season's 0.051 over 15 games, 17% prior 0.043); context: road \u22121%, rest +1%, shared production on BOS \u22123%; calibration +0.1; injury news: +0.1 with Derrick White, Jayson Tatum, Amari Williams ruled out today (half of how he's actually played without th"
  },
@@ -37794,38 +38025,37 @@
  },
  "Jordan Walsh|pts|401910028": {
   "actual": null,
-  "adj": [],
-  "anchor": null,
-  "be_over": 0.5971,
-  "be_under": 0.4874,
-  "best5": [
-   "pts:best5"
+  "adj": [
+   "OVER chance -2.7 pts (pattern)",
+   "-3.0 pts: pick follows the line's move (pattern)"
   ],
-  "best5_at": {
-   "pts:best5": "2026-11-22 02:51:17 UTC"
-  },
-  "blend_mean": 5.31,
+  "anchor": null,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "best5_at": {},
+  "blend_mean": 5.61,
   "blend_w": 0.225,
-  "break_even": 0.5971,
+  "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5694,
-  "close_at": "2026-11-22 02:51 UTC",
-  "close_line": 4.5,
-  "close_mkt": 0.555,
+  "chance": 0.5127,
+  "close_at": "2026-11-22 02:56 UTC",
+  "close_line": 5.5,
+  "close_mkt": null,
   "date": "2026-11-21",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-21 08:40 UTC",
   "first_line": 6.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:51 UTC",
+  "frozen_at": "2026-11-22 02:56 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
   "kladder": [
    [
     5,
-    0.53,
-    0.58
+    0.54,
+    0.57
    ],
    [
     10,
@@ -37839,21 +38069,27 @@
    ]
   ],
   "label": "lean",
-  "line": 4.5,
-  "line_source": "kalshi",
+  "line": 5.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 4.5
+   "kalshi": 4.5,
+   "prizepicks": 5.5
   },
-  "market_side": 0.555,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     4.5,
-    0.5971,
-    0.4874
+    0.5872,
+    0.4774
+   ],
+   "prizepicks": [
+    5.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
-  "move_dir": null,
+  "move": -1.0,
+  "move_dir": "against",
   "opp": "SAC",
   "out_ctx": [
    "Amari Williams",
@@ -37871,7 +38107,7 @@
   "proj_min": 13.7,
   "projected": 6.0,
   "role_gap": false,
-  "skip": null,
+  "skip": "pts|prizepicks|OVER",
   "snaps": {
    "10am": {
     "at": "2026-11-21 16:01 UTC",
@@ -37922,7 +38158,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks",
   "stat": "pts",
   "status": "pending",
   "team": "BOS",
@@ -37930,7 +38166,7 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 25,
+  "updates": 26,
   "var": 22.458,
   "why": "13.7 min (recent 12.7, +0.9 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.295 points/min (75% this season's 0.302 over 15 games, 25% prior 0.314); context: road \u22121%, rest +1%, shared production on BOS +8%; shot-zone matchup +3% (where he scores vs where SAC gives up points); calibration +0.2; injury news: +1.3 with Derrick White, Jayson Tatum, Amari Williams"
  },
@@ -37941,43 +38177,43 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 4.2,
+  "blend_mean": 4.03,
   "blend_w": 0.225,
   "break_even": 0.542,
-  "call": "OVER",
-  "chance": 0.5216,
-  "close_at": "2026-11-22 02:51 UTC",
+  "call": "UNDER",
+  "chance": 0.5012,
+  "close_at": "2026-11-22 02:56 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.545,
+  "close_mkt": 0.485,
   "date": "2026-11-21",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-21 21:43 UTC",
   "first_line": 3.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:51 UTC",
+  "frozen_at": "2026-11-22 02:56 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
   "kladder": [
    [
     2,
-    0.8,
+    0.82,
     0.87
    ],
    [
     4,
-    0.54,
-    0.55
+    0.51,
+    0.52
    ],
    [
     6,
-    0.2,
-    0.24
+    0.21,
+    0.23
    ],
    [
     8,
     0.06,
-    0.09
+    0.08
    ]
   ],
   "label": "lean",
@@ -37987,12 +38223,12 @@
    "kalshi": 3.5,
    "prizepicks": 3.5
   },
-  "market_side": 0.545,
+  "market_side": 0.485,
   "mkt": {
    "kalshi": [
     3.5,
-    0.5673,
-    0.4774
+    0.5375,
+    0.5075
    ],
    "prizepicks": [
     3.5,
@@ -38066,12 +38302,12 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 20,
+  "updates": 21,
   "var": 7.662,
   "why": "13.7 min (recent 12.7, +0.9 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.198 rebounds/min (56% this season's 0.187 over 15 games, 44% prior 0.205); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on BOS +4%; calibration -0.1; injury news: +0.9 with Derrick White, Jayson Tatum, Amari Williams ruled out today (half of how he's actually pl"
  },
  "Josh Hart|ast|401910024": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5474,
@@ -38093,7 +38329,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -38119,6 +38356,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -38134,6 +38374,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 1.6,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -38205,7 +38446,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -38216,7 +38457,7 @@
   "why": "30.9 min (recent 28.9, +2.3 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.130 assists/min (71% this season's 0.112 over 12 games, 29% prior 0.154); context: home +1%, opponent defense \u22122%, shared production on NYK +4%; calibration +0.0; injury news: +0.5 with OG Anunoby ruled out today (half of how he's actually played without him)."
  },
  "Josh Hart|fg3m|401910024": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [
    "no stake yet: picks like this are 63/127 (50%); a stake needs 30+ graded at 56%+ (2 points over the 54% their prices need)"
   ],
@@ -38244,7 +38485,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -38275,6 +38517,10 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 1.5,
@@ -38296,6 +38542,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 1.7,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -38365,7 +38612,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -38376,7 +38623,7 @@
   "why": "30.9 min (recent 28.9, +2.3 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.049 3-pointers made/min (80% this season's 0.048 over 12 games, 20% prior 0.044); context: home +1%, opponent defense \u22122%, shared production on NYK +5%; shot-zone matchup \u22125% (where he scores vs where POR gives up points); calibration +0.0; injury news: +0.1 with OG Anunoby ruled out today (half of ho"
  },
  "Josh Hart|pa|401910024": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -38399,11 +38646,15 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.5
@@ -38419,6 +38670,7 @@
   "move": 3.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 9.7,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -38488,7 +38740,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -38499,7 +38751,7 @@
   "why": "30.9 min (recent 28.9, +2.3 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.418 pts+ast/min (80% this season's 0.343 over 12 games, 20% prior 0.549); context: home +1%, opponent defense \u22121%, shared production on NYK +10%; shot-zone matchup \u22123% (where he scores vs where POR gives up points); calibration +0.1; injury news: +2.0 with OG Anunoby ruled out today (half of how he's "
  },
  "Josh Hart|pra|401910024": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -38523,7 +38775,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -38549,6 +38802,10 @@
   ],
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "kalshi": 10.5,
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 24.5,
@@ -38570,6 +38827,7 @@
   "move": 4.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 9.6,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -38639,7 +38897,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -38650,7 +38908,7 @@
   "why": "30.9 min (recent 28.9, +2.3 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.635 pts+reb+ast/min (80% this season's 0.553 over 12 games, 20% prior 0.784); context: home +1%, opponent defense \u22121%, shared production on NYK +10%; shot-zone matchup \u22123% (where he scores vs where POR gives up points); calibration +0.0; injury news: +2.7 with OG Anunoby ruled out today (half of how h"
  },
  "Josh Hart|pr|401910024": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -38673,11 +38931,15 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 18.5,
+  "line_errs": {
+   "prizepicks": 10.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 18.5
@@ -38693,6 +38955,7 @@
   "move": 3.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 11.3,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -38762,7 +39025,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -38773,7 +39036,7 @@
   "why": "30.9 min (recent 28.9, +2.3 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.507 pts+reb/min (80% this season's 0.441 over 12 games, 20% prior 0.629); context: home +1%, shared production on NYK +11%; shot-zone matchup \u22123% (where he scores vs where POR gives up points); calibration +0.0; injury news: +2.2 with OG Anunoby ruled out today (half of how he's actually played withou"
  },
  "Josh Hart|pts|401910024": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5283018867924528,
@@ -38794,7 +39057,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -38820,6 +39084,11 @@
   ],
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "fanduel": 8.5,
+   "kalshi": 9.5,
+   "prizepicks": 10.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 8.5,
@@ -38847,6 +39116,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 11.7,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -38916,7 +39186,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -38927,7 +39197,7 @@
   "why": "30.9 min (recent 28.9, +2.3 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.303 points/min (71% this season's 0.230 over 12 games, 29% prior 0.395); context: home +1%, shared production on NYK +12%; shot-zone matchup \u22123% (where he scores vs where POR gives up points); injury news: +1.4 with OG Anunoby ruled out today (half of how he's actually played without him)."
  },
  "Josh Hart|ra|401910024": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -38951,11 +39221,15 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 12.0,
+  "line_errs": {
+   "prizepicks": 2.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.0
@@ -38971,6 +39245,7 @@
   "move": 2.5,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 1.4,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -39040,7 +39315,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -39051,7 +39326,7 @@
   "why": "30.9 min (recent 28.9, +2.3 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.353 reb+ast/min (60% this season's 0.323 over 12 games, 40% prior 0.389); context: home +1%, opponent defense \u22122%, shared production on NYK +8%; calibration +0.0; injury news: +1.3 with OG Anunoby ruled out today (half of how he's actually played without him)."
  },
  "Josh Hart|reb|401910024": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -39073,6 +39348,7 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
+  "graded_at": "2026-11-22 02:56 UTC",
   "hit": null,
   "home": true,
   "kladder": [
@@ -39104,6 +39380,10 @@
   ],
   "label": "lean",
   "line": 8.0,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 7.5,
@@ -39125,6 +39405,7 @@
   "move": 1.5,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 0.1,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -39196,7 +39477,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "push",
   "team": "NYK",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -39207,7 +39488,7 @@
   "why": "30.9 min (recent 28.9, +2.3 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.222 rebounds/min (50% this season's 0.211 over 12 games, 50% prior 0.234); context: home +1%, opponent defense \u22121%, shared production on NYK +10%; calibration -0.0; injury news: +0.7 with OG Anunoby ruled out today (half of how he's actually played without him)."
  },
  "Jrue Holiday|ast|401910024": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -39229,7 +39510,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -39255,6 +39537,10 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -39276,6 +39562,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 2.4,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -39347,7 +39634,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -39358,7 +39645,7 @@
   "why": "28.1 min (recent 28.9, \u22120.8 team-minutes adjustment); \u00d7 0.168 assists/min (75% this season's 0.159 over 15 games, 25% prior 0.169); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22121%, shared production on POR +3%; calibration +0.1."
  },
  "Jrue Holiday|fg3m|401910024": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6168,
@@ -39379,7 +39666,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:41 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -39410,6 +39698,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -39425,6 +39716,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 1.4,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -39494,7 +39786,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -39505,7 +39797,7 @@
   "why": "28.1 min (recent 28.9, \u22120.8 team-minutes adjustment); \u00d7 0.089 3-pointers made/min (83% this season's 0.092 over 15 games, 17% prior 0.074); context: pace vs NYK \u22122%, road \u22121%, opponent defense +1%, shared production on POR \u22125%; calibration +0.1."
  },
  "Jrue Holiday|pa|401910024": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -39526,11 +39818,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:26 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -39546,6 +39842,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 1.2,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -39612,7 +39909,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -39623,7 +39920,7 @@
   "why": "28.1 min (recent 28.9, \u22120.8 team-minutes adjustment); \u00d7 0.686 pts+ast/min (83% this season's 0.677 over 15 games, 17% prior 0.651); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +2%; shot-zone matchup \u22122% (where he scores vs where NYK gives up points); calibration +0.2."
  },
  "Jrue Holiday|pra|401910024": {
-  "actual": null,
+  "actual": 29.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -39645,7 +39942,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -39666,6 +39964,10 @@
   ],
   "label": "lean",
   "line": 19.5,
+  "line_errs": {
+   "kalshi": 9.5,
+   "prizepicks": 9.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 19.5,
@@ -39687,6 +39989,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 6.6,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -39756,7 +40059,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -39767,7 +40070,7 @@
   "why": "28.1 min (recent 28.9, \u22120.8 team-minutes adjustment); \u00d7 0.823 pts+reb+ast/min (83% this season's 0.806 over 15 games, 17% prior 0.799); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +2%; shot-zone matchup \u22122% (where he scores vs where NYK gives up points); calibration +0.2."
  },
  "Jrue Holiday|pr|401910024": {
-  "actual": null,
+  "actual": 22.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -39788,11 +40091,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:21 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -39808,6 +40115,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 4.2,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -39874,7 +40182,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -39885,7 +40193,7 @@
   "why": "28.1 min (recent 28.9, \u22120.8 team-minutes adjustment); \u00d7 0.656 pts+reb/min (83% this season's 0.647 over 15 games, 17% prior 0.630); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +1%; shot-zone matchup \u22122% (where he scores vs where NYK gives up points); calibration +0.1."
  },
  "Jrue Holiday|pts|401910024": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.49504950495049505,
@@ -39906,7 +40214,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 20:43 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -39927,6 +40236,11 @@
   ],
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "fanduel": 0.5,
+   "kalshi": 1.5,
+   "prizepicks": 0.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 13.5,
@@ -39954,6 +40268,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 1.2,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -40019,7 +40334,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -40030,7 +40345,7 @@
   "why": "28.1 min (recent 28.9, \u22120.8 team-minutes adjustment); \u00d7 0.516 points/min (75% this season's 0.517 over 15 games, 25% prior 0.482); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +1%; shot-zone matchup \u22122% (where he scores vs where NYK gives up points); calibration +0.2."
  },
  "Jrue Holiday|ra|401910024": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -40051,11 +40366,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.5
@@ -40071,6 +40390,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 7.7,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -40137,7 +40457,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -40148,7 +40468,7 @@
   "why": "28.1 min (recent 28.9, \u22120.8 team-minutes adjustment); \u00d7 0.309 reb+ast/min (65% this season's 0.289 over 15 games, 35% prior 0.318); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22121%, shared production on POR +2%; calibration -0.0."
  },
  "Jrue Holiday|reb|401910024": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4572,
@@ -40169,7 +40489,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:11 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -40195,6 +40516,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 5.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -40210,6 +40534,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 5.3,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -40279,7 +40604,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -41430,6 +41755,7 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:56 UTC",
   "game_id": 401910024,
+  "graded_at": "2026-11-22 02:56 UTC",
   "hit": null,
   "home": true,
   "kladder": [
@@ -41537,7 +41863,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "void",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -41545,6 +41871,7 @@
   "units_raw": 0.0,
   "updates": 44,
   "var": 4.351,
+  "void_reason": "did not play",
   "why": "29.9 min (recent 33.1); \u00d7 0.111 assists/min (75% this season's 0.120 over 15 games, 25% prior 0.093); context: home +1%, shared production on NYK +1%; calibration +0.1; listed Day-To-Day; injury news: +0.1 with OG Anunoby ruled out today (half of how he's actually played without him)."
  },
  "Karl-Anthony Towns|fg3m|401910024": {
@@ -41569,6 +41896,7 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:51 UTC",
   "game_id": 401910024,
+  "graded_at": "2026-11-22 02:56 UTC",
   "hit": null,
   "home": true,
   "kladder": [
@@ -41681,7 +42009,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "void",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -41689,6 +42017,7 @@
   "units_raw": 0.0,
   "updates": 28,
   "var": 1.627,
+  "void_reason": "did not play",
   "why": "29.9 min (recent 33.1); \u00d7 0.056 3-pointers made/min (83% this season's 0.061 over 15 games, 17% prior 0.049); context: home +1%, opponent defense +1%, shared production on NYK +2%; shot-zone matchup \u22125% (where he scores vs where POR gives up points); calibration +0.1; listed Day-To-Day."
  },
  "Karl-Anthony Towns|pa|401910024": {
@@ -41713,6 +42042,7 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:16 UTC",
   "game_id": 401910024,
+  "graded_at": "2026-11-22 02:56 UTC",
   "hit": null,
   "home": true,
   "kladder": null,
@@ -41799,7 +42129,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "void",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -41807,6 +42137,7 @@
   "units_raw": 0.0,
   "updates": 9,
   "var": 67.71,
+  "void_reason": "did not play",
   "why": "32.9 min (recent 33.1); \u00d7 0.757 pts+ast/min (83% this season's 0.770 over 15 games, 17% prior 0.734); context: home +1%, shared production on NYK +4%; shot-zone matchup \u22124% (where he scores vs where POR gives up points); calibration +0.2; listed Day-To-Day; injury news: +1.3 with OG Anunoby ruled out today (half of how he's actually played without him)."
  },
  "Karl-Anthony Towns|pra|401910024": {
@@ -41831,6 +42162,7 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:56 UTC",
   "game_id": 401910024,
+  "graded_at": "2026-11-22 02:56 UTC",
   "hit": null,
   "home": true,
   "kladder": [
@@ -41933,7 +42265,7 @@
   },
   "src_key": "kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "void",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -41941,6 +42273,7 @@
   "units_raw": 0.0,
   "updates": 34,
   "var": 89.31,
+  "void_reason": "did not play",
   "why": "29.9 min (recent 33.1); \u00d7 1.165 pts+reb+ast/min (83% this season's 1.196 over 15 games, 17% prior 1.102); context: home +1%, shared production on NYK +2%; shot-zone matchup \u22124% (where he scores vs where POR gives up points); calibration +0.2; listed Day-To-Day; injury news: +1.0 with OG Anunoby ruled out today (half of how he's actually played without him)."
  },
  "Karl-Anthony Towns|pr|401910024": {
@@ -41967,6 +42300,7 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:16 UTC",
   "game_id": 401910024,
+  "graded_at": "2026-11-22 02:56 UTC",
   "hit": null,
   "home": true,
   "kladder": null,
@@ -42053,7 +42387,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "void",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -42061,6 +42395,7 @@
   "units_raw": 0.0,
   "updates": 7,
   "var": 86.809,
+  "void_reason": "did not play",
   "why": "32.9 min (recent 33.1); \u00d7 1.053 pts+reb/min (83% this season's 1.075 over 15 games, 17% prior 1.010); context: home +1%, shared production on NYK +2%; shot-zone matchup \u22124% (where he scores vs where POR gives up points); calibration +0.1; listed Day-To-Day; injury news: +0.8 with OG Anunoby ruled out today (half of how he's actually played without him)."
  },
  "Karl-Anthony Towns|pts|401910024": {
@@ -42085,6 +42420,7 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:51 UTC",
   "game_id": 401910024,
+  "graded_at": "2026-11-22 02:56 UTC",
   "hit": null,
   "home": true,
   "kladder": [
@@ -42198,7 +42534,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "void",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -42206,6 +42542,7 @@
   "units_raw": 0.0,
   "updates": 14,
   "var": 52.744,
+  "void_reason": "did not play",
   "why": "29.9 min (recent 33.1); \u00d7 0.644 points/min (75% this season's 0.650 over 15 games, 25% prior 0.641); context: home +1%, shared production on NYK +5%; shot-zone matchup \u22124% (where he scores vs where POR gives up points); calibration +0.2; listed Day-To-Day; injury news: +1.2 with OG Anunoby ruled out today (half of how he's actually played without him)."
  },
  "Karl-Anthony Towns|ra|401910024": {
@@ -42230,6 +42567,7 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:16 UTC",
   "game_id": 401910024,
+  "graded_at": "2026-11-22 02:56 UTC",
   "hit": null,
   "home": true,
   "kladder": null,
@@ -42316,7 +42654,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "void",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -42324,6 +42662,7 @@
   "units_raw": 0.0,
   "updates": 5,
   "var": 22.197,
+  "void_reason": "did not play",
   "why": "32.9 min (recent 33.1); \u00d7 0.509 reb+ast/min (65% this season's 0.546 over 15 games, 35% prior 0.461); context: home +1%, opponent defense \u22121%, shared production on NYK \u22122%; calibration -0.0; listed Day-To-Day; injury news: -0.2 with OG Anunoby ruled out today (half of how he's actually played without him)."
  },
  "Karl-Anthony Towns|reb|401910024": {
@@ -42348,6 +42687,7 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:56 UTC",
   "game_id": 401910024,
+  "graded_at": "2026-11-22 02:56 UTC",
   "hit": null,
   "home": true,
   "kladder": [
@@ -42450,7 +42790,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "void",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -42458,6 +42798,7 @@
   "units_raw": 0.0,
   "updates": 24,
   "var": 15.216,
+  "void_reason": "did not play",
   "why": "29.9 min (recent 33.1); \u00d7 0.396 rebounds/min (56% this season's 0.426 over 15 games, 44% prior 0.368); context: home +1%, opponent defense \u22121%, shared production on NYK \u22123%; calibration -0.1; listed Day-To-Day; injury news: -0.3 with OG Anunoby ruled out today (half of how he's actually played without him)."
  },
  "Kasparas Jakucionis|ast|401910023": {
@@ -50881,7 +51222,7 @@
   "why": "30.0 min (recent 30.7, \u22120.7 team-minutes adjustment with Jaylen Clark out); \u00d7 0.159 rebounds/min (73% this season's 0.153 over 16 games, 27% prior 0.163); context: home +1%, opponent defense \u22121%, shared production on MIN \u22122%; calibration -0.1."
  },
  "Landry Shamet|ast|401910024": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5574,
@@ -50903,7 +51244,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -50919,6 +51261,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -50934,6 +51279,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.8,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -50981,7 +51327,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -50992,7 +51338,7 @@
   "why": "28.9 min (recent 27.1, +2.2 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.069 assists/min (75% this season's 0.069 over 15 games, 25% prior 0.068); context: home +1%, opponent defense \u22122%, shared production on NYK +4%; calibration +0.1; injury news: +0.3 with OG Anunoby ruled out today (half of how he's actually played without him)."
  },
  "Landry Shamet|fg3m|401910024": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4673,
@@ -51013,7 +51359,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:17 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -51044,6 +51391,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 3.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -51059,6 +51409,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 3.6,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -51128,7 +51479,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -51139,7 +51490,7 @@
   "why": "28.9 min (recent 27.1, +2.2 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.084 3-pointers made/min (83% this season's 0.085 over 15 games, 17% prior 0.083); context: home +1%, opponent defense \u22122%, shared production on NYK +5%; shot-zone matchup \u22125% (where he scores vs where POR gives up points); calibration +0.1."
  },
  "Landry Shamet|pa|401910024": {
-  "actual": null,
+  "actual": 23.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -51160,11 +51511,15 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 9.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -51180,6 +51535,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 7.9,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -51225,7 +51581,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -51236,7 +51592,7 @@
   "why": "28.9 min (recent 27.1, +2.2 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.476 pts+ast/min (83% this season's 0.469 over 15 games, 17% prior 0.480); context: home +1%, opponent defense \u22121%, shared production on NYK +11%; shot-zone matchup \u22124% (where he scores vs where POR gives up points); calibration +0.2; injury news: +0.3 with OG Anunoby ruled out today (half of how he's "
  },
  "Landry Shamet|pra|401910024": {
-  "actual": null,
+  "actual": 24.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -51259,7 +51615,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -51280,6 +51637,10 @@
   ],
   "label": "lean",
   "line": 16.5,
+  "line_errs": {
+   "kalshi": 9.5,
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 14.5,
@@ -51301,6 +51662,7 @@
   "move": 4.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 6.5,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -51370,7 +51732,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -51381,7 +51743,7 @@
   "why": "28.9 min (recent 27.1, +2.2 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.545 pts+reb+ast/min (83% this season's 0.533 over 15 games, 17% prior 0.568); context: home +1%, opponent defense \u22121%, shared production on NYK +11%; shot-zone matchup \u22124% (where he scores vs where POR gives up points); calibration +0.2; injury news: +0.4 with OG Anunoby ruled out today (half of how h"
  },
  "Landry Shamet|pr|401910024": {
-  "actual": null,
+  "actual": 21.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -51404,11 +51766,15 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.5
@@ -51424,6 +51790,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 5.9,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -51469,7 +51836,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -51480,7 +51847,7 @@
   "why": "28.9 min (recent 27.1, +2.2 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.476 pts+reb/min (83% this season's 0.464 over 15 games, 17% prior 0.500); context: home +1%, shared production on NYK +12%; shot-zone matchup \u22124% (where he scores vs where POR gives up points); calibration +0.1; injury news: +0.2 with OG Anunoby ruled out today (half of how he's actually played withou"
  },
  "Landry Shamet|pts|401910024": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5614035087719298,
@@ -51502,7 +51869,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -51528,6 +51896,11 @@
   ],
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "fanduel": 10.5,
+   "kalshi": 10.5,
+   "prizepicks": 7.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 9.5,
@@ -51555,6 +51928,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 7.0,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -51624,7 +51998,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -51635,7 +52009,7 @@
   "why": "28.9 min (recent 27.1, +2.2 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.407 points/min (75% this season's 0.400 over 15 games, 25% prior 0.412); context: home +1%, shared production on NYK +12%; shot-zone matchup \u22124% (where he scores vs where POR gives up points); calibration +0.2."
  },
  "Landry Shamet|reb|401910024": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6855,
@@ -51657,7 +52031,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -51678,6 +52053,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -51693,6 +52071,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 1.4,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -51766,7 +52145,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -54184,7 +54563,7 @@
   "why": "25.5 min (recent 26.2, \u22120.6 team-minutes adjustment); \u00d7 0.167 rebounds/min (57% this season's 0.149 over 8 games, 43% prior 0.172); context: road \u22121%, shared production on LAC +6%; calibration -0.0."
  },
  "Mikal Bridges|ast|401910024": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -54205,7 +54584,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -54226,6 +54606,10 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 1.5,
@@ -54247,6 +54631,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.3,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -54316,7 +54701,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -54327,7 +54712,7 @@
   "why": "30.4 min (recent 28.4, +2.3 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.097 assists/min (75% this season's 0.085 over 15 games, 25% prior 0.111); context: home +1%, opponent defense \u22122%, shared production on NYK +4%; calibration +0.1; injury news: -0.2 with OG Anunoby, Karl-Anthony Towns ruled out today (half of how he's actually played without them)."
  },
  "Mikal Bridges|fg3m|401910024": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4371,
@@ -54348,7 +54733,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -54374,6 +54760,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -54389,6 +54778,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.4,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -54458,7 +54848,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -54469,7 +54859,7 @@
   "why": "30.4 min (recent 28.4, +2.3 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.044 3-pointers made/min (83% this season's 0.038 over 15 games, 17% prior 0.057); context: home +1%, opponent defense \u22122%, shared production on NYK +5%; shot-zone matchup \u22125% (where he scores vs where POR gives up points); calibration +0.1; injury news: +0.2 with OG Anunoby, Karl-Anthony Towns ruled o"
  },
  "Mikal Bridges|pa|401910024": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -54492,11 +54882,15 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.5
@@ -54512,6 +54906,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 1.8,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -54581,7 +54976,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -54592,7 +54987,7 @@
   "why": "30.4 min (recent 28.4, +2.3 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.431 pts+ast/min (83% this season's 0.374 over 15 games, 17% prior 0.565); context: home +1%, opponent defense \u22121%, shared production on NYK +10%; shot-zone matchup \u22122% (where he scores vs where POR gives up points); calibration +0.2; injury news: +2.5 with OG Anunoby, Karl-Anthony Towns ruled out toda"
  },
  "Mikal Bridges|pra|401910024": {
-  "actual": null,
+  "actual": 17.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -54616,7 +55011,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -54642,6 +55038,10 @@
   ],
   "label": "lean",
   "line": 18.0,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 19.5,
@@ -54663,6 +55063,7 @@
   "move": 1.5,
   "move_dir": "agree",
   "opp": "POR",
+  "our_err": 4.5,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -54732,7 +55133,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -54743,7 +55144,7 @@
   "why": "30.4 min (recent 28.4, +2.3 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.560 pts+reb+ast/min (83% this season's 0.510 over 15 games, 17% prior 0.674); context: home +1%, opponent defense \u22121%, shared production on NYK +10%; shot-zone matchup \u22122% (where he scores vs where POR gives up points); calibration +0.2; injury news: +2.9 with OG Anunoby, Karl-Anthony Towns ruled out "
  },
  "Mikal Bridges|pr|401910024": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -54766,11 +55167,15 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -54786,6 +55191,7 @@
   "move": 2.0,
   "move_dir": "agree",
   "opp": "POR",
+  "our_err": 4.8,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -54855,7 +55261,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -54866,7 +55272,7 @@
   "why": "30.4 min (recent 28.4, +2.3 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.464 pts+reb/min (83% this season's 0.426 over 15 games, 17% prior 0.562); context: home +1%, shared production on NYK +11%; shot-zone matchup \u22122% (where he scores vs where POR gives up points); calibration +0.1; injury news: +3.1 with OG Anunoby, Karl-Anthony Towns ruled out today (half of how he's ac"
  },
  "Mikal Bridges|pts|401910024": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5098039215686274,
@@ -54887,7 +55293,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -54908,6 +55315,11 @@
   ],
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "fanduel": 1.5,
+   "kalshi": 2.5,
+   "prizepicks": 0.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 10.5,
@@ -54935,6 +55347,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 2.7,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -55004,7 +55417,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -55015,7 +55428,7 @@
   "why": "30.4 min (recent 28.4, +2.3 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.346 points/min (75% this season's 0.290 over 15 games, 25% prior 0.454); context: home +1%, shared production on NYK +12%; shot-zone matchup \u22122% (where he scores vs where POR gives up points); calibration +0.2; injury news: +2.7 with OG Anunoby, Karl-Anthony Towns ruled out today (half of how he's act"
  },
  "Mikal Bridges|ra|401910024": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -55036,11 +55449,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:01 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 6.5
@@ -55056,6 +55473,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 2.2,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -55099,7 +55517,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -55110,7 +55528,7 @@
   "why": "30.6 min (recent 28.4, +2.1 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.224 reb+ast/min (65% this season's 0.221 over 15 games, 35% prior 0.220); context: home +1%, opponent defense \u22122%, shared production on NYK +7%; calibration -0.0; injury news: +0.1 with OG Anunoby, Karl-Anthony Towns ruled out today (half of how he's actually played without them)."
  },
  "Mikal Bridges|reb|401910024": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -55132,7 +55550,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -55158,6 +55577,10 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -55179,6 +55602,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 2.3,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -55250,7 +55674,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -55261,7 +55685,7 @@
   "why": "30.4 min (recent 28.4, +2.3 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out); \u00d7 0.122 rebounds/min (56% this season's 0.136 over 15 games, 44% prior 0.108); context: home +1%, opponent defense \u22121%, shared production on NYK +10%; calibration -0.1; injury news: +0.4 with OG Anunoby, Karl-Anthony Towns ruled out today (half of how he's actually played without them)."
  },
  "Miles McBride|ast|401910024": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4269,
@@ -55282,7 +55706,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:23 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -55298,6 +55723,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -55313,6 +55741,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 0.5,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -55358,7 +55787,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -55369,7 +55798,7 @@
   "why": "20.2 min (recent 15.2, +1.2 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out; the model had him at 16.4, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.076 assists/min (75% this season's 0.057 over 15 games, 25% prior 0.111); context: home +1%, opponent defense \u22122%, shared production on NYK +4%; calibration +0.1."
  },
  "Miles McBride|fg3m|401910024": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5772,
@@ -55391,7 +55820,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:17 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -55422,6 +55852,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -55437,6 +55870,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 1.6,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -55508,7 +55942,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -55519,7 +55953,7 @@
   "why": "20.2 min (recent 15.2, +1.2 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out; the model had him at 16.4, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.100 3-pointers made/min (83% this season's 0.107 over 15 games, 17% prior 0.086); context: home +1%, opponent defense \u22122%, shared production on NYK +5%; shot-zone matchup \u22125% (where he score"
  },
  "Miles McBride|pa|401910024": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -55540,11 +55974,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:01 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.5
@@ -55560,6 +55998,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 8.9,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -55603,7 +56042,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -55614,7 +56053,7 @@
   "why": "20.3 min (recent 15.2, +1.1 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out; the model had him at 16.3, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.471 pts+ast/min (83% this season's 0.460 over 15 games, 17% prior 0.545); context: home +1%, opponent defense \u22121%, shared production on NYK +11%; shot-zone matchup \u22123% (where he scores vs wh"
  },
  "Miles McBride|pra|401910024": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -55635,7 +56074,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -55651,6 +56091,10 @@
   ],
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "kalshi": 5.5,
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -55672,6 +56116,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 10.9,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -55717,7 +56162,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -55728,7 +56173,7 @@
   "why": "20.2 min (recent 15.2, +1.2 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out; the model had him at 16.4, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.555 pts+reb+ast/min (83% this season's 0.533 over 15 games, 17% prior 0.647); context: home +1%, opponent defense \u22121%, shared production on NYK +11%; shot-zone matchup \u22123% (where he scores v"
  },
  "Miles McBride|pr|401910024": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -55749,11 +56194,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:51 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 9.0,
+  "line_errs": {
+   "prizepicks": 6.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.0
@@ -55769,6 +56218,7 @@
   "move": -1.5,
   "move_dir": "against",
   "opp": "POR",
+  "our_err": 10.5,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -55814,7 +56264,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -55825,7 +56275,7 @@
   "why": "20.2 min (recent 15.2, +1.2 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out; the model had him at 16.4, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.482 pts+reb/min (83% this season's 0.475 over 15 games, 17% prior 0.537); context: home +1%, shared production on NYK +12%; shot-zone matchup \u22123% (where he scores vs where POR gives up point"
  },
  "Miles McBride|pts|401910024": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "OVER chance -2.7 pts (pattern)",
    "-3.0 pts: pick follows the line's move (pattern)"
@@ -55849,7 +56299,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -55870,6 +56321,10 @@
   ],
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "kalshi": 6.5,
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -55891,6 +56346,7 @@
   "move": 2.0,
   "move_dir": "agree",
   "opp": "POR",
+  "our_err": 8.7,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -55960,7 +56416,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -55971,7 +56427,7 @@
   "why": "20.2 min (recent 15.2, +1.2 team-minutes adjustment with OG Anunoby, Karl-Anthony Towns out; the model had him at 16.4, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.401 points/min (75% this season's 0.402 over 15 games, 25% prior 0.434); context: home +1%, shared production on NYK +12%; shot-zone matchup \u22123% (where he scores vs where POR gives up points"
  },
  "Miles McBride|reb|401910024": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [
    "no stake: 51% is a coin flip, even at a cheap price"
   ],
@@ -55994,7 +56450,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:21 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -56010,6 +56467,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -56025,6 +56485,7 @@
   "move": null,
   "move_dir": null,
   "opp": "POR",
+  "our_err": 2.1,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -56070,7 +56531,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -58992,41 +59453,41 @@
   "adj": [],
   "anchor": null,
   "be_over": 0.6659,
-  "be_under": 0.3863,
+  "be_under": 0.3761,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 2.3,
+  "blend_mean": 2.32,
   "blend_w": 0.225,
   "break_even": 0.6659,
   "call": "OVER",
-  "chance": 0.6144,
-  "close_at": "2026-11-22 02:51 UTC",
+  "chance": 0.6183,
+  "close_at": "2026-11-22 02:56 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.64,
+  "close_mkt": 0.645,
   "date": "2026-11-21",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-21 21:43 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:51 UTC",
+  "frozen_at": "2026-11-22 02:56 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
   "kladder": [
    [
     2,
-    0.63,
+    0.64,
     0.65
    ],
    [
     4,
-    0.2,
-    0.22
+    0.19,
+    0.21
    ],
    [
     6,
-    0.03,
-    0.06
+    0.02,
+    0.05
    ]
   ],
   "label": "lean",
@@ -59035,12 +59496,12 @@
   "lines": {
    "kalshi": 1.5
   },
-  "market_side": 0.64,
+  "market_side": 0.645,
   "mkt": {
    "kalshi": [
     1.5,
     0.6659,
-    0.3863
+    0.3761
    ]
   },
   "move": 0.0,
@@ -59109,7 +59570,7 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 30,
+  "updates": 31,
   "var": 2.737,
   "why": "26.1 min (recent 24.3, +1.8 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.078 assists/min (74% this season's 0.087 over 14 games, 26% prior 0.066); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on BOS +9%; calibration +0.0; injury news: -0.2 with Jayson Tatum, Amari Williams ruled out today (half of how he's actually played without the"
  },
@@ -59933,6 +60394,7 @@
   "flip": null,
   "frozen_at": "2026-11-21 21:53 UTC",
   "game_id": 401910024,
+  "graded_at": "2026-11-22 02:56 UTC",
   "hit": null,
   "home": true,
   "kladder": [
@@ -60034,7 +60496,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "void",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -60042,6 +60504,7 @@
   "units_raw": 0.0,
   "updates": 16,
   "var": 2.521,
+  "void_reason": "did not play",
   "why": "33.9 min (recent 34.8, \u22120.9 team-minutes adjustment); \u00d7 0.061 assists/min (75% this season's 0.059 over 15 games, 25% prior 0.067); context: home +1%, shared production on NYK +2%; calibration +0.1; listed Day-To-Day."
  },
  "OG Anunoby|fg3m|401910024": {
@@ -60066,6 +60529,7 @@
   "flip": null,
   "frozen_at": "2026-11-21 21:53 UTC",
   "game_id": 401910024,
+  "graded_at": "2026-11-22 02:56 UTC",
   "hit": null,
   "home": true,
   "kladder": [
@@ -60172,7 +60636,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "void",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -60180,6 +60644,7 @@
   "units_raw": 0.0,
   "updates": 37,
   "var": 2.532,
+  "void_reason": "did not play",
   "why": "33.9 min (recent 34.8, \u22120.9 team-minutes adjustment); \u00d7 0.061 3-pointers made/min (83% this season's 0.059 over 15 games, 17% prior 0.066); context: home +1%, opponent defense \u22121%, shared production on NYK +1%; shot-zone matchup \u22125% (where he scores vs where POR gives up points); calibration +0.1; listed Day-To-Day."
  },
  "OG Anunoby|pa|401910024": {
@@ -60204,6 +60669,7 @@
   "flip": null,
   "frozen_at": "2026-11-21 16:01 UTC",
   "game_id": 401910024,
+  "graded_at": "2026-11-22 02:56 UTC",
   "hit": null,
   "home": true,
   "kladder": null,
@@ -60289,7 +60755,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "void",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -60297,6 +60763,7 @@
   "units_raw": 0.0,
   "updates": 2,
   "var": 58.203,
+  "void_reason": "did not play",
   "why": "33.9 min (recent 34.8, \u22120.9 team-minutes adjustment); \u00d7 0.542 pts+ast/min (83% this season's 0.537 over 15 games, 17% prior 0.565); context: home +1%, shared production on NYK +3%; shot-zone matchup \u22125% (where he scores vs where POR gives up points); calibration +0.1; listed Day-To-Day."
  },
  "OG Anunoby|pra|401910024": {
@@ -60321,6 +60788,7 @@
   "flip": null,
   "frozen_at": "2026-11-21 21:46 UTC",
   "game_id": 401910024,
+  "graded_at": "2026-11-22 02:56 UTC",
   "hit": null,
   "home": true,
   "kladder": [
@@ -60412,7 +60880,7 @@
   },
   "src_key": "kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "void",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -60420,6 +60888,7 @@
   "units_raw": 0.0,
   "updates": 20,
   "var": 84.117,
+  "void_reason": "did not play",
   "why": "33.9 min (recent 34.8, \u22120.9 team-minutes adjustment); \u00d7 0.699 pts+reb+ast/min (83% this season's 0.696 over 15 games, 17% prior 0.720); context: home +1%, shared production on NYK +3%; shot-zone matchup \u22125% (where he scores vs where POR gives up points); calibration +0.2; listed Day-To-Day."
  },
  "OG Anunoby|pr|401910024": {
@@ -60444,6 +60913,7 @@
   "flip": null,
   "frozen_at": "2026-11-21 16:21 UTC",
   "game_id": 401910024,
+  "graded_at": "2026-11-22 02:56 UTC",
   "hit": null,
   "home": true,
   "kladder": null,
@@ -60529,7 +60999,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "void",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -60537,6 +61007,7 @@
   "units_raw": 0.0,
   "updates": 1,
   "var": 71.624,
+  "void_reason": "did not play",
   "why": "33.9 min (recent 34.8, \u22120.9 team-minutes adjustment); \u00d7 0.639 pts+reb/min (83% this season's 0.637 over 15 games, 17% prior 0.653); context: home +1%, shared production on NYK +3%; shot-zone matchup \u22125% (where he scores vs where POR gives up points); calibration -0.1; listed Day-To-Day."
  },
  "OG Anunoby|pts|401910024": {
@@ -60561,6 +61032,7 @@
   "flip": null,
   "frozen_at": "2026-11-21 20:43 UTC",
   "game_id": 401910024,
+  "graded_at": "2026-11-22 02:56 UTC",
   "hit": null,
   "home": true,
   "kladder": [
@@ -60673,7 +61145,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "void",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -60681,6 +61153,7 @@
   "units_raw": 0.0,
   "updates": 3,
   "var": 49.837,
+  "void_reason": "did not play",
   "why": "33.9 min (recent 34.8, \u22120.9 team-minutes adjustment); \u00d7 0.483 points/min (75% this season's 0.478 over 15 games, 25% prior 0.498); context: home +1%, shared production on NYK +3%; shot-zone matchup \u22125% (where he scores vs where POR gives up points); calibration +0.2; listed Day-To-Day."
  },
  "OG Anunoby|reb|401910024": {
@@ -60705,6 +61178,7 @@
   "flip": null,
   "frozen_at": "2026-11-21 21:53 UTC",
   "game_id": 401910024,
+  "graded_at": "2026-11-22 02:56 UTC",
   "hit": null,
   "home": true,
   "kladder": [
@@ -60811,7 +61285,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "void",
   "team": "NYK",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -60819,6 +61293,7 @@
   "units_raw": 0.0,
   "updates": 23,
   "var": 7.635,
+  "void_reason": "did not play",
   "why": "33.9 min (recent 34.8, \u22120.9 team-minutes adjustment); \u00d7 0.157 rebounds/min (56% this season's 0.159 over 15 games, 44% prior 0.155); context: home +1%, opponent defense +1%; calibration -0.1; listed Day-To-Day."
  },
  "P.J. Washington|ast|401910025": {
@@ -64330,46 +64805,46 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.5375,
-  "be_under": 0.5075,
+  "be_over": 0.5474,
+  "be_under": 0.4975,
   "best5": [],
-  "blend_mean": 4.01,
+  "blend_mean": 4.06,
   "blend_w": 0.225,
-  "break_even": 0.5375,
+  "break_even": 0.5474,
   "call": "OVER",
-  "chance": 0.5178,
-  "close_at": "2026-11-22 02:51 UTC",
+  "chance": 0.5252,
+  "close_at": "2026-11-22 02:56 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.515,
+  "close_mkt": 0.525,
   "date": "2026-11-21",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-21 23:46 UTC",
   "first_line": 5.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:51 UTC",
+  "frozen_at": "2026-11-22 02:56 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": true,
   "kladder": [
    [
     2,
-    0.79,
-    0.83
+    0.78,
+    0.84
    ],
    [
     4,
-    0.51,
-    0.52
+    0.52,
+    0.53
    ],
    [
     6,
-    0.25,
+    0.24,
     0.26
    ],
    [
     8,
     0.07,
-    0.09
+    0.1
    ]
   ],
   "label": "lean",
@@ -64378,12 +64853,12 @@
   "lines": {
    "kalshi": 3.5
   },
-  "market_side": 0.515,
+  "market_side": 0.525,
   "mkt": {
    "kalshi": [
     3.5,
-    0.5375,
-    0.5075
+    0.5474,
+    0.4975
    ]
   },
   "move": null,
@@ -64440,12 +64915,12 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 20,
+  "updates": 21,
   "var": 6.898,
   "why": "19.2 min (recent 19.9, \u22120.7 team-minutes adjustment); \u00d7 0.249 rebounds/min (50% this season's 0.235 over 12 games, 50% prior 0.268); context: pace vs BOS \u22121%, home +1%, rest \u22122%, opponent defense +1%, shared production on SAC \u22121%; calibration -0.0; injury news: -0.5 with Jonathan Mogbo ruled out today (half of how he's actually played without him)."
  },
  "Robert Williams III|ast|401910024": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.325,
@@ -64466,7 +64941,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:26 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -64482,6 +64958,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -64497,6 +64976,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 1.1,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -64542,7 +65022,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -64553,7 +65033,7 @@
   "why": "16.0 min (recent 16.5, \u22120.5 team-minutes adjustment); \u00d7 0.071 assists/min (71% this season's 0.077 over 12 games, 29% prior 0.064); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22121%, shared production on POR +3%; calibration +0.0."
  },
  "Robert Williams III|pa|401910024": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -64571,11 +65051,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:56 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 6.5
@@ -64591,6 +65075,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 3.0,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -64633,7 +65118,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -64643,7 +65128,7 @@
   "why": "16.0 min (recent 16.5, \u22120.5 team-minutes adjustment); \u00d7 0.472 pts+ast/min (80% this season's 0.477 over 12 games, 20% prior 0.463); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22122%, shared production on POR +2%; shot-zone matchup \u22126% (where he scores vs where NYK gives up points); calibration +0.1."
  },
  "Robert Williams III|pra|401910024": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -64665,7 +65150,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:11 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -64686,6 +65172,10 @@
   ],
   "label": "lean",
   "line": 12.0,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 5.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -64707,6 +65197,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 5.9,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -64776,7 +65267,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -64787,7 +65278,7 @@
   "why": "16.0 min (recent 16.5, \u22120.5 team-minutes adjustment); \u00d7 0.874 pts+reb+ast/min (80% this season's 0.882 over 12 games, 20% prior 0.846); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22122%, shared production on POR +1%; shot-zone matchup \u22126% (where he scores vs where NYK gives up points); calibration +0.0."
  },
  "Robert Williams III|pr|401910024": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [
    "-3.0 pts: pick follows the line's move (pattern)"
   ],
@@ -64810,11 +65301,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:51 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 11.0,
+  "line_errs": {
+   "prizepicks": 4.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.0
@@ -64830,6 +65325,7 @@
   "move": 0.5,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 4.8,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -64872,7 +65368,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -64883,7 +65379,7 @@
   "why": "16.0 min (recent 16.5, \u22120.5 team-minutes adjustment); \u00d7 0.802 pts+reb/min (80% this season's 0.805 over 12 games, 20% prior 0.782); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22122%, shared production on POR +1%; shot-zone matchup \u22126% (where he scores vs where NYK gives up points); calibration +0.0."
  },
  "Robert Williams III|pts|401910024": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [
    "no stake yet: picks like this are 532/1052 (51%); a stake needs 30+ graded at 56%+ (2 points over the 54% their prices need)"
   ],
@@ -64907,7 +65403,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:11 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -64928,6 +65425,10 @@
   ],
   "label": "lean",
   "line": 4.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 4.5,
@@ -64949,6 +65450,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 1.8,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -65018,7 +65520,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -65029,7 +65531,7 @@
   "why": "16.0 min (recent 16.5, \u22120.5 team-minutes adjustment); \u00d7 0.400 points/min (71% this season's 0.400 over 12 games, 29% prior 0.399); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22123%, shared production on POR +1%; shot-zone matchup \u22126% (where he scores vs where NYK gives up points)."
  },
  "Robert Williams III|ra|401910024": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -65047,11 +65549,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:23 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 6.5
@@ -65067,6 +65573,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 4.1,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -65110,7 +65617,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -65120,7 +65627,7 @@
   "why": "16.0 min (recent 16.5, \u22120.5 team-minutes adjustment); \u00d7 0.469 reb+ast/min (60% this season's 0.482 over 12 games, 40% prior 0.447); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22122%, shared production on POR +1%; calibration +0.0."
  },
  "Robert Williams III|reb|401910024": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -65141,7 +65648,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:23 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -65167,6 +65675,10 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -65188,6 +65700,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 2.9,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -65257,7 +65770,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -69252,13 +69765,13 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.5574,
-  "be_under": 0.4874,
+  "be_over": 0.5673,
+  "be_under": 0.4975,
   "best5": [],
   "best5_at": {},
   "blend_mean": 2.83,
   "blend_w": 0.225,
-  "break_even": 0.5574,
+  "break_even": 0.5673,
   "call": "OVER",
   "chance": 0.5001,
   "close_at": "2026-11-22 02:51 UTC",
@@ -69269,25 +69782,25 @@
   "first_frozen_at": "2026-11-21 20:54 UTC",
   "first_line": 2.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:51 UTC",
+  "frozen_at": "2026-11-22 02:56 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
   "kladder": [
    [
     1,
-    0.9,
-    0.92
+    0.87,
+    0.94
    ],
    [
     2,
-    0.74,
+    0.75,
     0.76
    ],
    [
     3,
-    0.53,
-    0.54
+    0.52,
+    0.55
    ],
    [
     4,
@@ -69296,8 +69809,8 @@
    ],
    [
     5,
-    0.15,
-    0.16
+    0.14,
+    0.17
    ]
   ],
   "label": "lean",
@@ -69310,8 +69823,8 @@
   "mkt": {
    "kalshi": [
     2.5,
-    0.5574,
-    0.4874
+    0.5673,
+    0.4975
    ]
   },
   "move": null,
@@ -69380,7 +69893,7 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 21,
+  "updates": 22,
   "var": 3.255,
   "why": "21.4 min (recent 20.0, +1.5 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.112 3-pointers made/min (83% this season's 0.118 over 15 games, 17% prior 0.098); context: road \u22121%, rest +1%, opponent defense +1%, shared production on BOS \u22123%; calibration +0.1; injury news: -0.2 with Derrick White, Jayson Tatum, Amari Williams ruled out today (half of how he's actu"
  },
@@ -69893,7 +70406,7 @@
   "why": "21.4 min (recent 20.0, +1.5 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.156 rebounds/min (56% this season's 0.151 over 15 games, 44% prior 0.158); context: road \u22121%, rest +1%, opponent defense +1%, shared production on BOS +4%; calibration -0.1; injury news: -0.2 with Derrick White, Jayson Tatum, Amari Williams ruled out today (half of how he's actually pl"
  },
  "Scoot Henderson|ast|401910024": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6463,
@@ -69915,7 +70428,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:26 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -69936,6 +70450,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -69951,6 +70468,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 1.5,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -69998,7 +70516,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -70009,7 +70527,7 @@
   "why": "26.5 min (recent 27.2, \u22120.7 team-minutes adjustment); \u00d7 0.094 assists/min (75% this season's 0.064 over 15 games, 25% prior 0.164); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22121%, shared production on POR +3%; calibration +0.1."
  },
  "Scoot Henderson|fg3m|401910024": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4572,
@@ -70030,7 +70548,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -70056,6 +70575,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -70071,6 +70593,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 1.4,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -70116,7 +70639,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -70127,7 +70650,7 @@
   "why": "26.5 min (recent 27.2, \u22120.7 team-minutes adjustment); \u00d7 0.053 3-pointers made/min (83% this season's 0.049 over 15 games, 17% prior 0.067); context: pace vs NYK \u22122%, road \u22121%, opponent defense +1%, shared production on POR \u22125%; calibration +0.1."
  },
  "Scoot Henderson|pa|401910024": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -70145,11 +70668,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.5
@@ -70165,6 +70692,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 10.0,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -70207,7 +70735,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -70217,7 +70745,7 @@
   "why": "26.5 min (recent 27.2, \u22120.7 team-minutes adjustment); \u00d7 0.543 pts+ast/min (83% this season's 0.494 over 15 games, 17% prior 0.677); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +2%; shot-zone matchup \u22123% (where he scores vs where NYK gives up points); calibration +0.2."
  },
  "Scoot Henderson|pra|401910024": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -70238,7 +70766,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:23 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -70259,6 +70788,10 @@
   ],
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "kalshi": 9.5,
+   "prizepicks": 9.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 14.5,
@@ -70280,6 +70813,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 11.5,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -70349,7 +70883,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -70360,7 +70894,7 @@
   "why": "26.5 min (recent 27.2, \u22120.7 team-minutes adjustment); \u00d7 0.640 pts+reb+ast/min (83% this season's 0.587 over 15 games, 17% prior 0.792); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +1%; shot-zone matchup \u22123% (where he scores vs where NYK gives up points); calibration +0.2."
  },
  "Scoot Henderson|pr|401910024": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -70378,11 +70912,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:41 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.5
@@ -70398,6 +70936,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 10.1,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -70440,7 +70979,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -70450,7 +70989,7 @@
   "why": "26.5 min (recent 27.2, \u22120.7 team-minutes adjustment); \u00d7 0.553 pts+reb/min (83% this season's 0.523 over 15 games, 17% prior 0.627); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +1%; shot-zone matchup \u22123% (where he scores vs where NYK gives up points); calibration +0.1."
  },
  "Scoot Henderson|pts|401910024": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "no stake yet: picks like this are 63/127 (50%); a stake needs 30+ graded at 56%+ (2 points over the 54% their prices need)"
   ],
@@ -70478,7 +71017,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:26 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -70504,6 +71044,10 @@
   ],
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "kalshi": 6.5,
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -70525,6 +71069,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 8.9,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -70596,7 +71141,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -70607,7 +71152,7 @@
   "why": "26.5 min (recent 27.2, \u22120.7 team-minutes adjustment); \u00d7 0.461 points/min (75% this season's 0.431 over 15 games, 25% prior 0.513); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +1%; shot-zone matchup \u22123% (where he scores vs where NYK gives up points); calibration +0.2."
  },
  "Scoot Henderson|reb|401910024": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6757,
@@ -70628,7 +71173,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:26 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -70649,6 +71195,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -70664,6 +71213,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 1.5,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -70709,7 +71259,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -70720,7 +71270,7 @@
   "why": "26.5 min (recent 27.2, \u22120.7 team-minutes adjustment); \u00d7 0.102 rebounds/min (56% this season's 0.092 over 15 games, 44% prior 0.115); context: pace vs NYK \u22122%, road \u22121%; calibration -0.1."
  },
  "Sidy Cissoko|ast|401910024": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5772,
@@ -70746,7 +71296,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:06 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -70767,6 +71318,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -70782,6 +71336,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 1.1,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -70855,7 +71410,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -70866,7 +71421,7 @@
   "why": "25.2 min (recent 25.9, \u22120.7 team-minutes adjustment); \u00d7 0.081 assists/min (75% this season's 0.081 over 15 games, 25% prior 0.087); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22121%, shared production on POR +3%; calibration +0.1."
  },
  "Sidy Cissoko|fg3m|401910024": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3761,
@@ -70887,7 +71442,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:31 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -70918,6 +71474,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -70933,6 +71492,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 1.7,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -70999,7 +71559,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -71010,7 +71570,7 @@
   "why": "25.2 min (recent 25.9, \u22120.7 team-minutes adjustment); \u00d7 0.053 3-pointers made/min (83% this season's 0.054 over 15 games, 17% prior 0.044); context: pace vs NYK \u22122%, road \u22121%, opponent defense +1%, shared production on POR \u22125%; calibration +0.1."
  },
  "Sidy Cissoko|pa|401910024": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -71031,11 +71591,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:21 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -71051,6 +71615,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 2.2,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -71118,7 +71683,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -71129,7 +71694,7 @@
   "why": "25.2 min (recent 25.9, \u22120.7 team-minutes adjustment); \u00d7 0.396 pts+ast/min (83% this season's 0.401 over 15 games, 17% prior 0.387); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +2%; shot-zone matchup \u22123% (where he scores vs where NYK gives up points); calibration +0.2."
  },
  "Sidy Cissoko|pra|401910024": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -71150,7 +71715,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -71171,6 +71737,10 @@
   ],
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 14.5,
@@ -71192,6 +71762,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 0.8,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -71261,7 +71832,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -71272,7 +71843,7 @@
   "why": "25.2 min (recent 25.9, \u22120.7 team-minutes adjustment); \u00d7 0.538 pts+reb+ast/min (83% this season's 0.556 over 15 games, 17% prior 0.507); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +1%; shot-zone matchup \u22123% (where he scores vs where NYK gives up points); calibration +0.2."
  },
  "Sidy Cissoko|pr|401910024": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -71293,11 +71864,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -71313,6 +71888,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 1.9,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -71379,7 +71955,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -71390,7 +71966,7 @@
   "why": "25.2 min (recent 25.9, \u22120.7 team-minutes adjustment); \u00d7 0.458 pts+reb/min (83% this season's 0.474 over 15 games, 17% prior 0.420); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +1%; shot-zone matchup \u22123% (where he scores vs where NYK gives up points); calibration +0.1."
  },
  "Sidy Cissoko|pts|401910024": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [
    "side set to UNDER to match PrizePicks at the same line (books disagreed); no stake"
   ],
@@ -71413,7 +71989,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -71434,6 +72011,11 @@
   ],
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "fanduel": 3.5,
+   "kalshi": 1.5,
+   "prizepicks": 3.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 7.5,
@@ -71461,6 +72043,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 3.2,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -71530,7 +72113,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -71541,7 +72124,7 @@
   "why": "25.2 min (recent 25.9, \u22120.7 team-minutes adjustment); \u00d7 0.314 points/min (75% this season's 0.320 over 15 games, 25% prior 0.300); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +1%; shot-zone matchup \u22123% (where he scores vs where NYK gives up points); calibration +0.2."
  },
  "Sidy Cissoko|ra|401910024": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -71562,11 +72145,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 20:43 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 5.5
@@ -71582,6 +72169,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 2.3,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -71647,7 +72235,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -71658,7 +72246,7 @@
   "why": "25.2 min (recent 25.9, \u22120.7 team-minutes adjustment); \u00d7 0.219 reb+ast/min (65% this season's 0.236 over 15 games, 35% prior 0.207); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22121%, shared production on POR +2%; calibration -0.0."
  },
  "Sidy Cissoko|reb|401910024": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4572,
@@ -71680,7 +72268,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -71706,6 +72295,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -71721,6 +72313,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 1.2,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -71792,7 +72385,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -75113,7 +75706,7 @@
   "why": "20.8 min (recent 21.3, \u22120.5 team-minutes adjustment with Jaylen Clark out); \u00d7 0.131 rebounds/min (52% this season's 0.149 over 13 games, 48% prior 0.109); context: home +1%, opponent defense \u22121%, shared production on MIN \u22122%; calibration -0.0; injury news: +0.2 with Rocco Zikarsky ruled out today (half of how he's actually played without him)."
  },
  "Toumani Camara|ast|401910024": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4874,
@@ -75134,7 +75727,8 @@
   "flip": null,
   "frozen_at": "2026-11-22 00:21 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -75150,6 +75744,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -75165,6 +75762,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 1.9,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -75234,7 +75832,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -75245,7 +75843,7 @@
   "why": "32.1 min (recent 33.0, \u22120.9 team-minutes adjustment); \u00d7 0.059 assists/min (75% this season's 0.049 over 15 games, 25% prior 0.074); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +3%; calibration +0.1."
  },
  "Toumani Camara|fg3m|401910024": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4269,
@@ -75266,7 +75864,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:36 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -75297,6 +75896,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -75312,6 +75914,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 1.7,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -75378,7 +75981,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -75389,7 +75992,7 @@
   "why": "32.1 min (recent 33.0, \u22120.9 team-minutes adjustment); \u00d7 0.086 3-pointers made/min (83% this season's 0.090 over 15 games, 17% prior 0.069); context: pace vs NYK \u22122%, road \u22121%, opponent defense +1%, shared production on POR \u22125%; calibration +0.1."
  },
  "Toumani Camara|pa|401910024": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -75410,11 +76013,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:31 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.5
@@ -75430,6 +76037,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 9.0,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -75496,7 +76104,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -75507,7 +76115,7 @@
   "why": "32.1 min (recent 33.0, \u22120.9 team-minutes adjustment); \u00d7 0.477 pts+ast/min (83% this season's 0.474 over 15 games, 17% prior 0.469); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +2%; shot-zone matchup \u22122% (where he scores vs where NYK gives up points); calibration +0.2."
  },
  "Toumani Camara|pra|401910024": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -75529,7 +76137,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -75550,6 +76159,10 @@
   ],
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "kalshi": 8.5,
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 19.5,
@@ -75571,6 +76184,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 8.2,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -75640,7 +76254,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -75651,7 +76265,7 @@
   "why": "32.1 min (recent 33.0, \u22120.9 team-minutes adjustment); \u00d7 0.612 pts+reb+ast/min (83% this season's 0.596 over 15 games, 17% prior 0.634); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +1%; shot-zone matchup \u22122% (where he scores vs where NYK gives up points); calibration +0.2."
  },
  "Toumani Camara|pr|401910024": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -75672,11 +76286,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 22:16 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -75692,6 +76310,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "NYK",
+  "our_err": 6.2,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -75758,7 +76377,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -75769,7 +76388,7 @@
   "why": "32.1 min (recent 33.0, \u22120.9 team-minutes adjustment); \u00d7 0.555 pts+reb/min (83% this season's 0.546 over 15 games, 17% prior 0.560); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +1%; shot-zone matchup \u22122% (where he scores vs where NYK gives up points); calibration +0.1."
  },
  "Toumani Camara|pts|401910024": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.49504950495049505,
@@ -75790,7 +76409,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 20:43 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -75811,6 +76431,11 @@
   ],
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "fanduel": 6.5,
+   "kalshi": 8.5,
+   "prizepicks": 6.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 12.5,
@@ -75838,6 +76463,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 7.1,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -75903,7 +76529,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -75914,7 +76540,7 @@
   "why": "32.1 min (recent 33.0, \u22120.9 team-minutes adjustment); \u00d7 0.418 points/min (75% this season's 0.425 over 15 games, 25% prior 0.395); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +1%; shot-zone matchup \u22122% (where he scores vs where NYK gives up points); calibration +0.2."
  },
  "Toumani Camara|ra|401910024": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -75935,11 +76561,15 @@
   "flip": null,
   "frozen_at": "2026-11-21 06:00 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 5.5
@@ -75955,6 +76585,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 1.2,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -76020,7 +76651,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -76031,7 +76662,7 @@
   "why": "32.1 min (recent 33.0, \u22120.9 team-minutes adjustment); \u00d7 0.202 reb+ast/min (65% this season's 0.171 over 15 games, 35% prior 0.239); context: pace vs NYK \u22122%, road \u22121%, shared production on POR +1%; calibration -0.0."
  },
  "Toumani Camara|reb|401910024": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -76052,7 +76683,8 @@
   "flip": null,
   "frozen_at": "2026-11-21 23:46 UTC",
   "game_id": 401910024,
-  "hit": null,
+  "graded_at": "2026-11-22 02:56 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -76078,6 +76710,10 @@
   ],
   "label": "lean",
   "line": 4.0,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -76099,6 +76735,7 @@
   "move": null,
   "move_dir": null,
   "opp": "NYK",
+  "our_err": 0.6,
   "out_ctx": [
    "Chris Youngblood",
    "Ja Morant",
@@ -76168,7 +76805,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "POR",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-22T00:30:00+00:00",
@@ -84741,8 +85378,8 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.7438,
-  "be_under": 0.2941,
+  "be_over": 0.7341,
+  "be_under": 0.3044,
   "best5": [
    "ast:best5",
    "ast:value"
@@ -84751,37 +85388,37 @@
    "ast:best5": "2026-11-22 01:34:36 UTC",
    "ast:value": "2026-11-22 01:34:36 UTC"
   },
-  "blend_mean": 2.58,
+  "blend_mean": 2.54,
   "blend_w": 0.225,
-  "break_even": 0.7438,
+  "break_even": 0.7341,
   "call": "OVER",
-  "chance": 0.7144,
-  "close_at": "2026-11-22 02:21 UTC",
+  "chance": 0.707,
+  "close_at": "2026-11-22 02:56 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.725,
+  "close_mkt": 0.715,
   "date": "2026-11-21",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-21 10:41 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:21 UTC",
+  "frozen_at": "2026-11-22 02:56 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": true,
   "kladder": [
    [
     2,
-    0.72,
-    0.73
+    0.71,
+    0.72
    ],
    [
     4,
-    0.27,
-    0.28
+    0.26,
+    0.27
    ],
    [
     6,
-    0.07,
+    0.06,
     0.08
    ]
   ],
@@ -84791,12 +85428,12 @@
   "lines": {
    "kalshi": 1.5
   },
-  "market_side": 0.725,
+  "market_side": 0.715,
   "mkt": {
    "kalshi": [
     1.5,
-    0.7438,
-    0.2941
+    0.7341,
+    0.3044
    ]
   },
   "move": 0.0,
@@ -84881,7 +85518,7 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 45,
+  "updates": 46,
   "var": 2.654,
   "why": "30.8 min (recent 34.1, \u22121.2 team-minutes adjustment, \u22121.4 back-to-back, \u22120.8 blowout risk (market margin 14)); \u00d7 0.086 assists/min (74% this season's 0.086 over 14 games, 26% prior 0.102); context: pace vs BOS \u22121%, home +1%, rest \u22122%, opponent defense \u22121%, shared production on SAC +5%; calibration +0.0."
  },
@@ -84889,24 +85526,24 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.4874,
-  "be_under": 0.5574,
+  "be_over": 0.4774,
+  "be_under": 0.5673,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 2.63,
+  "blend_mean": 2.6,
   "blend_w": 0.225,
-  "break_even": 0.5574,
+  "break_even": 0.5673,
   "call": "UNDER",
-  "chance": 0.5251,
-  "close_at": "2026-11-22 02:31 UTC",
+  "chance": 0.5326,
+  "close_at": "2026-11-22 02:56 UTC",
   "close_line": 2.5,
-  "close_mkt": 0.535,
+  "close_mkt": 0.545,
   "date": "2026-11-21",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-21 09:01 UTC",
   "first_line": 2.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:31 UTC",
+  "frozen_at": "2026-11-22 02:56 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": true,
@@ -84918,23 +85555,23 @@
    ],
    [
     2,
-    0.71,
+    0.69,
     0.72
    ],
    [
     3,
-    0.46,
-    0.47
+    0.45,
+    0.46
    ],
    [
     4,
-    0.27,
-    0.28
+    0.25,
+    0.26
    ],
    [
     5,
-    0.13,
-    0.14
+    0.11,
+    0.13
    ]
   ],
   "label": "lean",
@@ -84943,12 +85580,12 @@
   "lines": {
    "kalshi": 2.5
   },
-  "market_side": 0.535,
+  "market_side": 0.545,
   "mkt": {
    "kalshi": [
     2.5,
-    0.4874,
-    0.5574
+    0.4774,
+    0.5673
    ]
   },
   "move": null,
@@ -85029,7 +85666,7 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 40,
+  "updates": 41,
   "var": 3.324,
   "why": "30.8 min (recent 34.1, \u22121.2 team-minutes adjustment, \u22121.4 back-to-back, \u22120.8 blowout risk (market margin 14)); \u00d7 0.083 3-pointers made/min (82% this season's 0.081 over 14 games, 18% prior 0.083); context: pace vs BOS \u22121%, home +1%, rest \u22122%, shared production on SAC \u22124%; shot-zone matchup +2% (where he scores vs where BOS gives up points); calibration +0.0; injury news: +0.3 with Jonathan Mogbo r"
  },
