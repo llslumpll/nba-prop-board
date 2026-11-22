@@ -3279,67 +3279,67 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 16.51,
+  "blend_mean": 17.28,
   "blend_w": 0.225,
   "break_even": 0.542,
-  "call": "OVER",
-  "chance": 0.5003,
-  "close_at": "2026-11-22 01:34 UTC",
-  "close_line": 16.5,
+  "call": "UNDER",
+  "chance": 0.508,
+  "close_at": "2026-11-22 02:36 UTC",
+  "close_line": 17.5,
   "close_mkt": null,
   "date": "2026-11-21",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-21 20:54 UTC",
   "first_line": 17.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
   "kladder": [
    [
     10,
-    0.85,
-    0.89
+    0.81,
+    0.87
    ],
    [
     15,
-    0.61,
-    0.64
+    0.57,
+    0.61
    ],
    [
     20,
-    0.33,
-    0.36
+    0.31,
+    0.35
    ],
    [
     25,
-    0.13,
+    0.12,
     0.15
    ]
   ],
   "label": "lean",
-  "line": 16.5,
+  "line": 17.5,
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 14.5,
-   "prizepicks": 16.5
+   "prizepicks": 17.5
   },
   "market_side": null,
   "mkt": {
    "kalshi": [
     14.5,
-    0.6561,
-    0.4067
+    0.6267,
+    0.4472
    ],
    "prizepicks": [
-    16.5,
+    17.5,
     0.542,
     0.542
    ]
   },
-  "move": -1.0,
-  "move_dir": "against",
+  "move": 0.0,
+  "move_dir": null,
   "opp": "SAC",
   "out_ctx": [
    "Amari Williams",
@@ -3357,7 +3357,7 @@
   "proj_min": 26.5,
   "projected": 16.5,
   "role_gap": false,
-  "skip": "pra|prizepicks|OVER",
+  "skip": "pra|prizepicks",
   "snaps": {
    "1pm": {
     "at": "2026-11-21 20:54 UTC",
@@ -3404,7 +3404,7 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 17,
+  "updates": 18,
   "var": 89.304,
   "why": "26.5 min (recent 17.8, +1.3 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out; the model had him at 19.1, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.569 pts+reb+ast/min (83% this season's 0.559 over 15 games, 17% prior 0.590); context: road \u22121%, rest +1%, shared production on BOS +7%; shot-zone matchup +1% (where he score"
  },
@@ -3770,12 +3770,12 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.4472,
-  "be_under": 0.5971,
+  "be_over": 0.4572,
+  "be_under": 0.6069,
   "best5": [],
   "blend_mean": 5.25,
   "blend_w": 0.225,
-  "break_even": 0.5971,
+  "break_even": 0.6069,
   "call": "UNDER",
   "chance": 0.5923,
   "close_at": "2026-11-22 02:11 UTC",
@@ -3786,7 +3786,7 @@
   "first_frozen_at": "2026-11-21 21:00 UTC",
   "first_line": 4.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:11 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -3798,18 +3798,18 @@
    ],
    [
     4,
-    0.7,
+    0.69,
     0.72
    ],
    [
     6,
-    0.42,
-    0.43
+    0.41,
+    0.44
    ],
    [
     8,
     0.19,
-    0.21
+    0.22
    ]
   ],
   "label": "lean",
@@ -3822,8 +3822,8 @@
   "mkt": {
    "kalshi": [
     5.5,
-    0.4472,
-    0.5971
+    0.4572,
+    0.6069
    ]
   },
   "move": null,
@@ -3892,7 +3892,7 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 15,
+  "updates": 16,
   "var": 10.396,
   "why": "26.5 min (recent 17.8, +1.3 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out; the model had him at 19.1, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.184 rebounds/min (56% this season's 0.190 over 15 games, 44% prior 0.178); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on BOS +4%; calibration -0.1; "
  },
@@ -22933,30 +22933,28 @@
  },
  "Domantas Sabonis|pra|401910028": {
   "actual": null,
-  "adj": [],
-  "anchor": "kalshi",
+  "adj": [
+   "-3.0 pts: pick follows the line's move (pattern)"
+  ],
+  "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
-  "best5": [
-   "combos:best5"
-  ],
-  "best5_at": {
-   "combos:best5": "2026-11-22 02:26:06 UTC"
-  },
-  "blend_mean": 28.52,
+  "best5": [],
+  "best5_at": {},
+  "blend_mean": 28.05,
   "blend_w": 0.225,
   "break_even": 0.542,
-  "call": "UNDER",
-  "chance": 0.534,
-  "close_at": "2026-11-22 02:26 UTC",
-  "close_line": 29.5,
-  "close_mkt": 0.515,
+  "call": "OVER",
+  "chance": 0.5143,
+  "close_at": "2026-11-22 02:36 UTC",
+  "close_line": 28.5,
+  "close_mkt": null,
   "date": "2026-11-21",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-21 06:21 UTC",
   "first_line": 29.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:26 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": true,
@@ -22974,17 +22972,17 @@
    [
     35,
     0.27,
-    0.29
+    0.28
    ]
   ],
   "label": "lean",
-  "line": 29.5,
+  "line": 28.5,
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 29.5,
-   "prizepicks": 29.5
+   "prizepicks": 28.5
   },
-  "market_side": 0.515,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     29.5,
@@ -22992,13 +22990,13 @@
     0.5474
    ],
    "prizepicks": [
-    29.5,
+    28.5,
     0.542,
     0.542
    ]
   },
-  "move": 0.0,
-  "move_dir": null,
+  "move": -1.0,
+  "move_dir": "against",
   "opp": "BOS",
   "out_ctx": [
    "Amari Williams",
@@ -23016,7 +23014,7 @@
   "proj_min": 29.9,
   "projected": 26.5,
   "role_gap": false,
-  "skip": null,
+  "skip": "pra|prizepicks|OVER",
   "snaps": {
    "10am": {
     "at": "2026-11-21 16:01 UTC",
@@ -23071,7 +23069,7 @@
     "units": 0.0
    }
   },
-  "src_key": "prizepicks+kalshi",
+  "src_key": "prizepicks",
   "stat": "pra",
   "status": "pending",
   "team": "SAC",
@@ -23079,7 +23077,7 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 56,
+  "updates": 57,
   "var": 100.107,
   "why": "29.9 min (recent 33.2, \u22121.1 team-minutes adjustment, \u22121.3 back-to-back, \u22120.8 blowout risk (market margin 14)); \u00d7 0.993 pts+reb+ast/min (82% this season's 0.979 over 14 games, 18% prior 1.029); context: pace vs BOS \u22121%, home +1%, rest \u22122%, shared production on SAC +3%; shot-zone matchup \u22129% (where he scores vs where BOS gives up points); calibration +0.0; injury news: -1.8 with Jonathan Mogbo ruled"
  },
@@ -37167,31 +37165,31 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.6855,
-  "be_under": 0.3557,
+  "be_over": 0.6561,
+  "be_under": 0.3965,
   "best5": [],
-  "blend_mean": 1.27,
+  "blend_mean": 1.06,
   "blend_w": 0.225,
-  "break_even": 0.6855,
+  "break_even": 0.6561,
   "call": "OVER",
-  "chance": 0.669,
-  "close_at": "2026-11-22 02:03 UTC",
+  "chance": 0.6047,
+  "close_at": "2026-11-22 02:36 UTC",
   "close_line": 0.5,
-  "close_mkt": 0.665,
+  "close_mkt": 0.63,
   "date": "2026-11-21",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-21 21:46 UTC",
   "first_line": 0.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
   "kladder": [
    [
     1,
-    0.66,
-    0.67
+    0.62,
+    0.64
    ],
    [
     2,
@@ -37200,12 +37198,12 @@
    ],
    [
     3,
-    0.13,
-    0.14
+    0.11,
+    0.13
    ],
    [
     4,
-    0.03,
+    0.02,
     0.04
    ]
   ],
@@ -37215,12 +37213,12 @@
   "lines": {
    "kalshi": 0.5
   },
-  "market_side": 0.665,
+  "market_side": 0.63,
   "mkt": {
    "kalshi": [
     0.5,
-    0.6855,
-    0.3557
+    0.6561,
+    0.3965
    ]
   },
   "move": 0.0,
@@ -37239,8 +37237,8 @@
   ],
   "player": "Jordan Walsh",
   "player_id": 4683689,
-  "proj_min": 25.2,
-  "projected": 1.4,
+  "proj_min": 13.7,
+  "projected": 0.8,
   "role_gap": false,
   "skip": "fg3m|kalshi|OVER",
   "snaps": {
@@ -37289,9 +37287,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 12,
-  "var": 1.756,
-  "why": "25.2 min (recent 12.7, +0.9 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out; the model had him at 13.7, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.048 3-pointers made/min (83% this season's 0.051 over 15 games, 17% prior 0.043); context: road \u22121%, rest +1%, shared production on BOS \u22123%; calibration +0.1; injury news: +0"
+  "updates": 13,
+  "var": 1.064,
+  "why": "13.7 min (recent 12.7, +0.9 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.048 3-pointers made/min (83% this season's 0.051 over 15 games, 17% prior 0.043); context: road \u22121%, rest +1%, shared production on BOS \u22123%; calibration +0.1; injury news: +0.1 with Derrick White, Jayson Tatum, Amari Williams ruled out today (half of how he's actually played without th"
  },
  "Jordan Walsh|pra|401910028": {
   "actual": null,
@@ -37299,12 +37297,8 @@
   "anchor": null,
   "be_over": 0.4269,
   "be_under": 0.6463,
-  "best5": [
-   "combos:best5"
-  ],
-  "best5_at": {
-   "combos:best5": "2026-11-22 01:01:16 UTC"
-  },
+  "best5": [],
+  "best5_at": {},
   "blend_mean": 13.39,
   "blend_w": 0.225,
   "break_even": 0.6463,
@@ -37439,16 +37433,18 @@
  },
  "Jordan Walsh|pr|401910028": {
   "actual": null,
-  "adj": [],
+  "adj": [
+   "-3.0 pts: pick follows the line's move (pattern)"
+  ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 12.42,
+  "blend_mean": 11.06,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5419,
+  "chance": 0.5085,
   "close_at": "2026-11-21 21:30 UTC",
   "close_line": 11.5,
   "close_mkt": null,
@@ -37457,7 +37453,7 @@
   "first_frozen_at": "2026-11-21 20:54 UTC",
   "first_line": 12.5,
   "flip": null,
-  "frozen_at": "2026-11-21 21:53 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -37480,16 +37476,20 @@
   "move_dir": "against",
   "opp": "SAC",
   "out_ctx": [
+   "Amari Williams",
    "Ben Simmons",
    "Derrick White",
+   "Dillon Mitchell",
    "Jayson Tatum",
+   "Jonathan Mogbo",
    "Maxime Raynaud",
-   "Mitchell Robinson"
+   "Mitchell Robinson",
+   "Sean Pedulla"
   ],
   "player": "Jordan Walsh",
   "player_id": 4683689,
-  "proj_min": 25.3,
-  "projected": 15.6,
+  "proj_min": 13.7,
+  "projected": 9.5,
   "role_gap": false,
   "skip": "pr|prizepicks|OVER",
   "snaps": {
@@ -37538,68 +37538,68 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 2,
-  "var": 67.545,
-  "why": "25.3 min (recent 12.7, +0.7 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out; the model had him at 13.4, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.488 pts+reb/min (83% this season's 0.489 over 15 games, 17% prior 0.519); context: road \u22121%, rest +1%, shared production on BOS +6%; shot-zone matchup +3% (where he scores vs"
+  "updates": 3,
+  "var": 41.315,
+  "why": "13.7 min (recent 12.7, +0.9 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.488 pts+reb/min (83% this season's 0.489 over 15 games, 17% prior 0.519); context: road \u22121%, rest +1%, shared production on BOS +7%; shot-zone matchup +3% (where he scores vs where SAC gives up points); calibration +0.1; injury news: +2.3 with Derrick White, Jayson Tatum, Amari William"
  },
  "Jordan Walsh|pts|401910028": {
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.3147,
-  "be_under": 0.7244,
+  "be_over": 0.7438,
+  "be_under": 0.3352,
   "best5": [
    "pts:best5"
   ],
   "best5_at": {
    "pts:best5": "2026-11-21 23:46:04 UTC"
   },
-  "blend_mean": 7.46,
+  "blend_mean": 7.02,
   "blend_w": 0.225,
-  "break_even": 0.7244,
-  "call": "UNDER",
-  "chance": 0.6451,
-  "close_at": "2026-11-22 02:26 UTC",
-  "close_line": 9.5,
+  "break_even": 0.7438,
+  "call": "OVER",
+  "chance": 0.6822,
+  "close_at": "2026-11-22 02:36 UTC",
+  "close_line": 4.5,
   "close_mkt": 0.705,
   "date": "2026-11-21",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-21 08:40 UTC",
   "first_line": 6.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:26 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
   "kladder": [
    [
     5,
-    0.71,
+    0.68,
     0.73
    ],
    [
     10,
-    0.29,
+    0.28,
     0.3
    ],
    [
     15,
-    0.07,
+    0.06,
     0.09
    ]
   ],
   "label": "lean",
-  "line": 9.5,
+  "line": 4.5,
   "line_source": "kalshi",
   "lines": {
-   "kalshi": 9.5
+   "kalshi": 4.5
   },
   "market_side": 0.705,
   "mkt": {
    "kalshi": [
-    9.5,
-    0.3147,
-    0.7244
+    4.5,
+    0.7438,
+    0.3352
    ]
   },
   "move": null,
@@ -37618,8 +37618,8 @@
   ],
   "player": "Jordan Walsh",
   "player_id": 4683689,
-  "proj_min": 25.2,
-  "projected": 9.8,
+  "proj_min": 13.7,
+  "projected": 6.0,
   "role_gap": false,
   "skip": null,
   "snaps": {
@@ -37680,53 +37680,53 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 22,
-  "var": 36.557,
-  "why": "25.2 min (recent 12.7, +0.9 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out; the model had him at 13.7, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.295 points/min (75% this season's 0.302 over 15 games, 25% prior 0.314); context: road \u22121%, rest +1%, shared production on BOS +8%; shot-zone matchup +3% (where he scores vs "
+  "updates": 23,
+  "var": 22.458,
+  "why": "13.7 min (recent 12.7, +0.9 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.295 points/min (75% this season's 0.302 over 15 games, 25% prior 0.314); context: road \u22121%, rest +1%, shared production on BOS +8%; shot-zone matchup +3% (where he scores vs where SAC gives up points); calibration +0.2; injury news: +1.3 with Derrick White, Jayson Tatum, Amari Williams"
  },
  "Jordan Walsh|reb|401910028": {
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.6168,
-  "be_under": 0.4269,
+  "be_over": 0.6069,
+  "be_under": 0.4371,
   "best5": [],
-  "blend_mean": 5.02,
+  "blend_mean": 4.43,
   "blend_w": 0.225,
-  "break_even": 0.6168,
+  "break_even": 0.6069,
   "call": "OVER",
-  "chance": 0.6229,
-  "close_at": "2026-11-21 23:51 UTC",
+  "chance": 0.5524,
+  "close_at": "2026-11-22 02:36 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.595,
+  "close_mkt": 0.585,
   "date": "2026-11-21",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-21 21:43 UTC",
   "first_line": 3.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
   "kladder": [
    [
     2,
-    0.89,
+    0.83,
     0.91
    ],
    [
     4,
-    0.59,
-    0.6
+    0.58,
+    0.59
    ],
    [
     6,
-    0.28,
+    0.27,
     0.3
    ],
    [
     8,
-    0.1,
+    0.08,
     0.11
    ]
   ],
@@ -37736,12 +37736,12 @@
   "lines": {
    "kalshi": 3.5
   },
-  "market_side": 0.595,
+  "market_side": 0.585,
   "mkt": {
    "kalshi": [
     3.5,
-    0.6168,
-    0.4269
+    0.6069,
+    0.4371
    ]
   },
   "move": 0.0,
@@ -37760,8 +37760,8 @@
   ],
   "player": "Jordan Walsh",
   "player_id": 4683689,
-  "proj_min": 25.2,
-  "projected": 6.0,
+  "proj_min": 13.7,
+  "projected": 3.6,
   "role_gap": false,
   "skip": "reb|kalshi",
   "snaps": {
@@ -37810,9 +37810,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 15,
-  "var": 13.064,
-  "why": "25.2 min (recent 12.7, +0.9 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out; the model had him at 13.7, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.198 rebounds/min (56% this season's 0.187 over 15 games, 44% prior 0.205); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on BOS +4%; calibration -0.1; "
+  "updates": 16,
+  "var": 7.662,
+  "why": "13.7 min (recent 12.7, +0.9 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.198 rebounds/min (56% this season's 0.187 over 15 games, 44% prior 0.205); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on BOS +4%; calibration -0.1; injury news: +0.9 with Derrick White, Jayson Tatum, Amari Williams ruled out today (half of how he's actually pl"
  },
  "Josh Hart|ast|401910024": {
   "actual": null,
@@ -58732,11 +58732,11 @@
   "be_under": 0.3863,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 2.29,
+  "blend_mean": 2.3,
   "blend_w": 0.225,
   "break_even": 0.6659,
   "call": "OVER",
-  "chance": 0.6129,
+  "chance": 0.6144,
   "close_at": "2026-11-22 02:26 UTC",
   "close_line": 1.5,
   "close_mkt": 0.64,
@@ -58745,7 +58745,7 @@
   "first_frozen_at": "2026-11-21 21:43 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:26 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -58757,13 +58757,13 @@
    ],
    [
     4,
-    0.2,
-    0.23
+    0.21,
+    0.22
    ],
    [
     6,
     0.03,
-    0.06
+    0.05
    ]
   ],
   "label": "lean",
@@ -58796,8 +58796,8 @@
   ],
   "player": "Neemias Queta",
   "player_id": 4397424,
-  "proj_min": 25.7,
-  "projected": 1.9,
+  "proj_min": 26.1,
+  "projected": 2.0,
   "role_gap": false,
   "skip": null,
   "snaps": {
@@ -58846,9 +58846,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 27,
-  "var": 2.694,
-  "why": "25.7 min (recent 24.3, +1.8 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.078 assists/min (74% this season's 0.087 over 14 games, 26% prior 0.066); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on BOS +9%; calibration +0.0; injury news: -0.2 with Jayson Tatum, Amari Williams ruled out today (half of how he's actually played without the"
+  "updates": 28,
+  "var": 2.737,
+  "why": "26.1 min (recent 24.3, +1.8 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.078 assists/min (74% this season's 0.087 over 14 games, 26% prior 0.066); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on BOS +9%; calibration +0.0; injury news: -0.2 with Jayson Tatum, Amari Williams ruled out today (half of how he's actually played without the"
  },
  "Neemias Queta|pa|401910028": {
   "actual": null,
@@ -58859,11 +58859,11 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 14.31,
+  "blend_mean": 14.36,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5216,
+  "chance": 0.5237,
   "close_at": "2026-11-22 01:36 UTC",
   "close_line": 14.5,
   "close_mkt": null,
@@ -58872,7 +58872,7 @@
   "first_frozen_at": "2026-11-21 20:54 UTC",
   "first_line": 16.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -58907,8 +58907,8 @@
   ],
   "player": "Neemias Queta",
   "player_id": 4397424,
-  "proj_min": 25.7,
-  "projected": 13.7,
+  "proj_min": 26.1,
+  "projected": 13.9,
   "role_gap": false,
   "skip": "pa|prizepicks|OVER",
   "snaps": {
@@ -58957,23 +58957,25 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 10,
-  "var": 39.86,
-  "why": "25.7 min (recent 24.3, +1.8 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.502 pts+ast/min (82% this season's 0.519 over 14 games, 18% prior 0.470); context: road \u22121%, rest +1%, shared production on BOS +8%; shot-zone matchup +4% (where he scores vs where SAC gives up points); calibration +0.1; injury news: -0.8 with Jayson Tatum, Amari Williams ruled out tod"
+  "updates": 11,
+  "var": 40.471,
+  "why": "26.1 min (recent 24.3, +1.8 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.502 pts+ast/min (82% this season's 0.519 over 14 games, 18% prior 0.470); context: road \u22121%, rest +1%, shared production on BOS +8%; shot-zone matchup +4% (where he scores vs where SAC gives up points); calibration +0.1; injury news: -0.8 with Jayson Tatum, Amari Williams ruled out tod"
  },
  "Neemias Queta|pra|401910028": {
   "actual": null,
-  "adj": [],
+  "adj": [
+   "-3.0 pts: pick follows the line's move (pattern)"
+  ],
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 22.95,
+  "blend_mean": 23.02,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5022,
+  "chance": 0.5292,
   "close_at": "2026-11-22 02:21 UTC",
   "close_line": 23.0,
   "close_mkt": null,
@@ -58982,24 +58984,24 @@
   "first_frozen_at": "2026-11-21 08:40 UTC",
   "first_line": 19.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:21 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
   "kladder": [
    [
     20,
-    0.67,
-    0.68
+    0.63,
+    0.67
    ],
    [
     25,
-    0.4,
-    0.44
+    0.39,
+    0.43
    ],
    [
     30,
-    0.2,
+    0.18,
     0.22
    ]
   ],
@@ -59014,8 +59016,8 @@
   "mkt": {
    "kalshi": [
     24.5,
-    0.4572,
-    0.6168
+    0.4472,
+    0.6267
    ],
    "prizepicks": [
     23.0,
@@ -59039,8 +59041,8 @@
   ],
   "player": "Neemias Queta",
   "player_id": 4397424,
-  "proj_min": 25.7,
-  "projected": 22.8,
+  "proj_min": 26.1,
+  "projected": 23.1,
   "role_gap": false,
   "skip": "pra|prizepicks",
   "snaps": {
@@ -59101,9 +59103,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 27,
-  "var": 81.251,
-  "why": "25.7 min (recent 24.3, +1.8 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.818 pts+reb+ast/min (82% this season's 0.827 over 14 games, 18% prior 0.787); context: road \u22121%, rest +1%, shared production on BOS +7%; shot-zone matchup +4% (where he scores vs where SAC gives up points); calibration +0.0."
+  "updates": 28,
+  "var": 82.436,
+  "why": "26.1 min (recent 24.3, +1.8 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.818 pts+reb+ast/min (82% this season's 0.827 over 14 games, 18% prior 0.787); context: road \u22121%, rest +1%, shared production on BOS +7%; shot-zone matchup +4% (where he scores vs where SAC gives up points); calibration +0.0."
  },
  "Neemias Queta|pr|401910028": {
   "actual": null,
@@ -59112,11 +59114,11 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 20.57,
+  "blend_mean": 20.64,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5028,
+  "chance": 0.5055,
   "close_at": "2026-11-22 01:34 UTC",
   "close_line": 20.5,
   "close_mkt": null,
@@ -59125,7 +59127,7 @@
   "first_frozen_at": "2026-11-21 20:54 UTC",
   "first_line": 22.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -59160,8 +59162,8 @@
   ],
   "player": "Neemias Queta",
   "player_id": 4397424,
-  "proj_min": 25.7,
-  "projected": 20.8,
+  "proj_min": 26.1,
+  "projected": 21.1,
   "role_gap": false,
   "skip": "pr|prizepicks|OVER",
   "snaps": {
@@ -59210,9 +59212,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 8,
-  "var": 75.15,
-  "why": "25.7 min (recent 24.3, +1.8 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.739 pts+reb/min (82% this season's 0.740 over 14 games, 18% prior 0.722); context: road \u22121%, rest +1%, shared production on BOS +6%; shot-zone matchup +4% (where he scores vs where SAC gives up points); calibration +0.0; injury news: +0.2 with Jayson Tatum, Amari Williams ruled out tod"
+  "updates": 9,
+  "var": 76.234,
+  "why": "26.1 min (recent 24.3, +1.8 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.739 pts+reb/min (82% this season's 0.740 over 14 games, 18% prior 0.722); context: road \u22121%, rest +1%, shared production on BOS +6%; shot-zone matchup +4% (where he scores vs where SAC gives up points); calibration +0.0; injury news: +0.2 with Jayson Tatum, Amari Williams ruled out tod"
  },
  "Neemias Queta|pts|401910028": {
   "actual": null,
@@ -59224,11 +59226,11 @@
   "be_under": 0.542,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 11.51,
+  "blend_mean": 11.55,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.526,
+  "chance": 0.5234,
   "close_at": "2026-11-22 01:51 UTC",
   "close_line": 11.5,
   "close_mkt": null,
@@ -59237,24 +59239,24 @@
   "first_frozen_at": "2026-11-21 08:40 UTC",
   "first_line": 10.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
   "kladder": [
    [
     10,
-    0.66,
+    0.65,
     0.67
    ],
    [
     15,
     0.31,
-    0.32
+    0.33
    ],
    [
     20,
-    0.11,
+    0.09,
     0.12
    ]
   ],
@@ -59270,7 +59272,7 @@
    "kalshi": [
     9.5,
     0.6855,
-    0.3557
+    0.3659
    ],
    "prizepicks": [
     11.5,
@@ -59294,8 +59296,8 @@
   ],
   "player": "Neemias Queta",
   "player_id": 4397424,
-  "proj_min": 25.7,
-  "projected": 11.6,
+  "proj_min": 26.1,
+  "projected": 11.7,
   "role_gap": false,
   "skip": "pts|prizepicks",
   "snaps": {
@@ -59356,9 +59358,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 20,
-  "var": 34.625,
-  "why": "25.7 min (recent 24.3, +1.8 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.421 points/min (74% this season's 0.433 over 14 games, 26% prior 0.404); context: road \u22121%, rest +1%, shared production on BOS +8%; shot-zone matchup +4% (where he scores vs where SAC gives up points); injury news: -0.6 with Jayson Tatum, Amari Williams ruled out today (half of how he'"
+  "updates": 21,
+  "var": 35.155,
+  "why": "26.1 min (recent 24.3, +1.8 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.421 points/min (74% this season's 0.433 over 14 games, 26% prior 0.404); context: road \u22121%, rest +1%, shared production on BOS +8%; shot-zone matchup +4% (where he scores vs where SAC gives up points); injury news: -0.6 with Jayson Tatum, Amari Williams ruled out today (half of how he'"
  },
  "Neemias Queta|ra|401910028": {
   "actual": null,
@@ -59369,11 +59371,11 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 10.64,
+  "blend_mean": 10.67,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5231,
+  "chance": 0.5214,
   "close_at": "2026-11-22 01:56 UTC",
   "close_line": 10.5,
   "close_mkt": null,
@@ -59382,7 +59384,7 @@
   "first_frozen_at": "2026-11-21 08:40 UTC",
   "first_line": 9.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -59417,8 +59419,8 @@
   ],
   "player": "Neemias Queta",
   "player_id": 4397424,
-  "proj_min": 25.7,
-  "projected": 11.1,
+  "proj_min": 26.1,
+  "projected": 11.3,
   "role_gap": false,
   "skip": "ra|prizepicks",
   "snaps": {
@@ -59479,9 +59481,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 13,
-  "var": 22.117,
-  "why": "25.7 min (recent 24.3, +1.8 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.394 reb+ast/min (64% this season's 0.394 over 14 games, 36% prior 0.384); context: road \u22121%, rest +1%, shared production on BOS +5%; calibration +0.0; injury news: +0.6 with Jayson Tatum, Amari Williams ruled out today (half of how he's actually played without them)."
+  "updates": 14,
+  "var": 22.423,
+  "why": "26.1 min (recent 24.3, +1.8 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.394 reb+ast/min (64% this season's 0.394 over 14 games, 36% prior 0.384); context: road \u22121%, rest +1%, shared production on BOS +5%; calibration +0.0; injury news: +0.6 with Jayson Tatum, Amari Williams ruled out today (half of how he's actually played without them)."
  },
  "Neemias Queta|reb|401910028": {
   "actual": null,
@@ -59493,11 +59495,11 @@
   "be_under": 0.542,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 9.07,
+  "blend_mean": 9.09,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5258,
+  "chance": 0.5233,
   "close_at": "2026-11-22 01:34 UTC",
   "close_line": 8.5,
   "close_mkt": null,
@@ -59506,7 +59508,7 @@
   "first_frozen_at": "2026-11-21 14:21 UTC",
   "first_line": 7.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -59528,8 +59530,8 @@
    ],
    [
     10,
-    0.37,
-    0.39
+    0.36,
+    0.38
    ],
    [
     12,
@@ -59578,8 +59580,8 @@
   ],
   "player": "Neemias Queta",
   "player_id": 4397424,
-  "proj_min": 25.7,
-  "projected": 9.2,
+  "proj_min": 26.1,
+  "projected": 9.4,
   "role_gap": false,
   "skip": null,
   "snaps": {
@@ -59642,9 +59644,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 15,
-  "var": 19.031,
-  "why": "25.7 min (recent 24.3, +1.8 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.318 rebounds/min (54% this season's 0.308 over 14 games, 46% prior 0.318); context: road \u22121%, rest +1%, shared production on BOS +4%; calibration -0.0; injury news: +0.8 with Jayson Tatum, Amari Williams ruled out today (half of how he's actually played without them)."
+  "updates": 16,
+  "var": 19.323,
+  "why": "26.1 min (recent 24.3, +1.8 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.318 rebounds/min (54% this season's 0.308 over 14 games, 46% prior 0.318); context: road \u22121%, rest +1%, shared production on BOS +4%; calibration -0.0; injury news: +0.8 with Jayson Tatum, Amari Williams ruled out today (half of how he's actually played without them)."
  },
  "OG Anunoby|ast|401910024": {
   "actual": null,
@@ -61607,11 +61609,11 @@
   "be_under": 0.6168,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 4.88,
+  "blend_mean": 4.89,
   "blend_w": 0.225,
   "break_even": 0.6168,
   "call": "UNDER",
-  "chance": 0.6304,
+  "chance": 0.6283,
   "close_at": "2026-11-22 02:21 UTC",
   "close_line": 5.5,
   "close_mkt": 0.595,
@@ -61620,14 +61622,14 @@
   "first_frozen_at": "2026-11-21 10:21 UTC",
   "first_line": 5.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:21 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
   "kladder": [
    [
     2,
-    0.93,
+    0.94,
     0.95
    ],
    [
@@ -61676,8 +61678,8 @@
   ],
   "player": "Paul George",
   "player_id": 4251,
-  "proj_min": 29.3,
-  "projected": 4.0,
+  "proj_min": 29.8,
+  "projected": 4.1,
   "role_gap": false,
   "skip": "ast|kalshi|UNDER",
   "snaps": {
@@ -61738,9 +61740,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 51,
-  "var": 4.454,
-  "why": "29.3 min (recent 27.7, +2.0 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.124 assists/min (84% this season's 0.125 over 13 games, 16% prior 0.117); context: road \u22121%, rest +1%, opponent defense +1%, shared production on BOS +9%; calibration +0.0."
+  "updates": 52,
+  "var": 4.519,
+  "why": "29.8 min (recent 27.7, +2.0 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.124 assists/min (84% this season's 0.125 over 13 games, 16% prior 0.117); context: road \u22121%, rest +1%, opponent defense +1%, shared production on BOS +9%; calibration +0.0."
  },
  "Paul George|fg3m|401910028": {
   "actual": null,
@@ -61750,11 +61752,11 @@
   "be_under": 0.5772,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 3.46,
+  "blend_mean": 3.47,
   "blend_w": 0.225,
   "break_even": 0.5772,
   "call": "UNDER",
-  "chance": 0.5687,
+  "chance": 0.567,
   "close_at": "2026-11-22 00:03 UTC",
   "close_line": 3.5,
   "close_mkt": 0.555,
@@ -61763,7 +61765,7 @@
   "first_frozen_at": "2026-11-21 09:21 UTC",
   "first_line": 3.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -61785,7 +61787,7 @@
    ],
    [
     5,
-    0.27,
+    0.28,
     0.29
    ],
    [
@@ -61824,7 +61826,7 @@
   ],
   "player": "Paul George",
   "player_id": 4251,
-  "proj_min": 29.3,
+  "proj_min": 29.8,
   "projected": 3.2,
   "role_gap": false,
   "skip": "fg3m|kalshi|UNDER",
@@ -61886,9 +61888,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 47,
-  "var": 5.064,
-  "why": "29.3 min (recent 27.7, +2.0 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.109 3-pointers made/min (90% this season's 0.114 over 13 games, 10% prior 0.076); context: road \u22121%, rest +1%, opponent defense +1%, shared production on BOS \u22123%; calibration +0.0."
+  "updates": 48,
+  "var": 5.138,
+  "why": "29.8 min (recent 27.7, +2.0 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.109 3-pointers made/min (90% this season's 0.114 over 13 games, 10% prior 0.076); context: road \u22121%, rest +1%, opponent defense +1%, shared production on BOS \u22123%; calibration +0.0."
  },
  "Paul George|pa|401910028": {
   "actual": null,
@@ -61897,11 +61899,11 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 28.6,
+  "blend_mean": 28.68,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5252,
+  "chance": 0.5229,
   "close_at": "2026-11-22 00:41 UTC",
   "close_line": 29.5,
   "close_mkt": null,
@@ -61910,7 +61912,7 @@
   "first_frozen_at": "2026-11-21 06:41 UTC",
   "first_line": 28.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -61945,8 +61947,8 @@
   ],
   "player": "Paul George",
   "player_id": 4251,
-  "proj_min": 29.3,
-  "projected": 25.5,
+  "proj_min": 29.8,
+  "projected": 25.9,
   "role_gap": false,
   "skip": "pa|prizepicks|UNDER",
   "snaps": {
@@ -62007,9 +62009,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 10,
-  "var": 94.722,
-  "why": "29.3 min (recent 27.7, +2.0 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.781 pts+ast/min (90% this season's 0.797 over 13 games, 10% prior 0.645); context: road \u22121%, rest +1%, opponent defense +2%, shared production on BOS +8%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.1."
+  "updates": 11,
+  "var": 96.102,
+  "why": "29.8 min (recent 27.7, +2.0 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.781 pts+ast/min (90% this season's 0.797 over 13 games, 10% prior 0.645); context: road \u22121%, rest +1%, opponent defense +2%, shared production on BOS +8%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.1."
  },
  "Paul George|pra|401910028": {
   "actual": null,
@@ -62019,11 +62021,11 @@
   "be_under": 0.542,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 34.47,
+  "blend_mean": 34.57,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5336,
+  "chance": 0.5302,
   "close_at": "2026-11-22 01:11 UTC",
   "close_line": 35.5,
   "close_mkt": null,
@@ -62032,7 +62034,7 @@
   "first_frozen_at": "2026-11-21 06:41 UTC",
   "first_line": 34.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -62040,12 +62042,12 @@
    [
     30,
     0.72,
-    0.74
+    0.73
    ],
    [
     35,
     0.51,
-    0.52
+    0.54
    ],
    [
     40,
@@ -62064,7 +62066,7 @@
   "mkt": {
    "kalshi": [
     34.5,
-    0.5375,
+    0.5574,
     0.5075
    ],
    "prizepicks": [
@@ -62089,8 +62091,8 @@
   ],
   "player": "Paul George",
   "player_id": 4251,
-  "proj_min": 29.3,
-  "projected": 30.9,
+  "proj_min": 29.8,
+  "projected": 31.4,
   "role_gap": false,
   "skip": "pra|prizepicks",
   "snaps": {
@@ -62151,9 +62153,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 41,
-  "var": 109.46,
-  "why": "29.3 min (recent 27.7, +2.0 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.963 pts+reb+ast/min (90% this season's 0.982 over 13 games, 10% prior 0.820); context: road \u22121%, rest +1%, opponent defense +2%, shared production on BOS +7%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.0."
+  "updates": 42,
+  "var": 111.058,
+  "why": "29.8 min (recent 27.7, +2.0 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.963 pts+reb+ast/min (90% this season's 0.982 over 13 games, 10% prior 0.820); context: road \u22121%, rest +1%, opponent defense +2%, shared production on BOS +7%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.0."
  },
  "Paul George|pr|401910028": {
   "actual": null,
@@ -62162,11 +62164,11 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 29.3,
+  "blend_mean": 29.39,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5237,
+  "chance": 0.5207,
   "close_at": "2026-11-22 01:36 UTC",
   "close_line": 30.0,
   "close_mkt": null,
@@ -62175,7 +62177,7 @@
   "first_frozen_at": "2026-11-21 06:41 UTC",
   "first_line": 29.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -62210,8 +62212,8 @@
   ],
   "player": "Paul George",
   "player_id": 4251,
-  "proj_min": 29.3,
-  "projected": 26.9,
+  "proj_min": 29.8,
+  "projected": 27.3,
   "role_gap": false,
   "skip": "pr|prizepicks",
   "snaps": {
@@ -62272,9 +62274,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 12,
-  "var": 98.055,
-  "why": "29.3 min (recent 27.7, +2.0 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.838 pts+reb/min (90% this season's 0.857 over 13 games, 10% prior 0.703); context: road \u22121%, rest +1%, opponent defense +2%, shared production on BOS +7%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.0."
+  "updates": 13,
+  "var": 99.487,
+  "why": "29.8 min (recent 27.7, +2.0 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.838 pts+reb/min (90% this season's 0.857 over 13 games, 10% prior 0.703); context: road \u22121%, rest +1%, opponent defense +2%, shared production on BOS +7%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.0."
  },
  "Paul George|pts|401910028": {
   "actual": null,
@@ -62283,20 +62285,20 @@
   "be_over": 0.5495495495495496,
   "be_under": 0.5192307692307693,
   "best5": [],
-  "blend_mean": 22.46,
+  "blend_mean": 22.53,
   "blend_w": 0.225,
-  "break_even": 0.5192307692307693,
-  "call": "UNDER",
-  "chance": 0.5016,
-  "close_at": "2026-11-21 15:10 UTC",
+  "break_even": 0.5495495495495496,
+  "call": "OVER",
+  "chance": 0.5012,
+  "close_at": "2026-11-22 02:36 UTC",
   "close_line": 22.5,
-  "close_mkt": 0.4858,
+  "close_mkt": 0.5142,
   "date": "2026-11-21",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-21 06:41 UTC",
   "first_line": 23.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -62313,18 +62315,18 @@
    ],
    [
     25,
-    0.47,
-    0.48
+    0.45,
+    0.47
    ],
    [
     30,
-    0.25,
-    0.26
+    0.24,
+    0.25
    ],
    [
     35,
-    0.09,
-    0.12
+    0.1,
+    0.13
    ]
   ],
   "label": "lean",
@@ -62335,7 +62337,7 @@
    "kalshi": 24.5,
    "prizepicks": 24.5
   },
-  "market_side": 0.4858,
+  "market_side": 0.5142,
   "mkt": {
    "fanduel": [
     22.5,
@@ -62344,8 +62346,8 @@
    ],
    "kalshi": [
     24.5,
-    0.4975,
-    0.5474
+    0.4874,
+    0.5673
    ],
    "prizepicks": [
     24.5,
@@ -62369,10 +62371,10 @@
   ],
   "player": "Paul George",
   "player_id": 4251,
-  "proj_min": 29.3,
-  "projected": 21.2,
+  "proj_min": 29.8,
+  "projected": 21.5,
   "role_gap": false,
-  "skip": "pts|fanduel",
+  "skip": "pts|fanduel|OVER",
   "snaps": {
    "10am": {
     "at": "2026-11-21 16:01 UTC",
@@ -62431,9 +62433,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 32,
-  "var": 83.947,
-  "why": "29.3 min (recent 27.7, +2.0 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.651 points/min (84% this season's 0.673 over 13 games, 16% prior 0.528); context: road \u22121%, rest +1%, opponent defense +2%, shared production on BOS +8%; shot-zone matchup +1% (where he scores vs where SAC gives up points)."
+  "updates": 33,
+  "var": 85.173,
+  "why": "29.8 min (recent 27.7, +2.0 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.651 points/min (84% this season's 0.673 over 13 games, 16% prior 0.528); context: road \u22121%, rest +1%, opponent defense +2%, shared production on BOS +8%; shot-zone matchup +1% (where he scores vs where SAC gives up points)."
  },
  "Paul George|ra|401910028": {
   "actual": null,
@@ -62443,11 +62445,11 @@
   "be_under": 0.542,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 10.28,
+  "blend_mean": 10.31,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5149,
+  "chance": 0.5128,
   "close_at": "2026-11-22 01:34 UTC",
   "close_line": 10.5,
   "close_mkt": null,
@@ -62456,7 +62458,7 @@
   "first_frozen_at": "2026-11-21 07:01 UTC",
   "first_line": 10.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -62491,8 +62493,8 @@
   ],
   "player": "Paul George",
   "player_id": 4251,
-  "proj_min": 29.3,
-  "projected": 9.5,
+  "proj_min": 29.8,
+  "projected": 9.6,
   "role_gap": false,
   "skip": "ra|prizepicks",
   "snaps": {
@@ -62559,9 +62561,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 11,
-  "var": 11.742,
-  "why": "29.3 min (recent 27.7, +2.0 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.303 reb+ast/min (76% this season's 0.309 over 13 games, 24% prior 0.292); context: road \u22121%, rest +1%, opponent defense +1%, shared production on BOS +6%; calibration +0.0."
+  "updates": 12,
+  "var": 11.913,
+  "why": "29.8 min (recent 27.7, +2.0 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.303 reb+ast/min (76% this season's 0.309 over 13 games, 24% prior 0.292); context: road \u22121%, rest +1%, opponent defense +1%, shared production on BOS +6%; calibration +0.0."
  },
  "Paul George|reb|401910028": {
   "actual": null,
@@ -62571,11 +62573,11 @@
   "be_under": 0.542,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 5.47,
+  "blend_mean": 5.49,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5343,
+  "chance": 0.5315,
   "close_at": "2026-11-22 02:31 UTC",
   "close_line": 5.5,
   "close_mkt": 0.535,
@@ -62584,7 +62586,7 @@
   "first_frozen_at": "2026-11-21 10:01 UTC",
   "first_line": 5.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:31 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -62596,7 +62598,7 @@
    ],
    [
     4,
-    0.76,
+    0.75,
     0.78
    ],
    [
@@ -62612,7 +62614,7 @@
    [
     10,
     0.08,
-    0.1
+    0.09
    ]
   ],
   "label": "lean",
@@ -62651,7 +62653,7 @@
   ],
   "player": "Paul George",
   "player_id": 4251,
-  "proj_min": 29.3,
+  "proj_min": 29.8,
   "projected": 5.5,
   "role_gap": false,
   "skip": null,
@@ -62717,9 +62719,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 40,
-  "var": 5.805,
-  "why": "29.3 min (recent 27.7, +2.0 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.180 rebounds/min (68% this season's 0.184 over 13 games, 32% prior 0.175); context: road \u22121%, rest +1%, opponent defense +1%, shared production on BOS +4%; calibration -0.0."
+  "updates": 41,
+  "var": 5.898,
+  "why": "29.8 min (recent 27.7, +2.0 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.180 rebounds/min (68% this season's 0.184 over 13 games, 32% prior 0.175); context: road \u22121%, rest +1%, opponent defense +1%, shared production on BOS +4%; calibration -0.0."
  },
  "Payton Pritchard|ast|401910028": {
   "actual": null,
@@ -62728,11 +62730,11 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 6.38,
+  "blend_mean": 6.4,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5479,
+  "chance": 0.5457,
   "close_at": "2026-11-22 01:44 UTC",
   "close_line": 6.5,
   "close_mkt": null,
@@ -62741,30 +62743,30 @@
   "first_frozen_at": "2026-11-21 21:23 UTC",
   "first_line": 5.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
   "kladder": [
    [
     4,
-    0.83,
-    0.84
+    0.82,
+    0.83
    ],
    [
     6,
-    0.59,
-    0.6
+    0.56,
+    0.58
    ],
    [
     8,
-    0.32,
-    0.33
+    0.31,
+    0.34
    ],
    [
     10,
-    0.14,
-    0.15
+    0.13,
+    0.17
    ]
   ],
   "label": "lean",
@@ -62778,8 +62780,8 @@
   "mkt": {
    "kalshi": [
     5.5,
-    0.6168,
-    0.4269
+    0.5971,
+    0.4572
    ],
    "prizepicks": [
     6.5,
@@ -62803,8 +62805,8 @@
   ],
   "player": "Payton Pritchard",
   "player_id": 4066354,
-  "proj_min": 29.5,
-  "projected": 5.2,
+  "proj_min": 30.0,
+  "projected": 5.3,
   "role_gap": false,
   "skip": "ast|prizepicks",
   "snaps": {
@@ -62853,59 +62855,59 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 24,
-  "var": 6.014,
-  "why": "29.5 min (recent 28.7, +2.1 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out, \u22120.8 blowout risk (market margin 14)); \u00d7 0.145 assists/min (75% this season's 0.140 over 15 games, 25% prior 0.146); context: road \u22121%, rest +1%, shared production on BOS +9%; calibration +0.1; injury news: +0.5 with Derrick White, Jayson Tatum, Amari Williams ruled out today (half of how h"
+  "updates": 25,
+  "var": 6.093,
+  "why": "30.0 min (recent 28.7, +2.1 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out, \u22120.8 blowout risk (market margin 14)); \u00d7 0.145 assists/min (75% this season's 0.140 over 15 games, 25% prior 0.146); context: road \u22121%, rest +1%, shared production on BOS +9%; calibration +0.1; injury news: +0.5 with Derrick White, Jayson Tatum, Amari Williams ruled out today (half of how h"
  },
  "Payton Pritchard|fg3m|401910028": {
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.5971,
+  "be_over": 0.6069,
   "be_under": 0.4472,
   "best5": [],
-  "blend_mean": 3.1,
+  "blend_mean": 3.13,
   "blend_w": 0.225,
-  "break_even": 0.5971,
+  "break_even": 0.6069,
   "call": "OVER",
-  "chance": 0.5571,
-  "close_at": "2026-11-21 23:21 UTC",
+  "chance": 0.5625,
+  "close_at": "2026-11-22 02:36 UTC",
   "close_line": 2.5,
-  "close_mkt": 0.575,
+  "close_mkt": 0.58,
   "date": "2026-11-21",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-21 21:23 UTC",
   "first_line": 2.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
   "kladder": [
    [
     1,
-    0.92,
-    0.95
+    0.91,
+    0.94
    ],
    [
     2,
-    0.78,
+    0.76,
     0.79
    ],
    [
     3,
     0.57,
-    0.58
+    0.59
    ],
    [
     4,
-    0.36,
+    0.37,
     0.39
    ],
    [
     5,
-    0.2,
-    0.22
+    0.18,
+    0.2
    ]
   ],
   "label": "lean",
@@ -62914,11 +62916,11 @@
   "lines": {
    "kalshi": 2.5
   },
-  "market_side": 0.575,
+  "market_side": 0.58,
   "mkt": {
    "kalshi": [
     2.5,
-    0.5971,
+    0.6069,
     0.4472
    ]
   },
@@ -62938,7 +62940,7 @@
   ],
   "player": "Payton Pritchard",
   "player_id": 4066354,
-  "proj_min": 29.5,
+  "proj_min": 30.0,
   "projected": 2.8,
   "role_gap": false,
   "skip": "fg3m|kalshi|OVER",
@@ -62988,9 +62990,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 16,
-  "var": 3.963,
-  "why": "29.5 min (recent 28.7, +2.1 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out, \u22120.8 blowout risk (market margin 14)); \u00d7 0.087 3-pointers made/min (83% this season's 0.088 over 15 games, 17% prior 0.089); context: road \u22121%, rest +1%, shared production on BOS \u22123%; calibration +0.1; injury news: +0.3 with Derrick White, Jayson Tatum, Amari Williams ruled out today (half "
+  "updates": 17,
+  "var": 4.015,
+  "why": "30.0 min (recent 28.7, +2.1 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out, \u22120.8 blowout risk (market margin 14)); \u00d7 0.087 3-pointers made/min (83% this season's 0.088 over 15 games, 17% prior 0.089); context: road \u22121%, rest +1%, shared production on BOS \u22123%; calibration +0.1; injury news: +0.3 with Derrick White, Jayson Tatum, Amari Williams ruled out today (half "
  },
  "Payton Pritchard|pa|401910028": {
   "actual": null,
@@ -62999,11 +63001,11 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 26.78,
+  "blend_mean": 26.85,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5204,
+  "chance": 0.5185,
   "close_at": "2026-11-22 00:26 UTC",
   "close_line": 27.5,
   "close_mkt": null,
@@ -63012,7 +63014,7 @@
   "first_frozen_at": "2026-11-21 20:54 UTC",
   "first_line": 26.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -63047,8 +63049,8 @@
   ],
   "player": "Payton Pritchard",
   "player_id": 4066354,
-  "proj_min": 29.5,
-  "projected": 24.3,
+  "proj_min": 30.0,
+  "projected": 24.6,
   "role_gap": false,
   "skip": "pa|prizepicks|UNDER",
   "snaps": {
@@ -63097,9 +63099,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 8,
-  "var": 93.57,
-  "why": "29.5 min (recent 28.7, +2.1 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out, \u22120.8 blowout risk (market margin 14)); \u00d7 0.649 pts+ast/min (83% this season's 0.645 over 15 games, 17% prior 0.661); context: road \u22121%, rest +1%, shared production on BOS +8%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.2; injury news: +3.2 with Derr"
+  "updates": 9,
+  "var": 94.744,
+  "why": "30.0 min (recent 28.7, +2.1 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out, \u22120.8 blowout risk (market margin 14)); \u00d7 0.649 pts+ast/min (83% this season's 0.645 over 15 games, 17% prior 0.661); context: road \u22121%, rest +1%, shared production on BOS +8%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.2; injury news: +3.2 with Derr"
  },
  "Payton Pritchard|pra|401910028": {
   "actual": null,
@@ -63108,11 +63110,11 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 30.78,
+  "blend_mean": 30.86,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5241,
+  "chance": 0.5215,
   "close_at": "2026-11-22 00:31 UTC",
   "close_line": 31.5,
   "close_mkt": null,
@@ -63121,7 +63123,7 @@
   "first_frozen_at": "2026-11-21 20:54 UTC",
   "first_line": 30.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -63133,13 +63135,13 @@
    ],
    [
     30,
-    0.57,
+    0.58,
     0.59
    ],
    [
     35,
-    0.34,
-    0.37
+    0.3,
+    0.32
    ],
    [
     40,
@@ -63159,7 +63161,7 @@
    "kalshi": [
     29.5,
     0.6069,
-    0.4472
+    0.4371
    ],
    "prizepicks": [
     31.5,
@@ -63183,8 +63185,8 @@
   ],
   "player": "Payton Pritchard",
   "player_id": 4066354,
-  "proj_min": 29.5,
-  "projected": 28.3,
+  "proj_min": 30.0,
+  "projected": 28.6,
   "role_gap": false,
   "skip": "pra|prizepicks",
   "snaps": {
@@ -63233,9 +63235,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 20,
-  "var": 106.765,
-  "why": "29.5 min (recent 28.7, +2.1 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out, \u22120.8 blowout risk (market margin 14)); \u00d7 0.765 pts+reb+ast/min (83% this season's 0.757 over 15 games, 17% prior 0.788); context: road \u22121%, rest +1%, shared production on BOS +8%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.2; injury news: +3.7 with "
+  "updates": 21,
+  "var": 108.107,
+  "why": "30.0 min (recent 28.7, +2.1 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out, \u22120.8 blowout risk (market margin 14)); \u00d7 0.765 pts+reb+ast/min (83% this season's 0.757 over 15 games, 17% prior 0.788); context: road \u22121%, rest +1%, shared production on BOS +8%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.2; injury news: +3.7 with "
  },
  "Payton Pritchard|pr|401910028": {
   "actual": null,
@@ -63244,11 +63246,11 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 24.17,
+  "blend_mean": 24.23,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5114,
+  "chance": 0.5092,
   "close_at": "2026-11-22 01:31 UTC",
   "close_line": 24.5,
   "close_mkt": null,
@@ -63257,7 +63259,7 @@
   "first_frozen_at": "2026-11-21 20:54 UTC",
   "first_line": 24.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -63292,8 +63294,8 @@
   ],
   "player": "Payton Pritchard",
   "player_id": 4066354,
-  "proj_min": 29.5,
-  "projected": 23.0,
+  "proj_min": 30.0,
+  "projected": 23.3,
   "role_gap": false,
   "skip": "pr|prizepicks",
   "snaps": {
@@ -63342,9 +63344,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 8,
-  "var": 91.556,
-  "why": "29.5 min (recent 28.7, +2.1 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out, \u22120.8 blowout risk (market margin 14)); \u00d7 0.621 pts+reb/min (83% this season's 0.618 over 15 games, 17% prior 0.641); context: road \u22121%, rest +1%, shared production on BOS +7%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.1; injury news: +3.3 with Derr"
+  "updates": 9,
+  "var": 92.7,
+  "why": "30.0 min (recent 28.7, +2.1 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out, \u22120.8 blowout risk (market margin 14)); \u00d7 0.621 pts+reb/min (83% this season's 0.618 over 15 games, 17% prior 0.641); context: road \u22121%, rest +1%, shared production on BOS +7%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.1; injury news: +3.3 with Derr"
  },
  "Payton Pritchard|pts|401910028": {
   "actual": null,
@@ -63355,11 +63357,11 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 20.98,
+  "blend_mean": 21.03,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5482,
+  "chance": 0.546,
   "close_at": "2026-11-21 23:46 UTC",
   "close_line": 21.5,
   "close_mkt": null,
@@ -63368,7 +63370,7 @@
   "first_frozen_at": "2026-11-21 20:54 UTC",
   "first_line": 20.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -63430,8 +63432,8 @@
   ],
   "player": "Payton Pritchard",
   "player_id": 4066354,
-  "proj_min": 29.5,
-  "projected": 19.2,
+  "proj_min": 30.0,
+  "projected": 19.4,
   "role_gap": false,
   "skip": "pts|prizepicks",
   "snaps": {
@@ -63480,9 +63482,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 16,
-  "var": 81.149,
-  "why": "29.5 min (recent 28.7, +2.1 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out, \u22120.8 blowout risk (market margin 14)); \u00d7 0.505 points/min (75% this season's 0.505 over 15 games, 25% prior 0.514); context: road \u22121%, rest +1%, shared production on BOS +8%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.2; injury news: +2.8 with Derri"
+  "updates": 17,
+  "var": 82.151,
+  "why": "30.0 min (recent 28.7, +2.1 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out, \u22120.8 blowout risk (market margin 14)); \u00d7 0.505 points/min (75% this season's 0.505 over 15 games, 25% prior 0.514); context: road \u22121%, rest +1%, shared production on BOS +8%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.2; injury news: +2.8 with Derri"
  },
  "Payton Pritchard|ra|401910028": {
   "actual": null,
@@ -63491,11 +63493,11 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 9.82,
+  "blend_mean": 9.84,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5138,
+  "chance": 0.5118,
   "close_at": "2026-11-21 21:23 UTC",
   "close_line": 10.0,
   "close_mkt": null,
@@ -63504,7 +63506,7 @@
   "first_frozen_at": "2026-11-21 21:00 UTC",
   "first_line": 9.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -63539,8 +63541,8 @@
   ],
   "player": "Payton Pritchard",
   "player_id": 4066354,
-  "proj_min": 29.5,
-  "projected": 9.2,
+  "proj_min": 30.0,
+  "projected": 9.3,
   "role_gap": false,
   "skip": "ra|prizepicks",
   "snaps": {
@@ -63589,9 +63591,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 5,
-  "var": 11.581,
-  "why": "29.5 min (recent 28.7, +2.1 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out, \u22120.8 blowout risk (market margin 14)); \u00d7 0.263 reb+ast/min (65% this season's 0.252 over 15 games, 35% prior 0.273); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on BOS +7%; calibration -0.0; injury news: +0.9 with Derrick White, Jayson Tatum, Amari Williams ruled ou"
+  "updates": 6,
+  "var": 11.733,
+  "why": "30.0 min (recent 28.7, +2.1 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out, \u22120.8 blowout risk (market margin 14)); \u00d7 0.263 reb+ast/min (65% this season's 0.252 over 15 games, 35% prior 0.273); context: road \u22121%, rest +1%, opponent defense \u22121%, shared production on BOS +7%; calibration -0.0; injury news: +0.9 with Derrick White, Jayson Tatum, Amari Williams ruled ou"
  },
  "Payton Pritchard|reb|401910028": {
   "actual": null,
@@ -63601,11 +63603,11 @@
   "be_under": 0.542,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 3.71,
+  "blend_mean": 3.73,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.508,
+  "chance": 0.5103,
   "close_at": "2026-11-22 02:31 UTC",
   "close_line": 3.5,
   "close_mkt": 0.49,
@@ -63614,14 +63616,14 @@
   "first_frozen_at": "2026-11-21 20:54 UTC",
   "first_line": 3.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:31 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
   "kladder": [
    [
     2,
-    0.84,
+    0.82,
     0.86
    ],
    [
@@ -63676,8 +63678,8 @@
   ],
   "player": "Payton Pritchard",
   "player_id": 4066354,
-  "proj_min": 29.5,
-  "projected": 4.0,
+  "proj_min": 30.0,
+  "projected": 4.1,
   "role_gap": false,
   "skip": null,
   "snaps": {
@@ -63730,9 +63732,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 21,
-  "var": 4.073,
-  "why": "29.5 min (recent 28.7, +2.1 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out, \u22120.8 blowout risk (market margin 14)); \u00d7 0.119 rebounds/min (56% this season's 0.113 over 15 games, 44% prior 0.127); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on BOS +4%; calibration -0.1; injury news: +0.5 with Derrick White, Jayson Tatum, Amari Williams ruled o"
+  "updates": 22,
+  "var": 4.13,
+  "why": "30.0 min (recent 28.7, +2.1 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out, \u22120.8 blowout risk (market margin 14)); \u00d7 0.119 rebounds/min (56% this season's 0.113 over 15 games, 44% prior 0.127); context: road \u22121%, rest +1%, opponent defense \u22122%, shared production on BOS +4%; calibration -0.1; injury news: +0.5 with Derrick White, Jayson Tatum, Amari Williams ruled o"
  },
  "Precious Achiuwa|pra|401910028": {
   "actual": null,
@@ -64065,23 +64067,23 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.5872,
+  "be_over": 0.5772,
   "be_under": 0.4774,
   "best5": [],
-  "blend_mean": 4.21,
+  "blend_mean": 4.19,
   "blend_w": 0.225,
-  "break_even": 0.5872,
+  "break_even": 0.5772,
   "call": "OVER",
-  "chance": 0.5476,
-  "close_at": "2026-11-22 02:31 UTC",
+  "chance": 0.5438,
+  "close_at": "2026-11-22 02:36 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.555,
+  "close_mkt": 0.55,
   "date": "2026-11-21",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-21 23:46 UTC",
   "first_line": 5.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:31 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": true,
@@ -64094,7 +64096,7 @@
    [
     4,
     0.54,
-    0.57
+    0.56
    ],
    [
     6,
@@ -64113,11 +64115,11 @@
   "lines": {
    "kalshi": 3.5
   },
-  "market_side": 0.555,
+  "market_side": 0.55,
   "mkt": {
    "kalshi": [
     3.5,
-    0.5872,
+    0.5772,
     0.4774
    ]
   },
@@ -64175,7 +64177,7 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 17,
+  "updates": 18,
   "var": 6.898,
   "why": "19.2 min (recent 19.9, \u22120.7 team-minutes adjustment); \u00d7 0.249 rebounds/min (50% this season's 0.235 over 12 games, 50% prior 0.268); context: pace vs BOS \u22121%, home +1%, rest \u22122%, opponent defense +1%, shared production on SAC \u22121%; calibration -0.0; injury news: -0.5 with Jonathan Mogbo ruled out today (half of how he's actually played without him)."
  },
@@ -68991,11 +68993,11 @@
   "be_under": 0.542,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 2.74,
+  "blend_mean": 2.75,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5172,
+  "chance": 0.5156,
   "close_at": "2026-11-22 02:03 UTC",
   "close_line": 2.5,
   "close_mkt": 0.485,
@@ -69004,7 +69006,7 @@
   "first_frozen_at": "2026-11-21 20:54 UTC",
   "first_line": 2.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -69016,7 +69018,7 @@
    ],
    [
     2,
-    0.72,
+    0.73,
     0.74
    ],
    [
@@ -69071,7 +69073,7 @@
   ],
   "player": "Sam Hauser",
   "player_id": 4065804,
-  "proj_min": 21.1,
+  "proj_min": 21.4,
   "projected": 2.2,
   "role_gap": false,
   "skip": null,
@@ -69121,9 +69123,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 17,
-  "var": 3.206,
-  "why": "21.1 min (recent 20.0, +1.5 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.112 3-pointers made/min (83% this season's 0.118 over 15 games, 17% prior 0.098); context: road \u22121%, rest +1%, opponent defense +1%, shared production on BOS \u22123%; calibration +0.1; injury news: -0.2 with Derrick White, Jayson Tatum, Amari Williams ruled out today (half of how he's actu"
+  "updates": 18,
+  "var": 3.255,
+  "why": "21.4 min (recent 20.0, +1.5 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.112 3-pointers made/min (83% this season's 0.118 over 15 games, 17% prior 0.098); context: road \u22121%, rest +1%, opponent defense +1%, shared production on BOS \u22123%; calibration +0.1; injury news: -0.2 with Derrick White, Jayson Tatum, Amari Williams ruled out today (half of how he's actu"
  },
  "Sam Hauser|pra|401910028": {
   "actual": null,
@@ -69133,11 +69135,11 @@
   "be_under": 0.542,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 16.67,
+  "blend_mean": 16.72,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5383,
+  "chance": 0.5361,
   "close_at": "2026-11-22 01:31 UTC",
   "close_line": 17.5,
   "close_mkt": null,
@@ -69146,25 +69148,25 @@
   "first_frozen_at": "2026-11-21 21:00 UTC",
   "first_line": 16.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
   "kladder": [
    [
     15,
-    0.63,
-    0.66
+    0.61,
+    0.65
    ],
    [
     20,
     0.36,
-    0.38
+    0.4
    ],
    [
     25,
-    0.16,
-    0.21
+    0.11,
+    0.19
    ]
   ],
   "label": "lean",
@@ -69178,7 +69180,7 @@
   "mkt": {
    "kalshi": [
     19.5,
-    0.3965,
+    0.4168,
     0.6561
    ],
    "prizepicks": [
@@ -69203,8 +69205,8 @@
   ],
   "player": "Sam Hauser",
   "player_id": 4065804,
-  "proj_min": 21.1,
-  "projected": 13.8,
+  "proj_min": 21.4,
+  "projected": 14.0,
   "role_gap": false,
   "skip": "pra|prizepicks",
   "snaps": {
@@ -69253,9 +69255,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 31,
-  "var": 49.7,
-  "why": "21.1 min (recent 20.0, +1.5 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.607 pts+reb+ast/min (83% this season's 0.620 over 15 games, 17% prior 0.605); context: road \u22121%, rest +1%, opponent defense +2%, shared production on BOS +7%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.2; injury news: -0.3 with Derrick White, J"
+  "updates": 32,
+  "var": 50.433,
+  "why": "21.4 min (recent 20.0, +1.5 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.607 pts+reb+ast/min (83% this season's 0.620 over 15 games, 17% prior 0.605); context: road \u22121%, rest +1%, opponent defense +2%, shared production on BOS +7%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.2; injury news: -0.3 with Derrick White, J"
  },
  "Sam Hauser|pr|401910028": {
   "actual": null,
@@ -69266,11 +69268,11 @@
   "be_over": 0.542,
   "be_under": 0.542,
   "best5": [],
-  "blend_mean": 15.16,
+  "blend_mean": 15.2,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5104,
+  "chance": 0.5083,
   "close_at": "2026-11-22 01:11 UTC",
   "close_line": 16.0,
   "close_mkt": null,
@@ -69279,7 +69281,7 @@
   "first_frozen_at": "2026-11-21 20:54 UTC",
   "first_line": 16.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
@@ -69314,8 +69316,8 @@
   ],
   "player": "Sam Hauser",
   "player_id": 4065804,
-  "proj_min": 21.1,
-  "projected": 12.3,
+  "proj_min": 21.4,
+  "projected": 12.5,
   "role_gap": false,
   "skip": "pr|prizepicks",
   "snaps": {
@@ -69364,9 +69366,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 13,
-  "var": 43.703,
-  "why": "21.1 min (recent 20.0, +1.5 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.551 pts+reb/min (83% this season's 0.564 over 15 games, 17% prior 0.547); context: road \u22121%, rest +1%, opponent defense +2%, shared production on BOS +7%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.1; injury news: -0.5 with Derrick White, Jayso"
+  "updates": 14,
+  "var": 44.362,
+  "why": "21.4 min (recent 20.0, +1.5 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.551 pts+reb/min (83% this season's 0.564 over 15 games, 17% prior 0.547); context: road \u22121%, rest +1%, opponent defense +2%, shared production on BOS +7%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.1; injury news: -0.5 with Derrick White, Jayso"
  },
  "Sam Hauser|pts|401910028": {
   "actual": null,
@@ -69379,11 +69381,11 @@
   "be_under": 0.542,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 10.98,
+  "blend_mean": 11.01,
   "blend_w": 0.225,
   "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5272,
+  "chance": 0.5254,
   "close_at": "2026-11-21 23:46 UTC",
   "close_line": 11.5,
   "close_mkt": null,
@@ -69392,14 +69394,14 @@
   "first_frozen_at": "2026-11-21 20:54 UTC",
   "first_line": 12.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
   "kladder": [
    [
     10,
-    0.62,
+    0.6,
     0.63
    ],
    [
@@ -69410,7 +69412,7 @@
    [
     20,
     0.1,
-    0.11
+    0.12
    ]
   ],
   "label": "lean",
@@ -69425,7 +69427,7 @@
    "kalshi": [
     9.5,
     0.6463,
-    0.3965
+    0.4168
    ],
    "prizepicks": [
     11.5,
@@ -69449,8 +69451,8 @@
   ],
   "player": "Sam Hauser",
   "player_id": 4065804,
-  "proj_min": 21.1,
-  "projected": 9.2,
+  "proj_min": 21.4,
+  "projected": 9.3,
   "role_gap": false,
   "skip": "pts|prizepicks",
   "snaps": {
@@ -69499,9 +69501,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 16,
-  "var": 37.191,
-  "why": "21.1 min (recent 20.0, +1.5 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.395 points/min (75% this season's 0.413 over 15 games, 25% prior 0.390); context: road \u22121%, rest +1%, opponent defense +2%, shared production on BOS +8%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.2; injury news: -0.3 with Derrick White, Jayson"
+  "updates": 17,
+  "var": 37.738,
+  "why": "21.4 min (recent 20.0, +1.5 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.395 points/min (75% this season's 0.413 over 15 games, 25% prior 0.390); context: road \u22121%, rest +1%, opponent defense +2%, shared production on BOS +8%; shot-zone matchup +1% (where he scores vs where SAC gives up points); calibration +0.2; injury news: -0.3 with Derrick White, Jayson"
  },
  "Sam Hauser|reb|401910028": {
   "actual": null,
@@ -69510,11 +69512,11 @@
   "be_over": 0.5772,
   "be_under": 0.4673,
   "best5": [],
-  "blend_mean": 3.77,
+  "blend_mean": 3.78,
   "blend_w": 0.225,
   "break_even": 0.5772,
   "call": "OVER",
-  "chance": 0.519,
+  "chance": 0.5213,
   "close_at": "2026-11-22 01:01 UTC",
   "close_line": 3.5,
   "close_mkt": 0.555,
@@ -69523,15 +69525,15 @@
   "first_frozen_at": "2026-11-21 21:00 UTC",
   "first_line": 3.5,
   "flip": null,
-  "frozen_at": "2026-11-22 02:03 UTC",
+  "frozen_at": "2026-11-22 02:36 UTC",
   "game_id": 401910028,
   "hit": null,
   "home": false,
   "kladder": [
    [
     2,
-    0.87,
-    0.88
+    0.85,
+    0.89
    ],
    [
     4,
@@ -69540,12 +69542,12 @@
    ],
    [
     6,
-    0.22,
-    0.23
+    0.23,
+    0.24
    ],
    [
     8,
-    0.07,
+    0.06,
     0.09
    ]
   ],
@@ -69579,7 +69581,7 @@
   ],
   "player": "Sam Hauser",
   "player_id": 4065804,
-  "proj_min": 21.1,
+  "proj_min": 21.4,
   "projected": 3.2,
   "role_gap": false,
   "skip": "reb|kalshi",
@@ -69629,9 +69631,9 @@
   "tip_utc": "2026-11-22T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 26,
-  "var": 3.089,
-  "why": "21.1 min (recent 20.0, +1.5 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.156 rebounds/min (56% this season's 0.151 over 15 games, 44% prior 0.158); context: road \u22121%, rest +1%, opponent defense +1%, shared production on BOS +4%; calibration -0.1; injury news: -0.2 with Derrick White, Jayson Tatum, Amari Williams ruled out today (half of how he's actually pl"
+  "updates": 27,
+  "var": 3.141,
+  "why": "21.4 min (recent 20.0, +1.5 team-minutes adjustment with Mitchell Robinson, Jayson Tatum, Derrick White out); \u00d7 0.156 rebounds/min (56% this season's 0.151 over 15 games, 44% prior 0.158); context: road \u22121%, rest +1%, opponent defense +1%, shared production on BOS +4%; calibration -0.1; injury news: -0.2 with Derrick White, Jayson Tatum, Amari Williams ruled out today (half of how he's actually pl"
  },
  "Scoot Henderson|ast|401910024": {
   "actual": null,
