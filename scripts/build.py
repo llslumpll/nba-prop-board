@@ -565,6 +565,12 @@ def build(args) -> None:
             tp["siteladder"]["best"] = siteladder.best_summary(box, sl.get("date"))
         except Exception as e:  # noqa: BLE001
             print(f"Site ladders failed: {e}")
+        try:  # 3x slip (update 100): the combo most likely to cash at a 3x+ Kalshi quote
+            import triple
+            triple.sync(box, sl, now, inj)
+            tp["triple"] = triple.summary(box, sl.get("date"))
+        except Exception as e:  # noqa: BLE001
+            print(f"3x slip failed: {e}")
         print(f"Tipsters: {sum(t['n'] for t in tp['tipsters'])} graded, {len(tp['tonight'])} today")
     except Exception as e:  # noqa: BLE001
         tp = None
