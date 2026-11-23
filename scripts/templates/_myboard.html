@@ -21,6 +21,12 @@
   <h2 class="h2x">Your board tonight</h2>
   <p class="small dim">Everything that fits how you bet, in one place: <b>75%+ favorites</b>, picks from the tipsters with a <b>proven record</b>, and <b>safe lines</b> you can get cheaper than they really hit. Tracking only &middot; prices update with every build until tip.</p>
 
+  {% set tx = board.tx %}
+  {% if tx %}<h3 class="hv-h3" id="triple">3x slip tonight</h3>
+  <p class="small dim">The one Kalshi combo most likely to cash while paying at least 3x. Legs come only from the spots that have beaten Kalshi's price: <b>2+ threes</b> (projection 1.5&ndash;2.5, made 2+ in 7 of his last 10), <b>10+ points</b> (projection 2&ndash;4 above), <b>4+ rebounds</b> (2&ndash;3 above) and <b>assists</b> (1&ndash;3 above). One leg per player, two per game at most, no one listed out or questionable or projected for fewer minutes than usual.{% if tx.rec.n %} Record: <b>{{ tx.rec.w }} of {{ tx.rec.n }}</b> cashed &middot; {{ mu(tx.rec.u) }} &middot; legs {{ tx.rec.legs_w }}-{{ tx.rec.legs_n - tx.rec.legs_w }}.{% else %} New: in the replay it cashed 11 of 19 nights; tracked from tonight.{% endif %}</p>
+  {% if tx.tonight %}<div class="pz-grid">{{ cz.triple_card(tx.tonight, board.lab, board.p_to_am) }}{% if tx.last %}{{ cz.triple_card(tx.last, board.lab, board.p_to_am) }}{% endif %}</div>
+  {% else %}<p class="small dim">No 3x slip yet tonight: it needs legs that fit the rules before their games tip.{% if tx.last %} Last night's:{% endif %}</p>{% if tx.last %}<div class="pz-grid">{{ cz.triple_card(tx.last, board.lab, board.p_to_am) }}</div>{% endif %}{% endif %}{% endif %}
+
   {% set pv = board.pv %}
   {% if pv %}<h3 class="hv-h3" id="proven">Proven picks tonight</h3>
   <p class="small dim">Only legs from kinds of picks that are beating Kalshi's price over time ({% for k in pv.kinds if k.status in ('PROVEN', 'PROMISING') %}{{ k.name }}{{ ', ' if not loop.last }}{% endfor %}). Straights or a short 2-leg combo: long combos lose on one quiet leg and Kalshi's combo price takes more. <a href="tipsters.html#proven">How each kind is doing &rarr;</a></p>
