@@ -1,4 +1,13 @@
-"""3x slip (update 100, Nov 23 2026): the single Kalshi combo most likely to cash while paying at least 3x.
+"""3x slip (update 100, Nov 23 2026): the bankroll-builder, the single Kalshi combo most likely to cash at a 3x+ quote.
+
+v2 (same day, the user's call: "most accurate, soft lines or regular, as long as it hits"): any Kalshi rung priced 50-97% can
+be used. Each leg's real chance = Kalshi's price + how legs like it actually did vs their price over the past nights
+(buckets: price band x model 5+ points above price x never missed the rung in his last 10 x the sweet-spot rule below;
+shrunk n/(n+50)). Kalshi's combo quote shrinks with legs (11 legs: 7.8x product quoted 5.37x), modelled as 1 - 0.028/leg.
+Replay Oct 28-Nov 22, every night graded with only the other nights' history: 11 of 21 cashed, +12.1U; the v1 rule pool
+cashed 5 of 22. Soft legs alone (85%+) never reach a 3x quote: Kalshi prices them about right (90% legs hit ~90%).
+
+v1 notes (still the "sweet-spot" bucket):
 
 The user's ask: "at least 3x my money: the best possible slip that can achieve that."
 Leg pool, every build until the slip's first leg tips (Kalshi rung legs only, one leg per player, max two per game,
@@ -31,9 +40,76 @@ import tipsters as T
 
 PATH = Path(__file__).resolve().parent.parent / "data" / "tipsters" / "triple.json"
 TARGET = 3.0          # estimated Kalshi quote
-HAIRCUT = 0.85        # Kalshi combo quote vs product of leg asks (short slips)
-ASK_LO, ASK_HI = 0.50, 0.88
-MAX_LEGS, MAX_CAND, PER_GAME = 6, 22, 2
+ASK_LO, ASK_HI = 0.50, 0.97
+MAX_LEGS, MAX_CAND, PER_GAME = 8, 24, 2
+CAL_PATH = PATH.parent / "triple_cal.json"
+BANDS = (0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.93)
+
+
+def haircut(k: int) -> float:
+    """Kalshi's own combo quote vs the product of leg asks, by number of legs."""
+    return max(0.65, 1 - 0.028 * k)
+
+
+def _band(a: float) -> float:
+    b = BANDS[0]
+    for x in BANDS:
+        if a >= x:
+            b = x
+    return b
+
+
+def _key(ask, model_p, never_missed, sweet) -> str:
+    return f"{_band(ask)}|{int(model_p - ask >= 0.05)}|{int(never_missed)}|{int(sweet)}"
+
+
+def calibrate(box, before: str) -> dict:
+    """{bucket: (hits - sum of asks) / (n + 50)} over every graded Kalshi rung leg before `before`. Cached per day."""
+    try:
+        c = json.loads(CAL_PATH.read_text())
+        if c.get("before") == before:
+            return c["adj"]
+    except Exception:  # noqa: BLE001
+        pass
+    import glob
+    import model
+    import siteladder as SL
+    logs = SL._logs(box)
+    acc: dict = {}
+    for f in sorted(glob.glob(str(T.PRED_DIR / "*.json"))):
+        d = Path(f).stem[:10]
+        if d < "2026-10-28" or d >= before:
+            continue
+        D = _date.fromisoformat(d)
+        try:
+            rows = json.loads(Path(f).read_text())
+        except Exception:  # noqa: BLE001
+            continue
+        for r in rows.values():
+            st = r.get("stat")
+            if st not in NAMES or not r.get("kladder") or r.get("actual") is None or r.get("projected") is None:
+                continue
+            if T.minutes_flag(r):
+                continue
+            lg = [x for x in logs.get(T._norm(r["player"]), []) if x["date"] < D][-10:]
+            if len(lg) < 5:
+                continue
+            mu, var = r.get("blend_mean") or r.get("projected"), r.get("var")
+            for rung, _b, ask in r["kladder"]:
+                if not ask or not ASK_LO <= ask <= ASK_HI:
+                    continue
+                mp = model.prob_over(st, mu, var, rung - 0.5) if mu is not None and var else None
+                if mp is None:
+                    continue
+                h10 = sum(x[st] >= rung for x in lg) / len(lg)
+                k = _key(ask, mp, min(x[st] for x in lg) >= rung, bool(fits(st, rung, float(r["projected"]), h10)))
+                a = acc.setdefault(k, [0, 0.0])
+                a[0] += 1
+                a[1] += (r["actual"] >= rung) - ask
+    adj = {k: round(v[1] / (v[0] + 50), 4) for k, v in acc.items()}
+    CAL_PATH.parent.mkdir(parents=True, exist_ok=True)
+    CAL_PATH.write_text(json.dumps({"before": before, "adj": adj, "n": {k: v[0] for k, v in acc.items()}}, indent=1, sort_keys=True))
+    return adj
 WIN = {"pts": (10, 2.0, 4.0), "reb": (4, 2.0, 3.0)}
 NAMES = {"pts": "points", "reb": "rebounds", "ast": "assists", "fg3m": "threes"}
 
@@ -69,6 +145,7 @@ def candidates(date: str, box, now: datetime, inj=None) -> list[dict]:
     D = _date.fromisoformat(date)
     logs = SL._logs(box)
     bad = _bad_status(inj)
+    adj = calibrate(box, date)
     try:
         rows = json.loads((T.PRED_DIR / f"{date}.json").read_text())
     except Exception:  # noqa: BLE001
@@ -78,7 +155,7 @@ def candidates(date: str, box, now: datetime, inj=None) -> list[dict]:
         st = r.get("stat")
         if st not in NAMES or not r.get("kladder") or r.get("projected") is None:
             continue
-        if T._norm(r["player"]) in bad:
+        if T._norm(r["player"]) in bad or T.minutes_flag(r):
             continue
         try:
             tip = datetime.fromisoformat(str(r.get("tip_utc")).replace("Z", "+00:00"))
@@ -86,7 +163,7 @@ def candidates(date: str, box, now: datetime, inj=None) -> list[dict]:
             continue
         if now >= tip:
             continue
-        lg = [x for x in logs.get(T._norm(r["player"]), []) if x["date"] < D]
+        lg = [x for x in logs.get(T._norm(r["player"]), []) if x["date"] < D][-10:]
         if len(lg) < 5:
             continue
         proj = float(r["projected"])
@@ -94,40 +171,35 @@ def candidates(date: str, box, now: datetime, inj=None) -> list[dict]:
         for rung, _b, ask in r["kladder"]:
             if not ask or not ASK_LO <= ask <= ASK_HI:
                 continue
-            h10 = sum(x[st] >= rung for x in lg[-10:]) / len(lg[-10:])
-            why = fits(st, rung, proj, h10)
-            if not why:
-                continue
             mp = model.prob_over(st, mu, var, rung - 0.5) if mu is not None and var else None
             if mp is None:
                 continue
-            md = T.minutes_flag(r)
-            if md:          # projected minutes well under his recent minutes: skip, a short night sinks the slip
-                continue
-            cost = T._kcost(ask)
+            h10 = sum(x[st] >= rung for x in lg) / len(lg)
+            never = min(x[st] for x in lg) >= rung
+            why = fits(st, rung, proj, h10)
+            est = min(0.99, ask + adj.get(_key(ask, mp, never, bool(why)), 0.0))
             out.append({"player": r["player"], "team": r.get("team"), "opp": r.get("opp"), "stat": st, "rung": rung,
-                        "line": rung - 0.5, "side": "over", "ask": round(ask, 2), "p": round(cost, 4),
-                        "model_p": round(mp, 3), "est": round(0.5 * mp + 0.5 * cost, 4), "proj": round(proj, 1),
-                        "h10": round(h10, 2), "why": why, "game_id": r.get("game_id"), "tip": r.get("tip_utc"),
-                        "min_down": None})
+                        "line": rung - 0.5, "side": "over", "ask": round(ask, 2), "p": round(T._kcost(ask), 4),
+                        "model_p": round(mp, 3), "est": round(est, 4), "proj": round(proj, 1), "h10": round(h10, 2),
+                        "never": never, "why": why, "game_id": r.get("game_id"), "tip": r.get("tip_utc"), "min_down": None})
     return out
 
 
 def choose(legs: list[dict], target: float = TARGET) -> dict | None:
-    legs = sorted(legs, key=lambda l: -(l["est"] - l["p"]))[:MAX_CAND]
+    legs = sorted(legs, key=lambda l: -(l["est"] - l["ask"]))[:MAX_CAND]
     best = None
     for k in range(2, MAX_LEGS + 1):
         for c in itertools.combinations(legs, k):
             if len({l["player"] for l in c}) < k or max(Counter(l["game_id"] for l in c).values()) > PER_GAME:
                 continue
             payk = 1 / math.prod(l["ask"] for l in c)
-            if payk * HAIRCUT < target:
+            if payk * haircut(k) < target:
                 continue
             ch = math.prod(l["est"] for l in c)
             if best is None or ch > best["chance"]:
                 best = {"legs": sorted(c, key=lambda l: l["tip"] or ""), "chance": round(ch, 4),
-                        "pays_k": round(payk, 2), "quote_est": round(payk * HAIRCUT, 2)}
-        if best and k >= 4:   # more legs only lower the chance once a 4-leg slip clears the target
+                        "pays_k": round(payk, 2), "quote_est": round(payk * haircut(k), 2)}
+        if best and k >= len(best["legs"]) + 2:   # two sizes past the best found: more legs only cost chance
             break
     return best
 
