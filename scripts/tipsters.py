@@ -863,6 +863,8 @@ def attach_live(tp: dict | None, today: str | None) -> int:
         for t in lad.get("tiers") or []:
             for l in t.get("legs") or []:
                 tag(l)
+    for l in (((tp.get("bestk") or {}).get("tonight") or {}).get("legs") or []):
+        tag(l)
     tx = (tp.get("triple") or {}).get("tonight") or {}
     for l in tx.get("legs") or []:
         tag(l)

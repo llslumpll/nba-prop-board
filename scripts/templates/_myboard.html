@@ -27,6 +27,12 @@
   {% if tx.tonight %}<div class="pz-grid">{{ cz.triple_card(tx.tonight, board.lab, board.p_to_am) }}{% if tx.last %}{{ cz.triple_card(tx.last, board.lab, board.p_to_am) }}{% endif %}</div>
   {% else %}<p class="small dim">No 3x slip yet tonight: it needs legs that fit the rules before their games tip.{% if tx.last %} Last night's:{% endif %}</p>{% if tx.last %}<div class="pz-grid">{{ cz.triple_card(tx.last, board.lab, board.p_to_am) }}</div>{% endif %}{% endif %}{% endif %}
 
+  {% set bk = board.bk %}
+  {% if bk %}<h3 class="hv-h3" id="bestk">Best 5 on Kalshi</h3>
+  <p class="small dim">Tonight's five Kalshi legs with the biggest <b>real</b> edge: legs like these have finished above what Kalshi charges (judged on how similar legs really did, not on our projection alone). Bet them as <b>straight bets</b>, 1U or less each. Priced 60&ndash;90%, one per player, nobody listed out or questionable.{% if bk.rec.n %} Record: <b>{{ bk.rec.w }}-{{ bk.rec.n - bk.rec.w }}</b> &middot; {{ mu(bk.rec.u) }}{% if bk.last7.n %} &middot; last 7 nights {{ bk.last7.w }}-{{ bk.last7.n - bk.last7.w }} {{ mu(bk.last7.u) }}{% endif %}.{% else %} New: in the replay (each night judged only on the other nights) these went <b>97-13, +17.1U</b>; tracked from tonight. It replaces the model's Best 5, which went 473-345 and lost 52U.{% endif %}</p>
+  {% if bk.tonight %}<div class="pz-grid">{{ cz.bestk_card(bk.tonight, board.lab, board.p_to_am, 'BEST 5 ON KALSHI') }}</div>
+  {% else %}<p class="small dim">No legs clear the bar yet tonight.</p>{% endif %}{% endif %}
+
   {% set pv = board.pv %}
   {% if pv %}<h3 class="hv-h3" id="proven">Proven picks tonight</h3>
   <p class="small dim">Only legs from kinds of picks that are beating Kalshi's price over time ({% for k in pv.kinds if k.status in ('PROVEN', 'PROMISING') %}{{ k.name }}{{ ', ' if not loop.last }}{% endfor %}). Straights or a short 2-leg combo: long combos lose on one quiet leg and Kalshi's combo price takes more. <a href="tipsters.html#proven">How each kind is doing &rarr;</a></p>

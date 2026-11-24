@@ -1579,3 +1579,5 @@ html:not([data-theme="court"]) .brand, .brand { outline: none !important; animat
 .pv-table td { padding: 6px; border-top: 1px solid rgba(255,255,255,.08); white-space: nowrap; }
 /* live tracker inside slip / tipster cards (Nov 24): its own row under the leg */
 .pz-leg > .lv { grid-column: 2 / -1; margin-top: 6px; }
+/* Best 5 on Kalshi: straight bets, so no "Nx COMBO" footer */
+html:not([data-theme="court"]) .pz-straight .pz-legs::after { content: none; }

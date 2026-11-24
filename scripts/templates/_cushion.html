@@ -52,3 +52,13 @@
   <p class="small dim" style="margin:6px 12px 10px">Legs multiply to {{ '%.2f'|format(s.pays_k) }}x at Kalshi's asks; Kalshi quotes the combo itself, usually a bit lower, so the site counts {{ '%.1f'|format(s.quote_est) }}x.</p>
 </article>
 {% endmacro %}
+
+{% macro bestk_card(s, lab, p_to_am, title) %}
+<article class="pz-card pz-pending pz-straight">
+  <div class="pz-head"><div><div class="pz-title">{{ title }} &middot; {{ s.legs|length }} LEGS</div><div class="pz-sub">EACH LEG LOCKS WHEN ITS GAME TIPS &middot; STRAIGHT BETS, NOT A PARLAY</div></div></div>
+  <div class="pz-tags"><span class="u-tag u-0">TRACKING ONLY</span> <span class="anchor-tag">ALL LEGS ON KALSHI</span></div>
+  <ul class="pz-legs">{% for l in s.legs %}<li class="pz-leg {{ 'pz-hit' if l.res == 'hit' else ('pz-miss' if l.res == 'miss' else '') }}"><span class="pz-res">{{ cres(l.res) }}</span>
+    <span class="pz-what">{{ l.player }} <span class="pp-pick pp-over">{{ l.rung }}+ {{ lab.get(l.stat, l.stat) }}</span>{% if l.actual is not none %} <span class="dim small">had {{ l.actual }}</span>{% endif %}{% if l.cut %} <span class="cut-tag">{{ 'LEFT INJURED' if l.cut.injured else 'MINUTES CUT SHORT' }} &middot; {{ l.cut.min }} of {{ l.cut.proj }} min</span>{% endif %}</span>
+    {{ lvx(l) }}<span class="pz-meta"><b>{{ p_to_am(l.ask) }}</b> <span class="dim small">Kalshi {{ (l.ask * 100)|round|int }}% &middot; <b>really hits ~{{ (l.est * 100)|round|int }}%</b> &middot; our proj {{ l.proj }} &middot; last 10: {{ (l.h10 * 100)|round|int }}% &middot; {{ l.team }} vs {{ l.opp }}</span></span></li>{% endfor %}</ul>
+</article>
+{% endmacro %}
