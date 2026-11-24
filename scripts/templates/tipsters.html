@@ -23,6 +23,12 @@
 </div>
 
 <section data-tab-panel="tp:tonight">
+  {% set tx = tp.triple %}{% set bk = tp.bestk %}
+  {% if (tx and tx.tonight) or (bk and bk.tonight) %}
+  <h2 class="hv-h3" id="site-picks">The site's picks tonight</h2>
+  <p class="small dim"><b>3x slip</b>: one Kalshi combo, the one most likely to cash at a 3x+ quote.{% if tx and tx.rec.n %} Record {{ tx.rec.w }} of {{ tx.rec.n }} cashed, {{ u(tx.rec.u) }}.{% endif %} <b>Best 5 on Kalshi</b>: five straight bets, the Kalshi legs with the biggest real edge.{% if bk and bk.rec.n %} Record {{ bk.rec.w }}-{{ bk.rec.n - bk.rec.w }}, {{ u(bk.rec.u) }}.{% endif %} Same cards as Your board; each leg shows live progress once its game tips.</p>
+  <div class="pz-grid">{% if tx and tx.tonight %}{{ cz.triple_card(tx.tonight, tp.lab, tp.p_to_am) }}{% endif %}{% if bk and bk.tonight %}{{ cz.bestk_card(bk.tonight, tp.lab, tp.p_to_am, 'BEST 5 ON KALSHI') }}{% endif %}</div>
+  {% endif %}
   <p class="small dim">{{ tp.today }} &middot; Each pick is priced at the best line you could get when the site first saw it (Kalshi or Polymarket US at the same number, or FanDuel at the same line) and graded the same night. Picks are added when you ask Claude to log them.</p>
   {% for t in ts %}
   {% set rows = (tp.tonight or [])|selectattr('tipster', 'equalto', t.key)|list %}
