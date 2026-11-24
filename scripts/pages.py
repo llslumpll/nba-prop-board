@@ -1133,6 +1133,7 @@ def render_all(ctx: dict) -> None:
         board = myboard.build(ctx.get("tipsters"), ctx.get("safelines"), ctx.get("favorites"), ctx.get("injuries"))
         board["pv"] = ctx.get("proven")
         board["tx"] = (ctx.get("tipsters") or {}).get("triple")
+        board["bk"] = (ctx.get("tipsters") or {}).get("bestk")
     except Exception as e:  # noqa: BLE001
         board = None
         print(f"Your board failed: {e}")

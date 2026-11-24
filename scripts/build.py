@@ -576,6 +576,12 @@ def build(args) -> None:
             tp["triple"] = triple.summary(box, sl.get("date"))
         except Exception as e:  # noqa: BLE001
             print(f"3x slip failed: {e}")
+        try:  # Best 5 on Kalshi (update 102): the 5 legs a night with the biggest real edge
+            import bestk
+            bestk.sync(box, sl, now, inj)
+            tp["bestk"] = bestk.summary(box, sl.get("date"))
+        except Exception as e:  # noqa: BLE001
+            print(f"Best 5 on Kalshi failed: {e}")
         print(f"Tipsters: {sum(t['n'] for t in tp['tipsters'])} graded, {len(tp['tonight'])} today")
     except Exception as e:  # noqa: BLE001
         tp = None

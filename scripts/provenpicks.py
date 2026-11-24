@@ -25,7 +25,7 @@ PROMISING_EDGE = 0.02
 # rules first set on this date (from a look back over the season): results from here on are the honest test
 SINCE = {"strong": "2026-11-20", "agree": "2026-11-20", "disagree": "2026-11-20", "sam_cush": "2026-11-20",
          "sam_nocush": "2026-11-20", "cushion": "2026-11-20", "single": "2026-11-24", "value2": "2026-11-24",
-         "value3": "2026-11-24", "triple": "2026-11-24"}
+         "value3": "2026-11-24", "triple": "2026-11-24", "bestk": "2026-11-25"}
 KINDS = {
     "sam_cush": ("Sam + model legs", "Sam's ladder legs where our projection clears his rung by a cushion (points +2, others +1)"),
     "strong": ("Tipster strong spots", "A profitable tipster's prop where our model agrees, he projects 32+ minutes, price better than -125"),
@@ -39,6 +39,7 @@ KINDS = {
     "single": ("Best single", "The Parlays page's Best single: one pick a night, graded at what it paid"),
     "value2": ("Good price 2-leg", "The Parlays page's Good price 2-leg slip, graded as one pick at what it paid"),
     "value3": ("Good price 3-leg", "The Parlays page's Good price 3-leg slip, graded as one pick at what it paid"),
+    "bestk": ("Best 5 on Kalshi", "The 5 Kalshi legs a night with the biggest real edge (Your board), each leg at its ask"),
     "triple": ("3x slip", "The bankroll-builder 3x slip on Your board, graded as one pick at its estimated Kalshi quote"),
 }
 SLIPS = {("single", 1): "single", ("value", 2): "value2", ("value", 3): "value3"}
@@ -213,6 +214,20 @@ def build(box, tp: dict | None, sf: dict | None, fv: dict | None) -> dict:
                 hist["triple"].append({"date": d, "hit": "miss" not in res and "hit" in res, "p": 1 / t["quote_est"]})
     except Exception as e:  # noqa: BLE001
         print(f"Proven picks: 3x slip history failed: {e}")
+
+    try:  # Best 5 on Kalshi, leg by leg (update 102)
+        import bestk
+        for d, s in bestk._load().items():
+            for l in s.get("legs") or []:
+                g = T.grade_leg(l, d, ply, team)[0]
+                if g in ("hit", "miss"):
+                    hist["bestk"].append({"date": d, "hit": g == "hit", "p": l["ask"]})
+                elif d == today and g is None:
+                    tonight.append({"kind": "bestk", "what": f"{l['player']} {l['rung']}+ {T.LAB.get(l['stat'], l['stat'])}",
+                                    "p": l["ask"], "price_src": "Kalshi", "odds": T.p_to_am(l["ask"]), "src": "Best 5 on Kalshi",
+                                    "game": l.get("game_id"), "note": f"really hits ~{round(100 * l['est'])}%"})
+    except Exception as e:  # noqa: BLE001
+        print(f"Proven picks: Best 5 on Kalshi failed: {e}")
 
     kinds = []
     for k, (name, what) in KINDS.items():
