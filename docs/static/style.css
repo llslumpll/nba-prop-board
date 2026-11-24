@@ -1581,3 +1581,8 @@ html:not([data-theme="court"]) .brand, .brand { outline: none !important; animat
 .pz-leg > .lv { grid-column: 2 / -1; margin-top: 6px; }
 /* Best 5 on Kalshi: straight bets, so no "Nx COMBO" footer */
 html:not([data-theme="court"]) .pz-straight .pz-legs::after { content: none; }
+/* Home (Nov 24): "What's beating Kalshi" tiles in the hero; model boards collapsed below */
+.trk-home { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.trk-home .trk-tile b { font-size: 1.7rem; }
+.model-hero { margin: 10px 0 18px; }
+.model-hero .boards { width: 100%; }
