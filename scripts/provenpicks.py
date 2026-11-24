@@ -10,6 +10,10 @@ Status (recomputed every build, so kinds move up and down on their own):
   AVOID      30+ graded and hitting 2+ points below price
   TRACKING   everything else (too few picks or about even)
 "Proven picks tonight" lists tonight's legs from PROVEN and PROMISING kinds only. Tracking only: no stakes.
+
+Nov 24 (update 101): the site's own slips are graded here too, as one pick each at the price they paid (1 / payout):
+Best single (12-11 on the season, 9-1 last 10), Good price 2-leg (8-14, last 3 won), Good price 3-leg (2-12) and the
+3x slip. A slip earns a place in "Proven picks tonight" the same way a kind of leg does.
 """
 from __future__ import annotations
 
@@ -20,7 +24,8 @@ Z = 1.28                       # 80% range
 PROMISING_EDGE = 0.02
 # rules first set on this date (from a look back over the season): results from here on are the honest test
 SINCE = {"strong": "2026-11-20", "agree": "2026-11-20", "disagree": "2026-11-20", "sam_cush": "2026-11-20",
-         "sam_nocush": "2026-11-20", "cushion": "2026-11-20"}
+         "sam_nocush": "2026-11-20", "cushion": "2026-11-20", "single": "2026-11-24", "value2": "2026-11-24",
+         "value3": "2026-11-24", "triple": "2026-11-24"}
 KINDS = {
     "sam_cush": ("Sam + model legs", "Sam's ladder legs where our projection clears his rung by a cushion (points +2, others +1)"),
     "strong": ("Tipster strong spots", "A profitable tipster's prop where our model agrees, he projects 32+ minutes, price better than -125"),
@@ -31,7 +36,12 @@ KINDS = {
     "ladder": ("Site ladder legs", "The site's own Sam-style ladder legs (step 1)"),
     "sam_nocush": ("Sam legs, no cushion", "Sam's legs without the model cushion"),
     "disagree": ("Tipster, model disagrees", "A profitable tipster's prop where our model is on the other side"),
+    "single": ("Best single", "The Parlays page's Best single: one pick a night, graded at what it paid"),
+    "value2": ("Good price 2-leg", "The Parlays page's Good price 2-leg slip, graded as one pick at what it paid"),
+    "value3": ("Good price 3-leg", "The Parlays page's Good price 3-leg slip, graded as one pick at what it paid"),
+    "triple": ("3x slip", "The bankroll-builder 3x slip on Your board, graded as one pick at its estimated Kalshi quote"),
 }
+SLIPS = {("single", 1): "single", ("value", 2): "value2", ("value", 3): "value3"}
 
 
 def _imp(odds) -> float | None:
@@ -160,6 +170,49 @@ def build(box, tp: dict | None, sf: dict | None, fv: dict | None) -> dict:
                 p = l.get("ask") or l.get("p")
                 if p and l.get("res") in ("hit", "miss"):
                     hist["ladder"].append({"date": n["date"], "hit": l["res"] == "hit", "p": p})
+
+    # the site's own slips, one pick each at the price they paid (update 101)
+    import glob
+    import json
+    from pathlib import Path
+    pdir = Path(__file__).resolve().parent.parent / "data" / "parlays"
+    for f in sorted(glob.glob(str(pdir / "*.json"))):
+        try:
+            day = json.loads(Path(f).read_text())
+        except Exception:  # noqa: BLE001
+            continue
+        for v in day.values():
+            k = SLIPS.get((v.get("family"), v.get("size")))
+            pays = v.get("pays_final") or v.get("pays")
+            if not k or not pays or pays <= 1:
+                continue
+            if v.get("status") == "graded" and v.get("hit") is not None:
+                hist[k].append({"date": v["date"], "hit": bool(v["hit"]), "p": 1 / pays})
+            elif v.get("date") == today and v.get("status") != "graded":
+                legs = v.get("legs") or []
+                tonight.append({"kind": k, "what": " + ".join(l.get("label") or l.get("kalshi_bet") or "?" for l in legs),
+                                "p": 1 / pays, "price_src": "Kalshi" if v.get("all_kalshi") else "best price",
+                                "odds": T.p_to_am(1 / pays), "src": KINDS[k][0],
+                                "game": legs[0].get("game_id") if len(legs) == 1 else None,
+                                "note": f"pays {pays:.2f}x" if len(legs) > 1 else ""})
+    try:
+        import triple
+        for d, t in triple._load().items():
+            if not t.get("locked") and d != today:
+                continue
+            res = [T.grade_leg(l, d, ply, team)[0] for l in t["legs"]]
+            if today and d < today:   # finished night: no result = didn't play = void
+                res = [r or "void" for r in res]
+            if any(r is None for r in res):
+                if d == today:
+                    tonight.append({"kind": "triple", "what": " + ".join(f"{l['player']} {l['rung']}+ {T.LAB.get(l['stat'], l['stat'])}" for l in t["legs"]),
+                                    "p": 1 / t["quote_est"], "price_src": "Kalshi", "odds": T.p_to_am(1 / t["quote_est"]),
+                                    "src": "3x slip", "game": None, "note": f"about {t['quote_est']:.1f}x"})
+                continue
+            if t.get("locked"):
+                hist["triple"].append({"date": d, "hit": "miss" not in res and "hit" in res, "p": 1 / t["quote_est"]})
+    except Exception as e:  # noqa: BLE001
+        print(f"Proven picks: 3x slip history failed: {e}")
 
     kinds = []
     for k, (name, what) in KINDS.items():

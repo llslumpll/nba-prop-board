@@ -239,6 +239,9 @@ def summary(box, today: str | None) -> dict:
             g, x, rr = T.grade_leg(l, d, ply, team)
             legs.append({**l, "res": g, "actual": x, "cut": T.cut_short(d, l, rr) if g in ("hit", "miss") else None})
             res.append(g)
+        if today and d < today:   # a finished night: a leg with no result is a player who didn't play -> void
+            res = ["void" if r is None else r for r in res]
+            legs = [{**l, "res": l["res"] or "void"} for l in legs]
         status = "open" if any(r is None for r in res) else "graded"
         hit = status == "graded" and "miss" not in res and "hit" in res
         nights.append({"date": d, **s, "legs": legs, "status": status, "hit": hit})
