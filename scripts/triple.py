@@ -123,7 +123,8 @@ def _load() -> dict:
 
 def _bad_status(inj) -> set:
     return {T._norm(p.get("player")) for p in (inj or {}).get("players") or []
-            if str(p.get("status") or "").lower() in ("out", "doubtful", "questionable")}
+            if str(p.get("class") or "").lower() in ("out", "doubtful", "questionable")
+            or str(p.get("status") or "").lower() in ("out", "doubtful", "questionable")}
 
 
 def fits(st: str, rung: int, proj: float, h10: float | None) -> str | None:
