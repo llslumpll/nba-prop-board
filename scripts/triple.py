@@ -251,6 +251,6 @@ def summary(box, today: str | None) -> dict:
             u += (s["quote_est"] - 1) if hit else -1
             ln += sum(r in ("hit", "miss") for r in res)
             lw += sum(r == "hit" for r in res)
-    return {"tonight": next((x for x in nights if x["date"] == today), None),
+    return {"nights": nights, "tonight": next((x for x in nights if x["date"] == today), None),
             "last": next((x for x in nights if x["date"] != today and x["status"] == "graded"), None),
             "rec": {"n": n, "w": w, "u": round(u, 2), "legs_n": ln, "legs_w": lw}, "target": TARGET}

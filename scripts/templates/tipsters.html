@@ -95,6 +95,26 @@
 </section>
 
 <section class="hidden" data-tab-panel="tp:record">
+  {% set txr = tp.triple %}{% set bkr = tp.bestk %}
+  {% if (txr and txr.nights) or (bkr and bkr.nights) %}
+  <h2 class="hv-h3" id="site-record">The site's picks, every night</h2>
+  <p class="small dim">Graded each morning against final box scores. 3x slip at 1U at its estimated Kalshi quote; Best 5 on Kalshi at 1U a leg at Kalshi's ask. A leg whose player didn't play is void.</p>
+  <div class="hv-rec pz-board">
+    {% if txr %}<div class="hv-tile"><b>{{ txr.rec.w }}/{{ txr.rec.n }}</b><span>3x slips cashed &middot; {{ u(txr.rec.u) }}{% if txr.rec.legs_n %} &middot; legs {{ txr.rec.legs_w }}-{{ txr.rec.legs_n - txr.rec.legs_w }}{% endif %}</span></div>{% endif %}
+    {% if bkr %}<div class="hv-tile"><b>{{ bkr.rec.w }}-{{ bkr.rec.n - bkr.rec.w }}</b><span>Best 5 on Kalshi legs &middot; {{ u(bkr.rec.u) }}{% if bkr.last7.n %} &middot; last 7 nights {{ bkr.last7.w }}-{{ bkr.last7.n - bkr.last7.w }} {{ u(bkr.last7.u) }}{% endif %}</span></div>{% endif %}
+  </div>
+  <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+    <thead><tr><th>Night</th><th>3x slip</th><th>Best 5 on Kalshi</th><th></th></tr></thead><tbody>
+    {% set bkd = {} %}{% for n in (bkr.nights if bkr else []) %}{% set _ = bkd.update({n.date: n}) %}{% endfor %}
+    {% set txd = {} %}{% for n in (txr.nights if txr else []) %}{% set _ = txd.update({n.date: n}) %}{% endfor %}
+    {% for d in (txd.keys()|list + bkd.keys()|list)|unique|sort(reverse=true) %}{% set t = txd.get(d) %}{% set b = bkd.get(d) %}
+    <tr><td>{{ d }}</td>
+      <td>{% if not t %}<span class="dim">&ndash;</span>{% elif t.status != 'graded' %}<span class="dim">pending</span>{% elif t.hit %}<span class="stat-good">&#10004; cashed</span> {{ '%.1f'|format(t.quote_est) }}x &middot; {{ u(t.quote_est - 1) }}{% else %}<span class="stat-bad">&#10008; missed</span> ({{ t.legs|selectattr('res', 'equalto', 'hit')|list|length }}/{{ t.legs|length }} legs) &middot; {{ u(-1) }}{% endif %}</td>
+      <td>{% if not b %}<span class="dim">&ndash;</span>{% elif b.status != 'graded' and not (b.w + b.l) %}<span class="dim">pending</span>{% else %}{{ b.w }}&ndash;{{ b.l }} &middot; {{ u(b.u) }}{% endif %}</td>
+      <td><a class="small" href="history-{{ d }}.html#site-picks">legs &rarr;</a></td></tr>
+    {% endfor %}
+    </tbody></table></div></div>
+  {% endif %}
   <p class="small dim">Graded against final box scores. 1U per pick at the odds each account posted; the tail test grades the same picks at the price you could get when the site first saw them (from Nov 18 on).</p>
   <div class="table-wrap table-scroll"><table class="stat-table">
     <thead><tr><th>Account</th><th>Record</th><th>Hit</th><th>Units</th><th>Per pick</th><th>Last 10</th><th>Tail test</th><th>Honesty</th><th>Notes</th></tr></thead><tbody>

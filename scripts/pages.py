@@ -971,6 +971,13 @@ def render_all(ctx: dict) -> None:
             tags = [t.split(":")[1] for t in p.get("best5", [])]
             q["best5_label"] = " + ".join("Best 5" if t == "best5" else "Best Value" for t in tags)
             days[p["date"]].append(q)
+        import tipsters
+        _tpx = ctx.get("tipsters") or {}
+        site_by_date = defaultdict(dict)
+        for n in ((_tpx.get("triple") or {}).get("nights") or []):
+            site_by_date[n["date"]]["triple"] = n
+        for n in ((_tpx.get("bestk") or {}).get("nights") or []):
+            site_by_date[n["date"]]["bestk"] = n
         tdays = defaultdict(list)
         for t in tmonths.get(mo["key"], []):
             tdays[t["date"]].append(t)
@@ -990,7 +997,8 @@ def render_all(ctx: dict) -> None:
             keep.add(dname)
             # rendered every build but only written when something on it changed (e.g. grading landed)
             write(dname, "history_day.html", "history", only_if_changed=True, build_time=None,
-                  day=day, month_key=mo["key"], month_label=mo["label"])
+                  day=day, month_key=mo["key"], month_label=mo["label"], site=site_by_date.get(d) or {},
+                  lab=tipsters.LAB, p_to_am=tipsters.p_to_am)
         g = [p for p in ps if p["status"] == "graded"]
         summ = {"graded": len(g), "hits": sum(bool(p["hit"]) for p in g),
                 "hit_rate": round(100 * sum(bool(p["hit"]) for p in g) / len(g), 1) if g else None,

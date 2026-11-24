@@ -7,6 +7,12 @@
 <h1>{{ day.label }}: results</h1>
 <p class="lede">Every pick frozen for this slate, split by stat and game. <span class="s-over">&#10004; green = hit</span>, <span class="s-under">&#10008; red = miss</span>; void = the player didn't play; push = exactly on a whole-number line. &#9733; = was in Best 5 / Best Value.</p>
 
+{% if site and (site.triple or site.bestk) %}{% import "_cushion.html" as cz %}
+<h2 class="hv-h3" id="site-picks">The site's picks this night</h2>
+<p class="small dim">{% if site.triple %}<b>3x slip:</b> {% if site.triple.status != 'graded' %}pending{% elif site.triple.hit %}<span class="stat-good">cashed</span>, about {{ '%.1f'|format(site.triple.quote_est) }}x{% else %}<span class="stat-bad">missed</span>{% endif %}{% if site.triple.status == 'graded' %} ({{ site.triple.legs|selectattr('res', 'equalto', 'hit')|list|length }} of {{ site.triple.legs|length }} legs){% endif %}. {% endif %}{% if site.bestk %}<b>Best 5 on Kalshi:</b> {{ site.bestk.w }}&ndash;{{ site.bestk.l }} &middot; <span class="{{ 'stat-good' if site.bestk.u >= 0 else 'stat-bad' }}">{{ '%+.2f'|format(site.bestk.u) }}U</span> at 1U each.{% endif %} <a href="tipsters.html#site-record">every night &rarr;</a></p>
+<div class="pz-grid">{% if site.triple %}{{ cz.triple_card(site.triple, lab, p_to_am) }}{% endif %}{% if site.bestk %}{{ cz.bestk_card(site.bestk, lab, p_to_am, 'BEST 5 ON KALSHI') }}{% endif %}</div>
+{% endif %}
+
 <div class="day-strip">
   <div class="day-total"><b class="{{ 'stat-good' if day.rate is not none and day.rate >= 52.4 else 'stat-bad' if day.rate is not none }}">{{ day.hits }}&ndash;{{ day.graded - day.hits }}</b><span>{% if day.rate is not none %}{{ day.rate }}% &middot; {% endif %}{{ day.void }} void{% if day.pending %} &middot; {{ day.pending }} pending{% endif %}</span></div>
   {% for gr in day.groups %}

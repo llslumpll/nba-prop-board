@@ -25,7 +25,7 @@ PROMISING_EDGE = 0.02
 # rules first set on this date (from a look back over the season): results from here on are the honest test
 SINCE = {"strong": "2026-11-20", "agree": "2026-11-20", "disagree": "2026-11-20", "sam_cush": "2026-11-20",
          "sam_nocush": "2026-11-20", "cushion": "2026-11-20", "single": "2026-11-24", "value2": "2026-11-24",
-         "value3": "2026-11-24", "triple": "2026-11-24", "bestk": "2026-11-25"}
+         "value3": "2026-11-24", "triple": "2026-11-24", "bestk": "2026-11-24"}
 KINDS = {
     "sam_cush": ("Sam + model legs", "Sam's ladder legs where our projection clears his rung by a cushion (points +2, others +1)"),
     "strong": ("Tipster strong spots", "A profitable tipster's prop where our model agrees, he projects 32+ minutes, price better than -125"),

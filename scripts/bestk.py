@@ -83,7 +83,10 @@ def summary(box, today: str | None) -> dict:
             if g is None and today and d < today:
                 g = "void"
             legs.append({**l, "res": g, "actual": x, "cut": T.cut_short(d, l, rr) if g in ("hit", "miss") else None})
-        nights.append({"date": d, "legs": legs})
+        g_ = [l for l in legs if l["res"] in ("hit", "miss")]
+        nights.append({"date": d, "legs": legs, "w": sum(l["res"] == "hit" for l in g_), "l": sum(l["res"] == "miss" for l in g_),
+                       "u": round(sum(((1 - l["ask"]) / l["ask"]) if l["res"] == "hit" else -1.0 for l in g_), 2),
+                       "status": "open" if any(l["res"] is None for l in legs) else "graded"})
         for l in legs:
             if l["res"] not in ("hit", "miss"):
                 continue
@@ -96,6 +99,6 @@ def summary(box, today: str | None) -> dict:
                 last7["w"] += l["res"] == "hit"
                 last7["u"] += x
     last7["u"] = round(last7["u"], 2)
-    return {"tonight": next((x for x in nights if x["date"] == today), None),
+    return {"nights": nights, "tonight": next((x for x in nights if x["date"] == today), None),
             "last": next((x for x in nights if today and x["date"] < today), None),
             "rec": {"n": n, "w": w, "u": round(u, 2)}, "last7": last7}
