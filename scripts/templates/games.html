@@ -10,6 +10,9 @@
 {% for n in notices %}<div class="notice compact">{{ n|safe }}</div>{% endfor %}
 </details>
 
+{% if tel and tel.games %}
+<div class="notice compact tel-h2h"><strong>Teleios vs Prop Edge, moneyline on the same games since Nov 23:</strong> Teleios <b>{{ tel.teleios }}&ndash;{{ tel.games - tel.teleios }}</b>, Prop Edge <b>{{ tel.ours }}&ndash;{{ tel.games - tel.ours }}</b>{% if tel.disagreements %} &middot; when they picked different teams ({{ tel.disagreements }}): Teleios right {{ tel.teleios_right_when_split }}, Prop Edge right {{ tel.ours_right_when_split }}{% endif %}. <a href="{{ tel.site }}" target="_blank" rel="noopener">Teleios site &rarr;</a></div>
+{% endif %}
 <div class="seg" data-tabs="gview" data-hash="1">
   <button data-tab="top" class="active">TOP PICKS</button>{% for mk in g_mkt %}<button data-tab="{{ mk.key }}">{{ mk.label|upper }}</button>{% endfor %}<button data-tab="edges">EDGES{% if ed.edges %} ({{ ed.edges|length }}){% endif %}</button><button data-tab="favs">FAVORITES{% if fv and fv.tonight %} ({{ fv.tonight|length }}){% endif %}</button><button data-tab="all">ALL GAMES</button><button data-tab="live" class="live-tab"><i class="live-dot"></i>LIVE</button>
 </div>
@@ -177,6 +180,16 @@
         <p class="why-reason gp-why">{{ p.why }}</p>
       </div>
       {% endfor %}
+      {% if c.g.teleios %}{% set t = c.g.teleios %}
+      {% set ml = (c.picks|selectattr('market','equalto','moneyline')|list) %}
+      <div class="gp-row tel-row">
+        <div class="gp-mkt">TELEIOS</div>
+        <div class="gp-pick"><span class="pill pill-over pill-sm">{{ t.pick }} ML</span> <span class="dim small">wins by ~{{ t.margin|abs|round(0)|int }}</span></div>
+        <div class="gp-ch"><b>{{ (t.chance * 100)|round(0)|int }}%</b>{% if ml %}{% if ml[0].pick == t.pick %} <span class="small stat-good">agrees with our pick</span>{% else %} <span class="small stat-bad">disagrees: we pick {{ ml[0].pick }}</span>{% endif %}{% endif %}</div>
+        <div class="gp-tags">{% if t.result %}{% if t.result.hit %}<span class="stat-good">&#10003; right</span>{% else %}<span class="stat-bad">&#10007; wrong</span>{% endif %}{% elif t.locked %}<span class="locked">&#128274; locked at tip</span>{% else %}<span class="dim small">updates till tip</span>{% endif %} <a class="small" href="{{ t.url }}" target="_blank" rel="noopener">why &rarr;</a></div>
+        <p class="why-reason gp-why">Teleios's own model (team strength from the players who will play, plus home court, rest and travel). Not part of our picks or units; shown so both records can be compared.{% set outs = (t.out.values()|list|sum(start=[])) if t.out else [] %}{% if outs %} Key players out: {{ outs|join(', ') }}.{% endif %}</p>
+      </div>
+      {% endif %}
     </div>
     {% else %}<p class="small dim">No market lines for this game yet, so no picks.</p>{% endif %}
     <div class="two-col">

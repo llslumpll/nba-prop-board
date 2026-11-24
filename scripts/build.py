@@ -51,6 +51,7 @@ import edges  # noqa: E402
 import market  # noqa: E402
 import parlays  # noqa: E402
 import news  # noqa: E402
+import teleios_feed  # noqa: E402
 import pages  # noqa: E402
 import predictions  # noqa: E402
 import prizepicks_client  # noqa: E402
@@ -268,6 +269,10 @@ def build(args) -> None:
         g["kalshi_ml"] = kalshi_client.moneyline(kal, g["away"], g["home"], g["date"])
         if go.get("spread"):
             spreads[g["game_id"]] = go["spread"]["home_point"]
+    try:  # Teleios's game picks, shown beside ours on the Games page (small public files; fails soft)
+        print(f"Teleios: picks attached to {teleios_feed.attach(sl)} game(s)")
+    except Exception as e:  # noqa: BLE001
+        print(f"Teleios: skipped ({type(e).__name__}: {e})")
     if not args.no_fetch and sl.get("games"):  # Polymarket US prices (update 79): shown next to each pick, used by the tail test
         pm = polymarket_client.fetch(sl, now)
         print(f"Polymarket US: {len(pm['games'])}/{len(sl['games'])} games, "
