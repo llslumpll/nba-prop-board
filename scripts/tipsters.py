@@ -804,3 +804,66 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
             "season_from": min((r["date"] for r in allp), default=None), "lab": LAB, "p_to_am": p_to_am,
             "spot_rec": {k: rec(sorted(v, key=lambda r: r["date"])) for k, v in spot_rec.items()}, "spot_min": SPOT_MIN,
             "juice": JUICE, "agree_rec": agree_rec, "agree_min": int(AGREE_MIN)}
+
+
+def attach_live(tp: dict | None, today: str | None) -> int:
+    """Live pick tracker on the Tipsters page and Your board (Nov 24): give every open leg tonight the keys the browser
+    tracker needs (game id, ESPN player id, our projection, projected minutes), so once its game tips it shows the stat
+    so far, where it is headed, and ON PACE / BEHIND, like the Picks tab. Moneyline / spread legs get the live score."""
+    if not tp or not today:
+        return 0
+    rows = _pred_rows(today)
+    by_player: dict = {}
+    for (pn, _st), r in rows.items():
+        by_player.setdefault(pn, r)
+    n = 0
+
+    def tag(l: dict) -> None:
+        nonlocal n
+        if not isinstance(l, dict) or l.get("lv"):
+            return
+        st = l.get("stat")
+        if st in ("ml", "spread") or l.get("kind") in ("ml", "spread"):
+            if l.get("game_id"):
+                l["lvg"] = l["game_id"]
+            return
+        pn = _norm(l.get("player") or "")
+        r = rows.get((pn, st)) or by_player.get(pn)
+        if not r or not r.get("game_id") or not r.get("player_id"):
+            return
+        line = l.get("line")
+        if line is None and l.get("rung") is not None:
+            line = float(l["rung"]) - 0.5
+        if line is None:
+            return
+        side = "UNDER" if str(l.get("side") or "over").lower() in ("under", "no") else "OVER"
+        same = r.get("stat") == st
+        l["lv"] = {"gid": r["game_id"], "pid": r["player_id"], "line": line, "side": side,
+                   "proj": (r.get("blend_mean") or r.get("projected")) if same else None, "pm": r.get("proj_min")}
+        n += 1
+
+    for r in tp.get("tonight") or []:
+        for l in r.get("legs") or []:
+            tag(l)
+        if r.get("kind") == "spread" and r.get("game_id"):
+            r["lvg"] = r["game_id"]
+    for c in tp.get("combos") or []:
+        if c.get("date") != today:
+            continue
+        for t in c.get("tiers") or c.get("slips") or []:
+            for l in t.get("legs") or []:
+                tag(l)
+        for l in c.get("legs") or []:
+            tag(l)
+    sb = (tp.get("siteladder") or {}).get("best") or {}
+    for l in ((sb.get("tonight") or {}).get("legs") or []):
+        tag(l)
+    sx = (tp.get("siteladder") or {}).get("tonight") or {}
+    for lad in sx.get("ladders") or []:
+        for t in lad.get("tiers") or []:
+            for l in t.get("legs") or []:
+                tag(l)
+    tx = (tp.get("triple") or {}).get("tonight") or {}
+    for l in tx.get("legs") or []:
+        tag(l)
+    return n

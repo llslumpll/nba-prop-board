@@ -600,6 +600,10 @@ def build(args) -> None:
     except Exception as e:  # noqa: BLE001
         pv = None
         print(f"Proven picks failed: {e}")
+    try:  # live progress on Tipsters / Your board legs once their games tip (same tracker as the Picks tab)
+        print(f"Live tags on tipster legs: {tipsters.attach_live(tp, sl.get('date'))}")
+    except Exception as e:  # noqa: BLE001
+        print(f"Live tags on tipster legs failed: {e}")
     pages.render_all({
         "now": now, "slate": sl, "res": res, "best": best, "edge": est, "cal": cal, "preds": preds_all,
         "tpreds": predictions.load_all(team=True), "sources": sources, "health": health, "lm": lm,

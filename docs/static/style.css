@@ -1577,3 +1577,5 @@ html:not([data-theme="court"]) .brand, .brand { outline: none !important; animat
 .pv-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
 .pv-table th { text-align: left; font-size: .7rem; color: var(--text-dim); font-weight: 800; padding: 4px 6px; white-space: nowrap; }
 .pv-table td { padding: 6px; border-top: 1px solid rgba(255,255,255,.08); white-space: nowrap; }
+/* live tracker inside slip / tipster cards (Nov 24): its own row under the leg */
+.pz-leg > .lv { grid-column: 2 / -1; margin-top: 6px; }
