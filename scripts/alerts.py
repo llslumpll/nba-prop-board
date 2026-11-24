@@ -13,6 +13,8 @@ What gets sent (each thing once; data/alerts_state.json remembers what was sent)
   * a player pick that turns GOOD PRICE (carries a stake: its chance beats the price and its kind of pick has
     earned one) before its game tips; once per player / stat / side a day, all new ones in one message
   * a morning recap (first build after 9 AM CT): last night's results in units and dollars (1U = $100)
+  * the site's picks (Nov 24): the 3x slip and Best 5 on Kalshi ~40 minutes before the first of their games tips,
+    the 3x slip again when it locks if its legs changed since, and both results in the morning recap
   * a one-time "connected" message the first time the secret works
 """
 
@@ -145,6 +147,69 @@ def good_price_messages(res: dict | None, now: datetime) -> list[tuple[str, str]
     return out
 
 
+SITE_PICKS_LEAD = timedelta(minutes=40)
+
+
+def _jload(name: str) -> dict:
+    try:
+        return json.loads((ROOT / "tipsters" / name).read_text())
+    except Exception:  # noqa: BLE001
+        return {}
+
+
+def _am(p: float) -> str:
+    if not p or p <= 0 or p >= 1:
+        return ""
+    return f"{-round(100 * p / (1 - p)):+d}" if p >= 0.5 else f"+{round(100 * (1 - p) / p)}"
+
+
+def _leg(l: dict) -> str:
+    return f"{l['player']} {l['rung']}+ {STAT.get(l['stat'], l['stat'])} · Kalshi {round(100 * l['ask'])}% ({_am(l['ask'])}) · {l.get('team')} vs {l.get('opp')}"
+
+
+def _tipdt(l: dict) -> datetime | None:
+    try:
+        return datetime.fromisoformat(str(l.get("tip")).replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
+
+def site_pick_messages(date: str, now: datetime, sent: dict) -> list[tuple[str, str]]:
+    """The 3x slip + Best 5 on Kalshi, once ~40 minutes before the first of their games tips; the 3x slip again
+    when it locks, only if its legs changed after that message went out."""
+    tx = _jload("triple.json").get(date) or {}
+    bk = _jload("bestk.json").get(date) or {}
+    legs = (tx.get("legs") or []) + (bk.get("legs") or [])
+    tips = [t for t in (_tipdt(l) for l in legs) if t]
+    if not tips:
+        return []
+    first = min(tips)
+    out = []
+    sig = lambda ls: "|".join(sorted(f"{l['player']}:{l['stat']}:{l['rung']}" for l in ls))
+    if first - SITE_PICKS_LEAD <= now < first + timedelta(minutes=30):
+        lines = [f"🎯 **Tonight's site picks** · first tip {first.astimezone(CT):%-I:%M %p} CT"]
+        if tx.get("legs"):
+            lines.append(f"**3x slip** · about {tx['quote_est']:.1f}x on Kalshi · cashes ~{round(100 * tx['chance'])}% · 0.5U ($50) suggested")
+            lines += [f"• {_leg(l)}" for l in tx["legs"]]
+        if bk.get("legs"):
+            lines.append("**Best 5 on Kalshi** · straight bets, 1U ($100) or less each")
+            lines += [f"• {_leg(l)} · really hits ~{round(100 * l['est'])}%" for l in bk["legs"]]
+        lines.append("Legs can still change until they tip: check the site before betting.")
+        lines.append(f"{SITE}#triple")
+        out.append((f"sitepicks|{date}", "\n".join(lines)))
+        tsig = sig(tx.get("legs") or [])
+        if f"sitepicks|{date}" not in sent:
+            out.append((f"tripsig|{date}|{tsig}", ""))   # remember what the first message showed (not posted)
+    if tx.get("locked") and tx.get("legs") and f"sitepicks|{date}" in sent:
+        tsig = sig(tx["legs"])
+        if not any(k.startswith(f"tripsig|{date}|") and k.endswith(tsig) for k in sent):
+            lines = [f"🔒 **3x slip locked, legs changed** · about {tx['quote_est']:.1f}x on Kalshi · cashes ~{round(100 * tx['chance'])}%"]
+            lines += [f"• {_leg(l)}" for l in tx["legs"]]
+            lines.append(f"{SITE}#triple")
+            out.append((f"triplelock|{date}", "\n".join(lines)))
+    return out
+
+
 def recap_message(now: datetime) -> tuple[str, str] | None:
     """Once a day, the first build after 9 AM CT: yesterday's slate."""
     local = now.astimezone(CT)
@@ -183,6 +248,27 @@ def recap_message(now: datetime) -> tuple[str, str] | None:
                          f"(season {mb.get('hits', 0)}/{mb.get('n', 0)} · {_money(mb.get('units', 0))})")
     except Exception:  # noqa: BLE001
         pass
+    try:  # the site's picks (3x slip, Best 5 on Kalshi)
+        import dataio
+        import triple
+        import bestk
+        box = dataio.load_box()
+        td = local.strftime("%Y-%m-%d")
+        ts = triple.summary(box, td)
+        t = next((n for n in [ts.get("last")] if n and n["date"] == y), None)
+        if t:
+            got = sum(l["res"] == "hit" for l in t["legs"])
+            lines.append(f"**3x slip: {'CASHED ✅' if t['hit'] else 'missed ❌'}** ({got}/{len(t['legs'])} legs) · "
+                         f"{_money((t['quote_est'] - 1) * 0.5 if t['hit'] else -0.5)} at 0.5U · record {ts['rec']['w']}/{ts['rec']['n']}")
+        bs = bestk.summary(box, td)
+        b = next((n for n in [bs.get("last")] if n and n["date"] == y), None)
+        if b:
+            g = [l for l in b["legs"] if l["res"] in ("hit", "miss")]
+            u = sum(((1 - l["ask"]) / l["ask"]) if l["res"] == "hit" else -1 for l in g)
+            lines.append(f"**Best 5 on Kalshi: {sum(l['res'] == 'hit' for l in g)}-{sum(l['res'] == 'miss' for l in g)}** · "
+                         f"{_money(u)} at 1U each · season {bs['rec']['w']}-{bs['rec']['n'] - bs['rec']['w']} {_money(bs['rec']['u'])}")
+    except Exception as e:  # noqa: BLE001
+        print(f"Recap site picks failed: {e}")
     lines.append(SITE)
     return (f"recap|{y}", "\n".join(lines))
 
@@ -206,6 +292,11 @@ def run(sl: dict, now: datetime | None = None, res: dict | None = None) -> dict:
                 msgs += fn()
         except Exception as e:  # noqa: BLE001
             print(f"Alert check failed: {e}")
+    try:  # the site's picks: 3x slip + Best 5 on Kalshi before the first tip
+        if date:
+            msgs += site_pick_messages(date, now, sent)
+    except Exception as e:  # noqa: BLE001
+        print(f"Site picks alert failed: {e}")
     try:  # new GOOD PRICE picks go out together, in one message
         new = [(k, t) for k, t in good_price_messages(res, now) if k not in sent]
         if new:
@@ -223,6 +314,10 @@ def run(sl: dict, now: datetime | None = None, res: dict | None = None) -> dict:
     for key, text in msgs:
         keys = key if isinstance(key, list) else [key]  # a combined good-price message carries one key per pick
         if all(k in sent for k in keys):
+            continue
+        if not text:   # a marker to remember (e.g. which 3x slip the pre-tip message showed), never posted
+            for k in keys:
+                sent[k] = stamp
             continue
         if _post(url, text):
             for k in keys:
