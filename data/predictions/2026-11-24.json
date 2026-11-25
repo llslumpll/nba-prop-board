@@ -1200,23 +1200,23 @@
   "adj": [],
   "anchor": null,
   "be_over": 0.4269,
-  "be_under": 0.6365,
+  "be_under": 0.6267,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 1.47,
+  "blend_mean": 1.49,
   "blend_w": 0.225,
-  "break_even": 0.6365,
+  "break_even": 0.6267,
   "call": "UNDER",
-  "chance": 0.6182,
-  "close_at": "2026-11-25 01:16 UTC",
+  "chance": 0.6144,
+  "close_at": "2026-11-25 01:26 UTC",
   "close_line": 1.5,
-  "close_mkt": 0.605,
+  "close_mkt": 0.6,
   "date": "2026-11-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 1.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:16 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": true,
@@ -1228,7 +1228,7 @@
    ],
    [
     2,
-    0.38,
+    0.39,
     0.41
    ],
    [
@@ -1253,12 +1253,12 @@
   "lines": {
    "kalshi": 1.5
   },
-  "market_side": 0.605,
+  "market_side": 0.6,
   "mkt": {
    "kalshi": [
     1.5,
     0.4269,
-    0.6365
+    0.6267
    ]
   },
   "move": null,
@@ -1336,7 +1336,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 8,
+  "updates": 9,
   "var": 2.382,
   "why": "29.1 min (recent 30.3, \u22121.1 team-minutes adjustment); \u00d7 0.040 3-pointers made/min (83% this season's 0.036 over 15 games, 17% prior 0.056); context: home +1%, shared production on DEN +6%; shot-zone matchup \u22121% (where he scores vs where DAL gives up points); calibration +0.0."
  },
@@ -1460,23 +1460,23 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.6267,
-  "be_under": 0.4269,
+  "be_over": 0.542,
+  "be_under": 0.542,
   "best5": [],
-  "blend_mean": 21.63,
+  "blend_mean": 21.34,
   "blend_w": 0.225,
-  "break_even": 0.6267,
-  "call": "OVER",
-  "chance": 0.5838,
-  "close_at": "2026-11-25 01:23 UTC",
-  "close_line": 19.5,
-  "close_mkt": 0.6,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5064,
+  "close_at": "2026-11-25 01:26 UTC",
+  "close_line": 21.5,
+  "close_mkt": null,
   "date": "2026-11-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 20.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": true,
@@ -1493,26 +1493,32 @@
    ],
    [
     25,
-    0.31,
+    0.3,
     0.34
    ]
   ],
   "label": "lean",
-  "line": 19.5,
-  "line_source": "kalshi",
+  "line": 21.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 19.5
+   "kalshi": 19.5,
+   "prizepicks": 21.5
   },
-  "market_side": 0.6,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     19.5,
     0.6267,
     0.4269
+   ],
+   "prizepicks": [
+    21.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
-  "move_dir": null,
+  "move": 1.0,
+  "move_dir": "against",
   "opp": "DAL",
   "out_ctx": [
    "Dereck Lively II",
@@ -1525,7 +1531,7 @@
   "proj_min": 29.1,
   "projected": 20.8,
   "role_gap": false,
-  "skip": null,
+  "skip": "pra|prizepicks",
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -1576,7 +1582,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks",
   "stat": "pra",
   "status": "pending",
   "team": "DEN",
@@ -1584,7 +1590,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 25,
+  "updates": 26,
   "var": 83.197,
   "why": "29.1 min (recent 30.3, \u22121.1 team-minutes adjustment); \u00d7 0.703 pts+reb+ast/min (83% this season's 0.652 over 15 games, 17% prior 0.833); context: home +1%, shared production on DEN \u22121%; shot-zone matchup +1% (where he scores vs where DAL gives up points); calibration +0.1."
  },
@@ -1706,25 +1712,27 @@
  },
  "Aaron Gordon|pts|401909316": {
   "actual": null,
-  "adj": [],
+  "adj": [
+   "side set to UNDER to match PrizePicks at the same line (books disagreed); no stake"
+  ],
   "anchor": null,
   "be_over": 0.5652173913043478,
   "be_under": 0.504950495049505,
   "best5": [],
   "blend_mean": 13.9,
   "blend_w": 0.225,
-  "break_even": 0.5652173913043478,
-  "call": "OVER",
-  "chance": 0.5199,
-  "close_at": "2026-11-25 01:23 UTC",
+  "break_even": 0.504950495049505,
+  "call": "UNDER",
+  "chance": 0.5,
+  "close_at": "2026-11-25 01:26 UTC",
   "close_line": 13.5,
-  "close_mkt": 0.5282,
+  "close_mkt": 0.4718,
   "date": "2026-11-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 13.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": true,
@@ -1750,9 +1758,10 @@
   "line_source": "fanduel",
   "lines": {
    "fanduel": 13.5,
-   "kalshi": 14.5
+   "kalshi": 14.5,
+   "prizepicks": 13.5
   },
-  "market_side": 0.5282,
+  "market_side": 0.4718,
   "mkt": {
    "fanduel": [
     13.5,
@@ -1763,6 +1772,11 @@
     14.5,
     0.4472,
     0.5971
+   ],
+   "prizepicks": [
+    13.5,
+    0.542,
+    0.542
    ]
   },
   "move": null,
@@ -1838,7 +1852,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 26,
+  "updates": 27,
   "var": 59.614,
   "why": "29.1 min (recent 30.3, \u22121.1 team-minutes adjustment); \u00d7 0.456 points/min (75% this season's 0.410 over 15 games, 25% prior 0.539); context: home +1%, shared production on DEN \u22121%; shot-zone matchup +1% (where he scores vs where DAL gives up points); calibration +0.0."
  },
@@ -8779,28 +8793,24 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.6952,
-  "be_under": 0.3761,
-  "best5": [
-   "combos:best5"
-  ],
-  "best5_at": {
-   "combos:best5": "2026-11-25 01:23:07 UTC"
-  },
-  "blend_mean": 12.81,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "best5_at": {},
+  "blend_mean": 11.77,
   "blend_w": 0.225,
-  "break_even": 0.6952,
+  "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.6469,
-  "close_at": "2026-11-25 01:23 UTC",
-  "close_line": 9.5,
-  "close_mkt": 0.66,
+  "chance": 0.5127,
+  "close_at": "2026-11-25 01:26 UTC",
+  "close_line": 11.5,
+  "close_mkt": null,
   "date": "2026-11-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 11.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": false,
@@ -8812,25 +8822,31 @@
    ],
    [
     15,
-    0.31,
+    0.32,
     0.35
    ]
   ],
   "label": "lean",
-  "line": 9.5,
-  "line_source": "kalshi",
+  "line": 11.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 9.5
+   "kalshi": 9.5,
+   "prizepicks": 11.5
   },
-  "market_side": 0.66,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     9.5,
     0.6952,
     0.3761
+   ],
+   "prizepicks": [
+    11.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "DEN",
   "out_ctx": [
@@ -8844,7 +8860,7 @@
   "proj_min": 22.7,
   "projected": 12.7,
   "role_gap": false,
-  "skip": null,
+  "skip": "pra|prizepicks|OVER",
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -8895,7 +8911,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks",
   "stat": "pra",
   "status": "pending",
   "team": "DAL",
@@ -8903,7 +8919,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 23,
+  "updates": 24,
   "var": 64.934,
   "why": "22.7 min (recent 23.7, \u22121.0 team-minutes adjustment); \u00d7 0.550 pts+reb+ast/min (81% this season's 0.552 over 13 games, 19% prior 0.559); context: road \u22121%, opponent defense +2%, shared production on DAL \u22121%; shot-zone matchup +3% (where he scores vs where DEN gives up points); calibration +0.0."
  },
@@ -9684,23 +9700,23 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.4673,
-  "be_under": 0.5872,
+  "be_over": 0.542,
+  "be_under": 0.542,
   "best5": [],
-  "blend_mean": 18.57,
+  "blend_mean": 18.72,
   "blend_w": 0.225,
-  "break_even": 0.5872,
-  "call": "UNDER",
-  "chance": 0.5433,
-  "close_at": "2026-11-25 01:23 UTC",
-  "close_line": 19.5,
-  "close_mkt": 0.56,
+  "break_even": 0.542,
+  "call": "OVER",
+  "chance": 0.51,
+  "close_at": "2026-11-25 01:26 UTC",
+  "close_line": 18.5,
+  "close_mkt": null,
   "date": "2026-11-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 17.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": true,
@@ -9722,21 +9738,27 @@
    ]
   ],
   "label": "lean",
-  "line": 19.5,
-  "line_source": "kalshi",
+  "line": 18.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 19.5
+   "kalshi": 19.5,
+   "prizepicks": 18.5
   },
-  "market_side": 0.56,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     19.5,
     0.4673,
     0.5872
+   ],
+   "prizepicks": [
+    18.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
-  "move_dir": null,
+  "move": 1.0,
+  "move_dir": "agree",
   "opp": "DAL",
   "out_ctx": [
    "Dereck Lively II",
@@ -9749,7 +9771,7 @@
   "proj_min": 30.3,
   "projected": 19.5,
   "role_gap": false,
-  "skip": null,
+  "skip": "pra|prizepicks|OVER",
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -9800,7 +9822,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks",
   "stat": "pra",
   "status": "pending",
   "team": "DEN",
@@ -9808,7 +9830,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 25,
+  "updates": 26,
   "var": 65.521,
   "why": "30.3 min (recent 31.6, \u22121.2 team-minutes adjustment); \u00d7 0.637 pts+reb+ast/min (80% this season's 0.629 over 12 games, 20% prior 0.700); context: home +1%, shared production on DEN \u22121%; calibration +0.0."
  },
@@ -9930,25 +9952,27 @@
  },
  "Cameron Johnson|pts|401909316": {
   "actual": null,
-  "adj": [],
+  "adj": [
+   "side set to UNDER to match PrizePicks at the same line (books disagreed); no stake"
+  ],
   "anchor": null,
   "be_over": 0.5412844036697247,
   "be_under": 0.5283018867924528,
   "best5": [],
   "blend_mean": 12.73,
   "blend_w": 0.225,
-  "break_even": 0.5412844036697247,
-  "call": "OVER",
-  "chance": 0.514,
-  "close_at": "2026-11-25 01:23 UTC",
+  "break_even": 0.5283018867924528,
+  "call": "UNDER",
+  "chance": 0.5,
+  "close_at": "2026-11-25 01:26 UTC",
   "close_line": 12.5,
-  "close_mkt": 0.5061,
+  "close_mkt": 0.4939,
   "date": "2026-11-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 12.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": true,
@@ -9974,9 +9998,10 @@
   "line_source": "fanduel",
   "lines": {
    "fanduel": 12.5,
-   "kalshi": 14.5
+   "kalshi": 14.5,
+   "prizepicks": 12.5
   },
-  "market_side": 0.5061,
+  "market_side": 0.4939,
   "mkt": {
    "fanduel": [
     12.5,
@@ -9987,6 +10012,11 @@
     14.5,
     0.4067,
     0.6365
+   ],
+   "prizepicks": [
+    12.5,
+    0.542,
+    0.542
    ]
   },
   "move": null,
@@ -10062,21 +10092,21 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 24,
+  "updates": 25,
   "var": 41.08,
   "why": "30.3 min (recent 31.6, \u22121.2 team-minutes adjustment); \u00d7 0.434 points/min (71% this season's 0.428 over 12 games, 29% prior 0.470); context: home +1%, shared production on DEN \u22121%."
  },
  "Cameron Johnson|reb|401909316": {
   "actual": null,
   "adj": [],
-  "anchor": null,
-  "be_over": 0.5275,
-  "be_under": 0.5175,
+  "anchor": "kalshi",
+  "be_over": 0.542,
+  "be_under": 0.542,
   "best5": [],
   "best5_at": {},
   "blend_mean": 3.8,
   "blend_w": 0.225,
-  "break_even": 0.5275,
+  "break_even": 0.542,
   "call": "OVER",
   "chance": 0.5183,
   "close_at": "2026-11-24 23:15 UTC",
@@ -10087,7 +10117,7 @@
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 3.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": true,
@@ -10115,9 +10145,10 @@
   ],
   "label": "lean",
   "line": 3.5,
-  "line_source": "kalshi",
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 3.5
+   "kalshi": 3.5,
+   "prizepicks": 3.5
   },
   "market_side": 0.505,
   "mkt": {
@@ -10125,9 +10156,14 @@
     3.5,
     0.5275,
     0.5175
+   ],
+   "prizepicks": [
+    3.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
   "out_ctx": [
@@ -10141,7 +10177,7 @@
   "proj_min": 30.3,
   "projected": 4.0,
   "role_gap": false,
-  "skip": "reb|kalshi",
+  "skip": null,
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -10192,7 +10228,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks+kalshi",
   "stat": "reb",
   "status": "pending",
   "team": "DEN",
@@ -10200,7 +10236,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 31,
+  "updates": 32,
   "var": 4.396,
   "why": "30.3 min (recent 31.6, \u22121.2 team-minutes adjustment); \u00d7 0.129 rebounds/min (50% this season's 0.121 over 12 games, 50% prior 0.140); context: home +1%, shared production on DEN +2%; calibration -0.0."
  },
@@ -10603,24 +10639,24 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.5673,
-  "be_under": 0.4774,
+  "be_over": 0.542,
+  "be_under": 0.542,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 20.49,
+  "blend_mean": 20.54,
   "blend_w": 0.225,
-  "break_even": 0.5673,
+  "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5443,
-  "close_at": "2026-11-25 01:23 UTC",
-  "close_line": 19.5,
-  "close_mkt": 0.545,
+  "chance": 0.502,
+  "close_at": "2026-11-25 01:26 UTC",
+  "close_line": 20.5,
+  "close_mkt": null,
   "date": "2026-11-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 19.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": true,
@@ -10642,21 +10678,27 @@
    ]
   ],
   "label": "lean",
-  "line": 19.5,
-  "line_source": "kalshi",
+  "line": 20.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 19.5
+   "kalshi": 19.5,
+   "prizepicks": 20.5
   },
-  "market_side": 0.545,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     19.5,
     0.5673,
     0.4774
+   ],
+   "prizepicks": [
+    20.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
-  "move_dir": null,
+  "move": 1.0,
+  "move_dir": "agree",
   "opp": "DAL",
   "out_ctx": [
    "Dereck Lively II",
@@ -10669,7 +10711,7 @@
   "proj_min": 33.2,
   "projected": 20.7,
   "role_gap": false,
-  "skip": null,
+  "skip": "pra|prizepicks|OVER",
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -10720,7 +10762,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks",
   "stat": "pra",
   "status": "pending",
   "team": "DEN",
@@ -10728,7 +10770,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 24,
+  "updates": 25,
   "var": 68.123,
   "why": "33.2 min (recent 34.5, \u22121.3 team-minutes adjustment); \u00d7 0.616 pts+reb+ast/min (83% this season's 0.614 over 15 games, 17% prior 0.664); context: home +1%, shared production on DEN \u22121%; shot-zone matchup +1% (where he scores vs where DAL gives up points); calibration +0.1."
  },
@@ -11090,23 +11132,23 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.3659,
-  "be_under": 0.6855,
+  "be_over": 0.542,
+  "be_under": 0.542,
   "best5": [],
-  "blend_mean": 4.77,
+  "blend_mean": 4.74,
   "blend_w": 0.225,
-  "break_even": 0.6855,
-  "call": "UNDER",
-  "chance": 0.6482,
-  "close_at": "2026-11-25 01:23 UTC",
-  "close_line": 5.5,
-  "close_mkt": 0.66,
+  "break_even": 0.542,
+  "call": "OVER",
+  "chance": 0.5063,
+  "close_at": "2026-11-25 01:26 UTC",
+  "close_line": 4.5,
+  "close_mkt": null,
   "date": "2026-11-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 4.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": true,
@@ -11133,20 +11175,26 @@
    ]
   ],
   "label": "lean",
-  "line": 5.5,
-  "line_source": "kalshi",
+  "line": 4.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 5.5
+   "kalshi": 5.5,
+   "prizepicks": 4.5
   },
-  "market_side": 0.66,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     5.5,
     0.3659,
     0.6855
+   ],
+   "prizepicks": [
+    4.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
   "out_ctx": [
@@ -11160,7 +11208,7 @@
   "proj_min": 33.2,
   "projected": 4.9,
   "role_gap": false,
-  "skip": "reb|kalshi|UNDER",
+  "skip": null,
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -11211,7 +11259,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks",
   "stat": "reb",
   "status": "pending",
   "team": "DEN",
@@ -11219,7 +11267,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 23,
+  "updates": 24,
   "var": 5.354,
   "why": "33.2 min (recent 34.5, \u22121.3 team-minutes adjustment); \u00d7 0.141 rebounds/min (56% this season's 0.136 over 15 games, 44% prior 0.149); context: home +1%, opponent defense +1%, shared production on DEN +2%."
  },
@@ -11227,23 +11275,23 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.6168,
-  "be_under": 0.4269,
+  "be_over": 0.542,
+  "be_under": 0.542,
   "best5": [],
-  "blend_mean": 6.43,
+  "blend_mean": 6.6,
   "blend_w": 0.225,
-  "break_even": 0.6168,
-  "call": "OVER",
-  "chance": 0.5615,
-  "close_at": "2026-11-25 01:23 UTC",
-  "close_line": 5.5,
-  "close_mkt": 0.595,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5372,
+  "close_at": "2026-11-25 01:26 UTC",
+  "close_line": 6.5,
+  "close_mkt": null,
   "date": "2026-11-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 5.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": false,
@@ -11270,21 +11318,27 @@
    ]
   ],
   "label": "lean",
-  "line": 5.5,
-  "line_source": "kalshi",
+  "line": 6.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 5.5
+   "kalshi": 5.5,
+   "prizepicks": 6.5
   },
-  "market_side": 0.595,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     5.5,
     0.6168,
     0.4269
+   ],
+   "prizepicks": [
+    6.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
-  "move_dir": null,
+  "move": 1.0,
+  "move_dir": "against",
   "opp": "DEN",
   "out_ctx": [
    "Dereck Lively II",
@@ -11297,7 +11351,7 @@
   "proj_min": 31.1,
   "projected": 5.5,
   "role_gap": false,
-  "skip": null,
+  "skip": "ast|prizepicks",
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -11348,7 +11402,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks",
   "stat": "ast",
   "status": "pending",
   "team": "DAL",
@@ -11356,7 +11410,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 23,
+  "updates": 24,
   "var": 9.7,
   "why": "31.1 min (recent 32.5, \u22121.3 team-minutes adjustment); \u00d7 0.169 assists/min (76% this season's 0.191 over 16 games, 24% prior 0.127); context: road \u22121%, opponent defense +3%, shared production on DAL \u22123%; calibration +0.1."
  },
@@ -11627,28 +11681,26 @@
  },
  "Cooper Flagg|pra|401909316": {
   "actual": null,
-  "adj": [
-   "no stake yet: picks like this are 1380/2384 (58%); a stake needs 30+ graded at 62%+ (2 points over the 60% their prices need)"
-  ],
+  "adj": [],
   "anchor": null,
-  "be_over": 0.4572,
-  "be_under": 0.5872,
+  "be_over": 0.542,
+  "be_under": 0.542,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 36.41,
+  "blend_mean": 37.28,
   "blend_w": 0.225,
-  "break_even": 0.5872,
+  "break_even": 0.542,
   "call": "UNDER",
-  "chance": 0.5881,
-  "close_at": "2026-11-25 01:23 UTC",
-  "close_line": 39.5,
-  "close_mkt": 0.565,
+  "chance": 0.5346,
+  "close_at": "2026-11-25 01:26 UTC",
+  "close_line": 38.5,
+  "close_mkt": null,
   "date": "2026-11-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 35.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": false,
@@ -11675,21 +11727,27 @@
    ]
   ],
   "label": "lean",
-  "line": 39.5,
-  "line_source": "kalshi",
+  "line": 38.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 39.5
+   "kalshi": 39.5,
+   "prizepicks": 38.5
   },
-  "market_side": 0.565,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     39.5,
     0.4572,
     0.5872
+   ],
+   "prizepicks": [
+    38.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
-  "move_dir": null,
+  "move": 3.0,
+  "move_dir": "against",
   "opp": "DEN",
   "out_ctx": [
    "Dereck Lively II",
@@ -11702,7 +11760,7 @@
   "proj_min": 31.1,
   "projected": 33.1,
   "role_gap": false,
-  "skip": null,
+  "skip": "pra|prizepicks",
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -11753,7 +11811,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks",
   "stat": "pra",
   "status": "pending",
   "team": "DAL",
@@ -11761,7 +11819,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 29,
+  "updates": 30,
   "var": 149.469,
   "why": "31.1 min (recent 32.5, \u22121.3 team-minutes adjustment); \u00d7 1.051 pts+reb+ast/min (84% this season's 1.107 over 16 games, 16% prior 0.926); context: road \u22121%, opponent defense +2%, shared production on DAL \u22121%; shot-zone matchup +1% (where he scores vs where DEN gives up points); calibration +0.1."
  },
@@ -11771,8 +11829,12 @@
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
-  "best5": [],
-  "best5_at": {},
+  "best5": [
+   "combos:best5"
+  ],
+  "best5_at": {
+   "combos:best5": "2026-11-25 01:26:04 UTC"
+  },
   "blend_mean": 30.6,
   "blend_w": 0.225,
   "break_even": 0.542,
@@ -12514,28 +12576,24 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.4269,
-  "be_under": 0.6267,
-  "best5": [
-   "combos:best5"
-  ],
-  "best5_at": {
-   "combos:best5": "2026-11-25 01:23:07 UTC"
-  },
-  "blend_mean": 17.59,
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "best5_at": {},
+  "blend_mean": 17.57,
   "blend_w": 0.225,
-  "break_even": 0.6267,
-  "call": "UNDER",
-  "chance": 0.5893,
-  "close_at": "2026-11-25 01:23 UTC",
-  "close_line": 19.5,
-  "close_mkt": 0.6,
+  "break_even": 0.542,
+  "call": "OVER",
+  "chance": 0.5034,
+  "close_at": "2026-11-25 01:26 UTC",
+  "close_line": 17.5,
+  "close_mkt": null,
   "date": "2026-11-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 18.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": false,
@@ -12552,26 +12610,32 @@
    ],
    [
     25,
-    0.16,
+    0.17,
     0.18
    ]
   ],
   "label": "lean",
-  "line": 19.5,
-  "line_source": "kalshi",
+  "line": 17.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 19.5
+   "kalshi": 19.5,
+   "prizepicks": 17.5
   },
-  "market_side": 0.6,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     19.5,
     0.4269,
     0.6267
+   ],
+   "prizepicks": [
+    17.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
-  "move_dir": null,
+  "move": -1.0,
+  "move_dir": "against",
   "opp": "DEN",
   "out_ctx": [
    "Dereck Lively II",
@@ -12584,7 +12648,7 @@
   "proj_min": 23.1,
   "projected": 17.8,
   "role_gap": false,
-  "skip": null,
+  "skip": "pra|prizepicks|OVER",
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -12635,7 +12699,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks",
   "stat": "pra",
   "status": "pending",
   "team": "DAL",
@@ -12643,7 +12707,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 26,
+  "updates": 27,
   "var": 62.275,
   "why": "23.1 min (recent 24.1, \u22121.0 team-minutes adjustment); \u00d7 0.757 pts+reb+ast/min (85% this season's 0.725 over 17 games, 15% prior 0.841); context: road \u22121%, opponent defense +2%, shared production on DAL \u22121%; shot-zone matchup +3% (where he scores vs where DEN gives up points); calibration +0.1."
  },
@@ -12997,24 +13061,24 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.6463,
-  "be_under": 0.3965,
+  "be_over": 0.542,
+  "be_under": 0.542,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 6.65,
+  "blend_mean": 6.69,
   "blend_w": 0.225,
-  "break_even": 0.6463,
-  "call": "OVER",
-  "chance": 0.6061,
-  "close_at": "2026-11-25 01:23 UTC",
-  "close_line": 5.5,
-  "close_mkt": 0.625,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5157,
+  "close_at": "2026-11-25 01:26 UTC",
+  "close_line": 6.5,
+  "close_mkt": null,
   "date": "2026-11-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 6.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": false,
@@ -13046,20 +13110,26 @@
    ]
   ],
   "label": "lean",
-  "line": 5.5,
-  "line_source": "kalshi",
+  "line": 6.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 5.5
+   "kalshi": 5.5,
+   "prizepicks": 6.5
   },
-  "market_side": 0.625,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     5.5,
     0.6463,
     0.3965
+   ],
+   "prizepicks": [
+    6.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "DEN",
   "out_ctx": [
@@ -13073,7 +13143,7 @@
   "proj_min": 23.1,
   "projected": 6.3,
   "role_gap": false,
-  "skip": "reb|kalshi",
+  "skip": null,
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -13128,7 +13198,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks",
   "stat": "reb",
   "status": "pending",
   "team": "DAL",
@@ -13136,7 +13206,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 26,
+  "updates": 27,
   "var": 8.919,
   "why": "23.1 min (recent 24.1, \u22121.0 team-minutes adjustment); \u00d7 0.275 rebounds/min (59% this season's 0.241 over 17 games, 41% prior 0.298); context: road \u22121%, shared production on DAL \u22121%."
  },
@@ -14660,13 +14730,13 @@
  "DeMar DeRozan|pra|401909316": {
   "actual": null,
   "adj": [],
-  "anchor": null,
-  "be_over": 0.5175,
-  "be_under": 0.5275,
+  "anchor": "kalshi",
+  "be_over": 0.542,
+  "be_under": 0.542,
   "best5": [],
   "blend_mean": 14.28,
   "blend_w": 0.225,
-  "break_even": 0.5275,
+  "break_even": 0.542,
   "call": "UNDER",
   "chance": 0.5105,
   "close_at": "2026-11-25 01:01 UTC",
@@ -14677,7 +14747,7 @@
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 14.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": true,
@@ -14700,9 +14770,10 @@
   ],
   "label": "lean",
   "line": 14.5,
-  "line_source": "kalshi",
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 14.5
+   "kalshi": 14.5,
+   "prizepicks": 14.5
   },
   "market_side": 0.505,
   "mkt": {
@@ -14710,9 +14781,14 @@
     14.5,
     0.5175,
     0.5275
+   ],
+   "prizepicks": [
+    14.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
   "out_ctx": [
@@ -14777,7 +14853,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks+kalshi",
   "stat": "pra",
   "status": "pending",
   "team": "DEN",
@@ -14785,7 +14861,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 36,
+  "updates": 37,
   "var": 56.379,
   "why": "20.8 min (recent 21.6, \u22120.8 team-minutes adjustment); \u00d7 0.657 pts+reb+ast/min (90% this season's 0.632 over 14 games, 10% prior 0.818); context: home +1%, shared production on DEN \u22122%; shot-zone matchup +2% (where he scores vs where DAL gives up points); calibration +0.0."
  },
@@ -21068,23 +21144,23 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.6267,
-  "be_under": 0.4168,
+  "be_over": 0.542,
+  "be_under": 0.542,
   "best5": [],
-  "blend_mean": 6.57,
+  "blend_mean": 6.73,
   "blend_w": 0.225,
-  "break_even": 0.6267,
-  "call": "OVER",
-  "chance": 0.5994,
-  "close_at": "2026-11-25 01:23 UTC",
-  "close_line": 5.5,
-  "close_mkt": 0.605,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5096,
+  "close_at": "2026-11-25 01:26 UTC",
+  "close_line": 6.5,
+  "close_mkt": null,
   "date": "2026-11-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 5.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": true,
@@ -21111,21 +21187,27 @@
    ]
   ],
   "label": "lean",
-  "line": 5.5,
-  "line_source": "kalshi",
+  "line": 6.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 5.5
+   "kalshi": 5.5,
+   "prizepicks": 6.5
   },
-  "market_side": 0.605,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     5.5,
     0.6267,
     0.4168
+   ],
+   "prizepicks": [
+    6.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
-  "move_dir": null,
+  "move": 1.0,
+  "move_dir": "against",
   "opp": "DAL",
   "out_ctx": [
    "Dereck Lively II",
@@ -21138,7 +21220,7 @@
   "proj_min": 37.7,
   "projected": 6.5,
   "role_gap": false,
-  "skip": null,
+  "skip": "ast|prizepicks",
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -21189,7 +21271,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks",
   "stat": "ast",
   "status": "pending",
   "team": "DEN",
@@ -21197,23 +21279,25 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 26,
+  "updates": 27,
   "var": 9.211,
   "why": "37.7 min (recent 39.2, \u22121.4 team-minutes adjustment); \u00d7 0.171 assists/min (75% this season's 0.159 over 15 games, 25% prior 0.184); context: home +1%, opponent defense +1%, shared production on DEN \u22125%; calibration +0.1."
  },
  "Jamal Murray|fg3m|401909316": {
   "actual": null,
-  "adj": [
-   "no stake: 52% is a coin flip, even at a cheap price"
+  "adj": [],
+  "anchor": "kalshi",
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [
+   "fg3m:best5"
   ],
-  "anchor": null,
-  "be_over": 0.5175,
-  "be_under": 0.5275,
-  "best5": [],
-  "best5_at": {},
+  "best5_at": {
+   "fg3m:best5": "2026-11-25 01:26:04 UTC"
+  },
   "blend_mean": 3.07,
   "blend_w": 0.225,
-  "break_even": 0.5175,
+  "break_even": 0.542,
   "call": "OVER",
   "chance": 0.5195,
   "close_at": "2026-11-24 17:23 UTC",
@@ -21224,7 +21308,7 @@
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 2.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": true,
@@ -21257,9 +21341,10 @@
   ],
   "label": "lean",
   "line": 2.5,
-  "line_source": "kalshi",
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 2.5
+   "kalshi": 2.5,
+   "prizepicks": 2.5
   },
   "market_side": 0.495,
   "mkt": {
@@ -21267,9 +21352,14 @@
     2.5,
     0.5175,
     0.5275
+   ],
+   "prizepicks": [
+    2.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
   "out_ctx": [
@@ -21283,7 +21373,7 @@
   "proj_min": 37.7,
   "projected": 3.5,
   "role_gap": false,
-  "skip": "fg3m|kalshi|OVER",
+  "skip": null,
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -21342,7 +21432,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks+kalshi",
   "stat": "fg3m",
   "status": "pending",
   "team": "DEN",
@@ -21350,7 +21440,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 28,
+  "updates": 29,
   "var": 6.602,
   "why": "37.7 min (recent 39.2, \u22121.4 team-minutes adjustment); \u00d7 0.089 3-pointers made/min (83% this season's 0.090 over 15 games, 17% prior 0.081); context: home +1%, shared production on DEN +6%; shot-zone matchup \u22121% (where he scores vs where DAL gives up points); calibration +0.0."
  },
@@ -21472,21 +21562,15 @@
  },
  "Jamal Murray|pra|401909316": {
   "actual": null,
-  "adj": [
-   "no stake: 52% is a coin flip, even at a cheap price"
-  ],
-  "anchor": null,
-  "be_over": 0.5075,
-  "be_under": 0.5375,
-  "best5": [
-   "combos:value"
-  ],
-  "best5_at": {
-   "combos:value": "2026-11-25 01:23:07 UTC"
-  },
+  "adj": [],
+  "anchor": "kalshi",
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [],
+  "best5_at": {},
   "blend_mean": 34.98,
   "blend_w": 0.225,
-  "break_even": 0.5075,
+  "break_even": 0.542,
   "call": "OVER",
   "chance": 0.5156,
   "close_at": "2026-11-24 22:01 UTC",
@@ -21497,7 +21581,7 @@
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 33.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": true,
@@ -21520,9 +21604,10 @@
   ],
   "label": "lean",
   "line": 34.5,
-  "line_source": "kalshi",
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 34.5
+   "kalshi": 34.5,
+   "prizepicks": 34.5
   },
   "market_side": 0.485,
   "mkt": {
@@ -21530,10 +21615,15 @@
     34.5,
     0.5075,
     0.5375
+   ],
+   "prizepicks": [
+    34.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
-  "move_dir": null,
+  "move": 1.0,
+  "move_dir": "agree",
   "opp": "DAL",
   "out_ctx": [
    "Dereck Lively II",
@@ -21601,7 +21691,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks+kalshi",
   "stat": "pra",
   "status": "pending",
   "team": "DEN",
@@ -21609,7 +21699,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 36,
+  "updates": 37,
   "var": 139.382,
   "why": "37.7 min (recent 39.2, \u22121.4 team-minutes adjustment); \u00d7 1.003 pts+reb+ast/min (83% this season's 1.002 over 15 games, 17% prior 0.960); context: home +1%, shared production on DEN \u22122%; shot-zone matchup +1% (where he scores vs where DAL gives up points); calibration +0.1."
  },
@@ -21971,23 +22061,23 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.6757,
-  "be_under": 0.3659,
+  "be_over": 0.542,
+  "be_under": 0.542,
   "best5": [],
-  "blend_mean": 4.8,
+  "blend_mean": 4.85,
   "blend_w": 0.225,
-  "break_even": 0.6757,
+  "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.6581,
-  "close_at": "2026-11-25 01:23 UTC",
-  "close_line": 3.5,
-  "close_mkt": 0.655,
+  "chance": 0.5091,
+  "close_at": "2026-11-25 01:26 UTC",
+  "close_line": 4.5,
+  "close_mkt": null,
   "date": "2026-11-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-24 07:20 UTC",
   "first_line": 4.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": true,
@@ -22014,20 +22104,26 @@
    ]
   ],
   "label": "lean",
-  "line": 3.5,
-  "line_source": "kalshi",
+  "line": 4.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 3.5
+   "kalshi": 3.5,
+   "prizepicks": 4.5
   },
-  "market_side": 0.655,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     3.5,
     0.6757,
     0.3659
+   ],
+   "prizepicks": [
+    4.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
   "out_ctx": [
@@ -22041,7 +22137,7 @@
   "proj_min": 37.7,
   "projected": 5.1,
   "role_gap": false,
-  "skip": "reb|kalshi",
+  "skip": null,
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -22092,7 +22188,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks",
   "stat": "reb",
   "status": "pending",
   "team": "DEN",
@@ -22100,7 +22196,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 18,
+  "updates": 19,
   "var": 6.828,
   "why": "37.7 min (recent 39.2, \u22121.4 team-minutes adjustment); \u00d7 0.128 rebounds/min (56% this season's 0.135 over 15 games, 44% prior 0.121); context: home +1%, opponent defense +1%, shared production on DEN +2%."
  },
@@ -26176,23 +26272,23 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.4472,
+  "be_over": 0.4572,
   "be_under": 0.5971,
   "best5": [],
-  "blend_mean": 3.3,
+  "blend_mean": 3.32,
   "blend_w": 0.225,
   "break_even": 0.5971,
   "call": "UNDER",
-  "chance": 0.5943,
-  "close_at": "2026-11-24 23:52 UTC",
+  "chance": 0.5905,
+  "close_at": "2026-11-25 01:26 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.575,
+  "close_mkt": 0.57,
   "date": "2026-11-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-24 16:41 UTC",
   "first_line": 3.5,
   "flip": null,
-  "frozen_at": "2026-11-24 23:52 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": false,
@@ -26210,7 +26306,7 @@
    [
     4,
     0.42,
-    0.43
+    0.44
    ],
    [
     5,
@@ -26219,8 +26315,8 @@
    ],
    [
     6,
-    0.14,
-    0.16
+    0.13,
+    0.15
    ]
   ],
   "label": "lean",
@@ -26229,11 +26325,11 @@
   "lines": {
    "kalshi": 3.5
   },
-  "market_side": 0.575,
+  "market_side": 0.57,
   "mkt": {
    "kalshi": [
     3.5,
-    0.4472,
+    0.4572,
     0.5971
    ]
   },
@@ -26310,7 +26406,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 11,
+  "updates": 12,
   "var": 4.469,
   "why": "29.1 min (recent 30.5, \u22121.3 team-minutes adjustment); \u00d7 0.101 3-pointers made/min (82% this season's 0.109 over 14 games, 18% prior 0.074); context: road \u22121%, opponent defense \u22121%, shared production on DAL \u22124%; shot-zone matchup +3% (where he scores vs where DEN gives up points); calibration +0.0."
  },
@@ -26434,23 +26530,23 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.6069,
-  "be_under": 0.4472,
+  "be_over": 0.542,
+  "be_under": 0.542,
   "best5": [],
-  "blend_mean": 30.72,
+  "blend_mean": 30.57,
   "blend_w": 0.225,
-  "break_even": 0.6069,
-  "call": "OVER",
-  "chance": 0.5421,
-  "close_at": "2026-11-25 01:23 UTC",
-  "close_line": 29.5,
-  "close_mkt": 0.58,
+  "break_even": 0.542,
+  "call": "UNDER",
+  "chance": 0.5321,
+  "close_at": "2026-11-25 01:26 UTC",
+  "close_line": 31.5,
+  "close_mkt": null,
   "date": "2026-11-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 30.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": false,
@@ -26472,21 +26568,27 @@
    ]
   ],
   "label": "lean",
-  "line": 29.5,
-  "line_source": "kalshi",
+  "line": 31.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 29.5
+   "kalshi": 29.5,
+   "prizepicks": 31.5
   },
-  "market_side": 0.58,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     29.5,
     0.6069,
     0.4472
+   ],
+   "prizepicks": [
+    31.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
-  "move_dir": null,
+  "move": 1.0,
+  "move_dir": "against",
   "opp": "DEN",
   "out_ctx": [
    "Dereck Lively II",
@@ -26499,7 +26601,7 @@
   "proj_min": 29.1,
   "projected": 27.4,
   "role_gap": false,
-  "skip": null,
+  "skip": "pra|prizepicks",
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -26550,7 +26652,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks",
   "stat": "pra",
   "status": "pending",
   "team": "DAL",
@@ -26558,7 +26660,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 27,
+  "updates": 28,
   "var": 101.527,
   "why": "29.1 min (recent 30.5, \u22121.3 team-minutes adjustment); \u00d7 0.954 pts+reb+ast/min (82% this season's 0.986 over 14 games, 18% prior 0.873); context: road \u22121%, opponent defense \u22121%, shared production on DAL \u22121%; shot-zone matchup +2% (where he scores vs where DEN gives up points); calibration +0.0."
  },
@@ -26568,8 +26670,12 @@
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
-  "best5": [],
-  "best5_at": {},
+  "best5": [
+   "combos:best5"
+  ],
+  "best5_at": {
+   "combos:best5": "2026-11-25 01:26:04 UTC"
+  },
   "blend_mean": 25.74,
   "blend_w": 0.225,
   "break_even": 0.542,
@@ -29162,24 +29268,24 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.6069,
-  "be_under": 0.4472,
+  "be_over": 0.542,
+  "be_under": 0.542,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 16.27,
+  "blend_mean": 16.61,
   "blend_w": 0.225,
-  "break_even": 0.6069,
+  "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5831,
-  "close_at": "2026-11-25 01:23 UTC",
-  "close_line": 14.5,
-  "close_mkt": 0.58,
+  "chance": 0.5051,
+  "close_at": "2026-11-25 01:26 UTC",
+  "close_line": 16.5,
+  "close_mkt": null,
   "date": "2026-11-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 15.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": false,
@@ -29201,21 +29307,27 @@
    ]
   ],
   "label": "lean",
-  "line": 14.5,
-  "line_source": "kalshi",
+  "line": 16.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 14.5
+   "kalshi": 14.5,
+   "prizepicks": 16.5
   },
-  "market_side": 0.58,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     14.5,
     0.6069,
     0.4472
+   ],
+   "prizepicks": [
+    16.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
-  "move_dir": null,
+  "move": 1.0,
+  "move_dir": "agree",
   "opp": "DEN",
   "out_ctx": [
    "Dereck Lively II",
@@ -29228,7 +29340,7 @@
   "proj_min": 23.7,
   "projected": 17.0,
   "role_gap": false,
-  "skip": null,
+  "skip": "pra|prizepicks|OVER",
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -29279,7 +29391,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks",
   "stat": "pra",
   "status": "pending",
   "team": "DAL",
@@ -29287,7 +29399,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 25,
+  "updates": 26,
   "var": 63.778,
   "why": "23.7 min (recent 24.7, \u22121.0 team-minutes adjustment); \u00d7 0.709 pts+reb+ast/min (82% this season's 0.709 over 14 games, 18% prior 0.776); context: road \u22121%, opponent defense +2%, shared production on DAL \u22121%; shot-zone matchup +1% (where he scores vs where DEN gives up points); calibration +0.0."
  },
@@ -30736,13 +30848,13 @@
  "Nikola Jokic|ast|401909316": {
   "actual": null,
   "adj": [],
-  "anchor": null,
-  "be_over": 0.5375,
-  "be_under": 0.5075,
+  "anchor": "kalshi",
+  "be_over": 0.542,
+  "be_under": 0.542,
   "best5": [],
   "blend_mean": 9.82,
   "blend_w": 0.225,
-  "break_even": 0.5375,
+  "break_even": 0.542,
   "call": "OVER",
   "chance": 0.5152,
   "close_at": "2026-11-24 23:51 UTC",
@@ -30753,7 +30865,7 @@
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 9.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": true,
@@ -30786,9 +30898,10 @@
   ],
   "label": "lean",
   "line": 9.5,
-  "line_source": "kalshi",
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 9.5
+   "kalshi": 9.5,
+   "prizepicks": 9.5
   },
   "market_side": 0.515,
   "mkt": {
@@ -30796,9 +30909,14 @@
     9.5,
     0.5375,
     0.5075
+   ],
+   "prizepicks": [
+    9.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "DAL",
   "out_ctx": [
@@ -30863,7 +30981,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks+kalshi",
   "stat": "ast",
   "status": "pending",
   "team": "DEN",
@@ -30871,7 +30989,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 36,
+  "updates": 37,
   "var": 10.622,
   "why": "37.0 min (recent 38.4, \u22121.4 team-minutes adjustment); \u00d7 0.262 assists/min (75% this season's 0.248 over 15 games, 25% prior 0.269); context: home +1%, opponent defense +2%, shared production on DEN \u22125%; calibration +0.1."
  },
@@ -31138,23 +31256,23 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.4269,
-  "be_under": 0.6168,
+  "be_over": 0.542,
+  "be_under": 0.542,
   "best5": [],
-  "blend_mean": 46.99,
+  "blend_mean": 47.53,
   "blend_w": 0.225,
-  "break_even": 0.6168,
-  "call": "UNDER",
-  "chance": 0.5818,
-  "close_at": "2026-11-25 01:23 UTC",
-  "close_line": 49.5,
-  "close_mkt": 0.595,
+  "break_even": 0.542,
+  "call": "OVER",
+  "chance": 0.501,
+  "close_at": "2026-11-25 01:26 UTC",
+  "close_line": 47.5,
+  "close_mkt": null,
   "date": "2026-11-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 48.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": true,
@@ -31176,21 +31294,27 @@
    ]
   ],
   "label": "lean",
-  "line": 49.5,
-  "line_source": "kalshi",
+  "line": 47.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 49.5
+   "kalshi": 49.5,
+   "prizepicks": 47.5
   },
-  "market_side": 0.595,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     49.5,
     0.4269,
     0.6168
+   ],
+   "prizepicks": [
+    47.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
-  "move_dir": null,
+  "move": -1.0,
+  "move_dir": "against",
   "opp": "DAL",
   "out_ctx": [
    "Dereck Lively II",
@@ -31203,7 +31327,7 @@
   "proj_min": 37.0,
   "projected": 47.6,
   "role_gap": false,
-  "skip": null,
+  "skip": "pra|prizepicks|OVER",
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -31254,7 +31378,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks",
   "stat": "pra",
   "status": "pending",
   "team": "DEN",
@@ -31262,7 +31386,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 28,
+  "updates": 29,
   "var": 128.129,
   "why": "37.0 min (recent 38.4, \u22121.4 team-minutes adjustment); \u00d7 1.276 pts+reb+ast/min (83% this season's 1.217 over 15 games, 17% prior 1.378); context: home +1%, shared production on DEN \u22121%; shot-zone matchup +1% (where he scores vs where DAL gives up points); calibration +0.1."
  },
@@ -31627,24 +31751,24 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.5574,
-  "be_under": 0.4874,
+  "be_over": 0.542,
+  "be_under": 0.542,
   "best5": [],
   "best5_at": {},
-  "blend_mean": 12.22,
+  "blend_mean": 12.34,
   "blend_w": 0.225,
-  "break_even": 0.5574,
+  "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.5429,
-  "close_at": "2026-11-25 01:23 UTC",
-  "close_line": 11.5,
-  "close_mkt": 0.535,
+  "chance": 0.5069,
+  "close_at": "2026-11-25 01:26 UTC",
+  "close_line": 12.0,
+  "close_mkt": null,
   "date": "2026-11-24",
   "first_call": "UNDER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 12.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": true,
@@ -31676,21 +31800,27 @@
    ]
   ],
   "label": "lean",
-  "line": 11.5,
-  "line_source": "kalshi",
+  "line": 12.0,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 11.5
+   "kalshi": 11.5,
+   "prizepicks": 12.0
   },
-  "market_side": 0.535,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     11.5,
     0.5574,
     0.4874
+   ],
+   "prizepicks": [
+    12.0,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
-  "move_dir": null,
+  "move": -0.5,
+  "move_dir": "against",
   "opp": "DAL",
   "out_ctx": [
    "Dereck Lively II",
@@ -31703,7 +31833,7 @@
   "proj_min": 37.0,
   "projected": 12.6,
   "role_gap": false,
-  "skip": "reb|kalshi",
+  "skip": null,
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -31754,7 +31884,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks",
   "stat": "reb",
   "status": "pending",
   "team": "DEN",
@@ -31762,7 +31892,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 26,
+  "updates": 27,
   "var": 16.597,
   "why": "37.0 min (recent 38.4, \u22121.4 team-minutes adjustment); \u00d7 0.328 rebounds/min (56% this season's 0.294 over 15 games, 44% prior 0.354); context: home +1%, shared production on DEN +2%."
  },
@@ -32428,23 +32558,23 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.4975,
-  "be_under": 0.5574,
+  "be_over": 0.542,
+  "be_under": 0.542,
   "best5": [],
-  "blend_mean": 19.06,
+  "blend_mean": 18.74,
   "blend_w": 0.225,
-  "break_even": 0.5574,
-  "call": "UNDER",
-  "chance": 0.5209,
-  "close_at": "2026-11-25 01:23 UTC",
-  "close_line": 19.5,
-  "close_mkt": 0.53,
+  "break_even": 0.542,
+  "call": "OVER",
+  "chance": 0.5113,
+  "close_at": "2026-11-25 01:26 UTC",
+  "close_line": 18.5,
+  "close_mkt": null,
   "date": "2026-11-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 17.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": false,
@@ -32466,21 +32596,27 @@
    ]
   ],
   "label": "lean",
-  "line": 19.5,
-  "line_source": "kalshi",
+  "line": 18.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 19.5
+   "kalshi": 19.5,
+   "prizepicks": 18.5
   },
-  "market_side": 0.53,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     19.5,
     0.4975,
     0.5574
+   ],
+   "prizepicks": [
+    18.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
-  "move_dir": null,
+  "move": 1.0,
+  "move_dir": "agree",
   "opp": "DEN",
   "out_ctx": [
    "Dereck Lively II",
@@ -32493,7 +32629,7 @@
   "proj_min": 26.8,
   "projected": 19.5,
   "role_gap": false,
-  "skip": null,
+  "skip": "pra|prizepicks|OVER",
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -32544,7 +32680,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks",
   "stat": "pra",
   "status": "pending",
   "team": "DAL",
@@ -32552,7 +32688,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 26,
+  "updates": 27,
   "var": 61.719,
   "why": "26.8 min (recent 28.0, \u22121.2 team-minutes adjustment); \u00d7 0.717 pts+reb+ast/min (83% this season's 0.711 over 15 games, 17% prior 0.753); context: road \u22121%, opponent defense +2%, shared production on DAL \u22121%; shot-zone matchup +2% (where he scores vs where DEN gives up points); calibration +0.1; listed Day-To-Day."
  },
@@ -36570,8 +36706,12 @@
   "anchor": null,
   "be_over": 0.542,
   "be_under": 0.542,
-  "best5": [],
-  "best5_at": {},
+  "best5": [
+   "fg3m:best5"
+  ],
+  "best5_at": {
+   "fg3m:best5": "2026-11-25 01:26:04 UTC"
+  },
   "blend_mean": 0.95,
   "blend_w": 0.225,
   "break_even": 0.542,
@@ -40669,23 +40809,23 @@
   "actual": null,
   "adj": [],
   "anchor": null,
-  "be_over": 0.4269,
-  "be_under": 0.6561,
+  "be_over": 0.542,
+  "be_under": 0.542,
   "best5": [],
-  "blend_mean": 13.17,
+  "blend_mean": 13.08,
   "blend_w": 0.225,
-  "break_even": 0.6561,
-  "call": "UNDER",
-  "chance": 0.574,
-  "close_at": "2026-11-25 01:23 UTC",
-  "close_line": 14.5,
-  "close_mkt": 0.615,
+  "break_even": 0.542,
+  "call": "OVER",
+  "chance": 0.5328,
+  "close_at": "2026-11-25 01:26 UTC",
+  "close_line": 12.5,
+  "close_mkt": null,
   "date": "2026-11-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 12.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": false,
@@ -40698,7 +40838,7 @@
    [
     15,
     0.36,
-    0.41
+    0.42
    ],
    [
     20,
@@ -40707,20 +40847,26 @@
    ]
   ],
   "label": "lean",
-  "line": 14.5,
-  "line_source": "kalshi",
+  "line": 12.5,
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 14.5
+   "kalshi": 14.5,
+   "prizepicks": 12.5
   },
-  "market_side": 0.615,
+  "market_side": null,
   "mkt": {
    "kalshi": [
     14.5,
-    0.4269,
+    0.4371,
     0.6561
+   ],
+   "prizepicks": [
+    12.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "DEN",
   "out_ctx": [
@@ -40734,7 +40880,7 @@
   "proj_min": 23.0,
   "projected": 15.1,
   "role_gap": false,
-  "skip": null,
+  "skip": "pra|prizepicks|OVER",
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -40785,7 +40931,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks",
   "stat": "pra",
   "status": "pending",
   "team": "DAL",
@@ -40793,7 +40939,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 25,
+  "updates": 26,
   "var": 49.548,
   "why": "23.0 min (recent 24.0, \u22121.0 team-minutes adjustment); \u00d7 0.642 pts+reb+ast/min (92% this season's 0.632 over 17 games, 8% prior 0.682); context: road \u22121%, opponent defense +2%, shared production on DAL \u22121%; shot-zone matchup +3% (where he scores vs where DEN gives up points); calibration +0.1."
  },
@@ -41037,26 +41183,32 @@
  },
  "Zaccharie Risacher|reb|401909316": {
   "actual": null,
-  "adj": [],
-  "anchor": null,
-  "be_over": 0.5474,
-  "be_under": 0.4975,
-  "best5": [],
-  "best5_at": {},
-  "blend_mean": 4.04,
+  "adj": [
+   "no stake yet: picks like this are 628/1219 (52%); a stake needs 30+ graded at 56%+ (2 points over the 54% their prices need)"
+  ],
+  "anchor": "kalshi",
+  "be_over": 0.542,
+  "be_under": 0.542,
+  "best5": [
+   "reb:best5"
+  ],
+  "best5_at": {
+   "reb:best5": "2026-11-25 01:26:04 UTC"
+  },
+  "blend_mean": 4.09,
   "blend_w": 0.225,
-  "break_even": 0.5474,
+  "break_even": 0.542,
   "call": "OVER",
-  "chance": 0.538,
-  "close_at": "2026-11-24 23:21 UTC",
+  "chance": 0.5453,
+  "close_at": "2026-11-25 01:26 UTC",
   "close_line": 3.5,
-  "close_mkt": 0.525,
+  "close_mkt": 0.535,
   "date": "2026-11-24",
   "first_call": "OVER",
   "first_frozen_at": "2026-11-24 05:41 UTC",
   "first_line": 3.5,
   "flip": null,
-  "frozen_at": "2026-11-25 01:23 UTC",
+  "frozen_at": "2026-11-25 01:26 UTC",
   "game_id": 401909316,
   "hit": null,
   "home": false,
@@ -41068,8 +41220,8 @@
    ],
    [
     4,
-    0.52,
-    0.53
+    0.53,
+    0.54
    ],
    [
     6,
@@ -41084,19 +41236,25 @@
   ],
   "label": "lean",
   "line": 3.5,
-  "line_source": "kalshi",
+  "line_source": "prizepicks",
   "lines": {
-   "kalshi": 3.5
+   "kalshi": 3.5,
+   "prizepicks": 3.5
   },
-  "market_side": 0.525,
+  "market_side": 0.535,
   "mkt": {
    "kalshi": [
     3.5,
-    0.5474,
-    0.4975
+    0.5574,
+    0.4874
+   ],
+   "prizepicks": [
+    3.5,
+    0.542,
+    0.542
    ]
   },
-  "move": null,
+  "move": 0.0,
   "move_dir": null,
   "opp": "DEN",
   "out_ctx": [
@@ -41110,7 +41268,7 @@
   "proj_min": 23.0,
   "projected": 4.3,
   "role_gap": false,
-  "skip": "reb|kalshi",
+  "skip": null,
   "snaps": {
    "10am": {
     "at": "2026-11-24 16:01 UTC",
@@ -41165,7 +41323,7 @@
     "units": 0.0
    }
   },
-  "src_key": "kalshi",
+  "src_key": "prizepicks+kalshi",
   "stat": "reb",
   "status": "pending",
   "team": "DAL",
@@ -41173,7 +41331,7 @@
   "tip_utc": "2026-11-25T03:00:00+00:00",
   "units": 0.0,
   "units_raw": 0.0,
-  "updates": 31,
+  "updates": 32,
   "var": 6.187,
   "why": "23.0 min (recent 24.0, \u22121.0 team-minutes adjustment); \u00d7 0.193 rebounds/min (74% this season's 0.208 over 17 games, 26% prior 0.166); context: road \u22121%, shared production on DAL \u22121%."
  }
