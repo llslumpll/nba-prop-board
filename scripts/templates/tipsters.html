@@ -56,6 +56,22 @@
   <h3 class="hv-h3" id="role">Role-change assists &middot; Next Level Bets similar picks <span class="u-tag u-0">TESTING</span></h3>
   <p class="small dim">His way of finding players, run by the site every night: assists for players whose job just grew. Over his last 5 games he's averaging 25%+ more assists than his season average and playing more minutes, while Kalshi still prices the rung at 50&ndash;75%. One leg per player (his safest qualifying rung), up to 5 a night, nobody listed out or questionable. <b>FITS THE ROLE RULE</b> on one of his own picks means the site's rule found the same player.{% if rs.rec.n %} Record: <b>{{ rs.rec.w }}-{{ rs.rec.n - rs.rec.w }}</b> &middot; {{ u(rs.rec.u) }}{% if rs.last7.n %} &middot; last 7 nights {{ rs.last7.w }}-{{ rs.last7.n - rs.last7.w }} {{ u(rs.last7.u) }}{% endif %}.{% else %} Replay this season: 53-29, +10.5U, but it lost its first two weeks (12-16) before winning the next two (41-13); tracked from Nov 27 and not counted as proven yet.{% endif %} Straight bets, 0.5U or less while it's testing.</p>
   {% if rs.tonight %}<div class="pz-grid">{{ cz.role_card(rs.tonight, tp.lab, tp.p_to_am) }}</div>{% else %}<p class="small dim">No player fits the rule tonight yet (it fills in once Kalshi posts the night's assists rungs).</p>{% endif %}
+  {% set nx = tp.nlblad %}{% if nx %}
+  <h3 class="hv-h3" id="nlbladder">Site ladders vs Next Level Bets</h3>
+  <p class="small dim">How he builds a ladder: one player whose role just grew (a teammate out, more minutes, running the offense), an assists ladder about 2 rungs apart, staked about 1U on the base rung, 0.25U one rung up and 0.1U on the top rung. The site builds the same thing every night from its top Role-change assists player: his base rung, then +2 and +4 assists at Kalshi's asks, same stakes. In the replay (Oct 28&ndash;Nov 25) the base rung hit 15 of 23 against ~58% prices, +2 hit 4 of 20 against ~21%, and +4 hit 0 of 17 against ~7%: the base rung is what wins, for him and for the site.</p>
+  {% set ss = nx.site %}{% set hs = nx.his %}
+  <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
+    <thead><tr><th></th><th>Base</th><th>+1 rung</th><th>Top</th><th>Units</th></tr></thead><tbody>
+    {% for who, x in [('Site', ss), ('Next Level', hs)] %}
+    <tr><td><b>{{ who }}</b><br><span class="dim small">{{ x.ladders }} ladder{{ 's' if x.ladders != 1 }} &middot; {{ x.full }} full</span></td>
+      {% for st in x.steps %}<td>{% if st.n %}{{ st.w }}/{{ st.n }}{% if st.price %}<br><span class="dim small">{{ st.price }}% priced</span>{% endif %}{% else %}<span class="dim">&ndash;</span>{% endif %}</td>{% endfor %}
+      <td>{% if x.staked %}{{ u(x.u) }}<br><span class="dim small">on {{ x.staked }}U</span>{% else %}<span class="dim">starts tonight</span>{% endif %}</td></tr>
+    {% endfor %}
+    </tbody></table></div></div>
+  {% if hs.recent %}<p class="small dim"><b>His recent ladders:</b> {% for r in hs.recent %}{{ r.player }} {{ tp.lab.get(r.stat, r.stat) }} ({% for x in r.rungs %}{{ x.rung }}+{{ '&#10004;'|safe if x.hit else '&#10008;'|safe }}{{ ' ' if not loop.last }}{% endfor %}, had {{ r.actual }}){{ ' &middot; '|safe if not loop.last }}{% endfor %}</p>{% endif %}
+  {% if nx.tonight and nx.tonight.ladders %}<div class="pz-grid">{% for lad in nx.tonight.ladders %}{{ cz.nlb_ladder_card(lad, tp.lab, tp.p_to_am) }}{% endfor %}{% if nx.last %}{% for lad in nx.last.ladders %}{{ cz.nlb_ladder_card(lad, tp.lab, tp.p_to_am) }}{% endfor %}{% endif %}</div>
+  {% else %}<p class="small dim">No site ladder yet tonight: it's built from the top Role-change assists player once Kalshi posts the assists rungs.</p>{% if nx.last %}<div class="pz-grid">{% for lad in nx.last.ladders %}{{ cz.nlb_ladder_card(lad, tp.lab, tp.p_to_am) }}{% endfor %}</div>{% endif %}{% endif %}
+  {% endif %}
   {% endif %}
   {% endfor %}
   <h2 class="hv-h3">Cushion combos</h2>
