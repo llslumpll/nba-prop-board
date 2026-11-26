@@ -978,6 +978,8 @@ def render_all(ctx: dict) -> None:
             site_by_date[n["date"]]["triple"] = n
         for n in ((_tpx.get("bestk") or {}).get("nights") or []):
             site_by_date[n["date"]]["bestk"] = n
+        for n in ((_tpx.get("role") or {}).get("nights") or []):
+            site_by_date[n["date"]]["role"] = n
         tdays = defaultdict(list)
         for t in tmonths.get(mo["key"], []):
             tdays[t["date"]].append(t)
@@ -1142,6 +1144,7 @@ def render_all(ctx: dict) -> None:
         board["pv"] = ctx.get("proven")
         board["tx"] = (ctx.get("tipsters") or {}).get("triple")
         board["bk"] = (ctx.get("tipsters") or {}).get("bestk")
+        board["rs"] = (ctx.get("tipsters") or {}).get("role")
     except Exception as e:  # noqa: BLE001
         board = None
         print(f"Your board failed: {e}")

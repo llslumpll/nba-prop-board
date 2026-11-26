@@ -70,11 +70,11 @@ def sync(box, sl: dict, now: datetime | None = None, inj=None) -> None:
     PATH.write_text(json.dumps(st, indent=1, sort_keys=True))
 
 
-def summary(box, today: str | None) -> dict:
+def summary(box, today: str | None, load=None) -> dict:
     ply, team = T._box_index(box)
     nights, n, w, u = [], 0, 0, 0.0
     last7 = {"n": 0, "w": 0, "u": 0.0}
-    dates = sorted(_load().items(), reverse=True)
+    dates = sorted((load or _load)().items(), reverse=True)
     recent = [d for d, _ in dates if today and d < today][:7]
     for d, s in dates:
         legs = []

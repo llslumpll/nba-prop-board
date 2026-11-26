@@ -25,7 +25,7 @@ PROMISING_EDGE = 0.02
 # rules first set on this date (from a look back over the season): results from here on are the honest test
 SINCE = {"strong": "2026-11-20", "agree": "2026-11-20", "disagree": "2026-11-20", "sam_cush": "2026-11-20",
          "sam_nocush": "2026-11-20", "cushion": "2026-11-20", "single": "2026-11-24", "value2": "2026-11-24",
-         "value3": "2026-11-24", "triple": "2026-11-24", "bestk": "2026-11-24"}
+         "value3": "2026-11-24", "triple": "2026-11-24", "bestk": "2026-11-24", "role": "2026-11-26"}
 KINDS = {
     "sam_cush": ("Sam + model legs", "Sam's ladder legs where our projection clears his rung by a cushion (points +2, others +1)"),
     "strong": ("Tipster strong spots", "A profitable tipster's prop where our model agrees, he projects 32+ minutes, price better than -125"),
@@ -40,6 +40,7 @@ KINDS = {
     "value2": ("Good price 2-leg", "The Parlays page's Good price 2-leg slip, graded as one pick at what it paid"),
     "value3": ("Good price 3-leg", "The Parlays page's Good price 3-leg slip, graded as one pick at what it paid"),
     "bestk": ("Best 5 on Kalshi", "The 5 Kalshi legs a night with the biggest real edge (Your board), each leg at its ask"),
+    "role": ("Role-change assists", "Assists legs for players whose role just grew (last 5: 25%+ more assists and more minutes than his season), Kalshi 50-75%"),
     "triple": ("3x slip", "The bankroll-builder 3x slip on Your board, graded as one pick at its estimated Kalshi quote"),
 }
 SLIPS = {("single", 1): "single", ("value", 2): "value2", ("value", 3): "value3"}
@@ -228,6 +229,20 @@ def build(box, tp: dict | None, sf: dict | None, fv: dict | None) -> dict:
                                     "game": l.get("game_id"), "note": f"really hits ~{round(100 * l['est'])}%"})
     except Exception as e:  # noqa: BLE001
         print(f"Proven picks: Best 5 on Kalshi failed: {e}")
+
+    try:  # Role-change assists, leg by leg (update 105)
+        import rolespot
+        for d, s in rolespot._load().items():
+            for l in s.get("legs") or []:
+                g = T.grade_leg(l, d, ply, team)[0]
+                if g in ("hit", "miss"):
+                    hist["role"].append({"date": d, "hit": g == "hit", "p": l["ask"]})
+                elif d == today and g is None:
+                    tonight.append({"kind": "role", "what": f"{l['player']} {l['rung']}+ {T.LAB.get(l['stat'], l['stat'])}",
+                                    "p": l["ask"], "price_src": "Kalshi", "odds": T.p_to_am(l["ask"]), "src": "Role-change assists",
+                                    "game": l.get("game_id"), "note": f"last 5: {l['l5']} ast vs {l['sea']} season"})
+    except Exception as e:  # noqa: BLE001
+        print(f"Proven picks: Role-change assists failed: {e}")
 
     kinds = []
     for k, (name, what) in KINDS.items():
