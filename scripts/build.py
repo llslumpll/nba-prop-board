@@ -588,6 +588,12 @@ def build(args) -> None:
             tp["role"] = rolespot.summary(box, sl.get("date"))
         except Exception as e:  # noqa: BLE001
             print(f"Role-change assists failed: {e}")
+        try:  # Site ladders vs Next Level Bets (update 106)
+            import nlbladder
+            nlbladder.sync(sl, (tp.get("role") or {}).get("tonight"), now)
+            tp["nlblad"] = nlbladder.summary(box, sl.get("date"))
+        except Exception as e:  # noqa: BLE001
+            print(f"Next Level ladders failed: {e}")
         print(f"Tipsters: {sum(t['n'] for t in tp['tipsters'])} graded, {len(tp['tonight'])} today")
     except Exception as e:  # noqa: BLE001
         tp = None
