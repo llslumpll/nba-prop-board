@@ -23,11 +23,11 @@
 </div>
 
 <section data-tab-panel="tp:tonight">
-  {% set tx = tp.triple %}{% set bk = tp.bestk %}
-  {% if (tx and tx.tonight) or (bk and bk.tonight) %}
+  {% set tx = tp.triple %}{% set bk = tp.bestk %}{% set rs = tp.role %}
+  {% if (tx and tx.tonight) or (bk and bk.tonight) or (rs and rs.tonight) %}
   <h2 class="hv-h3" id="site-picks">The site's picks tonight</h2>
-  <p class="small dim"><b>3x slip</b>: one Kalshi combo, the one most likely to cash at a 3x+ quote.{% if tx and tx.rec.n %} Record {{ tx.rec.w }} of {{ tx.rec.n }} cashed, {{ u(tx.rec.u) }}.{% endif %} <b>Best 5 on Kalshi</b>: five straight bets, the Kalshi legs with the biggest real edge.{% if bk and bk.rec.n %} Record {{ bk.rec.w }}-{{ bk.rec.n - bk.rec.w }}, {{ u(bk.rec.u) }}.{% endif %} Same cards as Your board; each leg shows live progress once its game tips.</p>
-  <div class="pz-grid">{% if tx and tx.tonight %}{{ cz.triple_card(tx.tonight, tp.lab, tp.p_to_am) }}{% endif %}{% if bk and bk.tonight %}{{ cz.bestk_card(bk.tonight, tp.lab, tp.p_to_am, 'BEST 5 ON KALSHI') }}{% endif %}</div>
+  <p class="small dim"><b>3x slip</b>: one Kalshi combo, the one most likely to cash at a 3x+ quote.{% if tx and tx.rec.n %} Record {{ tx.rec.w }} of {{ tx.rec.n }} cashed, {{ u(tx.rec.u) }}.{% endif %} <b>Best 5 on Kalshi</b>: five straight bets, the Kalshi legs with the biggest real edge.{% if bk and bk.rec.n %} Record {{ bk.rec.w }}-{{ bk.rec.n - bk.rec.w }}, {{ u(bk.rec.u) }}.{% endif %} <b>Role-change assists</b> (testing): NextLevelBets' way of finding players, assists for players whose job just grew.{% if rs and rs.rec.n %} Record {{ rs.rec.w }}-{{ rs.rec.n - rs.rec.w }}, {{ u(rs.rec.u) }}.{% endif %} Same cards as Your board; each leg shows live progress once its game tips.</p>
+  <div class="pz-grid">{% if tx and tx.tonight %}{{ cz.triple_card(tx.tonight, tp.lab, tp.p_to_am) }}{% endif %}{% if bk and bk.tonight %}{{ cz.bestk_card(bk.tonight, tp.lab, tp.p_to_am, 'BEST 5 ON KALSHI') }}{% endif %}{% if rs and rs.tonight %}{{ cz.role_card(rs.tonight, tp.lab, tp.p_to_am) }}{% endif %}</div>
   {% endif %}
   <p class="small dim">{{ tp.today }} &middot; Each pick is priced at the best line you could get when the site first saw it (Kalshi or Polymarket US at the same number, or FanDuel at the same line) and graded the same night. Picks are added when you ask Claude to log them.</p>
   {% for t in ts %}
@@ -95,22 +95,25 @@
 </section>
 
 <section class="hidden" data-tab-panel="tp:record">
-  {% set txr = tp.triple %}{% set bkr = tp.bestk %}
-  {% if (txr and txr.nights) or (bkr and bkr.nights) %}
+  {% set txr = tp.triple %}{% set bkr = tp.bestk %}{% set rsr = tp.role %}
+  {% if (txr and txr.nights) or (bkr and bkr.nights) or (rsr and rsr.nights) %}
   <h2 class="hv-h3" id="site-record">The site's picks, every night</h2>
-  <p class="small dim">Graded each morning against final box scores. 3x slip at 1U at its estimated Kalshi quote; Best 5 on Kalshi at 1U a leg at Kalshi's ask. A leg whose player didn't play is void.</p>
+  <p class="small dim">Graded each morning against final box scores. 3x slip at 1U at its estimated Kalshi quote; Best 5 on Kalshi and Role-change assists at 1U a leg at Kalshi's ask. A leg whose player didn't play is void.</p>
   <div class="hv-rec pz-board">
     {% if txr %}<div class="hv-tile"><b>{{ txr.rec.w }}/{{ txr.rec.n }}</b><span>3x slips cashed &middot; {{ u(txr.rec.u) }}{% if txr.rec.legs_n %} &middot; legs {{ txr.rec.legs_w }}-{{ txr.rec.legs_n - txr.rec.legs_w }}{% endif %}</span></div>{% endif %}
     {% if bkr %}<div class="hv-tile"><b>{{ bkr.rec.w }}-{{ bkr.rec.n - bkr.rec.w }}</b><span>Best 5 on Kalshi legs &middot; {{ u(bkr.rec.u) }}{% if bkr.last7.n %} &middot; last 7 nights {{ bkr.last7.w }}-{{ bkr.last7.n - bkr.last7.w }} {{ u(bkr.last7.u) }}{% endif %}</span></div>{% endif %}
+    {% if rsr %}<div class="hv-tile"><b>{% if rsr.rec.n %}{{ rsr.rec.w }}-{{ rsr.rec.n - rsr.rec.w }}{% else %}NEW{% endif %}</b><span>Role-change assists (testing) &middot; {% if rsr.rec.n %}{{ u(rsr.rec.u) }}{% else %}replay 53-29, +10.5U{% endif %}</span></div>{% endif %}
   </div>
   <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
-    <thead><tr><th>Night</th><th>3x slip</th><th>Best 5 on Kalshi</th><th></th></tr></thead><tbody>
+    <thead><tr><th>Night</th><th>3x slip</th><th>Best 5 on Kalshi</th><th>Role-change assists</th><th></th></tr></thead><tbody>
     {% set bkd = {} %}{% for n in (bkr.nights if bkr else []) %}{% set _ = bkd.update({n.date: n}) %}{% endfor %}
     {% set txd = {} %}{% for n in (txr.nights if txr else []) %}{% set _ = txd.update({n.date: n}) %}{% endfor %}
-    {% for d in (txd.keys()|list + bkd.keys()|list)|unique|sort(reverse=true) %}{% set t = txd.get(d) %}{% set b = bkd.get(d) %}
+    {% set rsd = {} %}{% for n in (rsr.nights if rsr else []) %}{% set _ = rsd.update({n.date: n}) %}{% endfor %}
+    {% for d in (txd.keys()|list + bkd.keys()|list + rsd.keys()|list)|unique|sort(reverse=true) %}{% set t = txd.get(d) %}{% set b = bkd.get(d) %}{% set r = rsd.get(d) %}
     <tr><td>{{ d }}</td>
       <td>{% if not t %}<span class="dim">&ndash;</span>{% elif t.status != 'graded' %}<span class="dim">pending</span>{% elif t.hit %}<span class="stat-good">&#10004; cashed</span> {{ '%.1f'|format(t.quote_est) }}x &middot; {{ u(t.quote_est - 1) }}{% else %}<span class="stat-bad">&#10008; missed</span> ({{ t.legs|selectattr('res', 'equalto', 'hit')|list|length }}/{{ t.legs|length }} legs) &middot; {{ u(-1) }}{% endif %}</td>
       <td>{% if not b %}<span class="dim">&ndash;</span>{% elif b.status != 'graded' and not (b.w + b.l) %}<span class="dim">pending</span>{% else %}{{ b.w }}&ndash;{{ b.l }} &middot; {{ u(b.u) }}{% endif %}</td>
+      <td>{% if not r %}<span class="dim">&ndash;</span>{% elif r.status != 'graded' and not (r.w + r.l) %}<span class="dim">pending</span>{% else %}{{ r.w }}&ndash;{{ r.l }} &middot; {{ u(r.u) }}{% endif %}</td>
       <td><a class="small" href="history-{{ d }}.html#site-picks">legs &rarr;</a></td></tr>
     {% endfor %}
     </tbody></table></div></div>

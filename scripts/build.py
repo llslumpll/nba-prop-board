@@ -582,6 +582,12 @@ def build(args) -> None:
             tp["bestk"] = bestk.summary(box, sl.get("date"))
         except Exception as e:  # noqa: BLE001
             print(f"Best 5 on Kalshi failed: {e}")
+        try:  # Role-change assists (update 105): NextLevelBets' way of finding players, as a tracked rule
+            import rolespot
+            rolespot.sync(box, sl, now, inj)
+            tp["role"] = rolespot.summary(box, sl.get("date"))
+        except Exception as e:  # noqa: BLE001
+            print(f"Role-change assists failed: {e}")
         print(f"Tipsters: {sum(t['n'] for t in tp['tipsters'])} graded, {len(tp['tonight'])} today")
     except Exception as e:  # noqa: BLE001
         tp = None

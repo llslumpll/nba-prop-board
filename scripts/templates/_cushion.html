@@ -62,3 +62,13 @@
     {{ lvx(l) }}<span class="pz-meta"><b>{{ p_to_am(l.ask) }}</b> <span class="dim small">Kalshi {{ (l.ask * 100)|round|int }}% &middot; <b>really hits ~{{ (l.est * 100)|round|int }}%</b> &middot; our proj {{ l.proj }} &middot; last 10: {{ (l.h10 * 100)|round|int }}% &middot; {{ l.team }} vs {{ l.opp }}</span></span></li>{% endfor %}</ul>
 </article>
 {% endmacro %}
+
+{% macro role_card(s, lab, p_to_am) %}
+<article class="pz-card pz-pending pz-straight">
+  <div class="pz-head"><div><div class="pz-title">ROLE-CHANGE ASSISTS &middot; {{ s.legs|length }} LEG{{ 'S' if s.legs|length != 1 }}</div><div class="pz-sub">PLAYERS WHOSE JOB JUST GREW &middot; STRAIGHT BETS, NOT A PARLAY</div></div></div>
+  <div class="pz-tags"><span class="u-tag u-0">TESTING</span> <span class="anchor-tag">ALL LEGS ON KALSHI</span></div>
+  <ul class="pz-legs">{% for l in s.legs %}<li class="pz-leg {{ 'pz-hit' if l.res == 'hit' else ('pz-miss' if l.res == 'miss' else '') }}"><span class="pz-res">{{ cres(l.res) }}</span>
+    <span class="pz-what">{{ l.player }} <span class="pp-pick pp-over">{{ l.rung }}+ {{ lab.get(l.stat, l.stat) }}</span>{% if l.actual is not none %} <span class="dim small">had {{ l.actual }}</span>{% endif %}{% if l.cut %} <span class="cut-tag">{{ 'LEFT INJURED' if l.cut.injured else 'MINUTES CUT SHORT' }} &middot; {{ l.cut.min }} of {{ l.cut.proj }} min</span>{% endif %}</span>
+    {{ lvx(l) }}<span class="pz-meta"><b>{{ p_to_am(l.ask) }}</b> <span class="dim small">Kalshi {{ (l.ask * 100)|round|int }}% &middot; <b>last 5: {{ l.l5 }} ast</b> (season {{ l.sea }}) &middot; {{ l.m5 }} min (season {{ l.smin }}) &middot; {{ l.team }} vs {{ l.opp }}</span></span></li>{% endfor %}</ul>
+</article>
+{% endmacro %}
