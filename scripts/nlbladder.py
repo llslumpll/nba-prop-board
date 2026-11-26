@@ -172,14 +172,16 @@ def summary(box, today: str | None) -> dict:
         if p.get("tipster") != "nlb" or not p.get("rungs") or not p.get("legs"):
             continue
         leg = p["legs"][0]
-        g, x, _rr = T.grade_leg(leg, p["date"], ply, team)
-        if g not in ("hit", "miss"):
+        gx = [T.grade_leg(lg, p["date"], ply, team)[:2] for lg in p["legs"]]   # two-player ladders: every leg must hit
+        if any(g not in ("hit", "miss") for g, _x in gx):
             continue
+        xs = [x for _g, x in gx]
+        x = xs[0]
         base_rung = int(leg["line"] + 0.5)
-        rows = [{"rung": base_rung, "odds": p.get("odds"), "stake": 1.0, "hit": g == "hit"}]
+        rows = [{"rung": base_rung, "odds": p.get("odds"), "stake": 1.0, "hit": all(g == "hit" for g, _x in gx)}]
         for r in p["rungs"]:
             rows.append({"rung": int(r["r"]), "odds": r.get("odds"), "stake": r.get("u") or 0.1,
-                         "hit": x is not None and x >= int(r["r"])})
+                         "hit": all(v is not None and v >= int(r["r"]) for v in xs)})
         hn += 1
         hfull += len(rows) >= 2 and rows[0]["hit"] and rows[1]["hit"]
         for i, r in enumerate(rows):
@@ -190,7 +192,7 @@ def summary(box, today: str | None) -> dict:
                 his_steps[k]["price"].append(1 / (1 + _pay_am(int(r["odds"]))))
                 hst += r["stake"]
                 hu += r["stake"] * _pay_am(int(r["odds"])) if r["hit"] else -r["stake"]
-        recent.append({"date": p["date"], "player": leg["player"], "stat": leg["stat"], "actual": x,
+        recent.append({"date": p["date"], "player": " + ".join(lg["player"] for lg in p["legs"]), "stat": leg["stat"], "actual": x,
                        "rungs": [{"rung": r["rung"], "hit": r["hit"]} for r in rows], "why": p.get("why")})
     his = {"ladders": hn, "full": hfull, "u": round(hu, 2), "staked": round(hst, 2),
            "steps": [_fin(x) for x in his_steps], "recent": sorted(recent, key=lambda r: r["date"], reverse=True)[:8]}
