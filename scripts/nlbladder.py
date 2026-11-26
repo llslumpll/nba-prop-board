@@ -1,16 +1,16 @@
 """Site ladders vs Next Level Bets (update 106, Nov 26 2026): the site builds a Next Level-style assists ladder every
 night and races his real ladders, the way "Site ladders vs Sam" races Sam.
 
-How he picks (two-season review, claude/nextlevel-review.md): one player whose role just grew (a teammate out, more
-minutes, running the offense), assists ladder 4+/6+/8+ style, staked about 1U on the base rung, 0.25U one rung up and
-0.1U on the top rung. The site's version each night:
-  - player: tonight's top Role-change assists pick (rolespot: last-5 assists 25%+ over his season average and more
-    minutes, Kalshi base rung 50-75%), biggest assist jump first;
-  - rungs: his base rung, +2 assists and +4 assists at Kalshi's asks; stakes 1U / 0.25U / 0.1U.
-Replay Oct 28-Nov 25 (23 nights, judged on Kalshi asks): base 15/23 vs ~58% priced, +2 rung 4/20 vs ~21%, +4 rung
-0/17 vs ~7%; +0.9U on 29.7U staked (lost the first two weeks, won after). Tracking only: the base rung is the part
-that has beaten the price; the top rung hasn't, for him or for the site.
-Locks when its game tips; graded each morning.
+How he picks (two-season review, claude/nextlevel-review.md): one player whose role grew (teammate out, more minutes,
+running the offense), an assists ladder about 2 apart, staked about 1U base / 0.25U next / 0.1U top.
+The user's targets: base rung 70%+ and the ladder cashing more often than not. The site's version (safer than his):
+  - player: assists over his last 5 at or above his season average, minutes not down, 28+ minutes a game lately,
+    7+ games, not out/doubtful/questionable or MINUTES DOWN, game not started; biggest assist jump first;
+  - base rung: the safest Kalshi assists rung priced 70-90%;
+  - ladder = base + the next rung (+2 assists), plus a +4 bonus rung; stakes 1U / 0.25U / 0.1U.
+Replay Oct 28-Nov 25 (23 nights at Kalshi asks): base 21/23 (91%), ladder (base + next) cashed 15/23 (65%),
++4 bonus 6/23 (26%); +8.1U on 31.1U staked. Both halves held (base 88% / 93%). Picked from a grid of 48 settings
+on 23 nights, so the live record decides. Locks when its game tips; graded each morning.
 """
 from __future__ import annotations
 
@@ -23,6 +23,8 @@ import tipsters as T
 PATH = Path(__file__).resolve().parent.parent / "data" / "tipsters" / "nlbladder.json"
 STEPS = ((0, 1.0), (2, 0.25), (4, 0.1))
 PER_NIGHT = 1
+ASK_LO, ASK_HI = 0.70, 0.90
+MIN_RECENT = 28.0
 
 
 def _load() -> dict:
@@ -50,8 +52,11 @@ def _kladder(date: str, player: str) -> dict:
     return {}
 
 
-def sync(sl: dict, role_night: dict | None, now: datetime | None = None) -> None:
-    """Build tonight's ladder(s) from the Role-change assists legs (rolespot) until the game tips."""
+def sync(box, sl: dict, now: datetime | None = None, inj=None) -> None:
+    """Build tonight's ladder until its game tips."""
+    import triple
+    import rolespot
+    from datetime import date as _date
     now = now or datetime.now(timezone.utc)
     date = (sl or {}).get("date")
     if not date:
@@ -62,12 +67,25 @@ def sync(sl: dict, role_night: dict | None, now: datetime | None = None) -> None
     if len(locked) >= PER_NIGHT:
         return
     used = {lad["player"] for lad in locked}
+    form = rolespot._form(box, _date.fromisoformat(date))
+    best = {}
+    for c in triple.candidates(date, box, now, inj):
+        if c["stat"] != "ast" or not ASK_LO <= c["ask"] <= ASK_HI or c["player"] in used:
+            continue
+        f = form.get(T._norm(c["player"]))
+        if not f:
+            continue
+        sea, l5, smin, m5, _n = f
+        if not (sea > 0 and l5 >= sea and m5 >= smin and m5 >= MIN_RECENT):
+            continue
+        b = best.get(c["player"])
+        if b is None or c["ask"] > b["ask"]:          # safest rung in the band
+            best[c["player"]] = {**c, "sea": round(sea, 1), "l5": round(l5, 1), "smin": round(smin, 1),
+                                 "m5": round(m5, 1), "jump": round(l5 / sea, 2)}
     add = []
-    for l in sorted((role_night or {}).get("legs") or [], key=lambda l: -(l.get("jump") or 0)):
+    for l in sorted(best.values(), key=lambda l: -l["jump"]):
         if len(locked) + len(add) >= PER_NIGHT:
             break
-        if l["player"] in used or (_tip(l) or now) <= now:
-            continue
         kl = _kladder(date, l["player"])
         tiers = []
         for step, (off, stake) in enumerate(STEPS):
@@ -79,8 +97,8 @@ def sync(sl: dict, role_night: dict | None, now: datetime | None = None) -> None
                           "ask": round(ask, 2), "stake": stake, "step": step, "team": l.get("team"), "opp": l.get("opp"),
                           "game_id": l.get("game_id"), "tip": l.get("tip")})
         add.append({"player": l["player"], "team": l.get("team"), "opp": l.get("opp"), "tip": l.get("tip"),
-                    "game_id": l.get("game_id"), "l5": l.get("l5"), "sea": l.get("sea"), "m5": l.get("m5"),
-                    "smin": l.get("smin"), "tiers": tiers})
+                    "game_id": l.get("game_id"), "l5": l["l5"], "sea": l["sea"], "m5": l["m5"], "smin": l["smin"],
+                    "tiers": tiers})
     ladders = locked + add
     if ladders:
         st[date] = {"ladders": ladders, "built": now.strftime("%Y-%m-%d %H:%M UTC")}
@@ -128,7 +146,8 @@ def summary(box, today: str | None) -> dict:
             if not g_ or len(g_) < len(tiers):
                 continue
             n_lad += 1
-            full += all(t["res"] == "hit" for t in tiers)
+            two = [t for t in tiers if t.get("step", 0) in (0, 1)]
+            full += len(two) == 2 and all(t["res"] == "hit" for t in two)
             for i, t in enumerate(tiers):
                 k = min(t.get("step", i), len(steps) - 1)
                 steps[k]["n"] += 1
@@ -162,7 +181,7 @@ def summary(box, today: str | None) -> dict:
             rows.append({"rung": int(r["r"]), "odds": r.get("odds"), "stake": r.get("u") or 0.1,
                          "hit": x is not None and x >= int(r["r"])})
         hn += 1
-        hfull += all(r["hit"] for r in rows)
+        hfull += len(rows) >= 2 and rows[0]["hit"] and rows[1]["hit"]
         for i, r in enumerate(rows):
             k = min(i, len(his_steps) - 1)
             his_steps[k]["n"] += 1

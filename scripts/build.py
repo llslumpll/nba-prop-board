@@ -590,7 +590,7 @@ def build(args) -> None:
             print(f"Role-change assists failed: {e}")
         try:  # Site ladders vs Next Level Bets (update 106)
             import nlbladder
-            nlbladder.sync(sl, (tp.get("role") or {}).get("tonight"), now)
+            nlbladder.sync(box, sl, now, inj)
             tp["nlblad"] = nlbladder.summary(box, sl.get("date"))
         except Exception as e:  # noqa: BLE001
             print(f"Next Level ladders failed: {e}")

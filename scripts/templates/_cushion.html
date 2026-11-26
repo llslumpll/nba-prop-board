@@ -77,9 +77,9 @@
 <article class="pz-card pz-pending pz-straight">
   <div class="pz-head"><div><div class="pz-title">SITE LADDER &middot; NEXT LEVEL STYLE</div><div class="pz-sub">{{ lad.player|upper }} ASSISTS &middot; {{ lad.team }} VS {{ lad.opp }} &middot; LOCKS AT TIP</div></div></div>
   <div class="pz-tags"><span class="u-tag u-0">TRACKING ONLY</span> <span class="anchor-tag">ALL RUNGS ON KALSHI</span></div>
-  <p class="small dim" style="margin:4px 12px 0">Why him: last 5 games {{ lad.l5 }} assists (season {{ lad.sea }}) in {{ lad.m5 }} minutes (season {{ lad.smin }}).</p>
+  <p class="small dim" style="margin:4px 12px 0">Why him: last 5 games {{ lad.l5 }} assists (season {{ lad.sea }}) in {{ lad.m5 }} minutes (season {{ lad.smin }}). Ladder cashes when the base and next rung both hit.</p>
   <ul class="pz-legs">{% for l in lad.tiers %}<li class="pz-leg {{ 'pz-hit' if l.res == 'hit' else ('pz-miss' if l.res == 'miss' else '') }}"><span class="pz-res">{{ cres(l.res) }}</span>
-    <span class="pz-what">{{ ['Base', 'Step 2', 'Step 3'][l.step if l.step is defined else loop.index0] }} <span class="pp-pick pp-over">{{ l.rung }}+ {{ lab.get(l.stat, l.stat) }}</span>{% if l.actual is not none %} <span class="dim small">had {{ l.actual }}</span>{% endif %}</span>
+    <span class="pz-what">{{ ['Base', 'Next rung', 'Bonus'][l.step if l.step is defined else loop.index0] }} <span class="pp-pick pp-over">{{ l.rung }}+ {{ lab.get(l.stat, l.stat) }}</span>{% if l.actual is not none %} <span class="dim small">had {{ l.actual }}</span>{% endif %}</span>
     {{ lvx(l) }}<span class="pz-meta"><b>{{ p_to_am(l.ask) }}</b> <span class="dim small">Kalshi {{ (l.ask * 100)|round|int }}% &middot; {{ l.stake }}U</span></span></li>{% endfor %}</ul>
 </article>
 {% endmacro %}

@@ -58,12 +58,12 @@
   {% if rs.tonight %}<div class="pz-grid">{{ cz.role_card(rs.tonight, tp.lab, tp.p_to_am) }}</div>{% else %}<p class="small dim">No player fits the rule tonight yet (it fills in once Kalshi posts the night's assists rungs).</p>{% endif %}
   {% set nx = tp.nlblad %}{% if nx %}
   <h3 class="hv-h3" id="nlbladder">Site ladders vs Next Level Bets</h3>
-  <p class="small dim">How he builds a ladder: one player whose role just grew (a teammate out, more minutes, running the offense), an assists ladder about 2 rungs apart, staked about 1U on the base rung, 0.25U one rung up and 0.1U on the top rung. The site builds the same thing every night from its top Role-change assists player: his base rung, then +2 and +4 assists at Kalshi's asks, same stakes. In the replay (Oct 28&ndash;Nov 25) the base rung hit 15 of 23 against ~58% prices, +2 hit 4 of 20 against ~21%, and +4 hit 0 of 17 against ~7%: the base rung is what wins, for him and for the site.</p>
+  <p class="small dim">How he builds a ladder: one player whose role just grew (a teammate out, more minutes, running the offense), an assists ladder about 2 apart, staked about 1U on the base rung, 0.25U one rung up and 0.1U on the top rung. The site builds a <b>safer</b> one every night: a player whose assists over his last 5 games are at or above his season average, whose minutes aren't down and who's playing 28+ minutes; the base is his safest Kalshi assists rung priced 70&ndash;90%, then the next rung (+2) and a +4 bonus rung, same stakes. <b>Ladder cashed</b> = base and next rung both hit. Replay Oct 28&ndash;Nov 25: base 21 of 23 (91%), ladder cashed 15 of 23 (65%), +4 bonus 6 of 23, +8.1U on 31U. The live record below is the real test.</p>
   {% set ss = nx.site %}{% set hs = nx.his %}
   <div class="table-wrap"><div class="table-scroll"><table class="stat-table">
-    <thead><tr><th></th><th>Base</th><th>+1 rung</th><th>Top</th><th>Units</th></tr></thead><tbody>
+    <thead><tr><th></th><th>Base</th><th>Next rung</th><th>Top / bonus</th><th>Units</th></tr></thead><tbody>
     {% for who, x in [('Site', ss), ('Next Level', hs)] %}
-    <tr><td><b>{{ who }}</b><br><span class="dim small">{{ x.ladders }} ladder{{ 's' if x.ladders != 1 }} &middot; {{ x.full }} full</span></td>
+    <tr><td><b>{{ who }}</b><br><span class="dim small">{{ x.ladders }} ladder{{ 's' if x.ladders != 1 }} &middot; {{ x.full }} cashed{% if x.ladders %} ({{ (100 * x.full / x.ladders)|round|int }}%){% endif %}</span></td>
       {% for st in x.steps %}<td>{% if st.n %}{{ st.w }}/{{ st.n }}{% if st.price %}<br><span class="dim small">{{ st.price }}% priced</span>{% endif %}{% else %}<span class="dim">&ndash;</span>{% endif %}</td>{% endfor %}
       <td>{% if x.staked %}{{ u(x.u) }}<br><span class="dim small">on {{ x.staked }}U</span>{% else %}<span class="dim">starts tonight</span>{% endif %}</td></tr>
     {% endfor %}
