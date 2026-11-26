@@ -43,6 +43,8 @@ TIPSTERS = {
               "note": "'Sneaky Picks' / 'Fade Zone' props at posted odds, often collabs with WizBetz. Posts misses too. Added Nov 19."},
     "izzo": {"name": "IzzoBets", "handle": "@IzzoBets", "what": "straights", "honest": False,
              "note": "Daily 'NBA Prop #1-6' cards with odds. Every posted pick graded here, but he never posts a miss himself. Added Nov 19."},
+    "nlb": {"name": "Next Level Bets", "handle": "@NextLevelBets_", "what": "straights + ladder base rungs", "honest": False,
+            "note": "Free 'NBA Play' props and ladders (base rung graded here). Over two seasons only his assists picks win (2025-26 written plays: assists 43-28, +5.6U; everything else lost), so every assists pick is tagged STANDOUT. Posts results only on winning days. Re-added Nov 26 (this season's ladders backfilled)."},
     "gobpm": {"name": "Goblin Polymarket", "handle": "@PotdPrizepicks", "what": "Polymarket daily combo", "honest": False,
               "note": "His 'Daily $1,000' Polymarket combos: 6-7 legs priced about 70% each (overs and 'No' unders), paying about 6-7x. Graded 1U per combo; the legs record shows which props he gets right. Added Nov 19."},
     "wizv": {"name": "WizBetz video leans", "handle": "@WizBetz on YouTube", "what": "video leans", "honest": True,
@@ -55,7 +57,7 @@ TIPSTERS = {
             "note": "The lowest tier of his daily 3-tier lotto ladder (3 role players at low lines). Priced +210 or shorter it went 7 of 11 through Nov 17."},
 }
 SHORT_MAX = 210  # Sam's safest slip: the ones priced +210 or shorter are the ones that cashed
-DROPPED = ("FieldsFocus (61-60, -6.8U), vanishpicks (9-13, -5.4U), QuentinLocks (12-13, -3.6U), billhpicks (19-17, -0.5U), AngeloProps (7-6, -0.5U), swan_wbg (36-57, -25.4U), ZiggyBetsFR (ladders, 14-14 flat), NextLevelBets (31-31, -4.0U, posts only winning days), "
+DROPPED = ("FieldsFocus (61-60, -6.8U), vanishpicks (9-13, -5.4U), QuentinLocks (12-13, -3.6U), billhpicks (19-17, -0.5U), AngeloProps (7-6, -0.5U), swan_wbg (36-57, -25.4U), ZiggyBetsFR (ladders, 14-14 flat), "
            "Bearprops (13-14 legs, never posts a loss)")
 LAB = {"pts": "PTS", "reb": "REB", "ast": "AST", "fg3m": "3PM", "pra": "PRA", "pr": "P+R", "pa": "P+A", "ra": "R+A", "dd": "DOUBLE-DOUBLE"}
 PARTS = {"pts": ("pts",), "reb": ("reb",), "ast": ("ast",), "fg3m": ("fg3m",), "pra": ("pts", "reb", "ast"),
@@ -720,7 +722,8 @@ def summary(box, sl: dict | None = None, now: datetime | None = None) -> dict:
             legrec = {"all": _lr(lg), "over": _lr([l for l in lg if l.get("side") == "over"]),
                       "under": _lr([l for l in lg if l.get("side") == "under"]),
                       "by": {LAB.get(st, st): _lr([l for l in lg if l["stat"] == st]) for st in sorted({l["stat"] for l in lg})}}
-        per.append({"key": k, **t, **rec(rs), "tail": rec(tail, "your_units"), "spots": spots, "legrec": legrec})
+        stand = rec([r for r in rs if r.get("standout")]) if k == "nlb" else None
+        per.append({"key": k, **t, **rec(rs), "tail": rec(tail, "your_units"), "spots": spots, "legrec": legrec, "stand": stand})
     tail_all = [r for r in graded if "your_units" in r]
     for t in per:
         if t["key"] == "sam":

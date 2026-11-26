@@ -33,12 +33,6 @@
   {% if bk.tonight %}<div class="pz-grid">{{ cz.bestk_card(bk.tonight, board.lab, board.p_to_am, 'BEST 5 ON KALSHI') }}</div>
   {% else %}<p class="small dim">No legs clear the bar yet tonight.</p>{% endif %}{% endif %}
 
-  {% set rs = board.rs %}
-  {% if rs %}<h3 class="hv-h3" id="role">Role-change assists <span class="u-tag u-0">TESTING</span></h3>
-  <p class="small dim">NextLevelBets' way of finding players, run by the site: assists for players whose job just grew. Over his last 5 games he's averaging 25%+ more assists than his season average and playing more minutes, while Kalshi still prices him at 50&ndash;75%. One leg per player (his safest qualifying rung), up to 5 a night, nobody listed out or questionable. His assists picks won both of the last two seasons; his points, rebounds and combo picks didn't.{% if rs.rec.n %} Record: <b>{{ rs.rec.w }}-{{ rs.rec.n - rs.rec.w }}</b> &middot; {{ mu(rs.rec.u) }}.{% else %} Replay this season: 53-29, +10.5U, but it lost its first two weeks (12-16) before winning the next two (41-13), so it's tracked from tonight and not counted as proven yet.{% endif %} Straight bets, 0.5U or less while it's testing.</p>
-  {% if rs.tonight %}<div class="pz-grid">{{ cz.role_card(rs.tonight, board.lab, board.p_to_am) }}</div>
-  {% else %}<p class="small dim">No player fits tonight.</p>{% endif %}{% endif %}
-
   {% set pv = board.pv %}
   {% if pv %}<h3 class="hv-h3" id="proven">Proven picks tonight</h3>
   <p class="small dim">Only legs from kinds of picks that are beating Kalshi's price over time ({% for k in pv.kinds if k.status in ('PROVEN', 'PROMISING') %}{{ k.name }}{{ ', ' if not loop.last }}{% endfor %}). Straights or a short 2-leg combo: long combos lose on one quiet leg and Kalshi's combo price takes more. <a href="tipsters.html#proven">How each kind is doing &rarr;</a></p>
