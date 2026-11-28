@@ -2228,7 +2228,7 @@
   "why": "29.2 min (recent 30.0, \u22120.8 team-minutes adjustment with Kobe Brown, T.J. McConnell out); \u00d7 0.130 rebounds/min (56% this season's 0.117 over 15 games, 44% prior 0.144); context: home +1%, rest +1%, opponent defense +1%, shared production on IND \u22123%; calibration +0.0; injury news: -0.4 with T.J. McConnell, Kobe Brown, Johnny Furphy ruled out today (half of how he's actually played without them)."
  },
  "Aaron Wiggins|ast|401909330": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6069,
@@ -2249,7 +2249,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -2270,6 +2271,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -2285,6 +2289,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 0.1,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -2356,7 +2361,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -2367,7 +2372,7 @@
   "why": "22.7 min (recent 23.3, \u22120.6 team-minutes adjustment); \u00d7 0.089 assists/min (87% this season's 0.091 over 17 games, 13% prior 0.084); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22121%, shared production on ATL \u22122%; calibration +0.1."
  },
  "Aaron Wiggins|fg3m|401909330": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6365,
@@ -2388,7 +2393,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:44 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -2419,6 +2425,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -2434,6 +2443,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "BOS",
+  "our_err": 0.9,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -2505,7 +2515,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -2516,7 +2526,7 @@
   "why": "22.7 min (recent 23.3, \u22120.6 team-minutes adjustment); \u00d7 0.099 3-pointers made/min (92% this season's 0.107 over 17 games, 8% prior 0.070); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22121%, shared production on ATL \u22122%; calibration -0.0."
  },
  "Aaron Wiggins|pa|401909330": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [
    "-2.7 pts: pick follows the line's move (pattern)"
   ],
@@ -2539,11 +2549,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.5
@@ -2559,6 +2573,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "BOS",
+  "our_err": 0.3,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -2630,7 +2645,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -2641,7 +2656,7 @@
   "why": "22.7 min (recent 23.3, \u22120.6 team-minutes adjustment); \u00d7 0.606 pts+ast/min (92% this season's 0.628 over 17 games, 8% prior 0.552); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22122%, shared production on ATL +3%; shot-zone matchup \u22124% (where he scores vs where BOS gives up points); calibration +0.1."
  },
  "Aaron Wiggins|pra|401909330": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [
    "-2.7 pts: pick follows the line's move (pattern)"
   ],
@@ -2665,7 +2680,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -2686,6 +2702,10 @@
   ],
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 14.5,
@@ -2707,6 +2727,7 @@
   "move": -2.0,
   "move_dir": "against",
   "opp": "BOS",
+  "our_err": 3.3,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -2778,7 +2799,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -2789,7 +2810,7 @@
   "why": "22.7 min (recent 23.3, \u22120.6 team-minutes adjustment); \u00d7 0.746 pts+reb+ast/min (92% this season's 0.769 over 17 games, 8% prior 0.701); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22121%, shared production on ATL +2%; shot-zone matchup \u22124% (where he scores vs where BOS gives up points); calibration +0.1."
  },
  "Aaron Wiggins|pr|401909330": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [
    "-2.7 pts: pick follows the line's move (pattern)"
   ],
@@ -2813,11 +2834,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -2833,6 +2858,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "BOS",
+  "our_err": 3.4,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -2904,7 +2930,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -2915,7 +2941,7 @@
   "why": "22.7 min (recent 23.3, \u22120.6 team-minutes adjustment); \u00d7 0.657 pts+reb/min (92% this season's 0.678 over 17 games, 8% prior 0.617); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22122%, shared production on ATL +3%; shot-zone matchup \u22124% (where he scores vs where BOS gives up points); calibration +0.0."
  },
  "Aaron Wiggins|pts|401909330": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.504950495049505,
@@ -2937,7 +2963,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -2958,6 +2985,11 @@
   ],
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "fanduel": 2.5,
+   "kalshi": 1.5,
+   "prizepicks": 0.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 13.5,
@@ -2985,6 +3017,7 @@
   "move": null,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 0.3,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -3062,7 +3095,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -3073,7 +3106,7 @@
   "why": "22.7 min (recent 23.3, \u22120.6 team-minutes adjustment); \u00d7 0.514 points/min (87% this season's 0.537 over 17 games, 13% prior 0.468); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22122%, shared production on ATL +4%; shot-zone matchup \u22124% (where he scores vs where BOS gives up points); calibration -0.0."
  },
  "Aaron Wiggins|ra|401909330": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -3094,11 +3127,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:41 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 5.5
@@ -3114,6 +3151,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 3.0,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -3185,7 +3223,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -3196,7 +3234,7 @@
   "why": "22.7 min (recent 23.3, \u22120.6 team-minutes adjustment); \u00d7 0.229 reb+ast/min (81% this season's 0.231 over 17 games, 19% prior 0.233); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22121%, shared production on ATL \u22122%; calibration +0.1."
  },
  "Aaron Wiggins|reb|401909330": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4572,
@@ -3218,7 +3256,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -3244,6 +3283,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 3.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -3259,6 +3301,7 @@
   "move": null,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 3.1,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -3330,7 +3373,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -12461,7 +12504,7 @@
   "why": "32.6 min (recent 33.5, \u22120.9 team-minutes adjustment); \u00d7 0.278 rebounds/min (59% this season's 0.255 over 17 games, 41% prior 0.300); context: pace vs NYK \u22122%, road \u22121%, opponent defense \u22121%, shared production on MIA +4%; calibration +0.0; injury news: +0.6 with Keshad Johnson, Vladislav Goldin ruled out today (half of how he's actually played without them)."
  },
  "Baylor Scheierman|ast|401909330": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4269,
@@ -12482,7 +12525,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -12498,6 +12542,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -12513,6 +12560,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 1.1,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -12584,7 +12632,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -12595,7 +12643,7 @@
   "why": "18.1 min (recent 18.8, \u22120.5 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.079 assists/min (78% this season's 0.073 over 18 games, 22% prior 0.089); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on BOS \u22127%; calibration +0.1; injury news: -0.4 with Amari Williams ruled out today (half of how he's actually played without him)."
  },
  "Baylor Scheierman|fg3m|401909330": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6757,
@@ -12616,7 +12664,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -12642,6 +12691,9 @@
   ],
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 0.5
@@ -12657,6 +12709,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 0.2,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -12728,7 +12781,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -12739,7 +12792,7 @@
   "why": "18.1 min (recent 18.8, \u22120.5 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.064 3-pointers made/min (86% this season's 0.064 over 18 games, 14% prior 0.067); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22122%, shared production on BOS \u22129%; shot-zone matchup \u22124% (where he scores vs where ATL gives up points); calibration -0.0; injury news: -0.2 with Amari Will"
  },
  "Baylor Scheierman|pa|401909330": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -12760,11 +12813,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 6.5
@@ -12780,6 +12837,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 2.3,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -12827,7 +12885,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -12838,7 +12896,7 @@
   "why": "18.1 min (recent 18.8, \u22120.5 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.376 pts+ast/min (86% this season's 0.365 over 18 games, 14% prior 0.412); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on BOS \u22122%; shot-zone matchup \u22123% (where he scores vs where ATL gives up points); calibration +0.1; injury news: -1.4 with Amari Williams rul"
  },
  "Baylor Scheierman|pra|401909330": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "-2.7 pts: pick follows the line's move (pattern)",
    "side set to UNDER to match Kalshi at the same line (books disagreed); no stake"
@@ -12862,7 +12920,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -12873,6 +12932,10 @@
   ],
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -12894,6 +12957,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 2.4,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -12965,7 +13029,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -12976,7 +13040,7 @@
   "why": "18.1 min (recent 18.8, \u22120.5 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.566 pts+reb+ast/min (86% this season's 0.558 over 18 games, 14% prior 0.590); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on BOS \u22122%; shot-zone matchup \u22123% (where he scores vs where ATL gives up points); calibration +0.1; injury news: -1.8 with Amari Williams"
  },
  "Baylor Scheierman|pr|401909330": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [
    "-2.7 pts: pick follows the line's move (pattern)"
   ],
@@ -12999,11 +13063,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.5
@@ -13019,6 +13087,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 1.3,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -13090,7 +13159,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -13101,7 +13170,7 @@
   "why": "18.1 min (recent 18.8, \u22120.5 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.488 pts+reb/min (86% this season's 0.485 over 18 games, 14% prior 0.501); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on BOS \u22121%; shot-zone matchup \u22123% (where he scores vs where ATL gives up points); calibration +0.0; injury news: -1.5 with Amari Williams rul"
  },
  "Baylor Scheierman|pts|401909330": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5673,
@@ -13122,7 +13191,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -13143,6 +13213,9 @@
   ],
   "label": "lean",
   "line": 4.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 4.5
@@ -13158,6 +13231,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 1.2,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -13229,7 +13303,7 @@
   },
   "src_key": "kalshi",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -13240,7 +13314,7 @@
   "why": "18.1 min (recent 18.8, \u22120.5 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.300 points/min (78% this season's 0.292 over 18 games, 22% prior 0.323); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22122%, shared production on BOS \u22121%; shot-zone matchup \u22123% (where he scores vs where ATL gives up points); calibration -0.0; injury news: -1.0 with Amari Williams rule"
  },
  "Baylor Scheierman|reb|401909330": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4269,
@@ -13261,7 +13335,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -13282,6 +13357,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -13297,6 +13375,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.0,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -13368,7 +13447,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -47503,7 +47582,7 @@
   "why": "25.1 min (recent 25.6, \u22120.5 team-minutes adjustment); \u00d7 0.148 rebounds/min (57% this season's 0.155 over 16 games, 43% prior 0.142); context: pace vs NOP +1%, home +1%, opponent defense +3%, shared production on LAC +3%; calibration +0.0; injury news: +0.1 with Jalen Pickett, Cam Christie ruled out today (half of how he's actually played without them)."
  },
  "Derrick White|ast|401909330": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -47524,7 +47603,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -47550,6 +47630,10 @@
   ],
   "label": "lean",
   "line": 4.5,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -47571,6 +47655,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 4.6,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -47642,7 +47727,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -47653,7 +47738,7 @@
   "why": "29.1 min (recent 30.5, \u22120.9 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.164 assists/min (77% this season's 0.167 over 17 games, 23% prior 0.150); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on BOS \u22127%; calibration +0.1; injury news: -0.1 with Amari Williams ruled out today (half of how he's a"
  },
  "Derrick White|fg3m|401909330": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6267,
@@ -47674,7 +47759,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -47705,6 +47791,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -47720,6 +47809,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.2,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -47791,7 +47881,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -47802,7 +47892,7 @@
   "why": "29.1 min (recent 30.5, \u22120.9 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.066 3-pointers made/min (85% this season's 0.059 over 17 games, 15% prior 0.085); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22122%, shared production on BOS \u22129%; shot-zone matchup \u22124% (where he scores vs where ATL gives up points); calibration -"
  },
  "Derrick White|pa|401909330": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -47823,11 +47913,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 17.5
@@ -47843,6 +47937,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 4.4,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -47914,7 +48009,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -47925,7 +48020,7 @@
   "why": "29.1 min (recent 30.5, \u22120.9 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.596 pts+ast/min (85% this season's 0.578 over 17 games, 15% prior 0.634); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on BOS \u22123%; shot-zone matchup \u22122% (where he scores vs where ATL gives up points); calibration +0.1; inj"
  },
  "Derrick White|pra|401909330": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -47946,7 +48041,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -47967,6 +48063,10 @@
   ],
   "label": "lean",
   "line": 20.5,
+  "line_errs": {
+   "kalshi": 3.5,
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 19.5,
@@ -47988,6 +48088,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 4.7,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -48059,7 +48160,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -48070,7 +48171,7 @@
   "why": "29.1 min (recent 30.5, \u22120.9 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.711 pts+reb+ast/min (85% this season's 0.686 over 17 games, 15% prior 0.764); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on BOS \u22122%; shot-zone matchup \u22122% (where he scores vs where ATL gives up points); calibration +0.1;"
  },
  "Derrick White|pr|401909330": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -48091,11 +48192,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -48111,6 +48216,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 0.2,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -48182,7 +48288,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -48193,7 +48299,7 @@
   "why": "29.1 min (recent 30.5, \u22120.9 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.546 pts+reb/min (85% this season's 0.520 over 17 games, 15% prior 0.615); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on BOS \u22121%; shot-zone matchup \u22122% (where he scores vs where ATL gives up points); calibration +0.0; inj"
  },
  "Derrick White|pts|401909330": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5555555555555556,
@@ -48214,7 +48320,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -48235,6 +48342,11 @@
   ],
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "fanduel": 0.5,
+   "kalshi": 1.5,
+   "prizepicks": 0.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 12.5,
@@ -48262,6 +48374,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.2,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -48333,7 +48446,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -48344,7 +48457,7 @@
   "why": "29.1 min (recent 30.5, \u22120.9 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.436 points/min (77% this season's 0.412 over 17 games, 23% prior 0.484); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22122%, shared production on BOS \u22121%; shot-zone matchup \u22122% (where he scores vs where ATL gives up points); calibration -0.0; inju"
  },
  "Derrick White|ra|401909330": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -48365,11 +48478,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 8.0,
+  "line_errs": {
+   "prizepicks": 5.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.0
@@ -48385,6 +48502,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 5.1,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -48456,7 +48574,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -48467,7 +48585,7 @@
   "why": "29.1 min (recent 30.5, \u22120.9 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.280 reb+ast/min (68% this season's 0.275 over 17 games, 32% prior 0.281); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on BOS \u22125%; calibration +0.1; injury news: -0.2 with Amari Williams ruled out today (half of how he's a"
  },
  "Derrick White|reb|401909330": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4774,
@@ -48488,7 +48606,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -48514,6 +48633,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -48529,6 +48651,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.6,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -48600,7 +48723,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -55241,7 +55364,7 @@
   "why": "30.3 min (recent 31.4, \u22121.1 team-minutes adjustment); \u00d7 0.162 rebounds/min (56% this season's 0.171 over 15 games, 44% prior 0.149); context: home +1%, opponent defense \u22121%, shared production on SAS \u22122%; calibration +0.0; injury news: +0.2 with David Jones Garcia ruled out today (half of how he's actually played without him)."
  },
  "Dyson Daniels|ast|401909330": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -55262,7 +55385,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:41 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -55288,6 +55412,10 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -55309,6 +55437,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 0.6,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -55380,7 +55509,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -55391,7 +55520,7 @@
   "why": "33.5 min (recent 34.7, \u22120.9 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.180 assists/min (77% this season's 0.186 over 17 games, 23% prior 0.158); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22121%, shared production on ATL \u22122%; calibration +0.1."
  },
  "Dyson Daniels|fg3m|401909330": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3863,
@@ -55412,7 +55541,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:41 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -55428,6 +55558,9 @@
   ],
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 0.5
@@ -55443,6 +55576,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 0.7,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -55514,7 +55648,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -55525,7 +55659,7 @@
   "why": "33.5 min (recent 34.7, \u22120.9 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.008 3-pointers made/min (85% this season's 0.006 over 17 games, 15% prior 0.022); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22121%, shared production on ATL \u22122%; calibration -0.0."
  },
  "Dyson Daniels|pa|401909330": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -55546,11 +55680,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -55566,6 +55704,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 5.6,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -55637,7 +55776,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -55648,7 +55787,7 @@
   "why": "33.5 min (recent 34.7, \u22120.9 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.501 pts+ast/min (85% this season's 0.481 over 17 games, 15% prior 0.548); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22122%, shared production on ATL +2%; shot-zone matchup \u22128% (where he scores vs where BOS gives up points); calibration +0.1."
  },
  "Dyson Daniels|pra|401909330": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -55669,7 +55808,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -55690,6 +55830,10 @@
   ],
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "kalshi": 8.5,
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 24.5,
@@ -55711,6 +55855,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "BOS",
+  "our_err": 7.2,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -55782,7 +55927,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -55793,7 +55938,7 @@
   "why": "33.5 min (recent 34.7, \u22120.9 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.739 pts+reb+ast/min (85% this season's 0.734 over 17 games, 15% prior 0.736); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22121%, shared production on ATL +1%; shot-zone matchup \u22128% (where he scores vs where BOS gives up points); calibration +0.1."
  },
  "Dyson Daniels|pr|401909330": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -55814,11 +55959,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 17.5
@@ -55834,6 +55983,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 6.6,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -55905,7 +56055,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -55916,7 +56066,7 @@
   "why": "33.5 min (recent 34.7, \u22120.9 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.557 pts+reb/min (85% this season's 0.548 over 17 games, 15% prior 0.578); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22122%, shared production on ATL +2%; shot-zone matchup \u22128% (where he scores vs where BOS gives up points); calibration +0.0."
  },
  "Dyson Daniels|pts|401909330": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5327102803738317,
@@ -55937,7 +56087,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -55963,6 +56114,11 @@
   ],
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "fanduel": 4.5,
+   "kalshi": 4.5,
+   "prizepicks": 4.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 9.5,
@@ -55990,6 +56146,7 @@
   "move": null,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 5.1,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -56061,7 +56218,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -56072,7 +56229,7 @@
   "why": "33.5 min (recent 34.7, \u22120.9 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.325 points/min (77% this season's 0.296 over 17 games, 23% prior 0.390); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22122%, shared production on ATL +4%; shot-zone matchup \u22128% (where he scores vs where BOS gives up points); calibration -0.0."
  },
  "Dyson Daniels|ra|401909330": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -56093,11 +56250,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:41 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -56113,6 +56274,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 2.0,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -56184,7 +56346,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -56195,7 +56357,7 @@
   "why": "33.5 min (recent 34.7, \u22120.9 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.407 reb+ast/min (68% this season's 0.439 over 17 games, 32% prior 0.347); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22121%, shared production on ATL \u22122%; calibration +0.1."
  },
  "Dyson Daniels|reb|401909330": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -56217,7 +56379,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:44 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -56248,6 +56411,10 @@
   ],
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 7.5,
@@ -56269,6 +56436,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 1.3,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -56342,7 +56510,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -60632,7 +60800,7 @@
   "why": "23.7 min (recent 24.7, \u22121.1 team-minutes adjustment with Jaron Pierre Jr. out); \u00d7 0.119 rebounds/min (61% this season's 0.111 over 19 games, 39% prior 0.134); context: pace vs LAC \u22121%, road \u22121%, rest +1%, opponent defense +2%; calibration +0.0; injury news: +0.4 with Julian Reese, Jaron Pierre Jr. ruled out today (half of how he's actually played without them)."
  },
  "Hugo Gonzalez|fg3m|401909330": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [
    "no stake yet: picks like this are 277/546 (51%); a stake needs 30+ graded at 56%+ (2 points over the 54% their prices need)"
   ],
@@ -60653,11 +60821,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:41 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 0.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 0.5
@@ -60673,6 +60845,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.7,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -60724,7 +60897,7 @@
   },
   "src_key": "prizepicks",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -60734,7 +60907,7 @@
   "why": "12.3 min (recent 12.6, \u22120.4 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.040 3-pointers made/min (86% this season's 0.041 over 18 games, 14% prior 0.043); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22122%, shared production on BOS \u22129%; shot-zone matchup \u22124% (where he scores vs where ATL gives up points); calibration -0.0; injury news: -0.2 with Amari Will"
  },
  "Hugo Gonzalez|pra|401909330": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -60755,11 +60928,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -60775,6 +60952,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 5.6,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -60822,7 +61000,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -60833,7 +61011,7 @@
   "why": "14.7 min (recent 12.6, \u22120.4 team-minutes adjustment with Devin Carter, Mitchell Robinson out; the model had him at 12.3, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.531 pts+reb+ast/min (86% this season's 0.535 over 18 games, 14% prior 0.568); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on BOS \u22122%; shot-zone mat"
  },
  "Hugo Gonzalez|pr|401909330": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -60854,11 +61032,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.5
@@ -60874,6 +61056,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 5.2,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -60921,7 +61104,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -60932,7 +61115,7 @@
   "why": "14.7 min (recent 12.6, \u22120.4 team-minutes adjustment with Devin Carter, Mitchell Robinson out; the model had him at 12.3, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.488 pts+reb/min (86% this season's 0.494 over 18 games, 14% prior 0.515); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on BOS \u22121%; shot-zone matchup"
  },
  "Hugo Gonzalez|pts|401909330": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [
    "-2.7 pts: pick follows the line's move (pattern)",
    "side set to UNDER to match Kalshi at the same line (books disagreed); no stake"
@@ -60956,7 +61139,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -60977,6 +61161,10 @@
   ],
   "label": "lean",
   "line": 4.5,
+  "line_errs": {
+   "kalshi": 4.5,
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 4.5,
@@ -60998,6 +61186,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 5.3,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -61045,7 +61234,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -61056,7 +61245,7 @@
   "why": "14.7 min (recent 12.6, \u22120.4 team-minutes adjustment with Devin Carter, Mitchell Robinson out; the model had him at 12.3, but the posted points line implies more, so minutes moved most of the way toward it); \u00d7 0.282 points/min (78% this season's 0.290 over 18 games, 22% prior 0.304); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22122%, shared production on BOS \u22121%; shot-zone matchup "
  },
  "Hugo Gonzalez|reb|401909330": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [
    "no stake yet: picks like this are 77/156 (49%); a stake needs 30+ graded at 56%+ (2 points over the 54% their prices need)"
   ],
@@ -61084,7 +61273,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -61095,6 +61285,10 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -61116,6 +61310,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.1,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -61163,7 +61358,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -72125,7 +72320,7 @@
   "why": "29.4 min (recent 30.0, \u22120.7 team-minutes adjustment); \u00d7 0.133 rebounds/min (59% this season's 0.131 over 17 games, 41% prior 0.139); context: home +1%, opponent defense +1%, shared production on PHX +2%; calibration +0.0; injury news: +1.2 with Pat Spencer, Duop Reath ruled out today (half of how he's actually played without them)."
  },
  "Jalen Johnson|ast|401909330": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5971,
@@ -72146,7 +72341,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -72172,6 +72368,9 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 5.5
@@ -72187,6 +72386,7 @@
   "move": null,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 3.1,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -72258,7 +72458,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -72269,7 +72469,7 @@
   "why": "32.2 min (recent 33.3, \u22120.9 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.203 assists/min (74% this season's 0.203 over 14 games, 26% prior 0.190); context: pace vs BOS \u22122%, road \u22121%, rest +1%, shared production on ATL \u22122%; calibration +0.0."
  },
  "Jalen Johnson|fg3m|401909330": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4269,
@@ -72290,7 +72490,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -72311,6 +72512,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -72326,6 +72530,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 1.0,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -72397,7 +72602,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -72408,7 +72613,7 @@
   "why": "32.2 min (recent 33.3, \u22120.9 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.032 3-pointers made/min (82% this season's 0.025 over 14 games, 18% prior 0.046); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense +4%, shared production on ATL \u22122%; calibration +0.0."
  },
  "Jalen Johnson|pa|401909330": {
-  "actual": null,
+  "actual": 27.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -72429,11 +72634,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 24.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 24.5
@@ -72449,6 +72658,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 3.1,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -72520,7 +72730,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -72531,7 +72741,7 @@
   "why": "32.2 min (recent 33.3, \u22120.9 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.775 pts+ast/min (82% this season's 0.764 over 14 games, 18% prior 0.787); context: pace vs BOS \u22122%, road \u22121%, rest +1%, shared production on ATL +2%; shot-zone matchup \u22126% (where he scores vs where BOS gives up points); calibration +0.1."
  },
  "Jalen Johnson|pra|401909330": {
-  "actual": null,
+  "actual": 39.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -72552,7 +72762,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:44 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -72573,6 +72784,10 @@
   ],
   "label": "lean",
   "line": 34.5,
+  "line_errs": {
+   "kalshi": 4.5,
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 34.5,
@@ -72594,6 +72809,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 6.4,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -72665,7 +72881,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -72676,7 +72892,7 @@
   "why": "32.2 min (recent 33.3, \u22120.9 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 1.047 pts+reb+ast/min (82% this season's 1.031 over 14 games, 18% prior 1.063); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense +1%, shared production on ATL +1%; shot-zone matchup \u22126% (where he scores vs where BOS gives up points); calibration +0.0."
  },
  "Jalen Johnson|pr|401909330": {
-  "actual": null,
+  "actual": 36.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -72697,11 +72913,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 27.5,
+  "line_errs": {
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 27.5
@@ -72717,6 +72937,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 9.5,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -72788,7 +73009,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -72799,7 +73020,7 @@
   "why": "32.2 min (recent 33.3, \u22120.9 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.843 pts+reb/min (82% this season's 0.828 over 14 games, 18% prior 0.873); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense +1%, shared production on ATL +2%; shot-zone matchup \u22126% (where he scores vs where BOS gives up points); calibration +0.0."
  },
  "Jalen Johnson|pts|401909330": {
-  "actual": null,
+  "actual": 24.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5283018867924528,
@@ -72820,7 +73041,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -72851,6 +73073,11 @@
   ],
   "label": "lean",
   "line": 18.5,
+  "line_errs": {
+   "fanduel": 5.5,
+   "kalshi": 4.5,
+   "prizepicks": 5.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 18.5,
@@ -72878,6 +73105,7 @@
   "move": null,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 6.1,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -72949,7 +73177,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -72960,7 +73188,7 @@
   "why": "32.2 min (recent 33.3, \u22120.9 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.574 points/min (74% this season's 0.561 over 14 games, 26% prior 0.597); context: pace vs BOS \u22122%, road \u22121%, rest +1%, shared production on ATL +4%; shot-zone matchup \u22126% (where he scores vs where BOS gives up points); calibration +0.0."
  },
  "Jalen Johnson|ra|401909330": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -72981,11 +73209,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -73001,6 +73233,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 0.2,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -73072,7 +73305,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -73083,7 +73316,7 @@
   "why": "32.2 min (recent 33.3, \u22120.9 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.475 reb+ast/min (64% this season's 0.471 over 14 games, 36% prior 0.466); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense +2%, shared production on ATL \u22122%; calibration +0.0."
  },
  "Jalen Johnson|reb|401909330": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -73104,7 +73337,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -73140,6 +73374,10 @@
   ],
   "label": "lean",
   "line": 9.0,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 3.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -73161,6 +73399,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 3.3,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -73232,7 +73471,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -78923,7 +79162,7 @@
   "why": "25.8 min (recent 25.9); \u00d7 0.126 rebounds/min (61% this season's 0.122 over 19 games, 39% prior 0.133); context: road \u22121%; calibration +0.0."
  },
  "Jayson Tatum|ast|401909330": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -78944,7 +79183,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -78970,6 +79210,10 @@
   ],
   "label": "lean",
   "line": 6.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -78991,6 +79235,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 1.3,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -79062,7 +79307,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -79073,7 +79318,7 @@
   "why": "33.8 min (recent 35.3, \u22121.0 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.184 assists/min (76% this season's 0.197 over 16 games, 24% prior 0.147); context: pace vs ATL +1%, home +1%, rest +1%, shared production on BOS \u22127%; calibration +0.1."
  },
  "Jayson Tatum|fg3m|401909330": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6069,
@@ -79094,7 +79339,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -79130,6 +79376,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -79145,6 +79394,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 1.3,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -79216,7 +79466,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -79227,7 +79477,7 @@
   "why": "33.8 min (recent 35.3, \u22121.0 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.085 3-pointers made/min (84% this season's 0.085 over 16 games, 16% prior 0.085); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22129%; shot-zone matchup \u22124% (where he scores vs where ATL gives up points); calibration -"
  },
  "Jayson Tatum|pa|401909330": {
-  "actual": null,
+  "actual": 25.0,
   "adj": [
    "-2.7 pts: pick follows the line's move (pattern)"
   ],
@@ -79250,11 +79500,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 33.5,
+  "line_errs": {
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 33.5
@@ -79270,6 +79524,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 7.4,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -79341,7 +79596,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -79352,7 +79607,7 @@
   "why": "33.8 min (recent 35.3, \u22121.0 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.948 pts+ast/min (84% this season's 0.989 over 16 games, 16% prior 0.811); context: pace vs ATL +1%, home +1%, rest +1%, shared production on BOS \u22122%; calibration +0.1; injury news: -0.3 with Amari Williams ruled out today (half of how he's actually played without"
  },
  "Jayson Tatum|pra|401909330": {
-  "actual": null,
+  "actual": 34.0,
   "adj": [
    "-2.7 pts: pick follows the line's move (pattern)"
   ],
@@ -79375,7 +79630,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -79401,6 +79657,10 @@
   ],
   "label": "lean",
   "line": 41.5,
+  "line_errs": {
+   "kalshi": 5.5,
+   "prizepicks": 7.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 39.5,
@@ -79422,6 +79682,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 5.9,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -79493,7 +79754,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -79504,7 +79765,7 @@
   "why": "33.8 min (recent 35.3, \u22121.0 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 1.162 pts+reb+ast/min (84% this season's 1.187 over 16 games, 16% prior 1.054); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22122%; calibration +0.1; injury news: -0.4 with Amari Williams ruled out today (half of how he"
  },
  "Jayson Tatum|pr|401909330": {
-  "actual": null,
+  "actual": 29.0,
   "adj": [
    "-2.7 pts: pick follows the line's move (pattern)"
   ],
@@ -79527,11 +79788,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 34.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 34.5
@@ -79547,6 +79812,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 4.5,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -79618,7 +79884,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -79629,7 +79895,7 @@
   "why": "33.8 min (recent 35.3, \u22121.0 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.974 pts+reb/min (84% this season's 0.989 over 16 games, 16% prior 0.907); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22121%; calibration +0.0; injury news: -0.5 with Amari Williams ruled out today (half of how he's a"
  },
  "Jayson Tatum|pts|401909330": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [
    "side set to UNDER to match PrizePicks at the same line (books disagreed); no stake"
   ],
@@ -79652,7 +79918,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -79678,6 +79945,11 @@
   ],
   "label": "lean",
   "line": 26.5,
+  "line_errs": {
+   "fanduel": 6.5,
+   "kalshi": 4.5,
+   "prizepicks": 6.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 26.5,
@@ -79705,6 +79977,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 5.7,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -79776,7 +80049,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -79787,7 +80060,7 @@
   "why": "33.8 min (recent 35.3, \u22121.0 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.752 points/min (76% this season's 0.792 over 16 games, 24% prior 0.663); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22121%; calibration -0.0; injury news: -0.4 with Amari Williams ruled out today (half of how he's ac"
  },
  "Jayson Tatum|ra|401909330": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -79808,11 +80081,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 14.5
@@ -79828,6 +80105,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.1,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -79899,7 +80177,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -79910,7 +80188,7 @@
   "why": "33.8 min (recent 35.3, \u22121.0 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.400 reb+ast/min (67% this season's 0.395 over 16 games, 33% prior 0.391); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22124%; calibration +0.1."
  },
  "Jayson Tatum|reb|401909330": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -79931,7 +80209,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -79962,6 +80241,10 @@
   ],
   "label": "lean",
   "line": 8.0,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 7.5,
@@ -79983,6 +80266,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 1.2,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -80054,7 +80338,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -101569,7 +101853,7 @@
   "why": "18.9 min (recent 19.4, \u22120.5 team-minutes adjustment); \u00d7 0.308 rebounds/min (59% this season's 0.301 over 17 games, 41% prior 0.320); context: home +1%, shared production on PHX +2%; calibration +0.0."
  },
  "Kingston Flemings|ast|401909330": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -101590,11 +101874,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 4.0,
+  "line_errs": {
+   "prizepicks": 2.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 4.0
@@ -101610,6 +101898,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 1.9,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -101681,7 +101970,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -101692,7 +101981,7 @@
   "why": "23.2 min (recent 23.8, \u22120.6 team-minutes adjustment); \u00d7 0.179 assists/min (72% this season's 0.193 over 13 games, 28% prior 0.133); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22121%, shared production on ATL \u22122%; calibration +0.0."
  },
  "Kingston Flemings|pa|401909330": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -101713,11 +102002,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 12.5
@@ -101733,6 +102026,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 8.7,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -101804,7 +102098,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -101815,7 +102109,7 @@
   "why": "23.2 min (recent 23.8, \u22120.6 team-minutes adjustment); \u00d7 0.576 pts+ast/min (81% this season's 0.554 over 13 games, 19% prior 0.616); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22122%, shared production on ATL +2%; shot-zone matchup \u22126% (where he scores vs where BOS gives up points); calibration +0.1."
  },
  "Kingston Flemings|pra|401909330": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -101836,11 +102130,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 15.5,
+  "line_errs": {
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 15.5
@@ -101856,6 +102154,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 8.4,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -101927,7 +102226,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -101938,7 +102237,7 @@
   "why": "23.2 min (recent 23.8, \u22120.6 team-minutes adjustment); \u00d7 0.702 pts+reb+ast/min (81% this season's 0.677 over 13 games, 19% prior 0.751); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22121%, shared production on ATL +1%; shot-zone matchup \u22126% (where he scores vs where BOS gives up points); calibration +0.0."
  },
  "Kingston Flemings|pr|401909330": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -101959,11 +102258,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 6.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -101979,6 +102282,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 6.4,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -102050,7 +102354,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -102061,7 +102365,7 @@
   "why": "23.2 min (recent 23.8, \u22120.6 team-minutes adjustment); \u00d7 0.519 pts+reb/min (81% this season's 0.484 over 13 games, 19% prior 0.618); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22122%, shared production on ATL +3%; shot-zone matchup \u22126% (where he scores vs where BOS gives up points); calibration +0.0."
  },
  "Kingston Flemings|pts|401909330": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [
    "side set to UNDER to match PrizePicks at the same line (books disagreed); no stake"
   ],
@@ -102084,11 +102388,16 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "fanduel": 6.5,
+   "prizepicks": 6.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 8.5,
@@ -102110,6 +102419,7 @@
   "move": null,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 6.8,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -102181,7 +102491,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -102192,7 +102502,7 @@
   "why": "23.2 min (recent 23.8, \u22120.6 team-minutes adjustment); \u00d7 0.403 points/min (72% this season's 0.361 over 13 games, 28% prior 0.483); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22122%, shared production on ATL +4%; shot-zone matchup \u22126% (where he scores vs where BOS gives up points); calibration +0.0."
  },
  "Kingston Flemings|ra|401909330": {
-  "actual": null,
+  "actual": 5.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -102213,11 +102523,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 7.0,
+  "line_errs": {
+   "prizepicks": 2.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.0
@@ -102233,6 +102547,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 1.6,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -102304,7 +102619,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "5-14 games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -111074,7 +111389,7 @@
   "why": "32.3 min (recent 33.1, \u22120.8 team-minutes adjustment with Jaylen Brown, Dean Wade out); \u00d7 0.204 rebounds/min (71% this season's 0.213 over 15 games, 29% prior 0.198); context: road \u22121%, opponent defense +1%, shared production on PHI \u22122%; calibration +0.0."
  },
  "Luguentz Dort|ast|401909330": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3659,
@@ -111095,7 +111410,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -111106,6 +111422,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -111121,6 +111440,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 0.4,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -111192,7 +111512,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -111203,7 +111523,7 @@
   "why": "25.8 min (recent 26.5, \u22120.7 team-minutes adjustment); \u00d7 0.055 assists/min (87% this season's 0.057 over 17 games, 13% prior 0.060); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22121%, shared production on ATL \u22122%; calibration +0.1."
  },
  "Luguentz Dort|fg3m|401909330": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5574,
@@ -111224,7 +111544,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -111255,6 +111576,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -111270,6 +111594,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 0.4,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -111341,7 +111666,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -111352,7 +111677,7 @@
   "why": "25.8 min (recent 26.5, \u22120.7 team-minutes adjustment); \u00d7 0.066 3-pointers made/min (92% this season's 0.064 over 17 games, 8% prior 0.072); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22121%, shared production on ATL \u22122%; calibration -0.0."
  },
  "Luguentz Dort|pa|401909330": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -111373,11 +111698,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -111393,6 +111722,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 4.4,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -111464,7 +111794,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -111475,7 +111805,7 @@
   "why": "25.8 min (recent 26.5, \u22120.7 team-minutes adjustment); \u00d7 0.419 pts+ast/min (92% this season's 0.435 over 17 games, 8% prior 0.402); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22122%, shared production on ATL +3%; shot-zone matchup \u22123% (where he scores vs where BOS gives up points); calibration +0.1."
  },
  "Luguentz Dort|pra|401909330": {
-  "actual": null,
+  "actual": 17.0,
   "adj": [
    "-2.7 pts: pick follows the line's move (pattern)"
   ],
@@ -111498,7 +111828,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -111519,6 +111850,10 @@
   ],
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 14.5,
@@ -111540,6 +111875,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "BOS",
+  "our_err": 3.2,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -111611,7 +111947,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -111622,7 +111958,7 @@
   "why": "25.8 min (recent 26.5, \u22120.7 team-minutes adjustment); \u00d7 0.549 pts+reb+ast/min (92% this season's 0.565 over 17 games, 8% prior 0.538); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22121%, shared production on ATL +2%; shot-zone matchup \u22123% (where he scores vs where BOS gives up points); calibration +0.1."
  },
  "Luguentz Dort|pr|401909330": {
-  "actual": null,
+  "actual": 16.0,
   "adj": [
    "-2.7 pts: pick follows the line's move (pattern)"
   ],
@@ -111645,11 +111981,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "prizepicks": 4.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 11.5
@@ -111665,6 +112005,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "BOS",
+  "our_err": 3.5,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -111736,7 +112077,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -111747,7 +112088,7 @@
   "why": "25.8 min (recent 26.5, \u22120.7 team-minutes adjustment); \u00d7 0.494 pts+reb/min (92% this season's 0.508 over 17 games, 8% prior 0.479); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22122%, shared production on ATL +2%; shot-zone matchup \u22123% (where he scores vs where BOS gives up points); calibration +0.0."
  },
  "Luguentz Dort|pts|401909330": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.504950495049505,
@@ -111768,7 +112109,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -111789,6 +112131,11 @@
   ],
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "fanduel": 5.5,
+   "kalshi": 4.5,
+   "prizepicks": 5.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 8.5,
@@ -111816,6 +112163,7 @@
   "move": null,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 4.9,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -111887,7 +112235,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -111898,7 +112246,7 @@
   "why": "25.8 min (recent 26.5, \u22120.7 team-minutes adjustment); \u00d7 0.363 points/min (87% this season's 0.378 over 17 games, 13% prior 0.343); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22122%, shared production on ATL +4%; shot-zone matchup \u22123% (where he scores vs where BOS gives up points); calibration -0.0."
  },
  "Luguentz Dort|ra|401909330": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -111919,11 +112267,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 4.0,
+  "line_errs": {
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 4.0
@@ -111939,6 +112291,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 1.7,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -112010,7 +112363,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -112021,7 +112374,7 @@
   "why": "25.8 min (recent 26.5, \u22120.7 team-minutes adjustment); \u00d7 0.186 reb+ast/min (81% this season's 0.188 over 17 games, 19% prior 0.196); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22121%, shared production on ATL \u22122%; calibration +0.1."
  },
  "Luguentz Dort|reb|401909330": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3761,
@@ -112042,7 +112395,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -112063,6 +112417,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -112078,6 +112435,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 1.3,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -112149,7 +112507,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -122801,7 +123159,7 @@
   "why": "20.1 min (recent 20.8, \u22120.7 team-minutes adjustment with Kasparas Jakucionis out); \u00d7 0.173 rebounds/min (59% this season's 0.161 over 17 games, 41% prior 0.197); context: pace vs DET \u22121%, road \u22121%, opponent defense +1%, shared production on MIL \u22125%; calibration +0.0."
  },
  "Neemias Queta|ast|401909330": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6168,
@@ -122822,7 +123180,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -122838,6 +123197,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -122853,6 +123215,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 1.1,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -122924,7 +123287,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -122935,7 +123298,7 @@
   "why": "24.0 min (recent 24.9, \u22120.7 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.078 assists/min (77% this season's 0.086 over 17 games, 23% prior 0.066); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +5%, shared production on BOS \u22127%; calibration +0.1."
  },
  "Neemias Queta|pa|401909330": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [
    "-2.7 pts: pick follows the line's move (pattern)"
   ],
@@ -122958,11 +123321,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 13.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 13.5
@@ -122978,6 +123345,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 1.0,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -123049,7 +123417,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -123060,7 +123428,7 @@
   "why": "24.0 min (recent 24.9, \u22120.7 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.515 pts+ast/min (85% this season's 0.531 over 17 games, 15% prior 0.470); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22122%; shot-zone matchup +6% (where he scores vs where ATL gives up points); calibration +0.1; injury news: -0.4 with Amari Williams rul"
  },
  "Neemias Queta|pra|401909330": {
-  "actual": null,
+  "actual": 36.0,
   "adj": [
    "-2.7 pts: pick follows the line's move (pattern)"
   ],
@@ -123083,7 +123451,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -123104,6 +123473,10 @@
   ],
   "label": "lean",
   "line": 21.5,
+  "line_errs": {
+   "kalshi": 16.5,
+   "prizepicks": 14.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 19.5,
@@ -123125,6 +123498,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 14.9,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -123196,7 +123570,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -123207,7 +123581,7 @@
   "why": "24.0 min (recent 24.9, \u22120.7 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.823 pts+reb+ast/min (85% this season's 0.829 over 17 games, 15% prior 0.787); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22122%; shot-zone matchup +6% (where he scores vs where ATL gives up points); calibration +0.1."
  },
  "Neemias Queta|pr|401909330": {
-  "actual": null,
+  "actual": 33.0,
   "adj": [
    "-2.7 pts: pick follows the line's move (pattern)"
   ],
@@ -123230,11 +123604,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 19.5,
+  "line_errs": {
+   "prizepicks": 13.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 19.5
@@ -123250,6 +123628,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 13.8,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -123321,7 +123700,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -123332,7 +123711,7 @@
   "why": "24.0 min (recent 24.9, \u22120.7 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.744 pts+reb/min (85% this season's 0.743 over 17 games, 15% prior 0.722); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22121%; shot-zone matchup +6% (where he scores vs where ATL gives up points); calibration +0.0; injury news: +0.1 with Amari Williams rul"
  },
  "Neemias Queta|pts|401909330": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [
    "side set to UNDER to match PrizePicks at the same line (books disagreed); no stake"
   ],
@@ -123355,7 +123734,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -123376,6 +123756,11 @@
   ],
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "fanduel": 0.5,
+   "kalshi": 1.5,
+   "prizepicks": 0.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 11.5,
@@ -123403,6 +123788,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.0,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -123474,7 +123860,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -123485,7 +123871,7 @@
   "why": "24.0 min (recent 24.9, \u22120.7 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.434 points/min (77% this season's 0.446 over 17 games, 23% prior 0.404); context: pace vs ATL +1%, home +1%, rest +1%, shared production on BOS \u22121%; shot-zone matchup +6% (where he scores vs where ATL gives up points); calibration -0.0; injury news: -0.3 with Amari Williams ruled out today (half of h"
  },
  "Neemias Queta|ra|401909330": {
-  "actual": null,
+  "actual": 25.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -123506,11 +123892,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 10.5,
+  "line_errs": {
+   "prizepicks": 14.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.5
@@ -123526,6 +123916,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 14.9,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -123597,7 +123988,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -123608,7 +123999,7 @@
   "why": "24.0 min (recent 24.9, \u22120.7 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.387 reb+ast/min (68% this season's 0.383 over 17 games, 32% prior 0.384); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +2%, shared production on BOS \u22122%; calibration +0.1; injury news: +0.4 with Amari Williams ruled out today (half of how he's actually played without him)."
  },
  "Neemias Queta|reb|401909330": {
-  "actual": null,
+  "actual": 22.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -123629,7 +124020,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -123660,6 +124052,10 @@
   ],
   "label": "lean",
   "line": 8.0,
+  "line_errs": {
+   "kalshi": 14.5,
+   "prizepicks": 14.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 7.5,
@@ -123681,6 +124077,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 13.7,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -123752,7 +124149,7 @@
   },
   "src_key": "prizepicks",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -123763,7 +124160,7 @@
   "why": "24.0 min (recent 24.9, \u22120.7 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.313 rebounds/min (59% this season's 0.297 over 17 games, 41% prior 0.318); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22121%; calibration +0.0; injury news: +0.5 with Amari Williams ruled out today (half of how he's actually played without him)."
  },
  "Nickeil Alexander-Walker|ast|401909330": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -123784,7 +124181,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -123805,6 +124203,10 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -123826,6 +124228,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 0.3,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -123897,7 +124300,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -123908,7 +124311,7 @@
   "why": "30.2 min (recent 31.2, \u22120.8 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.097 assists/min (77% this season's 0.091 over 17 games, 23% prior 0.112); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22121%, shared production on ATL \u22122%; calibration +0.1."
  },
  "Nickeil Alexander-Walker|fg3m|401909330": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4673,
@@ -123930,7 +124333,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:36 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -123961,6 +124365,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -123976,6 +124383,7 @@
   "move": null,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 1.1,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -124051,7 +124459,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -124062,7 +124470,7 @@
   "why": "30.2 min (recent 31.2, \u22120.8 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.107 3-pointers made/min (85% this season's 0.114 over 17 games, 15% prior 0.086); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22121%, shared production on ATL \u22122%; calibration -0.0."
  },
  "Nickeil Alexander-Walker|pa|401909330": {
-  "actual": null,
+  "actual": 23.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -124083,11 +124491,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 22.5
@@ -124103,6 +124515,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 1.2,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -124174,7 +124587,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -124185,7 +124598,7 @@
   "why": "30.2 min (recent 31.2, \u22120.8 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.746 pts+ast/min (85% this season's 0.765 over 17 games, 15% prior 0.656); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22122%, shared production on ATL +3%; shot-zone matchup \u22124% (where he scores vs where BOS gives up points); calibration +0.1."
  },
  "Nickeil Alexander-Walker|pra|401909330": {
-  "actual": null,
+  "actual": 27.0,
   "adj": [
    "-2.7 pts: pick follows the line's move (pattern)"
   ],
@@ -124208,7 +124621,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:36 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -124229,6 +124643,10 @@
   ],
   "label": "lean",
   "line": 25.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 24.5,
@@ -124250,6 +124668,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "BOS",
+  "our_err": 2.0,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -124321,7 +124740,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -124332,7 +124751,7 @@
   "why": "30.2 min (recent 31.2, \u22120.8 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.856 pts+reb+ast/min (85% this season's 0.877 over 17 games, 15% prior 0.769); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22121%, shared production on ATL +3%; shot-zone matchup \u22124% (where he scores vs where BOS gives up points); calibration +0.1."
  },
  "Nickeil Alexander-Walker|pr|401909330": {
-  "actual": null,
+  "actual": 24.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -124353,11 +124772,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:41 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 23.5
@@ -124373,6 +124796,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 1.7,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -124444,7 +124868,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -124455,7 +124879,7 @@
   "why": "30.2 min (recent 31.2, \u22120.8 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.760 pts+reb/min (85% this season's 0.786 over 17 games, 15% prior 0.657); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22122%, shared production on ATL +3%; shot-zone matchup \u22124% (where he scores vs where BOS gives up points); calibration +0.0."
  },
  "Nickeil Alexander-Walker|pts|401909330": {
-  "actual": null,
+  "actual": 20.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.49504950495049505,
@@ -124477,7 +124901,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -124508,6 +124933,11 @@
   ],
   "label": "lean",
   "line": 20.5,
+  "line_errs": {
+   "fanduel": 0.5,
+   "kalshi": 0.5,
+   "prizepicks": 0.0
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 20.5,
@@ -124535,6 +124965,7 @@
   "move": null,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 1.2,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -124610,7 +125041,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -124621,7 +125052,7 @@
   "why": "30.2 min (recent 31.2, \u22120.8 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.642 points/min (77% this season's 0.674 over 17 games, 23% prior 0.545); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense \u22122%, shared production on ATL +4%; shot-zone matchup \u22124% (where he scores vs where BOS gives up points); calibration -0.0."
  },
  "Nickeil Alexander-Walker|reb|401909330": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4472,
@@ -124642,7 +125073,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -124668,6 +125100,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -124683,6 +125118,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 0.8,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -124754,7 +125190,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -128484,7 +128920,7 @@
   "why": "17.2 min (recent 17.6, \u22120.3 team-minutes adjustment with Cameron Boozer, Jerami Grant out); \u00d7 0.190 rebounds/min (52% this season's 0.194 over 13 games, 48% prior 0.196); context: road \u22121%, shared production on MEM +1%; calibration -0.0."
  },
  "Onyeka Okongwu|ast|401909330": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.6757,
@@ -128510,7 +128946,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -128531,6 +128968,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -128546,6 +128986,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 0.4,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -128626,7 +129067,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -128637,7 +129078,7 @@
   "why": "30.1 min (recent 31.2, \u22120.8 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.083 assists/min (77% this season's 0.076 over 17 games, 23% prior 0.094); context: pace vs BOS \u22122%, road \u22121%, rest +1%, shared production on ATL \u22122%; calibration +0.1."
  },
  "Onyeka Okongwu|fg3m|401909330": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5971,
@@ -128658,7 +129099,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:44 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -128689,6 +129131,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -128704,6 +129149,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 1.7,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -128775,7 +129221,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -128786,7 +129232,7 @@
   "why": "30.1 min (recent 31.2, \u22120.8 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.058 3-pointers made/min (85% this season's 0.059 over 17 games, 15% prior 0.051); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense +4%, shared production on ATL \u22122%; calibration -0.0."
  },
  "Onyeka Okongwu|pa|401909330": {
-  "actual": null,
+  "actual": 6.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -128807,11 +129253,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 16.5,
+  "line_errs": {
+   "prizepicks": 10.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 16.5
@@ -128827,6 +129277,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 10.3,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -128898,7 +129349,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -128909,7 +129360,7 @@
   "why": "30.1 min (recent 31.2, \u22120.8 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.554 pts+ast/min (85% this season's 0.547 over 17 games, 15% prior 0.579); context: pace vs BOS \u22122%, road \u22121%, rest +1%, shared production on ATL +3%; shot-zone matchup \u22125% (where he scores vs where BOS gives up points); calibration +0.1."
  },
  "Onyeka Okongwu|pra|401909330": {
-  "actual": null,
+  "actual": 15.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -128930,7 +129381,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -128951,6 +129403,10 @@
   ],
   "label": "lean",
   "line": 23.5,
+  "line_errs": {
+   "kalshi": 9.5,
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 24.5,
@@ -128972,6 +129428,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "BOS",
+  "our_err": 9.1,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -129043,7 +129500,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -129054,7 +129511,7 @@
   "why": "30.1 min (recent 31.2, \u22120.8 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.815 pts+reb+ast/min (85% this season's 0.811 over 17 games, 15% prior 0.838); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense +1%, shared production on ATL +1%; shot-zone matchup \u22125% (where he scores vs where BOS gives up points); calibration +0.1."
  },
  "Onyeka Okongwu|pr|401909330": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -129075,11 +129532,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 21.5,
+  "line_errs": {
+   "prizepicks": 8.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 21.5
@@ -129095,6 +129556,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "BOS",
+  "our_err": 8.8,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -129166,7 +129628,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -129177,7 +129639,7 @@
   "why": "30.1 min (recent 31.2, \u22120.8 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.733 pts+reb/min (85% this season's 0.735 over 17 games, 15% prior 0.744); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense +1%, shared production on ATL +2%; shot-zone matchup \u22125% (where he scores vs where BOS gives up points); calibration +0.0."
  },
  "Onyeka Okongwu|pts|401909330": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.49504950495049505,
@@ -129198,7 +129660,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": [
    [
@@ -129219,6 +129682,11 @@
   ],
   "label": "lean",
   "line": 14.5,
+  "line_errs": {
+   "fanduel": 10.5,
+   "kalshi": 10.5,
+   "prizepicks": 10.0
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 14.5,
@@ -129246,6 +129714,7 @@
   "move": null,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 9.9,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -129317,7 +129786,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -129328,7 +129797,7 @@
   "why": "30.1 min (recent 31.2, \u22120.8 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.472 points/min (77% this season's 0.470 over 17 games, 23% prior 0.485); context: pace vs BOS \u22122%, road \u22121%, rest +1%, shared production on ATL +4%; shot-zone matchup \u22125% (where he scores vs where BOS gives up points); calibration -0.0."
  },
  "Onyeka Okongwu|ra|401909330": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -129349,11 +129818,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": false,
   "kladder": null,
   "label": "lean",
   "line": 10.0,
+  "line_errs": {
+   "prizepicks": 1.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.0
@@ -129369,6 +129842,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "BOS",
+  "our_err": 0.7,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -129440,7 +129914,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -129451,7 +129925,7 @@
   "why": "30.1 min (recent 31.2, \u22120.8 team-minutes adjustment, \u22120.2 blowout risk (market margin 10)); \u00d7 0.346 reb+ast/min (68% this season's 0.341 over 17 games, 32% prior 0.353); context: pace vs BOS \u22122%, road \u22121%, rest +1%, opponent defense +2%, shared production on ATL \u22122%; calibration +0.1."
  },
  "Onyeka Okongwu|reb|401909330": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -129472,7 +129946,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:03 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": false,
   "kladder": [
    [
@@ -129503,6 +129978,10 @@
   ],
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "kalshi": 1.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 7.5,
@@ -129524,6 +130003,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "BOS",
+  "our_err": 1.2,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -129595,7 +130075,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "ATL",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -132828,7 +133308,7 @@
   "why": "32.4 min (recent 33.2, \u22120.9 team-minutes adjustment with Kobe Brown, T.J. McConnell out); \u00d7 0.196 rebounds/min (59% this season's 0.192 over 17 games, 41% prior 0.203); context: home +1%, rest +1%, shared production on IND \u22123%; calibration +0.0; injury news: +1.0 with T.J. McConnell, Kobe Brown, Johnny Furphy ruled out today (half of how he's actually played without them)."
  },
  "Paul George|ast|401909330": {
-  "actual": null,
+  "actual": 1.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5574,
@@ -132849,7 +133329,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -132875,6 +133356,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 2.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -132890,6 +133374,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 3.0,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -132961,7 +133446,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -132972,7 +133457,7 @@
   "why": "29.8 min (recent 31.2, \u22120.9 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.133 assists/min (86% this season's 0.136 over 15 games, 14% prior 0.117); context: pace vs ATL +1%, home +1%, rest +1%, shared production on BOS \u22127%; calibration +0.1."
  },
  "Paul George|fg3m|401909330": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5872,
@@ -132993,7 +133478,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -133024,6 +133510,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -133039,6 +133528,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 1.0,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -133110,7 +133600,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -133121,7 +133611,7 @@
   "why": "29.8 min (recent 31.2, \u22120.9 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.110 3-pointers made/min (91% this season's 0.114 over 15 games, 9% prior 0.076); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22129%; shot-zone matchup \u22124% (where he scores vs where ATL gives up points); calibration -0"
  },
  "Paul George|pa|401909330": {
-  "actual": null,
+  "actual": 9.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -133142,11 +133632,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 22.5,
+  "line_errs": {
+   "prizepicks": 13.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 22.5
@@ -133162,6 +133656,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 14.7,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -133233,7 +133728,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -133244,7 +133739,7 @@
   "why": "29.8 min (recent 31.2, \u22120.9 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.791 pts+ast/min (91% this season's 0.809 over 15 games, 9% prior 0.645); context: pace vs ATL +1%, home +1%, rest +1%, shared production on BOS \u22122%; shot-zone matchup \u22122% (where he scores vs where ATL gives up points); calibration +0.1."
  },
  "Paul George|pra|401909330": {
-  "actual": null,
+  "actual": 12.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -133265,7 +133760,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -133281,6 +133777,10 @@
   ],
   "label": "lean",
   "line": 28.5,
+  "line_errs": {
+   "kalshi": 17.5,
+   "prizepicks": 16.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 29.5,
@@ -133302,6 +133802,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 17.3,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -133373,7 +133874,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -133384,7 +133885,7 @@
   "why": "29.8 min (recent 31.2, \u22120.9 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.970 pts+reb+ast/min (91% this season's 0.991 over 15 games, 9% prior 0.820); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22122%; shot-zone matchup \u22122% (where he scores vs where ATL gives up points); calibration +0.1."
  },
  "Paul George|pr|401909330": {
-  "actual": null,
+  "actual": 11.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -133405,11 +133906,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 24.5,
+  "line_errs": {
+   "prizepicks": 13.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 24.5
@@ -133425,6 +133930,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 14.3,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -133496,7 +134002,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -133507,7 +134013,7 @@
   "why": "29.8 min (recent 31.2, \u22120.9 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.837 pts+reb/min (91% this season's 0.855 over 15 games, 9% prior 0.703); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22121%; shot-zone matchup \u22122% (where he scores vs where ATL gives up points); calibration +0.0."
  },
  "Paul George|pts|401909330": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [
    "side set to UNDER to match PrizePicks at the same line (books disagreed); no stake"
   ],
@@ -133530,7 +134036,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -133556,6 +134063,11 @@
   ],
   "label": "lean",
   "line": 18.5,
+  "line_errs": {
+   "fanduel": 10.5,
+   "kalshi": 11.5,
+   "prizepicks": 10.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 18.5,
@@ -133583,6 +134095,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 11.5,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -133654,7 +134167,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -133665,7 +134178,7 @@
   "why": "29.8 min (recent 31.2, \u22120.9 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.651 points/min (86% this season's 0.673 over 15 games, 14% prior 0.528); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22121%; shot-zone matchup \u22122% (where he scores vs where ATL gives up points); calibration -0.0."
  },
  "Paul George|ra|401909330": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -133686,11 +134199,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 9.5,
+  "line_errs": {
+   "prizepicks": 5.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 9.5
@@ -133706,6 +134223,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 5.6,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -133777,7 +134295,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -133788,7 +134306,7 @@
   "why": "29.8 min (recent 31.2, \u22120.9 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.310 reb+ast/min (79% this season's 0.319 over 15 games, 21% prior 0.292); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22124%; calibration +0.1."
  },
  "Paul George|reb|401909330": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": "kalshi",
   "be_over": 0.542,
@@ -133809,7 +134327,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -133835,6 +134354,10 @@
   ],
   "label": "lean",
   "line": 5.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 5.5,
@@ -133856,6 +134379,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 2.6,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -133927,7 +134451,7 @@
   },
   "src_key": "prizepicks+kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -135064,7 +135588,7 @@
   "why": "23.7 min (recent 23.5); \u00d7 0.294 rebounds/min (59% this season's 0.283 over 17 games, 41% prior 0.300); context: home +1%, rest +1%, opponent defense +1%, shared production on DET \u22121%; calibration +0.0; injury news: +0.3 with Cade Cunningham ruled out today (half of how he's actually played without him)."
  },
  "Payton Pritchard|ast|401909330": {
-  "actual": null,
+  "actual": 4.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -135085,6 +135609,7 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
+  "graded_at": "2026-11-28 03:28 UTC",
   "hit": null,
   "home": true,
   "kladder": [
@@ -135111,6 +135636,10 @@
   ],
   "label": "lean",
   "line": 4.0,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 0.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 3.5,
@@ -135132,6 +135661,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.0,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -135203,7 +135733,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ast",
-  "status": "pending",
+  "status": "push",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -135214,7 +135744,7 @@
   "why": "27.3 min (recent 28.6, \u22120.8 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.146 assists/min (78% this season's 0.143 over 18 games, 22% prior 0.146); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on BOS \u22127%; calibration +0.1; injury news: +0.1 with Amari Williams ruled out today (half of how he's a"
  },
  "Payton Pritchard|fg3m|401909330": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4371,
@@ -135235,7 +135765,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -135266,6 +135797,9 @@
   ],
   "label": "lean",
   "line": 2.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 2.5
@@ -135281,6 +135815,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.0,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -135352,7 +135887,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -135363,7 +135898,7 @@
   "why": "27.3 min (recent 28.6, \u22120.8 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.082 3-pointers made/min (86% this season's 0.082 over 18 games, 14% prior 0.089); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22122%, shared production on BOS \u22129%; shot-zone matchup \u22124% (where he scores vs where ATL gives up points); calibration -"
  },
  "Payton Pritchard|pa|401909330": {
-  "actual": null,
+  "actual": 14.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -135384,11 +135919,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 17.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 17.5
@@ -135404,6 +135943,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 2.5,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -135475,7 +136015,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -135486,7 +136026,7 @@
   "why": "27.3 min (recent 28.6, \u22120.8 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.618 pts+ast/min (86% this season's 0.612 over 18 games, 14% prior 0.661); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on BOS \u22122%; shot-zone matchup \u22122% (where he scores vs where ATL gives up points); calibration +0.1; inj"
  },
  "Payton Pritchard|pra|401909330": {
-  "actual": null,
+  "actual": 17.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -135507,7 +136047,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -135528,6 +136069,10 @@
   ],
   "label": "lean",
   "line": 20.5,
+  "line_errs": {
+   "kalshi": 2.5,
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 19.5,
@@ -135549,6 +136094,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 2.8,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -135620,7 +136166,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -135631,7 +136177,7 @@
   "why": "27.3 min (recent 28.6, \u22120.8 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.734 pts+reb+ast/min (86% this season's 0.727 over 18 games, 14% prior 0.788); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on BOS \u22122%; shot-zone matchup \u22122% (where he scores vs where ATL gives up points); calibration +0.1."
  },
  "Payton Pritchard|pr|401909330": {
-  "actual": null,
+  "actual": 13.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -135653,11 +136199,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 16.5,
+  "line_errs": {
+   "prizepicks": 3.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 16.5
@@ -135673,6 +136223,7 @@
   "move": 1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 2.8,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -135744,7 +136295,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -135755,7 +136306,7 @@
   "why": "27.3 min (recent 28.6, \u22120.8 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.588 pts+reb/min (86% this season's 0.584 over 18 games, 14% prior 0.641); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on BOS \u22121%; shot-zone matchup \u22122% (where he scores vs where ATL gives up points); calibration +0.0; inj"
  },
  "Payton Pritchard|pts|401909330": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "side set to UNDER to match PrizePicks at the same line (books disagreed); no stake"
   ],
@@ -135778,7 +136329,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -135799,6 +136351,11 @@
   ],
   "label": "lean",
   "line": 12.5,
+  "line_errs": {
+   "fanduel": 2.5,
+   "kalshi": 4.5,
+   "prizepicks": 2.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 12.5,
@@ -135826,6 +136383,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 2.5,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -135897,7 +136455,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -135908,7 +136466,7 @@
   "why": "27.3 min (recent 28.6, \u22120.8 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.475 points/min (78% this season's 0.470 over 18 games, 22% prior 0.514); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22122%, shared production on BOS \u22121%; shot-zone matchup \u22122% (where he scores vs where ATL gives up points); calibration -0.0; inju"
  },
  "Payton Pritchard|ra|401909330": {
-  "actual": null,
+  "actual": 7.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -135929,11 +136487,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
+  "graded_at": "2026-11-28 03:28 UTC",
   "hit": null,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 7.0,
+  "line_errs": {
+   "prizepicks": 0.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 7.0
@@ -135949,6 +136511,7 @@
   "move": -0.5,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 0.5,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -136020,7 +136583,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "push",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -136031,7 +136594,7 @@
   "why": "27.3 min (recent 28.6, \u22120.8 team-minutes adjustment with Devin Carter, Mitchell Robinson out, \u22120.2 blowout risk (market margin 10)); \u00d7 0.264 reb+ast/min (69% this season's 0.257 over 18 games, 31% prior 0.273); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense \u22121%, shared production on BOS \u22124%; calibration +0.1; injury news: +0.3 with Amari Williams ruled out today (half of how he's a"
  },
  "Payton Pritchard|reb|401909330": {
-  "actual": null,
+  "actual": 3.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.4168,
@@ -136052,7 +136615,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -136073,6 +136637,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -136088,6 +136655,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.5,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -136159,7 +136727,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -144407,7 +144975,7 @@
   "why": "33.7 min (recent 35.3, \u22121.5 team-minutes adjustment with Jaron Pierre Jr. out); \u00d7 0.163 rebounds/min (61% this season's 0.146 over 19 games, 39% prior 0.181); context: pace vs LAC \u22121%, road \u22121%, rest +1%, opponent defense +2%; calibration +0.0; injury news: -0.7 with Julian Reese, Jaron Pierre Jr. ruled out today (half of how he's actually played without them)."
  },
  "Sam Hauser|ast|401909330": {
-  "actual": null,
+  "actual": 0.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3659,
@@ -144428,7 +144996,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -144444,6 +145013,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -144459,6 +145031,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 1.2,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -144530,7 +145103,7 @@
   },
   "src_key": "kalshi",
   "stat": "ast",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -144541,7 +145114,7 @@
   "why": "21.3 min (recent 22.1, \u22120.6 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.057 assists/min (78% this season's 0.058 over 18 games, 22% prior 0.058); context: pace vs ATL +1%, home +1%, rest +1%, shared production on BOS \u22127%; calibration +0.1."
  },
  "Sam Hauser|fg3m|401909330": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5772,
@@ -144562,7 +145135,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -144593,6 +145167,9 @@
   ],
   "label": "lean",
   "line": 1.5,
+  "line_errs": {
+   "kalshi": 0.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 1.5
@@ -144608,6 +145185,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.3,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -144679,7 +145257,7 @@
   },
   "src_key": "kalshi",
   "stat": "fg3m",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -144690,7 +145268,7 @@
   "why": "21.3 min (recent 22.1, \u22120.6 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.107 3-pointers made/min (86% this season's 0.111 over 18 games, 14% prior 0.098); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22129%; shot-zone matchup \u22124% (where he scores vs where ATL gives up points); calibration -0.0; injury news: -0.3 with Amari Will"
  },
  "Sam Hauser|pa|401909330": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -144711,11 +145289,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:44 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 8.5,
+  "line_errs": {
+   "prizepicks": 0.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 8.5
@@ -144731,6 +145313,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 0.0,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -144802,7 +145385,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pa",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -144813,7 +145396,7 @@
   "why": "21.0 min (recent 22.1, \u22120.6 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.436 pts+ast/min (86% this season's 0.445 over 18 games, 14% prior 0.448); context: pace vs ATL +1%, home +1%, rest +1%, shared production on BOS \u22122%; shot-zone matchup \u22123% (where he scores vs where ATL gives up points); calibration +0.1; injury news: -1.2 with Amari Williams ruled out today (half of "
  },
  "Sam Hauser|pra|401909330": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "-2.7 pts: pick follows the line's move (pattern)"
   ],
@@ -144837,7 +145420,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -144858,6 +145442,10 @@
   ],
   "label": "lean",
   "line": 11.5,
+  "line_errs": {
+   "kalshi": 0.5,
+   "prizepicks": 1.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "kalshi": 9.5,
@@ -144879,6 +145467,7 @@
   "move": -1.0,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 1.1,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -144950,7 +145539,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pra",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -144961,7 +145550,7 @@
   "why": "21.3 min (recent 22.1, \u22120.6 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.587 pts+reb+ast/min (86% this season's 0.592 over 18 games, 14% prior 0.605); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22122%; shot-zone matchup \u22123% (where he scores vs where ATL gives up points); calibration +0.1; injury news: -1.5 with Amari Williams"
  },
  "Sam Hauser|pr|401909330": {
-  "actual": null,
+  "actual": 10.0,
   "adj": [
    "-2.7 pts: pick follows the line's move (pattern)"
   ],
@@ -144984,11 +145573,15 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
+  "graded_at": "2026-11-28 03:28 UTC",
   "hit": null,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 10.0,
+  "line_errs": {
+   "prizepicks": 0.0
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 10.0
@@ -145004,6 +145597,7 @@
   "move": -1.5,
   "move_dir": "against",
   "opp": "ATL",
+  "our_err": 0.0,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -145075,7 +145669,7 @@
   },
   "src_key": "prizepicks",
   "stat": "pr",
-  "status": "pending",
+  "status": "push",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -145086,7 +145680,7 @@
   "why": "21.3 min (recent 22.1, \u22120.6 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.530 pts+reb/min (86% this season's 0.534 over 18 games, 14% prior 0.547); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22121%; shot-zone matchup \u22123% (where he scores vs where ATL gives up points); calibration +0.0; injury news: -1.4 with Amari Williams rul"
  },
  "Sam Hauser|pts|401909330": {
-  "actual": null,
+  "actual": 8.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.5327102803738317,
@@ -145107,7 +145701,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:51 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": [
    [
@@ -145128,6 +145723,11 @@
   ],
   "label": "lean",
   "line": 7.5,
+  "line_errs": {
+   "fanduel": 0.5,
+   "kalshi": 3.5,
+   "prizepicks": 1.5
+  },
   "line_source": "fanduel",
   "lines": {
    "fanduel": 7.5,
@@ -145155,6 +145755,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 1.1,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -145226,7 +145827,7 @@
   },
   "src_key": "fanduel",
   "stat": "pts",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -145237,7 +145838,7 @@
   "why": "21.3 min (recent 22.1, \u22120.6 team-minutes adjustment with Devin Carter, Mitchell Robinson out); \u00d7 0.379 points/min (78% this season's 0.387 over 18 games, 22% prior 0.390); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22121%; shot-zone matchup \u22123% (where he scores vs where ATL gives up points); calibration -0.0; injury news: -1.1 with Amari Williams rule"
  },
  "Sam Hauser|ra|401909330": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.542,
@@ -145255,11 +145856,15 @@
   "flip": null,
   "frozen_at": "2026-11-27 04:41 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": false,
   "home": true,
   "kladder": null,
   "label": "lean",
   "line": 4.5,
+  "line_errs": {
+   "prizepicks": 2.5
+  },
   "line_source": "prizepicks",
   "lines": {
    "prizepicks": 4.5
@@ -145275,6 +145880,7 @@
   "move": null,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 2.7,
   "out_ctx": [
    "Asa Newell",
    "CJ McCollum",
@@ -145341,7 +145947,7 @@
   },
   "src_key": "prizepicks",
   "stat": "ra",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
@@ -145351,7 +145957,7 @@
   "why": "21.6 min (recent 22.1, \u22120.5 team-minutes adjustment with Mitchell Robinson out); \u00d7 0.210 reb+ast/min (69% this season's 0.205 over 18 games, 31% prior 0.216); context: pace vs ATL +1%, home +1%, rest +1%, opponent defense +1%, shared production on BOS \u22123%; calibration +0.1."
  },
  "Sam Hauser|reb|401909330": {
-  "actual": null,
+  "actual": 2.0,
   "adj": [],
   "anchor": null,
   "be_over": 0.3761,
@@ -145372,7 +145978,8 @@
   "flip": null,
   "frozen_at": "2026-11-28 00:56 UTC",
   "game_id": 401909330,
-  "hit": null,
+  "graded_at": "2026-11-28 03:28 UTC",
+  "hit": true,
   "home": true,
   "kladder": [
    [
@@ -145388,6 +145995,9 @@
   ],
   "label": "lean",
   "line": 3.5,
+  "line_errs": {
+   "kalshi": 1.5
+  },
   "line_source": "kalshi",
   "lines": {
    "kalshi": 3.5
@@ -145403,6 +146013,7 @@
   "move": 0.0,
   "move_dir": null,
   "opp": "ATL",
+  "our_err": 1.1,
   "out_ctx": [
    "Amari Williams",
    "Asa Newell",
@@ -145474,7 +146085,7 @@
   },
   "src_key": "kalshi",
   "stat": "reb",
-  "status": "pending",
+  "status": "graded",
   "team": "BOS",
   "tier": "15+ games this season",
   "tip_utc": "2026-11-28T01:00:00+00:00",
